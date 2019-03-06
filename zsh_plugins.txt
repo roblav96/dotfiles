@@ -31,6 +31,7 @@ robbyrussell/oh-my-zsh path:plugins/wd
 robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
 robbyrussell/oh-my-zsh path:plugins/z
 
+changyuheng/fz
 caarlos0/zsh-mkc
 caarlos0/ports kind:path
 

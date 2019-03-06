@@ -24,15 +24,22 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # zle_highlight+=(paste:bold)
 
 # 
+
 source <(antibody init)
 antibody bundle < $DOTFILES/zsh_plugins.txt
+
+unalias st
+alias fz="_fz"
+
+# 
+
 source $HOME/Sync/bashrc.sh
+
 # 
 
 eval `dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS"`
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-unalias st
 # setopt rm_star_silent
 # export FAST_HIGHLIGHT[use_async]="0"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
@@ -89,15 +96,12 @@ function adbsu { adb shell su -c ${@:2} }
 
 
 
+alias dotfiles="st $DOTFILES"
+
+
+
 source "$DOTFILES/plugins/brew.sh"
-
-
-
-export DEVING="0"
-function deving {
-	autoload -Uz add-zsh-hook
-	add-zsh-hook precmd reload_aliases	
-}
+source "$DOTFILES/plugins/deving.sh"
 
 
 

@@ -32,9 +32,11 @@ function blist {
 
 function bsearch {
 	echo "⬤ [brew] Searching Formulae and Casks..."
-	brew search $@ &
-	brew search --desc $@ &
-	wait
+	local -a cmds; cmds=(
+		brew search $@
+		brew search --desc $@
+	)
+	parallel --jobs 2 cmds
 	# parallel ::: cmds
 	# brew search $@
 	# brew search --desc $@
@@ -42,7 +44,13 @@ function bsearch {
 	# ( brew search --desc $@ & ) > /dev/null &
 	# wait
 	# echo "[brew] ➤ Searched Formulae and Casks!"
+	# brew search $@ &
+	# brew search --desc $@ &
+	# wait
 }
+# if [[ -n "$DEVING" ]]; then
+# 	bsearch java
+# fi
 
 function bjson {
 	echo "⬤ [brew] JSON formula"
