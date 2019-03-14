@@ -12,16 +12,6 @@ function boutdated {
 	brew cask outdated
 }
 
-function binstall {
-	echo "⬤ [brew] Install formula"
-	brew install $@ --verbose
-}
-
-function bcinstall {
-	echo "⬤ [brew] Install cask"
-	brew cask install $@ --verbose
-}
-
 alias bls="blist"
 function blist {
 	echo "⬤ [brew] List formulae"
@@ -31,12 +21,14 @@ function blist {
 }
 
 function bsearch {
-	echo "⬤ [brew] Searching Formulae and Casks..."
-	local -a cmds; cmds=(
-		brew search $@
-		brew search --desc $@
-	)
-	parallel --jobs 2 cmds
+	echo "⬤ [brew] Searching formulae and casks..."
+	brew search $@
+	brew search --desc $@
+	# local -a cmds; cmds=(
+	# 	brew search $@
+	# 	brew search --desc $@
+	# )
+	# parallel --jobs 2 cmds
 	# parallel ::: cmds
 	# brew search $@
 	# brew search --desc $@
@@ -44,13 +36,28 @@ function bsearch {
 	# ( brew search --desc $@ & ) > /dev/null &
 	# wait
 	# echo "[brew] ➤ Searched Formulae and Casks!"
-	# brew search $@ &
-	# brew search --desc $@ &
-	# wait
 }
 # if [[ -n "$DEVING" ]]; then
 # 	bsearch java
 # fi
+
+function binstall {
+	echo "⬤ [brew] Install formula"
+	brew install $@ --verbose
+}
+function bcinstall {
+	echo "⬤ [brew] Install cask"
+	brew cask install $@ --verbose
+}
+
+function bupgrade {
+	echo "⬤ [brew] Upgrade formula"
+	brew upgrade $@ --verbose
+}
+function bcupgrade {
+	echo "⬤ [brew] Upgrade formula"
+	brew cask upgrade $@ --verbose
+}
 
 function bjson {
 	echo "⬤ [brew] JSON formula"
@@ -64,15 +71,26 @@ function binfo {
 	brew info $@
 }
 function bcinfo {
-	echo "⬤ [brew] Info Cask"
+	echo "⬤ [brew] Info cask"
 	brew cask info $@
 }
 
 function bcat {
-	echo "⬤ [brew] Cat Formula"
+	echo "⬤ [brew] Cat formula"
 	brew cat $@ | bat -l=ruby
 }
 function bccat {
-	echo "⬤ [brew] Cat Cask"
+	echo "⬤ [brew] Cat cask"
 	brew cask cat $@ | bat -l=ruby
+}
+
+alias brm="bremove"
+function bremove {
+	echo "⬤ [brew] Remove formula"
+	brew remove $@ --force --verbose
+}
+alias bcrm="bcremove"
+function bcremove {
+	echo "⬤ [brew] Remove cask"
+	brew cask remove $@ --force --verbose
 }

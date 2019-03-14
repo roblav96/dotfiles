@@ -17,7 +17,7 @@ export TS_NODE_PRETTY="true"
 # export HOMEBREW_DEV_CMD_RUN="0"
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
-# export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$PATH:$JAVA_HOME/bin"
 # export PATH="$JAVA_HOME/jre/bin:$PATH"
 export M2_HOME="/usr/local/Cellar/maven/3.6.0/libexec"
 export M2="$M2_HOME/bin"
@@ -134,9 +134,8 @@ alias rr-tiauth="adb pull /sdcard/SpeedSoftware/Archives/auth.zip $HOME/Download
 # alias rr-exercism="cd $HOME/Exercism/go"
 alias rr-quarantine="sudo xattr -rd com.apple.quarantine"
 
-alias rr-src-edit="sublime $HOME/Sync/bashrc.sh"
+alias rr-src-edit="st $DOTFILES"
 alias rr-zsh="sublime $HOME/.zshrc"
-alias rr-zsh-plugins="sublime $HOME/.zsh_plugins.txt"
 alias rr-tldr="sublime $HOME/.tldrrc"
 alias rr-source="source $HOME/.bash_profile"
 
@@ -170,7 +169,7 @@ alias rr-gm-stop="player -n $GM_TABLET_ID -x && adb kill-server"
 alias rr-gm-start="open -a player --args --vm-name $GM_TABLET_ID"
 
 alias rr-telnet="echo && echo nj3nxCEBUX7BDDei && echo && telnet 192.168.1.1"
-alias rr-router="ssh root@192.168.1.1"
+alias rr-router="ssh -p 1337 admin@192.168.50.1"
 alias rr-kodi-adb="cd $HOME/Downloads && rm -rf userdata && git clone git@github.com:roblav96/userdata.git && cd userdata && rm -rf .git .gitignore && sh _scripts/adb.push.sh && echo DONE"
 alias rr-adb-shell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH && cd sdcard' && echo && adb shell"
 alias rr-adb-text="adb shell input keyboard text"

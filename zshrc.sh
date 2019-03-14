@@ -16,8 +16,8 @@ export BAT_PAGER=$PAGER
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-# zstyle :omz:plugins:ssh-agent agent-forwarding on
-# zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
 
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -26,14 +26,14 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # 
 
 source <(antibody init)
-antibody bundle < $DOTFILES/zsh_plugins.txt
+antibody bundle < $DOTFILES/zsh_plugins.sh
 
 unalias st
 alias fz="_fz"
 
 # 
 
-source $HOME/Sync/bashrc.sh
+source $DOTFILES/bashrc.sh
 
 # 
 
@@ -47,11 +47,14 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # 
 
-# alias man="man -P more"
 alias idk="apropos"
 alias type="type -as"
 alias rmf="rm -rf"
 alias ll="ls -lAFhnU"
+# alias man="man -P more"
+
+unalias grep
+alias grep="grep -i --color=always"
 
 alias l="exa --all --long --header --classify"
 alias la="exa --all --long --header --classify --extended"
@@ -92,11 +95,12 @@ alias .du="du -ah * --max-depth=0 | sort -h"
 alias .df="df -h"
 # alias .ping="ping google.com"
 
-function adbsu { adb shell su -c ${@:2} }
+adbsu() { adb shell su -c ${@:2} }
+ipcalc() { npx ipcalc $@ | grep Net --color=never | tail -n 4 }
 
 
 
-alias dotfiles="st $DOTFILES"
+alias dot="st $DOTFILES"
 
 
 
