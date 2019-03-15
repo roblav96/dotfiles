@@ -26,7 +26,7 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # 
 
 source <(antibody init)
-antibody bundle < $DOTFILES/zsh_plugins.sh
+antibody bundle < $DOTFILES/plugins.sh
 
 unalias st
 alias fz="_fz"

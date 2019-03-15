@@ -170,6 +170,7 @@ alias rr-gm-start="open -a player --args --vm-name $GM_TABLET_ID"
 
 alias rr-telnet="echo && echo nj3nxCEBUX7BDDei && echo && telnet 192.168.1.1"
 alias rr-router="ssh -p 1337 admin@192.168.50.1"
+alias rr-phone="ssh -p 1337 192.168.50.168"
 alias rr-kodi-adb="cd $HOME/Downloads && rm -rf userdata && git clone git@github.com:roblav96/userdata.git && cd userdata && rm -rf .git .gitignore && sh _scripts/adb.push.sh && echo DONE"
 alias rr-adb-shell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH && cd sdcard' && echo && adb shell"
 alias rr-adb-text="adb shell input keyboard text"
