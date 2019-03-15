@@ -9,7 +9,7 @@ for i in "zshrc" "zshrc.$(uname -s)"; do
 	echo "[ -f '$DOTFILES/$i.sh' ] && source '$DOTFILES/$i.sh'" >> $ZSHRC
 done
 echo "alias src='sh $DOTFILES/install.sh'" >> $ZSHRC
-cat $ZSHRC
+# cat $ZSHRC
 
 echo 'dotfiles installation complete'
 
