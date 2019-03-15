@@ -2,7 +2,7 @@
 
 # ▶ ➤ ➜ █ ⬤
 
-export RPROMPT='%F{white}%*'
+export RPROMPT="%F{white}%*"
 export PURE_PROMPT_SYMBOL="▶"
 export PURE_CMD_MAX_EXEC_TIME="1"
 export KEYTIMEOUT="1"
@@ -38,7 +38,7 @@ source $DOTFILES/bashrc.sh
 # 
 
 eval `dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS"`
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # setopt rm_star_silent
 # export FAST_HIGHLIGHT[use_async]="0"
