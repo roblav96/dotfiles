@@ -1,15 +1,12 @@
 
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
-(cd $DOTFILES && git pull && git reset --hard)
-# echo "DOTFILES -> $DOTFILES"
+[ -z "$DEV" ] && (cd $DOTFILES && git pull && git reset --hard)
 ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
-# echo "ZSHRC -> $ZSHRC"
 
 echo > $ZSHRC
-
+echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
 for i in "zshrc" "zshrc.$(uname -s)"; do
 	echo "[ -f '$DOTFILES/$i.sh' ] && source '$DOTFILES/$i.sh'" >> $ZSHRC
-	# echo "[ -f "\"$DOTFILES/$i.sh"\" ] && source "\"$DOTFILES/$i.sh"\"" >> $ZSHRC
 done
 cat $ZSHRC
 
