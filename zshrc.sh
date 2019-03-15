@@ -100,7 +100,7 @@ ipcalc() { npx ipcalc $@ | grep Net --color=never | tail -n 4 }
 
 
 
-alias dot="st $DOTFILES"
+alias dot="open $DOTFILES/\ dotfiles.sublime-project"
 
 
 
