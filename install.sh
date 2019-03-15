@@ -1,8 +1,9 @@
 
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
-echo "DOTFILES -> $DOTFILES"
+(cd $DOTFILES && git pull && git reset --hard)
+# echo "DOTFILES -> $DOTFILES"
 ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
-echo "ZSHRC -> $ZSHRC"
+# echo "ZSHRC -> $ZSHRC"
 
 echo > $ZSHRC
 
