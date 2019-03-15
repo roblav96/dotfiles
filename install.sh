@@ -11,7 +11,7 @@ done
 echo "alias src='sh $DOTFILES/install.sh'" >> $ZSHRC
 # cat $ZSHRC
 
-echo 'dotfiles installation complete'
+echo; echo '⬤ dotfiles install.sh complete!'; echo
 
 
 
