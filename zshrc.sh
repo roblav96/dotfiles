@@ -96,7 +96,7 @@ alias .df="df -h"
 # alias .ping="ping google.com"
 
 adbsu() { adb shell su -c ${@:2} }
-ipcalc() { npx ipcalc $@ | grep Net --color=never | tail -n 4 }
+ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 
 
@@ -104,8 +104,8 @@ alias dot="open $DOTFILES/\ dotfiles.sublime-project"
 
 
 
-source "$DOTFILES/plugins/brew.sh"
-source "$DOTFILES/plugins/deving.sh"
+source "$DOTFILES/scripts/brew.sh"
+source "$DOTFILES/scripts/deving.sh"
 
 
 

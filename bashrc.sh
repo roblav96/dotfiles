@@ -91,8 +91,9 @@ export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 export EDITOR="subl -w"
 export BUNDLE_EDITOR="subl"
 
-export CLICOLOR="1"
-export LSCOLORS="exfxfeaeBxxehehbadacea"
+export CLICOLOR="true"
+export LSCOLORS="exfxcxdxbxegedabagacad"
+# export LSCOLORS="exfxfeaeBxxehehbadacea"
 # export LSCOLORS="ExFxBxDxCxegedabagacad"
 
 alias rr="npm run"

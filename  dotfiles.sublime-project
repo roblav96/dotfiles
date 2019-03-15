@@ -2,7 +2,7 @@
 	"folders": [{
 		"path": ".",
 		"folder_exclude_patterns": [
-			"bin"
+			".*"
 		],
 		"file_exclude_patterns": []
 	}]
