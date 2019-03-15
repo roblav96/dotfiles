@@ -1,11 +1,11 @@
 
-if [[ -d /opt/root ]]; then
-	export HOME=/opt/root
+if [[ -d "/opt/root" ]]; then
+	export HOME="/opt/root"
 	cd $HOME
 fi
 
-if [[ -f /opt/bin/zsh ]]; then
+if [[ -f "/opt/bin/zsh" ]]; then
 	exec /opt/bin/zsh
-elif [[ -f /opt/bin/bash ]]; then
+elif [[ -f "/opt/bin/bash" ]]; then
 	exec /opt/bin/bash
 fi
