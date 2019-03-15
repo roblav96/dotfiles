@@ -5,10 +5,10 @@ ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
 echo "ZSHRC -> $ZSHRC"
 
 echo > $ZSHRC
-ZSHRCS=("zshrc" "zshrc.$(uname -s)")
+ZSHRCS=('zshrc' 'zshrc.$(uname -s)')
 for i in "${ZSHRCS[@]}"; do
-	echo "[ -f '$DOTFILES/$i' ] && source '$DOTFILES/$i'" >> $ZSHRC
-	# echo "[ -f "\"$DOTFILES/$i"\" ] && source "\"$DOTFILES/$i"\"" >> $ZSHRC
+	# echo "[ -f '$DOTFILES/$i' ] && source '$DOTFILES/$i'" >> $ZSHRC
+	echo "[ -f "\"$DOTFILES/$i"\" ] && source "\"$DOTFILES/$i"\"" >> $ZSHRC
 done
 cat $ZSHRC
 
