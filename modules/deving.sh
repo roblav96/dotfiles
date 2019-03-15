@@ -1,4 +1,3 @@
-#!/bin/sh
 
 export DEVING="$DEVING"
 

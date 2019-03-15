@@ -1,4 +1,3 @@
-#!/bin/sh
 
 # ▶ ➤ ➜ █ ⬤
 
@@ -26,14 +25,14 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # 
 
 source <(antibody init)
-antibody bundle < $DOTFILES/plugins.sh
+antibody bundle < "$DOTFILES/plugins.sh"
 
 unalias st
 alias fz="_fz"
 
 # 
 
-source $DOTFILES/bashrc.sh
+source "$DOTFILES/bashrc.sh"
 
 # 
 
@@ -100,12 +99,12 @@ ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 
 
-alias dot="open $DOTFILES/\ dotfiles.sublime-project"
+alias dot="st $DOTFILES"
 
 
 
-source "$DOTFILES/scripts/brew.sh"
-source "$DOTFILES/scripts/deving.sh"
+source "$DOTFILES/modules/brew.sh"
+source "$DOTFILES/modules/deving.sh"
 
 
 

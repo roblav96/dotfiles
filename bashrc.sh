@@ -1,4 +1,3 @@
-#!/bin/sh
 
 # local HOME=/Users/roblav96
 

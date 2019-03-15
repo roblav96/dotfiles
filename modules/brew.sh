@@ -1,4 +1,3 @@
-#!/bin/sh
 
 function bupdate {
 	echo "⬤ [brew] Updating formulae and casks..."
