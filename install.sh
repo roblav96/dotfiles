@@ -1,6 +1,6 @@
 
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
-[ -z "$DEV" ] && (cd $DOTFILES && git pull && git reset --hard)
+[ -z "$DEV" ] && (cd $DOTFILES && git pull --silent && git reset --silent --hard)
 ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
 
 echo > $ZSHRC
