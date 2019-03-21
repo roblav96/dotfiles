@@ -30,6 +30,9 @@ source <(antibody init)
 antibody bundle < "$DOTFILES/plugins.sh"
 
 unalias st
+unalias ls
+unalias grep
+
 alias fz="_fz"
 
 # 
@@ -49,13 +52,12 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 # 
 
 alias idk="apropos"
-alias type="type -as"
 alias rmf="rm -rf"
-alias ll="ls -lAFhnU"
-# alias man="man -P more"
-
-unalias grep
+alias ll="ls -lAphUH --color=always"
 alias grep="grep -i --color=always"
+# alias type="type -as"
+# alias ll="ls -lAFhnU"
+# alias man="man -P more"
 
 alias l="exa --all --long --header --classify"
 alias la="exa --all --long --header --classify --extended"
@@ -98,12 +100,17 @@ alias .df="df -h"
 
 adbsu() { adb shell su -c ${@:2} }
 ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
-
-
+show() {
+	type -as $@
+	[ -z "$@" ] && return 0
+	WHICH=$(which $@)
+	if [[ -f "$WHICH" ]]; then
+		ls -lAphUH --color=always $WHICH
+		readlink -v -f $WHICH
+	fi
+}
 
 alias dot="st $DOTFILES"
-
-
 
 source "$DOTFILES/modules/brew.sh"
 source "$DOTFILES/modules/deving.sh"
