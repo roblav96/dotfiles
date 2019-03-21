@@ -19,7 +19,7 @@ alias st="st -f"
 # alias src="source /opt/etc/profile"
 
 f() {
-	find . -iname "*$@*"
+	find . -iname "*$@*" -follow
 }
 r() {
 	grep -s -i "$@" -R .

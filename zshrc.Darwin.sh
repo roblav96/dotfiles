@@ -12,8 +12,9 @@ export MANPAGER=$PAGER
 export NIX_PAGER=$PAGER
 export BAT_PAGER=$PAGER
 
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
@@ -62,8 +63,8 @@ alias lrr="exa --all --long --header --classify --ignore-glob='.git|node_modules
 alias lra="exa --all --long --header --classify --ignore-glob='.git|.DS_Store' --recurse --tree"
 # alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules' --recurse"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
-alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
+alias f="fd --follow --absolute-path --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
+alias fa="fd --follow --absolute-path --color=always --hidden --no-ignore --fixed-strings --show-errors"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
 # function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
