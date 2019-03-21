@@ -26,7 +26,7 @@ r() {
 }
 show() {
 	type $@
-	[ -z "$@" ] && exit 0
+	[ -z "$@" ] && return 0
 	WHICH=$(which $@)
 	if [[ -f "$WHICH" ]]; then
 		ls -lAph --color=always $WHICH
