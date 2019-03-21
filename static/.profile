@@ -26,10 +26,11 @@ r() {
 }
 show() {
 	type $@
+	[ -z "$@" ] && exit 0
 	WHICH=$(which $@)
 	if [[ -f "$WHICH" ]]; then
-		ls -lAph --color=always $(which $@)
-		readlink -v -f $(which $@)
+		ls -lAph --color=always $WHICH
+		readlink -v -f $WHICH
 	fi
 }
 

@@ -12,7 +12,8 @@ echo >> $BASHRC
 
 clear
 reset
-exec -l /opt/bin/bash
+echo 'exec -l $(echo "$0")'
+# exec -l /opt/bin/bash
 # exec -l $SHELL
 # exec $(echo "$0")
 
