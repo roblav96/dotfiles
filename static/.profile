@@ -9,6 +9,7 @@ alias l="ls -lAph --color=always"
 alias lr="tree -u -g -p -h -a -A -C -L 1"
 alias lra="tree -u -g -p -h -a -A -C"
 alias pwd="pwd && pwd -P"
+# alias type="f() { type $@ && ls -lAph --color=always $(which $@); unset -f f; }; f"
 alias json="jq --indent 4 --sort-keys"
 alias grep="grep --color=always"
 alias htop="htop -d 10"
@@ -22,6 +23,12 @@ f() {
 }
 r() {
 	grep -s -i "$@" -R .
+}
+alias type="_type"
+_type() {
+	WHICH=$(which $@)
+	echo "WHICH -> $WHICH"
+	type $@; ls -lAph --color=always $WHICH
 }
 
 export PATH="$HOME/.bin:$PATH"

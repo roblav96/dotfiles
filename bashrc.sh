@@ -134,6 +134,8 @@ alias rr-tiauth="adb pull /sdcard/SpeedSoftware/Archives/auth.zip $HOME/Download
 # alias rr-exercism="cd $HOME/Exercism/go"
 alias rr-quarantine="sudo xattr -rd com.apple.quarantine"
 
+alias rr-peers="arp -a"
+
 alias rr-src-edit="st $DOTFILES"
 alias rr-zsh="sublime $HOME/.zshrc"
 alias rr-tldr="sublime $HOME/.tldrrc"
