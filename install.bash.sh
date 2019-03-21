@@ -12,7 +12,7 @@ echo >> $BASHRC
 
 clear
 reset
-# exec $(echo "$0")
+exec $(echo "$0")
 
 echo; echo '⬤ dotfiles install.sh complete'; echo
 
