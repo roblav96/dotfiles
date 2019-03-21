@@ -29,7 +29,6 @@ show() {
 	WHICH=$(which $@)
 	if [[ -f "$WHICH" ]]; then
 		ls -lAph --color=always $(which $@)
-		readlink -v $(which $@)
 		readlink -v -f $(which $@)
 	fi
 }
