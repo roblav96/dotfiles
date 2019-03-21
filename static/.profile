@@ -25,10 +25,7 @@ r() {
 	grep -s -i "$@" -R .
 }
 show() {
-	type $@
-	WHICH=$(which $@)
-	echo "WHICH -> $WHICH"
-	ls -lAph --color=always $(which $@)
+	type $@; ls -lAph --color=always $(which $@)
 }
 
 export PATH="$HOME/.bin:$PATH"
