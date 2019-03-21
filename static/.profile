@@ -24,6 +24,9 @@ f() {
 r() {
 	grep -s -i "$@" -R .
 }
+p() {
+	ps -w | grep -v grep | grep "$@"
+}
 show() {
 	type $@
 	[ -z "$@" ] && return 0
