@@ -10,9 +10,9 @@ echo "alias src='sh $DOTFILES/install.bash.sh'" >> $BASHRC
 echo >> $BASHRC
 # cat $ZSHRC
 
-clear
-reset
-echo 'exec -l $(echo "$0")'
+# clear
+# reset
+# echo 'exec -l $(echo "$0")'
 # exec -l /opt/bin/bash
 # exec -l $SHELL
 # exec $(echo "$0")
