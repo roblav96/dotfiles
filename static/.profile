@@ -24,11 +24,11 @@ f() {
 r() {
 	grep -s -i "$@" -R .
 }
-alias type="_type"
-_type() {
+show() {
+	type $@
 	WHICH=$(which $@)
 	echo "WHICH -> $WHICH"
-	type $@; ls -lAph --color=always $WHICH
+	ls -lAph --color=always $(which $@)
 }
 
 export PATH="$HOME/.bin:$PATH"
