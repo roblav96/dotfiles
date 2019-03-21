@@ -34,7 +34,7 @@ export PATH="$ANDROID_SDK_ROOT/build-tools/28.0.3:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # export PATH="/usr/local/opt/python@2/bin:$PATH"
 # export PYTHONPATH="/usr/local/lib/python2.7:/usr/local/lib/python2.7/site-packages"
 # export ANDROID_VIEW_CLIENT_HOME="$HOME/Downloads/AndroidViewClient-15.5.1"
