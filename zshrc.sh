@@ -12,9 +12,6 @@ export MANPAGER=$PAGER
 export NIX_PAGER=$PAGER
 export BAT_PAGER=$PAGER
 
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
-
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
@@ -91,6 +88,7 @@ alias .df="df -h"
 
 function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
+compdef show=which
 function show() {
 	type -a $@
 	WHICH=`which $@`
@@ -98,7 +96,6 @@ function show() {
 	ls -lAph --color=always $WHICH
 	readlink -v -f $WHICH
 }
-compdef show=which
 
 
 
