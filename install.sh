@@ -5,9 +5,9 @@ ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
 
 echo > $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
-for i in "zshrc" "zshrc.$(uname -s)"; do
-	echo "[ -f '$DOTFILES/$i.sh' ] && source '$DOTFILES/$i.sh'" >> $ZSHRC
-done
+echo "[ -f '$DOTFILES/zshrc.$(uname -s).before.sh' ] && source '$DOTFILES/zshrc.$(uname -s).before.sh'" >> $ZSHRC
+echo "[ -f '$DOTFILES/zshrc.sh' ] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
+echo "[ -f '$DOTFILES/zshrc.$(uname -s).after.sh' ] && source '$DOTFILES/zshrc.$(uname -s).after.sh'" >> $ZSHRC
 echo "alias src='sh $DOTFILES/install.sh'" >> $ZSHRC
 cat $ZSHRC
 
