@@ -1,6 +1,5 @@
 
-local NAME="server"
-export PURE_PROMPT_SYMBOL="%f%F{red}$NAME%f %F{magenta}▶"
+export PURE_PROMPT_SYMBOL="server ➤"
 
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
