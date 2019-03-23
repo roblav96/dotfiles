@@ -73,7 +73,7 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats -uuu"
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
+export BAT_CONFIG_PATH="$DOTFILES/static/bat.conf"
 # alias bat="bat --theme='Monokai Extended Light' --tabs=4 --paging=never"
 
 # export JQ_COLORS="0;31:0;34:0;34:0;35:0;32:1;37:1;37"
