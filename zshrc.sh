@@ -92,6 +92,7 @@ alias .df="df -h"
 function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 function show() {
+	type -a $@
 	WHICH=`which $@`
 	[ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
