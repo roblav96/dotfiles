@@ -53,7 +53,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 alias idk="apropos"
 alias rmf="rm -rf"
-alias ll="ls -lAphUH --color=always"
+alias ll="ls -lAph --color=always"
 alias grep="grep -i --color=always"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -98,19 +98,20 @@ alias .du="du -ah * --max-depth=0 | sort -h"
 alias .df="df -h"
 # alias .ping="ping google.com"
 
-adbsu() { adb shell su -c ${@:2} }
-ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
-show() {
-	type -as $@
-	[ -z "$@" ] && return 0
-	WHICH=$(which $@)
-	if [[ -f "$WHICH" ]]; then
-		ls -lAphUH --color=always $WHICH
-		readlink -v -f $WHICH
-	fi
-}
 
-alias dot="st $DOTFILES"
+
+function adbsu() { adb shell su -c ${@:2} }
+function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
+
+function show() {
+	WHICH=`which $@`
+	[ ! -f $WHICH ] && return 0
+	ls -lAph --color=always $WHICH
+	readlink -v -f $WHICH
+}
+compdef show=which
+
+alias dot="cd $DOTFILES && st $DOTFILES"
 
 source "$DOTFILES/modules/brew.sh"
 source "$DOTFILES/modules/deving.sh"
