@@ -7,12 +7,9 @@ source "$DOTFILES/bashrc.sh"
 alias dot="cd $DOTFILES && st $DOTFILES"
 function dotpush() {
 	git add -A
-	git commit -a -m "`date`"
+	git commit -a -m "`date '+%x %r'`"
 	git push origin master
 }
-# alias dotpush="git add -A && git commit -a -m "`date`" && git push origin master"
-# alias dotpush="git commit -a -m `date` && git push origin master"
-# alias dotpush="git commit -a --amend --no-edit && git push --force origin master"
 
 function adbsu() {
 	adb shell su -c ${@:2}
