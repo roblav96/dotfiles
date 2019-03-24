@@ -11,6 +11,7 @@ function dotpush() {
 	git add -A
 	git commit -a -m "$GS"
 	git push origin master
+	cd $OLDPWD
 }
 
 function adbsu() {
