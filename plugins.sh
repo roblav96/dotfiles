@@ -1,7 +1,7 @@
 
 robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/adb
-# robbyrussell/oh-my-zsh path:plugins/aws
+robbyrussell/oh-my-zsh path:plugins/aws
 robbyrussell/oh-my-zsh path:plugins/cake
 robbyrussell/oh-my-zsh path:plugins/cargo
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages

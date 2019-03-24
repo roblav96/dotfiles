@@ -6,6 +6,7 @@ source "$DOTFILES/bashrc.sh"
 
 alias dot="cd $DOTFILES && st $DOTFILES"
 function dotpush() {
+	cd $DOTFILES
 	local GS="`git status -z`"
 	git add -A
 	git commit -a -m "$GS"
