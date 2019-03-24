@@ -1,7 +1,7 @@
 
 # local HOME=/Users/roblav96
 
-# if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix-daemon.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix-daemon.sh; fi
 # export PATH="/opt/pkg/bin:$PATH"
 # export PATH="/opt/pkg/sbin:$PATH"

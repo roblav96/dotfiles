@@ -5,6 +5,7 @@ unalias src
 source "$DOTFILES/bashrc.sh"
 
 alias dot="cd $DOTFILES && st $DOTFILES"
+alias dotpush="git commit -a --amend --no-edit && git push --force origin master"
 
 function adbsu() { adb shell su -c ${@:2} }
 
