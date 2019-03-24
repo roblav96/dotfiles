@@ -5,8 +5,8 @@ BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.bashrc"
 
 echo > $BASHRC
 echo "export DOTFILES='$DOTFILES'" >> $BASHRC
-echo "[ -f '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
 echo "alias src='sh $DOTFILES/install.bash.sh'" >> $BASHRC
+echo "[ -f '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
 echo >> $BASHRC
 # cat $ZSHRC
 
