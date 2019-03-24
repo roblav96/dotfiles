@@ -6,9 +6,10 @@ source "$DOTFILES/bashrc.sh"
 
 alias dot="cd $DOTFILES && st $DOTFILES"
 function dotpush() {
-	local GS=`git status -z`
+	GS="`git status -z`"
+	DATE="`date '+%x %r'`"
 	git add -A
-	git commit -a -m "$GS `date '+%x %r'`"
+	git commit -a -m "$GS $DATE"
 	git push origin master
 }
 
