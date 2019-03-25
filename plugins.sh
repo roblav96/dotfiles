@@ -26,6 +26,7 @@ robbyrussell/oh-my-zsh path:plugins/ssh-agent
 robbyrussell/oh-my-zsh path:plugins/sublime
 robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemadmin
+robbyrussell/oh-my-zsh path:plugins/systemd
 robbyrussell/oh-my-zsh path:plugins/transfer
 robbyrussell/oh-my-zsh path:plugins/wd
 robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
