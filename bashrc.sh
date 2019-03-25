@@ -191,6 +191,7 @@ function rr-apksign() {
 }
 
 function rr-exoplayer() { adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1 }
+function rr-kodi() { adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv }
 
 function rr-go-get() { go get -u $1 }
 
