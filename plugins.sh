@@ -1,10 +1,8 @@
 
 robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/adb
-robbyrussell/oh-my-zsh path:plugins/aws
-robbyrussell/oh-my-zsh path:plugins/cake
-robbyrussell/oh-my-zsh path:plugins/cargo
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
+robbyrussell/oh-my-zsh path:plugins/extract
 robbyrussell/oh-my-zsh path:plugins/fzf
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/git-extras
@@ -13,7 +11,7 @@ robbyrussell/oh-my-zsh path:plugins/github
 robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/gradle
 robbyrussell/oh-my-zsh path:plugins/history
-robbyrussell/oh-my-zsh path:plugins/mvn
+robbyrussell/oh-my-zsh path:plugins/nmap
 robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/npm
 robbyrussell/oh-my-zsh path:plugins/osx
@@ -28,9 +26,11 @@ robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemadmin
 robbyrussell/oh-my-zsh path:plugins/systemd
 robbyrussell/oh-my-zsh path:plugins/transfer
+robbyrussell/oh-my-zsh path:plugins/ubuntu
+robbyrussell/oh-my-zsh path:plugins/ufw
 robbyrussell/oh-my-zsh path:plugins/wd
-robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
 robbyrussell/oh-my-zsh path:plugins/z
+robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
 
 changyuheng/fz
 caarlos0/zsh-mkc
