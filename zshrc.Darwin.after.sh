@@ -3,6 +3,7 @@ unalias st
 unalias src
 
 source "$DOTFILES/bashrc.sh"
+# source "$HOME/.tnsrc"
 
 alias dot="st $DOTFILES"
 function dotpush() {

@@ -4,6 +4,7 @@ robbyrussell/oh-my-zsh path:plugins/adb
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/extract
 robbyrussell/oh-my-zsh path:plugins/fzf
+robbyrussell/oh-my-zsh path:plugins/gem
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/git-extras
 robbyrussell/oh-my-zsh path:plugins/gitfast
@@ -16,8 +17,10 @@ robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/npm
 robbyrussell/oh-my-zsh path:plugins/osx
 robbyrussell/oh-my-zsh path:plugins/perms
+robbyrussell/oh-my-zsh path:plugins/pod
 robbyrussell/oh-my-zsh path:plugins/python
 robbyrussell/oh-my-zsh path:plugins/redis-cli
+robbyrussell/oh-my-zsh path:plugins/ruby
 robbyrussell/oh-my-zsh path:plugins/rust
 robbyrussell/oh-my-zsh path:plugins/safe-paste
 robbyrussell/oh-my-zsh path:plugins/ssh-agent
