@@ -30,7 +30,7 @@ function p() {
 function show() {
 	type -a $@
 	WHICH=`which $@`
-	[ ! -f $WHICH ] && return 0
+	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
 	readlink -v -f $WHICH
 }
