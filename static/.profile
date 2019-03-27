@@ -18,23 +18,21 @@ alias st="st -f"
 # alias dot="st /opt/etc/profile"
 # alias src="source /opt/etc/profile"
 
-f() {
+function f() {
 	find . -iname "*$@*" -follow
 }
-r() {
+function r() {
 	grep -s -i "$@" -R .
 }
-p() {
+function p() {
 	ps -w | grep -v grep | grep "$@"
 }
-show() {
-	type $@
-	[ -z "$@" ] && return 0
-	WHICH=$(which $@)
-	if [[ -f "$WHICH" ]]; then
-		ls -lAph --color=always $WHICH
-		readlink -v -f $WHICH
-	fi
+function show() {
+	type -a $@
+	WHICH=`which $@`
+	[ ! -f $WHICH ] && return 0
+	ls -lAph --color=always $WHICH
+	readlink -v -f $WHICH
 }
 
 export PATH="$HOME/.bin:$PATH"
