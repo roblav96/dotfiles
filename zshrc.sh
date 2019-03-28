@@ -87,7 +87,6 @@ alias .df="df -h"
 
 function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
-compdef show=which
 function show() {
 	type -a $@
 	WHICH=`which $@`
@@ -95,6 +94,7 @@ function show() {
 	ls -lAph --color=always $WHICH
 	readlink -v -f $WHICH
 }
+compdef show=which
 
 
 

@@ -33,6 +33,8 @@ export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
 export PATH="$ANDROID_SDK_ROOT/build-tools/28.0.3:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+# export PATH="/usr/local/opt/xctool/libexec/bin:$PATH"
 
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # export PATH="/usr/local/opt/python@2/bin:$PATH"
@@ -52,6 +54,7 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/tcpdump/sbin:$PATH"
 
@@ -166,8 +169,7 @@ alias rr-kava-ssh-bitcoind="ssh ubuntu@ec2-34-239-110-118.compute-1.amazonaws.co
 alias rr-kava-ssh-lnd-test="ssh ubuntu@ec2-54-165-221-164.compute-1.amazonaws.com"
 
 export PATH="/Applications/Genymotion.app/Contents/MacOS/player.app/Contents/MacOS:$PATH"
-export GM_TABLET_ID="31f16f8b-6895-447e-864b-0ced4b45197c"
-export GM_TABLET_NAME="Custom Tablet - 8.0 - API 26 - 1536x2048"
+export GM_TABLET_ID="689122f5-b8d6-435c-87ee-43d7f3e13957"
 alias rr-gm-ls="genyshell -c 'devices list' && echo && VBoxManage list vms"
 alias rr-gm-stop="player -n $GM_TABLET_ID -x && adb kill-server"
 alias rr-gm-start="open -a player --args --vm-name $GM_TABLET_ID"
