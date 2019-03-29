@@ -43,6 +43,7 @@ alias rmf="rm -rf"
 alias ll="ls -lAph --color=always"
 alias grep="grep -i --color=always"
 alias htop="htop -d 10"
+alias ipc="ipcalc -b"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
@@ -86,7 +87,7 @@ alias .du="du -ah -d 1 | sort -h"
 alias .df="df -h"
 # alias .ping="ping google.com"
 
-function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
+# function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 function show() {
 	type -a $@
@@ -106,5 +107,4 @@ compdef show=which
 # source <(npm completion)
 # source <(pm2 completion)
 # source <(tns completion)
-
 
