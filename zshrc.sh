@@ -1,4 +1,3 @@
-
 # ▶ ➤ ➜ █ ⬤
 
 export RPROMPT="%F{white}%*"
@@ -22,7 +21,11 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # 
 
 source <(antibody init)
-antibody bundle < "$DOTFILES/plugins.sh"
+# PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
+# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.$(uname -s).sh)"
+# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
+# echo "PLUGINS -> $PLUGINS"
+antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.$(uname -s).sh" < "$DOTFILES/plugins.sh"
 
 unalias ls
 unalias grep
@@ -31,7 +34,7 @@ alias fz="_fz"
 
 # 
 
-eval `dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS"`
+eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # setopt rm_star_silent
@@ -95,7 +98,7 @@ alias .df="df -h"
 
 function show() {
 	type -a $@
-	WHICH=`which $@`
+	WHICH=$(which $@)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
 	readlink -v -f $WHICH
@@ -104,7 +107,7 @@ compdef show=which
 
 function dotpush() {
 	cd $DOTFILES
-	local GS="`git status -z`"
+	local GS="$(git status -z)"
 	git add -A
 	git commit -a -m "$GS"
 	git push origin master
