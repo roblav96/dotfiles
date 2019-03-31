@@ -1,10 +1,10 @@
 
-function bupdate {
+function bupdate() {
 	echo "⬤ [brew] Updating formulae and casks..."
 	brew update
 }
 
-function boutdated {
+function boutdated() {
 	echo "⬤ [brew] Outdated formulae"
 	brew outdated
 	echo "⬤ [brew] Outdated casks"
@@ -12,14 +12,14 @@ function boutdated {
 }
 
 alias bls="blist"
-function blist {
+function blist() {
 	echo "⬤ [brew] List formulae"
 	brew list --versions
 	echo "⬤ [brew] List casks"
 	brew cask list --versions
 }
 
-function bsearch {
+function bsearch() {
 	echo "⬤ [brew] Searching formulae and casks..."
 	brew search $@
 	brew search --desc $@
@@ -40,56 +40,56 @@ function bsearch {
 # 	bsearch java
 # fi
 
-function binstall {
+function binstall() {
 	echo "⬤ [brew] Install formula"
 	brew install $@ --verbose
 }
-function bcinstall {
+function bcinstall() {
 	echo "⬤ [brew] Install cask"
 	brew cask install $@ --verbose
 }
 
-function bupgrade {
+function bupgrade() {
 	echo "⬤ [brew] Upgrade formula"
 	brew upgrade $@ --verbose
 }
-function bcupgrade {
+function bcupgrade() {
 	echo "⬤ [brew] Upgrade formula"
 	brew cask upgrade $@ --verbose
 }
 
-function bjson {
+function bjson() {
 	echo "⬤ [brew] JSON formula"
 	brew desc $@
 	brew info $@ --json | json
 }
 
-function binfo {
+function binfo() {
 	echo "⬤ [brew] Info formula"
 	brew desc $@
 	brew info $@
 }
-function bcinfo {
+function bcinfo() {
 	echo "⬤ [brew] Info cask"
 	brew cask info $@
 }
 
-function bcat {
+function bcat() {
 	echo "⬤ [brew] Cat formula"
 	brew cat $@ | bat -l=ruby
 }
-function bccat {
+function bccat() {
 	echo "⬤ [brew] Cat cask"
 	brew cask cat $@ | bat -l=ruby
 }
 
 alias brm="bremove"
-function bremove {
+function bremove() {
 	echo "⬤ [brew] Remove formula"
 	brew remove $@ --force --verbose
 }
 alias bcrm="bcremove"
-function bcremove {
+function bcremove() {
 	echo "⬤ [brew] Remove cask"
 	brew cask remove $@ --force --verbose
 }

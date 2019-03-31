@@ -11,4 +11,5 @@ function adbsu() {
 }
 
 source "$DOTFILES/modules/brew.sh"
+source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/deving.sh"

@@ -42,6 +42,7 @@ export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # export PYTHONPATH="$HOME/Downloads/AndroidViewClient-15.5.1"
 # export PYTHONHOME="$HOME/Downloads/AndroidViewClient-15.5.1"
 
+export PATH="/usr/local/opt/colortools/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/gcc/bin:$PATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
@@ -198,7 +199,7 @@ function rr-go-get() { go get -u $1 }
 
 # function rr-adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
-function rr-emulator { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
+function rr-emulator() { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
 
 function rr-adb-wget() {
 	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
@@ -215,7 +216,7 @@ function rr-adb-wget() {
 
 alias rr-xposed="gradle assembleRelease && (cd build/outputs/apk/release && rr-apksign app-release && adb uninstall com.roblav96.highdpinavbarbuttonsfixed | true && adb install app-release-signed.apk && sleep 5 && adb shell \"su -c 'setprop ctl.restart zygote'\")"
 
-function truecolor {
+function truecolor() {
 	awk 'BEGIN{
 	    s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
 	    for (colnum = 0; colnum<77; colnum++) {
