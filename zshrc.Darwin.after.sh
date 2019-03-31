@@ -1,4 +1,4 @@
-unalias st
+# unalias st
 # unalias src
 
 source "$DOTFILES/bashrc.sh"

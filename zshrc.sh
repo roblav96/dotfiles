@@ -30,8 +30,6 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.$(uname 
 unalias ls
 unalias grep
 
-alias fz="_fz"
-
 # 
 
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
