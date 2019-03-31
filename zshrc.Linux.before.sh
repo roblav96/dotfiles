@@ -1,4 +1,3 @@
-
 export CLICOLOR="true"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
 

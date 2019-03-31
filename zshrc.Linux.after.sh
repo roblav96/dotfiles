@@ -1,4 +1,3 @@
-
 export PURE_PROMPT_SYMBOL="server ➤"
 
 export GOPATH="$HOME/go"
