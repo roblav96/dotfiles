@@ -115,7 +115,7 @@ alias rr-ngrestart="sudo nginx -t && sudo brew services restart nginx"
 alias rr-rdbconfig="open /usr/local/etc/redis.conf"
 alias rr-rdbrestart="brew services restart redis"
 
-alias rr-server="ssh roblav96@192.34.85.234 -p 1337 -o 'ServerAliveInterval 60'"
+alias rr-server="ssh -A -p 1337 roblav96@192.34.85.234"
 
 alias rr-gr="gradle"
 alias rr-grw="./gradlew"
