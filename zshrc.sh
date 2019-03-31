@@ -12,6 +12,9 @@ export MANPAGER=$PAGER
 export NIX_PAGER=$PAGER
 export BAT_PAGER=$PAGER
 
+export FORCE_COLOR="1"
+export DEBUG_COLORS="yes"
+
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
