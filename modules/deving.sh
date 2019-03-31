@@ -1,6 +1,4 @@
-
 export DEVING="$DEVING"
-
 # echo "DEVING ➤ $DEVING"
 
 alias deving="_deving_watch"
