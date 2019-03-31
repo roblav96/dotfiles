@@ -102,6 +102,15 @@ function show() {
 }
 compdef show=which
 
+function dotpush() {
+	cd $DOTFILES
+	local GS="`git status -z`"
+	git add -A
+	git commit -a -m "$GS"
+	git push origin master
+	cd $OLDPWD
+}
+
 
 
 # autoload -U promptinit; promptinit
