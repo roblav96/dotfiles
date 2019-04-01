@@ -1,9 +1,9 @@
-# ▶ ➤ ➜ █ ⬤
+# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ⎮︎
 
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # export RPROMPT="%F{008}%*"
 export RPROMPT="%F{008}%*"
-export PURE_PROMPT_SYMBOL="⬤"
+export PURE_PROMPT_SYMBOL="➤"
 export PURE_CMD_MAX_EXEC_TIME="1"
 export KEYTIMEOUT="1"
 # export PROMPT_EOL_MARK="➜"
@@ -50,7 +50,7 @@ alias ll="ls -lAph --color=always"
 alias grep="grep -i --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo && http --verbose --pretty all --style monokai"
+alias http="echo && http --verbose --pretty=all --style=monokai"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
@@ -82,7 +82,7 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats -uuu"
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export FZF_DEFAULT_OPTS="--color=16"
+export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='$PURE_PROMPT_SYMBOL '"
 
 export BAT_CONFIG_PATH="$DOTFILES/static/bat.conf"
 # alias bat="bat --theme='Monokai Extended Light' --tabs=4 --paging=never"

@@ -1,4 +1,3 @@
-
 export ZSH_SPECTRUM_TEXT="$(uname -a | head -c49)"
 
 alias ,color-spectrum="spectrum_ls | head -n16"
