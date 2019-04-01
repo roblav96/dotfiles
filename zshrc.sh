@@ -3,7 +3,7 @@
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # export RPROMPT="%F{008}%*"
 export RPROMPT="%F{008}%*"
-export PURE_PROMPT_SYMBOL="➤"
+export PURE_PROMPT_SYMBOL="■"
 export PURE_CMD_MAX_EXEC_TIME="1"
 export KEYTIMEOUT="1"
 # export PROMPT_EOL_MARK="➜"
