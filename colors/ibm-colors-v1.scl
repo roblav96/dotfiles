@@ -208,5 +208,21 @@ b4a1a1: Warm Grey 30
 373232: Warm Grey 80
 2a2626: Warm Grey 90
 
+fcfcfc: Neutral White 1 Core
+f9f9f9: Neutral White 2
+f6f6f6: Neutral White 3
+f3f3f3: Neutral White 4
+
+fbfcfc: Cool White 1 Core
+f8fafa: Cool White 2
+f4f7f7: Cool White 3
+f0f4f4: Cool White 4
+
+fdfcfc: Warm White 1 Core
+fbf8f8: Warm White 2
+f9f6f6: Warm White 3
+f6f3f3: Warm White 4
+
+
 000000: Black
 ffffff: White
