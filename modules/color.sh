@@ -10,7 +10,7 @@ alias .color-BG="echo '$BG'"
 alias .color-FX="echo '$FX'"
 alias .color-color="echo '$color'"
 
-function .color-tool() {
-	local OUTPUT="$(echo $1 | head -n -5)"
+function .color-clr() {
+	local OUTPUT="$(echo $1 | head -c -5)"
 	color-tool create-clr $1 ~/Downloads/$OUTPUT.clr
 }
