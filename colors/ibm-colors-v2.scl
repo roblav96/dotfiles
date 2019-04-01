@@ -1,0 +1,112 @@
+2c080a: Red 100
+570408: Red 90
+750e13: Red 80
+a51920: Red 70
+da1e28: Red 60
+fb4b53: Red 50
+ff767c: Red 40
+ffa4a9: Red 30
+fcd0d3: Red 20
+fff0f1: Red 10
+
+2a0a16: Magenta 100
+57002b: Magenta 90
+760a3a: Magenta 80
+a11950: Magenta 70
+d12765: Magenta 60
+ee538b: Magenta 50
+fa75a6: Magenta 40
+ffa0c2: Magenta 30
+ffcfe1: Magenta 20
+fff0f6: Magenta 10
+
+1e1033: Purple 100
+38146b: Purple 90
+4f2196: Purple 80
+6e32c9: Purple 70
+8a3ffc: Purple 60
+a66efa: Purple 50
+bb8eff: Purple 40
+d0b0ff: Purple 30
+e6d6ff: Purple 20
+f7f1ff: Purple 10
+
+051243: Blue 100
+061f80: Blue 90
+0530ad: Blue 80
+054ada: Blue 70
+0062ff: Blue 60
+408bfc: Blue 50
+6ea6ff: Blue 40
+97c1ff: Blue 30
+c9deff: Blue 20
+edf4ff: Blue 10
+
+07192b: Cyan 100
+002b50: Cyan 90
+003d73: Cyan 80
+0058a1: Cyan 70
+0072c3: Cyan 60
+1191e6: Cyan 50
+30b0ff: Cyan 40
+6ccaff: Cyan 30
+b3e6ff: Cyan 20
+e3f6ff: Cyan 10
+
+081a1c: Teal 100
+003137: Teal 90
+004548: Teal 80
+006161: Teal 70
+007d79: Teal 60
+009c98: Teal 50
+00bab6: Teal 40
+20d5d2: Teal 30
+92eeee: Teal 20
+dbfbfb: Teal 10
+
+081b09: Green 100
+01330f: Green 90
+054719: Green 80
+10642a: Green 70
+198038: Green 60
+24a148: Green 50
+3dbb61: Green 40
+56d679: Green 30
+9deeb2: Green 20
+dafbe4: Green 10
+
+13171a: Cool Gray 100
+242a2e: Cool Gray 90
+373d42: Cool Gray 80
+50565b: Cool Gray 70
+697077: Cool Gray 60
+868d95: Cool Gray 50
+9fa5ad: Cool Gray 40
+b9bfc7: Cool Gray 30
+d5d9e0: Cool Gray 20
+f2f4f8: Cool Gray 10
+
+171717: Gray 100
+282828: Gray 90
+3d3d3d: Gray 80
+565656: Gray 70
+6f6f6f: Gray 60
+8c8c8c: Gray 50
+a4a4a4: Gray 40
+bebebe: Gray 30
+dcdcdc: Gray 20
+f3f3f3: Gray 10
+
+1a1717: Warm Gray 100
+2b2828: Warm Gray 90
+403c3c: Warm Gray 80
+595555: Warm Gray 70
+726e6e: Warm Gray 60
+8f8b8b: Warm Gray 50
+a7a2a2: Warm Gray 40
+c1bcbb: Warm Gray 30
+e0dbda: Warm Gray 20
+f7f3f1: Warm Gray 10
+
+000000: Black
+ffffff: White
