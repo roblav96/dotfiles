@@ -1,4 +1,4 @@
-# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ✦ ✖︎ ⌗ ⎮︎
+# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ✜ ✦ ✖︎ ⌗ ⌦ ⎮︎
 
 # # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # # export RPROMPT="%F{008}%*"
@@ -10,7 +10,23 @@
 export GEOMETRY_SYMBOL_PROMPT="➤"
 export GEOMETRY_SYMBOL_RPROMPT="➜"
 export GEOMETRY_SYMBOL_EXIT_VALUE="✖︎"
-export GEOMETRY_SYMBOL_ROOT="⌗"
+export GEOMETRY_SYMBOL_ROOT="⌦"
+
+export GEOMETRY_COLOR_EXIT_VALUE="red"
+export GEOMETRY_COLOR_PROMPT="magenta"
+export GEOMETRY_COLOR_ROOT="yellow"
+export GEOMETRY_COLOR_DIR="blue"
+
+export GEOMETRY_PROMPT_PREFIX="\n\n"
+export GEOMETRY_PROMPT_PREFIX_SPACER=" "
+export GEOMETRY_PROMPT_SUFFIX=""
+export GEOMETRY_SYMBOL_SPACER=" "
+export GEOMETRY_DIR_SPACER=" "
+export GEOMETRY_PLUGIN_SEPARATOR=" "
+export GEOMETRY_PROMPT_PATH="%3~"
+export GEOMETRY_PROMPT_BASENAME=false
+
+export PROMPT_GEOMETRY_EXEC_TIME=true
 export PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME="1"
 export GEOMETRY_PROMPT_PLUGINS=(path hostname exec_time git)
 
