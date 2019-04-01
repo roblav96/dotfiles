@@ -7,7 +7,7 @@ trapd00r/LS_COLORS kind:fpath
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 # ████  KEEP AT BOTTOM  ████
-sindresorhus/pure
-# geometry-zsh/geometry
+geometry-zsh/geometry
+# sindresorhus/pure
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-history-substring-search

@@ -1,4 +1,4 @@
-export CLICOLOR="true"
+export CLICOLOR="1"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
 
 # export FZF_BASE="$HOME/.fzf"

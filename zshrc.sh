@@ -1,18 +1,25 @@
-# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ⎮︎
+# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ✦ ✖︎ ⌗ ⎮︎
 
-# export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
+# # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
+# # export RPROMPT="%F{008}%*"
 # export RPROMPT="%F{008}%*"
-export RPROMPT="%F{008}%*"
-export PURE_PROMPT_SYMBOL="➤"
-export PURE_CMD_MAX_EXEC_TIME="1"
-export KEYTIMEOUT="1"
-# export PROMPT_EOL_MARK="➜"
+# export PURE_PROMPT_SYMBOL="➤"
+# export PURE_CMD_MAX_EXEC_TIME="1"
+# # export PROMPT_EOL_MARK="➜"
+
+export GEOMETRY_SYMBOL_PROMPT="➤"
+export GEOMETRY_SYMBOL_RPROMPT="➜"
+export GEOMETRY_SYMBOL_EXIT_VALUE="✖︎"
+export GEOMETRY_SYMBOL_ROOT="⌗"
+export PROMPT_GEOMETRY_COMMAND_MAX_EXEC_TIME="1"
+export GEOMETRY_PROMPT_PLUGINS=(path hostname exec_time git)
 
 export PAGER="less -R"
 export MANPAGER=$PAGER
 export NIX_PAGER=$PAGER
 export BAT_PAGER=$PAGER
 
+export KEYTIMEOUT="1"
 export FORCE_COLOR="1"
 export DEBUG_COLORS="yes"
 

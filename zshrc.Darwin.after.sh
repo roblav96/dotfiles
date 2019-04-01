@@ -1,5 +1,5 @@
 # unalias st
-# unalias src
+unalias src
 
 source "$DOTFILES/bashrc.sh"
 # source "$HOME/.tnsrc"
