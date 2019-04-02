@@ -83,13 +83,13 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats -uuu"
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='$PURE_PROMPT_SYMBOL '"
+export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➤ '"
 
 export BAT_CONFIG_PATH="$DOTFILES/static/bat.conf"
 # alias bat="bat --theme='Monokai Extended Light' --tabs=4 --paging=never"
 
 # export JQ_COLORS="0;31:0;34:0;34:0;35:0;32:1;37:1;37"
-alias json="jq --indent 4 --sort-keys"
+alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
 
 alias .du="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"
