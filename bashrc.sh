@@ -70,7 +70,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig:$PKG_CONFIG_PATH"
 # export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 # export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+# export PATH="/usr/local/opt/node@10/bin:$PATH"
 # export LDFLAGS="-L/usr/local/opt/node@10/lib"
 # export CPPFLAGS="-I/usr/local/opt/node@10/include"
 

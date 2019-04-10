@@ -86,10 +86,10 @@ function bccat() {
 alias brm="bremove"
 function bremove() {
 	echo "⬤ [brew] Remove formula"
-	brew remove $@ --force --verbose
+	brew remove --force $@
 }
 alias bcrm="bcremove"
 function bcremove() {
 	echo "⬤ [brew] Remove cask"
-	brew cask remove $@ --force --verbose
+	brew cask remove --force $@
 }

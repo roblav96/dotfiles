@@ -108,6 +108,11 @@ function show() {
 }
 compdef show=which
 
+function npmi() {
+	npm i $@; npm i -D @types/$@
+}
+compdef npmi=npm
+
 function dotpush() {
 	cd $DOTFILES
 	local GS="$(git status -z)"
