@@ -18,6 +18,10 @@ alias st="st -f"
 # alias dot="st /opt/etc/profile"
 # alias src="source /opt/etc/profile"
 
+function osearch() {
+	opkg find "*$@*"
+}
+
 function f() {
 	find . -iname "*$@*" -follow
 }
