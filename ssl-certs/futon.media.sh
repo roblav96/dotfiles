@@ -7,5 +7,3 @@ openssl pkcs12 -export \
 	-certfile /root/.lego/certificates/futon.media.issuer.crt \
 	-out /opt/emby-server/etc/ssl/certs/futon.media.pfx
 	# -passout pass:________
-
-systemctl restart emby-server.service

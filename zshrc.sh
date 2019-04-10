@@ -52,6 +52,7 @@ alias grep="grep -i --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo && http --verbose --pretty=all --style=monokai"
+alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_chapters -show_data -show_format -show_streams"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
@@ -122,8 +123,6 @@ function dotpush() {
 	cd $OLDPWD
 }
 
-
-
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
 # source $ZSH/oh-my-zsh.sh
@@ -131,4 +130,3 @@ function dotpush() {
 # source <(npm completion)
 # source <(pm2 completion)
 # source <(tns completion)
-
