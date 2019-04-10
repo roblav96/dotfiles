@@ -23,7 +23,7 @@ function osearch() {
 }
 
 function f() {
-	find . -iname "*$@*" -follow -not -path "./sys/*" -not -path "./proc/*"
+	find . -iname "*$@*" -not -path "./sys/*" -not -path "./proc/*"
 }
 function r() {
 	grep -s -i "$@" -R .
