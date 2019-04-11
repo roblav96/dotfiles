@@ -1,4 +1,4 @@
-export PURE_PROMPT_SYMBOL="server ➤"
+export PURE_PROMPT_SYMBOL="SERVER ➤"
 
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
