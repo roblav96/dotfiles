@@ -32,14 +32,12 @@ function show() {
 	WHICH=`which $@`
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
-	readlink -v -f $WHICH
+	readlink -f $WHICH
 }
 
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 test -d "/sdcard/.bin" && export PATH="/sdcard/.bin:$PATH"
-
-# export USER="$USER"
-# export PS1="\[\033[1;34m\]$USER\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
+test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 
 export PS1="\[\033[1;32m\]$HOST$HOSTNAME\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"
