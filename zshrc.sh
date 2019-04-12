@@ -87,8 +87,8 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats -uuu"
 
 export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➤ '"
 
-export BAT_CONFIG_PATH="$DOTFILES/static/bat.conf"
-# alias bat="bat --theme='Monokai Extended Light' --tabs=4 --paging=never"
+# export BAT_CONFIG_PATH="$DOTFILES/static"
+alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
 
 # export JQ_COLORS="0;31:0;34:0;34:0;35:0;32:1;37:1;37"
 alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
