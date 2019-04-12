@@ -9,7 +9,6 @@ alias l="ls -lAph --color=always"
 alias lr="tree -F -l -a -A -C -L 2"
 alias lra="tree -F -l -a -A -C"
 alias pwd="pwd && pwd -P"
-# alias type="f() { type $@ && ls -lAph --color=always $(which $@); unset -f f; }; f"
 alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
 alias grep="grep -i --color=always"
 alias htop="htop -d 10"
@@ -17,10 +16,7 @@ alias st="st -f"
 # alias idk="apropos"
 # alias dot="st /opt/etc/profile"
 # alias src="source /opt/etc/profile"
-
-function osearch() {
-	opkg find "*$@*"
-}
+# alias type="f() { type $@ && ls -lAph --color=always $(which $@); unset -f f; }; f"
 
 function f() {
 	find . -iname "*$@*" -not -path "./sys/*" -not -path "./proc/*"
@@ -39,11 +35,15 @@ function show() {
 	readlink -v -f $WHICH
 }
 
-export PATH="$HOME/.bin:$PATH"
+[ -z "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 
 export PS1="\[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
+
+function osearch() {
+	opkg find "*$@*"
+}
 
 
 
