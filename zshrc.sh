@@ -46,6 +46,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # 
 
+alias sudo='sudo '
 alias idk="apropos"
 alias rmf="rm -rf"
 alias ll="ls -lAph --color=always"
