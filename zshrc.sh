@@ -49,7 +49,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 alias sudo='sudo '
 alias idk="apropos"
 alias rmf="rm -rf"
-alias ll="ls -lph --color=always"
+alias ll="ls -laph --color=always"
 alias grep="grep -i --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
