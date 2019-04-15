@@ -1,13 +1,12 @@
-
 if [[ -d "/opt/root" ]]; then
 	export HOME="/opt/root"
 	cd $HOME
 fi
 
 if [[ -f "/opt/bin/zsh" ]]; then
-	export SHELL=/opt/bin/zsh
+	export SHELL="/opt/bin/zsh"
 	exec /opt/bin/zsh
 elif [[ -f "/opt/bin/bash" ]]; then
-	export SHELL=/opt/bin/bash
+	export SHELL="/opt/bin/bash"
 	exec /opt/bin/bash
 fi

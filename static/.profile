@@ -36,7 +36,7 @@ function show() {
 }
 
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
-test -d "/sdcard/.bin" && export PATH="/sdcard/.bin:$PATH"
+test -d "/data/local" && export PATH="/data/local:$PATH"
 test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 
 export PS1="\[\033[1;32m\]$HOST$HOSTNAME\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
