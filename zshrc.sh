@@ -12,7 +12,6 @@ export KEYTIMEOUT="1"
 
 export PAGER="less -R"
 export MANPAGER=$PAGER
-export NIX_PAGER=$PAGER
 export BAT_PAGER=$PAGER
 
 export FORCE_COLOR="1"
