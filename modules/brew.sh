@@ -33,11 +33,11 @@ function bsearch() {
 
 function binstall() {
 	echo '\n⬤ [brew] Install formula\n'
-	brew install $@ --verbose
+	brew install $@
 }
 function bcinstall() {
 	echo '\n⬤ [brew] Install cask\n'
-	brew cask install $@ --verbose
+	brew cask install $@
 }
 
 function bupgrade() {
