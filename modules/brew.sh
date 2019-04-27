@@ -1,95 +1,86 @@
+# ████  Homebrew  ████
 
 function bupdate() {
-	echo "⬤ [brew] Updating formulae and casks..."
+	echo '\n⬤ [brew] Updating formulas and casks...\n'
 	brew update
 }
 
 function boutdated() {
-	echo "⬤ [brew] Outdated formulae"
+	echo '\n⬤ [brew] Outdated formulas\n'
 	brew outdated
-	echo "⬤ [brew] Outdated casks"
+	echo '\n⬤ [brew] Outdated casks\n'
 	brew cask outdated
 }
 
-alias bls="blist"
+alias bls='blist'
 function blist() {
-	echo "⬤ [brew] List formulae"
+	echo '\n⬤ [brew] List formulas\n'
 	brew list --versions
-	echo "⬤ [brew] List casks"
+	echo '\n⬤ [brew] List casks\n'
 	brew cask list --versions
+}
+function blspinned() {
+	echo '\n⬤ [brew] List pinned formulas\n'
+	brew list --versions --pinned
 }
 
 function bsearch() {
-	echo "⬤ [brew] Searching formulae and casks..."
-	brew search $@
-	brew search --desc $@
-	# local -a cmds; cmds=(
-	# 	brew search $@
-	# 	brew search --desc $@
-	# )
-	# parallel --jobs 2 cmds
-	# parallel ::: cmds
-	# brew search $@
-	# brew search --desc $@
-	# ( brew search $@ & ) > /dev/null &
-	# ( brew search --desc $@ & ) > /dev/null &
-	# wait
-	# echo "[brew] ➤ Searched Formulae and Casks!"
+	echo '\n⬤ [brew] Searching descriptions...\n'
+	brew search --desc $@ | grep "$@|"
+	echo '\n⬤ [brew] Searching formulas and casks...\n'
+	brew search $@ | grep "$@|"
 }
-# if [[ -n "$DEVING" ]]; then
-# 	bsearch java
-# fi
 
 function binstall() {
-	echo "⬤ [brew] Install formula"
+	echo '\n⬤ [brew] Install formula\n'
 	brew install $@ --verbose
 }
 function bcinstall() {
-	echo "⬤ [brew] Install cask"
+	echo '\n⬤ [brew] Install cask\n'
 	brew cask install $@ --verbose
 }
 
 function bupgrade() {
-	echo "⬤ [brew] Upgrade formula"
+	echo '\n⬤ [brew] Upgrade formula\n'
 	brew upgrade $@ --verbose
 }
 function bcupgrade() {
-	echo "⬤ [brew] Upgrade formula"
+	echo '\n⬤ [brew] Upgrade formula\n'
 	brew cask upgrade $@ --verbose
 }
 
 function bjson() {
-	echo "⬤ [brew] JSON formula"
+	echo '\n⬤ [brew] JSON formula\n'
 	brew desc $@
 	brew info $@ --json | json
 }
 
 function binfo() {
-	echo "⬤ [brew] Info formula"
+	echo '\n⬤ [brew] Info formula\n'
 	brew desc $@
 	brew info $@
 }
 function bcinfo() {
-	echo "⬤ [brew] Info cask"
+	echo '\n⬤ [brew] Info cask\n'
 	brew cask info $@
 }
 
 function bcat() {
-	echo "⬤ [brew] Cat formula"
+	echo '\n⬤ [brew] Cat formula\n'
 	brew cat $@ | bat -l=ruby
 }
 function bccat() {
-	echo "⬤ [brew] Cat cask"
+	echo '\n⬤ [brew] Cat cask\n'
 	brew cask cat $@ | bat -l=ruby
 }
 
-alias brm="bremove"
+alias brm='bremove'
 function bremove() {
-	echo "⬤ [brew] Remove formula"
+	echo '\n⬤ [brew] Remove formula\n'
 	brew remove --force $@
 }
-alias bcrm="bcremove"
+alias bcrm='bcremove'
 function bcremove() {
-	echo "⬤ [brew] Remove cask"
+	echo '\n⬤ [brew] Remove cask\n'
 	brew cask remove --force $@
 }

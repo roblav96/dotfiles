@@ -1,6 +1,7 @@
 robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/extract
+robbyrussell/oh-my-zsh path:plugins/fd
 robbyrussell/oh-my-zsh path:plugins/fzf
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/git-extras
@@ -8,8 +9,8 @@ robbyrussell/oh-my-zsh path:plugins/gitfast
 robbyrussell/oh-my-zsh path:plugins/github
 robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/history
-robbyrussell/oh-my-zsh path:plugins/last-working-dir
 robbyrussell/oh-my-zsh path:plugins/httpie
+robbyrussell/oh-my-zsh path:plugins/last-working-dir
 robbyrussell/oh-my-zsh path:plugins/nmap
 robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/npm

@@ -1,3 +1,4 @@
+# 🛑 ❌ 🔴 ⛔ 🚫 ⚠️
 # ⦁ ● ⧭ ⬤ ⚫︎ ◉ ◼︎ ➤ ► ∎ ⦁ 𝓓 ♦︎ ☁︎ ✚ ☗ █
 # ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ✜ ✦ ✖︎ ⌗ ⌦ ⎮︎
 
@@ -14,8 +15,10 @@ export PAGER="less -R"
 export MANPAGER=$PAGER
 export BAT_PAGER=$PAGER
 
-export FORCE_COLOR="1"
 export DEBUG_COLORS="yes"
+export DISABLE_OPENCOLLECTIVE="true"
+export FORCE_COLOR="1"
+export SUPPRESS_SUPPORT="1"
 
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -45,11 +48,12 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # 
 
-alias sudo='sudo '
-alias idk="apropos"
+alias sudo="sudo "
+alias idk="man -k"
+# alias idk="apropos"
 alias rmf="rm -rf"
 alias ll="ls -laph --color=always"
-alias grep="grep -i --color=always"
+alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo && http --verbose --pretty=all --style=monokai"
@@ -110,7 +114,7 @@ function show() {
 	WHICH=$(which $@)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
-	readlink -v -f $WHICH
+	readlink -f $WHICH
 }
 compdef show=which
 
@@ -127,6 +131,11 @@ function dotpush() {
 	git push origin master
 	cd $OLDPWD
 }
+
+function rename() {
+	fd "$1" --no-ignore -x mv {} $2{}
+}
+compdef rename=fd
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
