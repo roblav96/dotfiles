@@ -56,12 +56,13 @@ function bjson() {
 }
 
 function binfo() {
-	echo '\n⬤ [brew] Info formula\n'
+	echo "\n⬤ [brew] Description '$@'\n"
 	brew desc $@
+	echo "\n⬤ [brew] Info '$@'\n"
 	brew info $@
 }
 function bcinfo() {
-	echo '\n⬤ [brew] Info cask\n'
+	echo "\n⬤ [brew] Info '$@'\n"
 	brew cask info $@
 }
 

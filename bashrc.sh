@@ -14,6 +14,7 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 export TS_NODE_PRETTY="true"
 # export HOMEBREW_DEV_CMD_RUN="0"
 
+export MONO_GAC_PREFIX="/usr/local"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export PATH="$JAVA_HOME/bin:$PATH"
 # export PATH="$JAVA_HOME/jre/bin:$PATH"
