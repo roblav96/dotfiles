@@ -41,12 +41,12 @@ function bcinstall() {
 }
 
 function bupgrade() {
-	echo '\n⬤ [brew] Upgrade formula\n'
-	brew upgrade $@ --verbose
+	echo "\n⬤ [brew] Upgrade '$@'\n"
+	brew upgrade $@
 }
 function bcupgrade() {
-	echo '\n⬤ [brew] Upgrade formula\n'
-	brew cask upgrade $@ --verbose
+	echo "\n⬤ [brew] Upgrade '$@'\n"
+	brew cask upgrade $@
 }
 
 function bjson() {
@@ -82,6 +82,6 @@ function bremove() {
 }
 alias bcrm='bcremove'
 function bcremove() {
-	echo '\n⬤ [brew] Remove cask\n'
+	echo "\n⬤ [brew] Remove '$@'\n"
 	brew cask remove --force $@
 }

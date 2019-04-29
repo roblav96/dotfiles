@@ -69,7 +69,7 @@ alias lrr="exa --all --long --header --classify --ignore-glob='.git|node_modules
 alias lra="exa --all --long --header --classify --ignore-glob='.git|.DS_Store' --recurse --tree"
 # alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules' --recurse"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings  --show-errors --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
+alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
@@ -135,7 +135,6 @@ function dotpush() {
 function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
 }
-compdef rename=fd
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
