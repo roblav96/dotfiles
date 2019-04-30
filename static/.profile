@@ -57,16 +57,29 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	# test -d "/system/bin" && export PATH="/system/bin:$PATH"
 	# test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 fi
-test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 
-test -x "`which whoami`" && export USER="`whoami`"
-export PS1_BANG="$"
-test $USER == 'root' && PS1_BANG="#"
-export PS1_COLOR="\[\033[1;32m\]$USER\[\033[0m\]"
-test $USER == 'root' && PS1_COLOR="\[\033[1;31m\]$USER\[\033[0m\]"
-export PS1="$PS1_COLOR \[\033[1;34m\]\w\[\033[0m\] \[\033[1;35m\]$PS1_BANG\[\033[0m\] "
+if [[ -d "$HOME/.bin" ]]; then
+	export PATH="$HOME/.bin:$PATH"
+fi
+
+if [[ -x "`which whoami`" ]]; then
+	export USER="`whoami`"
+fi
+echo; echo "USER to -> '$USER'"
+
+export PS1_USER="\[\033[1;35m\]$USER\[\033[0m\]"
+export PS1_BANG="\[\033[1;35m\]$\[\033[0m\]"
+if [[ "$PS1_USER" == "root" ]]; then
+	export PS1_USER="\[\033[1;33m\]$USER\[\033[0m\]"
+	export PS1_BANG="\[\033[1;31m\]#\[\033[0m\]"
+fi
+echo; echo "PS1_USER -> '$PS1_USER'"
+echo; echo "PS1_BANG -> '$PS1_BANG'"
+
+export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
+export TERM="xterm-256color"
 
 function osearch() {
 	opkg find "*$@*"
@@ -87,7 +100,6 @@ function osearch() {
 
 # export SHELL="`echo $0`"
 # export SHELL="/opt/bin/zsh"
-# export TERM="xterm-256color"
 
 # export PATH="/opt/bin/go/bin:$PATH"
 # export GOROOT="/opt/bin/go"
