@@ -65,18 +65,15 @@ fi
 if [[ -x "`which whoami`" ]]; then
 	export USER="`whoami`"
 fi
-echo; echo "USER to -> '$USER'"
 
-export PS1_USER="\[\033[1;35m\]$USER\[\033[0m\]"
+export PS1_USER="\[\033[1;32m\]$USER\[\033[0m\]"
 export PS1_BANG="\[\033[1;35m\]$\[\033[0m\]"
-if [[ "$PS1_USER" == "root" ]]; then
+if [[ "$USER" == "root" ]]; then
 	export PS1_USER="\[\033[1;33m\]$USER\[\033[0m\]"
 	export PS1_BANG="\[\033[1;31m\]#\[\033[0m\]"
 fi
-echo; echo "PS1_USER -> '$PS1_USER'"
-echo; echo "PS1_BANG -> '$PS1_BANG'"
-
 export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
+
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
