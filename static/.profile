@@ -1,4 +1,3 @@
-
 # unalias l
 # unalias ll
 alias ..="cd .."
@@ -35,9 +34,10 @@ function show() {
 	readlink -f $WHICH
 }
 
-test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
-test -d "/data/local" && export PATH="/data/local:$PATH"
-test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
+if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
+	export PATH="${PATH/system\/xbin/system\/bin}"
+	export PATH="${PATH/system\/bin/system\/xbin}"
+fi
 
 export PS1="\[\033[1;32m\]$HOST$HOSTNAME\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"

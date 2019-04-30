@@ -63,6 +63,7 @@ alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_chapters
 # alias man="man -P more"
 
 alias l="exa --all --long --header --classify"
+alias lm="exa --all --long --header --classify --sort=modified"
 alias la="exa --all --long --header --classify --extended"
 alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree --level=2"
 alias lrr="exa --all --long --header --classify --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree"
