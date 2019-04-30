@@ -8,9 +8,6 @@ set page-completions off
 set show-all-if-ambiguous on
 set skip-completed-text on
 set visible-stats on
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-"\e[Z": menu-complete
 
 # unalias l
 # unalias ll
