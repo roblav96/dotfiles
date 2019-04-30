@@ -54,7 +54,8 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 fi
 
 test -x "`which whoami`" && export USER="`whoami`"
-test `whoami` == 'root' && BANG="#" || BANG="$"
+export BANG="$"
+test `whoami` == 'root' && BANG="#"
 export PS1="\[\033[1;32m\]$USER\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$BANG\[\033[0m\] "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
