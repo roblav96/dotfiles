@@ -46,15 +46,6 @@ function show() {
 	readlink -f $WHICH
 }
 
-function dotpush() {
-	cd $DOTFILES
-	local GS="$(git status -z)"
-	git add -A
-	git commit -a -m "[`uname -o`] $GS"
-	git push origin master
-	cd $OLDPWD
-}
-
 # test -d "/system/bin" && export PATH="/system/bin:$PATH"
 # test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
