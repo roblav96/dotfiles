@@ -8,7 +8,7 @@ function dotpush() {
 	cd $DOTFILES
 	local GS="$(git status -z)"
 	git add -A
-	git commit -a -m "$GS"
+	git commit -a -m "[`uname -o`] $GS"
 	git push origin master
 	cd $OLDPWD
 }
