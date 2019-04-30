@@ -1,4 +1,4 @@
-set completion-ignore-case On
+set completion-ignore-case on
 set completion-query-items 256
 set expand-tilde off
 set history-preserve-point on
