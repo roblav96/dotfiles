@@ -54,7 +54,7 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 fi
 
 test -x "`which whoami`" && export USER="`whoami`"
-export TERM="xterm-256color"
+test `whoami` == 'root' && BANG="#" || BANG="$"
 export PS1="\[\033[1;32m\]$USER\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -73,16 +73,16 @@ function osearch() {
 # 	export LD_PRELOAD="/data/data/com.termux/files/usr/lib/libtermux-exec.so"
 # 	export PREFIX="/data/data/com.termux/files/usr"
 # 	export SHELL="/system/xbin/bash"
-# 	export TERM=xterm-256color
+# 	export TERM="xterm-256color"
 # fi
 
-# export SHELL=$(echo $0)
-# export SHELL=/opt/bin/zsh
-# export TERM=xterm-256color
+# export SHELL="`echo $0`"
+# export SHELL="/opt/bin/zsh"
+# export TERM="xterm-256color"
 
-# export PATH=/opt/bin/go/bin:$PATH
-# export GOROOT=/opt/bin/go
-# export GOBIN=$GOROOT/bin
-# export GOPATH=$GOROOT
+# export PATH="/opt/bin/go/bin:$PATH"
+# export GOROOT="/opt/bin/go"
+# export GOBIN="$GOROOT/bin"
+# export GOPATH="$GOROOT"
 
 # pkg install autoconf automake bison bzip2 clang cmake coreutils diffutils flex gawk git grep gzip libtool make patch perl sed silversearcher-ag tar wget pkg-config
