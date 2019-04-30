@@ -35,7 +35,7 @@ function r() {
 	grep -s -i "$@" -R .
 }
 function p() {
-	ps -w | grep -v grep | grep "$@"
+	ps aux | grep -v grep | grep "$@"
 }
 
 function show() {
