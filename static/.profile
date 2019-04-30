@@ -53,6 +53,7 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	# test -d "/system/bin" && export PATH="/system/bin:$PATH"
 	# test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 fi
+test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 
 test -x "`which whoami`" && export USER="`whoami`"
 export PS1_BANG="$"
