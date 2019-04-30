@@ -123,15 +123,6 @@ function npmi() {
 }
 compdef npmi=npm
 
-function dotpush() {
-	cd $DOTFILES
-	local GS="$(git status -z)"
-	git add -A
-	git commit -a -m "$GS"
-	git push origin master
-	cd $OLDPWD
-}
-
 function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
 }
