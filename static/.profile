@@ -63,7 +63,7 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 fi
 
 export TERM="xterm-256color"
-export PS1="\[\033[1;32m\]`uname -o`\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
+export PS1="\[\033[1;32m\]\u\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
