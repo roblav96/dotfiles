@@ -4,7 +4,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias l="ls -lAph --color=always"
+alias l="ls -laph --color=always"
 alias lr="tree -F -l -a -A -C -L 2"
 alias lra="tree -F -l -a -A -C"
 alias pwd="pwd && pwd -P"
@@ -15,7 +15,7 @@ alias idk="man -k"
 alias st="st -f"
 # alias dot="st /opt/etc/profile"
 # alias src="source /opt/etc/profile"
-# alias type="f() { type $@ && ls -lAph --color=always $(which $@); unset -f f; }; f"
+# alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
 
 function f() {
 	find . -iname "*$@*" -not -path "./sys/*" -not -path "./proc/*"
@@ -26,19 +26,32 @@ function r() {
 function p() {
 	ps -w | grep -v grep | grep "$@"
 }
+
 function show() {
 	type -a $@
 	WHICH=`which $@`
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
-	ls -lAph --color=always $WHICH
+	ls -laph --color=always $WHICH
 	readlink -f $WHICH
 }
 
+function dotpush() {
+	cd $DOTFILES
+	local GS="$(git status -z)"
+	git add -A
+	git commit -a -m "[`uname -o`] $GS"
+	git push origin master
+	cd $OLDPWD
+}
+
+# test -d "/system/bin" && export PATH="/system/bin:$PATH"
+# test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
 if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
 	export PATH="${PATH/system\/bin/system\/xbin}"
 fi
 
+export TERM="xterm-256color"
 export PS1="\[\033[1;32m\]$HOST$HOSTNAME\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -48,6 +61,17 @@ function osearch() {
 }
 
 
+
+# if test -d "/data/data/com.termux/files"; then
+# 	export ANDROID_DATA="/data"
+# 	export ANDROID_ROOT="/system"
+# 	export EXTERNAL_STORAGE="/sdcard"
+# 	export LD_LIBRARY_PATH="/data/data/com.termux/files/usr/lib"
+# 	export LD_PRELOAD="/data/data/com.termux/files/usr/lib/libtermux-exec.so"
+# 	export PREFIX="/data/data/com.termux/files/usr"
+# 	export SHELL="/system/xbin/bash"
+# 	export TERM=xterm-256color
+# fi
 
 # export SHELL=$(echo $0)
 # export SHELL=/opt/bin/zsh
