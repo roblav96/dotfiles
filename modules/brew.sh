@@ -1,87 +1,87 @@
 # ████  Homebrew  ████
 
 function bupdate() {
-	echo '\n⬤ [brew] Updating formulas and casks...\n'
+	echo '⬤ Updating formulas and casks...'
 	brew update
 }
 
 function boutdated() {
-	echo '\n⬤ [brew] Outdated formulas\n'
+	echo '⬤ Outdated formulas'
 	brew outdated
-	echo '\n⬤ [brew] Outdated casks\n'
+	echo '⬤ Outdated casks'
 	brew cask outdated
 }
 
 alias bls='blist'
 function blist() {
-	echo '\n⬤ [brew] List formulas\n'
+	echo '⬤ List formulas'
 	brew list --versions
-	echo '\n⬤ [brew] List casks\n'
+	echo '⬤ List casks'
 	brew cask list --versions
 }
 function blspinned() {
-	echo '\n⬤ [brew] List pinned formulas\n'
+	echo '⬤ List pinned formulas'
 	brew list --versions --pinned
 }
 
 function bsearch() {
-	echo '\n⬤ [brew] Searching descriptions...\n'
+	echo '⬤ Searching descriptions...'
 	brew search --desc $@ | grep "$@|"
-	echo '\n⬤ [brew] Searching formulas and casks...\n'
+	echo '⬤ Searching formulas and casks...'
 	brew search $@ | grep "$@|"
 }
 
 function binstall() {
-	echo '\n⬤ [brew] Install formula\n'
+	echo '⬤ Install formula'
 	brew install $@
 }
 function bcinstall() {
-	echo '\n⬤ [brew] Install cask\n'
+	echo '⬤ Install cask'
 	brew cask install $@
 }
 
 function bupgrade() {
-	echo "\n⬤ [brew] Upgrade '$@'\n"
+	echo "⬤ Upgrade '$@'"
 	brew upgrade $@
 }
 function bcupgrade() {
-	echo "\n⬤ [brew] Upgrade '$@'\n"
+	echo "⬤ Upgrade '$@'"
 	brew cask upgrade $@
 }
 
 function bjson() {
-	echo '\n⬤ [brew] JSON formula\n'
+	echo '⬤ JSON formula'
 	brew desc $@
 	brew info $@ --json | json
 }
 
 function binfo() {
-	echo "\n⬤ [brew] Description '$@'\n"
+	echo "⬤ Description '$@'"
 	brew desc $@
-	echo "\n⬤ [brew] Info '$@'\n"
+	echo "⬤ Info '$@'"
 	brew info $@
 }
 function bcinfo() {
-	echo "\n⬤ [brew] Info '$@'\n"
+	echo "⬤ Info '$@'"
 	brew cask info $@
 }
 
 function bcat() {
-	echo '\n⬤ [brew] Cat formula\n'
+	echo '⬤ Cat formula'
 	brew cat $@ | bat -l=ruby
 }
 function bccat() {
-	echo '\n⬤ [brew] Cat cask\n'
+	echo '⬤ Cat cask'
 	brew cask cat $@ | bat -l=ruby
 }
 
 alias brm='bremove'
 function bremove() {
-	echo '\n⬤ [brew] Remove formula\n'
+	echo '⬤ Remove formula'
 	brew remove --force $@
 }
 alias bcrm='bcremove'
 function bcremove() {
-	echo "\n⬤ [brew] Remove '$@'\n"
+	echo "⬤ Remove '$@'"
 	brew cask remove --force $@
 }
