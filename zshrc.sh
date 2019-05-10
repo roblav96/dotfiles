@@ -1,6 +1,5 @@
-# 🛑 ❌ 🔴 ⛔ 🚫 ⚠️
-# ⦁ ● ⧭ ⬤ ⚫︎ ◉ ◼︎ ➤ ► ∎ ⦁ 𝓓 ♦︎ ☁︎ ✚ ☗ █
-# ▶ ➤ ► ➜ → █ ■ ◉ ●︎ ⬤ ♦︎ ◆ ✚ ✜ ✦ ✖︎ ⌗ ⌦ ⎮︎
+# 1 char # ❌ ⛔ ⦁ ⬤ ● ⧭ ◉ ➤ ► ∎ ✚ ☗ █ ▶ ➜ → ■ ◆ ✜ ✦ ⌗ ⌦
+# 2 char # 🛑 🔴 🚫 ⚠️ ⚫︎ ◼︎ 𝓓 ♦︎ ☁︎ ●︎ ✖︎ ⎮︎
 
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # export RPROMPT="%F{008}%*"
@@ -58,7 +57,6 @@ alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo && http --verbose --pretty=all --style=monokai"
-alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_chapters -show_data -show_format -show_streams"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
@@ -96,7 +94,8 @@ export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➤ '"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
 
-# export JQ_COLORS="0;31:0;34:0;34:0;35:0;32:1;37:1;37"
+# export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
+export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
 alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
 
 alias .du="du -ah -d 1 | sort -h"
@@ -127,6 +126,11 @@ compdef npmi=npm
 
 function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
+}
+
+alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_data -show_format -show_streams"
+function fprobe() {
+	ffprobe "$1" | json
 }
 
 # autoload -U promptinit; promptinit
