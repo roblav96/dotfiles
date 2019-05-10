@@ -128,9 +128,9 @@ function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
 }
 
-alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_data -show_format -show_streams"
+# alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 function fprobe() {
-	ffprobe "$1" | json
+	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
 # autoload -U promptinit; promptinit
