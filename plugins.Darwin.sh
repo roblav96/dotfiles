@@ -1,3 +1,4 @@
+# rgcr/m-cli path:completion/zsh kind:fpath
 robbyrussell/oh-my-zsh path:plugins/adb
 robbyrussell/oh-my-zsh path:plugins/gem
 robbyrussell/oh-my-zsh path:plugins/gradle
