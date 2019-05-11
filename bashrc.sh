@@ -107,7 +107,6 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 # export LSCOLORS="exfxfeaeBxxehehbadacea"
 # export LSCOLORS="ExFxBxDxCxegedabagacad"
 
-alias rr="npm run"
 alias rr-k="killall node"
 alias rr-npmi="npm install"
 alias rr-npml="npm list --depth=0"

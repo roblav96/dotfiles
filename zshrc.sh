@@ -47,6 +47,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # 
 
+alias rr="npm run"
 alias sudo="sudo "
 alias idk="man -k"
 # alias idk="apropos"
