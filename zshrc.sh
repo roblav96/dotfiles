@@ -47,6 +47,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # 
 
+# alias fo="forever "
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
@@ -64,10 +65,13 @@ alias http="echo; http --verbose --pretty=all --style=monokai"
 
 alias l="exa --all --long --header --classify"
 alias lm="exa --all --long --header --classify --sort=modified"
+alias lmr="exa --all --long --header --classify --sort=modified --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree --level=2"
+alias lma="exa --all --long --header --classify --sort=modified --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree"
+alias lmaa="exa --all --long --header --classify --sort=modified --ignore-glob='.git|.DS_Store' --recurse --tree"
 alias la="exa --all --long --header --classify --extended"
 alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree --level=2"
-alias lrr="exa --all --long --header --classify --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree"
-alias lra="exa --all --long --header --classify --ignore-glob='.git|.DS_Store' --recurse --tree"
+alias lra="exa --all --long --header --classify --ignore-glob='.git|node_modules|.DS_Store' --recurse --tree"
+alias lraa="exa --all --long --header --classify --ignore-glob='.git|.DS_Store' --recurse --tree"
 # alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules' --recurse"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
