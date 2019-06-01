@@ -71,6 +71,7 @@ export PS1_BANG="\[\033[1;35m\]➤\[\033[0m\]"
 if [[ "$USER" == "root" ]]; then
 	export PS1_USER="\[\033[1;31m\]$USER\[\033[0m\]"
 	export PS1_BANG="\[\033[1;31m\]➤\[\033[0m\]"
+	unset HISTFILE
 fi
 export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 
