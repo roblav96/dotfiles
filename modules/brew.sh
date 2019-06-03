@@ -1,87 +1,87 @@
 # ████  Homebrew  ████
 
 function bupdate() {
-	echo '⬤ Updating formulas and casks...'
+	echo "\n⭐ Updating formulas and casks..."
 	brew update
 }
 
 function boutdated() {
-	echo '⬤ Outdated formulas'
+	echo "\n⭐ Outdated formulas"
 	brew outdated
-	echo '⬤ Outdated casks'
+	echo "\n⭐ Outdated casks"
 	brew cask outdated
 }
 
-alias bls='blist'
+alias bls="blist"
 function blist() {
-	echo '⬤ List formulas'
+	echo "\n⭐ List formulas"
 	brew list --versions
-	echo '⬤ List casks'
+	echo "\n⭐ List casks"
 	brew cask list --versions
 }
 function blspinned() {
-	echo '⬤ List pinned formulas'
+	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
 
 function bsearch() {
-	echo '⬤ Searching descriptions...'
+	echo "\n⭐ Searching descriptions..."
 	brew search --desc $@ | grep "$@|"
-	echo '⬤ Searching formulas and casks...'
+	echo "\n⭐ Searching formulas and casks..."
 	brew search $@ | grep "$@|"
 }
 
 function binstall() {
-	echo '⬤ Install formula'
+	echo "\n⭐ Install formula"
 	brew install $@
 }
 function bcinstall() {
-	echo '⬤ Install cask'
+	echo "\n⭐ Install cask"
 	brew cask install $@
 }
 
 function bupgrade() {
-	echo "⬤ Upgrade '$@'"
+	echo "\n⭐ Upgrade '$@'"
 	brew upgrade $@
 }
 function bcupgrade() {
-	echo "⬤ Upgrade '$@'"
+	echo "\n⭐ Upgrade '$@'"
 	brew cask upgrade $@
 }
 
 function bjson() {
-	echo '⬤ JSON formula'
+	echo "\n⭐ JSON formula"
 	brew desc $@
 	brew info $@ --json | json
 }
 
 function binfo() {
-	echo "⬤ Description '$@'"
+	echo "\n⭐ Description '$@'"
 	brew desc $@
-	echo "⬤ Info '$@'"
+	echo "\n⭐ Info '$@'"
 	brew info $@
 }
 function bcinfo() {
-	echo "⬤ Info '$@'"
+	echo "\n⭐ Info '$@'"
 	brew cask info $@
 }
 
 function bcat() {
-	echo '⬤ Cat formula'
+	echo "\n⭐ Cat '$@'"
 	brew cat $@ | bat -l=ruby
 }
 function bccat() {
-	echo '⬤ Cat cask'
+	echo "\n⭐ Cat cask '$@'"
 	brew cask cat $@ | bat -l=ruby
 }
 
-alias brm='bremove'
-function bremove() {
-	echo '⬤ Remove formula'
-	brew remove --force $@
+alias brm="buninstall"
+function buninstall() {
+	echo "\n⭐ Uninstall '$@'"
+	brew uninstall --force $@
 }
-alias bcrm='bcremove'
-function bcremove() {
-	echo "⬤ Remove '$@'"
-	brew cask remove --force $@
+alias bcrm="bcuninstall"
+function bcuninstall() {
+	echo "\n⭐ Uninstall cask '$@'"
+	brew cask uninstall --force $@
 }
