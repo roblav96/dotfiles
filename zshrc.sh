@@ -80,6 +80,7 @@ alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob=
 # alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules' --recurse"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
+alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --follow --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
