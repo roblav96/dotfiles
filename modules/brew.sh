@@ -1,7 +1,7 @@
 # ████  Homebrew  ████
 
 function bupdate() {
-	echo "\n⭐ Updating formulas and casks..."
+	echo "\n⭐ Updating formulas and casks"
 	brew update
 }
 
@@ -25,18 +25,18 @@ function blspinned() {
 }
 
 function bsearch() {
-	echo "\n⭐ Searching descriptions..."
+	echo "\n⭐ Searching descriptions"
 	brew search --desc $@ | grep "$@|"
-	echo "\n⭐ Searching formulas and casks..."
+	echo "\n⭐ Searching formulas and casks"
 	brew search $@ | grep "$@|"
 }
 
 function binstall() {
-	echo "\n⭐ Install formula"
+	echo "\n⭐ Install '$@'"
 	brew install $@
 }
 function bcinstall() {
-	echo "\n⭐ Install cask"
+	echo "\n⭐ Install cask '$@'"
 	brew cask install $@
 }
 
@@ -45,12 +45,12 @@ function bupgrade() {
 	brew upgrade $@
 }
 function bcupgrade() {
-	echo "\n⭐ Upgrade '$@'"
+	echo "\n⭐ Upgrade cask '$@'"
 	brew cask upgrade $@
 }
 
 function bjson() {
-	echo "\n⭐ JSON formula"
+	echo "\n⭐ JSON '$@'"
 	brew desc $@
 	brew info $@ --json | json
 }
@@ -62,7 +62,7 @@ function binfo() {
 	brew info $@
 }
 function bcinfo() {
-	echo "\n⭐ Info '$@'"
+	echo "\n⭐ Info cask '$@'"
 	brew cask info $@
 }
 
@@ -73,6 +73,15 @@ function bcat() {
 function bccat() {
 	echo "\n⭐ Cat cask '$@'"
 	brew cask cat $@ | bat -l=ruby
+}
+
+function bopen() {
+	echo "\n⭐ Open '$@'"
+	brew home $@
+}
+function bcopen() {
+	echo "\n⭐ Open cask '$@'"
+	brew cask home $@
 }
 
 alias brm="buninstall"
