@@ -8,3 +8,5 @@ test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
 test -d "/sbin" && export PATH="$PATH:/sbin"
 
 test -x "`which whoami`" && export USER="`whoami`"
+
+export FZF_BASE="/data/data/com.termux/files/usr/bin"
