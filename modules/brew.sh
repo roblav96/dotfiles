@@ -1,23 +1,23 @@
 # ████  Homebrew  ████
 
 function bupdate() {
-	echo "\n⭐ Updating formulas and casks"
+	echo "\n⭐ Updating"
 	brew update
 }
 
 function boutdated() {
-	echo "\n⭐ Outdated formulas"
+	echo "\n⭐ Outdated Formulas"
 	brew outdated
-	echo "\n⭐ Outdated casks"
+	echo "\n⭐ Outdated Casks"
 	brew cask outdated
 }
 
 alias bls="blist"
 function blist() {
 	if [[ -z "$@" ]]; then
-		echo "\n⭐ List formulas"
+		echo "\n⭐ List Formulas"
 		brew list --versions
-		echo "\n⭐ List casks"
+		echo "\n⭐ List Casks"
 		brew cask list --versions
 	else
 		echo "\n⭐ List '$@' files"
@@ -26,14 +26,14 @@ function blist() {
 }
 alias blspinned="blistpinned"
 function blistpinned() {
-	echo "\n⭐ List pinned formulas"
+	echo "\n⭐ List Pinned Formulas"
 	brew list --versions --pinned
 }
 
 function bsearch() {
-	echo "\n⭐ Searching descriptions"
+	echo "\n⭐ Searching Descriptions"
 	brew search --desc $@ | grep "$@|"
-	echo "\n⭐ Searching formulas and casks"
+	echo "\n⭐ Searching Formulas & Casks"
 	brew search $@ | grep "$@|"
 }
 
