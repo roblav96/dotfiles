@@ -4,6 +4,9 @@ if [[ "$USER" == "root" ]]; then
 	unalias src
 fi
 
+unalias sudo
+alias sudo="tsudo "
+
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 
 test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
