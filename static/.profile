@@ -79,6 +79,10 @@ export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
 
+export PAGER=""
+export MANPAGER=$PAGER
+export BAT_PAGER=$PAGER
+
 function osearch() {
 	opkg find "*$@*"
 }
