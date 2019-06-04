@@ -14,12 +14,18 @@ function boutdated() {
 
 alias bls="blist"
 function blist() {
-	echo "\n⭐ List formulas"
-	brew list --versions
-	echo "\n⭐ List casks"
-	brew cask list --versions
+	if [[ -z "$@" ]]; then
+		echo "\n⭐ List formulas"
+		brew list --versions
+		echo "\n⭐ List casks"
+		brew cask list --versions
+	else
+		echo "\n⭐ List '$@' files"
+		brew list $@
+	fi
 }
-function blspinned() {
+alias blspinned="blistpinned"
+function blistpinned() {
 	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
