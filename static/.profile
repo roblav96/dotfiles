@@ -33,7 +33,7 @@ alias tsudo="tsudo "
 # alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
 
 function f() {
-	find . -iname "*$@*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
+	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
 	grep -s -i "$@" -R .
