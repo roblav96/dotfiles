@@ -2,6 +2,8 @@ export PURE_PROMPT_SYMBOL="$USER ➤"
 if [[ "$USER" == "root" ]]; then
 	export PURE_PROMPT_SYMBOL="⚠️  $USER ➤"
 	unalias src
+	alias apt="echo !root"
+	alias pkg="echo !root"
 fi
 
 unalias sudo
