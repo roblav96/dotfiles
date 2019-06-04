@@ -56,6 +56,7 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 elif echo $PATH | grep -q 'termux'; then
 	test -d "/system/bin" && export PATH="/system/bin:$PATH"
 	test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
+	test -d "/sbin" && export PATH="/sbin:$PATH"
 fi
 
 if [[ -d "$HOME/.bin" ]]; then
