@@ -7,4 +7,6 @@ export LSCOLORS="ExFxBxDxCxegedabagacad"
 export FZF_BASE="$HOME/.fzf"
 
 test -x "$(which whoami)" && export USER="$(whoami)"
-test $USER == "root" && unset HISTFILE
+if [[ "$USER" == "root" ]]; then
+	unset HISTFILE
+fi
