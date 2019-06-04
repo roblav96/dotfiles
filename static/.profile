@@ -48,19 +48,18 @@ function show() {
 	readlink -f $WHICH
 }
 
-if [[ -d "$HOME/.bin" ]]; then
-	export PATH="$HOME/.bin:$PATH"
-fi
-
-if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
-	export PATH="${PATH/system\/xbin/system\/bin}"
-	export PATH="${PATH/system\/bin/system\/xbin}"
-elif echo $PATH | grep -q 'termux'; then
-	test -d "/vendor/bin" && export PATH="/system/bin:$PATH"
-	test -d "/system/bin" && export PATH="/system/bin:$PATH"
-	test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
-	test -d "/sbin" && export PATH="/sbin:$PATH"
-fi
+# if [[ -d "$HOME/.bin" ]]; then
+# 	export PATH="$HOME/.bin:$PATH"
+# fi
+# if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
+# 	export PATH="${PATH/system\/xbin/system\/bin}"
+# 	export PATH="${PATH/system\/bin/system\/xbin}"
+# elif echo $PATH | grep -q 'termux'; then
+# 	test -d "/vendor/bin" && export PATH="/system/bin:$PATH"
+# 	test -d "/system/bin" && export PATH="/system/bin:$PATH"
+# 	test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
+# 	test -d "/sbin" && export PATH="/sbin:$PATH"
+# fi
 
 if [[ -x "`which whoami`" ]]; then
 	export USER="`whoami`"
@@ -75,13 +74,10 @@ if [[ "$USER" == "root" ]]; then
 fi
 export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 
+export BAT_PAGER=""
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
-
-export PAGER=""
-export MANPAGER=$PAGER
-export BAT_PAGER=$PAGER
 
 function osearch() {
 	opkg find "*$@*"
