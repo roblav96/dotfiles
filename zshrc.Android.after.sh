@@ -1,6 +1,6 @@
 export PURE_PROMPT_SYMBOL="$USER ➤"
 if [[ "$USER" == "root" ]]; then
-	export PURE_PROMPT_SYMBOL="⚠️  ROOT ➤"
+	export PURE_PROMPT_SYMBOL="⚠️  $USER ➤"
 	unalias src
 fi
 
