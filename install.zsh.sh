@@ -2,7 +2,7 @@ DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
 ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
 
-echo > $ZSHRC
+touch $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
 echo "alias src='sh $DOTFILES/install.zsh.sh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.$(uname -s).before.sh' ] && source '$DOTFILES/zshrc.$(uname -s).before.sh'" >> $ZSHRC

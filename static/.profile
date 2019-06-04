@@ -58,12 +58,12 @@ function show() {
 # 	test -d "/sbin" && export PATH="/sbin:$PATH"
 # fi
 
-test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
-test -d "/system/bin" && export PATH="$PATH:/system/bin"
-test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
-test -d "/sbin" && export PATH="$PATH:/sbin"
-
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
+
+test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
+test -d "/system/bin" && export PATH="$PATH:/system/bin"
+test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
+test -d "/sbin" && export PATH="$PATH:/sbin"
 
 test -x "`which whoami`" && export USER="`whoami`"
 export PS1_USER="\[\033[1;32m\]$USER\[\033[0m\]"
