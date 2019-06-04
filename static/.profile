@@ -33,7 +33,7 @@ alias tsudo="tsudo "
 # alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
 
 function f() {
-	find . -iname "*$@*" -not -path "./sys/*" -not -path "./proc/*"
+	find . -iname "*$@*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
 	grep -s -i "$@" -R .
@@ -58,9 +58,9 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
 	export PATH="${PATH/system\/bin/system\/xbin}"
 elif echo $PATH | grep -q 'termux'; then
-	test -d "/system/bin" && export PATH="$PATH:/system/bin"
-	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
 	test -d "/sbin" && export PATH="$PATH:/sbin"
+	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
+	test -d "/system/bin" && export PATH="$PATH:/system/bin"
 fi
 
 if [[ -x "`which whoami`" ]]; then
