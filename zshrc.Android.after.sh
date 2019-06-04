@@ -1,6 +1,6 @@
 export PURE_PROMPT_SYMBOL="$USER ➤"
 if [[ "$USER" == "root" ]]; then
-	export PURE_PROMPT_SYMBOL="$USER ⌦"
+	export PURE_PROMPT_SYMBOL="⚠️  $USER ➤"
 fi
 
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
