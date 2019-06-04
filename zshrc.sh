@@ -29,12 +29,13 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 
 # 
 
+PLATFORM="$(uname -o)"
 source <(antibody init)
 # PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
-# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.$(uname -s).sh)"
+# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.${PLATFORM##*/}.sh)"
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
 # echo "PLUGINS -> $PLUGINS"
-antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.$(uname -s).sh" < "$DOTFILES/plugins.sh"
+antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
 
 unalias ls
 unalias grep

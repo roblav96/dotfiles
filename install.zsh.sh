@@ -1,13 +1,14 @@
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
 ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
+PLATFORM="$(uname -o)"
 
 echo > $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
 echo "alias src='sh $DOTFILES/install.zsh.sh'" >> $ZSHRC
-echo "[ -f '$DOTFILES/zshrc.$(uname -s).before.sh' ] && source '$DOTFILES/zshrc.$(uname -s).before.sh'" >> $ZSHRC
+echo "[ -f '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh' ] && source '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.sh' ] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
-echo "[ -f '$DOTFILES/zshrc.$(uname -s).after.sh' ] && source '$DOTFILES/zshrc.$(uname -s).after.sh'" >> $ZSHRC
+echo "[ -f '$DOTFILES/zshrc.${PLATFORM##*/}.after.sh' ] && source '$DOTFILES/zshrc.${PLATFORM##*/}.after.sh'" >> $ZSHRC
 cat $ZSHRC
 
 # clear
@@ -20,7 +21,7 @@ echo; echo '⬤ dotfiles install.zsh.sh complete'; echo
 
 # export DOTFILES=""
 # echo [ -f "$DOTFILES/zshrc.sh" ] && source "$DOTFILES/zshrc.sh" >> $ZSHRC
-# echo `echo '[ -f "$DOTFILES/zshrc.$(uname -s).sh" ] && source "$DOTFILES/zshrc.$(uname -s).sh"'` >> $ZSHRC
+# echo `echo '[ -f "$DOTFILES/zshrc.${PLATFORM##*/}.sh" ] && source "$DOTFILES/zshrc.${PLATFORM##*/}.sh"'` >> $ZSHRC
 
 # mkdir -p "$DOTFILES/.bin"
 
@@ -53,7 +54,7 @@ echo; echo '⬤ dotfiles install.zsh.sh complete'; echo
 # cat $ZSHRC
 # # echo > $ZSHRC
 # # echo '[ -f "$DOTFILES/zshrc.sh" ] && source "$DOTFILES/zshrc.sh"' >> $ZSHRC
-# # echo '[ -f "$DOTFILES/zshrc.$(uname -s).sh" ] && source "$DOTFILES/zshrc.$(uname -s).sh"' >> $ZSHRC
+# # echo '[ -f "$DOTFILES/zshrc.${PLATFORM##*/}.sh" ] && source "$DOTFILES/zshrc.${PLATFORM##*/}.sh"' >> $ZSHRC
 
 # DIR="${0%/*}"
 # DIR="$(readlink -f "$0")"
