@@ -1,4 +1,5 @@
 export PURE_PROMPT_SYMBOL="$USER ➤"
+test $USER == "root" && export PURE_PROMPT_SYMBOL="$USER ⌦"
 
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 
