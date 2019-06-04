@@ -24,6 +24,7 @@ alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias idk="man -k"
 # alias st="st -f"
+alias p="ps aux | grep -v grep | grep"
 alias k="killall -KILL"
 alias path="print -l $PATH"
 alias sudo="sudo "
@@ -37,9 +38,6 @@ function f() {
 }
 function r() {
 	grep -s -i "$@" -R .
-}
-function p() {
-	ps aux | grep -v grep | grep "$@"
 }
 
 function show() {
