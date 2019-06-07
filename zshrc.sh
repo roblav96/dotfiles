@@ -145,7 +145,7 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
-# test -x "$(which zip)" && source "$DOTFILES/modules/zip.sh"
+test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
