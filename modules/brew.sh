@@ -1,4 +1,4 @@
-# ████  Homebrew  ████
+# ████  brew  ████
 
 function bupdate() {
 	echo "\n⭐ Updating"
