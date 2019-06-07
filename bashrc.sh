@@ -61,6 +61,8 @@ export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/tcpdump/sbin:$PATH"
+export PATH="/usr/local/opt/unzip/bin:$PATH"
+export PATH="/usr/local/opt/zip/bin:$PATH"
 
 # export CFLAGS="-I/usr/local/opt/icu4c/include"
 # export LDFLAGS="-L/usr/local/opt/icu4c/lib"
