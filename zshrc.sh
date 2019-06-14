@@ -59,7 +59,6 @@ alias idk="man -k"
 # alias idk="apropos"
 alias k="killall -KILL"
 alias rmf="rm -rf"
-alias pst="pstree -w"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
@@ -109,7 +108,7 @@ alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --th
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
-alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
+alias json="jq --indent 4 --sort-keys --color-output"
 
 alias .du="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"

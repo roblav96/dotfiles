@@ -4,6 +4,8 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+alias pst="pstree -achls"
+
 # if [[ -x "$(which pm2)" ]]; then
 # 	source <(pm2 completion)
 # fi

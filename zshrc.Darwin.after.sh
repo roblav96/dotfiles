@@ -1,6 +1,8 @@
 unalias st
 unalias src
 
+alias pst="pstree -w"
+
 source "$DOTFILES/bashrc.sh"
 
 alias dot="st $DOTFILES"
