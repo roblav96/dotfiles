@@ -119,7 +119,7 @@ alias .df="df -h"
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 function p() {
-	ps -A | grep -v grep | grep "$@"
+	ps auxww | grep -v grep | grep "$@"
 }
 
 function show() {
