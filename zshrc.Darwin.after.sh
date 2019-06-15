@@ -19,6 +19,6 @@ function adbsu() {
 	adb shell su -c ${@:2}
 }
 
-source "$DOTFILES/modules/brew.sh"
+source "$DOTFILES/modules/homebrew.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/deving.sh"

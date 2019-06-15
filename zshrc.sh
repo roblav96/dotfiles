@@ -71,17 +71,17 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 
 alias l="exa --all --long --header --classify"
 alias la="exa --all --long --header --classify --extended"
-alias lr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|.DS_Store'"
-alias lra="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|.DS_Store'"
-alias lraa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|.DS_Store'"
+alias lr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git'"
+alias lra="exa --all --long --header --classify --recurse --tree --ignore-glob='.git'"
+alias lraa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git'"
 alias lm="exa --all --long --header --classify --sort=modified"
-alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|.DS_Store' --sort=modified"
-alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|.DS_Store' --sort=modified"
-alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|.DS_Store' --sort=modified"
-# alias lr="exa --all --long --header --classify --ignore-glob='.git|node_modules' --recurse"
+alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git' --sort=modified"
+alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified"
+alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified"
+# alias lr="exa --all --long --header --classify --ignore-glob='.git' --recurse"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
-alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --follow --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'"
+alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules'"
+alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --follow --exclude='.git' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
@@ -108,7 +108,8 @@ alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --th
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
-alias json="jq --indent 4 --sort-keys --color-output"
+alias j="jq --indent 4 --sort-keys --color-output"
+alias json="j"
 
 alias .du="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"

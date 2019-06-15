@@ -1,4 +1,4 @@
-# ████  brew  ████
+# ████  Homebrew  ████
 
 function bupdate() {
 	echo "\n⭐ Updating"
@@ -6,34 +6,33 @@ function bupdate() {
 }
 
 function boutdated() {
-	echo "\n⭐ Outdated Formulas"
+	echo "\n⭐ Outdated formulas"
 	brew outdated
-	echo "\n⭐ Outdated Casks"
+	echo "\n⭐ Outdated casks"
 	brew cask outdated
 }
 
-alias bls="blist"
 function blist() {
-	if [[ -z "$@" ]]; then
-		echo "\n⭐ List Formulas"
-		brew list --versions
-		echo "\n⭐ List Casks"
-		brew cask list --versions
-	else
-		echo "\n⭐ List '$@' files"
-		brew list $@
-	fi
+	echo "\n⭐ List formulas"
+	brew list --versions
+	echo "\n⭐ List casks"
+	brew cask list --versions
 }
-alias blspinned="blistpinned"
+
+function bfiles() {
+	echo "\n⭐ List '$@' files"
+	brew list $@
+}
+
 function blistpinned() {
-	echo "\n⭐ List Pinned Formulas"
+	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
 
 function bsearch() {
-	echo "\n⭐ Searching Descriptions"
+	echo "\n⭐ Searching descriptions"
 	brew search --desc $@ | grep "$@|"
-	echo "\n⭐ Searching Formulas & Casks"
+	echo "\n⭐ Searching formulas & casks"
 	brew search $@ | grep "$@|"
 }
 
@@ -90,13 +89,32 @@ function bcopen() {
 	brew cask home $@
 }
 
-alias brm="buninstall"
 function buninstall() {
 	echo "\n⭐ Uninstall '$@'"
 	brew uninstall --force $@
 }
-alias bcrm="bcuninstall"
 function bcuninstall() {
 	echo "\n⭐ Uninstall cask '$@'"
 	brew cask uninstall --force $@
+}
+
+function bslist() {
+	echo "\n⭐ List services"
+	brew services list
+}
+function bsstop() {
+	echo "\n⭐ Stop service '$@'"
+	brew services stop $@
+}
+function bsstart() {
+	echo "\n⭐ Start service '$@'"
+	brew services start $@
+}
+function bsrestart() {
+	echo "\n⭐ Restart service '$@'"
+	brew services restart $@
+}
+function bsrun() {
+	echo "\n⭐ Run service '$@'"
+	brew services run $@
 }
