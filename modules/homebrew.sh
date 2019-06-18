@@ -1,18 +1,18 @@
 # ████  Homebrew  ████
 
-function bupdate() {
+function bupd() {
 	echo "\n⭐ Updating"
 	brew update
 }
 
-function boutdated() {
+function boutd() {
 	echo "\n⭐ Outdated formulas"
 	brew outdated
 	echo "\n⭐ Outdated casks"
 	brew cask outdated
 }
 
-function blist() {
+function bls() {
 	echo "\n⭐ List formulas"
 	brew list --versions
 	echo "\n⭐ List casks"
@@ -24,7 +24,7 @@ function bfiles() {
 	brew list $@
 }
 
-function blistpinned() {
+function blpinned() {
 	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
@@ -45,11 +45,11 @@ function bcinstall() {
 	brew cask install $@
 }
 
-function bupgrade() {
+function bupg() {
 	echo "\n⭐ Upgrade '$@'"
 	brew upgrade $@
 }
-function bcupgrade() {
+function bcupg() {
 	echo "\n⭐ Upgrade cask '$@'"
 	brew cask upgrade $@
 }
@@ -89,16 +89,16 @@ function bcopen() {
 	brew cask home $@
 }
 
-function buninstall() {
+function brm() {
 	echo "\n⭐ Uninstall '$@'"
 	brew uninstall --force $@
 }
-function bcuninstall() {
+function bcrm() {
 	echo "\n⭐ Uninstall cask '$@'"
 	brew cask uninstall --force $@
 }
 
-function bslist() {
+function bsls() {
 	echo "\n⭐ List services"
 	brew services list
 }
