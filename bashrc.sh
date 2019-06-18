@@ -9,7 +9,6 @@ export RMATE_HOST="localhost"
 export RMATE_PORT="52699"
 
 # export DEBUG="*,-babel*"
-# export NODE_OPTIONS="--max-old-space-size=8192 --require=`npm root -g`/node-env-dev"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export TS_NODE_PRETTY="true"
 # export HOMEBREW_DEV_CMD_RUN="0"
