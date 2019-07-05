@@ -1,6 +1,6 @@
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
-ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
+ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zprofile"
 PLATFORM="$(uname -o)"
 
 echo > $ZSHRC
