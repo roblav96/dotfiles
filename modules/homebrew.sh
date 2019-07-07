@@ -32,7 +32,7 @@ function blsp() {
 	brew list --versions --pinned
 }
 
-function bse() {
+function bs() {
 	echo "\n⭐ Searching descriptions"
 	brew search --desc $@ | grep "$@|"
 	echo "\n⭐ Searching formulas & casks"
