@@ -3,12 +3,12 @@
 # export HOMEBREW_DEV_CMD_RUN="0"
 export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
-function bupd() {
+function bupdate() {
 	echo "\n⭐ Updating"
 	brew update
 }
 
-function bout() {
+function boutdated() {
 	echo "\n⭐ Outdated formulas"
 	brew outdated
 	echo "\n⭐ Outdated casks"
@@ -22,12 +22,12 @@ function bls() {
 	brew cask list --versions
 }
 
-function bfs() {
+function bfiles() {
 	echo "\n⭐ List '$@' files"
 	brew list $@
 }
 
-function blsp() {
+function blspinned() {
 	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
@@ -39,25 +39,25 @@ function bs() {
 	brew search $@ | grep "$@|"
 }
 
-function bins() {
+function binstall() {
 	echo "\n⭐ Install '$@'"
 	brew install $@
 }
-function bcins() {
+function bcinstall() {
 	echo "\n⭐ Install cask '$@'"
 	brew cask install $@
 }
 
-function bupg() {
+function bupgrade() {
 	echo "\n⭐ Upgrade '$@'"
 	brew upgrade $@
 }
-function bcupg() {
+function bcupgrade() {
 	echo "\n⭐ Upgrade cask '$@'"
 	brew cask upgrade $@
 }
 
-function bjs() {
+function bjson() {
 	echo "\n⭐ JSON '$@'"
 	brew desc $@
 	brew info $@ --json | json
@@ -83,11 +83,11 @@ function bccat() {
 	brew cask cat $@ | bat -l=ruby
 }
 
-function bop() {
+function bopen() {
 	echo "\n⭐ Open '$@'"
 	brew home $@
 }
-function bcop() {
+function bcopen() {
 	echo "\n⭐ Open cask '$@'"
 	brew cask home $@
 }
@@ -105,19 +105,19 @@ function bsls() {
 	echo "\n⭐ List services"
 	brew services list
 }
-function bssp() {
+function bsstop() {
 	echo "\n⭐ Stop service '$@'"
 	brew services stop $@
 }
-function bsst() {
+function bsstart() {
 	echo "\n⭐ Start service '$@'"
 	brew services start $@
 }
-function bsre() {
+function bsrestart() {
 	echo "\n⭐ Restart service '$@'"
 	brew services restart $@
 }
-function bsr() {
+function bsrun() {
 	echo "\n⭐ Run service '$@'"
 	brew services run $@
 }

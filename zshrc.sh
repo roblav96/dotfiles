@@ -117,6 +117,8 @@ alias .du="du -ah -d 1 | sort -h"
 alias .df="df -h"
 # alias .ping="ping google.com"
 
+alias pc="proxychains4 -f /usr/local/etc/proxychains.conf"
+
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
 function p() {
