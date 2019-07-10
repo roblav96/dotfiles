@@ -43,9 +43,17 @@ function binstall() {
 	echo "\n⭐ Install '$@'"
 	brew install $@
 }
+function breinstall() {
+	echo "\n⭐ Reinstall '$@'"
+	brew reinstall $@
+}
 function bcinstall() {
 	echo "\n⭐ Install cask '$@'"
 	brew cask install $@
+}
+function bcreinstall() {
+	echo "\n⭐ Reinstall cask '$@'"
+	brew cask reinstall $@
 }
 
 function bupgrade() {
