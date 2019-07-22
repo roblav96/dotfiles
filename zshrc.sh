@@ -14,9 +14,12 @@ export KEYTIMEOUT="1"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
-export PAGER="less -R"
+export LESS="-Rigj.5"
+# export LESSCHARSET="latin1"
+# export LESSCHARDEF="latin1"
+export PAGER="less"
 export MANPAGER=$PAGER
-export BAT_PAGER=$PAGER
+# export MANOPT="-d"
 
 export DEBUG_COLORS="yes"
 export DISABLE_OPENCOLLECTIVE="true"

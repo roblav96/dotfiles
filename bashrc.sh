@@ -11,6 +11,7 @@ export RMATE_PORT="52699"
 # export DEBUG="*,-babel*"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export TS_NODE_PRETTY="true"
+export YARN_CACHE_FOLDER="$HOME/.yarn"
 
 export MONO_GAC_PREFIX="/usr/local"
 export JAVA_HOME="$(/usr/libexec/java_home)"
@@ -107,7 +108,7 @@ export PATH="$GOBIN:$PATH"
 # export PATH="$PATH:/usr/local/bin"
 
 export EDITOR="subl -w"
-export BUNDLE_EDITOR="subl"
+export BUNDLE_EDITOR="subl -w"
 
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
