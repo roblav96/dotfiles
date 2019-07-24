@@ -1,6 +1,7 @@
 # ████  Homebrew  ████
 
 # export HOMEBREW_DEV_CMD_RUN="0"
+# export HOMEBREW_NO_ANALYTICS="1"
 export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
 function bupdate() {

@@ -39,6 +39,7 @@ export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 export PATH="/usr/local/share/dotnet:~/.dotnet/tools:$PATH"
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export MYPYPATH="/Applications/Sublime Text.app/Contents/MacOS"
 # export PYTHONPATH="/usr/local/lib/python3.7:/usr/local/lib/python3.7/site-packages"
 # export PATH="/usr/local/opt/python@2/bin:$PATH"
 # export PYTHONPATH="/usr/local/lib/python2.7:/usr/local/lib/python2.7/site-packages"
