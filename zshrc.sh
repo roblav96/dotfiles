@@ -74,14 +74,13 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 
 alias l="exa --all --long --header --classify"
 alias la="exa --all --long --header --classify --extended"
-alias lr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git'"
-alias lra="exa --all --long --header --classify --recurse --tree --ignore-glob='.git'"
+alias lr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
+alias lra="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules'"
 alias lraa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --extended"
 alias lm="exa --all --long --header --classify --sort=modified"
-alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git' --sort=modified"
-alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified"
+alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
+alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
-# alias lr="exa --all --long --header --classify --ignore-glob='.git' --recurse"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules'"
 alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --follow --exclude='.git' --exclude='node_modules'"
