@@ -21,6 +21,7 @@ export PAGER="less"
 export MANPAGER=$PAGER
 # export MANOPT="-d"
 
+export LC_ALL="en_US.UTF-8"
 export DEBUG_COLORS="yes"
 export DISABLE_OPENCOLLECTIVE="true"
 export FORCE_COLOR="1"
