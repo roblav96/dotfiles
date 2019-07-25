@@ -9,5 +9,6 @@ zsh-users/zsh-completions
 # ████  KEEP AT BOTTOM  ████
 sindresorhus/pure
 # geometry-zsh/geometry
-zdharma/fast-syntax-highlighting
+# zdharma/fast-syntax-highlighting
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search

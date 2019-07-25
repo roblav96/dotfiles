@@ -14,6 +14,8 @@ export KEYTIMEOUT="1"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
+# export LC_CALL="en_US.UTF-8"
+# export LC_CTYPE="en_US.UTF-8"
 export LESS="-Rgisj.5"
 # export LESSCHARSET="latin1"
 # export LESSCHARDEF="latin1"
@@ -21,7 +23,6 @@ export PAGER="less"
 export MANPAGER=$PAGER
 # export MANOPT="-d"
 
-export LC_ALL="en_US.UTF-8"
 export DEBUG_COLORS="yes"
 export DISABLE_OPENCOLLECTIVE="true"
 export FORCE_COLOR="1"
