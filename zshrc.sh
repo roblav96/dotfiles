@@ -58,6 +58,8 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
 
+# bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
+
 # 
 
 # alias fo="forever "
