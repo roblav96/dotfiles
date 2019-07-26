@@ -12,6 +12,7 @@ robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/history
 robbyrussell/oh-my-zsh path:plugins/httpie
 robbyrussell/oh-my-zsh path:plugins/last-working-dir
+robbyrussell/oh-my-zsh path:plugins/man
 robbyrussell/oh-my-zsh path:plugins/nmap
 robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/npm
