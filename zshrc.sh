@@ -59,6 +59,8 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 # unsetopt prompt_cr prompt_sp
 
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
+# bindkey '^F' fzf-history-widget
+setopt rm_star_silent
 
 # 
 
@@ -73,7 +75,7 @@ alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --verbose --pretty=all --style=monokai"
+alias http="echo; http --verbose --pretty=all --style=monokai --follow"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
