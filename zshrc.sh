@@ -10,7 +10,7 @@
 export RPROMPT="%F{008}%*"
 export PURE_PROMPT_SYMBOL="➤"
 export PURE_CMD_MAX_EXEC_TIME="1"
-export KEYTIMEOUT="1"
+export KEYTIMEOUT="10"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
@@ -31,6 +31,10 @@ export DEBUG_COLORS="yes"
 export DISABLE_OPENCOLLECTIVE="true"
 export FORCE_COLOR="1"
 export SUPPRESS_SUPPORT="1"
+
+# if [ $ITERM_SESSION_ID ]; then
+# 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
+# fi
 
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
