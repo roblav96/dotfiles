@@ -1,6 +1,7 @@
 caarlos0/ports kind:path
 caarlos0/zsh-mkc
 changyuheng/fz
+changyuheng/zsh-interactive-cd
 mafredri/zsh-async
 trapd00r/LS_COLORS kind:fpath
 # zsh-users/zaw

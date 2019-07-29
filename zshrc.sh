@@ -63,6 +63,7 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
 
+alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^F' fzf-history-widget
 setopt rm_star_silent

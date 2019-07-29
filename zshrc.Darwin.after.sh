@@ -5,7 +5,7 @@ alias pst="pstree -w"
 
 source "$DOTFILES/bashrc.sh"
 
-alias dot="st $DOTFILES"
+alias dot="st $DOTFILES; st $DOTFILES/zshrc.sh"
 function dotpush() {
 	cd $DOTFILES
 	local GS="$(git status -z)"
