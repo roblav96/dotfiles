@@ -141,19 +141,6 @@ alias rr-clear="clear && printf '\e[3J'"
 alias rr-dstore="find . -name '*.DS_Store*' -type f -delete"
 alias rr-kodi-logs="tail -F $HOME/Library/Logs/kodi.log"
 
-export STFILES="$HOME/Library/Application\ Support/Sublime\ Text\ 3"
-alias rr-st="open $STFILES/st3-sync.sublime-project"
-alias rr-stcd="cd $STFILES"
-alias rr-stsnippets="st $STFILES/Packages/User/Snippets"
-function rr-stpush() {
-	cd $STFILES
-	local GS="$(git status -z)"
-	git add -A
-	git commit -a -m "$GS"
-	git push origin master
-	cd $OLDPWD
-}
-
 alias rr-chrome="open -a Google\ Chrome --args"
 alias rr-tvn="cd $HOME/Downloads/tvnjviewer-2.8.3-bin-gnugpl && java -jar tightvnc-jviewer.jar"
 alias rr-hosts="st /etc/hosts"

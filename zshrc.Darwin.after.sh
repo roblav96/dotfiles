@@ -1,9 +1,13 @@
 unalias st
 unalias src
 
-alias pst="pstree -w"
-
 source "$DOTFILES/bashrc.sh"
+source "$DOTFILES/modules/color.sh"
+source "$DOTFILES/modules/deving.sh"
+source "$DOTFILES/modules/homebrew.sh"
+source "$DOTFILES/modules/sublime-text.sh"
+
+alias pst="pstree -w"
 
 alias dot="st $DOTFILES; st $DOTFILES/zshrc.sh"
 function dotpush() {
@@ -18,7 +22,3 @@ function dotpush() {
 function adbsu() {
 	adb shell su -c ${@:2}
 }
-
-source "$DOTFILES/modules/homebrew.sh"
-source "$DOTFILES/modules/color.sh"
-source "$DOTFILES/modules/deving.sh"

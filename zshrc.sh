@@ -81,7 +81,7 @@ alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --verbose --pretty=all --style=monokai --follow"
+alias http="echo; http --pretty=all --style=monokai --follow"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -98,8 +98,8 @@ alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules'"
-alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --follow --exclude='.git' --exclude='node_modules'"
-alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
+alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --follow"
+alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
 # function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
@@ -109,16 +109,16 @@ alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --smart-case --stats"
 alias r="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!node_modules'"
-alias ra="rg --smart-case --pretty --max-columns=256 --stats -uu"
-alias raa="rg --smart-case --pretty --max-columns=256 --stats -uu --follow"
-alias raaa="rg --smart-case --pretty --max-columns=256 --stats -uuu --follow"
+alias ra="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uu"
+alias raa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uu --follow"
+alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uuu --follow"
 # alias ra="rg -uu --smart-case --stats "
 # alias raa="rg -uuu --smart-case --stats "
 # function r() { rg "$1" ${@:2} --smart-case --stats }
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➤ '"
+export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='█▶➜ '"
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
