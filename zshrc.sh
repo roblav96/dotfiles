@@ -120,7 +120,7 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -u
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='█▶➜ '"
+export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➜ '"
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
@@ -168,10 +168,10 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
-function plcat() {
+function plbat() {
 	plistutil -i $@ | bat -l xml
 }
-compdef plcat=cat
+compdef plbat=bat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
