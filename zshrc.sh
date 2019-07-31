@@ -14,6 +14,7 @@ export KEYTIMEOUT="10"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
+export TERM="xterm-256color"
 export HISTSIZE="500000"
 export SAVEHIST="100000"
 export LANG="en_US.UTF-8"
@@ -99,8 +100,9 @@ alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ign
 alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules'"
-alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
+alias f="fd --color=always --hidden --fixed-strings --show-errors"
+alias fa="fd --color=always --hidden --fixed-strings --no-ignore"
+alias faa="fd --color=always --hidden --fixed-strings --no-ignore --follow"
 # alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
