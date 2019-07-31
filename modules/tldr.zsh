@@ -1,0 +1,5 @@
+# ████  tldr  ████
+
+function tl() {
+	tldr $@
+}

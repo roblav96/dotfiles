@@ -14,6 +14,8 @@ export KEYTIMEOUT="10"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
+export HISTSIZE="500000"
+export SAVEHIST="100000"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -98,8 +100,8 @@ alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules'"
-alias ff="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='node_modules' --follow"
-alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
+alias fa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
+# alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
 # function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
@@ -134,13 +136,14 @@ alias .du="du -ah -d 1 | sort -h"
 alias .df="df -h"
 # alias .ping="ping google.com"
 
-alias pc="proxychains4 -f /usr/local/etc/proxychains.conf"
+alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
-function p() {
-	ps auxww | grep -v grep | grep "$@"
-}
+alias p="ps auxww | grep -v grep | grep"
+# function p() {
+# 	ps auxww | grep -v grep | grep "$@"
+# }
 
 function show() {
 	type -a $@
@@ -165,7 +168,13 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
+function plcat() {
+	plistutil -i $@ | bat -l xml
+}
+compdef plcat=cat
+
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
+test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
