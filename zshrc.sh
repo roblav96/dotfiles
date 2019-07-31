@@ -171,7 +171,7 @@ function fprobe() {
 function plbat() {
 	plistutil -i $@ | bat -l xml
 }
-compdef plbat=bat
+compdef plbat=cat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
