@@ -1,13 +1,13 @@
-set completion-ignore-case on
-set completion-query-items 256
-set expand-tilde off
-set history-preserve-point on
-set mark-symlinked-directories on
-set match-hidden-files off
-set page-completions off
-set show-all-if-ambiguous on
-set skip-completed-text on
-set visible-stats on
+# set completion-ignore-case on
+# set completion-query-items 256
+# set expand-tilde off
+# set history-preserve-point on
+# set mark-symlinked-directories on
+# set match-hidden-files off
+# set page-completions off
+# set show-all-if-ambiguous on
+# set skip-completed-text on
+# set visible-stats on
 
 # unalias l
 # unalias ll
