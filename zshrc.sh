@@ -71,6 +71,8 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^F' fzf-history-widget
 # bindkey '^F' fzf-history-widget
 bindkey '^[r' fzf-history-widget
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # 
 
@@ -137,13 +139,12 @@ alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --th
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
-alias j="jq --indent 4 --sort-keys --color-output"
-alias json="j"
+alias json="jq --indent 4 --sort-keys --color-output"
 
-alias .du="du -ah -d 1 | sort -h"
+alias file-usage="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
-alias .df="df -h"
+alias disk-usage="df -h"
 # alias .ping="ping google.com"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
