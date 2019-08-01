@@ -58,10 +58,10 @@ unalias grep
 
 # 
 
+setopt rm_star_silent
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
-# setopt rm_star_silent
 # export FAST_HIGHLIGHT[use_async]="0"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
@@ -69,7 +69,8 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^F' fzf-history-widget
-setopt rm_star_silent
+# bindkey '^F' fzf-history-widget
+bindkey '^[r' fzf-history-widget
 
 # 
 
@@ -100,9 +101,9 @@ alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ign
 alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
-alias f="fd --color=always --hidden --fixed-strings --show-errors"
-alias fa="fd --color=always --hidden --fixed-strings --no-ignore"
-alias faa="fd --color=always --hidden --fixed-strings --no-ignore --follow"
+alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules' --show-errors"
+alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'"
+alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --follow"
 # alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
@@ -122,7 +123,14 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -u
 # function ra() { rg -uu "$1" ${@:2} --smart-case --stats }
 # function r() { grep "$1" ${@:2} -R . }
 
-export FZF_DEFAULT_OPTS="--ansi --color=16 --tabstop=4 --prompt='➜ '"
+export FZF_DEFAULT_OPTS="
+	--ansi
+	--tabstop=4
+	--prompt='➜ '
+	--color=dark
+	--color=fg:#ffffff,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+	--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+"
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"

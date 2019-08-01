@@ -112,6 +112,7 @@ export PATH="$GOBIN:$PATH"
 
 export EDITOR="subl -w"
 export BUNDLE_EDITOR="subl -w"
+export BROWSER="chrome"
 
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
