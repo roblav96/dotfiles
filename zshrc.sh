@@ -58,6 +58,8 @@ unalias grep
 
 # 
 
+# setopt bash_auto_list
+# setopt list_ambiguous
 setopt rm_star_silent
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
