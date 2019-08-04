@@ -1,4 +1,5 @@
 # jwilm/alacritty path:extra/completions kind:path
+# junegunn/fzf path:completion.zsh kind:fpath
 caarlos0/ports kind:path
 caarlos0/zsh-mkc
 changyuheng/fz
