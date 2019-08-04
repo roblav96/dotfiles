@@ -1,3 +1,4 @@
+# jwilm/alacritty path:extra/completions kind:path
 caarlos0/ports kind:path
 caarlos0/zsh-mkc
 changyuheng/fz

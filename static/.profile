@@ -49,9 +49,10 @@ function show() {
 	readlink -f $WHICH
 }
 
-# if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
-# 	export PATH="${PATH/system\/xbin/system\/bin}"
-# 	export PATH="${PATH/system\/bin/system\/xbin}"
+if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
+	export PATH="${PATH/system\/xbin/system\/bin}"
+	export PATH="${PATH/system\/bin/system\/xbin}"
+fi
 # elif echo $PATH | grep -q 'termux'; then
 # 	test -d "/vendor/bin" && export PATH="/vendor/bin:$PATH"
 # 	test -d "/system/bin" && export PATH="/system/bin:$PATH"
@@ -59,12 +60,11 @@ function show() {
 # 	test -d "/sbin" && export PATH="/sbin:$PATH"
 # fi
 
-test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
-
-test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
-test -d "/system/bin" && export PATH="$PATH:/system/bin"
-test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
-test -d "/sbin" && export PATH="$PATH:/sbin"
+# test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
+# test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
+# test -d "/system/bin" && export PATH="$PATH:/system/bin"
+# test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
+# test -d "/sbin" && export PATH="$PATH:/sbin"
 
 test -x "`which whoami`" && export USER="`whoami`"
 export PS1_USER="\[\033[1;32m\]$USER\[\033[0m\]"
@@ -76,7 +76,6 @@ if [[ "$USER" == "root" ]]; then
 fi
 export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 
-export BAT_PAGER=""
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"

@@ -72,6 +72,8 @@ export PATH="/usr/local/opt/tcpdump/sbin:$PATH"
 export PATH="/usr/local/opt/unzip/bin:$PATH"
 export PATH="/usr/local/opt/zip/bin:$PATH"
 
+export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
+
 # export CFLAGS="-I/usr/local/opt/icu4c/include"
 # export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 

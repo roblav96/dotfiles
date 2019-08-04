@@ -105,7 +105,7 @@ alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ign
 alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
 alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules' --show-errors"
+alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'"
 alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --follow"
 # alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
@@ -137,7 +137,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
-alias bat="bat --color=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
+alias bat="bat --color=always --italic-text=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
