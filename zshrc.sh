@@ -60,7 +60,7 @@ unalias grep
 # setopt list_ambiguous
 setopt rm_star_silent
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # export FAST_HIGHLIGHT[use_async]="0"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
