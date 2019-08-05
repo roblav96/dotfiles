@@ -1,7 +1,7 @@
 # 1 char emoji
 # ⌚ ⌛ ⌨ ⏏ ⏩ ⏪ ⏫ ⏬ ⏭ ⏮ ⏯ ⏰ ⏱ ⏲ ⏳ ⏸ ⏹ ⏺ ◽ ◾ ☂ ☃ ☄ ☔ ☕ ☘ ☠ ☢ ☣ ☦ ☪ ☮ ☯ ☸ ☹ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♿ ⚒ ⚓ ⚔ ⚖ ⚗ ⚙ ⚛ ⚜ ⚡ ⚪ ⚫ ⚰ ⚱ ⚽ ⚾ ⛄ ⛅ ⛈ ⛎ ⛏ ⛑ ⛓ ⛔ ⛩ ⛪ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛷ ⛸ ⛹ ⛺ ⛽ ✅ ✊ ✋ ✍ ✝ ✡ ✨ ❌ ❎ ❓ ❔ ❕ ❗ ❣ ➕ ➖ ➗ ➰ ➿ ⬛ ⬜ ⭐ ⭕
 # 1 char
-# ❌ ⛔ ⦁ ⬤ ● ⧭ ◉ ➤ ► ∎ ✚ ☗ █ ▶ ➜ ➔ → ■ ◆ ✜ ✦ ⌗ ⌦
+# ❌ ⛔ ⦁ ⬤ ● ⧭ ◉ ➤ ► ∎ ✚ ☗ █ ▶ ➜ ➔ → ✘ ■ ◆ ✜ ✦ ⌗ ⌦
 # 2 char
 # 🛑 🔴 🚫 ⚠️ ⚫︎ ◼︎ 𝓓 ♦︎ ☁︎ ●︎ ✖︎ ⎮︎
 
@@ -129,7 +129,6 @@ export HISTSIZE="500000"
 export SAVEHIST="100000"
 
 export FZF_DEFAULT_OPTS="
-	--border
 	--no-multi
 	--tabstop=4
 	--prompt='$PURE_PROMPT_SYMBOL '
@@ -185,10 +184,10 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
-function plbat() {
+function batpl() {
 	plistutil -i $@ | bat -l xml
 }
-compdef plbat=cat
+compdef batpl=cat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"

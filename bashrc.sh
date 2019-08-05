@@ -94,7 +94,7 @@ export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 # export LDFLAGS="-L/usr/local/opt/node@10/lib"
 # export CPPFLAGS="-I/usr/local/opt/node@10/include"
 
-# export NODE_PATH="$HOME/.npm/fsevents"
+export NODE_PATH="$HOME/.npm/tree-sitter"
 # export PATH="$HOME/.npm-global/bin:$PATH"
 # export NPM_CONFIG_PREFIX="$HOME/.npm-global"
 

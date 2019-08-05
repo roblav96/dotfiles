@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>launchd.setenv.path</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>WorkingDirectory</key>
+  <string>/Users/robertlaverty/.cache/launchd</string>
+  <key>StandardOutPath</key>
+  <string>/Users/robertlaverty/.cache/launchd/launchd.setenv.path.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/robertlaverty/.cache/launchd/launchd.setenv.path.stderr.log</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>sh</string>
+    <string>-c</string>
+    <string>/bin/launchctl setenv PATH '/usr/local/opt/zip/bin:/usr/local/opt/unzip/bin:/usr/local/opt/tcpdump/sbin:/usr/local/opt/sqlite/bin:/usr/local/opt/ruby@2.5/bin:/usr/local/opt/openvpn/sbin:/usr/local/opt/openssl@1.1/bin:/usr/local/opt/ncurses/bin:/usr/local/opt/mysql-client/bin:/usr/local/opt/llvm/bin:/usr/local/opt/libxml2/bin:/usr/local/opt/libpcap/bin:/usr/local/opt/imagemagick@6/bin:/usr/local/opt/iftop/sbin:/usr/local/opt/icu4c/sbin:/usr/local/opt/icu4c/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/opt/gcc/bin:/usr/local/opt/curl/bin:/usr/local/opt/colortools/bin:/usr/local/opt/python/libexec/bin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/lib/node_modules/ffprobe-binaries/bin/darwin/x64:/usr/local/lib/ruby/gems/2.5.0/bin:/Users/robertlaverty/.cargo/bin:/usr/local/share/android-sdk/build-tools/28.0.3:/usr/local/share/android-sdk/platform-tools:/usr/local/share/android-sdk/tools/bin:/usr/local/share/android-sdk/tools:/usr/local/share/android-sdk/ndk-bundle:/usr/local/Cellar/maven/3.6.0/libexec/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/usr/local/opt/man-db/libexec/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'</string>
+  </array>
+  <!-- <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/zsh</string>
+    <string>-c</string>
+    <string>'/Users/robertlaverty/.zprofile; echo $PATH > /Users/robertlaverty/.cache/launchd/setenv; launchctl setenv PATH $PATH'</string>
+    <string>source /Users/robertlaverty/.dotfiles/zshrc.Darwin.before.sh; /Users/robertlaverty/.dotfiles/bashrc.sh; echo $PATH > /Users/robertlaverty/.cache/launchd/setenv</string>
+  </array> -->
+</dict>
+</plist>
