@@ -199,3 +199,6 @@ test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
 # source <(npm completion)
 # source <(pm2 completion)
 # source <(tns completion)
+
+zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
+zstyle ':completion:*' insert-tab pending

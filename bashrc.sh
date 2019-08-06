@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # local HOME=/Users/roblav96
 
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
@@ -61,7 +63,7 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+# export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
@@ -109,6 +111,7 @@ export PATH="$GOBIN:$PATH"
 # export PATH="$PATH:/usr/local/bin"
 
 export EDITOR="subl -w"
+export VEDITOR="subl -w"
 export BUNDLE_EDITOR="subl -w"
 
 export CLICOLOR="1"
@@ -205,15 +208,23 @@ function rr-apksign() {
 	apksigner verify $1-signed.apk
 }
 
-function rr-exoplayer() { adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1 }
-function rr-kodi() { adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv }
-function rr-soundcloud() { adb shell am start -a android.intent.action.VIEW -d $1 }
+function rr-exoplayer() { 
+	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
+}
+function rr-kodi() { 
+	adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv
+}
+function rr-soundcloud() { 
+	adb shell am start -a android.intent.action.VIEW -d $1
+}
 
-function rr-go-get() { go get -u $1 }
+function rr-go-get() {
+	go get -u $1
+}
 
 # function rr-adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
-function rr-emulator() { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
+# function rr-emulator() { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
 
 function rr-adb-wget() {
 	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
