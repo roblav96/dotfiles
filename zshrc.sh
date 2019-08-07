@@ -87,7 +87,7 @@ alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --pretty=all --style=monokai --follow"
+alias http="echo; http --pretty=all --style=monokai --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -199,7 +199,6 @@ test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
 # source <(npm completion)
 # source <(pm2 completion)
 # source <(tns completion)
-test -x "$(which awless)" && source <(awless completion zsh)
 
-zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
-zstyle ':completion:*' insert-tab pending
+# zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
+# zstyle ':completion:*' insert-tab pending

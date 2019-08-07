@@ -22,3 +22,6 @@ function dotpush() {
 function adbsu() {
 	adb shell su -c ${@:2}
 }
+
+# test -x "$(which awless)" && source <(awless completion zsh)
+# test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
