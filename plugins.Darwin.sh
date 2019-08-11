@@ -8,4 +8,4 @@ robbyrussell/oh-my-zsh path:plugins/pod
 # robbyrussell/oh-my-zsh path:plugins/rails
 robbyrussell/oh-my-zsh path:plugins/ruby
 robbyrussell/oh-my-zsh path:plugins/ssh-agent
-robbyrussell/oh-my-zsh path:plugins/sublime
+# robbyrussell/oh-my-zsh path:plugins/sublime

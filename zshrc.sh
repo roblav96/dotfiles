@@ -28,8 +28,9 @@ export MANOPT="--encoding=ascii"
 # export MAN_KEEP_FORMATTING="1"
 # export MANOPT="--no-hyphenation"
 
-export DEBUG_COLORS="yes"
-export DISABLE_OPENCOLLECTIVE="true"
+export ADBLOCK="1"
+export DEBUG_COLORS="1"
+export DISABLE_OPENCOLLECTIVE="1"
 export FORCE_COLOR="1"
 export SUPPRESS_SUPPORT="1"
 
@@ -92,6 +93,7 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 
 alias l="exa --all --long --header --classify"
 alias la="exa --all --long --header --classify --extended"
