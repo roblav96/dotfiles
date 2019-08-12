@@ -166,6 +166,10 @@ alias p="ps auxww | grep -v grep | grep"
 
 function show() {
 	type -a $@
+	if whence -w $@ | grep -q -E function$; then
+		which -a $@
+		return 0
+	fi
 	WHICH=$(which $@)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
