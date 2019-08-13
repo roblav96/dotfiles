@@ -150,11 +150,13 @@ export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
 alias json="jq --indent 4 --sort-keys --color-output"
 
 alias ipinfo="curl -s ipinfo.io | json '. |= del(.readme)'"
+alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
+alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 
-alias file-usage="du -ah -d 1 | sort -h"
+alias ddu="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
-alias disk-usage="df -h"
+alias ddf="df -h"
 # alias .ping="ping google.com"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
