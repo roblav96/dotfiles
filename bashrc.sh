@@ -98,9 +98,11 @@ export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 # export NPM_CONFIG_PREFIX="$HOME/.npm-global"
 
 # export PATH="/usr/local/opt/go/bin:$PATH"
-export GOPATH="$HOME/.go"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
+if test -d "$HOME/.go"; then
+	export GOPATH="$HOME/.go"
+	export GOBIN="$GOPATH/bin"
+	export PATH="$GOBIN:$PATH"
+fi
 # export PATH="/usr/local/opt/glide/bin:$PATH"
 # export GLIDE_HOME="/usr/local/opt/glide"
 
