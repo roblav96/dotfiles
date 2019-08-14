@@ -149,6 +149,7 @@ alias bat="bat --color=always --italic-text=always --paging=never --style='heade
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
 alias json="jq --indent 4 --sort-keys --color-output"
+alias j='json'
 
 alias ipinfo="curl -s ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
