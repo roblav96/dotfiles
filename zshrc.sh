@@ -42,7 +42,7 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
 
-# 
+#
 
 PLATFORM="$(uname -o)"
 source <(antibody init)
@@ -55,7 +55,7 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFO
 unalias ls
 unalias grep
 
-# 
+#
 
 # setopt bash_auto_list
 # setopt list_ambiguous
@@ -75,7 +75,7 @@ bindkey '^[r' fzf-history-widget
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
-# 
+#
 
 # alias fo="forever "
 alias rr="npm run "
@@ -153,6 +153,7 @@ alias ipinfo="curl -s ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 
+alias iiperf3="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 alias ddu="du -ah -d 1 | sort -h"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
@@ -202,6 +203,7 @@ compdef batpl=cat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
+test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
