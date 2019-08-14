@@ -81,7 +81,8 @@ bindkey '^[r' fzf-history-widget
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
-# alias idk="apropos"
+alias n='npm'
+alias gh='github'
 alias rl="readlink -f"
 alias k="killall -KILL"
 alias rmf="rm -rf"
