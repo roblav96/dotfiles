@@ -155,10 +155,10 @@ alias j='json'
 alias ipinfo="curl -s https://ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
-alias iiperf3="iperf3 -c 192.34.85.234 -p 15201 --verbose"
+alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
 alias ddu="du -ah -d 1 | sort -h"
-test -x "$(which dust)" && alias ddu="dust"
+test -x "$(which dust)" && alias ddu="dust -s"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
 alias ddf="df -h"
