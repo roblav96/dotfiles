@@ -171,6 +171,7 @@ alias p="ps auxww | grep -v grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
+alias pf='sudo micro /etc/pf.conf'
 
 function show() {
 	type -a $@
@@ -181,7 +182,7 @@ function show() {
 	WHICH=$(which $@)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
-	readlink -f $WHICH
+	ls -lAph --color=always $(readlink -f $WHICH)
 }; compdef show=which
 
 rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
