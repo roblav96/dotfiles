@@ -84,7 +84,6 @@ alias idk="man -k"
 alias n='npm'
 alias gh='github'
 alias tl='tldr'
-alias rl="readlink -f"
 alias k="killall -KILL"
 alias rmf="rm -rf"
 alias ll="ls -laph --color=always"
@@ -185,6 +184,7 @@ function show() {
 	readlink -f $WHICH
 }; compdef show=which
 
+rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
 ch() { echo; curl -s "https://cheat.sh/$@" }
 
 function npmi() {

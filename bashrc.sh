@@ -103,7 +103,7 @@ fi
 # export PATH="/usr/local/opt/glide/bin:$PATH"
 # export GLIDE_HOME="/usr/local/opt/glide"
 
-# export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
+export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 # export PATH="/Applications/Google Chrome.app/Contents/MacOS:$PATH"
 # export PATH="/Applications/Firefox Developer Edition.app/Contents/MacOS:$PATH"
 # export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
