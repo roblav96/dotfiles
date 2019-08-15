@@ -154,9 +154,10 @@ alias j='json'
 alias ipinfo="curl -s ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
-
 alias iiperf3="iperf3 -c 192.34.85.234 -p 15201 --verbose"
+
 alias ddu="du -ah -d 1 | sort -h"
+test -x "$(which dust)" && alias ddu="dust"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
 alias ddf="df -h"
@@ -181,13 +182,14 @@ function show() {
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -lAph --color=always $WHICH
 	readlink -f $WHICH
-}
-compdef show=which
+}; compdef show=which
 
 function npmi() {
 	npm i $@; npm i -D @types/$@
 }
-compdef npmi=npm
+function npmv() {
+	npm info $@ -j | j '.time'
+}
 
 function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
@@ -200,8 +202,7 @@ function fprobe() {
 
 function batpl() {
 	plistutil -i $@ | bat -l xml
-}
-compdef batpl=cat
+}; compdef batpl=cat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
