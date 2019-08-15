@@ -1,5 +1,0 @@
-# ████  tldr  ████
-
-function tl() {
-	tldr $@
-}

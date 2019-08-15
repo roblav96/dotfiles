@@ -83,6 +83,7 @@ alias sudo="sudo "
 alias idk="man -k"
 alias n='npm'
 alias gh='github'
+alias tl='tldr'
 alias rl="readlink -f"
 alias k="killall -KILL"
 alias rmf="rm -rf"
@@ -151,7 +152,7 @@ export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
 alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
-alias ipinfo="curl -s ipinfo.io | json '. |= del(.readme)'"
+alias ipinfo="curl -s https://ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iiperf3="iperf3 -c 192.34.85.234 -p 15201 --verbose"
@@ -184,6 +185,8 @@ function show() {
 	readlink -f $WHICH
 }; compdef show=which
 
+ch() { echo; curl -s "https://cheat.sh/$@" }
+
 function npmi() {
 	npm i $@; npm i -D @types/$@
 }
@@ -205,8 +208,9 @@ function batpl() {
 }; compdef batpl=cat
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
-test -x "$(which tldr)" && source "$DOTFILES/modules/tldr.zsh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
+
+test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

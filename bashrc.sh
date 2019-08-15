@@ -33,7 +33,6 @@ export PATH="$ANDROID_SDK_ROOT/tools/bin:$PATH"
 export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
 export PATH="$ANDROID_SDK_ROOT/build-tools/28.0.3:$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # export PATH="/usr/local/opt/xctool/libexec/bin:$PATH"
@@ -211,13 +210,13 @@ function rr-apksign() {
 	apksigner verify $1-signed.apk
 }
 
-function rr-exoplayer() { 
+function rr-exoplayer() {
 	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
 }
-function rr-kodi() { 
+function rr-kodi() {
 	adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv
 }
-function rr-soundcloud() { 
+function rr-soundcloud() {
 	adb shell am start -a android.intent.action.VIEW -d $1
 }
 
