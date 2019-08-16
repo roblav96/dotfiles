@@ -52,6 +52,9 @@ source <(antibody init)
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
 
+# autoload -U +X compinit && compinit
+# autoload -U +X bashcompinit && bashcompinit
+
 unalias ls
 unalias grep
 
