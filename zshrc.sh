@@ -97,15 +97,15 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 # alias man="man -P more"
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 
-alias l="exa --all --long --header --classify"
-alias la="exa --all --long --header --classify --extended"
-alias lr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
-alias lra="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules'"
-alias lraa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --extended"
-alias lm="exa --all --long --header --classify --sort=modified"
-alias lmr="exa --all --long --header --classify --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
-alias lma="exa --all --long --header --classify --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
-alias lmaa="exa --all --long --header --classify --recurse --tree --ignore-glob='.git' --sort=modified --extended"
+alias l="exa --all --long --header --classify --group --modified --created --color-scale"
+alias la="exa --all --long --header --classify --group --modified --created --color-scale --extended"
+alias lr="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
+alias lra="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --ignore-glob='.git|node_modules'"
+alias lraa="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --ignore-glob='.git' --extended"
+alias lm="exa --all --long --header --classify --group --modified --created --color-scale --sort=modified"
+alias lmr="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
+alias lma="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
+alias lmaa="exa --all --long --header --classify --group --modified --created --color-scale --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'"
@@ -185,7 +185,8 @@ function show() {
 	ls -lAph --color=always $(readlink -f $WHICH)
 }; compdef show=which
 
-rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+# rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" }
 ch() { echo; curl -s "https://cheat.sh/$@" }
 
 function npmi() {
@@ -210,8 +211,6 @@ function batpl() {
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
-
-test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
