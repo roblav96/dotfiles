@@ -42,8 +42,6 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
 
-#
-
 PLATFORM="$(uname -o)"
 source <(antibody init)
 # PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
@@ -54,16 +52,12 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFO
 
 # autoload -U +X compinit && compinit
 # autoload -U +X bashcompinit && bashcompinit
-
-unalias ls
-unalias grep
-
-#
-
 # setopt bash_auto_list
 # setopt list_ambiguous
 setopt rm_star_silent
+
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+LS_COLORS+="di=3;4;37"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export FAST_HIGHLIGHT[use_async]="0"
@@ -78,7 +72,8 @@ bindkey '^[r' fzf-history-widget
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
-#
+unalias ls
+unalias grep
 
 # alias fo="forever "
 alias rr="npm run "
@@ -88,8 +83,8 @@ alias idk="man -k"
 # alias mv="mv -v"
 # alias rm="rm -v"
 alias n='npm'
-alias gh='github'
 alias tl='tldr'
+alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
@@ -102,7 +97,7 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 # alias man="man -P more"
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 
-export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:di=4;37:un=31:gn=2;3;31"
+export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 alias l="exa --all --long --header --classify --group --modified --color-scale --icons"
 alias la="exa --all --long --header --classify --group --modified --color-scale --icons --extended"
 alias lr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
