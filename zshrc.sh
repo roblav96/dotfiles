@@ -81,6 +81,9 @@ bindkey '^[r' fzf-history-widget
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="rm -v"
 alias n='npm'
 alias gh='github'
 alias tl='tldr'
@@ -98,15 +101,15 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 
 export EXA_COLORS="uu=1;38;5;245:gu=38;5;245:da=32"
-alias l="exa --all --long --header --classify --group --modified --color-scale"
-alias la="exa --all --long --header --classify --group --modified --color-scale --extended"
-alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
-alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|node_modules'"
-alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git' --extended"
-alias lm="exa --all --long --header --classify --group --modified --color-scale --sort=modified"
-alias lmr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
-alias lma="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
-alias lmaa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git' --sort=modified --extended"
+alias l="exa --all --long --header --classify --group --modified --color-scale --icons"
+alias la="exa --all --long --header --classify --group --modified --color-scale --icons --extended"
+alias lr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
+alias lra="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|node_modules'"
+alias lraa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git' --extended"
+alias lm="exa --all --long --header --classify --group --modified --color-scale --icons --sort=modified"
+alias lmr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
+alias lma="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
+alias lmaa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git' --sort=modified --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'"
