@@ -177,7 +177,7 @@ alias pf='sudo micro /etc/pf.conf'
 function show() {
 	type -a $@
 	if whence -w $@ | grep -q -E function$; then
-		which -a $@
+		which -a $@ | bat -l sh
 		return 0
 	fi
 	WHICH=$(which $@)
@@ -187,7 +187,7 @@ function show() {
 }; compdef show=which
 
 # rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" }
+rl() { test -x "$(which $@)" && ls -lAph --color=always $(readlink -f $(which $@)) || ls -lAph --color=always $(readlink -f $@) }
 ch() { echo; curl -s "https://cheat.sh/$@" }
 
 function npmi() {
