@@ -92,7 +92,7 @@ export VEDITOR="subl -w"
 export BUNDLE_EDITOR="subl -w"
 
 export CLICOLOR="1"
-export LSCOLORS="exfxcxdxbxegedabagacad"
+# export LSCOLORS="exfxcxdxbxegedabagacad"
 # export LSCOLORS="exfxfeaeBxxehehbadacea"
 # export LSCOLORS="ExFxBxDxCxegedabagacad"
 

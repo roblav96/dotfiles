@@ -64,7 +64,7 @@ unalias grep
 # setopt list_ambiguous
 setopt rm_star_silent
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export FAST_HIGHLIGHT[use_async]="0"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
@@ -84,14 +84,13 @@ bindkey '^[r' fzf-history-widget
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
-alias cp="cp -v"
-alias mv="mv -v"
-alias rm="rm -v"
+# alias cp="cp -v"
+# alias mv="mv -v"
+# alias rm="rm -v"
 alias n='npm'
 alias gh='github'
 alias tl='tldr'
 alias k="killall -KILL"
-alias rmf="rm -rf"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias htop="htop -d 10"
@@ -103,7 +102,7 @@ alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connec
 # alias man="man -P more"
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 
-export EXA_COLORS="uu=1;38;5;245:gu=38;5;245:da=32"
+export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:di=4;37:un=31:gn=2;3;31"
 alias l="exa --all --long --header --classify --group --modified --color-scale --icons"
 alias la="exa --all --long --header --classify --group --modified --color-scale --icons --extended"
 alias lr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
@@ -186,8 +185,8 @@ alias pf='sudo micro /etc/pf.conf'
 
 function show() {
 	type -a $@
-	if whence -w $@ | grep -q -E function$; then
-		which -a $@ | bat -l sh
+	if type -w $@ | grep -q -E function$; then
+		type -f $@ | bat -l sh
 		return 0
 	fi
 	WHICH=$(which $@)
