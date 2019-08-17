@@ -57,7 +57,7 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFO
 setopt rm_star_silent
 
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-LS_COLORS+="di=3;6"
+# LS_COLORS+="di=38;5;30"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export FAST_HIGHLIGHT[use_async]="0"
@@ -92,6 +92,7 @@ alias htop="htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty=all --style=monokai --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
+alias dims='echo "$COLUMNS x $LINES"'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
