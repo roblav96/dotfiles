@@ -57,7 +57,7 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFO
 setopt rm_star_silent
 
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-LS_COLORS+="di=3;4;37"
+LS_COLORS+="di=3;6"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export FAST_HIGHLIGHT[use_async]="0"
