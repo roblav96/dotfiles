@@ -113,10 +113,10 @@ alias lbr="exa --all --long --header --classify --group --modified --color-scale
 alias lbra="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|node_modules' --sort=size"
 alias lbraa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git' --sort=size --extended"
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='node_modules'"
-alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'"
-alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --follow"
-# alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --follow"
+alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
+alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
+alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --follow"
+# alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='.DS_Store' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
 # function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
@@ -125,10 +125,10 @@ alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.gi
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --smart-case --stats"
-alias r="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!node_modules'"
-alias ra="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uu"
-alias raa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uu --follow"
-alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' -uuu --follow"
+alias r="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uu"
+alias raa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uu --follow"
+alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uuu --follow"
 # alias ra="rg -uu --smart-case --stats "
 # alias raa="rg -uuu --smart-case --stats "
 # function r() { rg "$1" ${@:2} --smart-case --stats }
@@ -158,7 +158,8 @@ alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
 alias ipinfo="curl -s https://ipinfo.io | json '. |= del(.readme)'"
-alias cachefly="wget -O /dev/null http://cachefly.cachefly.net/100mb.test"
+alias cachefly="wget -O /dev/null https://cachefly.cachefly.net/100mb.test"
+alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
