@@ -6,6 +6,7 @@ if test -d "$HOME/.go"; then
 	export PATH="$GOBIN:$PATH"
 fi
 
+test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 test -d "$HOME/.local/bin" && export PATH="$HOME/.local/bin:$PATH"
 test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 

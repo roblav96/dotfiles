@@ -6,6 +6,7 @@
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix-daemon.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix-daemon.sh; fi
 # export PATH="/opt/pkg/bin:$PATH"
 # export PATH="/opt/pkg/sbin:$PATH"
+export PATH="/usr/local/share/dotnet:$PATH"
 
 export RMATE_HOST="localhost"
 export RMATE_PORT="52699"
@@ -79,6 +80,8 @@ fi
 # export GLIDE_HOME="/usr/local/opt/glide"
 
 test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
+
+test -d "$HOME/.dotnet/tools" && export PATH="$HOME/.dotnet/tools:$PATH"
 
 # export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 # export PATH="/Applications/Google Chrome.app/Contents/MacOS:$PATH"

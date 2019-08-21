@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # 1 char emoji
 # ⌚ ⌛ ⌨ ⏏ ⏩ ⏪ ⏫ ⏬ ⏭ ⏮ ⏯ ⏰ ⏱ ⏲ ⏳ ⏸ ⏹ ⏺ ◽ ◾ ☂ ☃ ☄ ☔ ☕ ☘ ☠ ☢ ☣ ☦ ☪ ☮ ☯ ☸ ☹ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♿ ⚒ ⚓ ⚔ ⚖ ⚗ ⚙ ⚛ ⚜ ⚡ ⚪ ⚫ ⚰ ⚱ ⚽ ⚾ ⛄ ⛅ ⛈ ⛎ ⛏ ⛑ ⛓ ⛔ ⛩ ⛪ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛷ ⛸ ⛹ ⛺ ⛽ ✅ ✊ ✋ ✍ ✝ ✡ ✨ ❌ ❎ ❓ ❔ ❕ ❗ ❣ ➕ ➖ ➗ ➰ ➿ ⬛ ⬜ ⭐ ⭕
 # 1 char
@@ -93,6 +95,7 @@ alias ipc="ipcalc -b"
 alias http="echo; http --pretty=all --style=monokai --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 alias dims='echo "$COLUMNS x $LINES"'
+alias dateiso='date -u +"%Y-%m-%d"'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
