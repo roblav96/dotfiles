@@ -107,7 +107,7 @@ function brm() {
 }
 function bcrm() {
 	echo "\n⭐ Uninstall cask '$@'"
-	brew cask uninstall --force $@
+	brew cask zap --force $@
 }
 
 function bsls() {
