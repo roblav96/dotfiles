@@ -107,11 +107,12 @@ alias http="echo; http --pretty all --style monokai --timeout 5 --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 alias dims='echo "$COLUMNS x $LINES"'
 alias dateiso='date -u +"%Y-%m-%d"'
-alias gstandup='git standup'
+alias gs='git status'
+alias gst='git standup'
+alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
-alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 alias l="exa --all --long --header --classify --group --modified --color-scale"
