@@ -32,7 +32,7 @@ export PATH="$ANDROID_SDK_ROOT/ndk-bundle:$PATH"
 export PATH="$ANDROID_SDK_ROOT/tools:$PATH"
 export PATH="$ANDROID_SDK_ROOT/tools/bin:$PATH"
 export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
-export PATH="$ANDROID_SDK_ROOT/build-tools/28.0.3:$PATH"
+export PATH="$ANDROID_SDK_ROOT/build-tools/29.0.2:$PATH"
 
 # export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
