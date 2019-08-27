@@ -99,6 +99,7 @@ alias n='npm'
 alias o='open .'
 alias tl='tldr'
 alias g='git'
+alias gc='git clone --recurse-submodules'
 alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
