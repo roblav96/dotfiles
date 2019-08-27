@@ -96,7 +96,9 @@ alias idk="man -k"
 # alias mv="mv -v"
 # alias rm="rm -v"
 alias n='npm'
+alias o='open .'
 alias tl='tldr'
+alias g='git'
 alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
@@ -109,25 +111,26 @@ alias dims='echo "$COLUMNS x $LINES"'
 alias dateiso='date -u +"%Y-%m-%d"'
 alias gs='git status'
 alias gst='git standup'
-alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
+alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
+# alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-alias l="exa --all --long --header --classify --group --modified --color-scale"
-alias la="exa --all --long --header --classify --group --modified --color-scale --extended"
-alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules'"
-alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|node_modules'"
-alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git' --extended"
+alias l="exa --all --long --header --classify --group --modified --color-scale --ignore-glob='.DS_Store'"
+alias la="exa --all --long --header --classify --group --modified --color-scale --extended --ignore-glob='.DS_Store'"
+alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.DS_Store|.git|node_modules'"
+alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git|node_modules'"
+alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git' --extended"
 alias lm="exa --all --long --header --classify --group --modified --color-scale --sort=modified"
-alias lmr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=modified"
-alias lmra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|node_modules' --sort=modified"
-alias lmraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git' --sort=modified --extended"
+alias lmr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.DS_Store|.git|node_modules' --sort=modified"
+alias lmra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git|node_modules' --sort=modified"
+alias lmraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git' --sort=modified --extended"
 alias lb="exa --all --long --header --classify --group --modified --color-scale --sort=size"
-alias lbr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|node_modules' --sort=size"
-alias lbra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|node_modules' --sort=size"
-alias lbraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git' --sort=size --extended"
+alias lbr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.DS_Store|.git|node_modules' --sort=size"
+alias lbra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git|node_modules' --sort=size"
+alias lbraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.DS_Store|.git' --sort=size --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
