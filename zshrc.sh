@@ -201,7 +201,6 @@ alias p="ps auxww | grep -v grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
-alias pf='sudo micro /etc/pf.conf'
 
 function show() {
 	type -a $@
