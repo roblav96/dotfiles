@@ -6,7 +6,9 @@ source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 alias dns-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
 alias pfs='sudo echo; sudo pfctl -q -si | head -n 1'
+alias pfe='sudo micro /etc/pf.conf'
 
 unalias src
 alias dot='st "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-workspace"'
