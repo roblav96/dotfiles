@@ -114,6 +114,7 @@ alias dateiso='date -u +"%Y-%m-%d"'
 alias gs='git status'
 alias gst='git standup'
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
+alias zbak='sudo cp ~/.zsh_history ~/..zsh_history; sudo cp ~/.z ~/..z'
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
