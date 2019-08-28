@@ -95,7 +95,7 @@ alias idk="man -k"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
-alias m='micro'
+alias mi='micro'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
@@ -122,19 +122,19 @@ alias zbak='sudo cp ~/.zsh_history ~/..zsh_history; sudo cp ~/.z ~/..z'
 # alias man="man -P more"
 
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-alias l="exa --all --long --header --classify --group --modified --color-scale --ignore-glob='.git|.DS_Store'"
-alias la="exa --all --long --header --classify --group --modified --color-scale --extended --ignore-glob='.git|.DS_Store'"
-alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules'"
-alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules'"
-alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --extended"
-alias lm="exa --all --long --header --classify --group --modified --color-scale --sort=modified --ignore-glob='.git|.DS_Store'"
-alias lmr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
-alias lmra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
-alias lmraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --sort=modified --extended"
-alias lb="exa --all --long --header --classify --group --modified --color-scale --sort=size --ignore-glob='.git|.DS_Store'"
-alias lbr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
-alias lbra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
-alias lbraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --sort=size --extended"
+alias l="exa --all --long --header --classify --group --modified --color-scale --icons --ignore-glob='.git|.DS_Store'"
+alias la="exa --all --long --header --classify --group --modified --color-scale --icons --extended --ignore-glob='.git|.DS_Store'"
+alias lr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules'"
+alias lra="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store|node_modules'"
+alias lraa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store' --extended"
+alias lm="exa --all --long --header --classify --group --modified --color-scale --icons --sort=modified --ignore-glob='.git|.DS_Store'"
+alias lmr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
+alias lmra="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
+alias lmraa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store' --sort=modified --extended"
+alias lb="exa --all --long --header --classify --group --modified --color-scale --icons --sort=size --ignore-glob='.git|.DS_Store'"
+alias lbr="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
+alias lbra="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
+alias lbraa="exa --all --long --header --classify --group --modified --color-scale --icons --recurse --tree --ignore-glob='.git|.DS_Store' --sort=size --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
@@ -148,10 +148,10 @@ alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.gi
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --smart-case --stats"
-alias r="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uu"
-alias raa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uu --follow"
-alias raaa="rg --smart-case --pretty --max-columns=256 --stats --glob='!.git' --glob='!.DS_Store' -uuu --follow"
+alias r="rg --smart-case --pretty --max-columns=256 --stats --no-messages --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --smart-case --pretty --max-columns=256 --stats --no-messages --glob='!.git' --glob='!.DS_Store' -uu"
+alias raa="rg --smart-case --pretty --max-columns=256 --stats --no-messages --glob='!.git' --glob='!.DS_Store' -uu --follow"
+alias raaa="rg --smart-case --pretty --max-columns=256 --stats --no-messages --glob='!.git' --glob='!.DS_Store' -uuu --follow"
 # alias ra="rg -uu --smart-case --stats "
 # alias raa="rg -uuu --smart-case --stats "
 # function r() { rg "$1" ${@:2} --smart-case --stats }
