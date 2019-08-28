@@ -95,6 +95,7 @@ alias idk="man -k"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
+alias m='micro'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
