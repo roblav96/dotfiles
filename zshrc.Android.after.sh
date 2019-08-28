@@ -22,3 +22,5 @@ test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
 test -d "/system/bin" && export PATH="$PATH:/system/bin"
 test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
 test -d "/sbin" && export PATH="$PATH:/sbin"
+
+source "$DOTFILES/modules/adbd.sh"

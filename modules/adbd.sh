@@ -1,5 +1,5 @@
 
-adbfi() {
+adbd() {
 	case $1 in
 		on) setprop service.adb.tcp.port 5555
 			su -c stop adbd
