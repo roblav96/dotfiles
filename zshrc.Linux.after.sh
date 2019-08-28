@@ -7,8 +7,6 @@ if test -d "$HOME/.go"; then
 fi
 
 test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
-test -d "$HOME/.local/bin" && export PATH="$HOME/.local/bin:$PATH"
-test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 
 alias pst="pstree -achls"
 
