@@ -16,7 +16,7 @@ if test -d "$HOME/.go"; then
 	export PATH="$GOBIN:$PATH"
 fi
 
-test -x "$(which dropbear)" && alias dropbear='getip; echo; dropbear -F'
+test -x "$(which dropbear)" && alias dropbear='echo; getip; echo; dropbear -F'
 
 test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
