@@ -248,7 +248,7 @@ if test -x "$(which ip)"; then
 	alias ipm='ip -color -human -resolve -brief'
 	alias ipa='ip -color -human -resolve -all -details'
 	alias ipaa='ip -color -human -resolve -all -details -stats'
-	alias ipj='ip -color -human -resolve -all -details -stats -json'
+	alias ipj='ip -json -human -resolve -all -details -stats'
 fi
 
 # autoload -U promptinit; promptinit
