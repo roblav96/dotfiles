@@ -244,11 +244,10 @@ test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
 
 if test -x "$(which ip)"; then
-	alias iip='ip -color -human -resolve'
-	alias iipm='ip -color -human -resolve -brief'
-	alias iipa='ip -color -human -resolve -all -details'
-	alias iipaa='ip -color -human -resolve -all -details -stats'
-	alias iipj='ip -human -resolve -all -details -stats -json'
+	alias ip='ip -human -color'
+	alias ipm='command ip -human -color -brief'
+	alias ipa='command ip -human -color -all -details -stats'
+	alias ipj='command ip -human -all -details -stats -json'
 fi
 
 # autoload -U promptinit; promptinit
