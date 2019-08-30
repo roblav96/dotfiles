@@ -244,7 +244,7 @@ test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
 
 if test -x "$(which ip)"; then
-	alias ipj='ip -human -resolve -all -details -stats -json -pretty'
+	alias ipj='ip -human -resolve -all -details -stats -json'
 	alias ip='ip -color -human -resolve'
 	alias ipm='ip -brief'
 	alias ipa='ip -all -details'
