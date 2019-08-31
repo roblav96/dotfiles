@@ -182,14 +182,15 @@ export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
 alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
-alias ipinfo="curl -s https://ipinfo.io | json '. |= del(.readme)'"
+alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null https://cachefly.cachefly.net/100mb.test"
 alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
 alias ddu="du -ah -d 1 | sort -h"
-test -x "$(which dust)" && alias ddu="dust -s"
+alias dust="dust -s"
+# test -x "$(which dust)" && alias ddu="dust -s"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
 alias ddf="df -h"
