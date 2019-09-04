@@ -23,7 +23,7 @@ function bls() {
 	brew cask list --versions
 }
 
-function bfiles() {
+function bfs() {
 	echo "\n⭐ List '$@' files"
 	brew list $@
 }
