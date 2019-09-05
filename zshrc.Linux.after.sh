@@ -9,6 +9,7 @@ fi
 test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 alias pst="pstree -achls"
+alias cargobin='sudo ln -s ~/.cargo/bin/* /usr/local/bin'
 
 # if [[ -x "$(which pm2)" ]]; then
 # 	source <(pm2 completion)
