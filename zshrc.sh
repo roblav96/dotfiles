@@ -95,7 +95,7 @@ alias idk="man -k"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
-alias mi='micro'
+alias m='micro'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
@@ -177,6 +177,7 @@ export FZF_DEFAULT_OPTS="
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --italic-text=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
+alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'

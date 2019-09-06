@@ -146,9 +146,6 @@ alias rr-dts-gen="cd '$HOME/Sandbox/android-dts-generator/dts-generator' && l &&
 alias rr-adb-tv="adb kill-server && adb connect 192.168.1.2:5555 && adb devices"
 alias rr-adb-phone="adb kill-server && adb connect 192.168.1.5:5555 && adb devices"
 
-alias rr-razer-start="open -a RzDeviceEngine && open -a RzUpdater"
-alias rr-razer-stop="killit RzDeviceEngine && killit RzUpdater"
-
 # alias tl="tldr"
 # alias dk="docker"
 # alias dkcompose="docker-compose"
