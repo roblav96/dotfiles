@@ -19,12 +19,12 @@ alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 unalias src
 alias dot='st "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-workspace"'
 function dotpush() {
-	cd $DOTFILES
+	cd "$DOTFILES"
 	local GS="$(git status -z)"
 	git add -A
 	git commit -a -m "[`uname -o`] $GS"
 	git push origin master
-	cd $OLDPWD
+	cd "$OLDPWD"
 }
 
 function adbsu() {

@@ -1,6 +1,6 @@
 # ████  sublime-text  ████
 
-alias s="st --new-window --command 'project_manager {\"action\": \"switch\"}'"
+alias st="st --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd $HOME'/Library/Application Support/Sublime Text 3/Packages'"
 alias stst="st $HOME'/Library/Application Support/Sublime Text 3/Packages'"
 alias stpackages="st $HOME'/Library/Application Support/Sublime Text 3/Packages'"
