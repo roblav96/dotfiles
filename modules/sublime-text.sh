@@ -1,12 +1,12 @@
 # ████  sublime-text  ████
 
-alias st="st --new-window --command 'project_manager {\"action\": \"switch\"}'"
+alias st="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd $HOME'/Library/Application Support/Sublime Text 3/Packages'"
-alias stst="st $HOME'/Library/Application Support/Sublime Text 3/Packages'"
-alias stpackages="st $HOME'/Library/Application Support/Sublime Text 3/Packages'"
-alias stuser="st $HOME'/Library/Application Support/Sublime Text 3/Packages/User'"
-alias stprojects="st $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Projects'"
-alias stsnippets="st $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Snippets'"
+alias stst="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
+alias stpackages="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
+alias stuser="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User'"
+alias stprojects="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Projects'"
+alias stsnippets="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Snippets'"
 
 function stpush() {
 	cd $HOME'/Library/Application Support/Sublime Text 3'

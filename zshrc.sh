@@ -98,6 +98,7 @@ alias idk="man -k"
 alias m='micro'
 alias n='npm'
 alias o='open .'
+alias s='subl'
 alias tl='tldr'
 alias g='git'
 alias gc='git clone --recurse-submodules'

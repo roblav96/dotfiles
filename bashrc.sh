@@ -125,8 +125,8 @@ alias rr-kodi-logs="tail -F $HOME/Library/Logs/kodi.log"
 
 alias rr-chrome="open -a Google\ Chrome --args"
 alias rr-tvn="cd $HOME/Downloads/tvnjviewer-2.8.3-bin-gnugpl && java -jar tightvnc-jviewer.jar"
-alias rr-hosts="st /etc/hosts"
-alias rr-resolv="st /etc/resolv.conf"
+alias rr-hosts="subl /etc/hosts"
+alias rr-resolv="subl /etc/resolv.conf"
 alias rr-trash="sudo /Applications/TrashMe.app/Contents/MacOS/TrashMe"
 alias rr-mpv-config="open $HOME/.config/mpv/mpv.conf"
 alias rr-tibak="adb pull /sdcard/SpeedSoftware/Archives/TitaniumBackup.zip $HOME/Downloads/TitaniumBackup.zip"
@@ -137,9 +137,9 @@ alias rr-quarantine="sudo xattr -rd com.apple.quarantine"
 
 alias rr-peers="arp -a"
 
-alias rr-src-edit="st $DOTFILES"
-alias rr-zsh="st $HOME/.zshrc"
-alias rr-tldr="st $HOME/.tldrrc"
+alias rr-src-edit="subl $DOTFILES"
+alias rr-zsh="subl $HOME/.zshrc"
+alias rr-tldr="subl $HOME/.tldrrc"
 alias rr-source="source $HOME/.bash_profile"
 
 alias rr-dts-gen="cd '$HOME/Sandbox/android-dts-generator/dts-generator' && l && open ' dts-generator.sublime-project' && open build.gradle"
