@@ -246,6 +246,7 @@ function batpl() {
 
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
+test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 
 if test -x "$(which ip)"; then
 	alias ip='ip -human -color'

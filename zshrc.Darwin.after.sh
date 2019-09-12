@@ -2,7 +2,6 @@ source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/deving.sh"
 source "$DOTFILES/modules/homebrew.sh"
-source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 alias dns-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
