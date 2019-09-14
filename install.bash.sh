@@ -1,5 +1,5 @@
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
-# [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
+[ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
 BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.bashrc"
 
 echo > $BASHRC
