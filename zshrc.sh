@@ -247,13 +247,7 @@ function batpl() {
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
-
-if test -x "$(which ip)"; then
-	alias ip='ip -human -color'
-	alias ipm='command ip -human -color -brief'
-	alias ipa='command ip -human -color -all -details -stats'
-	alias ipj='command ip -human -all -details -stats -json'
-fi
+test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

@@ -86,6 +86,8 @@ function os() {
 	opkg find "*$@*"
 }
 
+test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
+
 
 
 # if test -d "/data/data/com.termux/files"; then
