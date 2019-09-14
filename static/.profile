@@ -79,7 +79,10 @@ export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
 
-function osearch() {
+export HISTFILESIZE="5000"
+export HISTSIZE="5000"
+
+function os() {
 	opkg find "*$@*"
 }
 
