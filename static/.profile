@@ -87,6 +87,7 @@ function os() {
 }
 
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
+test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 
 
 
