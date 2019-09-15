@@ -191,7 +191,7 @@ alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_2015
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
-alias ddu="du -ah -d 1 | sort -h"
+alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g'
 alias dust="dust -s"
 # test -x "$(which dust)" && alias ddu="dust -s"
 # alias .du="du -ah * -d 0 | sort -h"

@@ -7,7 +7,7 @@ alias pst="pstree -w"
 alias dns-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias cargobin='ln -sf ~/.cargo/bin/* /usr/local/bin'
 
-alias pfc='sudo micro /etc/pf.conf'
+alias pfc='sudo subl /etc/pf.conf'
 alias pfs='sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states'
 alias pfd='sudo pfctl -q -d -F all; pfs'
 alias pfu='sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs'
