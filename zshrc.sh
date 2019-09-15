@@ -177,7 +177,7 @@ export FZF_DEFAULT_OPTS="
 # --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
-alias bat="bat --color=always --italic-text=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never --language ruby"
+alias bat="bat --color=always --italic-text=always --paging=never --style='header,grid' --tabs=4 --theme='Monokai Extended Origin' --wrap=never"
 alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
