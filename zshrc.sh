@@ -37,6 +37,7 @@ export LESS="-Rgisj.5"
 # export LESSCHARDEF="utf-8"
 # export PAGER="less"
 # export MANPAGER="$PAGER"
+# export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | command bat -p -l man --pager \"less $LESS\"'"
 export MANOPT="--encoding=ascii"
 # export MAN_KEEP_FORMATTING="1"
 # export MANOPT="--no-hyphenation"
@@ -106,6 +107,7 @@ alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
+alias cargo="cargo --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty all --style monokai --timeout 5 --verbose"
@@ -191,7 +193,7 @@ alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_2015
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
-alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g'
+alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 alias dust="dust -s"
 # test -x "$(which dust)" && alias ddu="dust -s"
 # alias .du="du -ah * -d 0 | sort -h"

@@ -6,7 +6,7 @@
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix-daemon.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix-daemon.sh; fi
 # export PATH="/opt/pkg/bin:$PATH"
 # export PATH="/opt/pkg/sbin:$PATH"
-export PATH="/usr/local/share/dotnet:$PATH"
+# export PATH="/usr/local/share/dotnet:$PATH"
 
 export RMATE_HOST="localhost"
 export RMATE_PORT="52699"
