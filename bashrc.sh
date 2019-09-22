@@ -181,7 +181,7 @@ function rr-apksign() {
 	rm -f $1-signed.apk
 	rm -f $1-unsigned-aligned.apk
 	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
-	apksigner sign --ks $HOME/.android/release-key.jks --out $1-signed.apk $1-unsigned-aligned.apk
+	apksigner sign --ks $HOME/.android/release.keystore --out $1-signed.apk $1-unsigned-aligned.apk
 	apksigner verify $1-signed.apk
 }
 

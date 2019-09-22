@@ -93,6 +93,7 @@ unalias grep
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
+alias rmd="rm -rf"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
@@ -122,6 +123,7 @@ alias curl='curl --silent --connect-timeout 3'
 alias yarn='npx yarn'
 alias ember='npx ember'
 alias redis-cli='redis-cli --no-auth-warning'
+alias gradlew='./gradlew'
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
