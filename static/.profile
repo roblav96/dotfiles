@@ -86,6 +86,9 @@ export HISTSIZE="5000"
 function opkgs() {
 	opkg find "*$@*"
 }
+function opkgi() {
+	opkg info "*$@*"
+}
 
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
