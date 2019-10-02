@@ -83,7 +83,7 @@ export TERM="xterm-256color"
 export HISTFILESIZE="5000"
 export HISTSIZE="5000"
 
-function s() {
+function opkgs() {
 	opkg find "*$@*"
 }
 
