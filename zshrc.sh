@@ -103,7 +103,7 @@ alias o='open .'
 alias tl='tldr'
 alias g='git'
 alias gc='git clone --recurse-submodules'
-alias gp='git pull'
+alias gp='git pull --rebase'
 alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
@@ -111,11 +111,11 @@ alias grep="grep -iE --color=always"
 alias cargo="cargo --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --pretty all --style monokai --timeout 5 --verbose"
+alias http="echo; http --pretty all --style monokai --timeout 10 --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 alias dims='echo "$COLUMNS x $LINES"'
 alias dateiso='date -u +"%Y-%m-%d"'
-alias gs='git status'
+alias gs='git status -sb'
 alias gst='git standup'
 alias sedbat='sed -u -r "s/\"|\x27|\`//g" | bat -l rb'
 alias zbak='sudo cp ~/.zsh_history ~/..zsh_history; sudo cp ~/.z ~/..z'

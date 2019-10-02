@@ -26,6 +26,7 @@ alias idk="man -k"
 # alias s="subl -f"
 alias p="ps aux | grep -v grep | grep"
 alias k="killall -KILL"
+alias bat='cat'
 alias path="print -l $PATH"
 test -x "`which sudo`" && alias sudo="sudo "
 test -x "`which tsudo`" && alias sudo="tsudo "
@@ -82,7 +83,7 @@ export TERM="xterm-256color"
 export HISTFILESIZE="5000"
 export HISTSIZE="5000"
 
-function os() {
+function s() {
 	opkg find "*$@*"
 }
 

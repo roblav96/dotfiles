@@ -114,17 +114,17 @@ function bsls() {
 	echo "\n⭐ List services"
 	brew services list
 }
-function bsstop() {
+function bsdown() {
 	echo "\n⭐ Stop service '$@'"
-	brew services stop $@
+	brew services stop $@; sleep 1; brew services list
 }
-function bsstart() {
+function bsup() {
 	echo "\n⭐ Start service '$@'"
-	brew services start $@
+	brew services start $@; sleep 1; brew services list
 }
 function bsrestart() {
 	echo "\n⭐ Restart service '$@'"
-	brew services restart $@
+	brew services restart $@; sleep 1; brew services list
 }
 function bsrun() {
 	echo "\n⭐ Run service '$@'"
