@@ -162,10 +162,24 @@ alias rr-kava-ssh-bitcoind="ssh ubuntu@ec2-34-239-110-118.compute-1.amazonaws.co
 alias rr-kava-ssh-lnd-test="ssh ubuntu@ec2-54-165-221-164.compute-1.amazonaws.com"
 
 # export PATH="/Applications/Genymotion.app/Contents/MacOS/player.app/Contents/MacOS:$PATH"
-export GM_TABLET_ID="689122f5-b8d6-435c-87ee-43d7f3e13957"
-alias rr-gm-ls="genyshell -c 'devices list' && echo && VBoxManage list vms"
-alias rr-gm-stop="player -n $GM_TABLET_ID -x && adb kill-server"
-alias rr-gm-start="open -a player --args --vm-name $GM_TABLET_ID"
+# export GM_GOOGLE_PIXEL_3="689122f5-b8d6-435c-87ee-43d7f3e13957"
+# alias rr-gm-ls="genyshell -c 'devices list' && echo && VBoxManage list vms"
+# alias rr-gm-stop="player -n $GM_GOOGLE_PIXEL_3 -x && adb kill-server"
+# alias rr-gm-start="open -a player --args --vm-name $GM_GOOGLE_PIXEL_3"
+
+alias gmls='genyshell -c "devices list" && echo && VBoxManage list vms'
+# alias gmdown='osascript -e "quit app player"'
+alias gmup='open -a player --args --vm-name b04dd0ea-0ae7-46a3-b207-80885eccefc3'
+# gmdown() {
+# 	echo "\n👎 Stop Genymotion '$@'"
+# 	osascript -e 'quit app "player"'
+# 	adb kill-server
+# 	# player -x -n $@; adb kill-server
+# }
+# gmup() {
+# 	echo "\n👍 Start Genymotion '$@'"
+# 	open -a player --args --vm-name $@
+# }
 
 alias rr-telnet="echo && echo nj3nxCEBUX7BDDei && echo && telnet 192.168.1.1"
 alias rr-router="ssh -p 1337 admin@192.168.50.1"
