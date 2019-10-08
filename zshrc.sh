@@ -101,13 +101,13 @@ alias m='micro'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
-alias g='git'
 alias gc='git clone --recurse-submodules'
 alias gp='git pull --rebase'
 alias gh='github'
 alias k="killall -KILL"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
+alias g='grep'
 alias cargo="cargo --color=always"
 alias htop="htop -d 10"
 alias ipc="ipcalc -b"

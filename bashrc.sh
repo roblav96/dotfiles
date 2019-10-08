@@ -24,15 +24,16 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 # export M2="$M2_HOME/bin"
 # export PATH="$M2:$PATH"
 # export ADB_LIBUSB="1"
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export ANDROID_SDK="$ANDROID_SDK_ROOT"
-export ANDROID_HOME="$ANDROID_SDK_ROOT"
-export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
-export PATH="$ANDROID_SDK_ROOT/ndk-bundle:$PATH"
-export PATH="$ANDROID_SDK_ROOT/tools:$PATH"
-export PATH="$ANDROID_SDK_ROOT/tools/bin:$PATH"
-export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
-export PATH="$ANDROID_SDK_ROOT/build-tools/29.0.2:$PATH"
+export ANDROID_HOME="/usr/local/share/android-sdk"
+export ANDROID_SDK="$ANDROID_HOME"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
+export PATH="$ANDROID_HOME/ndk-bundle:$PATH"
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/tools/bin:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/build-tools/29.0.2:$PATH"
+export PATH="$ANDROID_HOME/emulator:$PATH"
 
 # export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
@@ -167,9 +168,11 @@ alias rr-kava-ssh-lnd-test="ssh ubuntu@ec2-54-165-221-164.compute-1.amazonaws.co
 # alias rr-gm-stop="player -n $GM_GOOGLE_PIXEL_3 -x && adb kill-server"
 # alias rr-gm-start="open -a player --args --vm-name $GM_GOOGLE_PIXEL_3"
 
-alias gmls='genyshell -c "devices list" && echo && VBoxManage list vms'
+alias gmls='genyshell -c "devices list"; echo; VBoxManage list vms'
 # alias gmdown='osascript -e "quit app player"'
-alias gmup='open -a player --args --vm-name b04dd0ea-0ae7-46a3-b207-80885eccefc3'
+alias gmup2='open -a player --args --vm-name a990e3c6-3d08-4b15-bbf7-206bf949d9c3'
+alias gmup3='open -a player --args --vm-name d8d8934a-1727-4127-b9a7-a0bb35866e8d'
+alias gmnet='adb shell settings put global http_proxy localhost:4200; adb reverse tcp:4200 tcp:4200'
 # gmdown() {
 # 	echo "\n👎 Stop Genymotion '$@'"
 # 	osascript -e 'quit app "player"'
