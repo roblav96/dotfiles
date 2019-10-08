@@ -224,9 +224,9 @@ function show() {
 	ls -lAph --color=always "$(readlink -f $WHICH)"
 }; compdef show=which
 
-# rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-rl() { test -x "$(which $@)" && ls -lAph --color=always $(readlink -f $(which $@)) || ls -lAph --color=always $(readlink -f $@) }
-ch() { echo; curl -s "https://cheat.sh/$@" }
+# function rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+function rl() { test -x "$(which $@)" && ls -lAph --color=always $(readlink -f $(which $@)) || ls -lAph --color=always $(readlink -f $@) }; compdef rl=which
+function ch() { echo; curl -s "https://cheat.sh/$@" }
 
 function npmi() {
 	npm i $@; npm i -D @types/$@
