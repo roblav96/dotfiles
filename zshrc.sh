@@ -86,6 +86,7 @@ bindkey '^[r' fzf-history-widget
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
+unalias h
 unalias ls
 unalias grep
 
@@ -124,6 +125,8 @@ alias yarn='npx yarn'
 alias ember='npx ember'
 alias redis-cli='redis-cli --no-auth-warning'
 alias gradlew='./gradlew'
+alias h="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
+alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -213,6 +216,10 @@ alias p="ps auxww | grep -v grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
+
+test -x $(which prettier) && alias prettier="prettier --config $HOME/.prettierrc"
+
+function pat() { prettier --parser $1 | bat -l $1 }
 
 function show() {
 	type -a $@
