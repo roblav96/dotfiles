@@ -105,7 +105,8 @@ alias gc='git clone --recurse-submodules'
 alias gp='git pull --rebase'
 alias gh='github'
 alias k="killall -KILL"
-alias ll="ls -laph --color=always"
+alias ls="ls --color=always"
+alias ll="ls -laph"
 alias grep="grep -iE --color=always"
 alias g='grep'
 alias htop="sudo htop -d 10"

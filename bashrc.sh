@@ -196,10 +196,6 @@ function rr-soundcloud() {
 	adb shell am start -a android.intent.action.VIEW -d $1
 }
 
-function rr-go-get() {
-	go get -u $1
-}
-
 # function rr-adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
 # function rr-emulator() { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }

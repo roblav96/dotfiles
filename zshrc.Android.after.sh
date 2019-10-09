@@ -10,15 +10,7 @@ fi
 unalias sudo
 alias sudo="tsudo "
 
-if test -d "$HOME/.go"; then
-	export GOPATH="$HOME/.go"
-	export GOBIN="$GOPATH/bin"
-	export PATH="$GOBIN:$PATH"
-fi
-
 test -x "$(which dropbear)" && alias dropbear='echo; getip; echo; dropbear -F'
-
-test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
 test -d "/system/bin" && export PATH="$PATH:/system/bin"

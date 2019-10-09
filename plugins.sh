@@ -14,6 +14,6 @@ sindresorhus/pure
 # geometry-zsh/geometry
 # zsh-users/zsh-syntax-highlighting
 zdharma/fast-syntax-highlighting
-# zdharma/zui
-# zdharma/zbrowse
+zdharma/zui
+zdharma/zbrowse
 zsh-users/zsh-history-substring-search
