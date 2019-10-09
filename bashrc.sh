@@ -110,7 +110,6 @@ alias rr-kodi-logs="tail -F $HOME/Library/Logs/kodi.log"
 
 alias rr-chrome="open -a Google\ Chrome --args"
 alias rr-tvn="cd $HOME/Downloads/tvnjviewer-2.8.3-bin-gnugpl && java -jar tightvnc-jviewer.jar"
-alias rr-hosts="subl /etc/hosts"
 alias rr-resolv="subl /etc/resolv.conf"
 alias rr-trash="sudo /Applications/TrashMe.app/Contents/MacOS/TrashMe"
 alias rr-mpv-config="open $HOME/.config/mpv/mpv.conf"
