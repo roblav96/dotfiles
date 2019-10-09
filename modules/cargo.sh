@@ -1,12 +1,12 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-alias cargo='cargo --color always'
-alias csr='cargo install --force'
-alias cin='cargo install --force'
-alias cls='cargo install-update -al'
-alias cout='cargo install-update -al'
-alias cupg='cargo install-update -a'
-alias ccd='cd ~/.cargo/bin'
-alias cln='ln -sf ~/.cargo/bin/* /usr/local/bin'
+alias cargo="cargo --color always"
+alias csr="cargo install --force"
+alias cin="cargo install --force"
+alias cls="cargo install-update -al"
+alias cout="cargo install-update -al"
+alias cupg="cargo install-update -a"
+alias ccd="cd $HOME/.cargo/bin"
+alias cln="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 
-test -x "$(which procs)" && alias procs='sudo procs'
+test -x "$(which procs)" && alias procs="sudo procs"

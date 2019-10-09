@@ -118,7 +118,7 @@ alias dateiso='date -u +"%Y-%m-%d"'
 alias gs='git status -sb'
 alias gst='git standup'
 alias sedbat='sed -u -r "s/\"|\x27|\#|\`//g" | bat -l rb'
-alias zbak='sudo cp ~/.zsh_history ~/..zsh_history; sudo cp ~/.z ~/..z'
+alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias curl='curl --silent --connect-timeout 3'
 alias yarn='npx yarn'
 alias ember='npx ember'
@@ -255,6 +255,7 @@ test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
 test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
 test -x "$(which dotnet)" && source "$DOTFILES/modules/dotnet.sh"
+test -d "$HOME/repos/dochub" && source "$DOTFILES/modules/dochub.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

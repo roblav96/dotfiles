@@ -10,5 +10,5 @@ alias color-color="echo '$color'"
 
 function color-clr() {
 	local OUTPUT="$(echo $1 | head -c -5)"
-	color-tool create-clr $1 ~/Downloads/$OUTPUT.clr
+	color-tool create-clr $1 $HOME/Downloads/$OUTPUT.clr
 }
