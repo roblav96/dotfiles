@@ -6,7 +6,6 @@
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix-daemon.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix-daemon.sh; fi
 # export PATH="/opt/pkg/bin:$PATH"
 # export PATH="/opt/pkg/sbin:$PATH"
-# export PATH="/usr/local/share/dotnet:$PATH"
 
 export RMATE_HOST="localhost"
 export RMATE_PORT="52699"
@@ -29,7 +28,7 @@ export ANDROID_SDK="$ANDROID_HOME"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 export ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
 export PATH="$ANDROID_HOME/ndk-bundle:$PATH"
-export PATH="$ANDROID_HOME/tools:$PATH"
+# export PATH="$ANDROID_HOME/tools:$PATH"
 export PATH="$ANDROID_HOME/tools/bin:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/build-tools/29.0.2:$PATH"
@@ -39,8 +38,6 @@ export PATH="$ANDROID_HOME/emulator:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # export PATH="/usr/local/opt/xctool/libexec/bin:$PATH"
 # export PATH="/usr/local/lib/node_modules/ffprobe-binaries/bin/darwin/x64:$PATH"
-
-# export PATH="/usr/local/share/dotnet:~/.dotnet/tools:$PATH"
 
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # export MYPYPATH="/Applications/Sublime Text.app/Contents/MacOS"
@@ -70,19 +67,6 @@ export PATH="$ANDROID_HOME/emulator:$PATH"
 # export NODE_PATH="$HOME/.npm/fsevents"
 # export PATH="$HOME/.npm-global/bin:$PATH"
 # export NPM_CONFIG_PREFIX="$HOME/.npm-global"
-
-# export PATH="/usr/local/opt/go/bin:$PATH"
-if test -d "$HOME/.go"; then
-	export GOPATH="$HOME/.go"
-	export GOBIN="$GOPATH/bin"
-	export PATH="$GOBIN:$PATH"
-fi
-# export PATH="/usr/local/opt/glide/bin:$PATH"
-# export GLIDE_HOME="/usr/local/opt/glide"
-
-test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
-
-test -d "$HOME/.dotnet/tools" && export PATH="$HOME/.dotnet/tools:$PATH"
 
 # export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 # export PATH="/Applications/Google Chrome.app/Contents/MacOS:$PATH"

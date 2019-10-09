@@ -5,7 +5,6 @@ source "$DOTFILES/modules/homebrew.sh"
 
 alias pst="pstree -w"
 alias dns-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias cargobin='ln -sf ~/.cargo/bin/* /usr/local/bin'
 
 alias pfc='sudo subl /etc/pf.conf'
 alias pfs='sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states'

@@ -97,7 +97,7 @@ alias rmd="rm -rf"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
-alias m='micro'
+alias m='nano'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
@@ -108,8 +108,7 @@ alias k="killall -KILL"
 alias ll="ls -laph --color=always"
 alias grep="grep -iE --color=always"
 alias g='grep'
-alias cargo="cargo --color=always"
-alias htop="htop -d 10"
+alias htop="sudo htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty all --style monokai --timeout 10 --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
@@ -207,7 +206,7 @@ alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
-alias p="ps auxww | grep -v grep | grep"
+alias p="sudo ps auxww | grep -v grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
@@ -252,6 +251,9 @@ test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
+test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
+test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
+test -x "$(which dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
