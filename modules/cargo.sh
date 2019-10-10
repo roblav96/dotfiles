@@ -6,6 +6,7 @@ alias cin="cargo install --force"
 alias cls="cargo install-update -al"
 alias cout="cargo install-update -al"
 alias cupg="cargo install-update -a"
+alias ccat="bat $DOTFILES/modules/cargo.sh"
 alias ccd="cd $HOME/.cargo/bin"
 alias cln="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 

@@ -184,7 +184,8 @@ export FZF_DEFAULT_OPTS="
 # --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
-alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid,numbers' --theme='Monokai Extended Origin'"
+alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid' --theme='Monokai Extended Origin'"
+alias batt="bat --style='header,grid,numbers'"
 alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
@@ -253,7 +254,7 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
 }
 
-function batpl() {
+function batplist() {
 	plistutil -i $@ | bat -l xml
 }; compdef batpl=cat
 

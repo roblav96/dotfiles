@@ -85,11 +85,11 @@ function bci() {
 
 function bcat() {
 	echo "\n⭐ Cat '$@'"
-	brew cat $@ | bat -l=ruby
+	brew cat $@ | bat --language ruby
 }
 function bccat() {
 	echo "\n⭐ Cat cask '$@'"
-	brew cask cat $@ | bat -l=ruby
+	brew cask cat $@ | bat --language ruby
 }
 
 function bopen() {
