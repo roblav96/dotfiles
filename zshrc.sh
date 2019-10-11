@@ -233,7 +233,7 @@ alias p="ps auxww | grep -v grep | grep"
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-test -x $(which prettier) && alias prettier="prettier --config $HOME/.prettierrc"
+test -x "$(which prettier)" && alias prettier="prettier --config $HOME/.prettierrc"
 
 function pat() { prettier --parser $1 | bat -l $1 }
 
