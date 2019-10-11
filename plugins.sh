@@ -4,6 +4,7 @@
 caarlos0/zsh-mkc
 changyuheng/fz
 # changyuheng/zsh-interactive-cd
+Tarrasch/zsh-bd
 mafredri/zsh-async
 trapd00r/LS_COLORS kind:fpath
 zsh-users/zaw

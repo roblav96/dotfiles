@@ -1,3 +1,4 @@
+export RUBYOPT="--disable-did_you_mean"
 export DH="$HOME/repos/dochub"
 
 alias dh="cd $DH"

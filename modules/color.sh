@@ -1,12 +1,14 @@
-export ZSH_SPECTRUM_TEXT="$(uname -a | head -c 49)"
+export ZSH_SPECTRUM_TEXT="$(uname -a | head -c 50)"
 
-alias color-spectrum="spectrum_ls"
-alias color-spectrum-bg="spectrum_bls"
+alias colors="spectrum_ls | head -n 17"
+alias colors-bg="spectrum_bls | head -n 17"
+alias colors-spectrum="spectrum_ls"
+alias colors-spectrum-bg="spectrum_bls"
 
-alias color-FG="echo '$FG'"
-alias color-BG="echo '$BG'"
-alias color-FX="echo '$FX'"
-alias color-color="echo '$color'"
+# alias color-FG="echo '$FG'"
+# alias color-BG="echo '$BG'"
+# alias color-FX="echo '$FX'"
+# alias color-color="echo '$color'"
 
 function color-clr() {
 	local OUTPUT="$(echo $1 | head -c -5)"

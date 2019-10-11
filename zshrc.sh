@@ -5,17 +5,26 @@
 # ⌚ ⌛ ⌨ ⏏ ⏩ ⏪ ⏫ ⏬ ⏭ ⏮ ⏯ ⏰ ⏱ ⏲ ⏳ ⏸ ⏹ ⏺ ◽ ◾ ☂ ☃ ☄ ☔ ☕ ☘ ☠ ☢ ☣ ☦ ☪ ☮ ☯ ☸ ☹ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♿ ⚒ ⚓ ⚔ ⚖ ⚗ ⚙ ⚛ ⚜ ⚡ ⚪ ⚫ ⚰ ⚱ ⚽ ⚾ ⛄ ⛅ ⛈ ⛎ ⛏ ⛑ ⛓ ⛔ ⛩ ⛪ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛷ ⛸ ⛹ ⛺ ⛽ ✅ ✊ ✋ ✍ ✝ ✡ ✨ ❌ ❎ ❓ ❔ ❕ ❗ ❣ ➕ ➖ ➗ ➰ ➿ ⬛ ⬜ ⭐ ⭕
 #
 # 1 char
-# ❌ ⛔ ⦁ ⬤ ● ⧭ ◉ ➤ ► ∎ ✚ ☗ █ ▶ ➜ ➔ → ✘ ■ ◆ ✜ ✦ ⌗ ⌦
+# ❌ ⛔ ⬤ ● ⧭ ◉ ➤ ► ✚ ☗ █ ▶ ➔ ➜ → ✘ ■ ◆ ✜ ✦ ⌗ ⌦ ⦁ ∎
 #
 # 2 char
 # 🛑 🔴 🚫 ⚠️ ⚫︎ ◼︎ 𝓓 ♦︎ ☁︎ ●︎ ✖︎ ⎮︎
 #
+# arrow ➔
+# arrow-rounded ➜
+# arrow-thin →
+# ballot ✘
 # block █
-# arrow ▶
-# square █
+# check ✔
 # circle ●
+# cross ✚
 # diamond ◆
 # dot ◉
+# multiply ✖
+# pointer ➤
+# square ■
+# triangle ►
+# triangle-small ▶
 #
 
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
@@ -26,6 +35,9 @@ export PURE_CMD_MAX_EXEC_TIME="1"
 export KEYTIMEOUT="25"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
+
+# export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
@@ -136,6 +148,9 @@ export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 alias l="exa --all --long --header --classify --group --modified --color-scale --ignore-glob='.git|.DS_Store'"
 alias la="exa --all --long --header --classify --group --modified --color-scale --extended --ignore-glob='.git|.DS_Store'"
 alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules'"
+alias lrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=3 --ignore-glob='.git|.DS_Store|node_modules'"
+alias lrrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=4 --ignore-glob='.git|.DS_Store|node_modules'"
+alias lrrrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=5 --ignore-glob='.git|.DS_Store|node_modules'"
 alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules'"
 alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --extended"
 alias lm="exa --all --long --header --classify --group --modified --color-scale --sort=modified --ignore-glob='.git|.DS_Store'"
