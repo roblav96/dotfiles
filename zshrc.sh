@@ -273,13 +273,14 @@ function batplist() {
 	plistutil -i $@ | bat -l xml
 }; compdef batpl=cat
 
-test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
-test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
-test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
-test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
-test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
+test -x "$(which apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
 test -x "$(which dotnet)" && source "$DOTFILES/modules/dotnet.sh"
+test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.zsh"
+test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
+test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
+test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
+test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -d "$HOME/repos/dochub" && source "$DOTFILES/modules/dochub.sh"
 
 # autoload -U promptinit; promptinit
