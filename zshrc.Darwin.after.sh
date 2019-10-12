@@ -7,7 +7,7 @@ alias pst="pstree -w"
 
 alias hosts="sudo st /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias rmtrash="ls -lAph $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
+alias rmtrash="exa -a -h -l -F -g -m $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
 alias prettierrc="subl $HOME/.prettierrc"
 
 alias pfc='sudo subl /etc/pf.conf'
