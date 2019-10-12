@@ -1,8 +1,10 @@
 export CLICOLOR="1"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
 
-test -x "$(which nano)" && export EDITOR="nano"
-test -x "$(which subl)" && export EDITOR="subl"
+if test -x "$(which nano)"; then
+	export EDITOR="nano"
+	export VEDITOR="nano"
+fi
 
 # export FZF_BASE="$HOME/.fzf"
 # [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh

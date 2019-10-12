@@ -3,8 +3,10 @@ export SHELL="$(which zsh)"
 export CLICOLOR="1"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
 
-test -x "$(which nano)" && export EDITOR="nano"
-test -x "$(which subl)" && export EDITOR="subl"
+if test -x "$(which nano)"; then
+	export EDITOR="nano"
+	export VEDITOR="nano"
+fi
 
 test -d "/data/data/com.termux/files/usr/share/fzf" && export FZF_BASE="/data/data/com.termux/files/usr/share/fzf"
 
