@@ -3,7 +3,7 @@
 # alias cargo="cargo --color always"
 alias cs="cargo ssearch"
 alias cin="cargo install --force"
-alias cls="ls -lAph $HOME/.cargo/bin"
+alias cls="ls -1 $HOME/.cargo/bin"
 alias cout="cargo install-update -al"
 alias cupd="cargo install-update -a"
 alias ccat="bat $DOTFILES/modules/cargo.sh"
