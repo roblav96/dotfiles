@@ -176,10 +176,10 @@ alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exc
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --smart-case"
-alias r="rg --smart-case --pretty --max-columns=256 --no-messages --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --smart-case --pretty --max-columns=256 --no-messages --glob='!.git' --glob='!.DS_Store' --stats -uu"
-alias raa="rg --smart-case --pretty --max-columns=256 --no-messages --glob='!.git' --glob='!.DS_Store' --stats -uu --follow"
-alias raaa="rg --smart-case --pretty --max-columns=256 --no-messages --glob='!.git' --glob='!.DS_Store' --stats -uuu --follow"
+alias r="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uu"
+alias raa="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uu --follow"
+alias raaa="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uuu --follow"
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }
