@@ -4,7 +4,11 @@ source "$DOTFILES/modules/deving.sh"
 source "$DOTFILES/modules/homebrew.sh"
 
 alias pst="pstree -w"
-alias dns-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+alias hosts="sudo st /etc/hosts"
+alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias rmtrash="ls -lAph $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
+alias prettierrc="subl $HOME/.prettierrc"
 
 alias pfc='sudo subl /etc/pf.conf'
 alias pfs='sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states'

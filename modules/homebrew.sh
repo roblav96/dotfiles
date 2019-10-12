@@ -122,6 +122,10 @@ function bsup() {
 	echo "\n⭐ Start service '$@'"
 	brew services restart $@; brew services list
 }
+function bsre() {
+	echo "\n⭐ Restart service '$@'"
+	brew services restart $@; brew services list
+}
 function bsrun() {
 	echo "\n⭐ Run service '$@'"
 	brew services run $@

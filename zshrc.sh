@@ -110,7 +110,7 @@ alias rmd="rm -rf"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
-alias m='nano'
+alias e='nano'
 alias n='npm'
 alias o='open .'
 alias tl='tldr'
@@ -165,7 +165,9 @@ alias lbraa="exa --all --long --header --classify --group --modified --color-sca
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
 alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --follow"
-# alias ffa="fd --color=always --hidden --no-ignore --fixed-strings --show-errors --exclude='.git' --exclude='.DS_Store' --follow"
+alias fg="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
+alias fga="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store'"
+alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
 # function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
@@ -215,16 +217,14 @@ alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
 alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
-alias dust="dust -s"
-# test -x "$(which dust)" && alias ddu="dust -s"
+test -x "$(which dust)" && alias dust="dust -s"
+test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
 alias ddf="df -h"
 # alias .ping="ping google.com"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
-
-alias hosts="sudo $EDITOR /etc/hosts"
 
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
@@ -233,7 +233,7 @@ alias p="ps auxww | grep -v grep | grep"
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-test -x "$(which prettier)" && alias prettier="prettier --config $HOME/.prettierrc"
+test -x "$(which prettier)" && alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc"
 
 function pat() { prettier --parser $1 | bat -l $1 }
 
