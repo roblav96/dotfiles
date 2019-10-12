@@ -106,6 +106,7 @@ unalias grep
 alias rr="npm run "
 alias sudo="sudo "
 alias idk="man -k"
+alias rma="rm -rf"
 alias rmd="rm -rf"
 alias rmf="rm -rf"
 # alias cp="cp -v"
