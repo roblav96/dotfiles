@@ -238,7 +238,7 @@ function pat() { prettier --parser $1 | bat -l $1 }
 
 function show() {
 	type -a $@
-	if type -w $@ | grep -q -E function$; then
+	if type -w $@ | grep -q -E "function"; then
 		type -f $@ | bat -l sh
 		return 0
 	fi
