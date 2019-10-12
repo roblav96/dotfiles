@@ -1,9 +1,9 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-alias cargo="cargo --color always"
+# alias cargo="cargo --color always"
 alias cs="cargo ssearch"
 alias cin="cargo install --force"
-alias cls="cargo install-update -al"
+alias cls="ls -lAph $HOME/.cargo/bin"
 alias cout="cargo install-update -al"
 alias cupd="cargo install-update -a"
 alias ccat="bat $DOTFILES/modules/cargo.sh"
