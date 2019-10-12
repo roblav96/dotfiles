@@ -242,10 +242,15 @@ function show() {
 		type -f $@ | bat -l sh
 		return 0
 	fi
-	WHICH=$(which $@)
+	WHICH="$(which $@)"
 	[ -z "$WHICH" ] || [ ! -f "$WHICH" ] && return 0
-	ls -lAph --color=always "$WHICH"
-	ls -lAph --color=always "$(readlink -f $WHICH)"
+	if test -x "$(which exa)"; then
+		exa -a -l -F -g -m "$WHICH"
+		exa -a -l -F -g -m "$(readlink -f $WHICH)"
+	else
+		ls -lAph --color=always "$WHICH"
+		ls -lAph --color=always "$(readlink -f $WHICH)"
+	fi
 }; compdef show=which
 
 # function rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
