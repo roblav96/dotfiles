@@ -12,4 +12,4 @@ alias cln="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 
 test -x "$(which procs)" && alias procs="sudo procs"
 
-function ci() { cargo info $1 | bat -l make  }
+function ci() { cargo info $1 | bat -l make }
