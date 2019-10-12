@@ -141,6 +141,7 @@ alias redis-cli='redis-cli --no-auth-warning'
 alias gradlew='./gradlew'
 alias h="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
+alias dotcd="cd $DOTFILES"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
