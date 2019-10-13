@@ -4,12 +4,12 @@
 # export HOMEBREW_NO_ANALYTICS="1"
 export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
-function bupdate() {
+function bupd() {
 	echo "\n⭐ Updating"
 	brew update
 }
 
-function boutdated() {
+function bout() {
 	echo "\n⭐ Outdated formulas"
 	brew outdated
 	echo "\n⭐ Outdated casks"
@@ -28,7 +28,7 @@ function bfs() {
 	brew list $@
 }
 
-function blspinned() {
+function blsp() {
 	echo "\n⭐ List pinned formulas"
 	brew list --versions --pinned
 }
@@ -40,28 +40,28 @@ function bs() {
 	brew search $@ | grep "$@|"
 }
 
-function binstall() {
+function bin() {
 	echo "\n⭐ Install '$@'"
 	brew install $@
 }
-function breinstall() {
+function brein() {
 	echo "\n⭐ Reinstall '$@'"
 	brew reinstall $@
 }
-function bcinstall() {
+function bcin() {
 	echo "\n⭐ Install cask '$@'"
 	brew cask install $@
 }
-function bcreinstall() {
+function bcrein() {
 	echo "\n⭐ Reinstall cask '$@'"
 	brew cask reinstall $@
 }
 
-function bupgrade() {
+function bupg() {
 	echo "\n⭐ Upgrade '$@'"
 	brew upgrade $@
 }
-function bcupgrade() {
+function bcupg() {
 	echo "\n⭐ Upgrade cask '$@'"
 	brew cask upgrade $@
 }

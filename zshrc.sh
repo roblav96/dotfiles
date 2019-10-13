@@ -257,7 +257,7 @@ function show() {
 }; compdef show=which
 
 # function rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-function rl() { test -x "$(which $@)" && ls -lAph --color=always "$(readlink -f $(which $@))" || ls -lAph --color=always "$(readlink -f $@)" }
+function rl() { test -x "$(which $@)" && exa -a -l -F -g -m "$(readlink -f $(which $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
 function ch() { echo; curl -s "https://cheat.sh/$@" }
 
 function npmi() {
@@ -289,6 +289,7 @@ test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
+test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
 test -d "$HOME/repos/dochub" && source "$DOTFILES/modules/dochub.sh"
 
 # autoload -U promptinit; promptinit
