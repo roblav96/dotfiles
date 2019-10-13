@@ -264,7 +264,7 @@ function npmi() {
 	npm i $@; npm i -D @types/$@
 }
 function npmv() {
-	npm info $@ -j | j '.time'
+	npm info -j $@ | json '.time'
 }
 
 function rename() {
