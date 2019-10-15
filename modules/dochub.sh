@@ -8,3 +8,4 @@ alias dhdown="brew services stop mysql; brew services stop redis; brew services 
 alias dhsidekiq="cd $DH; bundle exec sidekiq | sedbat"
 alias dhrails="cd $DH; rails server"
 alias dhember="cd $DH/frontend; ember serve"
+alias dhfrontend="cd $DH/frontend; ember serve"
