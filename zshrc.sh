@@ -124,6 +124,7 @@ alias ls="ls --color=always"
 alias ll="ls -laph"
 alias grep="grep -iE --color=always"
 alias g='grep'
+alias rc='rclone'
 alias htop="sudo htop -d 10"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty all --style monokai --timeout 10 --verbose"
