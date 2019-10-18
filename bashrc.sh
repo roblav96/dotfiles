@@ -12,6 +12,7 @@ export RMATE_PORT="52699"
 
 # export DEBUG="*,-babel*"
 export NODE_OPTIONS="--max-old-space-size=8192"
+export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
 export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
 export TS_NODE_PRETTY="true"
 export YARN_CACHE_FOLDER="$HOME/.yarn"
