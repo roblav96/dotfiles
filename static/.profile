@@ -93,6 +93,8 @@ function opkgi() {
 
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
+test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
+test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
 
 
 

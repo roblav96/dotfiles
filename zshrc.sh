@@ -214,12 +214,6 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
-alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io | json '. |= del(.readme)'"
-alias cachefly="wget -O /dev/null https://cachefly.cachefly.net/100mb.test"
-alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
-alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
-alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
-
 alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 test -x "$(which dust)" && alias dust="dust -s"
 test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
@@ -292,6 +286,7 @@ test -x "$(which launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
+test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
 test -d "$HOME/repos/dochub" && source "$DOTFILES/modules/dochub.sh"
 
 # autoload -U promptinit; promptinit
