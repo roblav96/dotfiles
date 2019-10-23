@@ -80,8 +80,9 @@ export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
 
-export HISTFILESIZE="5000"
-export HISTSIZE="5000"
+export HISTFILESIZE="5000000"
+export HISTSIZE="5000000"
+export SAVEHIST="1000000"
 
 function opkgs() {
 	opkg find "*$@*"

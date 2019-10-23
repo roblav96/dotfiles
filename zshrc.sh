@@ -275,7 +275,7 @@ function rename() {
 
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 function fprobe() {
-	ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$1" | json
+	ffprobe -pretty -loglevel quiet -print_format json -probesize 1000000 -analyzeduration 1000000 -show_format -show_streams "$@" | json
 }
 
 function batplist() {
