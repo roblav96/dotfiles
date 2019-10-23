@@ -82,6 +82,10 @@ antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFO
 # setopt list_ambiguous
 setopt rm_star_silent
 
+export HISTSIZE="5000000"
+export SAVEHIST="1000000"
+setopt hist_ignore_all_dups
+
 eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
 # LS_COLORS+="di=38;5;30"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -189,9 +193,6 @@ alias raaa="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }
 
-export HISTSIZE="500000"
-export SAVEHIST="100000"
-
 export FZF_DEFAULT_OPTS="
 	--no-multi
 	--tabstop=4
@@ -209,7 +210,7 @@ alias batt="bat --style='header,grid,numbers'"
 alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
-export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;37:2;37'
+export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
