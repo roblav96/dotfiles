@@ -148,6 +148,7 @@ alias h="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
 alias dotmodules="batt $DOTFILES/modules/* -l sh"
+alias vinspect="FORCE_COLOR=0 vue inspect"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -256,13 +257,6 @@ function show() {
 function rl() { test -x "$(which $@)" && exa -a -l -F -g -m "$(readlink -f $(which $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
 function ch() { echo; curl -s "https://cheat.sh/$@" }
 
-function npmi() {
-	npm i $@; npm i -D @types/$@
-}
-function npmv() {
-	npm info -j $@ | json '.time'
-}
-
 function rename() {
 	fd "$1" --no-ignore -x mv {} $2{}
 }
@@ -283,11 +277,11 @@ test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which launchctl)" && source "$DOTFILES/modules/launchctl.sh"
+test -x "$(which npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
-test -d "$HOME/repos/dochub" && source "$DOTFILES/modules/dochub.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

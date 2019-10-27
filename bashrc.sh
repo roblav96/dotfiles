@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+export JAVA_HOME="$(/usr/libexec/java_home)"
+export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
+export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
+# export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+
+export EDITOR="subl -w"
+export VEDITOR="subl -w"
+export BUNDLE_EDITOR="subl -w"
+
 # local HOME=/Users/roblav96
 
 # if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
@@ -12,13 +21,10 @@ export RMATE_PORT="52699"
 
 # export DEBUG="*,-babel*"
 export NODE_OPTIONS="--max-old-space-size=8192"
-export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
-export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
 export TS_NODE_PRETTY="true"
 export YARN_CACHE_FOLDER="$HOME/.yarn"
 
 export MONO_GAC_PREFIX="/usr/local"
-export JAVA_HOME="$(/usr/libexec/java_home)"
 # export PATH="$JAVA_HOME/bin:$PATH"
 # export PATH="$JAVA_HOME/jre/bin:$PATH"
 # export M2_HOME="/usr/local/Cellar/maven/3.6.0/libexec"
@@ -76,10 +82,6 @@ export PATH="$ANDROID_HOME/emulator:$PATH"
 # export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 # export PATH="/usr/local/bin:$PATH"
 # export PATH="$PATH:/usr/local/bin"
-
-export EDITOR="subl -w"
-export VEDITOR="subl -w"
-export BUNDLE_EDITOR="subl -w"
 
 export CLICOLOR="1"
 # export LSCOLORS="exfxcxdxbxegedabagacad"
