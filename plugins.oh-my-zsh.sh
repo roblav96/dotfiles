@@ -1,26 +1,23 @@
 robbyrussell/oh-my-zsh
-robbyrussell/oh-my-zsh path:plugins/aws
-robbyrussell/oh-my-zsh path:plugins/cargo
+# robbyrussell/oh-my-zsh path:plugins/aws
+# robbyrussell/oh-my-zsh path:plugins/cargo
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/compleat
 robbyrussell/oh-my-zsh path:plugins/extract
-robbyrussell/oh-my-zsh path:plugins/fd
+# robbyrussell/oh-my-zsh path:plugins/fd
 robbyrussell/oh-my-zsh path:plugins/fzf
 robbyrussell/oh-my-zsh path:plugins/git-extras
 robbyrussell/oh-my-zsh path:plugins/gitfast
 robbyrussell/oh-my-zsh path:plugins/github
-robbyrussell/oh-my-zsh path:plugins/golang
-robbyrussell/oh-my-zsh path:plugins/history
-robbyrussell/oh-my-zsh path:plugins/httpie
+# robbyrussell/oh-my-zsh path:plugins/golang
+# robbyrussell/oh-my-zsh path:plugins/history
+# robbyrussell/oh-my-zsh path:plugins/httpie
 robbyrussell/oh-my-zsh path:plugins/last-working-dir
-robbyrussell/oh-my-zsh path:plugins/man
 robbyrussell/oh-my-zsh path:plugins/nmap
-robbyrussell/oh-my-zsh path:plugins/node
-robbyrussell/oh-my-zsh path:plugins/npm
 robbyrussell/oh-my-zsh path:plugins/perms
-robbyrussell/oh-my-zsh path:plugins/python
+# robbyrussell/oh-my-zsh path:plugins/python
 robbyrussell/oh-my-zsh path:plugins/redis-cli
-robbyrussell/oh-my-zsh path:plugins/rust
+# robbyrussell/oh-my-zsh path:plugins/rust
 robbyrussell/oh-my-zsh path:plugins/safe-paste
 robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemadmin

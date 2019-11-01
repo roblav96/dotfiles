@@ -102,7 +102,6 @@ bindkey '^[r' fzf-history-widget
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
-unalias h
 unalias ls
 unalias grep
 
