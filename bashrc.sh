@@ -109,7 +109,6 @@ alias rr-grw="./gradlew"
 alias rr-htop="sudo htop"
 alias rr-find="find . -iname "
 alias rr-clear="clear && printf '\e[3J'"
-alias rr-dstore="find . -name '*.DS_Store*' -type f -delete"
 alias rr-kodi-logs="tail -F $HOME/Library/Logs/kodi.log"
 
 alias rr-chrome="open -a Google\ Chrome --args"

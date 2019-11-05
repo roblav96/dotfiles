@@ -75,6 +75,7 @@ source <(antibody init)
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
+eval $(starship init zsh)
 
 # autoload -U +X compinit && compinit
 # autoload -U +X bashcompinit && bashcompinit
@@ -120,7 +121,9 @@ alias n='npm'
 alias o='open .'
 alias tl='tldr'
 alias gc='git clone --recurse-submodules'
-alias gp='git pull --rebase'
+alias gf='git fetch'
+alias gp='git pull'
+alias gpr='git pull --rebase'
 alias gh='github'
 alias k="killall -KILL"
 alias ls="ls --color=always"
