@@ -11,9 +11,9 @@ function bupd() {
 
 function bout() {
 	echo "\n⭐ Outdated formulas"
-	brew outdated
+	brew outdated --verbose
 	echo "\n⭐ Outdated casks"
-	brew cask outdated
+	brew cask outdated --verbose --greedy | grep -v latest
 }
 
 function bls() {
