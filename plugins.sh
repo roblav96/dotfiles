@@ -11,7 +11,7 @@ zsh-users/zaw
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 # ████  KEEP AT BOTTOM  ████
-# sindresorhus/pure
+sindresorhus/pure
 # geometry-zsh/geometry
 # zsh-users/zsh-syntax-highlighting
 zdharma/fast-syntax-highlighting

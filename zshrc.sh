@@ -75,7 +75,7 @@ source <(antibody init)
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
-eval $(starship init zsh)
+# eval $(starship init zsh)
 
 # autoload -U +X compinit && compinit
 # autoload -U +X bashcompinit && bashcompinit
