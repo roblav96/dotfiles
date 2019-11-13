@@ -132,6 +132,7 @@ alias rr-source="source $HOME/.bash_profile"
 alias rr-dts-gen="cd '$HOME/Sandbox/android-dts-generator/dts-generator' && l && open ' dts-generator.sublime-project' && open build.gradle"
 alias rr-adb-tv="adb kill-server && adb connect 192.168.1.2:5555 && adb devices"
 alias rr-adb-phone="adb kill-server && adb connect 192.168.1.5:5555 && adb devices"
+alias rr-adb-settings="echo '\n⭐ System'; adb shell settings list system; echo '\n⭐ Secure'; adb shell settings list secure; echo '\n⭐ Global'; adb shell settings list global"
 
 # alias tl="tldr"
 # alias dk="docker"
