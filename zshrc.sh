@@ -209,7 +209,7 @@ export FZF_DEFAULT_OPTS="
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid' --theme='Monokai Extended Origin'"
-alias batt="bat --style='header,grid,numbers'"
+alias batl="bat --style='header,grid,numbers'"
 alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
