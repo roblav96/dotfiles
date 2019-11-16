@@ -7,5 +7,5 @@ function npmi() {
 	npm i $@; npm i -D @types/$@
 }
 function npmv() {
-	npm info -j $@ | json '.time'
+	npm info -j $@ | jq --indent 4 --color-output '.time'
 }

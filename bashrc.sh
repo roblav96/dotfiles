@@ -88,6 +88,8 @@ export CLICOLOR="1"
 # export LSCOLORS="exfxfeaeBxxehehbadacea"
 # export LSCOLORS="ExFxBxDxCxegedabagacad"
 
+alias denon="curl --insecure 'https://192.168.50.135:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l xml"
+
 alias rr-k="killall node"
 alias rr-npmi="npm install"
 alias rr-npml="npm list --depth=0"
@@ -108,7 +110,6 @@ alias rr-gr="gradle"
 alias rr-grw="./gradlew"
 alias rr-htop="sudo htop"
 alias rr-find="find . -iname "
-alias rr-clear="clear && printf '\e[3J'"
 alias rr-kodi-logs="tail -F $HOME/Library/Logs/kodi.log"
 
 alias rr-chrome="open -a Google\ Chrome --args"

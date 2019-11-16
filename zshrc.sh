@@ -59,6 +59,7 @@ export DEBUG_COLORS="1"
 export DISABLE_OPENCOLLECTIVE="1"
 export FORCE_COLOR="1"
 export SUPPRESS_SUPPORT="1"
+export DISABLE_AUTO_UPDATE="1"
 
 # if [ $ITERM_SESSION_ID ]; then
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
@@ -133,7 +134,7 @@ alias g='grep'
 alias rc='rclone'
 alias htop="sudo htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --pretty all --style monokai --timeout 10 --verbose"
+alias http="echo; http --pretty all --style monokai --timeout 3 --verbose"
 alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 alias dims='echo "$COLUMNS x $LINES"'
 alias dateiso='date -u +"%Y-%m-%d"'
@@ -151,6 +152,7 @@ alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
 alias dotmodules="batt $DOTFILES/modules/* -l sh"
 alias vinspect="FORCE_COLOR=0 vue inspect"
+alias clear="clear && printf '\e[3J'"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
