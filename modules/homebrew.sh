@@ -85,11 +85,11 @@ function bci() {
 
 function bcat() {
 	echo "\n⭐ Cat '$@'"
-	brew cat $@ | bat --language ruby
+	brew cat $@ | prettier --parser ruby --config ~/.prettierrc | bat -l rb
 }
 function bccat() {
 	echo "\n⭐ Cat cask '$@'"
-	brew cask cat $@ | bat --language ruby
+	brew cask cat $@ | prettier --parser ruby --config ~/.prettierrc | bat -l rb
 }
 
 function bopen() {
