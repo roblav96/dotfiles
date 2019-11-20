@@ -27,6 +27,12 @@
 # triangle-small ▶
 #
 
+export ADBLOCK="1"
+export DEBUG_COLORS="1"
+export DISABLE_OPENCOLLECTIVE="1"
+export FORCE_COLOR="1"
+export SUPPRESS_SUPPORT="1"
+
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # export RPROMPT="%F{008}%*"
 export RPROMPT="%F{008}%*"
@@ -54,12 +60,8 @@ export MANOPT="--encoding=ascii"
 # export MAN_KEEP_FORMATTING="1"
 # export MANOPT="--no-hyphenation"
 
-export ADBLOCK="1"
-export DEBUG_COLORS="1"
-export DISABLE_OPENCOLLECTIVE="1"
-export FORCE_COLOR="1"
-export SUPPRESS_SUPPORT="1"
-export DISABLE_AUTO_UPDATE="1"
+export DISABLE_AUTO_UPDATE="true"
+# export CASE_SENSITIVE="true"
 
 # if [ $ITERM_SESSION_ID ]; then
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
@@ -76,7 +78,7 @@ source <(antibody init)
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
-# eval $(starship init zsh)
+eval $(starship init zsh)
 
 # autoload -U +X compinit && compinit
 # autoload -U +X bashcompinit && bashcompinit
@@ -237,6 +239,7 @@ alias p="ps auxww | grep -v grep | grep"
 # }
 
 test -x "$(which prettier)" && alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
+# test -x "$(which watchexec)" && alias watch="watchexec"
 
 function pat() { prettier --parser $1 | bat -l $1 }
 
@@ -297,3 +300,4 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
 
 # zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
 # zstyle ':completion:*' insert-tab pending
+# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
