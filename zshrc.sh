@@ -264,9 +264,9 @@ function show() {
 function rl() { test -x "$(which $@)" && exa -a -l -F -g -m "$(readlink -f $(which $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
 function ch() { echo; curl -s "https://cheat.sh/$@" }
 
-function rename() {
-	fd "$1" --no-ignore -x mv {} $2{}
-}
+# function rename() {
+# 	fd "$1" --no-ignore -x mv {} $2{}
+# }
 
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 function fprobe() {
