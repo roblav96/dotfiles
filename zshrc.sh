@@ -16,7 +16,8 @@
 # ballot ✘
 # block █
 # check ✔
-# circle ●
+# circle ⬤
+# circle-small ●
 # cross ✚
 # diamond ◆
 # dot ◉
@@ -122,7 +123,6 @@ alias rmf="rm -rf"
 alias e='nano'
 alias n='npm'
 alias o='open .'
-alias tl='tldr'
 alias gc='git clone --recurse-submodules'
 alias gf='git fetch'
 alias gp='git pull'
@@ -238,9 +238,8 @@ alias p="ps auxww | grep -v grep | grep"
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-test -x "$(which prettier)" && alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
 # test -x "$(which watchexec)" && alias watch="watchexec"
-
+test -x "$(which prettier)" && alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
 function pat() { prettier --parser $1 | bat -l $1 }
 
 function show() {
@@ -262,7 +261,11 @@ function show() {
 
 # function rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
 function rl() { test -x "$(which $@)" && exa -a -l -F -g -m "$(readlink -f $(which $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
-function ch() { echo; curl -s "https://cheat.sh/$@" }
+
+alias tl="tldr"
+function ch() { curl "https://cheat.sh/$@?T" | bat -l sh }
+function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@" | bat -l sh }
+# function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 
 # function rename() {
 # 	fd "$1" --no-ignore -x mv {} $2{}

@@ -121,7 +121,6 @@ alias rr-tibak="adb pull /sdcard/SpeedSoftware/Archives/TitaniumBackup.zip $HOME
 alias rr-tiauth="adb pull /sdcard/SpeedSoftware/Archives/auth.zip $HOME/Downloads/gAuth.zip"
 
 # alias rr-exercism="cd $HOME/Exercism/go"
-alias rr-quarantine="sudo xattr -rd com.apple.quarantine"
 
 alias rr-peers="arp -a"
 

@@ -6,6 +6,7 @@ source "$DOTFILES/modules/homebrew.sh"
 alias pst="pstree -w"
 
 alias dstore="find . -name '*.DS_Store*' -type f -delete"
+alias quarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="exa -a -h -l -F -g -m $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
