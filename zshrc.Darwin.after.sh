@@ -12,17 +12,17 @@ alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSRespond
 alias rmtrash="exa -a -h -l -F -g -m $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
 alias prettierrc="subl $HOME/.prettierrc"
 
-alias pfc='sudo subl /etc/pf.conf'
-alias pfs='sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states'
-alias pfsa='sudo pfctl -q -s all'
-alias pfd='sudo pfctl -q -d -F all; pfs'
-alias pfu='sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs'
+alias pfc="sudo subl /etc/pf.conf"
+alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
+alias pfsa="sudo pfctl -q -s all"
+alias pfd="sudo pfctl -q -d -F all; pfs"
+alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 unalias src
-alias dot='subl "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project"'
+alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 function dotpush() {
 	cd "$DOTFILES"
 	local GS="$(git status -z)"

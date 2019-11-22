@@ -1,6 +1,8 @@
+export ST3_PREFIX="'$HOME/Library/Application Support/Sublime Text 3'"
+
 alias st="subl -f"
 alias stp="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stcd="cd $HOME'/Library/Application Support/Sublime Text 3/Packages'"
+alias stcd="cd $ST3_PREFIX"
 alias stst="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
 alias stpackages="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
 alias stuser="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User'"

@@ -182,7 +182,7 @@ alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git'
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
 alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --follow"
 alias fg="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
-alias fga="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store'"
+alias fga="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --full-path"
 alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --follow"
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
