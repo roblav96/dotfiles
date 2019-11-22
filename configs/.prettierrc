@@ -1,0 +1,42 @@
+{
+	"arrowParens": "avoid",
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"htmlWhitespaceSensitivity": "ignore",
+	"jsxBracketSameLine": false,
+	"jsxSingleQuote": false,
+	"printWidth": 100,
+	"proseWrap": "never",
+	"quoteProps": "consistent",
+	"semi": false,
+	"singleQuote": true,
+	"tabWidth": 4,
+	"trailingComma": "all",
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ["*.html"],
+			"options": { "singleQuote": false }
+		},
+		{
+			"files": ["*.less"],
+			"options": { "parser": "less" }
+		},
+		{
+			"files": ["*.sass", "*.scss"],
+			"options": { "parser": "scss" }
+		},
+		{
+			"files": ["*.svg", "*.tmLanguage", "*.xml"],
+			"options": { "parser": "html" }
+		},
+		{
+			"files": ["*.toml"],
+			"options": { "parser": "toml" }
+		},
+		{
+			"files": ["h2o.conf", "*.yml", "*.yaml", "*.sublime-syntax"],
+			"options": { "tabWidth": 2, "useTabs": false }
+		}
+	]
+}

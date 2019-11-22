@@ -1,4 +1,7 @@
-# export PATH="/usr/local/share/dotnet:$PATH"
-# export PATH="$HOME/.dotnet/tools:$PATH"
-# export PATH="/usr/local/share/dotnet:$HOME/.dotnet/tools:$PATH"
-test -d "$HOME/.dotnet/tools" && export PATH="$HOME/.dotnet/tools:$PATH"
+export DOTNET_CLI_TELEMETRY_OPTOUT="1"
+
+_dotnet() {
+	local completions=("$(dotnet complete "$words")")
+	reply=( "${(ps:\n:)completions}" )
+}
+compctl -K _dotnet dotnet
