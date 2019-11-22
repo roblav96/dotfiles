@@ -23,6 +23,11 @@ alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
+function dotstatus() {
+	cd "$DOTFILES"
+	git status -sb
+	cd "$OLDPWD"
+}
 function dotpush() {
 	cd "$DOTFILES"
 	local GS="$(git status -z)"
