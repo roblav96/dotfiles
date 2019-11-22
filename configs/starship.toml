@@ -1,12 +1,11 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
-
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
 
 # Replace the "❯" symbol in the prompt with "➜"
-[character]      # The name of the module we are configuring is "character"
-symbol = "➤"     # The "symbol" segment is being set to "➜"
+[character] # The name of the module we are configuring is "character"
+symbol = "➤" # The "symbol" segment is being set to "➜"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -14,3 +13,15 @@ disabled = true
 
 [nodejs]
 disabled = true
+
+[directory]
+truncation_length = -1
+
+# [memory_usage]
+# disabled = false
+# show_percentage = true
+# show_swap = true
+# threshold = -1
+# symbol = ""
+# separator = "|"
+# style = "dimmed"

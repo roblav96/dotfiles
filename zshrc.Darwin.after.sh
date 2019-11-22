@@ -10,7 +10,7 @@ alias quarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="exa -a -h -l -F -g -m $HOME/.Trash; echo; sudo rm -rf $HOME/.Trash/*"
-alias prettierrc="subl $HOME/.prettierrc"
+alias prettierrc="subl $DOTFILES/configs/.prettierrc"
 
 alias pfc="sudo subl /etc/pf.conf"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
@@ -40,6 +40,11 @@ function dotpush() {
 function adbsu() {
 	adb shell su -c ${@:2}
 }
+
+if test -d "/Applications/Firefox Developer Edition.app"; then
+	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
+	alias firefox-bin="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin'"
+fi
 
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
