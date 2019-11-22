@@ -1,13 +1,10 @@
-export ST3_PREFIX="'$HOME/Library/Application Support/Sublime Text 3'"
-
 alias st="subl -f"
 alias stp="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stcd="cd $ST3_PREFIX"
-alias stst="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
-alias stpackages="subl $HOME'/Library/Application Support/Sublime Text 3/Packages'"
-alias stuser="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User'"
-alias stprojects="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Projects'"
-alias stsnippets="subl $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Snippets'"
+alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
+alias stuser="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
+alias stprojects="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects'"
+alias stsnippets="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Snippets'"
+alias stpackages="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text 3 Packages.sublime-project'"
 
 function stpush() {
 	cd $HOME'/Library/Application Support/Sublime Text 3'
