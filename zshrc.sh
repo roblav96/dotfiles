@@ -79,7 +79,7 @@ source <(antibody init)
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
-eval $(starship init zsh)
+# eval $(starship init zsh)
 
 # autoload -U +X compinit && compinit
 # autoload -U +X bashcompinit && bashcompinit
@@ -137,15 +137,16 @@ alias pwd="pwd && pwd -P"
 alias rc='rclone'
 alias htop="sudo htop -d 10"
 alias ipc="ipcalc -b"
-alias http="echo; http --pretty all --style monokai --timeout 3 --verbose"
-alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
+alias http="echo; http --pretty=all --style=monokai --timeout=3 --print=b"
+alias httpa="http --print=HBhb --all --verbose"
 alias dims='echo "$COLUMNS x $LINES"'
 alias dateiso='date -u +"%Y-%m-%d"'
 alias gs='git status -sb'
 alias gst='git standup'
 alias sedbat='sed -u -r "s/\"|\x27|\#|\`//g" | bat -l rb'
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
-alias curl='curl --silent --connect-timeout 3'
+alias curl="curl --silent --connect-timeout 3"
+alias curlt="curl -w '\n\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n\n'"
 alias yarn='npx yarn'
 alias ember='npx ember'
 alias redis-cli='redis-cli --no-auth-warning'
