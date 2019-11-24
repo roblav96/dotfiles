@@ -278,7 +278,7 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -probesize 1000000 -analyzeduration 1000000 -show_format -show_streams "$@" | json
 }
 
-function batplist() {
+function batpl() {
 	plistutil -i $@ | bat -l xml
 }; compdef batpl=cat
 
