@@ -16,4 +16,4 @@ cat $BASHRC
 # exec -l $SHELL
 # exec $(echo "$0")
 
-echo; echo '⭐ dotfiles install.bash.sh complete'; echo
+echo; echo '🌕 dotfiles install.bash.sh complete'; echo

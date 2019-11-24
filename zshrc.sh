@@ -1,33 +1,5 @@
 #!/usr/bin/env zsh
 
-#
-# 1 char emoji
-# ⌚ ⌛ ⌨ ⏏ ⏩ ⏪ ⏫ ⏬ ⏭ ⏮ ⏯ ⏰ ⏱ ⏲ ⏳ ⏸ ⏹ ⏺ ◽ ◾ ☂ ☃ ☄ ☔ ☕ ☘ ☠ ☢ ☣ ☦ ☪ ☮ ☯ ☸ ☹ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♿ ⚒ ⚓ ⚔ ⚖ ⚗ ⚙ ⚛ ⚜ ⚡ ⚪ ⚫ ⚰ ⚱ ⚽ ⚾ ⛄ ⛅ ⛈ ⛎ ⛏ ⛑ ⛓ ⛔ ⛩ ⛪ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛷ ⛸ ⛹ ⛺ ⛽ ✅ ✊ ✋ ✍ ✝ ✡ ✨ ❌ ❎ ❓ ❔ ❕ ❗ ❣ ➕ ➖ ➗ ➰ ➿ ⬛ ⬜ ⭐ ⭕
-#
-# 1 char
-# ❌ ⛔ ⬤ ● ⧭ ◉ ➤ ► ✚ ☗ █ ▶ ➔ ➜ → ✘ ■ ◆ ✜ ✦ ⌗ ⌦ ⦁ ∎
-#
-# 2 char
-# 🛑 🔴 🚫 ⚠️ ⚫︎ ◼︎ 𝓓 ♦︎ ☁︎ ●︎ ✖︎ ⎮︎
-#
-# arrow ➔
-# arrow-rounded ➜
-# arrow-thin →
-# ballot ✘
-# block █
-# check ✔
-# circle ⬤
-# circle-small ●
-# cross ✚
-# diamond ◆
-# dot ◉
-# multiply ✖
-# pointer ➤
-# square ■
-# triangle ►
-# triangle-small ▶
-#
-
 export ADBLOCK="1"
 export DEBUG_COLORS="1"
 export DISABLE_OPENCOLLECTIVE="1"
@@ -193,11 +165,11 @@ alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exc
 # function f() { find . -iname "*$1*" ${@:2} }
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-# alias r="rg --smart-case"
-alias r="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uu"
-alias raa="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uu --follow"
-alias raaa="rg --smart-case --pretty --max-columns=256 --no-messages --hidden --glob='!.git' --glob='!.DS_Store' --stats -uuu --follow"
+# alias r="rg --color=always --smart-case"
+alias r="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
+alias raa="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
+alias raaa="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }
@@ -278,9 +250,9 @@ function fprobe() {
 	ffprobe -pretty -loglevel quiet -print_format json -probesize 1000000 -analyzeduration 1000000 -show_format -show_streams "$@" | json
 }
 
-function batpl() {
+function batplist() {
 	plistutil -i $@ | bat -l xml
-}; compdef batpl=cat
+}; compdef batplist=cat
 
 test -x "$(which apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
