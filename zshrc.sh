@@ -103,7 +103,8 @@ alias gh='github'
 alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
-alias grep="grep -iE --color=always"
+alias grep="grep --color=always --ignore-case --extended-regexp"
+# alias grep="grep --color=always --ignore-case --fixed-strings"
 alias g='grep'
 alias pwd="pwd && pwd -P"
 alias rc='rclone'
@@ -166,10 +167,10 @@ alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exc
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --color=always --smart-case"
-alias r="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
-alias raa="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
-alias raaa="rg --pretty --smart-case --max-columns=256 --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
+alias r="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
+alias raa="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
+alias raaa="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }
@@ -207,7 +208,7 @@ alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
 
-alias p="ps auxww | grep -v grep | grep"
+alias p="ps auxww | grep --invert-match grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
@@ -218,7 +219,7 @@ function pat() { prettier --parser $1 | bat -l $1 }
 
 function show() {
 	type -a $@
-	if type -w $@ | grep -q -E "function"; then
+	if type -w $@ | grep -q "function"; then
 		type -f $@ | bat -l sh
 		return 0
 	fi
