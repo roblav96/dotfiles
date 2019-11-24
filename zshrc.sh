@@ -104,7 +104,7 @@ alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
-# alias grep="grep --color=always --ignore-case --fixed-strings"
+# alias grep="grep --color=always --ignore-case --fixed-strings --extended-regexp"
 alias g='grep'
 alias pwd="pwd && pwd -P"
 alias rc='rclone'

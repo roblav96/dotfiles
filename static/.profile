@@ -39,7 +39,7 @@ function f() {
 	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
-	grep --no-messages --ignore-case "$@" --recursive .
+	grep --no-messages --ignore-case --fixed-strings $@ --recursive .
 }
 
 function show() {
