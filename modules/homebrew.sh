@@ -13,7 +13,7 @@ function bout() {
 	echo "\n🌕 Outdated formulas"
 	brew outdated --verbose
 	echo "\n🌕 Outdated casks"
-	brew cask outdated --verbose --greedy | grep -v latest
+	brew cask outdated --verbose --greedy | grep --invert-match latest
 }
 
 function bls() {
@@ -116,15 +116,18 @@ function bsls() {
 }
 function bsdown() {
 	echo "\n🌕 Stop service '$@'"
-	brew services stop $@; brew services list
+	brew services stop $@
+	brew services list
 }
 function bsup() {
 	echo "\n🌕 Start service '$@'"
-	brew services restart $@; brew services list
+	brew services restart $@
+	brew services list
 }
 function bsre() {
 	echo "\n🌕 Restart service '$@'"
-	brew services restart $@; brew services list
+	brew services restart $@
+	brew services list
 }
 function bsrun() {
 	echo "\n🌕 Run service '$@'"
