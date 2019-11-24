@@ -251,6 +251,7 @@ DAEMONS=(
 	'com.apple.aslmanager'
 	'com.apple.awacsd'
 	'com.apple.cmio.AppleCameraAssistant'
+	'com.apple.coreduetd.osx'
 	'com.apple.CrashReporterSupportHelper'
 	'com.apple.diagnosticextensions.osx.spotlight.helper'
 	'com.apple.eapolcfg_auth'
