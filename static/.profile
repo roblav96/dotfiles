@@ -20,11 +20,11 @@ alias lr="tree -F -l -a -A -C -L 1"
 alias lra="tree -F -l -a -A -C"
 alias pwd="pwd && pwd -P"
 alias json="jq --indent 4 --sort-keys --ascii-output --color-output"
-alias grep="grep -iE --color=always"
+alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop -d 10"
 alias idk="man -k"
 # alias s="subl -f"
-alias p="ps aux | grep -v grep | grep"
+alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias bat='cat'
 alias path="print -l $PATH"
@@ -39,7 +39,7 @@ function f() {
 	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
-	grep -s -i "$@" -R .
+	grep --no-messages --ignore-case "$@" --recursive .
 }
 
 function show() {
