@@ -167,10 +167,10 @@ alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exc
 
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # alias r="rg --color=always --smart-case"
-alias r="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
-alias raa="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
-alias raaa="rg --pretty --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
+alias r="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
+alias ra="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
+alias raa="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
+alias raaa="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }

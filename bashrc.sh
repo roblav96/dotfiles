@@ -24,7 +24,7 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 export TS_NODE_PRETTY="true"
 export YARN_CACHE_FOLDER="$HOME/.yarn"
 
-export MONO_GAC_PREFIX="/usr/local"
+# export MONO_GAC_PREFIX="/usr/local"
 # export PATH="$JAVA_HOME/bin:$PATH"
 # export PATH="$JAVA_HOME/jre/bin:$PATH"
 # export M2_HOME="/usr/local/Cellar/maven/3.6.0/libexec"
