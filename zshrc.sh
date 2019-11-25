@@ -80,12 +80,12 @@ bindkey '^[r' fzf-history-widget
 # bindkey '^[[B' history-substring-search-down
 
 unalias ls
+unalias la
 unalias grep
 
 # alias fo="forever "
 alias rr="npm run "
 alias sudo="sudo "
-alias idk="man -k"
 alias rma="rm -rf"
 alias rmd="rm -rf"
 alias rmf="rm -rf"
@@ -106,6 +106,7 @@ alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 # alias grep="grep --color=always --ignore-case --fixed-strings --extended-regexp"
 alias g='grep'
+function idk() { man -k $@ | grep "$@|" }; compdef idk=man
 alias pwd="pwd && pwd -P"
 alias rc='rclone'
 alias htop="sudo htop -d 10"
@@ -135,23 +136,21 @@ alias clear="clear && printf '\e[3J'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
+# export EXA_STRICT="1"
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-alias l="exa --all --long --header --classify --group --modified --color-scale --ignore-glob='.git|.DS_Store'"
-alias la="exa --all --long --header --classify --group --modified --color-scale --extended --ignore-glob='.git|.DS_Store'"
-alias lr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules'"
-alias lrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=3 --ignore-glob='.git|.DS_Store|node_modules'"
-alias lrrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=4 --ignore-glob='.git|.DS_Store|node_modules'"
-alias lrrrr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=5 --ignore-glob='.git|.DS_Store|node_modules'"
-alias lra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules'"
-alias lraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --extended"
-alias lm="exa --all --long --header --classify --group --modified --color-scale --sort=modified --ignore-glob='.git|.DS_Store'"
-alias lmr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
-alias lmra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=modified"
-alias lmraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --sort=modified --extended"
-alias lb="exa --all --long --header --classify --group --modified --color-scale --sort=size --ignore-glob='.git|.DS_Store'"
-alias lbr="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --level=2 --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
-alias lbra="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store|node_modules' --sort=size"
-alias lbraa="exa --all --long --header --classify --group --modified --color-scale --recurse --tree --ignore-glob='.git|.DS_Store' --sort=size --extended"
+export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
+alias l="exa $EXA_OPTS --git-ignore"
+alias la="exa $EXA_OPTS"
+alias lr="exa $EXA_OPTS --git-ignore --tree --recurse --level=2"
+alias lrr="exa $EXA_OPTS --git-ignore --tree --recurse"
+alias lar="exa $EXA_OPTS --tree --recurse --level=2"
+alias larr="exa $EXA_OPTS --tree --recurse"
+alias lm="exa $EXA_OPTS --git-ignore --sort=modified"
+alias lam="exa $EXA_OPTS --sort=modified"
+alias lb="exa $EXA_OPTS --git-ignore --sort=size"
+alias lab="exa $EXA_OPTS --sort=size"
+alias le="exa $EXA_OPTS  --git-ignore --extended"
+alias lae="exa $EXA_OPTS --extended"
 
 alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
 alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
@@ -178,6 +177,7 @@ alias raaa="rg --color=always --heading --line-number --smart-case --max-columns
 export FZF_DEFAULT_OPTS="
 	--no-multi
 	--tabstop=4
+	--height=$(expr $(tput lines) - 5)
 	--prompt='$PURE_PROMPT_SYMBOL '
 	--color=dark
 	--color=fg:-1,bg:-1,hl:5,fg+:231,bg+:-1,hl+:5
@@ -196,8 +196,11 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --indent 4 --sort-keys --color-output"
 alias j='json'
 
+if test -x "$(which dust)"; then
+	alias dust="command dust --apparent-size --reverse --depth=1"
+	alias dustr="command dust --apparent-size --reverse --number-of-lines=$(expr $(tput lines) - 10)"
+fi
 alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
-test -x "$(which dust)" && alias dust="dust --apparent-size --reverse --depth 1"
 test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
