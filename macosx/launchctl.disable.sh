@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # IMPORTANT: Don't forget to logout from your Apple ID in the settings before running it!
 # IMPORTANT: You will need to run this script from Recovery. In fact, macOS Catalina brings read-only filesystem which prevent this script from working from the main OS.
@@ -52,7 +52,6 @@ AGENTS=(
 	'com.apple.Maps.pushdaemon'
 	'com.apple.mediaremoteagent'
 	'com.apple.MRTa'
-	'com.apple.notificationcenterui'
 	'com.apple.NowPlayingTouchUI'
 	'com.apple.parentalcontrols.check'
 	'com.apple.parsecd'
@@ -228,16 +227,13 @@ AGENTS+=(
 	'com.apple.touristd'
 )
 
+for i in ./System/Library/LaunchAgents/*.bak; do
+	mv -f $i "${i:0:-4}"
+done
 for AGENT in "${AGENTS[@]}"; do
 	if test -f "./System/Library/LaunchAgents/${AGENT}.plist"; then
-		# if test -f "./System/Library/LaunchAgents/${AGENT}.plist.bak"; then
-		# 	rm -rf "./System/Library/LaunchAgents/${AGENT}.plist.bak"
-		# fi
-		# echo "launchctl unload -w /System/Library/LaunchAgents/${AGENT}.plist"
-		# launchctl unload -w /System/Library/LaunchAgents/${AGENT}.plist
 		mv -f "./System/Library/LaunchAgents/${AGENT}.plist" "./System/Library/LaunchAgents/${AGENT}.plist.bak"
-		echo
-		echo "disabled Agent -> ${AGENT}"
+		echo "👍 [DISABLED] System Library LaunchAgent -> '${AGENT}'"
 	fi
 done
 
@@ -318,15 +314,12 @@ DAEMONS+=(
 	'com.apple.SubmitDiagInfo'
 )
 
+for i in ./System/Library/LaunchDaemons/*.bak; do
+	mv -f $i "${i:0:-4}"
+done
 for DAEMON in "${DAEMONS[@]}"; do
 	if test -f "./System/Library/LaunchDaemons/${DAEMON}.plist"; then
-		# if test -f "./System/Library/LaunchDaemons/${DAEMON}.plist.bak"; then
-		# 	rm -rf "./System/Library/LaunchDaemons/${DAEMON}.plist.bak"
-		# fi
-		# echo "sudo launchctl unload -w /System/Library/LaunchDaemons/${DAEMON}.plist"
-		# sudo launchctl unload -w /System/Library/LaunchDaemons/${DAEMON}.plist
 		mv -f "./System/Library/LaunchDaemons/${DAEMON}.plist" "./System/Library/LaunchDaemons/${DAEMON}.plist.bak"
-		echo
-		echo "disabled Daemon -> ${DAEMON}"
+		echo "👍 [DISABLED] System Library LaunchDaemon -> '${DAEMON}'"
 	fi
 done
