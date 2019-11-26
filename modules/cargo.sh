@@ -10,6 +10,4 @@ alias ccat="bat $DOTFILES/modules/cargo.sh"
 alias ccd="cd $HOME/.cargo/bin"
 alias cln="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 
-test -x "$(which procs)" && alias procs="sudo procs"
-
 function ci() { cargo info $1 | bat -l make }

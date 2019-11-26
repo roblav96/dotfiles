@@ -84,32 +84,33 @@ unalias la
 unalias grep
 
 # alias fo="forever "
-alias rr="npm run "
 alias sudo="sudo "
+alias rr="npm run "
 alias rma="rm -rf"
 alias rmd="rm -rf"
 alias rmf="rm -rf"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
-alias e='nano'
-alias n='npm'
-alias o='open .'
-alias gc='git clone --recurse-submodules'
-alias gf='git fetch'
-alias gp='git pull'
-alias gpr='git pull --rebase'
-alias gh='github'
+alias e="nano"
+alias n="npm"
+alias o="open ."
+alias gc="git clone --recurse-submodules"
+alias gf="git fetch"
+alias gp="git pull"
+alias gpr="git pull --rebase"
+alias gh="github"
 alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 # alias grep="grep --color=always --ignore-case --fixed-strings --extended-regexp"
-alias g='grep'
+alias g="grep"
 function idk() { man -k $@ | grep "$@|" }; compdef idk=man
 alias pwd="pwd && pwd -P"
-alias rc='rclone'
-alias htop="sudo htop -d 10"
+alias rc="rclone"
+alias htop="htop --delay=10 --sort-key=PERCENT_CPU"
+alias procs="procs --color=always"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty=all --style=monokai --timeout=3 --print=b"
 alias httpa="http --print=HBhb --all --verbose"
@@ -136,55 +137,63 @@ alias clear="clear && printf '\e[3J'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-# export EXA_STRICT="1"
-export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
-alias l="exa $EXA_OPTS --git-ignore"
-alias la="exa $EXA_OPTS"
-alias lr="exa $EXA_OPTS --git-ignore --tree --recurse --level=2"
-alias lrr="exa $EXA_OPTS --git-ignore --tree --recurse"
-alias lar="exa $EXA_OPTS --tree --recurse --level=2"
-alias larr="exa $EXA_OPTS --tree --recurse"
-alias lm="exa $EXA_OPTS --git-ignore --sort=modified"
-alias lam="exa $EXA_OPTS --sort=modified"
-alias lb="exa $EXA_OPTS --git-ignore --sort=size"
-alias lab="exa $EXA_OPTS --sort=size"
-alias le="exa $EXA_OPTS  --git-ignore --extended"
-alias lae="exa $EXA_OPTS --extended"
+if test -x "$(which exa)"; then
+	# export EXA_STRICT="1"
+	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
+	export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
+	alias l="exa $EXA_OPTS --git-ignore"
+	alias la="exa $EXA_OPTS"
+	alias lr="exa $EXA_OPTS --git-ignore --tree --recurse --level=2"
+	alias lrr="exa $EXA_OPTS --git-ignore --tree --recurse"
+	alias lar="exa $EXA_OPTS --tree --recurse --level=2"
+	alias larr="exa $EXA_OPTS --tree --recurse"
+	alias lm="exa $EXA_OPTS --git-ignore --sort=modified"
+	alias lam="exa $EXA_OPTS --sort=modified"
+	alias lb="exa $EXA_OPTS --git-ignore --sort=size"
+	alias lab="exa $EXA_OPTS --sort=size"
+	alias le="exa $EXA_OPTS  --git-ignore --extended"
+	alias lae="exa $EXA_OPTS --extended"
+fi
 
-alias f="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
-alias fa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store'"
-alias faa="fd --color=always --hidden --no-ignore --fixed-strings --exclude='.git' --exclude='.DS_Store' --follow"
-alias fg="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --exclude='node_modules'"
-alias fga="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --full-path"
-alias fgaa="fd --color=always --hidden --no-ignore --glob --exclude='.git' --exclude='.DS_Store' --follow"
-# function f() { fd "$1" ${@:2} --color=always }
-# | grep "$1" --ignore-case --color=always }
-# function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
-# function fa() { fd "$1" ${@:2} --hidden --no-ignore --show-errors --color=always | grep "$1" --ignore-case --color=always }
-# function f() { find . -iname "*$1*" ${@:2} }
+if test -x "$(which fd)"; then
+	export FD_OPTS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
+	alias f="fd $FD_OPTS --fixed-strings"
+	alias fa="fd $FD_OPTS --no-ignore --fixed-strings"
+	alias faf="fd $FD_OPTS --no-ignore --fixed-strings --follow"
+	alias fgl="fd $FD_OPTS --glob"
+	alias fagl="fd $FD_OPTS --no-ignore --glob"
+	# function f() { fd "$1" ${@:2} --color=always }
+	# | grep "$1" --ignore-case --color=always }
+	# function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
+	# function fa() { fd "$1" ${@:2} --hidden --no-ignore --show-errors --color=always | grep "$1" --ignore-case --color=always }
+	# function f() { find . -iname "*$1*" ${@:2} }
+fi
 
-# export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-# alias r="rg --color=always --smart-case"
-alias r="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --glob='!node_modules'"
-alias ra="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu"
-alias raa="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uu --follow"
-alias raaa="rg --color=always --heading --line-number --smart-case --max-columns=256 --max-columns-preview --no-messages --fixed-strings --hidden --glob='!.git' --glob='!.DS_Store' --stats --search-zip -uuu --follow"
-# function r() { rg "$1" ${@:2} --smart-case }
-# function ra() { rg -uu "$1" ${@:2} --smart-case }
-# function r() { grep "$1" ${@:2} -R . }
+if test -x "$(which rg)"; then
+	# export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+	# alias r="rg --color=always --smart-case"
+	export RG_OPTS="--color=always --heading --line-number --smart-case --max-columns=$(expr $(tput cols) - 5) --max-columns-preview --no-messages --hidden --glob='!.git' --glob='!.DS_Store'"
+	alias r="rg $RG_OPTS --fixed-strings"
+	alias ra="rg $RG_OPTS --no-ignore --fixed-strings --stats"
+	alias raf="rg $RG_OPTS --no-ignore --fixed-strings --follow --stats"
+	# function r() { rg "$1" ${@:2} --smart-case }
+	# function ra() { rg -uu "$1" ${@:2} --smart-case }
+	# function r() { grep "$1" ${@:2} -R . }
+fi
 
-export FZF_DEFAULT_OPTS="
-	--no-multi
-	--tabstop=4
-	--height=$(expr $(tput lines) - 5)
-	--prompt='$PURE_PROMPT_SYMBOL '
-	--color=dark
-	--color=fg:-1,bg:-1,hl:5,fg+:231,bg+:-1,hl+:5
-	--color=gutter:-1,info:2,prompt:4,pointer:1,marker:6,spinner:1,header:6
-"
-# --color=fg:231,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
-# --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+if test -x "$(which fzf)"; then
+	export FZF_DEFAULT_OPTS="
+		--no-multi
+		--tabstop=4
+		--height=$(expr $(tput lines) - 5)
+		--prompt='$PURE_PROMPT_SYMBOL '
+		--color=dark
+		--color=fg:-1,bg:-1,hl:5,fg+:231,bg+:-1,hl+:5
+		--color=gutter:-1,info:2,prompt:4,pointer:1,marker:6,spinner:1,header:6
+	"
+	# --color=fg:231,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+	# --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+fi
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid' --theme='Monokai Extended Origin'"
@@ -217,6 +226,7 @@ alias p="ps auxww | grep --invert-match grep | grep"
 # }
 
 # test -x "$(which watchexec)" && alias watch="watchexec"
+# test -x "$(which procs)" && alias procs="sudo procs"
 test -x "$(which prettier)" && alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
 function pat() { prettier --parser $1 | bat -l $1 }
 
