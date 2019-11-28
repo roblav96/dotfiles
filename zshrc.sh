@@ -109,7 +109,7 @@ alias g="grep"
 function idk() { man -k $@ | grep "$@|" }; compdef idk=man
 alias pwd="pwd && pwd -P"
 alias rc="rclone"
-alias htop="htop --delay=10 --sort-key=PERCENT_CPU"
+alias htop="htop --delay=10 --sort-key=START"
 alias procs="procs --color=always --sortd=Start"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty=all --style=monokai --timeout=3 --print=b"
