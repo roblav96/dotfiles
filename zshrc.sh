@@ -259,7 +259,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # }
 
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
-if test -x "$(which dust)"; then
+if test -x "$(which ffprobe)"; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
 	}; compdef fprobe=ffprobe
