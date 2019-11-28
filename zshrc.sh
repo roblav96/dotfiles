@@ -159,7 +159,6 @@ if test -x "$(which fd)"; then
 	export FD_OPTS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
 	alias f="fd $FD_OPTS --fixed-strings"
 	alias fa="fd $FD_OPTS --no-ignore --fixed-strings"
-	alias faf="fd $FD_OPTS --no-ignore --fixed-strings --follow"
 	alias fgl="fd $FD_OPTS --glob"
 	alias fagl="fd $FD_OPTS --no-ignore --glob"
 	# function f() { fd "$1" ${@:2} --color=always }
@@ -175,7 +174,7 @@ if test -x "$(which rg)"; then
 	export RG_OPTS="--color=always --heading --line-number --smart-case --max-columns=$(expr $(tput cols) - 5) --max-columns-preview --no-messages --hidden --glob='!.git' --glob='!.DS_Store'"
 	alias r="rg $RG_OPTS --fixed-strings"
 	alias ra="rg $RG_OPTS --no-ignore --fixed-strings --stats"
-	alias raf="rg $RG_OPTS --no-ignore --fixed-strings --follow --stats"
+	alias raf="rg $RG_OPTS --no-ignore --fixed-strings --stats --follow"
 	# function r() { rg "$1" ${@:2} --smart-case }
 	# function ra() { rg -uu "$1" ${@:2} --smart-case }
 	# function r() { grep "$1" ${@:2} -R . }
