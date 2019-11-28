@@ -201,7 +201,7 @@ alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --indent 4 --sort-keys --color-output"
+alias json="jq --color-output --sort-keys --indent=4"
 alias j='json'
 
 if test -x "$(which dust)"; then
@@ -259,9 +259,11 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # }
 
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
-function fprobe() {
-	ffprobe -pretty -loglevel quiet -print_format json -probesize 1000000 -analyzeduration 1000000 -show_format -show_streams "$@" | json
-}
+if test -x "$(which dust)"; then
+	function fprobe() {
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
+	}; compdef fprobe=ffprobe
+fi
 
 function batplist() {
 	plistutil -i $@ | bat -l xml
