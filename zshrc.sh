@@ -260,6 +260,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
+alias rdvpn="curl https://real-debrid.com/vpn | prettier --parser=html | grep 'VPN Information' --after-context=16"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if test -x "$(which ffprobe)"; then
 	function fprobe() {

@@ -12,7 +12,7 @@
 	"singleQuote": true,
 	"tabWidth": 4,
 	"trailingComma": "all",
-	"useTabs": false,
+	"useTabs": true,
 	"overrides": [
 		{
 			"files": ["*.html"],
