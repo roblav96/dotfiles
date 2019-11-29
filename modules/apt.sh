@@ -4,4 +4,4 @@ alias aptlsi="apt list --installed"
 alias aptlsig="apt list --installed 2>/dev/null | grep"
 
 alias apts="apt search"
-function aptsg() { apt search $@ 2>/dev/null | grep "$@|" }
+function aptsg() { apt search $@ 2>/dev/null | grep "$@|$" }

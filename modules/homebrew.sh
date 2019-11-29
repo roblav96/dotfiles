@@ -35,9 +35,9 @@ function blsp() {
 
 function bs() {
 	echo "\n🌕 Searching descriptions"
-	brew search --desc $@ | grep "$@|"
+	brew search --desc $@ | grep "$@|$"
 	echo "\n🌕 Searching formulas & casks"
-	brew search $@ | grep "$@|"
+	brew search $@ | grep "$@|$"
 }
 
 function bin() {

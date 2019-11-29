@@ -106,7 +106,7 @@ alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 # alias grep="grep --color=always --ignore-case --fixed-strings --extended-regexp"
 alias g="grep"
-function idk() { man -k $@ | grep "$@|" }; compdef idk=man
+function idk() { man -k $@ | grep "$@|$" }; compdef idk=man
 alias pwd="pwd && pwd -P"
 alias rc="rclone"
 alias htop="htop --delay=10 --sort-key=START"
@@ -260,7 +260,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=16 | bat -l html"
+alias rdvpn="curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=16 | grep 'blocked|$'"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if test -x "$(which ffprobe)"; then
 	function fprobe() {
