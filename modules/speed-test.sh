@@ -1,4 +1,4 @@
-alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io | jq --indent 4 --sort-keys --color-output '. |= del(.readme)'"
+alias ipinfo="echo; echo '\ticanhazip.com'; curl https://icanhazip.com; echo; echo '\tapi6.ipify.org'; curl https://api6.ipify.org; echo; echo; echo '\tiplist.cc'; curl https://iplist.cc/api | json; echo; echo '\tipvigilante.com'; curl https://ipvigilante.com/json/full | json '.data'; echo; echo '\tipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
 alias cachefly="wget -O /dev/null https://cachefly.cachefly.net/100mb.test"
 alias ie8vbox="wget -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
 alias linode="wget -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"

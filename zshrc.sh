@@ -201,8 +201,8 @@ alias b='bat'
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --color-output --sort-keys --indent=4"
-alias j='json'
+alias json="jq --color-output --sort-keys --tab --indent 4"
+alias j="json"
 
 if test -x "$(which dust)"; then
 	alias dust="command dust --apparent-size --reverse --depth=1"
@@ -260,7 +260,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="curl https://real-debrid.com/vpn | prettier --parser=html | grep 'VPN Information' --after-context=16"
+alias rdvpn="curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=16 | bat -l html"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if test -x "$(which ffprobe)"; then
 	function fprobe() {
