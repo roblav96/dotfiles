@@ -142,17 +142,17 @@ if test -x "$(which exa)"; then
 	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 	export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
 	alias l="exa $EXA_OPTS --git-ignore"
-	alias la="exa $EXA_OPTS"
+	alias la="exa $EXA_OPTS --group"
 	alias lr="exa $EXA_OPTS --git-ignore --tree --recurse --level=2"
 	alias lrr="exa $EXA_OPTS --git-ignore --tree --recurse"
-	alias lar="exa $EXA_OPTS --tree --recurse --level=2"
-	alias larr="exa $EXA_OPTS --tree --recurse"
+	alias lar="exa $EXA_OPTS --group --tree --recurse --level=2"
+	alias larr="exa $EXA_OPTS --group --tree --recurse"
 	alias lm="exa $EXA_OPTS --git-ignore --sort=modified"
-	alias lam="exa $EXA_OPTS --sort=modified"
+	alias lam="exa $EXA_OPTS --group --sort=modified"
 	alias lb="exa $EXA_OPTS --git-ignore --sort=size"
-	alias lab="exa $EXA_OPTS --sort=size"
+	alias lab="exa $EXA_OPTS --group --sort=size"
 	alias le="exa $EXA_OPTS  --git-ignore --extended"
-	alias lae="exa $EXA_OPTS --extended"
+	alias lae="exa $EXA_OPTS --group --extended"
 fi
 
 if test -x "$(which fd)"; then
