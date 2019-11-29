@@ -114,18 +114,18 @@ alias procs="procs --color=always --sortd=Start"
 alias ipc="ipcalc -b"
 alias http="echo; http --pretty=all --style=monokai --timeout=3 --print=b"
 alias httpa="http --print=HBhb --all --verbose"
-alias dims='echo "$COLUMNS x $LINES"'
-alias dateiso='date -u +"%Y-%m-%d"'
-alias gs='git status -sb'
-alias gst='git standup'
-alias sedbat='sed -u -r "s/\"|\x27|\#|\`//g" | bat -l rb'
+alias dims="echo '$COLUMNS x $LINES'"
+alias dateiso="date -u +'%Y-%m-%d'"
+alias gs="git status -sb"
+alias gst="git standup"
+alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | bat -l rb"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias curl="curl --silent --connect-timeout 3"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
-alias yarn='npx yarn'
-alias ember='npx ember'
-alias redis-cli='redis-cli --no-auth-warning'
-alias gradlew='./gradlew'
+alias yarn="npx yarn"
+alias ember="npx ember"
+alias redis-cli="redis-cli --no-auth-warning"
+alias gradlew="./gradlew"
 alias h="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
@@ -226,8 +226,10 @@ alias p="ps auxww | grep --invert-match grep | grep"
 
 # test -x "$(which watchexec)" && alias watch="watchexec"
 # test -x "$(which procs)" && alias procs="sudo procs"
-test -x "$(which prettier)" && alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
-function pat() { prettier --parser $1 | bat -l $1 }
+if test -x "$(which prettier)"; then
+	alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override"
+	function pat() { prettier --parser $1 | bat -l $1 }
+fi
 
 function show() {
 	type -a $@
