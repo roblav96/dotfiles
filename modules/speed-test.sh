@@ -1,11 +1,7 @@
 alias ipinfo="
 echo;
 curl https://icanhazip.com;
-curl -6 https://icanhazip.com;
 curl https://api6.ipify.org; echo;
-curl -6 https://api6.ipify.org;
-echo; echo;
-curl https://ifconfig.co/json | json '. |= del(.user_agent)';
 echo;
 curl https://ipinfo.io | json '. |= del(.readme)'
 "
@@ -13,12 +9,10 @@ alias ipinfoa="
 echo;
 echo '\t\ticanhazip.com';
 curl https://icanhazip.com;
-curl -6 https://icanhazip.com;
 echo;
 echo '\t\tapi6.ipify.org';
 curl https://api6.ipify.org; echo;
-curl -6 https://api6.ipify.org;
-echo; echo;
+echo;
 echo '\t\tiplist.cc';
 curl https://iplist.cc/api | json;
 echo;
