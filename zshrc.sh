@@ -142,17 +142,17 @@ if test -x "$(which exa)"; then
 	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 	export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
 	alias l="exa $EXA_OPTS --git-ignore"
-	alias la="exa $EXA_OPTS --group --extended"
+	alias la="exa $EXA_OPTS --group"
 	alias lr="exa $EXA_OPTS --git-ignore --tree --recurse --level=2"
 	alias lra="exa $EXA_OPTS --git-ignore --tree --recurse"
-	alias lar="exa $EXA_OPTS --group --extended --tree --recurse --level=2"
-	alias lara="exa $EXA_OPTS --group --extended --tree --recurse"
+	alias lar="exa $EXA_OPTS --group --tree --recurse --level=2"
+	alias lara="exa $EXA_OPTS --group --tree --recurse"
 	alias lb="exa $EXA_OPTS --git-ignore --sort=size"
-	alias lab="exa $EXA_OPTS --group --extended --sort=size"
+	alias lab="exa $EXA_OPTS --group --sort=size"
 	alias lm="exa $EXA_OPTS --git-ignore --sort=modified"
-	alias lam="exa $EXA_OPTS --group --extended --sort=modified"
+	alias lam="exa $EXA_OPTS --group --sort=modified"
 	alias lac="exa $EXA_OPTS --git-ignore --accessed --sort=accessed"
-	alias laac="exa $EXA_OPTS --group --extended --accessed --sort=accessed"
+	alias laac="exa $EXA_OPTS --group --accessed --sort=accessed"
 fi
 
 if test -x "$(which fd)"; then
