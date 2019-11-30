@@ -1,10 +1,10 @@
 alias ipinfo="
 echo;
-echo '\t\ticanhazip.com'; curl https://icanhazip.com;
+curl https://icanhazip.com;
 echo;
-echo '\t\tapi6.ipify.org'; curl https://api6.ipify.org;
+curl https://api6.ipify.org;
 echo; echo;
-echo '\t\tipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'
+curl https://ipinfo.io | json '. |= del(.readme)'
 "
 alias ipinfoa="
 echo;

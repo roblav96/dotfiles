@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APPS=(
+APPLICATIONS=(
 	'Calendar'
 	'Chess'
 	'Contacts'
@@ -22,30 +22,28 @@ APPS=(
 	'TextEdit'
 )
 
-for APP in "${APPS[@]}"; do
-	if test -d "./Applications/${APP}.app"; then
-		if test -d "./Applications/.${APP}.app"; then
-			rm -rf "./Applications/.${APP}.app"
+for APPLICATION in "${APPLICATIONS[@]}"; do
+	if test -d "./Applications/${APPLICATION}.app"; then
+		if test -d "./Applications/.${APPLICATION}.app"; then
+			rm -rf "./Applications/.${APPLICATION}.app"
 		fi
-		chmod 000 "./Applications/${APP}.app"
-		mv -f "./Applications/${APP}.app" "./Applications/.${APP}.app"
-		echo
-		echo "disabled Application -> ${APP}"
+		chmod 000 "./Applications/${APPLICATION}.app"
+		mv -f "./Applications/${APPLICATION}.app" "./Applications/.${APPLICATION}.app"
+		echo "👍 [DISABLED] Application -> '${APPLICATION}'"
 	fi
 done
 
-CORES=(
+CORE_SERVICES=(
 	'MRT'
 )
 
-for CORE in "${CORES[@]}"; do
-	if test -d "./System/Library/CoreServices/${CORE}.app"; then
-		if test -d "./System/Library/CoreServices/.${CORE}.app"; then
-			rm -rf "./System/Library/CoreServices/.${CORE}.app"
+for CORE_SERVICE in "${CORE_SERVICES[@]}"; do
+	if test -d "./System/Library/CoreServices/${CORE_SERVICE}.app"; then
+		if test -d "./System/Library/CoreServices/.${CORE_SERVICE}.app"; then
+			rm -rf "./System/Library/CoreServices/.${CORE_SERVICE}.app"
 		fi
-		chmod 000 "./System/Library/CoreServices/${CORE}.app"
-		mv -f "./System/Library/CoreServices/${CORE}.app" "./System/Library/CoreServices/.${CORE}.app"
-		echo
-		echo "disabled CoreService -> ${CORE}"
+		chmod 000 "./System/Library/CoreServices/${CORE_SERVICE}.app"
+		mv -f "./System/Library/CoreServices/${CORE_SERVICE}.app" "./System/Library/CoreServices/.${CORE_SERVICE}.app"
+		echo "👍 [DISABLED] System Library CoreService -> '${CORE_SERVICE}'"
 	fi
 done
