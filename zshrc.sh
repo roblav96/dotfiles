@@ -265,7 +265,10 @@ alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --u
 if test -x "$(which ffprobe)"; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
-	}; compdef fprobe=ffprobe
+	}
+	if [[ "$PLATFORM" == "Darwin" ]]; then
+		compdef fprobe=ffprobe
+	fi
 fi
 
 function batplist() {
