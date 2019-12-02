@@ -29,9 +29,9 @@ alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias bat="cat"
 alias path="print -l $PATH"
-test -x "`which sudo`" && alias sudo="sudo "
-test -x "`which tsudo`" && alias sudo="tsudo "
-test -x "`which tsudo`" && alias tsudo="tsudo "
+test -x "$(which sudo)" && alias sudo="sudo "
+test -x "$(which tsudo)" && alias sudo="tsudo "
+test -x "$(which tsudo)" && alias tsudo="tsudo "
 # alias dot="subl /opt/etc/profile"
 # alias src="source /opt/etc/profile"
 # alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
@@ -45,7 +45,7 @@ function r() {
 
 function show() {
 	type -a $@
-	WHICH=`which $@`
+	WHICH=$(which $@)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -laph --color=always $WHICH
 	readlink -f $WHICH
@@ -55,10 +55,10 @@ if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
 	export PATH="${PATH/system\/bin/system\/xbin}"
 elif echo $PATH | grep -q 'termux'; then
-	test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
-	test -d "/system/bin" && export PATH="$PATH:/system/bin"
-	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
 	test -d "/sbin" && export PATH="$PATH:/sbin"
+	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
+	test -d "/system/bin" && export PATH="$PATH:/system/bin"
+	test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
 fi
 
 # test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
@@ -67,7 +67,7 @@ fi
 # test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
 # test -d "/sbin" && export PATH="$PATH:/sbin"
 
-test -x "`which whoami`" && export USER="`whoami`"
+test -x "$(which whoami)" && export USER="$(whoami)"
 export PS1_USER="\[\033[1;32m\]$USER\[\033[0m\]"
 export PS1_BANG="\[\033[1;35m\]➤\[\033[0m\]"
 if [[ "$USER" == "root" ]]; then
