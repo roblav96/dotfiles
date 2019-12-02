@@ -54,11 +54,11 @@ function show() {
 if echo $PATH | grep -q '/system/bin.*/system/xbin'; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
 	export PATH="${PATH/system\/bin/system\/xbin}"
-# elif echo $PATH | grep -q 'termux'; then
-# 	test -d "/vendor/bin" && export PATH="/vendor/bin:$PATH"
-# 	test -d "/system/bin" && export PATH="/system/bin:$PATH"
-# 	test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
-# 	test -d "/sbin" && export PATH="/sbin:$PATH"
+elif echo $PATH | grep -q 'termux'; then
+	test -d "/vendor/bin" && export PATH="/vendor/bin:$PATH"
+	test -d "/system/bin" && export PATH="/system/bin:$PATH"
+	test -d "/system/xbin" && export PATH="/system/xbin:$PATH"
+	test -d "/sbin" && export PATH="/sbin:$PATH"
 fi
 
 # test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
