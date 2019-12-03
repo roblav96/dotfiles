@@ -8,6 +8,6 @@ alias cout="cargo install-update -al"
 alias cupd="cargo install-update -a"
 alias ccat="bat $DOTFILES/modules/cargo.sh"
 alias ccd="cd $HOME/.cargo/bin"
-alias cln="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
+alias cln="ln -s -f $HOME/.cargo/bin/* /usr/local/bin"
 
 function ci() { cargo info $1 | bat -l make }
