@@ -4,11 +4,11 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 [user]
-	name = Robert Laverty
 	email = roblav96@gmail.com
+	name = Robert Laverty
 [color]
-	ui = always
 	status = always
+	ui = always
 [core]
 	excludesfile = ~/.gitignore
 	pager = ""
