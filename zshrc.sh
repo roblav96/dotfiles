@@ -234,9 +234,13 @@ if test -x "$(which -p prettier)"; then
 fi
 
 function show() {
+	if type -w $@ | grep -q "alias"; then
+		type -f $@ | bat -p -l sh
+		return 0
+	fi
 	type -a $@
 	if type -w $@ | grep -q "function"; then
-		type -f $@ | bat -l sh
+		type -f $@ | bat -p -l sh
 		return 0
 	fi
 	WHICH="$(which $@)"
