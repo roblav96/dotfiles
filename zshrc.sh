@@ -210,8 +210,8 @@ alias j="json"
 alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 if test -x "$(which dust)"; then
 	export DUST_OPTS="--apparent-size --reverse"
-	alias dust="command dust $DUST_OPTS --depth 1"
-	alias dustr="command dust $DUST_OPTS --number-of-lines $(expr $(tput lines) - 10)"
+	alias dust="command dust $DUST_OPTS --depth=1"
+	alias dustr="command dust $DUST_OPTS --number-of-lines=$(expr $(tput lines) - 10)"
 fi
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
