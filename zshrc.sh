@@ -129,7 +129,7 @@ alias gradlew="./gradlew"
 alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
-alias dotmodules="batt $DOTFILES/modules/* -l sh"
+alias dotmodules="batl $DOTFILES/modules/* -l sh"
 alias vinspect="FORCE_COLOR=0 vue inspect"
 alias clear="clear && printf '\e[3J'"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
@@ -196,7 +196,7 @@ if test -x "$(which fzf)"; then
 fi
 
 # export BAT_CONFIG_PATH="$DOTFILES/static"
-alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid' --theme='Monokai Extended Origin'"
+alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Extended Origin' --style='header,grid'"
 alias batl="bat --style='header,grid,numbers'"
 alias b='bat'
 function batplist() { plistutil -i $@ | bat -l xml }; compdef batplist=cat
