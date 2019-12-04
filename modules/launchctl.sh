@@ -26,3 +26,10 @@ function lc-r() {
 	echo '\n🌕 System Daemons'
 	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "/System/Library/LaunchDaemons"
 }
+
+function lc-a() {
+	echo '\n🌕🌕  FIND  🌕🌕'
+	lc-f $@
+	echo '\n🌕🌕  GREP  🌕🌕'
+	lc-r $@
+}
