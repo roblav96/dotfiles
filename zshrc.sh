@@ -97,13 +97,6 @@ alias rmd="rm -rf"
 alias e="nano"
 alias n="npm"
 alias o="open ."
-alias gc="git clone --recurse-submodules"
-alias gf="git fetch"
-alias gp="git pull"
-alias gpr="git pull --rebase"
-alias gd="git --no-pager diff"
-alias gs="git status --short --branch"
-alias gst="git standup"
 alias gh="github"
 alias k="killall -KILL"
 alias ls="ls --color=always"
@@ -137,7 +130,7 @@ alias clear="clear && printf '\e[3J'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-if test -x "$(which exa)"; then
+if test -x "$(which -p exa)"; then
 	# export EXA_STRICT="1"
 	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 	export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
@@ -154,7 +147,7 @@ if test -x "$(which exa)"; then
 	alias lara="exa $EXA_OPTS --group --tree --recurse"
 fi
 
-if test -x "$(which fd)"; then
+if test -x "$(which -p fd)"; then
 	export FD_OPTS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
 	alias f="fd $FD_OPTS --exclude='node_modules' --fixed-strings"
 	alias fa="fd $FD_OPTS --no-ignore --fixed-strings"
@@ -168,7 +161,7 @@ if test -x "$(which fd)"; then
 	# function f() { find . -iname "*$1*" ${@:2} }
 fi
 
-if test -x "$(which rg)"; then
+if test -x "$(which -p rg)"; then
 	# export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 	# alias r="rg --color=always --smart-case"
 	export RG_OPTS="--color=always --heading --line-number --no-messages --max-columns=$(expr $(tput cols) - 5) --max-columns-preview --smart-case --hidden --glob='!.git' --glob='!.DS_Store'"
@@ -181,7 +174,19 @@ if test -x "$(which rg)"; then
 	# function r() { grep "$1" ${@:2} -R . }
 fi
 
-if test -x "$(which fzf)"; then
+if test -x "$(which -p bat)"; then
+	# export BAT_CONFIG_PATH="$DOTFILES/static"
+	export BAT_THEME="Monokai Extended Origin"
+	export BAT_OPTS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style=header,grid"
+	alias batt="bat --style=header,grid,numbers"
+	alias b="bat"
+	function batplist() {
+		plistutil --infile $@ | bat -l html
+	}; compdef batplist=cat
+	alias batpl="batplist"
+fi
+
+if test -x "$(which -p fzf)"; then
 	export FZF_DEFAULT_OPTS="
 		--no-multi
 		--tabstop=4
@@ -195,19 +200,13 @@ if test -x "$(which fzf)"; then
 	# --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 fi
 
-# export BAT_CONFIG_PATH="$DOTFILES/static"
-alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Extended Origin' --style='header,grid'"
-alias batl="bat --style='header,grid,numbers'"
-alias b='bat'
-function batplist() { plistutil -i $@ | bat -l xml }; compdef batplist=cat
-
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
 
 alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
-if test -x "$(which dust)"; then
+if test -x "$(which -p dust)"; then
 	export DUST_OPTS="--apparent-size --reverse"
 	alias dust="command dust $DUST_OPTS --depth=1"
 	alias dustr="command dust $DUST_OPTS --number-of-lines=$(expr $(tput lines) - 10)"
@@ -215,7 +214,7 @@ fi
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
 alias dff="df -h"
-test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
+test -x "$(which -p dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .ping="ping google.com"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
@@ -227,9 +226,9 @@ alias p="ps auxww | grep --invert-match grep | grep"
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-# test -x "$(which watchexec)" && alias watch="watchexec"
-# test -x "$(which procs)" && alias procs="sudo procs"
-if test -x "$(which prettier)"; then
+# test -x "$(which -p watchexec)" && alias watch="watchexec"
+# test -x "$(which -p procs)" && alias procs="sudo procs"
+if test -x "$(which -p prettier)"; then
 	alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override"
 	function pat() { prettier --parser $1 | bat -l $1 }
 fi
@@ -242,7 +241,7 @@ function show() {
 	fi
 	WHICH="$(which $@)"
 	[ -z "$WHICH" ] || [ ! -f "$WHICH" ] && return 0
-	if test -x "$(which exa)"; then
+	if test -x "$(which -p exa)"; then
 		exa -a -l -F -g -m "$WHICH"
 		exa -a -l -F -g -m "$(readlink -f $WHICH)"
 	else
@@ -251,8 +250,8 @@ function show() {
 	fi
 }; compdef show=which
 
-# function rl() { echo -n "$(test -x "$(which $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-function rl() { test -x "$(which $@)" && exa -a -l -F -g -m "$(readlink -f $(which $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
+# function rl() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+function rl() { test -x "$(which -p $@)" && exa -a -l -F -g -m "$(readlink -f $(which -p $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
 
 alias tl="tldr"
 function ch() { curl "https://cheat.sh/$@?T" | bat -l sh }
@@ -265,7 +264,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=15 | grep 'blocked|$'"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
-if test -x "$(which ffprobe)"; then
+if test -x "$(which -p ffprobe)"; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
 	}
@@ -274,18 +273,19 @@ if test -x "$(which ffprobe)"; then
 	fi
 fi
 
-test -x "$(which apt)" && source "$DOTFILES/modules/apt.sh"
-test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
-test -x "$(which dotnet)" && source "$DOTFILES/modules/dotnet.sh"
-test -x "$(which ffsend)" && source "$DOTFILES/modules/ffsend.sh"
-test -x "$(which go)" && source "$DOTFILES/modules/go.sh"
-test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
-test -x "$(which launchctl)" && source "$DOTFILES/modules/launchctl.sh"
-test -x "$(which npm)" && source "$DOTFILES/modules/npm.sh"
-test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
-test -x "$(which tar)" && source "$DOTFILES/modules/tar.sh"
-test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
-test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
+test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
+test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
+test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
+test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
+test -x "$(which -p git)" && source "$DOTFILES/modules/git.sh"
+test -x "$(which -p go)" && source "$DOTFILES/modules/go.sh"
+test -x "$(which -p ip)" && source "$DOTFILES/modules/ip.sh"
+test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
+test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
+test -x "$(which -p subl)" && source "$DOTFILES/modules/sublime-text.sh"
+test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
+test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
+test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

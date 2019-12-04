@@ -88,7 +88,7 @@ export CLICOLOR="1"
 # export LSCOLORS="exfxfeaeBxxehehbadacea"
 # export LSCOLORS="ExFxBxDxCxegedabagacad"
 
-alias denon="curl --insecure 'https://192.168.50.135:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l xml"
+alias denon="curl --insecure 'https://192.168.50.135:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
 alias rr-k="killall node"
 alias rr-npmi="npm install"

@@ -1,0 +1,13 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Robert Laverty
+	email = roblav96@gmail.com
+[color]
+	ui = always
+	status = always
+[core]
+	excludesfile = ~/.gitignore

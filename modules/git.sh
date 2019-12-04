@@ -1,0 +1,7 @@
+alias gc="git clone --recurse-submodules"
+alias gd="git --no-pager diff"
+alias gf="git fetch"
+alias gp="git pull"
+alias gpr="git pull --rebase"
+alias gs="git status --short --branch"
+alias gsu="git standup"
