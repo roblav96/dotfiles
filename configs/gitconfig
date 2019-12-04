@@ -11,3 +11,6 @@
 	status = always
 [core]
 	excludesfile = ~/.gitignore
+	pager = ""
+[pager]
+	diff = false

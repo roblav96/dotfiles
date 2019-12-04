@@ -33,7 +33,7 @@ function dotstatus() {
 }
 function dotdiff() {
 	cd "$DOTFILES"
-	git --no-pager diff
+	git diff
 	cd "$OLDPWD"
 }
 function dotpush() {
