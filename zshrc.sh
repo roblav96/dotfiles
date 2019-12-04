@@ -109,7 +109,6 @@ alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
-# alias grep="grep --color=always --ignore-case --fixed-strings --extended-regexp"
 alias g="grep"
 function idk() { man -k $@ | grep "$@|$" }; compdef idk=man
 alias pwd="pwd && pwd -P"
@@ -201,6 +200,7 @@ fi
 alias bat="bat --color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style='header,grid' --theme='Monokai Extended Origin'"
 alias batl="bat --style='header,grid,numbers'"
 alias b='bat'
+function batplist() { plistutil -i $@ | bat -l xml }; compdef batplist=cat
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
@@ -274,10 +274,6 @@ if test -x "$(which ffprobe)"; then
 		compdef fprobe=ffprobe
 	fi
 fi
-
-function batplist() {
-	plistutil -i $@ | bat -l xml
-}; compdef batplist=cat
 
 test -x "$(which apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which cargo)" && source "$DOTFILES/modules/cargo.sh"
