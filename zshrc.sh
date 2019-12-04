@@ -144,7 +144,7 @@ if test -x "$(which exa)"; then
 	# export EXA_STRICT="1"
 	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
 	export EXA_OPTS="--color=always --color-scale --long --header --classify --all"
-	alias l="exa $EXA_OPTS --ignore-glob='.git|.DS_Store|node_modules' --git-ignore"
+	alias l="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --git-ignore"
 	alias la="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group"
 	alias lr="exa $EXA_OPTS --ignore-glob='.git|.DS_Store|node_modules' --git-ignore --tree --recurse --level=2"
 	alias lra="exa $EXA_OPTS --ignore-glob='.git|.DS_Store|node_modules' --git-ignore --tree --recurse"
@@ -178,6 +178,7 @@ if test -x "$(which rg)"; then
 	export RG_OPTS="--color=always --heading --line-number --smart-case --max-columns=$(expr $(tput cols) - 5) --max-columns-preview --no-messages --hidden --glob='!.git' --glob='!.DS_Store'"
 	alias r="rg $RG_OPTS --glob='!node_modules' --fixed-strings"
 	alias ra="rg $RG_OPTS --no-ignore --fixed-strings --stats"
+	alias raa="rg $RG_OPTS --no-ignore --fixed-strings --stats -uuu"
 	alias raf="rg $RG_OPTS --no-ignore --fixed-strings --stats --follow"
 	# function r() { rg "$1" ${@:2} --smart-case }
 	# function ra() { rg -uu "$1" ${@:2} --smart-case }
@@ -208,15 +209,16 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
 
+alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 if test -x "$(which dust)"; then
-	alias dust="command dust --apparent-size --reverse --depth=1"
-	alias dustr="command dust --apparent-size --reverse --number-of-lines=$(expr $(tput lines) - 10)"
+	export DUST_OPTS="--apparent-size --reverse"
+	alias dust="command dust $DUST_OPTS --depth 1"
+	alias dustr="command dust $DUST_OPTS --number-of-lines $(expr $(tput lines) - 10)"
 fi
-alias ddu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
-test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
-alias ddf="df -h"
+alias dff="df -h"
+test -x "$(which dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .ping="ping google.com"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
