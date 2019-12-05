@@ -4,7 +4,7 @@ BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.bashrc"
 
 echo > $BASHRC
 echo "export DOTFILES='$DOTFILES'" >> $BASHRC
-echo "alias src='sh $DOTFILES/install.bash.sh'" >> $BASHRC
+echo "alias src='sh $DOTFILES/install.bash.sh; rm -v ~/.zcompdump*; exit'" >> $BASHRC
 echo "[ -f '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
 chmod a+x $BASHRC
 cat $BASHRC
