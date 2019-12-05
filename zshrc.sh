@@ -123,7 +123,7 @@ alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
 alias dotmodules="batl $DOTFILES/modules/* -l sh"
-alias vinspect="FORCE_COLOR=0 vue inspect"
+alias vinspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 alias clear="clear && printf '\e[3J'"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
@@ -133,18 +133,18 @@ alias clear="clear && printf '\e[3J'"
 if test -x "$(which -p exa)"; then
 	# export EXA_STRICT="1"
 	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-	export EXA_OPTS="--color=always --color-scale --long --header --classify --all --ignore-glob='.git|.DS_Store'"
-	alias l="exa $EXA_OPTS"
-	alias la="exa $EXA_OPTS --group"
-	alias lb="exa $EXA_OPTS --sort=size"
-	alias lm="exa $EXA_OPTS --time=modified --sort=modified"
-	alias lch="exa $EXA_OPTS --time=changed --sort=changed"
-	alias lac="exa $EXA_OPTS --time=accessed --sort=accessed"
-	alias lcr="exa $EXA_OPTS --time=created --sort=created"
+	export EXA_OPTS="--color=always --color-scale --long --header --classify --all"
+	alias l="exa $EXA_OPTS --ignore-glob='.git|.DS_Store'"
+	alias la="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group"
+	alias lb="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --sort=size"
+	alias lm="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=modified --sort=modified"
+	alias lch="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=changed --sort=changed"
+	alias lac="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=accessed --sort=accessed"
+	alias lcr="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=created --sort=created"
 	alias lr="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse --level=2"
 	alias lra="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse"
-	alias lar="exa $EXA_OPTS --group --tree --recurse --level=2"
-	alias lara="exa $EXA_OPTS --group --tree --recurse"
+	alias lar="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse --level=2"
+	alias lara="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse"
 fi
 
 if test -x "$(which -p fd)"; then
@@ -239,7 +239,7 @@ function show() {
 		type -f $@ | bat -p -l sh
 		return 0
 	fi
-	WHICH="$(which $@)"
+	WHICH="$(which -p $@)"
 	[ -z "$WHICH" ] || [ ! -f "$WHICH" ] && return 0
 	if test -x "$(which -p exa)"; then
 		exa -a -l -F -g -m "$WHICH"
