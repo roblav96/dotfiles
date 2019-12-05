@@ -1,0 +1,17 @@
+export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
+export EXA_OPTS="--color=always --color-scale --long --header --classify --all"
+# export EXA_STRICT="1"
+
+alias l="exa $EXA_OPTS --ignore-glob='.git|.DS_Store'"
+alias la="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group"
+alias lb="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --sort=size"
+alias lm="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=modified --sort=modified"
+alias lch="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=changed --sort=changed"
+alias lac="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=accessed --sort=accessed"
+alias lcr="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=created --sort=created"
+alias lr="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse --level=2"
+alias lra="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse"
+alias lar="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse --level=2"
+alias lara="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse"
+
+# exa -a "${$(type $@)/$@ is a shell function from /}"

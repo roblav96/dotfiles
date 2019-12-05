@@ -73,9 +73,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
-# bindkey '^F' fzf-history-widget
-# bindkey '^F' fzf-history-widget
-bindkey '^[r' fzf-history-widget
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
@@ -130,75 +127,11 @@ alias clear="clear && printf '\e[3J'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-if test -x "$(which -p exa)"; then
-	# export EXA_STRICT="1"
-	export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-	export EXA_OPTS="--color=always --color-scale --long --header --classify --all"
-	alias l="exa $EXA_OPTS --ignore-glob='.git|.DS_Store'"
-	alias la="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group"
-	alias lb="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --sort=size"
-	alias lm="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=modified --sort=modified"
-	alias lch="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=changed --sort=changed"
-	alias lac="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=accessed --sort=accessed"
-	alias lcr="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --time=created --sort=created"
-	alias lr="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse --level=2"
-	alias lra="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse"
-	alias lar="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse --level=2"
-	alias lara="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse"
-fi
-
-if test -x "$(which -p fd)"; then
-	export FD_OPTS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
-	alias f="fd $FD_OPTS --exclude='node_modules' --fixed-strings"
-	alias fa="fd $FD_OPTS --no-ignore --fixed-strings"
-	alias faf="fd $FD_OPTS --no-ignore --fixed-strings --follow"
-	alias fgl="fd $FD_OPTS --exclude='node_modules' --glob"
-	alias fagl="fd $FD_OPTS --no-ignore --glob"
-	# function f() { fd "$1" ${@:2} --color=always }
-	# | grep "$1" --ignore-case --color=always }
-	# function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
-	# function fa() { fd "$1" ${@:2} --hidden --no-ignore --show-errors --color=always | grep "$1" --ignore-case --color=always }
-	# function f() { find . -iname "*$1*" ${@:2} }
-fi
-
-if test -x "$(which -p rg)"; then
-	# export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-	# alias r="rg --color=always --smart-case"
-	export RG_OPTS="--color=always --heading --line-number --no-messages --max-columns=$(expr $(tput cols) - 5) --max-columns-preview --smart-case --hidden --glob='!.git' --glob='!.DS_Store'"
-	alias r="rg $RG_OPTS --glob='!node_modules' --fixed-strings"
-	alias ra="rg $RG_OPTS --no-ignore --fixed-strings --stats"
-	alias raa="rg $RG_OPTS --no-ignore --fixed-strings --stats -uuu"
-	alias raf="rg $RG_OPTS --no-ignore --fixed-strings --stats --follow"
-	# function r() { rg "$1" ${@:2} --smart-case }
-	# function ra() { rg -uu "$1" ${@:2} --smart-case }
-	# function r() { grep "$1" ${@:2} -R . }
-fi
-
-if test -x "$(which -p bat)"; then
-	# export BAT_CONFIG_PATH="$DOTFILES/static"
-	export BAT_THEME="Monokai Extended Origin"
-	export BAT_OPTS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --style=header,grid"
-	alias batt="bat --style=header,grid,numbers"
-	alias b="bat"
-	function batplist() {
-		plistutil --infile $@ | bat -l html
-	}; compdef batplist=cat
-	alias batpl="batplist"
-fi
-
-if test -x "$(which -p fzf)"; then
-	export FZF_DEFAULT_OPTS="
-		--no-multi
-		--tabstop=4
-		--height=$(expr $(tput lines) - 5)
-		--prompt='$PURE_PROMPT_SYMBOL '
-		--color=dark
-		--color=fg:-1,bg:-1,hl:5,fg+:231,bg+:-1,hl+:5
-		--color=gutter:-1,info:2,prompt:4,pointer:1,marker:6,spinner:1,header:6
-	"
-	# --color=fg:231,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
-	# --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
-fi
+test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
+test -x "$(which -p fd)" && source "$DOTFILES/modules/fd.sh"
+test -x "$(which -p rg)" && source "$DOTFILES/modules/rg.sh"
+test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
+test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
@@ -234,12 +167,15 @@ if test -x "$(which -p prettier)"; then
 fi
 
 function show() {
-	type -a $@ | bat -p -l sh
-	if type -w $@ | grep -q "function"; then
+	type -a $@ | bat --style=grid
+	if which -w $@ | grep -q "function"; then
 		type -f $@ | bat -p -l sh
-		return 0
+	elif which -w $@ | grep -q "alias"; then
+		alias -L $@ | bat -p -l sh
 	fi
-	WHICH="$(which -p $@)"
+
+	local WHICH="$(which -p $@)"
+	# echo "🌕 WHICH '$@' -> $WHICH"
 	[ -z "$WHICH" ] || [ ! -f "$WHICH" ] && return 0
 	if test -x "$(which -p exa)"; then
 		exa -a -l -F -g -m "$WHICH"
