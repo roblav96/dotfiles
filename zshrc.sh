@@ -175,7 +175,7 @@ function show() {
 	elif which -w $@ | grep -q "function$"; then
 		echo
 		type -f $@ | bat -p -l sh
-		exa -a -l -g "${$(type $@)/$@ is a shell function from /}"
+		exa -a -l -g -F "${$(type $@)/$@ is a shell function from /}"
 	elif which -w $@ | grep -q "alias$"; then
 		echo
 		alias -L $@ | bat -p -l sh
@@ -183,15 +183,20 @@ function show() {
 	local WHICH="$(which -p $@)"
 	if [[ -e "$WHICH" ]]; then
 		echo
-		exa -a -l -g "$WHICH"
+		exa -a -l -g -F "$WHICH"
 		if [[ "$WHICH" != "$(readlink -f $WHICH)" ]]; then
-			exa -a -l -g "$(readlink -f $WHICH)"
+			exa -a -l -g -F "$(readlink -f $WHICH)"
 		fi
 	fi
 }; compdef show=which
 
 # function rl() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-function rl() { test -x "$(which -p $@)" && exa -a -l -F -g -m "$(readlink -f $(which -p $@))" || exa -a -l -F -g -m "$(readlink -f $@)" }
+function rl() {
+	if [[ -x "$(which -p $@)" ]]; then
+
+	fi
+	test -x "$(which -p $@)" && exa -a -l -g -F "$(readlink -f $(which -p $@))" || exa -a -l -g -F "$(readlink -f $@)"
+}
 
 alias tl="tldr"
 function ch() { curl "https://cheat.sh/$@?T" | bat -l sh }
