@@ -193,9 +193,10 @@ function show() {
 # function rl() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
 function rl() {
 	if [[ -x "$(which -p $@)" ]]; then
-
+		exa -a -l -g -F "$(readlink -f $(which -p $@))"
+	else
+		exa -a -l -g -F "$(readlink -f $@)"
 	fi
-	test -x "$(which -p $@)" && exa -a -l -g -F "$(readlink -f $(which -p $@))" || exa -a -l -g -F "$(readlink -f $@)"
 }
 
 alias tl="tldr"
