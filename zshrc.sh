@@ -170,7 +170,9 @@ function show() {
 	type -a $@
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
-	if which -w $@ | grep -q "function"; then
+	if which -w $@ | grep -q "none$"; then
+		return 0
+	elif which -w $@ | grep -q "function"; then
 		echo
 		type -f $@ | bat -p -l sh
 		exa -a -l -g "${$(type $@)/$@ is a shell function from /}"
