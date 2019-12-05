@@ -44,8 +44,8 @@ function r() {
 }
 
 function show() {
-	type -a $@
-	WHICH=$(which $@)
+	type -a $1
+	WHICH=$(which $1)
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -laph --color=always $WHICH
 	readlink -f $WHICH
