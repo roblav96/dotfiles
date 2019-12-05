@@ -15,7 +15,7 @@ cat $ZSHRC
 # reset
 # echo "exec $(echo "$0") -l"
 
-echo; echo '🌕 dotfiles install.zsh.sh complete'; echo
+echo; echo '✅ .dotfiles ZSH install complete!'; echo
 
 
 

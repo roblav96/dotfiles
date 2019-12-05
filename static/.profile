@@ -85,12 +85,18 @@ export HISTFILESIZE="5000000"
 export HISTSIZE="5000000"
 export SAVEHIST="1000000"
 
-function opkgs() {
-	opkg find "*$@*"
-}
-function opkgi() {
-	opkg info "*$@*"
-}
+if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
+	alias pkg="opkg"
+	function pkgs() {
+		opkg find "*$@*"
+	}
+	function pkgi() {
+		opkg info "*$@*"
+	}
+	function pkgl() {
+		opkg list "*$@*"
+	}
+fi
 
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
