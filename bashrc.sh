@@ -42,6 +42,8 @@ export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/build-tools/29.0.2:$PATH"
 export PATH="$ANDROID_HOME/emulator:$PATH"
 
+test -x "$(which adb)" && source "$DOTFILES/modules/adb.sh"
+
 # export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # export PATH="/usr/local/opt/xctool/libexec/bin:$PATH"

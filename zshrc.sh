@@ -219,6 +219,7 @@ if test -x "$(which -p ffprobe)"; then
 	fi
 fi
 
+test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
