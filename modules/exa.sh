@@ -13,5 +13,3 @@ alias lr="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules'
 alias lra="exa $EXA_OPTS --git-ignore --ignore-glob='.git|.DS_Store|node_modules' --tree --recurse"
 alias lar="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse --level=2"
 alias lara="exa $EXA_OPTS --ignore-glob='.git|.DS_Store' --group --tree --recurse"
-
-# exa -a "${$(type $@)/$@ is a shell function from /}"

@@ -167,22 +167,24 @@ if test -x "$(which -p prettier)"; then
 fi
 
 function show() {
-	type -a $@ | bat --style=grid
+	type -a $@
+	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
+	# | bat --style=grid
 	if which -w $@ | grep -q "function"; then
+		echo
 		type -f $@ | bat -p -l sh
+		exa -a -l -g "${$(type $@)/$@ is a shell function from /}"
 	elif which -w $@ | grep -q "alias"; then
+		echo
 		alias -L $@ | bat -p -l sh
 	fi
-
 	local WHICH="$(which -p $@)"
-	# echo "🌕 WHICH '$@' -> $WHICH"
-	[ -z "$WHICH" ] || [ ! -f "$WHICH" ] && return 0
-	if test -x "$(which -p exa)"; then
-		exa -a -l -F -g -m "$WHICH"
-		exa -a -l -F -g -m "$(readlink -f $WHICH)"
-	else
-		ls -lAph --color=always "$WHICH"
-		ls -lAph --color=always "$(readlink -f $WHICH)"
+	if [[ -e "$WHICH" ]]; then
+		echo
+		exa -a -l -g "$WHICH"
+		if [[ "$WHICH" != "$(readlink -f $WHICH)" ]]; then
+			exa -a -l -g "$(readlink -f $WHICH)"
+		fi
 	fi
 }; compdef show=which
 
