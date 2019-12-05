@@ -1,7 +1,38 @@
-#!/usr/bin/env bash
+alias adb-shell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH && cd sdcard' && echo && adb shell"
+alias adb-text="adb shell input keyboard text"
+alias adb-settings="echo '\n🌕 System'; adb shell settings list system; echo '\n🌕 Secure'; adb shell settings list secure; echo '\n🌕 Global'; adb shell settings list global"
 
-# Android Package Manager
-# https://developer.android.com/studio/command-line/adb#pm
+function exoplayer() {
+	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
+}
+function kodi() {
+	adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv
+}
+function soundcloud() {
+	adb shell am start -a android.intent.action.VIEW -d $1
+}
+
+# function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
+function adb-wget() {
+	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
+	adb shell input keyboard text "'wget -O /dev/null $1'"
+	adb shell input keyevent KEYCODE_ENTER
+	sleep 15
+	adb shell am force-stop com.termux
+	# sleep 1
+	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
+	# adb shell input keyboard text "'rm ./*'"
+	# adb shell input keyevent KEYCODE_ENTER
+	# adb shell am force-stop com.termux
+}
+
+function apksign() {
+	rm -f $1-signed.apk
+	rm -f $1-unsigned-aligned.apk
+	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
+	apksigner sign --ks $HOME/.android/release.keystore --out $1-signed.apk $1-unsigned-aligned.apk
+	apksigner verify $1-signed.apk
+}
 
 function adb-pm-ls() {
 	echo; echo 🌕 Disabled 🌕

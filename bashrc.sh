@@ -134,7 +134,6 @@ alias rr-source="source $HOME/.bash_profile"
 alias rr-dts-gen="cd '$HOME/Sandbox/android-dts-generator/dts-generator' && l && open ' dts-generator.sublime-project' && open build.gradle"
 alias rr-adb-tv="adb kill-server && adb connect 192.168.1.2:5555 && adb devices"
 alias rr-adb-phone="adb kill-server && adb connect 192.168.1.5:5555 && adb devices"
-alias rr-adb-settings="echo '\n🌕 System'; adb shell settings list system; echo '\n🌕 Secure'; adb shell settings list secure; echo '\n🌕 Global'; adb shell settings list global"
 
 # alias tl="tldr"
 # alias dk="docker"
@@ -173,50 +172,14 @@ alias gmnet='adb shell settings put global http_proxy localhost:4200; adb revers
 # 	open -a player --args --vm-name $@
 # }
 
+alias rr-macrandom="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
 alias rr-telnet="echo && echo nj3nxCEBUX7BDDei && echo && telnet 192.168.1.1"
 alias rr-router="ssh -p 1337 admin@192.168.50.1"
 alias rr-phone="ssh -p 1337 192.168.50.168"
 alias rr-phonee="ssh -p 1337 192.168.1.170"
 alias rr-kodi-adb="cd $HOME/Downloads && rm -rf userdata && git clone git@github.com:roblav96/userdata.git && cd userdata && rm -rf .git .gitignore && sh _scripts/adb.push.sh && echo DONE"
-alias rr-adb-shell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH && cd sdcard' && echo && adb shell"
-alias rr-adb-text="adb shell input keyboard text"
-
-alias rr-macrandom="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
-
-function rr-apksign() {
-	rm -f $1-signed.apk
-	rm -f $1-unsigned-aligned.apk
-	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
-	apksigner sign --ks $HOME/.android/release.keystore --out $1-signed.apk $1-unsigned-aligned.apk
-	apksigner verify $1-signed.apk
-}
-
-function rr-exoplayer() {
-	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
-}
-function rr-kodi() {
-	adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv
-}
-function rr-soundcloud() {
-	adb shell am start -a android.intent.action.VIEW -d $1
-}
-
-# function rr-adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
 # function rr-emulator() { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
-
-function rr-adb-wget() {
-	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
-	adb shell input keyboard text "'wget -O /dev/null $1'"
-	adb shell input keyevent KEYCODE_ENTER
-	sleep 15
-	adb shell am force-stop com.termux
-	# sleep 1
-	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
-	# adb shell input keyboard text "'rm ./*'"
-	# adb shell input keyevent KEYCODE_ENTER
-	# adb shell am force-stop com.termux
-}
 
 alias rr-xposed="gradle assembleRelease && (cd build/outputs/apk/release && rr-apksign app-release && adb uninstall com.roblav96.highdpinavbarbuttonsfixed | true && adb install app-release-signed.apk && sleep 5 && adb shell \"su -c 'setprop ctl.restart zygote'\")"
 
