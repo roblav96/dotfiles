@@ -172,11 +172,11 @@ function show() {
 	# | bat --style=grid
 	if which -w $@ | grep -q "none$"; then
 		return 0
-	elif which -w $@ | grep -q "function"; then
+	elif which -w $@ | grep -q "function$"; then
 		echo
 		type -f $@ | bat -p -l sh
 		exa -a -l -g "${$(type $@)/$@ is a shell function from /}"
-	elif which -w $@ | grep -q "alias"; then
+	elif which -w $@ | grep -q "alias$"; then
 		echo
 		alias -L $@ | bat -p -l sh
 	fi
