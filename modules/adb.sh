@@ -1,12 +1,27 @@
 alias adb-shell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH && cd sdcard' && echo && adb shell"
 alias adb-text="adb shell input keyboard text"
 
-function adb-settings-ls() {
-	echo; echo 🌕 System Settings 🌕; echo "$(adb shell settings list system)" | sort --ignore-case | bat -p -l sh
-	echo; echo 🌕 Secure Settings 🌕; echo "$(adb shell settings list secure)" | sort --ignore-case | bat -p -l sh
-	echo; echo 🌕 Global Settings 🌕; echo "$(adb shell settings list global)" | sort --ignore-case | bat -p -l sh
+# https://developer.android.com/reference/android/provider/Settings
+function adb-settings() {
+	echo; echo 🌕 System Settings 🌕
+	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid,numbers -l sh
+	echo; echo 🌕 Secure Settings 🌕
+	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid,numbers -l sh
+	echo; echo 🌕 Global Settings 🌕
+	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid,numbers -l sh
 }
-# alias adb-settings="echo '\n🌕 System'; adb shell settings list system; echo '\n🌕 Secure'; adb shell settings list secure; echo '\n🌕 Global'; adb shell settings list global"
+function adb-settings-f() {
+	if [[ $# -eq 0 ]]; then
+		adb-settings
+		return 0
+	fi
+	echo; echo 🌕 System Settings 🌕
+	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --fixed-strings $@
+	echo; echo 🌕 Secure Settings 🌕
+	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --fixed-strings $@
+	echo; echo 🌕 Global Settings 🌕
+	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --fixed-strings $@
+}
 
 function exoplayer() {
 	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
@@ -22,7 +37,7 @@ function adb-wget() {
 	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
 	adb shell input keyboard text "'wget -O /dev/null $1'"
 	adb shell input keyevent KEYCODE_ENTER
-	sleep 15
+	sleep 10
 	adb shell am force-stop com.termux
 	# sleep 1
 	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
@@ -32,7 +47,7 @@ function adb-wget() {
 }
 # function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
-function apksign() {
+function apk-sign() {
 	rm -f $1-signed.apk
 	rm -f $1-unsigned-aligned.apk
 	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
@@ -40,19 +55,20 @@ function apksign() {
 	apksigner verify $1-signed.apk
 }
 
-function adb-pm-ls() {
+# https://developer.android.com/studio/command-line/adb#pm
+function adb-pm() {
 	echo; echo 🌕 Disabled Packages 🌕
-	echo "$(adb shell pm list packages -f -d)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f -d)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 	echo; echo 🌕 Uninstalled Packages 🌕
-	echo "$(adb shell pm list packages -f -u)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f -u)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 	echo; echo 🌕 Enabled Packages 🌕
-	echo "$(adb shell pm list packages -f -e)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f -e)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 	echo; echo 🌕 Default Packages 🌕
-	echo "$(adb shell pm list packages -f)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 	echo; echo 🌕 System Packages 🌕
-	echo "$(adb shell pm list packages -f -s)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f -s)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 	echo; echo 🌕 Third-Party Packages 🌕
-	echo "$(adb shell pm list packages -f -3)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+	echo "$(adb shell pm list packages -f -3)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
 }
 
 # function adb-pm-ls() {
