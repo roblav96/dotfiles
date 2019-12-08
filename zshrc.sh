@@ -178,7 +178,7 @@ function show() {
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
 	if which -w $@ | grep -q "none$"; then
-		return 0
+		return 1
 	elif which -w $@ | grep -q "function$"; then
 		echo
 		type -f $@ | bat -p -l sh
