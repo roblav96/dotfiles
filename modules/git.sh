@@ -6,6 +6,8 @@ alias gpr="git pull --rebase"
 alias gs="git status --short --branch"
 alias gsu="git standup"
 
-if [[ -x "$(command -v diff-so-fancy)" ]]; then
+if [[ -x "$(which -p diff-so-fancy)" ]]; then
 	git config --global pager.diff "diff-so-fancy"
+else
+	git config --global pager.diff ""
 fi

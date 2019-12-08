@@ -153,6 +153,10 @@ alias dff="df -h"
 test -x "$(which -p dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .ping="ping google.com"
 
+if [[ -x "$(which -p m)" ]]; then
+	alias wifi="m wifi status"
+fi
+
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
 # function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
@@ -217,7 +221,7 @@ function checksum() {
 
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=15 | grep 'blocked|$'"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
-if test -x "$(which -p ffprobe)"; then
+if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
 	}
