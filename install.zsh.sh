@@ -5,7 +5,7 @@ PLATFORM="$(uname -o)"
 
 echo > $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
-echo "alias src='sh $DOTFILES/install.zsh.sh; rm -v ~/.zcomp*; compinit; exit'" >> $ZSHRC
+echo "alias src='sh $DOTFILES/install.zsh.sh; rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh' ] && source '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.sh' ] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.${PLATFORM##*/}.after.sh' ] && source '$DOTFILES/zshrc.${PLATFORM##*/}.after.sh'" >> $ZSHRC

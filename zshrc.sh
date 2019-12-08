@@ -122,7 +122,7 @@ alias dotcd="cd $DOTFILES"
 alias dotmodules="batt $DOTFILES/modules/* -l sh"
 alias vinspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 alias clear="clear && printf '\e[3J'"
-alias zcomp="rm -v ~/.zcomp*; compinit; exit"
+alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
 alias fpath='print -l $fpath'
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
@@ -143,9 +143,9 @@ alias j="json"
 
 alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 if test -x "$(which -p dust)"; then
-	export DUST_OPTS="--apparent-size --reverse"
-	alias dust="command dust $DUST_OPTS --depth=1"
-	alias dustr="command dust $DUST_OPTS --number-of-lines=$(expr $(tput lines) - 10)"
+	export DUST_FLAGS="--apparent-size --reverse"
+	alias dust="command dust $DUST_FLAGS --depth=1"
+	alias dustr="command dust $DUST_FLAGS --number-of-lines=$(expr $(tput lines) - 10)"
 fi
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
@@ -216,7 +216,7 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # }
 
 function checksum() {
-	test $# -ge 1 && sha256sum $@
+	sha256sum $@
 }; compdef checksum=rm
 
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=15 | grep 'blocked|$'"
