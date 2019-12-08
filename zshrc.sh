@@ -78,7 +78,7 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 
 unalias ls
 unalias la
-# unalias rd
+unalias rd
 unalias grep
 
 # alias fo="forever "
