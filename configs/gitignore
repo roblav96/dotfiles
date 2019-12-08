@@ -24,3 +24,20 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# caarlos0/dotfiles
+.java-version
+.svn
+*~
+*.swp
+*.orig
+*.rbc
+.idea
+*.iml
+.classpath
+.project
+.settings
+.ruby-version
+.vscode/
+dump.rdb
+main.tfvars

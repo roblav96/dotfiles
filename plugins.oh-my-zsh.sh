@@ -13,7 +13,7 @@ robbyrussell/oh-my-zsh path:plugins/github
 # robbyrussell/oh-my-zsh path:plugins/history
 # robbyrussell/oh-my-zsh path:plugins/httpie
 robbyrussell/oh-my-zsh path:plugins/last-working-dir
-robbyrussell/oh-my-zsh path:plugins/nmap
+# robbyrussell/oh-my-zsh path:plugins/nmap
 robbyrussell/oh-my-zsh path:plugins/perms
 # robbyrussell/oh-my-zsh path:plugins/python
 robbyrussell/oh-my-zsh path:plugins/redis-cli
@@ -23,5 +23,5 @@ robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemadmin
 robbyrussell/oh-my-zsh path:plugins/transfer
 robbyrussell/oh-my-zsh path:plugins/wd
-robbyrussell/oh-my-zsh path:plugins/z
+# robbyrussell/oh-my-zsh path:plugins/z
 robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools

@@ -4,11 +4,11 @@ alias adb-text="adb shell input keyboard text"
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings() {
 	echo; echo 🌕 System Settings 🌕
-	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid,numbers -l sh
+	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh
 	echo; echo 🌕 Secure Settings 🌕
-	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid,numbers -l sh
+	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh
 	echo; echo 🌕 Global Settings 🌕
-	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid,numbers -l sh
+	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh
 }
 function adb-settings-f() {
 	if [[ $# -eq 0 ]]; then

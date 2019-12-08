@@ -44,7 +44,7 @@ export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrus
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
 
-PLATFORM="$(uname -o)"
+export PLATFORM="$(uname -o)"
 source <(antibody init)
 # PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
 # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.${PLATFORM##*/}.sh)"
@@ -78,15 +78,15 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 
 unalias ls
 unalias la
-unalias rd
+# unalias rd
 unalias grep
 
 # alias fo="forever "
 alias sudo="sudo "
-alias rr="npm run"
+alias rr="npm -s run"
 # alias rd="rm -rf"
 # alias rma="rm -rf"
-alias rmd="rm -rf"
+# alias rmd="rm -rf"
 # alias rmf="rm -rf"
 # alias cp="cp -v"
 # alias mv="mv -v"
@@ -122,6 +122,9 @@ alias dotcd="cd $DOTFILES"
 alias dotmodules="batl $DOTFILES/modules/* -l sh"
 alias vinspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 alias clear="clear && printf '\e[3J'"
+alias zcomp="rm -v ~/.zcomp*; compinit; exit"
+alias abupd="antibody update; zcomp"
+alias fpath='print -l $fpath'
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"

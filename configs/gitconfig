@@ -7,10 +7,12 @@
 	email = roblav96@gmail.com
 	name = Robert Laverty
 [color]
+	branch = always
+	diff = always
 	status = always
 	ui = always
 [core]
 	excludesfile = ~/.gitignore
 	pager = ""
 [pager]
-	diff = false
+	diff = diff-so-fancy
