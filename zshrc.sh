@@ -107,7 +107,7 @@ alias htop="htop --delay=10"
 alias procs="procs --color=always --sortd=Start"
 alias ipc="ipcalc -b"
 alias dims="echo $COLUMNS x $LINES"
-alias dateiso="date -u +'%Y-%m-%d'"
+alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | bat -l rb"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias curl="curl --silent --connect-timeout 3"
@@ -151,9 +151,7 @@ alias dff="df -h"
 test -x "$(which -p dfc)" && alias dfc="dfc -d -T -f -c always -q type"
 # alias .ping="ping google.com"
 
-if [[ -x "$(which -p m)" ]]; then
-	alias wifi="m wifi status"
-fi
+test -x "$(which -p rmate)" && alias st="rmate --force --verbose"
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
@@ -240,7 +238,6 @@ test -x "$(which -p ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
-test -x "$(which -p subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"

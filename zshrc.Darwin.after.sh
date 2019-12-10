@@ -2,6 +2,7 @@ source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/deving.sh"
 source "$DOTFILES/modules/homebrew.sh"
+source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 
@@ -51,6 +52,10 @@ function dotpush() {
 function adbsu() {
 	adb shell su -c ${@:2}
 }
+
+if [[ -x "$(which -p m)" ]]; then
+	alias wifi="m wifi status"
+fi
 
 if test -d "/Applications/Firefox Developer Edition.app"; then
 	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
