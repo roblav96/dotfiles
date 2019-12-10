@@ -129,8 +129,8 @@ alias fpath='print -l $fpath'
 # alias man="man -P more"
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
-test -x "$(which -p fd)" && source "$DOTFILES/modules/fd.sh"
-test -x "$(which -p rg)" && source "$DOTFILES/modules/rg.sh"
+test -x "$(which -p fd)" && source "$DOTFILES/modules/fd-find.sh"
+test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 

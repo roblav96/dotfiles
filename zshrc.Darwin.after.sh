@@ -54,7 +54,7 @@ function adbsu() {
 }
 
 if [[ -x "$(which -p m)" ]]; then
-	alias wifi="m wifi status"
+	alias wifi="m wifi status | rg --passthru --smart-case --regexp='.*rate:.*'"
 fi
 
 if test -d "/Applications/Firefox Developer Edition.app"; then
