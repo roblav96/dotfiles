@@ -83,8 +83,6 @@ unalias grep
 unalias path
 
 # alias fo="forever "
-alias sudo="sudo "
-alias rr="npm -s run"
 # alias rd="rm -rf"
 # alias rma="rm -rf"
 # alias rmd="rm -rf"
@@ -92,8 +90,8 @@ alias rr="npm -s run"
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
+alias sudo="sudo "
 alias e="nano"
-alias n="npm"
 alias o="open ."
 alias gh="github"
 alias k="killall -KILL"

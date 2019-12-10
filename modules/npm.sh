@@ -1,7 +1,9 @@
-alias npmls="npm -s ls --depth 0"
-alias npmlsg="npm -s ls -g --depth 0"
-alias npmlsa="npm -s ls"
-alias npmlsag="npm -s ls -g"
+alias n="npm --silent"
+alias rr="npm --silent run"
+alias npmls="npm --silent ls --depth 0"
+alias npmlsg="npm --silent ls --global --depth 0"
+alias npmlsa="npm --silent ls"
+alias npmlsag="npm --silent ls --global"
 
 function npmi() {
 	npm i $@; npm i -D @types/$@
