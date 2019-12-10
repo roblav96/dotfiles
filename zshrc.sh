@@ -80,6 +80,7 @@ unalias ls
 unalias la
 unalias rd
 unalias grep
+unalias path
 
 # alias fo="forever "
 alias sudo="sudo "
@@ -102,6 +103,9 @@ alias grep="grep --color=always --ignore-case --extended-regexp"
 alias g="grep"
 function idk() { man -k $@ | grep "$@|$" }; compdef idk=man
 alias pwd="pwd && pwd -P"
+alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
+alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
+alias commandsls="print -l \$commands"
 alias rc="rclone"
 alias htop="htop --delay=10"
 alias procs="procs --color=always --sortd=Start"
@@ -122,7 +126,7 @@ alias vinspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 alias clear="clear && printf '\e[3J'"
 alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
-alias fpath='print -l $fpath'
+alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 # alias sedbat='sd "\"|\x27|\`" "" | bat -l rb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
