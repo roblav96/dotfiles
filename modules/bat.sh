@@ -27,7 +27,7 @@ function bat-langs() {
 }
 
 # export BAT_THEMES=('Monokai Brighter' 'Monokai Classic' 'Monokai Expert Chback' 'Monokai Expert' 'Monokai Extended Bright' 'Monokai Extended Origin' 'Monokai Extended' 'Monokai Free' 'Monokai Pro' 'OneDark Legacy' 'OneHalfDark' 'TwoDark')
-export BAT_THEMES=('Monokai Legacy Brighter' 'Monokai Legacy Free' 'Monokai Pro' 'Monokai Pro Classic' 'Monokai Pro Expert' 'OneDark Legacy')
+export BAT_THEMES=('Monokai Pro' 'Monokai Pro Expert' 'Monokai Pro Expert Classic')
 function bat-themes() {
 	if [[ $# -eq 0 ]]; then
 		echo "🔴 language syntax extension required!"
