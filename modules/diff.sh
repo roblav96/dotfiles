@@ -1,7 +1,7 @@
 if [[ -x "$(which -p diff-color)" ]]; then
 	function diffc() {
 		diff --unified "$@" | diff-color
-	}; compdef diffc=diff
+	}; compdef diffc=rm
 fi
 
 function checksum() {
