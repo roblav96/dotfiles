@@ -23,7 +23,7 @@ alias json="jq --ascii-output --color-output --sort-keys --tab --indent 4"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop --delay=10"
 # function idk() { man -k $@ | grep "$@|$" }
-alias idk="man -k"
+alias idk="man --apropos"
 # alias s="subl -f"
 alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"

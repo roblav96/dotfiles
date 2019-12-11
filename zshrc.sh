@@ -99,7 +99,6 @@ alias ls="ls --color=always"
 alias ll="ls -laph"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias g="grep"
-function idk() { man -k $@ | grep "$@|$" }; compdef idk=man
 alias pwd="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
@@ -171,6 +170,10 @@ if test -x "$(which -p prettier)"; then
 	function pat() { prettier --parser $1 | bat -l $1 }
 fi
 
+function idk() {
+	man --apropos $@ | grep "$@|$"
+}; compdef idk=man
+
 function show() {
 	type -a $@
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
@@ -213,15 +216,11 @@ function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/maste
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-function checksum() {
-	sha256sum $@
-}; compdef checksum=rm
-
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=15 | grep 'blocked|$'"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$@" | json
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams $@ | json
 	}
 	if [[ "$PLATFORM" == "Darwin" ]]; then
 		compdef fprobe=ffprobe
@@ -231,6 +230,7 @@ fi
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
+test -x "$(which -p diff)" && source "$DOTFILES/modules/diff.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which -p git)" && source "$DOTFILES/modules/git.sh"
