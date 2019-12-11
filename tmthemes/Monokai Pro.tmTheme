@@ -1002,6 +1002,64 @@
 					<string>#fc9867</string>
 				</dict>
 			</dict>
+			<!-- █████████████████████
+			████  Monokai Expert  ████
+			██████████████████████ -->
+			<dict>
+				<key>scope</key>
+				<string>entity.name.type</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
+				<string>meta.method.declaration entity.name.type</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
+				<string>support.variable.property</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
+				<string>support.variable.property.dom</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
+				<string>entity.other.inherited-class</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
+				<string>meta.interface meta.field.declaration meta.type.annotation meta.object.type meta.field.declaration meta.definition.property entity.name.function</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
+			<!-- █████████████████ -->
 		</array>
 	</dict>
 </plist>
