@@ -9,4 +9,12 @@ alias cupd="cargo install-update -a"
 alias ccd="cd $HOME/.cargo/bin"
 alias cln="ln -s -f $HOME/.cargo/bin/* /usr/local/bin"
 
-function ci() { cargo info $1 | bat -l make }
+function ci() {
+	cargo info $1 | bat -l make
+}
+function crm() {
+	if [[ -x "$(which -p $1)" ]]; then
+		rm -fv "$(which -p $1)"
+	fi
+	cargo uninstall $1
+}
