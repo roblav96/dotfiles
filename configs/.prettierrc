@@ -19,6 +19,14 @@
 			"options": { "singleQuote": false }
 		},
 		{
+			"files": ["*.tmLanguage", "*.tmTheme"],
+			"options": { "parser": "xml", "printWidth": 999999 }
+		},
+		{
+			"files": ["h2o.conf", "*.yml", "*.yaml", "*.sublime-syntax"],
+			"options": { "tabWidth": 2, "useTabs": false }
+		},
+		{
 			"files": ["*.less"],
 			"options": { "parser": "less" }
 		},
@@ -27,16 +35,12 @@
 			"options": { "parser": "scss" }
 		},
 		{
-			"files": ["*.svg", "*.tmLanguage", "*.xml"],
-			"options": { "parser": "html" }
+			"files": ["*.plist", "*.svg", "*.xml"],
+			"options": { "parser": "xml" }
 		},
 		{
 			"files": ["*.toml"],
 			"options": { "parser": "toml" }
-		},
-		{
-			"files": ["h2o.conf", "*.yml", "*.yaml", "*.sublime-syntax"],
-			"options": { "tabWidth": 2, "useTabs": false }
 		}
 	]
 }

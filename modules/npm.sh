@@ -1,4 +1,4 @@
-alias n="npm --silent"
+alias n="npm"
 alias rr="npm --silent run"
 alias npmls="npm --silent ls --depth 0"
 alias npmlsg="npm --silent ls --global --depth 0"
