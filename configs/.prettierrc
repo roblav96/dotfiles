@@ -23,6 +23,10 @@
 			"options": { "parser": "xml", "printWidth": 999999 }
 		},
 		{
+			"files": ["*.sublime-color-scheme"],
+			"options": { "parser": "json", "printWidth": 1 }
+		},
+		{
 			"files": ["h2o.conf", "*.yml", "*.yaml", "*.sublime-syntax"],
 			"options": { "tabWidth": 2, "useTabs": false }
 		},

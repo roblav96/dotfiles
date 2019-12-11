@@ -1,4 +1,4 @@
-export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never"
+export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Pro Expert Classic'"
 # --theme='Monokai Extended Origin'
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
@@ -9,7 +9,7 @@ alias bb="batt"
 
 alias bat-hr="echo | bat --terminal-width=\$(tput cols) --style=grid | head -n1"
 alias bat-cd="cd \"\$(bat --config-dir)\""
-alias bat-build="lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
+alias bat-build="rm -v \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
 
 function batplist() {
 	plistutil --infile $@ | bat -l html
