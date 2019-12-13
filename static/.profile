@@ -19,7 +19,6 @@ alias l="ls -laph --color=always"
 alias lr="tree -F -l -a -A -C -L 1"
 alias lra="tree -F -l -a -A -C"
 alias pwd="pwd && pwd -P"
-alias json="jq --ascii-output --color-output --sort-keys --tab --indent 4"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop --delay=10"
 # function idk() { man -k $@ | grep "$@|$" }
@@ -28,6 +27,9 @@ alias idk="man --apropos"
 alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
+
+export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
+alias json="jq --ascii-output --color-output --sort-keys --tab --indent 4"
 
 if [[ -x "$(which tsudo)" ]]; then
 	alias sudo="tsudo "
