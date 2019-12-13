@@ -1,4 +1,4 @@
-export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Pro Expert Classic'"
+export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never"
 # --theme='Monokai Extended Origin'
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
@@ -27,7 +27,7 @@ function bat-langs() {
 }
 
 # export BAT_THEMES=('Monokai Brighter' 'Monokai Classic' 'Monokai Expert Chback' 'Monokai Expert' 'Monokai Extended Bright' 'Monokai Extended Origin' 'Monokai Extended' 'Monokai Free' 'Monokai Pro' 'OneDark Legacy' 'OneHalfDark' 'TwoDark')
-export BAT_THEMES=('Monokai Pro' 'Monokai Pro Expert' 'Monokai Pro Expert Classic')
+export BAT_THEMES=('Monokai Extended Origin' 'Monokai Pro' 'Monokai Pro Expert' 'Monokai Pro Expert Classic' 'OneDark Legacy')
 function bat-themes() {
 	if [[ $# -eq 0 ]]; then
 		echo "🔴 language syntax extension required!"

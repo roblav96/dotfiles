@@ -1002,9 +1002,6 @@
 					<string>#fc9867</string>
 				</dict>
 			</dict>
-			<!-- █████████████████████
-			████  Monokai Expert  ████
-			██████████████████████ -->
 			<dict>
 				<key>scope</key>
 				<string>entity.name.type</string>
@@ -1059,7 +1056,6 @@
 					<string>#fcfcfa</string>
 				</dict>
 			</dict>
-			<!-- █████████████████ -->
 		</array>
 	</dict>
 </plist>

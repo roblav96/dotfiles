@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <plist version="1.0">
 	<dict>
 		<key>name</key>
@@ -8,44 +8,44 @@
 			<dict>
 				<key>settings</key>
 				<dict>
-					<key>background</key>
-					<string>#272821</string>
-					<key>foreground</key>
-					<string>#fdfff1</string>
-					<key>invisibles</key>
-					<string>#fdfff13f</string>
-					<key>caret</key>
-					<string>#fdfff1</string>
-					<key>guide</key>
-					<string>#3b3c35</string>
-					<key>stackGuide</key>
-					<string>#3b3c35</string>
+					<key>accent</key>
+					<string>#e4db73</string>
 					<key>activeGuide</key>
 					<string>#57584f</string>
-					<key>selection</key>
-					<string>#3b3c35</string>
-					<key>selectionBorder</key>
-					<string>#3b3c35</string>
-					<key>lineHighlight</key>
-					<string>#fdfff10c</string>
+					<key>background</key>
+					<string>#272821</string>
 					<key>bracketContentsOptions</key>
 					<string>underline</string>
-					<key>tagsOptions</key>
-					<string>stippled_underline</string>
-					<key>gutterForeground</key>
-					<string>#57584f</string>
-					<key>shadow</key>
-					<string>#00000000</string>
-					<key>shadowWidth</key>
-					<string>0</string>
+					<key>caret</key>
+					<string>#fdfff1</string>
 					<key>findHighlight</key>
 					<string>#e4db73</string>
 					<key>findHighlightForeground</key>
 					<string>#272821</string>
-					<key>accent</key>
-					<string>#e4db73</string>
+					<key>foreground</key>
+					<string>#fdfff1</string>
+					<key>guide</key>
+					<string>#3b3c35</string>
+					<key>gutterForeground</key>
+					<string>#57584f</string>
+					<key>invisibles</key>
+					<string>#fdfff13f</string>
+					<key>lineHighlight</key>
+					<string>#fdfff10c</string>
 					<key>popupCss</key>
 					<string>html { --background: #272821; --foreground: #fdfff1; --redish: #f82570; --orangish: #fc961f; --yellowish: #e4db73; --greenish: #a6e12d; --bluish: #66d9ee; --purplish: #ae81ff; --pinkish: #f82570; background-color: #3b3c35; color: #fdfff1; } a { color: var(--yellowish); }</string>
+					<key>selection</key>
+					<string>#3b3c35</string>
+					<key>selectionBorder</key>
+					<string>#3b3c35</string>
+					<key>shadow</key>
+					<string>#00000000</string>
+					<key>shadowWidth</key>
+					<string>0</string>
+					<key>stackGuide</key>
+					<string>#3b3c35</string>
+					<key>tagsOptions</key>
+					<string>stippled_underline</string>
 				</dict>
 			</dict>
 			<dict>
