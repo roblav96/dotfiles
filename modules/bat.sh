@@ -1,4 +1,4 @@
-export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Pro'"
+export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='Monokai Pro Classic'"
 # --theme='Monokai Extended Origin'
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
