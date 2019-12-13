@@ -44,8 +44,6 @@ function dotpush() {
 	git add -A
 	git commit -a -m "[`uname -o`] $GS"
 	git push origin master
-	rm -v $(dirname $DOTFILES)/.zcomp*
-	compinit
 	cd "$OLDPWD"
 }
 
