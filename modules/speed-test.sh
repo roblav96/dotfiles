@@ -7,22 +7,22 @@ curl https://ipinfo.io | json '. |= del(.readme)'
 "
 alias ipinfoa="
 echo;
-echo '\t\ticanhazip.com';
+echo '		icanhazip.com';
 curl https://icanhazip.com;
 echo;
-echo '\t\tapi6.ipify.org';
+echo '		api6.ipify.org';
 curl https://api6.ipify.org; echo;
 echo;
-echo '\t\tiplist.cc';
+echo '		iplist.cc';
 curl https://iplist.cc/api | json;
 echo;
-echo '\t\tipvigilante.com';
+echo '		ipvigilante.com';
 curl https://ipvigilante.com/json/full | json '.data';
 echo;
-echo '\t\tifconfig.co';
+echo '		ifconfig.co';
 curl https://ifconfig.co/json | json '. |= del(.user_agent)';
 echo;
-echo '\t\tipinfo.io';
+echo '		ipinfo.io';
 curl https://ipinfo.io | json '. |= del(.readme)'
 "
 alias cachefly="wget --quiet --show-progress -O /dev/null https://cachefly.cachefly.net/100mb.test"
