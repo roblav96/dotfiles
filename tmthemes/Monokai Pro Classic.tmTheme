@@ -2,7 +2,7 @@
 <plist version="1.0">
 	<dict>
 		<key>name</key>
-		<string>Monokai Pro Expert Classic</string>
+		<string>Monokai Pro Classic</string>
 		<key>settings</key>
 		<array>
 			<dict>
@@ -14,6 +14,8 @@
 					<string>#57584f</string>
 					<key>background</key>
 					<string>#272821</string>
+					<key>blockCaret</key>
+					<string>#919288</string>
 					<key>bracketContentsOptions</key>
 					<string>underline</string>
 					<key>caret</key>
@@ -22,22 +24,50 @@
 					<string>#e4db73</string>
 					<key>findHighlightForeground</key>
 					<string>#272821</string>
+					<key>foldMarker</key>
+					<string>#e4db73</string>
 					<key>foreground</key>
 					<string>#fdfff1</string>
 					<key>guide</key>
 					<string>#3b3c35</string>
+					<key>gutter</key>
+					<string>#272821</string>
 					<key>gutterForeground</key>
 					<string>#57584f</string>
+					<key>highlight</key>
+					<string>#e4db73</string>
+					<key>inactiveSelection</key>
+					<string>#e4db73</string>
+					<key>inactiveSelectionForeground</key>
+					<string>#272821</string>
 					<key>invisibles</key>
-					<string>#fdfff13f</string>
+					<string>#57584f</string>
+					<key>lineDiffAdded</key>
+					<string>#a6e12d</string>
+					<key>lineDiffDeleted</key>
+					<string>#f82570</string>
+					<key>lineDiffModified</key>
+					<string>#e4db73</string>
+					<key>lineDiffWidth</key>
+					<string>2</string>
 					<key>lineHighlight</key>
 					<string>#fdfff10c</string>
+					<key>misspelling</key>
+					<string>#f82570</string>
 					<key>popupCss</key>
 					<string>html { --background: #272821; --foreground: #fdfff1; --redish: #f82570; --orangish: #fc961f; --yellowish: #e4db73; --greenish: #a6e12d; --bluish: #66d9ee; --purplish: #ae81ff; --pinkish: #f82570; background-color: #3b3c35; color: #fdfff1; } a { color: var(--yellowish); }</string>
 					<key>selection</key>
-					<string>#3b3c35</string>
+					<string>#e4db73</string>
 					<key>selectionBorder</key>
-					<string>#3b3c35</string>
+					<string>#000000</string>
+					<key>selectionBorderWidth</key>
+					<string>1</string>
+					<key>selectionCornerRadius</key>
+					<string>2</string>
+					<key>selectionCornerStyle</key>
+					<string>round</string>
+					<key>selectionForeground</key>
+					<string>#272821</string>
 					<key>shadow</key>
 					<string>#00000000</string>
 					<key>shadowWidth</key>
@@ -56,7 +86,7 @@
 					<key>fontStyle</key>
 					<string>italic</string>
 					<key>foreground</key>
-					<string>#6e7066</string>
+					<string>#727072</string>
 				</dict>
 			</dict>
 			<dict>
@@ -65,7 +95,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#6e7066</string>
+					<string>#727072</string>
 				</dict>
 			</dict>
 			<dict>
@@ -74,7 +104,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#c0c1b5</string>
+					<string>#c1c0c0</string>
 				</dict>
 			</dict>
 			<dict>
@@ -83,7 +113,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#c0c1b5</string>
+					<string>#c1c0c0</string>
 				</dict>
 			</dict>
 			<dict>
@@ -611,7 +641,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#6e7066</string>
+					<string>#727072</string>
 				</dict>
 			</dict>
 			<dict>
@@ -620,7 +650,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#c0c1b5</string>
+					<string>#c1c0c0</string>
 				</dict>
 			</dict>
 			<dict>
@@ -915,7 +945,7 @@
 					<key>fontStyle</key>
 					<string>italic</string>
 					<key>foreground</key>
-					<string>#c0c1b5</string>
+					<string>#c1c0c0</string>
 				</dict>
 			</dict>
 			<dict>

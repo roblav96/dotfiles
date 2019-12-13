@@ -33,9 +33,10 @@ function bat-themes() {
 		echo "🔴 language syntax extension required!"
 		return 0
 	fi
+	bat-hr
 	local data=$(</dev/stdin)
 	for BAT_THEME in "${BAT_THEMES[@]}"; do
 		echo "🌕 $BAT_THEME"
-		echo $data | bat --style=header,grid,numbers --theme="$BAT_THEME" --language="$1"
+		echo $data | bat --style=grid,numbers --theme="$BAT_THEME" --language="$1"
 	done
 }
