@@ -28,11 +28,13 @@ alias idk="man --apropos"
 alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
-test -x "$(which sudo)" && alias sudo="sudo "
+
 if [[ -x "$(which tsudo)" ]]; then
-	alias sudo="command tsudo "
-	alias tsudo="command tsudo "
+	alias sudo="tsudo "
+elif [[ -x "$(which sudo)" ]]; then
+	alias sudo="sudo "
 fi
+
 # alias dot="subl /opt/etc/profile"
 # alias src="source /opt/etc/profile"
 # alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
