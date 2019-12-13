@@ -20,7 +20,7 @@ export RMATE_HOST="localhost"
 export RMATE_PORT="52699"
 
 # export DEBUG="*,-babel*"
-export NODE_OPTIONS="--max-old-space-size=8192"
+# export NODE_OPTIONS="--max-old-space-size=8192"
 export TS_NODE_PRETTY="true"
 export YARN_CACHE_FOLDER="$HOME/.yarn"
 
