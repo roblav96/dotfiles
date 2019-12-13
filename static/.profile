@@ -113,7 +113,7 @@ test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
 test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
 
-alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
+# alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
 
 
