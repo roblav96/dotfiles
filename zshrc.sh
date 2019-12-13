@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+export CLICOLOR="1"
 export ADBLOCK="1"
 export DEBUG_COLORS="1"
 export DISABLE_OPENCOLLECTIVE="1"

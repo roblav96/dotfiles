@@ -92,11 +92,11 @@ export CLICOLOR="1"
 
 alias denon="curl --insecure 'https://192.168.50.135:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
-alias rr-k="killall node"
-alias rr-npmi="npm install"
-alias rr-npml="npm list --depth=0"
-alias rr-npmo="npm outdated --depth=0"
-alias rr-npmp="PATH='`pwd`/node_modules/.bin:$PATH'"
+# alias rr-k="killall node"
+# alias rr-npmi="npm install"
+# alias rr-npml="npm list --depth=0"
+# alias rr-npmo="npm outdated --depth=0"
+# alias rr-npmp="PATH='`pwd`/node_modules/.bin:$PATH'"
 
 alias rr-ng="cd /usr/local/etc/nginx"
 alias rr-ngconfig="subl /usr/local/etc/nginx/nginx.conf"

@@ -6,7 +6,7 @@ source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 
-# alias dstore="find . -name .DS_Store -type f -delete"
+# alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 alias dstore="fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv {}"
 alias quarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
