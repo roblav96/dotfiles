@@ -28,8 +28,8 @@ alias idk="man --apropos"
 alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
-test -x "$(which -p sudo)" && alias sudo="sudo "
-if [[ -x "$(which -p tsudo)" ]]; then
+test -x "$(which sudo)" && alias sudo="sudo "
+if [[ -x "$(which tsudo)" ]]; then
 	alias sudo="command tsudo "
 	alias tsudo="command tsudo "
 fi
