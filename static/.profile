@@ -115,9 +115,6 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	function pkgl() {
 		opkg list "*$@*"
 	}
-	function pkgst() {
-		opkg status "*$@*"
-	}
 fi
 
 test -x "$(which curl)" && alias curl="curl --silent --connect-timeout 3"
