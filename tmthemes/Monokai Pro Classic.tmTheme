@@ -9,7 +9,7 @@
 				<key>settings</key>
 				<dict>
 					<key>accent</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>activeGuide</key>
 					<string>#57584f</string>
 					<key>background</key>
@@ -21,11 +21,11 @@
 					<key>caret</key>
 					<string>#fdfff1</string>
 					<key>findHighlight</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>findHighlightForeground</key>
 					<string>#272821</string>
 					<key>foldMarker</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>foreground</key>
 					<string>#fdfff1</string>
 					<key>guide</key>
@@ -35,9 +35,9 @@
 					<key>gutterForeground</key>
 					<string>#57584f</string>
 					<key>highlight</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>inactiveSelection</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>inactiveSelectionForeground</key>
 					<string>#272821</string>
 					<key>invisibles</key>
@@ -47,7 +47,7 @@
 					<key>lineDiffDeleted</key>
 					<string>#f82570</string>
 					<key>lineDiffModified</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>lineDiffWidth</key>
 					<string>2</string>
 					<key>lineHighlight</key>
@@ -55,9 +55,9 @@
 					<key>misspelling</key>
 					<string>#f82570</string>
 					<key>popupCss</key>
-					<string>html { --background: #272821; --foreground: #fdfff1; --redish: #f82570; --orangish: #fc961f; --yellowish: #e4db73; --greenish: #a6e12d; --bluish: #66d9ee; --purplish: #ae81ff; --pinkish: #f82570; background-color: #3b3c35; color: #fdfff1; } a { color: var(--yellowish); }</string>
+					<string>html { --background: #272821; --foreground: #fdfff1; --redish: #f82570; --orangish: #fc961f; --yellowish: #ffd866; --greenish: #a6e12d; --bluish: #66d9ee; --purplish: #ae81ff; --pinkish: #f82570; background-color: #3b3c35; color: #fdfff1; } a { color: var(--yellowish); }</string>
 					<key>selection</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 					<key>selectionBorder</key>
 					<string>#000000</string>
 					<key>selectionBorderWidth</key>
@@ -221,7 +221,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
@@ -230,7 +230,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
@@ -434,7 +434,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
@@ -488,7 +488,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
@@ -587,7 +587,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
@@ -766,7 +766,7 @@
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#e4db73</string>
+					<string>#ffd866</string>
 				</dict>
 			</dict>
 			<dict>
