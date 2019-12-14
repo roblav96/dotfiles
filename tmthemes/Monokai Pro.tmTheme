@@ -1005,11 +1005,20 @@
 			<!-- Monokai Expert -->
 			<dict>
 				<key>scope</key>
+				<string>meta.function-call.arguments, meta.arguments, meta.group</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fdfff1</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>scope</key>
 				<string>meta.function meta.function-call.arguments, meta.function meta.arguments, meta.function meta.group</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
-					<string>#fcfcfa</string>
+					<string>#fdfff1</string>
 				</dict>
 			</dict>
 			<dict>

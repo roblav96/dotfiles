@@ -1005,7 +1005,7 @@
 			<!-- Monokai Expert -->
 			<dict>
 				<key>scope</key>
-				<string>meta.function meta.function-call.arguments, meta.function meta.arguments, meta.function meta.group</string>
+				<string>meta.function-call.arguments, meta.arguments, meta.group</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
@@ -1014,7 +1014,7 @@
 			</dict>
 			<dict>
 				<key>scope</key>
-				<string>source.shell meta.function-call.arguments, source.shell meta.arguments, source.shell meta.group</string>
+				<string>meta.function meta.function-call.arguments, meta.function meta.arguments, meta.function meta.group</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
