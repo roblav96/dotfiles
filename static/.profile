@@ -56,6 +56,11 @@ function show() {
 	readlink -f $WHICH
 }
 
+function ch() {
+	curl "https://cheat.sh/$@"
+}
+alias tl="ch"
+
 if echo $PATH | grep -q "/system/bin.*/system/xbin"; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
 	export PATH="${PATH/system\/bin/system\/xbin}"
