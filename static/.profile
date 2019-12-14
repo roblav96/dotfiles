@@ -112,8 +112,8 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	function pkgi() {
 		opkg info "*$@*"
 	}
-	function pkgl() {
-		opkg list "*$@*"
+	function pkgf() {
+		opkg search "*$@*"
 	}
 fi
 
