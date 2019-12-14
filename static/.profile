@@ -19,6 +19,7 @@ alias l="ls -laph --color=always"
 alias lr="tree -F -l -a -A -C -L 1"
 alias lra="tree -F -l -a -A -C"
 alias pwd="pwd && pwd -P"
+alias bat="cat"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop --delay=10"
 # function idk() { man -k $@ | grep "$@|$" }
@@ -54,6 +55,13 @@ function show() {
 	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
 	ls -laph --color=always $WHICH
 	readlink -f $WHICH
+}
+function rl() {
+	if [[ -x "$(which -p $@)" ]]; then
+		exa -a -l -g -F "$(readlink -f $(which -p $@))"
+	else
+		exa -a -l -g -F "$(readlink -f $@)"
+	fi
 }
 
 function ch() {
