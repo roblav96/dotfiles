@@ -47,10 +47,6 @@ function dotpush() {
 	cd "$OLDPWD"
 }
 
-function adbsu() {
-	adb shell su -c ${@:2}
-}
-
 if [[ -x "$(which -p m)" ]]; then
 	alias wifi="m wifi status | rg --passthru --smart-case --regexp='.*rate:.*'"
 fi

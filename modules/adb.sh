@@ -2,6 +2,9 @@
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 alias adb-text="adb shell input keyboard text"
+alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
+alias kodi="adb shell am start -a android.intent.action.VIEW -t video/mkv -d"
+alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings() {
@@ -25,14 +28,8 @@ function adb-settings-f() {
 	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --fixed-strings $@
 }
 
-function exoplayer() {
-	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d $1
-}
-function kodi() {
-	adb shell am start -a android.intent.action.VIEW -d $1 -t video/mkv
-}
-function soundcloud() {
-	adb shell am start -a android.intent.action.VIEW -d $1
+function adb-su() {
+	adb shell su -c ${@:2}
 }
 
 function adb-wget() {
