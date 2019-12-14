@@ -9,7 +9,7 @@ alias stpackages="subl '$HOME/Library/Application Support/Sublime Text 3/Package
 alias stbak="zip -r $HOME/Downloads/st3-backup.\$(date --iso-8601).zip '$HOME/Library/Application Support/Sublime Text 3'"
 
 function stpush() {
-	cd $HOME'/Library/Application Support/Sublime Text 3'
+	stcd
 	local gs="$(git status -z)"
 	git add -A
 	git commit -a -m "[`uname -o`] $gs"
