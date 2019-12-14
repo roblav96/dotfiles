@@ -40,9 +40,9 @@ function dotdiff() {
 }
 function dotpush() {
 	cd "$DOTFILES"
-	local GS="$(git status -z)"
+	local gs="$(git status -z)"
 	git add -A
-	git commit -a -m "[`uname -o`] $GS"
+	git commit -a -m "[`uname -o`] $gs"
 	git push origin master
 	cd "$OLDPWD"
 }

@@ -1002,7 +1002,16 @@
 					<string>#fc9867</string>
 				</dict>
 			</dict>
-			<!-- ████  Monokai Expert  ████ -->
+			<!-- Monokai Expert -->
+			<dict>
+				<key>scope</key>
+				<string>meta.function meta.function-call.arguments, meta.function meta.arguments, meta.function meta.group</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#fcfcfa</string>
+				</dict>
+			</dict>
 			<dict>
 				<key>scope</key>
 				<string>entity.name.type</string>
