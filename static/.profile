@@ -93,7 +93,7 @@ export SAVEHIST="1000000"
 if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkg="opkg"
 	alias pkgfs="opkg files"
-	function pkgf() {
+	function pkgs() {
 		opkg find "*$@*"
 	}
 	function pkgi() {
@@ -102,7 +102,7 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	function pkgl() {
 		opkg list "*$@*"
 	}
-	function pkgs() {
+	function pkgst() {
 		opkg status "*$@*"
 	}
 fi
