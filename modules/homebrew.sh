@@ -5,131 +5,134 @@
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
 function bupd() {
-	echo "\n🌕 Updating"
+	echo; echo "🌕 Updating taps..."
 	brew update --verbose
 }
 
 function bout() {
-	echo "\n🌕 Outdated formulas"
+	echo; echo "🌕 Outdated formulas"
 	brew outdated --verbose
-	echo "\n🌕 Outdated casks"
+	echo; echo "🌕 Outdated casks"
 	brew cask outdated --verbose --greedy | grep --invert-match "latest"
 }
 
 function bls() {
-	echo "\n🌕 List formulas"
+	echo; echo "🌕 List formulas"
 	brew list --versions
-	echo "\n🌕 List casks"
+	echo; echo "🌕 List casks"
 	brew cask list --versions
 }
 
-function bfs() {
-	echo "\n🌕 List '$@' files"
-	brew list $@
-}
-
 function blsp() {
-	echo "\n🌕 List pinned formulas"
+	echo; echo "🌕 Pinned formulas"
 	brew list --versions --pinned
 }
 
 function bs() {
-	echo "\n🌕 Searching descriptions"
-	brew search --desc $@ | grep "$@|$"
-	echo "\n🌕 Searching formulas & casks"
-	brew search $@ | grep "$@|$"
+	echo; echo "🌕 Searching descriptions"
+	brew search --desc "$*" | rg --smart-case --passthru --fixed-strings "$*"
+	echo; echo "🌕 Searching names"
+	brew search "$*" | rg --smart-case --passthru --fixed-strings "$*"
 }
 
 function bin() {
-	echo "\n🌕 Install '$@'"
+	echo; echo "🌕 Install formula '$@'"
 	brew install $@
 }
 function brein() {
-	echo "\n🌕 Reinstall '$@'"
+	echo; echo "🌕 Reinstall formula '$@'"
 	brew reinstall $@
 }
+function bfs() {
+	echo; echo "🌕 Installed formula files '$@'"
+	brew list $@
+}
 function bcin() {
-	echo "\n🌕 Install cask '$@'"
+	echo; echo "🌕 Install cask '$@'"
 	brew cask install $@
 }
 function bcrein() {
-	echo "\n🌕 Reinstall cask '$@'"
+	echo; echo "🌕 Reinstall cask '$@'"
 	brew cask reinstall $@
 }
 
 function bupg() {
-	echo "\n🌕 Upgrade '$@'"
+	echo; echo "🌕 Upgrade formula '$@'"
 	brew upgrade $@
 }
 function bcupg() {
-	echo "\n🌕 Upgrade cask '$@'"
+	echo; echo "🌕 Upgrade cask '$@'"
 	brew cask upgrade $@
 }
 
 function bjson() {
-	echo "\n🌕 JSON '$@'"
+	echo; echo "🌕 JSON formula '$@'"
 	brew desc $@
 	brew info $@ --json | json
 }
 
 function bi() {
-	echo "\n🌕 Description '$@'"
-	brew desc $@
-	echo "\n🌕 Info '$@'"
-	brew info $@
+	for v in "$@"; do
+		echo; echo "🌕 Description formula '$v'"
+		brew desc $v
+		echo; echo "🌕 Info formula '$v'"
+		brew info $v
+	done
 }
 function bci() {
-	echo "\n🌕 Info cask '$@'"
-	brew cask info $@
+	for v in "$@"; do
+		echo; echo "🌕 Info cask '$v'"
+		brew cask info $v
+	done
 }
 
 function bcat() {
-	echo "\n🌕 Cat '$@'"
+	echo; echo "🌕 Cat formula '$@'"
 	brew cat $@ | prettier --parser ruby | bat -l rb
 }
 function bccat() {
-	echo "\n🌕 Cat cask '$@'"
+	echo; echo "🌕 Cat cask '$@'"
 	brew cask cat $@ | prettier --parser ruby | bat -l rb
 }
 
 function bopen() {
-	echo "\n🌕 Open '$@'"
+	echo; echo "🌕 Open formula '$@'"
 	brew home $@
 }
 function bcopen() {
-	echo "\n🌕 Open cask '$@'"
+	echo; echo "🌕 Open cask '$@'"
 	brew cask home $@
 }
 
 function brm() {
-	echo "\n🌕 Uninstall '$@'"
+	echo; echo "🌕 Uninstall formula '$@'"
 	brew uninstall --force $@
 }
 function bcrm() {
-	echo "\n🌕 Uninstall cask '$@'"
+	echo; echo "🌕 Uninstall cask '$@'"
 	brew cask zap --force $@
 }
 
 function bsls() {
-	echo "\n🌕 List services"
+	echo; echo "🌕 List services"
 	brew services list
 }
 function bsdown() {
-	echo "\n🌕 Stop service '$@'"
+	echo; echo "🌕 Stop service '$@'"
 	brew services stop $@
 	brew services list
 }
 function bsup() {
-	echo "\n🌕 Start service '$@'"
+	echo; echo "🌕 Start service '$@'"
 	brew services restart $@
 	brew services list
 }
 function bsre() {
-	echo "\n🌕 Restart service '$@'"
+	echo; echo "🌕 Restart service '$@'"
 	brew services restart $@
 	brew services list
 }
 function bsrun() {
-	echo "\n🌕 Run service '$@'"
+	echo; echo "🌕 Run service '$@'"
 	brew services run $@
 }
