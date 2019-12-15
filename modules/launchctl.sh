@@ -1,30 +1,32 @@
-alias lc-ls="echo '\n🌕 User Agents 🌕'; launchctl list; echo '\n🌕 System Daemons 🌕'; sudo launchctl list"
-alias lc-hostinfo="echo '\n🌕 User Host Info 🌕'; launchctl hostinfo; echo '\n🌕 System Host Info 🌕'; sudo launchctl hostinfo"
+alias lc-ls="echo; echo '🌕 User Agents'; launchctl list; echo; echo '🌕 System Daemons'; sudo launchctl list"
+alias lc-hostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo; echo; echo '🌕 System Host Info'; sudo launchctl hostinfo"
 
 function lc-f() {
-	echo '\n🌕 Find User Agents 🌕'
-	fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings $@ "$HOME/Library/LaunchAgents" | grep "$@|$"
-	echo '\n🌕 Find Library Agents 🌕'
-	fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings $@ "/Library/LaunchAgents" | grep "$@|$"
-	echo '\n🌕 Find System Agents 🌕'
-	fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings $@ "/System/Library/LaunchAgents" | grep "$@|$"
-	echo '\n🌕 Find Library Daemons 🌕'
-	fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings $@ "/Library/LaunchDaemons" | grep "$@|$"
-	echo '\n🌕 Find System Daemons 🌕'
-	fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings $@ "/System/Library/LaunchDaemons" | grep "$@|$"
+	echo; echo "🌕 Find User Agents"
+	faa --absolute-path $@ "$HOME/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	echo; echo "🌕 Find Library Agents"
+	faa --absolute-path $@ "/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	echo; echo "🌕 Find System Agents"
+	faa --absolute-path $@ "/System/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	echo; echo "🌕 Find Library Daemons"
+	faa --absolute-path $@ "/Library/LaunchDaemons" | rg --passthru --ignore-case --fixed-strings $@
+	echo; echo "🌕 Find System Daemons"
+	faa --absolute-path $@ "/System/Library/LaunchDaemons" | rg --passthru --ignore-case --fixed-strings $@
+	# fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings
 }
 
 function lc-r() {
-	echo '\n🌕 Grep User Agents 🌕'
-	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "$HOME/Library/LaunchAgents"
-	echo '\n🌕 Grep Library Agents 🌕'
-	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "/Library/LaunchAgents"
-	echo '\n🌕 Grep System Agents 🌕'
-	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "/System/Library/LaunchAgents"
-	echo '\n🌕 Grep Library Daemons 🌕'
-	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "/Library/LaunchDaemons"
-	echo '\n🌕 Grep System Daemons 🌕'
-	rg -uuu --color=always --heading --line-number --smart-case --no-messages --follow --fixed-strings $@ "/System/Library/LaunchDaemons"
+	echo; echo "🌕 Grep User Agents"
+	raa --ignore-case --no-stats $@ "$HOME/Library/LaunchAgents"
+	echo; echo "🌕 Grep Library Agents"
+	raa --ignore-case --no-stats $@ "/Library/LaunchAgents"
+	echo; echo "🌕 Grep System Agents"
+	raa --ignore-case --no-stats $@ "/System/Library/LaunchAgents"
+	echo; echo "🌕 Grep Library Daemons"
+	raa --ignore-case --no-stats $@ "/Library/LaunchDaemons"
+	echo; echo "🌕 Grep System Daemons"
+	raa --ignore-case --no-stats $@ "/System/Library/LaunchDaemons"
+	# rg --color=always --heading --line-number --no-messages --ignore-case --hidden --no-ignore --follow --fixed-strings --max-columns=$(tput cols) --max-columns-preview --text --search-zip -uuu
 }
 
 function lc-a() {

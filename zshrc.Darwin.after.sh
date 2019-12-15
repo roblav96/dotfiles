@@ -24,7 +24,7 @@ alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 if [[ -x "$(which -p m)" ]]; then
-	alias wifi="m wifi status | rg --passthru --smart-case --regexp='.*rate:.*'"
+	alias wifi="m wifi status | rg --ignore-case --passthru --regexp='.*rate:.*'"
 fi
 
 if test -d "/Applications/Firefox Developer Edition.app"; then

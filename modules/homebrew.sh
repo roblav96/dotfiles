@@ -30,9 +30,9 @@ function blsp() {
 
 function bs() {
 	echo; echo "🌕 Searching descriptions"
-	brew search --desc "$*" | rg --smart-case --passthru --fixed-strings "$*"
+	brew search --desc "$*" | rg --passthru --ignore-case --fixed-strings "$*"
 	echo; echo "🌕 Searching names"
-	brew search "$*" | rg --smart-case --passthru --fixed-strings "$*"
+	brew search "$*" | rg --passthru --ignore-case --fixed-strings "$*"
 }
 
 function bin() {
