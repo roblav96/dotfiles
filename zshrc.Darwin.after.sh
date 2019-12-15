@@ -23,6 +23,18 @@ alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.c
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
+if [[ -x "$(which -p m)" ]]; then
+	alias wifi="m wifi status | rg --passthru --smart-case --regexp='.*rate:.*'"
+fi
+
+if test -d "/Applications/Firefox Developer Edition.app"; then
+	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
+	alias firefox-bin="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin'"
+fi
+
+# test -x "$(which awless)" && source <(awless completion zsh)
+# test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
+
 unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 function dotgh() {
@@ -46,15 +58,3 @@ function dotpush() {
 	git push origin master
 	cd "$OLDPWD"
 }
-
-if [[ -x "$(which -p m)" ]]; then
-	alias wifi="m wifi status | rg --passthru --smart-case --regexp='.*rate:.*'"
-fi
-
-if test -d "/Applications/Firefox Developer Edition.app"; then
-	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
-	alias firefox-bin="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin'"
-fi
-
-# test -x "$(which awless)" && source <(awless completion zsh)
-# test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
