@@ -15,7 +15,7 @@ robbyrussell/oh-my-zsh path:plugins/github
 robbyrussell/oh-my-zsh path:plugins/last-working-dir
 # robbyrussell/oh-my-zsh path:plugins/nmap
 robbyrussell/oh-my-zsh path:plugins/perms
-# robbyrussell/oh-my-zsh path:plugins/python
+robbyrussell/oh-my-zsh path:plugins/pip
 robbyrussell/oh-my-zsh path:plugins/redis-cli
 # robbyrussell/oh-my-zsh path:plugins/rust
 robbyrussell/oh-my-zsh path:plugins/safe-paste

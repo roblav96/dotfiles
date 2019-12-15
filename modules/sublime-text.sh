@@ -3,7 +3,7 @@ alias sm="smerge"
 alias stp="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
-alias stbak="rm -fv '$HOME/Downloads/st3-backup.$(date --iso-8601).zip'; zip -r '$HOME/Downloads/st3-backup.$(date --iso-8601).zip' '$HOME/Library/Application Support/Sublime Text 3'"
+alias stbak="rm -fv \"\$HOME/Downloads/st3-backup.\$(date --iso-8601).zip\"; zip -r \"\$HOME/Downloads/st3-backup.\$(date --iso-8601).zip\" \"\$HOME/Library/Application Support/Sublime Text 3\""
 
 function stgh() {
 	github "$HOME/Library/Application Support/Sublime Text 3"

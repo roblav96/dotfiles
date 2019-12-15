@@ -44,7 +44,7 @@ function brein() {
 	brew reinstall $@
 }
 function bfs() {
-	echo; echo "🌕 Installed formula files '$@'"
+	echo; echo "🌕 Files installed '$@'"
 	brew list $@
 }
 function bcin() {

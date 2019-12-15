@@ -82,6 +82,7 @@ unalias la
 unalias rd
 unalias grep
 unalias path
+unalias pip
 
 # alias fo="forever "
 # alias rd="rm -rf"
