@@ -4,6 +4,7 @@ export RG_FLAGS="--color=always --heading --line-number --trim --no-messages --s
 alias r="rg $RG_FLAGS --glob='!node_modules'"
 alias ra="rg $RG_FLAGS --no-ignore --stats"
 alias raa="rg $RG_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
+alias rgp="rg --passthru --ignore-case --fixed-strings"
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --color=always --smart-case"
 

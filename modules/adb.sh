@@ -21,11 +21,11 @@ function adb-settings-f() {
 		return 0
 	fi
 	echo; echo 🌕 System Settings 🌕
-	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
 	echo; echo 🌕 Secure Settings 🌕
-	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
 	echo; echo 🌕 Global Settings 🌕
-	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rg --passthru --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
 }
 
 function adb-su() {
@@ -81,4 +81,4 @@ function adb-pm() {
 # 	')" | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"
-# alias adb-pm-f="adb-pm-ls | rg --passthru --ignore-case --fixed-strings"
+# alias adb-pm-f="adb-pm-ls | rgp"

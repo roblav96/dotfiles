@@ -3,15 +3,15 @@ alias lc-hostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo; echo; e
 
 function lc-f() {
 	echo; echo "🌕 Find User Agents"
-	faa --absolute-path $@ "$HOME/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	faa --absolute-path $@ "$HOME/Library/LaunchAgents" | rgp $@
 	echo; echo "🌕 Find Library Agents"
-	faa --absolute-path $@ "/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	faa --absolute-path $@ "/Library/LaunchAgents" | rgp $@
 	echo; echo "🌕 Find System Agents"
-	faa --absolute-path $@ "/System/Library/LaunchAgents" | rg --passthru --ignore-case --fixed-strings $@
+	faa --absolute-path $@ "/System/Library/LaunchAgents" | rgp $@
 	echo; echo "🌕 Find Library Daemons"
-	faa --absolute-path $@ "/Library/LaunchDaemons" | rg --passthru --ignore-case --fixed-strings $@
+	faa --absolute-path $@ "/Library/LaunchDaemons" | rgp $@
 	echo; echo "🌕 Find System Daemons"
-	faa --absolute-path $@ "/System/Library/LaunchDaemons" | rg --passthru --ignore-case --fixed-strings $@
+	faa --absolute-path $@ "/System/Library/LaunchDaemons" | rgp $@
 	# fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings
 }
 

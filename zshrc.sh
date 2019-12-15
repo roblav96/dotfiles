@@ -239,7 +239,7 @@ alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --u
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams $@ | json | rg
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams $@ | json | rg --passthru --ignore-case --regexp='".*_frame_.*"'
 	}
 	if [[ "$PLATFORM" == "Darwin" ]]; then
 		compdef fprobe=ffprobe
