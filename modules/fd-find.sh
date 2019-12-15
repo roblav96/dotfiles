@@ -7,7 +7,7 @@ alias fgl="fd $FD_FLAGS --exclude='node_modules' --glob"
 alias fagl="fd $FD_FLAGS --no-ignore --glob"
 
 function fbat() {
-	f $@ --exec-batch zsh -ic 'batt "$@"'
+	f $@ --exec-batch zsh -ic 'bat "$@"'
 }; compdef fbat=fd
 
 # function f() { fd "$1" ${@:2} --color=always }

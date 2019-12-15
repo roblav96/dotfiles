@@ -2,13 +2,13 @@ export BAT_THEME="Monokai Pro Classic"
 export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='$BAT_THEME'"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
-alias bat="bat $BAT_FLAGS --style=grid"
-alias batt="command bat $BAT_FLAGS --style=header,grid,numbers"
+alias bat="bat $BAT_FLAGS --style=header,grid,numbers"
+alias batt="command bat $BAT_FLAGS --style=grid"
 alias b="bat"
 alias bb="batt"
 
 alias bat-hr="echo | bat --terminal-width=\$(tput cols) --style=grid | head -n1"
-alias bat-cd="cd \"\$(bat --config-dir)\""
+alias bat-cd="cd \"\$(command bat --config-dir)\""
 alias bat-build="rm -v \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
 
 function batplist() {
