@@ -175,7 +175,7 @@ alias p="ps auxww | grep --invert-match grep | grep"
 if test -x "$(which -p prettier)"; then
 	alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override"
 	function pat() {
-		prettier --parser $1 | bat -l $1
+		prettier --parser $1 | bat -p -l $1
 	}
 fi
 
