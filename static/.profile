@@ -65,7 +65,7 @@ function rl() {
 }
 
 function ch() {
-	curl "https://cheat.sh/$@"
+	curl "https://cht.sh/$*"
 }
 alias tl="ch"
 

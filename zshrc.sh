@@ -169,7 +169,9 @@ alias p="ps auxww | grep --invert-match grep | grep"
 # test -x "$(which -p procs)" && alias procs="sudo procs"
 if test -x "$(which -p prettier)"; then
 	alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override"
-	function pat() { prettier --parser $1 | bat -l $1 }
+	function pat() {
+		prettier --parser $1 | bat -l $1
+	}
 fi
 
 function idk() {
@@ -210,9 +212,19 @@ function rl() {
 }
 
 alias tl="tldr"
-function ch() { curl "https://cheat.sh/$@?T" | bat -l sh }
-function cha() { curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@" | bat -l sh }
+function ch() {
+	local lang="sh"
+	if [[ $# -gt 1 ]]; then
+		lang="$1"
+	fi
+	curl "https://cht.sh/$*?T" | bat -l $lang
+}
+function cha() {
+	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat -l sh
+}
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
+alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"
+alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat -l sh"
 
 # function rename() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
