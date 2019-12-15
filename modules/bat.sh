@@ -2,8 +2,8 @@ export BAT_THEME="Monokai Pro Classic"
 export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='$BAT_THEME'"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
-alias bat="bat $BAT_FLAGS --style=header,grid,numbers"
-alias batt="command bat $BAT_FLAGS --style=grid"
+alias bat="bat $BAT_FLAGS --style=grid"
+# alias batt="command bat $BAT_FLAGS --style=grid"
 alias b="bat"
 
 alias bat-hr="echo | command bat --terminal-width=\$(tput cols) --style=grid | head -n1"
