@@ -185,7 +185,7 @@ function show() {
 	elif which -w $@ | grep -q "function$"; then
 		echo
 		type -f $@ | bat -p -l sh
-		exa -a -l -g -F "${$(type $@)/$@ is a shell function from /}"
+		exa --long --all --group --classify --extended "${$(type $@)/$@ is a shell function from /}"
 	elif which -w $@ | grep -q "alias$"; then
 		echo
 		alias -L $@ | bat -p -l sh
@@ -193,9 +193,9 @@ function show() {
 	local WHICH="$(which -p $@)"
 	if [[ -e "$WHICH" ]]; then
 		echo
-		exa -a -l -g -F "$WHICH"
+		exa --long --all --group --classify --extended "$WHICH"
 		if [[ "$WHICH" != "$(readlink -f $WHICH)" ]]; then
-			exa -a -l -g -F "$(readlink -f $WHICH)"
+			exa --long --all --group --classify --extended "$(readlink -f $WHICH)"
 		fi
 	fi
 }; compdef show=which
@@ -203,9 +203,9 @@ function show() {
 # function rl() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
 function rl() {
 	if [[ -x "$(which -p $@)" ]]; then
-		exa -a -l -g -F "$(readlink -f $(which -p $@))"
+		exa --long --all --group --classify --extended "$(readlink -f $(which -p $@))"
 	else
-		exa -a -l -g -F "$(readlink -f $@)"
+		exa --long --all --group --classify --extended "$(readlink -f $@)"
 	fi
 }
 

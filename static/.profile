@@ -57,10 +57,10 @@ function show() {
 	readlink -f $WHICH
 }
 function rl() {
-	if [[ -x "$(which -p $@)" ]]; then
-		exa -a -l -g -F "$(readlink -f $(which -p $@))"
+	if [[ -x "$(which $@)" ]]; then
+		ls -laph "$(readlink -f $(which $@))"
 	else
-		exa -a -l -g -F "$(readlink -f $@)"
+		ls -laph "$(readlink -f $@)"
 	fi
 }
 
