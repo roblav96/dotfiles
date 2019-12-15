@@ -3,6 +3,7 @@ export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tab
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
 alias bat="bat $BAT_FLAGS --style=header,grid"
+alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias batt="bat --style=header,grid,numbers"
 # alias bbat="bat --style=header,grid,numbers"
 alias b="bat"
