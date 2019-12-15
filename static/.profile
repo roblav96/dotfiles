@@ -64,10 +64,13 @@ function rl() {
 	fi
 }
 
+alias tl="ch"
 function ch() {
 	curl "https://cht.sh/$*"
 }
-alias tl="ch"
+function cha() {
+	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
+}
 
 if echo $PATH | grep -q "/system/bin.*/system/xbin"; then
 	export PATH="${PATH/system\/xbin/system\/bin}"
