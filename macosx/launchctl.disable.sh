@@ -312,6 +312,7 @@ DAEMONS+=(
 	'com.apple.screensharing'
 	'com.apple.security.FDERecoveryAgent'
 	'com.apple.SubmitDiagInfo'
+	'org.cups.cupsd'
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
