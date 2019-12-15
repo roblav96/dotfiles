@@ -3,6 +3,7 @@ export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tab
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
 alias bat="bat $BAT_FLAGS --style=grid"
+alias batt="bat --style=header,grid,numbers"
 alias bbat="bat --style=header,grid,numbers"
 alias b="bat"
 

@@ -8,7 +8,10 @@ alias fagl="fd $FD_FLAGS --no-ignore --glob"
 
 function fbat() {
 	f $@ --exec-batch zsh -ic 'bat "$@"'
-}; compdef fbat=fd
+}
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	compdef fbat=fd
+fi
 
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }

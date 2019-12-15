@@ -113,9 +113,6 @@ alias dims="echo $COLUMNS x $LINES"
 alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | bat -l rb"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
-alias wget="wget --quiet --show-progress --connect-timeout=3"
-alias curl="curl --silent --connect-timeout 3"
-alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 alias redis-cli="redis-cli --no-auth-warning"
 alias gradlew="./gradlew"
 alias clear="clear && printf '\e[3J'"
@@ -142,6 +139,13 @@ alias vue-inspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
+
+alias wget="wget --quiet --show-progress --connect-timeout=3"
+alias curl="curl --silent --connect-timeout 3"
+alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
+function curlj() {
+	curl "$@" | json
+}
 
 alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 if test -x "$(which -p dust)"; then
