@@ -1,10 +1,9 @@
 export FD_FLAGS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
 
 alias f="fd $FD_FLAGS --exclude='node_modules' --fixed-strings"
-alias fa="fd $FD_FLAGS --no-ignore --fixed-strings"
-alias faa="fd $FD_FLAGS --no-ignore --fixed-strings --full-path --follow"
+alias fa="fd $FD_FLAGS --no-ignore --full-path --follow --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude='node_modules' --glob"
-alias fagl="fd $FD_FLAGS --no-ignore --glob"
+alias fagl="fd $FD_FLAGS --no-ignore --full-path --follow --glob"
 
 function fbat() {
 	f $@ --exec-batch zsh -ic 'bat "$@"'
