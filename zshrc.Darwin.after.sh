@@ -40,17 +40,17 @@ alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/
 function dotgh() {
 	github "$DOTFILES"
 }
-function dotstatus() {
+function dotgs() {
 	cd "$DOTFILES"
 	git status --short --branch
 	cd "$OLDPWD"
 }
-function dotdiff() {
+function dotgd() {
 	cd "$DOTFILES"
 	git diff
 	cd "$OLDPWD"
 }
-function dotpush() {
+function dotgp() {
 	cd "$DOTFILES"
 	local gs="$(git status -z)"
 	git add -A

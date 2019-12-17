@@ -1,4 +1,4 @@
-export RG_FLAGS="--color=always --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --max-columns=\$(tput cols) --max-columns-preview --glob='!.git' --glob='!.DS_Store'"
+export RG_FLAGS="--pretty --trim --no-messages --smart-case --hidden --fixed-strings --max-columns-preview --max-columns=\$(tput cols) --glob='!.git' --glob='!.DS_Store'"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias r="rg $RG_FLAGS --glob='!node_modules'"
