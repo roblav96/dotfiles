@@ -122,25 +122,26 @@ function bsdown() {
 		echo; echo "🌕 Stop service '$v'"
 		brew services stop $v
 	done
-	brew services list
+	echo; brew services list
 }
 function bsup() {
 	for v in "$@"; do
 		echo; echo "🌕 Start service '$v'"
 		brew services restart $v
 	done
-	brew services list
+	echo; brew services list
 }
 function bsre() {
 	for v in "$@"; do
 		echo; echo "🌕 Restart service '$v'"
 		brew services restart $v
 	done
-	brew services list
+	echo; brew services list
 }
 function bsrun() {
 	for v in "$@"; do
 		echo; echo "🌕 Run service '$v'"
 		brew services run $v
 	done
+	echo; brew services list
 }
