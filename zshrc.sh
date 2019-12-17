@@ -246,6 +246,7 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 	fi
 fi
 
+test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"

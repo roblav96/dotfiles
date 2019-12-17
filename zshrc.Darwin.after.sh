@@ -25,8 +25,6 @@ alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 alias denon="curl --insecure 'https://192.168.50.135:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
-test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
-
 if [[ -x "$(which -p m)" ]]; then
 	alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
 fi

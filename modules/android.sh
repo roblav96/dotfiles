@@ -7,7 +7,7 @@ export PATH="$ANDROID_HOME/tools:$PATH"
 export PATH="$ANDROID_HOME/tools/bin:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/ndk-bundle:$PATH"
-export PATH="$ANDROID_HOME/build-tools/28.0.3:$PATH"
+export PATH="$ANDROID_HOME/build-tools/29.0.2:$PATH"
 
 function apksign() {
 	rm -f $@-signed.apk
