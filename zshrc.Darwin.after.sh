@@ -50,7 +50,7 @@ function dotgd() {
 	git diff
 	cd "$OLDPWD"
 }
-function dotgp() {
+function dotpush() {
 	cd "$DOTFILES"
 	local gs="$(git status -z)"
 	git add -A
