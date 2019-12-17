@@ -46,7 +46,7 @@ function adb-wget() {
 }
 # function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
-function apk-sign() {
+function apksign() {
 	rm -f $1-signed.apk
 	rm -f $1-unsigned-aligned.apk
 	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
