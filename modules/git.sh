@@ -4,6 +4,7 @@ alias gf="git fetch"
 alias gp="git pull"
 alias gpr="git pull --rebase"
 alias gs="git status --short --branch"
+alias gsh="git show"
 alias gsu="git standup"
 
 # if [[ -x "$(which -p delta)" ]]; then

@@ -5,7 +5,7 @@
 alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 alias adb-text="adb shell input keyboard text"
 alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
-alias kodi="adb shell am start -a android.intent.action.VIEW -t video/mkv -d"
+alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
