@@ -1,3 +1,5 @@
+# export ADB_LIBUSB="1"
+
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
@@ -45,14 +47,6 @@ function adb-wget() {
 	# adb shell am force-stop com.termux
 }
 # function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
-
-function apksign() {
-	rm -f $1-signed.apk
-	rm -f $1-unsigned-aligned.apk
-	zipalign -v -p 4 $1-unsigned.apk $1-unsigned-aligned.apk
-	apksigner sign --ks $HOME/.android/release.keystore --out $1-signed.apk $1-unsigned-aligned.apk
-	apksigner verify $1-signed.apk
-}
 
 # https://developer.android.com/studio/command-line/adb#pm
 function adb-pm() {
