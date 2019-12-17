@@ -6,10 +6,14 @@ alias fgl="fd $FD_FLAGS --exclude='node_modules' --glob"
 alias fagl="fd $FD_FLAGS --no-ignore --full-path --follow --glob"
 
 function fbat() {
-	f $@ --exec-batch zsh -ic 'bat "$@"'
+	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
+}
+function fprettier() {
+	f --type=file $@ --exec-batch zsh -ic 'prettier --write "$@"'
 }
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	compdef fbat=fd
+	compdef fprettier=fd
 fi
 
 # function f() { fd "$1" ${@:2} --color=always }
