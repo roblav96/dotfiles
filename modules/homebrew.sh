@@ -118,21 +118,29 @@ function bsls() {
 	brew services list
 }
 function bsdown() {
-	echo; echo "🌕 Stop service '$@'"
-	brew services stop $@
+	for v in "$@"; do
+		echo; echo "🌕 Stop service '$v'"
+		brew services stop $v
+	done
 	brew services list
 }
 function bsup() {
-	echo; echo "🌕 Start service '$@'"
-	brew services restart $@
+	for v in "$@"; do
+		echo; echo "🌕 Start service '$v'"
+		brew services restart $v
+	done
 	brew services list
 }
 function bsre() {
-	echo; echo "🌕 Restart service '$@'"
-	brew services restart $@
+	for v in "$@"; do
+		echo; echo "🌕 Restart service '$v'"
+		brew services restart $v
+	done
 	brew services list
 }
 function bsrun() {
-	echo; echo "🌕 Run service '$@'"
-	brew services run $@
+	for v in "$@"; do
+		echo; echo "🌕 Run service '$v'"
+		brew services run $v
+	done
 }
