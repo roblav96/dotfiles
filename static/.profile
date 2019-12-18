@@ -120,8 +120,8 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	}
 fi
 
-test -x "$(which curl)" && alias curl="curl --silent --connect-timeout 3"
 test -x "$(which wget)" && alias wget="wget --quiet --show-progress --connect-timeout=3"
+test -x "$(which curl)" && alias curl="curl --silent --show-error --connect-timeout 3"
 
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"

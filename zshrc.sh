@@ -140,8 +140,9 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
 
+alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=3"
 alias wget="wget --quiet --show-progress --connect-timeout=3"
-alias curl="curl --silent --connect-timeout 3"
+alias curl="curl --silent --show-error --connect-timeout 3"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
 	curl "$@" | json
@@ -173,8 +174,8 @@ alias p="ps auxww | grep --invert-match grep | grep"
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 # test -x "$(which -p procs)" && alias procs="sudo procs"
 if test -x "$(which -p prettier)"; then
-	alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override"
-	function pat() {
+	alias prettier="prettier --no-editorconfig --config '$HOME/.prettierrc' --config-precedence cli-override"
+	function pbat() {
 		prettier --parser $1 | bat -p -l $1
 	}
 fi
@@ -256,7 +257,6 @@ test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which -p git)" && source "$DOTFILES/modules/git.sh"
 test -x "$(which -p go)" && source "$DOTFILES/modules/go.sh"
-test -x "$(which -p http)" && source "$DOTFILES/modules/httpie.sh"
 test -x "$(which -p ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
