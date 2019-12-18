@@ -187,22 +187,23 @@ function show() {
 	type -a $@
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
-	if which -w $@ | grep -q "none$"; then
+	if which -w $@ | grep -q 'none$'; then
 		return 1
-	elif which -w $@ | grep -q "function$"; then
+	elif which -w $@ | grep -q 'function$'; then
 		echo
 		type -f $@ | bat -p -l sh
 		exa --long --all --group --classify --extended "${$(type $@)/$@ is a shell function from /}"
-	elif which -w $@ | grep -q "alias$"; then
+	elif which -w $@ | grep -q 'alias$'; then
 		echo
 		alias -L $@ | bat -p -l sh
 	fi
-	local WHICH="$(which -p $@)"
-	if [[ -e "$WHICH" ]]; then
+	local which="$(which -p $@)"
+	if [[ -e "$which" ]]; then
 		echo
-		exa --long --all --group --classify --extended "$WHICH"
-		if [[ "$WHICH" != "$(readlink -f $WHICH)" ]]; then
-			exa --long --all --group --classify --extended "$(readlink -f $WHICH)"
+		bat --style=header "$which"
+		exa --long --all --group --classify --extended "$which"
+		if [[ "$which" != "$(readlink -f $which)" ]]; then
+			exa --long --all --group --classify --extended "$(readlink -f $which)"
 		fi
 	fi
 }; compdef show=which

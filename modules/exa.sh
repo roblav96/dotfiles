@@ -1,5 +1,5 @@
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-export EXA_FLAGS="--all --long --header --classify --color-scale --color=always --ignore-glob='.git|.DS_Store'"
+export EXA_FLAGS="--long --all --header --classify --color-scale --color=always --ignore-glob='.git|.DS_Store'"
 # export EXA_STRICT="1"
 
 alias l="exa $EXA_FLAGS"
