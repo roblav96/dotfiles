@@ -200,7 +200,7 @@ function show() {
 	local which="$(which -p $@)"
 	if [[ -e "$which" ]]; then
 		echo
-		bat --style=header "$which"
+		# bat --style=header "$which"
 		exa --long --all --group --classify --extended "$which"
 		if [[ "$which" != "$(readlink -f $which)" ]]; then
 			exa --long --all --group --classify --extended "$(readlink -f $which)"
