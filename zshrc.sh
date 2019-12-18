@@ -141,7 +141,7 @@ alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
 
 alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=3"
-alias wget="wget --quiet --show-progress --connect-timeout=3"
+alias wget="wget --connect-timeout=3"
 alias curl="curl --silent --show-error --connect-timeout 3"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
