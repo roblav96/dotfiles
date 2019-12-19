@@ -12,7 +12,7 @@ alias quarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="sudo rm -rfv $HOME/.Trash/* && exit"
-alias prettierrc="subl $DOTFILES/configs/.prettierrc"
+alias .prettierrc="subl $DOTFILES/configs/.prettierrc"
 
 alias pfc="sudo subl /etc/pf.conf"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"

@@ -92,15 +92,17 @@ unalias pip
 # alias cp="cp -v"
 # alias mv="mv -v"
 # alias rm="rm -v"
+
 alias sudo="sudo "
 alias e="nano"
-alias o="open ."
+alias o="open"
+# function o() {
+# 	test $# -eq 0 && open . || open $@
+# }
 alias gh="github"
 alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
-alias grep="grep --color=always --ignore-case --extended-regexp"
-alias g="grep"
 alias pwd="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
@@ -119,11 +121,16 @@ alias clear="clear && printf '\e[3J'"
 alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --with-node-modules --no-editorconfig --config '$HOME/.prettierrc'"
+alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+export GREP_COLOR="01;31"
+export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+alias grep="grep --color=always --ignore-case --extended-regexp"
+alias g="grep"
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fd-find.sh"
@@ -232,7 +239,7 @@ alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --use-tabs false --tab-width 0 | grep 'VPN Information' --color=never --after-context=15 | grep 'blocked|$'"
+alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --print-width \$(tput cols) | rg --trim --after-context=15 'VPN Information' | rgp blocked"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {

@@ -1,5 +1,5 @@
 export BAT_THEME="Monokai Pro Classic"
-export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=4 --paging=never --wrap=never --theme='$BAT_THEME'"
+export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme='$BAT_THEME'"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
 alias bat="bat $BAT_FLAGS --style=header,grid"
@@ -18,12 +18,23 @@ function batplist() {
 alias batpl="batplist"
 
 function pbat() {
-	if [[ $# -eq 0 ]]; then
-		echo "🔴 prettier parser required"
-		return 1
-	fi
-	prettier --parser $1 | bat -p -l $1
+	test $# -eq 1 && prettier --parser $@ | bat -p -l $@ || echo "🔴 prettier parser required"
 }
+# function batp() {
+# 	prettier --stdin-filepath $@ $@ | bat
+# 	 # | bat
+# }
+# function pbat() {
+# 	local data=$(</dev/stdin)
+# 	echo "🌕 data -> $data"
+# 	# test -z data && echo 1 || echo 0
+# 	# test $# -eq 0 && echo 1 || echo "🌕 * -> $*"
+# 	# if [[ $# -eq 0 ]]; then
+# 	# 	echo "🔴 prettier parser required"
+# 	# 	return 1
+# 	# fi
+# 	# prettier --parser $1 | bat -p -l $1
+# }
 
 # export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css' 'd' 'dart' 'diff' 'Dockerfile' '.env' '.env' '.env' 'ex' 'elm' 'erl' 'fs' 'fs' 'fish' 'attributes' 'COMMIT_EDITMSG' 'gitconfig' 'exclude' '.git' 'gitlog' 'git' 'go' 'dot' 'groovy' 'hs' 'hs' 'show' 'hosts' 'html' 'asp' 'html' 'yaws' 'rails' 'adp' 'twig' 'ini' 'java' 'properties' 'jsp' 'js' 'js' 'js' 'json' 'sublime' 'sublime' 'jsonnet' 'jl' 'kt' 'tex' 'less' 'lisp' 'lhs' 'lua' 'make' 'Makefile' 'man' 'md' 'matlab' 'build' 'nix' 'm' 'mm' 'ml' 'mll' 'mly' 'org' 'pas' 'pl' 'php' 'txt' 'ps1' 'proto' 'pb' 'pp' 'purs' 'py' 'Sconstruct' 'R' 'rd' 're' 'requirements' 'rst' 'robot' 'rb' 'Deliverfile' 'podspec' 'simplecov' 'haml' 'rxml' 'rs' 'sass' 'scala' 'scss' 'sql' 'erbsql' 'ssh_config' 'sshd_config' 'strace' 'swift' 'log' 'tcl' 'tf' 'sty' 'textile' 'toml' 'ts' 'tsx' 'varlink' 'v' 'vim' 'xml' 'yaml')
 export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css')
