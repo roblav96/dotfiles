@@ -20,6 +20,14 @@ alias batpl="batplist"
 function pbat() {
 	if [[ -e $@ ]]; then
 		prettier $@ | bat -l ${@##*.}
+		# echo "🌕 @ -> $@"
+		# local output=$(prettier --no-color $@)
+		# echo "🌕 output -> $output"
+		# if echo "$output" | grep -q '^[error]'; then
+		# 	bat $@
+		# else
+		# 	echo "$output" | bat -l ${@##*.}
+		# fi
 	else
 		prettier --parser $@ | bat -p -l $@
 	fi
