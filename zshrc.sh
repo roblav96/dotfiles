@@ -121,7 +121,7 @@ alias clear="clear && printf '\e[3J'"
 alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc"
+alias prettier="prettier --with-node-modules --no-editorconfig --config $HOME/.prettierrc --print-width \$(tput cols)"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -239,7 +239,7 @@ alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html --print-width \$(tput cols) | rg --trim --after-context=15 'VPN Information' | rgp blocked"
+alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rgp blocked"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {

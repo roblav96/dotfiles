@@ -1,20 +1,21 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-# alias cargo="cargo --color always"
-alias cs="cargo ssearch"
-alias cin="cargo install --force"
-alias cls="ls -1 $HOME/.cargo/bin"
-alias cout="cargo install-update -al"
-alias cupd="cargo install-update -a"
-alias ccd="cd $HOME/.cargo/bin"
-alias cln="ln -s -f $HOME/.cargo/bin/* /usr/local/bin"
+alias cargo="cargo --color always"
+alias cg="cargo"
+alias cgs="cargo ssearch"
+alias cgin="cargo install --force"
+alias cgls="ls -1 $HOME/.cargo/bin"
+alias cgout="cargo install-update --all --list"
+alias cgupd="cargo install-update --all"
+alias cgcd="cd $HOME/.cargo/bin"
+alias cglnbin="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 
-function ci() {
-	cargo info $1 | bat -l make
+function cgi() {
+	cargo info $@ | prettier --parser sh | bat -p -l make
 }
-function crm() {
-	if [[ -x "$(which -p $1)" ]]; then
-		rm -fv "$(which -p $1)"
+function cgrm() {
+	if [[ -x "$(which -p $@)" ]]; then
+		rm -fv "$(which -p $@)"
 	fi
-	cargo uninstall $1
+	cargo uninstall $@
 }

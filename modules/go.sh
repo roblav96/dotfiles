@@ -9,5 +9,5 @@ fi
 
 alias goin="go get -u"
 alias gocd="cd $GOBIN"
-alias goln="ln -s -f $GOBIN/* /usr/local/bin"
+alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
 alias gols="ls -1 $GOBIN"

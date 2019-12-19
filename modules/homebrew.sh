@@ -102,13 +102,13 @@ function bjson() {
 function bcat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat formula '$v'"
-		brew cat $v | prettier --parser ruby | bat -l rb
+		brew cat $v | pbat ruby
 	done
 }
 function bccat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat cask '$v'"
-		brew cask cat $v | prettier --parser ruby | bat -l rb
+		brew cask cat $v | pbat ruby
 	done
 }
 
