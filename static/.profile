@@ -50,17 +50,20 @@ function r() {
 }
 
 function show() {
-	type -a $1
-	WHICH=$(which $1)
-	[ -z $WHICH ] || [ ! -f $WHICH ] && return 0
-	ls -laph --color=always $WHICH
-	readlink -f $WHICH
+	type -a $@
+	local which="$(which $@)"
+	if [[ -e "$which" ]]; then
+		ls -laph --color=always "$which"
+		if [[ "$which" != "$(readlink -f $which)" ]]; then
+			ls -laph --color=always "$(readlink -f $which)"
+		fi
+	fi
 }
 function rl() {
 	if [[ -x "$(which $@)" ]]; then
-		ls -laph "$(readlink -f $(which $@))"
+		ls -laph --color=always "$(readlink -f $(which $@))"
 	else
-		ls -laph "$(readlink -f $@)"
+		ls -laph --color=always "$(readlink -f $@)"
 	fi
 }
 
