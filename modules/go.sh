@@ -7,7 +7,7 @@ fi
 # export PATH="/usr/local/opt/glide/bin:$PATH"
 # export GLIDE_HOME="/usr/local/opt/glide"
 
-alias goin="go get -u"
 alias gocd="cd $GOBIN"
-alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
-alias gols="ls -1 $GOBIN"
+alias gols="lm $GOBIN"
+alias goin="go get -u"
+# alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
