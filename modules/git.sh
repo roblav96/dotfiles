@@ -6,6 +6,7 @@ alias gpr="git pull --rebase"
 alias gs="git status --short --branch"
 alias gsh="git show"
 alias gsu="git standup"
+alias gl="git log --reverse --max-count=5"
 
 # if [[ -x "$(which -p delta)" ]]; then
 # 	git config --global pager.diff "BAT_PAGER=cat delta --theme=none --light"
