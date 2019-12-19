@@ -24,7 +24,7 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 # export LC_CTYPE="en_US.UTF-8"
-export LESS="-Rgisj.5"
+export LESS="--raw-control-chars --quit-on-intr --squeeze-blank-lines --ignore-case --hilite-search --LONG-PROMPT --jump-target=.5"
 export LESSCHARSET="utf-8"
 # export LESSCHARDEF="utf-8"
 # export PAGER="less"
@@ -119,6 +119,7 @@ alias clear="clear && printf '\e[3J'"
 alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
+alias prettier="prettier --with-node-modules --no-editorconfig --config '$HOME/.prettierrc'"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -173,12 +174,6 @@ alias p="ps auxww | grep --invert-match grep | grep"
 
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 # test -x "$(which -p procs)" && alias procs="sudo procs"
-if test -x "$(which -p prettier)"; then
-	alias prettier="prettier --no-editorconfig --config '$HOME/.prettierrc' --config-precedence cli-override"
-	function pbat() {
-		prettier --parser $1 | bat -p -l $1
-	}
-fi
 
 function idk() {
 	man --apropos $@ | grep "$@|$"
