@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
+
 export CLICOLOR="1"
 export ADBLOCK="1"
 export DEBUG_COLORS="1"

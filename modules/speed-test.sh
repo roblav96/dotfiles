@@ -4,3 +4,22 @@ alias cachefly="wget --quiet --show-progress -O /dev/null https://cachefly.cache
 alias ie8vbox="wget --quiet --show-progress -O /dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
 alias linode="wget --quiet --show-progress -O /dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
+
+function geoip() {
+	curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&ipAddress=$@" | json
+}
+function geodomain() {
+	curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
+}
+
+# function ipinfo() {
+# 	if [[ $# -eq 0 ]]; then
+# 		echo
+# 		curl https://icanhazip.com
+# 		curl https://api6.ipify.org
+# 		echo; echo
+# 		curl https://ipinfo.io | json '. |= del(.readme)'
+# 	else
+# 		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
+# 	fi
+# }

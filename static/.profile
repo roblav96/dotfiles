@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
+
 # set completion-ignore-case on
 # set completion-query-items 256
 # set expand-tilde off
