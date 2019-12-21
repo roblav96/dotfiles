@@ -8,7 +8,7 @@ alias pst="pstree -w"
 
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 alias dstore="fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv {}"
-alias quarantine="sudo xattr -rd com.apple.quarantine"
+alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="sudo rm -rfv $HOME/.Trash/* && exit"
@@ -33,6 +33,11 @@ if test -d "/Applications/Firefox Developer Edition.app"; then
 	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
 	alias firefox-bin="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin'"
 fi
+
+alias o="open ."
+# function o() {
+# 	test $# -eq 0 && open . || open $@
+# }; compdef o=open
 
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"

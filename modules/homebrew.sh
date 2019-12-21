@@ -11,7 +11,7 @@ function bout() {
 	echo; echo "🌕 Outdated formulas"
 	brew outdated --verbose
 	echo; echo "🌕 Outdated casks"
-	brew cask outdated --verbose --greedy | grep --invert-match "latest"
+	brew cask outdated --verbose --greedy | grep --invert-match 'latest'
 }
 
 function bls() {

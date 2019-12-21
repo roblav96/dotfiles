@@ -1,7 +1,7 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 alias cg="cargo --verbose --color=always"
-alias cgcd="cd $HOME/.cargo/bin"
+alias cgcd="cd $HOME/.cargo"
 alias cgls="lm $HOME/.cargo/bin"
 alias cgin="cargo install --force"
 alias cgout="cargo install-update --all --list"

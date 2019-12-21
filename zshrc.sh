@@ -95,10 +95,6 @@ unalias pip
 
 alias sudo="sudo "
 alias e="nano"
-alias o="open"
-# function o() {
-# 	test $# -eq 0 && open . || open $@
-# }
 alias gh="github"
 alias k="killall -KILL"
 alias ls="ls --color=always"
@@ -160,7 +156,8 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 if test -x "$(which -p dust)"; then
 	export DUST_FLAGS="--apparent-size --reverse"
 	alias dust="command dust $DUST_FLAGS --depth=1"
-	alias dustr="command dust $DUST_FLAGS --number-of-lines=$(expr $(tput lines) - 10)"
+	# alias dust="command dust $DUST_FLAGS --depth=1 | tail --lines=\$(expr \$(tput lines) - 10)"
+	alias dustr="command dust $DUST_FLAGS --number-of-lines=\$(expr \$(tput lines) - 10)"
 fi
 # alias .du="du -ah * -d 0 | sort -h"
 # alias .du="du -d 1 -h"
@@ -264,6 +261,7 @@ test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p pip)" && source "$DOTFILES/modules/pip.sh"
+test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
