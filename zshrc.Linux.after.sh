@@ -1,5 +1,5 @@
 export PURE_PROMPT_SYMBOL="SERVER ➤"
-export SYSTEMD_PAGER=""
+export SYSTEMD_PAGER="cat"
 
 alias pst="pstree -achls"
 
