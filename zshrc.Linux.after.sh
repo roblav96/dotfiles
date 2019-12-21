@@ -1,6 +1,9 @@
 export PURE_PROMPT_SYMBOL="SERVER ➤"
-# export SYSTEMD_PAGER=""
-export SYSTEMD_LESS="$LESS"
+
+export SYSTEMD_PAGER=""
+unalias sc-status
+alias systemctl="systemctl --no-pager"
+alias sc-status="systemctl --full status"
 
 alias pst="pstree -achls"
 
