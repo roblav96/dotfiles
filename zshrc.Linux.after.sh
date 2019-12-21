@@ -1,4 +1,5 @@
 export PURE_PROMPT_SYMBOL="SERVER ➤"
+export SYSTEMD_PAGER=""
 
 alias pst="pstree -achls"
 
