@@ -238,7 +238,7 @@ alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rgp blocked"
+alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 # alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
