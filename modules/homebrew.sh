@@ -27,10 +27,12 @@ function blsp() {
 }
 
 function bs() {
-	echo; echo "🌕 Searching descriptions"
-	brew search --desc "$*" | rgp "$*"
-	echo; echo "🌕 Searching names"
-	brew search "$*" | rgp "$*"
+	for v in "$@"; do
+		echo; echo "🌕 Searching descriptions '$v'"
+		brew search --desc "$v" | rgp "$v"
+		echo; echo "🌕 Searching names '$v'"
+		brew search "$v" | rgp "$v"
+	done
 }
 
 function bin() {

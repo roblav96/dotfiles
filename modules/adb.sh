@@ -14,24 +14,20 @@ alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings() {
-	echo; echo 🌕 System Settings 🌕
+	echo; echo "🌕 System Settings"
 	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh
-	echo; echo 🌕 Secure Settings 🌕
+	echo; echo "🌕 Secure Settings"
 	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh
-	echo; echo 🌕 Global Settings 🌕
+	echo; echo "🌕 Global Settings"
 	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh
 }
 function adb-settings-f() {
-	if [[ $# -eq 0 ]]; then
-		adb-settings
-		return 0
-	fi
-	echo; echo 🌕 System Settings 🌕
-	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
-	echo; echo 🌕 Secure Settings 🌕
-	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
-	echo; echo 🌕 Global Settings 🌕
-	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rgp $@
+	echo; echo "🌕 System Settings"
+	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
+	echo; echo "🌕 Secure Settings"
+	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
+	echo; echo "🌕 Global Settings"
+	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
 }
 
 function adb-su() {
@@ -54,28 +50,28 @@ function adb-wget() {
 
 # https://developer.android.com/studio/command-line/adb#pm
 function adb-pm() {
-	echo; echo 🌕 Disabled Packages 🌕
-	echo "$(adb shell pm list packages -f -d)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
-	echo; echo 🌕 Uninstalled Packages 🌕
-	echo "$(adb shell pm list packages -f -u)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
-	echo; echo 🌕 Enabled Packages 🌕
-	echo "$(adb shell pm list packages -f -e)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
-	echo; echo 🌕 Default Packages 🌕
-	echo "$(adb shell pm list packages -f)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
-	echo; echo 🌕 System Packages 🌕
-	echo "$(adb shell pm list packages -f -s)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
-	echo; echo 🌕 Third-Party Packages 🌕
-	echo "$(adb shell pm list packages -f -3)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://' | bat --style=grid -l properties
+	echo; echo "🌕 Disabled Packages"
+	echo "$(adb shell pm list packages -d)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo; echo "🌕 Uninstalled Packages"
+	echo "$(adb shell pm list packages -u)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo; echo "🌕 Enabled Packages"
+	echo "$(adb shell pm list packages -e)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo; echo "🌕 Default Packages"
+	echo "$(adb shell pm list packages)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo; echo "🌕 System Packages"
+	echo "$(adb shell pm list packages -s)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo; echo "🌕 Third-Party Packages"
+	echo "$(adb shell pm list packages -3)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
 }
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
-# 		echo; echo 🌕 Disabled 🌕; pm list packages -f -d;
-# 		echo; echo 🌕 Uninstalled 🌕; pm list packages -f -u;
-# 		echo; echo 🌕 Default 🌕; pm list packages -f;
-# 		echo; echo 🌕 System 🌕; pm list packages -f -s;
-# 		echo; echo 🌕 Enabled 🌕; pm list packages -f -e;
-# 		echo; echo 🌕 Third-Party 🌕; pm list packages -f -3;
+# 		echo; echo "🌕 Disabled"; pm list packages -d;
+# 		echo; echo "🌕 Uninstalled"; pm list packages -u;
+# 		echo; echo "🌕 Default"; pm list packages;
+# 		echo; echo "🌕 System"; pm list packages -s;
+# 		echo; echo "🌕 Enabled"; pm list packages -e;
+# 		echo; echo "🌕 Third-Party"; pm list packages -3;
 # 	')" | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"
