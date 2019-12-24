@@ -30,8 +30,8 @@ if [[ -x "$(which -p m)" ]]; then
 fi
 
 if test -d "/Applications/Firefox Developer Edition.app"; then
-	alias firefox="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
-	alias firefox-bin="'/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin'"
+	alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+	alias firefox-bin="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin"
 fi
 
 alias o="open ."
