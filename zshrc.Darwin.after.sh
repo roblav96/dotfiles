@@ -11,7 +11,7 @@ alias dstore="fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv {}
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias rmtrash="sudo rm -rfv $HOME/.Trash/* && exit"
+alias rmtrash="sudo rm -rfv $HOME/.Trash/.* $HOME/.Trash/* && exit"
 alias .prettierrc="subl $DOTFILES/configs/.prettierrc"
 
 alias pfc="sudo subl /etc/pf.conf"

@@ -39,15 +39,17 @@ function pbat() {
 }
 
 # export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css' 'd' 'dart' 'diff' 'Dockerfile' '.env' '.env' '.env' 'ex' 'elm' 'erl' 'fs' 'fs' 'fish' 'attributes' 'COMMIT_EDITMSG' 'gitconfig' 'exclude' '.git' 'gitlog' 'git' 'go' 'dot' 'groovy' 'hs' 'hs' 'show' 'hosts' 'html' 'asp' 'html' 'yaws' 'rails' 'adp' 'twig' 'ini' 'java' 'properties' 'jsp' 'js' 'js' 'js' 'json' 'sublime' 'sublime' 'jsonnet' 'jl' 'kt' 'tex' 'less' 'lisp' 'lhs' 'lua' 'make' 'Makefile' 'man' 'md' 'matlab' 'build' 'nix' 'm' 'mm' 'ml' 'mll' 'mly' 'org' 'pas' 'pl' 'php' 'txt' 'ps1' 'proto' 'pb' 'pp' 'purs' 'py' 'Sconstruct' 'R' 'rd' 're' 'requirements' 'rst' 'robot' 'rb' 'Deliverfile' 'podspec' 'simplecov' 'haml' 'rxml' 'rs' 'sass' 'scala' 'scss' 'sql' 'erbsql' 'ssh_config' 'sshd_config' 'strace' 'swift' 'log' 'tcl' 'tf' 'sty' 'textile' 'toml' 'ts' 'tsx' 'varlink' 'v' 'vim' 'xml' 'yaml')
-export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css')
+# export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css')
 # export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc')
+export BAT_LANGS=('ActionScript' 'Advanced CSV' 'AppleScript' 'ARM Assembly' 'AsciiDoc' 'ASP' 'Assembly (x86_64)' 'AWK' 'Batch File' 'BibTeX' 'Bourne Again Shell (bash)' 'C#' 'C' 'C++' 'Cabal' 'Clojure' 'CMake C Header' 'CMake C++ Header' 'CMake' 'CMakeCache' 'Crystal' 'CSS' 'D' 'Dart' 'Diff' 'Dockerfile' 'DotENV' 'Elixir' 'Elm' 'Erlang' 'F#' 'F#' 'friendly interactive shell (fish)' 'Git Attributes' 'Git Commit' 'Git Config' 'Git Ignore' 'Git Link' 'Git Log' 'Git Rebase Todo' 'Go' 'Graphviz (DOT)' 'Groovy' 'Haskell (improved)' 'Haskell' 'Highlight non-printables' 'hosts' 'HTML (ASP)' 'HTML (EEx)' 'HTML (Erlang)' 'HTML (Rails)' 'HTML (Tcl)' 'HTML (Twig)' 'HTML' 'INI' 'Java Properties' 'Java Server Page (JSP)' 'Java' 'JavaScript (Babel)' 'JavaScript (Rails)' 'JavaScript' 'JSON' 'jsonnet' 'Julia' 'Kotlin' 'LaTeX' 'Less' 'Lisp' 'Literate Haskell' 'Lua' 'Makefile' 'Manpage' 'Markdown' 'MATLAB' 'NAnt Build File' 'Nix' 'Objective-C' 'Objective-C++' 'OCaml' 'OCamllex' 'OCamlyacc' 'orgmode' 'Pascal' 'Perl' 'PHP' 'Plain Text' 'PowerShell' 'Protocol Buffer (TEXT)' 'Protocol Buffer' 'Puppet' 'PureScript' 'Python' 'R' 'Rd (R Documentation)' 'Regular Expression' 'requirements.txt' 'reStructuredText' 'Ruby Haml' 'Ruby on Rails' 'Ruby' 'Rust' 'Sass' 'Scala' 'SCSS' 'SQL (Rails)' 'SQL' 'SSH Config' 'SSHD Config' 'Strace' 'Swift' 'syslog' 'Tcl' 'Terraform' 'TeX' 'Textile' 'TOML' 'TypeScript' 'TypeScriptReact' 'varlink' 'Verilog' 'VimL' 'Vue Component' 'XML' 'YAML')
 function bat-langs() {
 	local data=$(</dev/stdin)
 	for BAT_LANG in "${BAT_LANGS[@]}"; do
 		echo "🌕 $BAT_LANG"
-		echo $data | bat --style=header,grid,numbers -l "$BAT_LANG"
+		echo $data | bat --style=header,grid,numbers --language="$BAT_LANG"
 	done
 }
+# alias bat-langs="print -l $BAT_LANGS | fzf --preview 'bat ~/.config/emby-server/logs/embyserver.txt --color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme="Monokai Pro Classic" --language="{}"'"
 
 export BAT_THEMES=('Monokai Extended Origin' 'Monokai Pro' 'Monokai Pro Classic' 'OneHalfDark')
 function bat-themes() {
