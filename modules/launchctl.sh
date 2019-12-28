@@ -1,5 +1,5 @@
 alias lc-ls="echo; echo '🌕 User Agents'; launchctl list; echo; echo '🌕 System Daemons'; sudo launchctl list"
-alias lc-hostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo; echo; echo '🌕 System Host Info'; sudo launchctl hostinfo"
+# alias lc-hostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo; echo; echo '🌕 System Host Info'; sudo launchctl hostinfo"
 
 function lc-f() {
 	echo; echo "🌕 Find User Agents"
