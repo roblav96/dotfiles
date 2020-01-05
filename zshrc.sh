@@ -140,7 +140,7 @@ test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias dotcd="cd $DOTFILES"
-alias vue-inspect="FORCE_COLOR=0 npx vue-cli-service inspect"
+test ! -x "$(which -p vue)" && alias vue="FORCE_COLOR=0 npx vue-cli-service"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
