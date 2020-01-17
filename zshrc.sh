@@ -71,6 +71,10 @@ eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH
 # LS_COLORS+="di=38;5;30"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
+# zstyle ':completion:*:manuals' separate-sections true
+# zstyle ':completion:*:manuals.*' insert-sections true
+# zstyle ':completion:*:man:*' menu yes select
+
 # export FAST_HIGHLIGHT[use_async]="0"
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
