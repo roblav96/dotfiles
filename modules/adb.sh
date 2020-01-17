@@ -1,5 +1,9 @@
 # export ADB_LIBUSB="1"
 
+if [[ -e "/usr/local/etc/bash_completion.d/rogcat" ]]; then
+	source "/usr/local/etc/bash_completion.d/rogcat"
+fi
+
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"

@@ -2,7 +2,7 @@ robbyrussell/oh-my-zsh
 # robbyrussell/oh-my-zsh path:plugins/aws
 # robbyrussell/oh-my-zsh path:plugins/cargo
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
-robbyrussell/oh-my-zsh path:plugins/compleat
+# robbyrussell/oh-my-zsh path:plugins/compleat
 robbyrussell/oh-my-zsh path:plugins/extract
 # robbyrussell/oh-my-zsh path:plugins/fd
 robbyrussell/oh-my-zsh path:plugins/fzf

@@ -2,6 +2,10 @@
 
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
 
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+# echo "🌕 compinit -> "$(type -a compinit)
+
 export CLICOLOR="1"
 export ADBLOCK="1"
 export DEBUG_COLORS="1"
@@ -56,8 +60,6 @@ source <(antibody init)
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
 # eval $(starship init zsh)
 
-# autoload -U +X compinit && compinit
-# autoload -U +X bashcompinit && bashcompinit
 # setopt bash_auto_list
 # setopt list_ambiguous
 setopt rm_star_silent
@@ -105,7 +107,7 @@ alias pwd="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
 alias manpathls="man --path | sed 's/:\//\n\//g'"
-alias commandls="print -l \$commands"
+alias commandsls="print -l \$commands"
 alias rc="rclone"
 alias htop="htop --delay=10"
 alias procs="procs --color=always --sortd=Start"
@@ -147,9 +149,9 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab --indent 4"
 alias j="json"
 
-alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=3"
-alias wget="wget --connect-timeout=3"
-alias curl="curl --silent --show-error --connect-timeout 3"
+alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=10"
+alias wget="wget --connect-timeout=10"
+alias curl="curl --silent --show-error --connect-timeout 10"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
 	curl "$@" | json
