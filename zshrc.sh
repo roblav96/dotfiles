@@ -4,7 +4,6 @@ test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
 
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
-# echo "🌕 compinit -> "$(type -a compinit)
 
 export CLICOLOR="1"
 export ADBLOCK="1"
