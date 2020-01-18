@@ -1,13 +1,28 @@
-alias gc="git clone --recurse-submodules"
 alias gd="git diff"
+
 alias gf="git fetch"
+alias gfa="git fetch --all --prune"
+alias gfo="git fetch origin"
+
+alias gi="git check-ignore --verbose"
+
+alias gl="git log --reverse --max-count=5"
+
 alias gp="git pull"
 alias gpr="git pull --rebase"
+
 alias gs="git status --short --branch"
 alias gsh="git show"
 alias gsu="git standup"
-alias gl="git log --reverse --max-count=5"
-alias gi="git check-ignore --verbose"
+
+# alias gc="git clone"
+# alias gcr="git clone --recurse-submodules"
+function gc() {
+	local repo="${1##*/}"
+	git clone "$1" && cd "$repo" || return 1
+	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional
+	test -e "requirements.txt" && pip install -r "requirements.txt"
+}
 
 # if [[ -x "$(which -p delta)" ]]; then
 # 	git config --global pager.diff "BAT_PAGER=cat delta --theme=none --light"
