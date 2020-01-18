@@ -86,13 +86,11 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 
 unalias ls
 unalias la
-unalias rd
 unalias grep
 unalias path
 unalias pip
 
 # alias fo="forever "
-# alias rd="rm -rf"
 # alias rma="rm -rf"
 # alias rmd="rm -rf"
 # alias rmf="rm -rf"
@@ -103,6 +101,7 @@ unalias pip
 alias sudo="sudo "
 alias e="nano"
 alias gh="github"
+alias rd="rm -rf"
 alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
