@@ -12,7 +12,7 @@ alias gp="git pull"
 alias gpr="git pull --rebase"
 
 alias gs="git status --short --branch"
-alias gsh="git show --stat"
+alias gsh="git show -n3 --stat"
 alias gsu="git standup"
 
 # alias gc="git clone"
