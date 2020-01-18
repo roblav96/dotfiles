@@ -12,7 +12,7 @@ alias gp="git pull"
 alias gpr="git pull --rebase"
 
 alias gs="git status --short --branch"
-alias gsh="git show"
+alias gsh="git show --stat"
 alias gsu="git standup"
 
 # alias gc="git clone"
@@ -20,7 +20,7 @@ alias gsu="git standup"
 function gc() {
 	local repo="${1##*/}"
 	git clone "$1" && cd "$repo" || return 1
-	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional
+	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional && echo && npm run-script
 	test -e "requirements.txt" && pip install -r "requirements.txt"
 	test -d "$repo" && cd "$repo" && dotnet restore
 }
