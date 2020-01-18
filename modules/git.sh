@@ -22,6 +22,7 @@ function gc() {
 	git clone "$1" && cd "$repo" || return 1
 	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional
 	test -e "requirements.txt" && pip install -r "requirements.txt"
+	test -d "$repo" && cd "$repo" && dotnet restore
 }
 
 # if [[ -x "$(which -p delta)" ]]; then
