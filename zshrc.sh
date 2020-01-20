@@ -125,6 +125,7 @@ alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --with-node-modules --no-editorconfig --config $HOME/.prettierrc --print-width \$(tput cols)"
+alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
