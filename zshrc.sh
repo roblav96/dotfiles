@@ -255,6 +255,7 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 	fi
 fi
 
+source "$DOTFILES/modules/email.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
@@ -273,8 +274,6 @@ test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
-
-test -n "$__MAILBOX_LAYER_API_KEY" && source "$DOTFILES/modules/mailbox-layer.sh"
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
