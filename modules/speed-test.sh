@@ -21,5 +21,4 @@ function ipinfo() {
 	fi
 }
 
-# alias ipinfo="echo; curl https://icanhazip.com; curl https://api6.ipify.org; echo; echo; curl https://ipinfo.io | json '. |= del(.readme)'"
-# alias ipinfoa="echo; echo 🌕 icanhazip.com; curl https://icanhazip.com; echo; echo 🌕 api6.ipify.org; curl https://api6.ipify.org; echo; echo; echo 🌕 iplist.cc; curl https://iplist.cc/api | json; echo; echo 🌕 ipvigilante.com; curl https://ipvigilante.com/json/full | json '.data'; echo; echo 🌕 ifconfig.co; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo 🌕 ipinfo.io; curl https://ipinfo.io | json '. |= del(.readme)'"
+alias ipinfoa="echo; echo 🌕 icanhazip.com; curl https://icanhazip.com; echo; echo 🌕 api6.ipify.org; curl https://api6.ipify.org; echo; echo; echo 🌕 iplist.cc; curl https://iplist.cc/api | json; echo; echo 🌕 ifconfig.co; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo 🌕 ipinfo.io; curl https://ipinfo.io | json '. |= del(.readme)'"
