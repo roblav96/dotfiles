@@ -274,6 +274,8 @@ test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 
+test -n "$__MAILBOX_LAYER_API_KEY" && source "$DOTFILES/modules/mailbox-layer.sh"
+
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
 # source $ZSH/oh-my-zsh.sh
