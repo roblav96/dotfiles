@@ -19,6 +19,11 @@ alias gsu="git standup"
 # alias gcr="git clone --recurse-submodules"
 function gc() {
 	local repo="${1##*/}"
+	local url="${1/https:\/\/github.com\//git@github.com:}.git"
+	if [[ ${repo##*.} == "git" ]]; then
+		repo=${repo:0:-4}
+		url=${url:0:-4}
+	fi
 	git clone "$1" && cd "$repo" || return 1
 	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional && echo && npm run-script
 	test -e "requirements.txt" && pip install -r "requirements.txt"
