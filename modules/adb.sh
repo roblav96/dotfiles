@@ -3,6 +3,9 @@
 if [[ -e "/usr/local/etc/bash_completion.d/rogcat" ]]; then
 	source "/usr/local/etc/bash_completion.d/rogcat"
 fi
+if [[ -e "/usr/local/etc/bash_completion.d/pidcat" ]]; then
+	source "/usr/local/etc/bash_completion.d/pidcat"
+fi
 
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox

@@ -1,2 +1,1 @@
-source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-echo "🌕 nix"
+export NIX_PAGER=""

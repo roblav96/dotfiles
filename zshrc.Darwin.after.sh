@@ -1,3 +1,5 @@
+export PASTEL_COLOR_MODE="8bit"
+
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/deving.sh"

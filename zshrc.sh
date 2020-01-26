@@ -1,9 +1,7 @@
 #!/usr/bin/env zsh
 
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
-
-autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
+test -d "$HOME/.nix-profile" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
 export CLICOLOR="1"
 export ADBLOCK="1"
@@ -58,6 +56,9 @@ source <(antibody init)
 # echo "PLUGINS -> $PLUGINS"
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
 # eval $(starship init zsh)
+
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
 
 # setopt bash_auto_list
 # setopt list_ambiguous
@@ -244,7 +245,6 @@ fi
 
 # test -d "/usr/local/opt/wireguard-tools/etc/bash_completion.d" && source /usr/local/opt/wireguard-tools/etc/bash_completion.d/*
 source "$DOTFILES/modules/disk.sh"
-test -d "$HOME/.nix-profile" && source "$DOTFILES/modules/nix.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$__HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
@@ -257,6 +257,7 @@ test -x "$(which -p git)" && source "$DOTFILES/modules/git.sh"
 test -x "$(which -p go)" && source "$DOTFILES/modules/go.sh"
 test -x "$(which -p ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
+test -x "$(which -p nix)" && source "$DOTFILES/modules/nix.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p pip)" && source "$DOTFILES/modules/pip.sh"
@@ -264,8 +265,6 @@ test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
-
-
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
