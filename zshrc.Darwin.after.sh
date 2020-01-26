@@ -1,4 +1,5 @@
 export PASTEL_COLOR_MODE="8bit"
+export SDKROOT="macosx10.14"
 
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
