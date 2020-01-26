@@ -1,4 +1,6 @@
+nilsonholger/osx-zsh-completions kind:fpath
 # rgcr/m-cli path:completion/zsh kind:fpath
+
 robbyrussell/oh-my-zsh path:plugins/adb
 # robbyrussell/oh-my-zsh path:plugins/bundler
 # robbyrussell/oh-my-zsh path:plugins/gem
