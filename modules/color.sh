@@ -1,9 +1,9 @@
 export ZSH_SPECTRUM_TEXT="$(uname -a | head -c 50)"
 
-alias colors="spectrum_ls | head -n 17"
-alias colors-bg="spectrum_bls | head -n 17"
-alias colors-spectrum="spectrum_ls"
-alias colors-spectrum-bg="spectrum_bls"
+alias colorls="spectrum_ls | head -n 17"
+alias colorls-bg="spectrum_bls | head -n 17"
+alias colorls-spectrum="spectrum_ls"
+alias colorls-spectrum-bg="spectrum_bls"
 
 # alias color-FG="echo '$FG'"
 # alias color-BG="echo '$BG'"
