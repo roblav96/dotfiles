@@ -4,7 +4,7 @@ alias gf="git fetch"
 alias gfa="git fetch --all --prune"
 alias gfo="git fetch origin"
 
-alias gi="git check-ignore --verbose"
+alias gi="git check-ignore --verbose **/.* **/*"
 
 alias gl="git log --reverse --max-count=5"
 
@@ -24,7 +24,7 @@ function gc() {
 		repo=${repo:0:-4}
 		url=${url:0:-4}
 	fi
-	git clone "$1" && cd "$repo" || return 1
+	git clone "$url" && cd "$repo" || return 1
 	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional && echo && npm run-script
 	test -e "requirements.txt" && pip install -r "requirements.txt"
 	test -d "$repo" && cd "$repo" && dotnet restore

@@ -1,4 +1,4 @@
-function email-dump() {
+function email-search() {
 	if [[ $(curl "https://api.hunter.io/v2/email-count?api_key=$__HUNTER_IO_API_KEY&domain=$1" | jq '.data.total') -gt 0 ]]; then
 		curl "https://api.hunter.io/v2/domain-search?api_key=$__HUNTER_IO_API_KEY&limit=100&domain=$1" | json
 	else
