@@ -46,6 +46,12 @@ export DISABLE_AUTO_UPDATE="true"
 
 
 
+test -x "$(which -p starship)" && eval "$(starship init zsh)"
+
+zinit light zsh-users/zsh-syntax-highlighting
+
+
+
 # export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # # zle_highlight+=(paste:bold)
