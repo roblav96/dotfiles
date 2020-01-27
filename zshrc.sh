@@ -46,22 +46,28 @@ export DISABLE_AUTO_UPDATE="true"
 
 
 
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-# zle_highlight+=(paste:bold)
+# export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+# # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+# # zle_highlight+=(paste:bold)
 
-export PLATFORM="$(uname -o)"
-source <(antibody init)
-# PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
-# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.${PLATFORM##*/}.sh)"
-# PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
-# echo "PLUGINS -> $PLUGINS"
-antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
-# eval $(starship init zsh)
+# export PLATFORM="$(uname -o)"
+# source <(antibody init)
+# # PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
+# # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.${PLATFORM##*/}.sh)"
+# # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
+# # echo "PLUGINS -> $PLUGINS"
+# antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
+# # eval $(starship init zsh)
 
-eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-# LS_COLORS+="di=38;5;30"
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+# # LS_COLORS+="di=38;5;30"
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# unalias grep &>/dev/null
+# unalias la &>/dev/null
+# unalias ls &>/dev/null
+# unalias path &>/dev/null
+# unalias pip &>/dev/null
 
 
 
@@ -88,12 +94,6 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
-
-unalias ls
-unalias la
-unalias grep
-unalias path
-unalias pip
 
 # alias fo="forever "
 # alias rma="rm -rf"
