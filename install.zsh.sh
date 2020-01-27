@@ -7,7 +7,7 @@ echo > $ZSHRC
 echo 'export PLATFORM="$(uname -o)"' >> $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
 echo "alias src='sh $DOTFILES/install.zsh.sh; rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit'" >> $ZSHRC
-echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit; rm -rf ~/.zinit/bin; git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> $ZSHRC
+echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> $ZSHRC
 echo "source ~/.zinit/bin/zinit.zsh" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh' ] && source '$DOTFILES/zshrc.${PLATFORM##*/}.before.sh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.sh' ] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
