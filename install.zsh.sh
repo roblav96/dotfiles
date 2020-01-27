@@ -4,6 +4,7 @@ ZSHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.zshrc"
 PLATFORM="$(uname -o)"
 
 echo > $ZSHRC
+echo 'export PLATFORM="$(uname -o)"' >> $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
 echo "alias src='sh $DOTFILES/install.zsh.sh; rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit'" >> $ZSHRC
 echo "test ! -d ~/.zinit/bin && $DOTFILES/install/zinit.sh" >> $ZSHRC

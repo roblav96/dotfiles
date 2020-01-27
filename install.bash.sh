@@ -3,6 +3,7 @@ DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.bashrc"
 
 echo > $BASHRC
+echo 'export PLATFORM="$(uname -o)"' >> $BASHRC
 echo "export DOTFILES='$DOTFILES'" >> $BASHRC
 echo "alias src='sh $DOTFILES/install.bash.sh; exit'" >> $BASHRC
 echo "[ -f '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
