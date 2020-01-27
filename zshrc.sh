@@ -44,6 +44,8 @@ export DISABLE_AUTO_UPDATE="true"
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 # fi
 
+
+
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # zle_highlight+=(paste:bold)
@@ -57,20 +59,22 @@ source <(antibody init)
 antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
 # eval $(starship init zsh)
 
-autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
+eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+# LS_COLORS+="di=38;5;30"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# setopt bash_auto_list
-# setopt list_ambiguous
-setopt rm_star_silent
+
 
 export HISTSIZE="5000000"
 export SAVEHIST="1000000"
 setopt hist_ignore_all_dups
 
-eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-# LS_COLORS+="di=38;5;30"
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+setopt rm_star_silent
+# setopt bash_auto_list
+# setopt list_ambiguous
+
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
 
 # zstyle ':completion:*:manuals' separate-sections true
 # zstyle ':completion:*:manuals.*' insert-sections true
