@@ -46,11 +46,10 @@ export DISABLE_AUTO_UPDATE="true"
 
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
-autoload -U promptinit && promptinit
-
-
 
 test -x "$(which -p starship)" && eval "$(starship init zsh)"
+
+
 
 # export ZSH="$HOME/.zinit/plugins/ohmyzsh---ohmyzsh"
 # test -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
