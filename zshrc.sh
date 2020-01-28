@@ -44,36 +44,32 @@ export DISABLE_AUTO_UPDATE="true"
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 # fi
 
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+autoload -U promptinit && promptinit
+
 
 
 test -x "$(which -p starship)" && eval "$(starship init zsh)"
 
-zinit light zsh-users/zsh-syntax-highlighting
+# export ZSH="$HOME/.zinit/plugins/ohmyzsh---ohmyzsh"
+# test -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
+# test -f "$DOTFILES/zinit/zinit.$PLATFORM.sh" && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
+# test -f "$DOTFILES/zinit/zinit.sh" && source "$DOTFILES/zinit/zinit.sh"
 
 
 
-# export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-# # export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-# # zle_highlight+=(paste:bold)
+export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
+# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+# zle_highlight+=(paste:bold)
 
-# export PLATFORM="$(uname -o)"
-# source <(antibody init)
-# # PLUGINS="$(cat $DOTFILES/plugins.oh-my-zsh.sh)"
-# # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.${PLATFORM##*/}.sh)"
-# # PLUGINS="$PLUGINS\n$(cat $DOTFILES/plugins.sh)"
-# # echo "PLUGINS -> $PLUGINS"
-# antibody bundle < "$DOTFILES/plugins.oh-my-zsh.sh" < "$DOTFILES/plugins.${PLATFORM##*/}.sh" < "$DOTFILES/plugins.sh"
-# # eval $(starship init zsh)
+source <(antibody init)
+antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.${PLATFORM##*/}.sh" < "$DOTFILES/antibody/antibody.sh"
+# eval $(starship init zsh)
 
-# eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-# # LS_COLORS+="di=38;5;30"
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# unalias grep &>/dev/null
-# unalias la &>/dev/null
-# unalias ls &>/dev/null
-# unalias path &>/dev/null
-# unalias pip &>/dev/null
+eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+# LS_COLORS+="di=38;5;30"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 
 
@@ -84,9 +80,6 @@ setopt hist_ignore_all_dups
 setopt rm_star_silent
 # setopt bash_auto_list
 # setopt list_ambiguous
-
-autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
 
 # zstyle ':completion:*:manuals' separate-sections true
 # zstyle ':completion:*:manuals.*' insert-sections true
@@ -100,6 +93,12 @@ alias bindkey-debug="echo press key to observe key codes:; cat -v"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
+
+unalias grep &>/dev/null
+unalias la &>/dev/null
+unalias ls &>/dev/null
+unalias path &>/dev/null
+unalias pip &>/dev/null
 
 # alias fo="forever "
 # alias rma="rm -rf"
@@ -280,7 +279,6 @@ test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
 # source $ZSH/oh-my-zsh.sh
-# antibody bundle robbyrussell/oh-my-zsh
 # source <(npm completion)
 # source <(pm2 completion)
 # source <(tns completion)

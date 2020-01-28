@@ -1,3 +1,3 @@
-robbyrussell/oh-my-zsh path:plugins/systemd
-robbyrussell/oh-my-zsh path:plugins/ubuntu
-robbyrussell/oh-my-zsh path:plugins/ufw
+zinit snippet OMZ::plugins/systemd
+zinit snippet OMZ::plugins/ubuntu
+zinit snippet OMZ::plugins/ufw

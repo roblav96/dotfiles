@@ -1,27 +1,28 @@
-robbyrussell/oh-my-zsh
-# robbyrussell/oh-my-zsh path:plugins/aws
-# robbyrussell/oh-my-zsh path:plugins/cargo
-robbyrussell/oh-my-zsh path:plugins/colored-man-pages
-# robbyrussell/oh-my-zsh path:plugins/compleat
-robbyrussell/oh-my-zsh path:plugins/extract
-# robbyrussell/oh-my-zsh path:plugins/fd
-robbyrussell/oh-my-zsh path:plugins/fzf
-robbyrussell/oh-my-zsh path:plugins/git-extras
-robbyrussell/oh-my-zsh path:plugins/gitfast
-robbyrussell/oh-my-zsh path:plugins/github
-# robbyrussell/oh-my-zsh path:plugins/golang
-# robbyrussell/oh-my-zsh path:plugins/history
-# robbyrussell/oh-my-zsh path:plugins/httpie
-robbyrussell/oh-my-zsh path:plugins/last-working-dir
-# robbyrussell/oh-my-zsh path:plugins/nmap
-robbyrussell/oh-my-zsh path:plugins/perms
-robbyrussell/oh-my-zsh path:plugins/pip
-robbyrussell/oh-my-zsh path:plugins/redis-cli
-# robbyrussell/oh-my-zsh path:plugins/rust
-robbyrussell/oh-my-zsh path:plugins/safe-paste
-robbyrussell/oh-my-zsh path:plugins/sudo
-robbyrussell/oh-my-zsh path:plugins/systemadmin
-robbyrussell/oh-my-zsh path:plugins/transfer
-robbyrussell/oh-my-zsh path:plugins/wd
-# robbyrussell/oh-my-zsh path:plugins/z
-robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
+zinit load ohmyzsh/ohmyzsh
+zinit ice svn; zinit snippet OMZ::lib
+# zinit ice svn; zinit snippet OMZ::plugins/aws
+# zinit ice svn; zinit snippet OMZ::plugins/cargo
+zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
+# zinit ice svn; zinit snippet OMZ::plugins/compleat
+zinit ice svn; zinit snippet OMZ::plugins/extract
+# zinit ice svn; zinit snippet OMZ::plugins/fd
+zinit ice svn; zinit snippet OMZ::plugins/fzf
+zinit ice svn; zinit snippet OMZ::plugins/git-extras
+zinit ice svn; zinit snippet OMZ::plugins/gitfast
+zinit ice svn; zinit snippet OMZ::plugins/github
+# zinit ice svn; zinit snippet OMZ::plugins/golang
+# zinit ice svn; zinit snippet OMZ::plugins/history
+# zinit ice svn; zinit snippet OMZ::plugins/httpie
+zinit ice svn; zinit snippet OMZ::plugins/last-working-dir
+# zinit ice svn; zinit snippet OMZ::plugins/nmap
+zinit ice svn; zinit snippet OMZ::plugins/perms
+zinit ice svn; zinit snippet OMZ::plugins/pip
+# zinit ice svn; zinit snippet OMZ::plugins/redis-cli
+# zinit ice svn; zinit snippet OMZ::plugins/rust
+zinit ice svn; zinit snippet OMZ::plugins/safe-paste
+zinit ice svn; zinit snippet OMZ::plugins/sudo
+zinit ice svn; zinit snippet OMZ::plugins/systemadmin
+zinit ice svn; zinit snippet OMZ::plugins/transfer
+zinit ice svn; zinit snippet OMZ::plugins/wd
+# zinit ice svn; zinit snippet OMZ::plugins/z
+zinit ice svn; zinit snippet OMZ::plugins/zsh-navigation-tools

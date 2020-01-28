@@ -1,14 +1,14 @@
-nilsonholger/osx-zsh-completions kind:fpath
-# rgcr/m-cli path:completion/zsh kind:fpath
+zinit load nilsonholger/osx-zsh-completions
+# # rgcr/m-cli path:completion/zsh kind:fpath
 
-robbyrussell/oh-my-zsh path:plugins/adb
-# robbyrussell/oh-my-zsh path:plugins/bundler
-# robbyrussell/oh-my-zsh path:plugins/gem
-# robbyrussell/oh-my-zsh path:plugins/gradle
-# robbyrussell/oh-my-zsh path:plugins/osx
-# robbyrussell/oh-my-zsh path:plugins/pod
-# robbyrussell/oh-my-zsh path:plugins/rake-fast
-# robbyrussell/oh-my-zsh path:plugins/rails
-# robbyrussell/oh-my-zsh path:plugins/ruby
-robbyrussell/oh-my-zsh path:plugins/ssh-agent
-# robbyrussell/oh-my-zsh path:plugins/sublime
+# zinit ice svn; zinit snippet OMZ::plugins/adb
+# zinit ice svn; zinit snippet OMZ::plugins/bundler
+# zinit ice svn; zinit snippet OMZ::plugins/gem
+# zinit ice svn; zinit snippet OMZ::plugins/gradle
+# zinit ice svn; zinit snippet OMZ::plugins/osx
+# zinit ice svn; zinit snippet OMZ::plugins/pod
+# zinit ice svn; zinit snippet OMZ::plugins/rake-fast
+# zinit ice svn; zinit snippet OMZ::plugins/rails
+# zinit ice svn; zinit snippet OMZ::plugins/ruby
+# zinit ice svn; zinit snippet OMZ::plugins/ssh-agent
+# zinit ice svn; zinit snippet OMZ::plugins/sublime

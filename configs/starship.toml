@@ -14,7 +14,11 @@ disabled = true
 [nodejs]
 disabled = true
 
+[python]
+disabled = true
+
 [directory]
+style = "bold blue"
 truncation_length = -1
 
 # [memory_usage]
