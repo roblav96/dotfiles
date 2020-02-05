@@ -1,7 +1,7 @@
-alias lcls="echo; echo '🌕 User Agents'; launchctl list; echo; echo '🌕 System Daemons'; sudo launchctl list"
+alias lc-ls="echo; echo '🌕 User Agents'; launchctl list; echo; echo '🌕 System Daemons'; sudo launchctl list"
 # alias lchostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo; echo; echo '🌕 System Host Info'; sudo launchctl hostinfo"
 
-function lcf() {
+function lc-f() {
 	echo; echo "🌕 Find User Agents"
 	fa --ignore-case $@ "$HOME/Library/LaunchAgents" | rgp $@
 	echo; echo "🌕 Find Library Agents"
@@ -15,7 +15,7 @@ function lcf() {
 	# fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings
 }
 
-function lcr() {
+function lc-r() {
 	echo; echo "🌕 Grep User Agents"
 	ra --ignore-case --no-stats $@ "$HOME/Library/LaunchAgents"
 	echo; echo "🌕 Grep Library Agents"
@@ -29,6 +29,6 @@ function lcr() {
 	# rg --color=always --heading --line-number --no-messages --ignore-case --hidden --no-ignore --follow --fixed-strings --max-columns=$(tput cols) --max-columns-preview --text --search-zip -uuu
 }
 
-function lca() {
+function lc-a() {
 	lc-f $@; lcr $@
 }
