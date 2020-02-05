@@ -1,19 +1,17 @@
 alias gd="git diff"
+alias gl="git log --reverse --max-count=5"
+alias gs="git status --short --branch"
+alias gsh="git show --reverse --max-count=5 --stat"
+alias gsu="git standup"
 
 alias gf="git fetch"
 alias gfa="git fetch --all --prune"
 alias gfo="git fetch origin"
 
-alias gi="git check-ignore --verbose **/.* **/*"
-
-alias gl="git log --reverse --max-count=5"
-
 alias gp="git pull"
 alias gpr="git pull --rebase"
 
-alias gs="git status --short --branch"
-alias gsh="git show -n3 --stat"
-alias gsu="git standup"
+alias gi="git check-ignore --verbose **/.* **/*"
 
 # alias gc="git clone"
 # alias gcr="git clone --recurse-submodules"

@@ -44,9 +44,6 @@ export DISABLE_AUTO_UPDATE="true"
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 # fi
 
-autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
-
 test -x "$(which -p starship)" && eval "$(starship init zsh)"
 
 
@@ -274,6 +271,9 @@ test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
+
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit
