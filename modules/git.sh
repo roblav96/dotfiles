@@ -1,3 +1,5 @@
+alias gh="github"
+
 alias gd="git diff"
 alias gl="git log --reverse --max-count=5"
 alias gs="git status --short --branch"
