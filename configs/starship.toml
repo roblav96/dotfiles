@@ -19,12 +19,12 @@ disabled = true
 
 [directory]
 style = "bold blue"
+prefix = "@ "
 truncate_to_repo = false
 truncation_length = -1
 
 [hostname]
 style = "bold red"
-suffix = "@"
 
 [username]
 disabled = true
