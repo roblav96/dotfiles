@@ -22,6 +22,12 @@ style = "bold blue"
 truncate_to_repo = false
 truncation_length = -1
 
+[hostname]
+style = "bold red"
+
+[username]
+disabled = true
+
 # [memory_usage]
 # disabled = false
 # show_percentage = true
