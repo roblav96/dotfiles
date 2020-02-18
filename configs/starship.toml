@@ -24,6 +24,7 @@ truncation_length = -1
 
 [hostname]
 style = "bold red"
+suffix = "@"
 
 [username]
 disabled = true
