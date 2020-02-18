@@ -3,6 +3,8 @@
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
 test -d "$HOME/.nix-profile" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
+tabs -4
+
 export CLICOLOR="1"
 export ADBLOCK="1"
 export DEBUG_COLORS="1"
