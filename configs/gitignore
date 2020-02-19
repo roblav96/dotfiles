@@ -41,3 +41,6 @@ Temporary Items
 .vscode/
 dump.rdb
 main.tfvars
+
+# python mypy
+.mypy_cache
