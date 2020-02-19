@@ -76,7 +76,8 @@ function app-bak() {
 	cd "$appdir"
 	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
 	cd "$OLDPWD"
-	echo; echo "✅ Backup complete -> '$1'"
+	echo; echo "✅ Backup complete"
+	echo; exa --oneline "$targz"
 }
 
 unalias src
