@@ -49,21 +49,24 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function app-bak() {
-	[[ "$#" -ne "1" ]] && return 1
-	echo "🌕 # -> $#"
+	[[ "$#" -ne "1" ]] && echo "🔴 Application name required" && return 1
+	echo "⭐ date -> $date"
+	# echo "🌕 # -> $#"
 	# local date="$(date --iso-8601)"
 	# local date="${$(date --rfc-3339=seconds):0:-6}"
 	# local date="${$(date --rfc-3339=date):0:-6}"
-	# local date="${$(date --rfc-email):0:-15}"
-	local targz="$HOME/Downloads/$1 Backup ($(date --iso-8601)).tar.gz"
-	echo "🌕 targz -> $targz"
+	local date="${$(date --rfc-email):0:-6}"
+	local name="$1 - Backup ($date)"
+	local targz="$HOME/Downloads/$name.tar.gz"
+	# echo "🌕 targz -> $targz"
 	local appdir="$HOME/Library/Application Support/$1"
-	[[ ! -d "$appdir" ]] && return 1
-	echo "🌕 appdir -> $appdir"
-	[[ -f "$targz" ]] && rm -iv "$targz"
+	[[ ! -d "$appdir" ]] && echo "🔴 '$appdir' not found" && return 1
+	# echo "🌕 appdir -> $appdir"
+	# [[ -f "$targz" ]] && rm -iv "$targz"
 	cd "$appdir"
 	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
 	cd "$OLDPWD"
+	echo; echo "✅ '$1' backup complete"
 }
 alias stbak="_sublime-text_bak 'Sublime Text 3'"
 alias smbak="_sublime-text_bak 'Sublime Merge'"
