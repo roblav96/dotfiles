@@ -10,12 +10,10 @@ alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'
 
 function _sublime-text_bak() {
 	[ "$#" != "2" ] && return 1
-	local outtgz="$HOME/Downloads/$1-backup.$(date --iso-8601).tgz"
-	local libdir="$HOME/Library/Application Support/$2"
-	[ ! -d "$libdir" ] && return 1
-	test -e "$outtgz" && rm -fv "$outtgz"
-	cd "$libdir"
-	tar -czvf "$outtgz" --exclude=".git" "."
+	local tgz="$HOME/Downloads/$1-backup.$(date --iso-8601).tgz"
+	rm -iv "$tgz"
+	cd "$HOME/Library/Application Support/$2"
+	tar -czvf "$tgz" --exclude=".git" "."
 	cd "$OLDPWD"
 }
 alias stbak="_sublime-text_bak 'sublime_text_3' 'Sublime Text 3'"
