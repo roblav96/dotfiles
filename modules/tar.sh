@@ -1,5 +1,14 @@
-# ████  tar  ████
+# alias tar-compress="tar -czvf -"
+# alias tar-encrypt="openssl enc -e -aes256 -out"
+# tar-compress [FILE...] | tar-encrypt ARCHIVE
 
-# tar-compress bak | tar-encrypt bak.secured.tar.gz
-alias tar-compress="tar -czf -"
-alias tar-encrypt="openssl enc -e -aes256 -out"
+function tar-encrypt() {
+	echo "🌕 @ -> $@"
+	echo "🌕 _ -> $_"
+	echo "🌕 ! -> $!"
+	echo "🌕 !# -> $!#"
+	echo "🌕 {@:-1} -> ${@:-1}"
+	local files=""
+	local targz=""
+	# tar -czvf -
+}

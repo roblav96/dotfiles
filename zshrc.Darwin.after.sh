@@ -48,6 +48,26 @@ alias o="open ."
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
+function app-bak() {
+	[[ "$#" -ne "1" ]] && return 1
+	echo "🌕 # -> $#"
+	# local date="$(date --iso-8601)"
+	# local date="${$(date --rfc-3339=seconds):0:-6}"
+	# local date="${$(date --rfc-3339=date):0:-6}"
+	# local date="${$(date --rfc-email):0:-15}"
+	local targz="$HOME/Downloads/$1 Backup ($(date --iso-8601)).tar.gz"
+	echo "🌕 targz -> $targz"
+	local appdir="$HOME/Library/Application Support/$1"
+	[[ ! -d "$appdir" ]] && return 1
+	echo "🌕 appdir -> $appdir"
+	[[ -f "$targz" ]] && rm -iv "$targz"
+	cd "$appdir"
+	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
+	cd "$OLDPWD"
+}
+alias stbak="_sublime-text_bak 'Sublime Text 3'"
+alias smbak="_sublime-text_bak 'Sublime Merge'"
+
 unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotcd="cd $DOTFILES"
