@@ -4,15 +4,15 @@ function ipinfo() {
 		curl "https://icanhazip.com"
 		curl "https://api6.ipify.org"
 		echo; echo
-		if [[ -z "$__IPIFY_API_KEY" ]]; then
+		if [[ -z "$_IPIFY_API_KEY" ]]; then
 			curl "https://ipinfo.io" | json '. |= del(.readme)'
 		else
-			curl "https://geo.ipify.org/api/v1?apiKey=$__IPIFY_API_KEY" | json
+			curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY" | json
 		fi
 	elif [[ $@ =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-		curl "https://geo.ipify.org/api/v1?apiKey=$__IPIFY_API_KEY&ipAddress=$@" | json
+		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&ipAddress=$@" | json
 	else
-		curl "https://geo.ipify.org/api/v1?apiKey=$__IPIFY_API_KEY&domain=$@" | json
+		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
 	fi
 }
 

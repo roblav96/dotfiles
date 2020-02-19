@@ -13,7 +13,8 @@ alias gfo="git fetch origin"
 alias gp="git pull"
 alias gpr="git pull --rebase"
 
-alias gi="git check-ignore --verbose **/.* **/*"
+alias gi="git check-ignore --verbose"
+alias gia="git check-ignore --verbose **/.* **/*"
 
 # alias gc="git clone"
 # alias gcr="git clone --recurse-submodules"

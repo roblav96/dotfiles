@@ -23,6 +23,9 @@ alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
+alias wgu="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; pfs; ipinfo"
+alias wgd="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; pfd; pfs; ipinfo"
+
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
@@ -47,19 +50,8 @@ alias o="open ."
 
 unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
-function dotgh() {
-	github "$DOTFILES"
-}
-function dotgs() {
-	cd "$DOTFILES"
-	git status --short --branch
-	cd "$OLDPWD"
-}
-function dotgd() {
-	cd "$DOTFILES"
-	git diff
-	cd "$OLDPWD"
-}
+alias dotcd="cd $DOTFILES"
+
 function dotpush() {
 	cd "$DOTFILES"
 	local gs="$(git status -z)"

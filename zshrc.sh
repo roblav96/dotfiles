@@ -128,11 +128,12 @@ alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HO
 alias redis-cli="redis-cli --no-auth-warning"
 alias gradlew="./gradlew"
 alias clear="clear && printf '\e[3J'"
-alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; exit"
+alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --with-node-modules --no-editorconfig --config $HOME/.prettierrc --print-width \$(tput cols)"
-alias play="mkc $HOME/.playground; l"
+alias archey="archey --offline"
+# alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
@@ -252,7 +253,7 @@ fi
 # test -d "/usr/local/opt/wireguard-tools/etc/bash_completion.d" && source /usr/local/opt/wireguard-tools/etc/bash_completion.d/*
 source "$DOTFILES/modules/disk.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
-test -n "$__HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
+test -n "$_HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
