@@ -60,8 +60,18 @@ function app-bak() {
 	local targz="$HOME/Downloads/$name.tar.gz"
 	# echo "🌕 targz -> $targz"
 	local appdir="$HOME/Library/Application Support/$1"
-	[[ ! -d "$appdir" ]] && echo "🔴 No such file or directory -> '$appdir'" && return 1
+	if [[ ! -d "$appdir" ]]; then
+		echo "🔴 No such file or directory -> '$appdir'"
+		return 1
+	fi
 	# echo "🌕 appdir -> $appdir"
+	if [[ -f "$targz" ]]; then
+		rm -iv "$targz"
+		if [[ -f "$targz" ]]; then
+			echo "🔴 Aborting, existing backup not removed -> '$targz'"
+			return 1
+		fi
+	fi
 	[[ -f "$targz" ]] && rm -iv "$targz" && [[ -f "$targz" ]] && return 1
 	cd "$appdir"
 	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
