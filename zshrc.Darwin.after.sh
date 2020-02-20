@@ -49,14 +49,17 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function app-bak() {
-	[[ -z "$1" ]] && echo "🔴 Application name required" && return 1
 	# echo "🌕 # -> $#"
+	if [[ -z "$1" ]]; then
+		echo "🔴 Application name required"
+		return 1
+	fi
 	local date="$(date --iso-8601)"
 	# local date="${$(date --rfc-3339=seconds):0:-6}"
 	# local date="${$(date --rfc-3339=date):0:-6}"
 	# local date="${$(date --rfc-email):0:-6}"
 	# echo "🌕 date -> $date"
-	local name="$1 - Backup ($date)"
+	local name="$1 ($date)"
 	local targz="$HOME/Downloads/$name.tar.gz"
 	# echo "🌕 targz -> $targz"
 	local appdir="$HOME/Library/Application Support/$1"
@@ -72,7 +75,6 @@ function app-bak() {
 			return 1
 		fi
 	fi
-	[[ -f "$targz" ]] && rm -iv "$targz" && [[ -f "$targz" ]] && return 1
 	cd "$appdir"
 	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
 	cd "$OLDPWD"
