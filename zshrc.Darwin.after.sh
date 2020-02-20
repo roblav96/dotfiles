@@ -76,7 +76,7 @@ function app-bak() {
 		fi
 	fi
 	cd "$appdir"
-	tar --create --gzip --verbose --file "$targz" --exclude=".git" "."
+	tar --create --gzip --verbose --preserve-permissions --file "$targz" --exclude=".git" "."
 	cd "$OLDPWD"
 	echo; echo "✅ Backup complete"
 	echo; exa --oneline "$targz"

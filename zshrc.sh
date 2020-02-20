@@ -109,6 +109,7 @@ unalias pip &>/dev/null
 alias sudo="sudo "
 alias e="nano"
 alias rd="rm -rf"
+alias cp="cp -r"
 alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
