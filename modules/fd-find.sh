@@ -5,6 +5,9 @@ alias fa="fd $FD_FLAGS --no-ignore --full-path --follow --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude='node_modules' --glob"
 alias fagl="fd $FD_FLAGS --no-ignore --full-path --follow --glob"
 
+# function frm() {
+# 	f $@ --exec-batch zsh -ic 'rm -rfv "$@"'
+# }
 function fbat() {
 	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
 }

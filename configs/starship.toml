@@ -14,8 +14,11 @@ disabled = true
 [nodejs]
 disabled = true
 
-[python]
-disabled = true
+# [python]
+# disabled = true
+
+# [php]
+# disabled = true
 
 [directory]
 style = "bold blue"

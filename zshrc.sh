@@ -46,10 +46,12 @@ export DISABLE_AUTO_UPDATE="true"
 # 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 # fi
 
-test -x "$(which -p starship)" && eval "$(starship init zsh)"
+[[ -x "$(which -p starship)" ]] && eval "$(starship init zsh)"
+[[ -x "$(which -p php)" ]] && alias artisan="php artisan"
 
 
 
+# ████  zinit  ████
 # export ZSH="$HOME/.zinit/plugins/ohmyzsh---ohmyzsh"
 # test -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
 # test -f "$DOTFILES/zinit/zinit.$PLATFORM.sh" && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
