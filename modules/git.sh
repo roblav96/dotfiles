@@ -37,7 +37,10 @@ function gc() {
 	[[ ! -d "$outdir" ]] && return 1
 	cd "$outdir"
 	[[ -e "$outdir.sln" ]] && cd "$outdir"
-	[[ -x "$(which -p snyk)" ]] && snyk test --all-projects
+	if [[ -x "$(which -p snyk)" ]]; then
+		echo "🌕 snyk test ->"
+		snyk test --all-projects
+	fi
 	if [[ -e "package.json" ]]; then
 		cat "package.json" | jq --monochrome-output --tab --indent 4 '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
 		read -q "?npm install? [y/n]: " || return 1
