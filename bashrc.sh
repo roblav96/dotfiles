@@ -36,15 +36,6 @@ export YARN_CACHE_FOLDER="$HOME/.yarn"
 # export PATH="/usr/local/opt/xctool/libexec/bin:$PATH"
 # export PATH="/usr/local/lib/node_modules/ffprobe-binaries/bin/darwin/x64:$PATH"
 
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-# export MYPYPATH="/Applications/Sublime Text.app/Contents/MacOS"
-# export PYTHONPATH="/usr/local/lib/python3.7:/usr/local/lib/python3.7/site-packages"
-# export PATH="/usr/local/opt/python@2/bin:$PATH"
-# export PYTHONPATH="/usr/local/lib/python2.7:/usr/local/lib/python2.7/site-packages"
-# export ANDROID_VIEW_CLIENT_HOME="$HOME/Downloads/AndroidViewClient-15.5.1"
-# export PYTHONPATH="$HOME/Downloads/AndroidViewClient-15.5.1"
-# export PYTHONHOME="$HOME/Downloads/AndroidViewClient-15.5.1"
-
 # export CFLAGS="-I/usr/local/opt/icu4c/include"
 # export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 

@@ -16,20 +16,48 @@ alias gpr="git pull --rebase"
 alias gi="git check-ignore --verbose"
 alias gia="git check-ignore --verbose **/.* **/*"
 
-# alias gc="git clone"
-# alias gcr="git clone --recurse-submodules"
 function gc() {
-	local repo="${1##*/}"
-	local url="${1/https:\/\/github.com\//git@github.com:}.git"
-	if [[ ${repo##*.} == "git" ]]; then
-		repo=${repo:0:-4}
-		url=${url:0:-4}
+	[[ -z "$@" ]] && return 1
+	local outdir="${1##*/}"
+	if [[ "${1##*.}" == "git" ]]; then
+		outdir="${outdir:0:-4}"
 	fi
-	git clone "$url" && cd "$repo" || return 1
-	test -e "package.json" && npm install --ignore-scripts --no-bin-links --no-optional && echo && npm run-script
-	test -e "requirements.txt" && pip install -r "requirements.txt"
-	test -d "$repo" && cd "$repo" && dotnet restore
+	if [[ -n "$2" ]]; then
+		outdir="$2"
+	fi
+	local url="$1"
+	if [[ "${1:0:8}" == "https://" ]]; then
+		url="git@${1:8}"
+		url="${url/\//:}"
+		if [[ "${1##*.}" != "git" ]]; then
+			url="$url.git"
+		fi
+	fi
+	git clone "$url" "$outdir" || return 1
+	[[ ! -d "$outdir" ]] && return 1
+	cd "$outdir"
+	[[ -e "$outdir.sln" ]] && cd "$outdir"
+	[[ -x "$(which -p snyk)" ]] && snyk test --all-projects
+	if [[ -e "package.json" ]]; then
+		cat "package.json" | jq --monochrome-output --tab --indent 4 '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
+		read -q "?npm install? [y/n]: " || return 1
+		npm install --ignore-scripts --no-bin-links --no-optional
+		cat "package.json" | jq --monochrome-output --tab --indent 4 '{scripts}' | bat -ljson
+	fi
+	if [[ -e "requirements.txt" ]]; then
+		bat "requirements.txt" -l sh
+		read -q "?pip install? [y/n]: " || return 1
+		pip install --requirements "requirements.txt"
+	fi
+	if [[ -e "$outdir.csproj" ]]; then
+		prettier "$outdir.csproj" | bat -lxml
+		read -q "?dotnet restore? [y/n]: " || return 1
+		dotnet restore
+	fi
 }
+# alias gc="git clone"
+alias gcr="git clone --recursive"
+# alias gcr="git clone --recurse-submodules"
 
 # if [[ -x "$(which -p delta)" ]]; then
 # 	git config --global pager.diff "BAT_PAGER=cat delta --theme=none --light"

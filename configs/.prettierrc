@@ -40,7 +40,7 @@
 			"options": { "parser": "scss" }
 		},
 		{
-			"files": ["*.plist", "*.svg", "*.xml"],
+			"files": ["*.plist", "*.svg", "*.xml", "*.csproj"],
 			"options": { "parser": "xml" }
 		},
 		{
