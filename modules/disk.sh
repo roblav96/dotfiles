@@ -5,6 +5,7 @@ alias loca="loc --files"
 
 alias tokei="tokei --hidden --no-ignore --no-ignore-parent"
 alias tokeia="tokei --files"
+alias tokeils="tokei --languages"
 
 alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
 # export DUST_FLAGS="--apparent-size --reverse"
