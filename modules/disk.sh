@@ -1,13 +1,13 @@
 alias diskus="diskus --apparent-size"
 
-alias loc="loc -uu"
-alias loca="loc --files"
+alias tk="tokei"
+alias tkls="tokei --languages"
+alias tkf="tokei --files"
+alias tka="tokei --hidden --no-ignore --no-ignore-parent"
+alias tkaf="tokei --hidden --no-ignore --no-ignore-parent --files"
 
-alias tokei="tokei --hidden --no-ignore --no-ignore-parent"
-alias tokeia="tokei --files"
-alias tokeils="tokei --languages"
-
-alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
+alias dust="dust --apparent-size --reverse --full-paths"
+# alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
 # export DUST_FLAGS="--apparent-size --reverse"
 # alias dust="command dust $DUST_FLAGS --depth=1"
 # # alias dust="command dust $DUST_FLAGS --depth=1 | tail --lines=\$(expr \$(tput lines) - 10)"
@@ -18,3 +18,7 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 
 alias dff="df -h"
 alias dfc="dfc -d -T -f -c always -q type"
+
+# alias locf="loc --files"
+# alias loca="loc -uu"
+# alias locaf="loc -uu --files"
