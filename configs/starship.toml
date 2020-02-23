@@ -23,6 +23,9 @@ disabled = true
 [golang]
 disabled = true
 
+[java]
+disabled = true
+
 [directory]
 style = "bold blue"
 truncate_to_repo = false

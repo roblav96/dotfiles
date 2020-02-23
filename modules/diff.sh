@@ -6,6 +6,5 @@ if [[ -x "$(which -p diff-color)" ]]; then
 	}; compdef diffc=rm
 fi
 
-function checksum() {
-	sha256sum $@
-}; compdef checksum=rm
+alias sha="sha256sum"
+compdef sha=rm
