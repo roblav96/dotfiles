@@ -20,6 +20,9 @@ disabled = true
 [php]
 disabled = true
 
+[golang]
+disabled = true
+
 [directory]
 style = "bold blue"
 truncate_to_repo = false

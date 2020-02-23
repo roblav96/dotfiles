@@ -5,6 +5,7 @@ alias npmlsa="npm --silent ls"
 alias npmo="npm outdated --long"
 
 alias snykt="snyk test --all-projects"
+alias npmi='test -x "$(which -p snyk)" && snykt; echo npm install'
 
 function npmin() {
 	npm i $@; npm i -D @types/$@

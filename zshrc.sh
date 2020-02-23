@@ -134,7 +134,8 @@ alias clear="clear && printf '\e[3J'"
 alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --no-color --with-node-modules --no-editorconfig --config $HOME/.prettierrc --print-width \$(tput cols)"
+alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc"
+# --with-node-modules --print-width \$(tput cols)
 alias archey="archey --offline"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
@@ -155,6 +156,7 @@ test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 
 alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
+alias aliaslss="aliasls | grep --color=never"
 alias dotcd="cd $DOTFILES"
 alias vue="FORCE_COLOR=0 npx vue-cli-service"
 
@@ -223,21 +225,6 @@ function rl() {
 	fi
 }
 
-alias tl="tldr"
-function ch() {
-	local lang="sh"
-	if [[ $# -gt 1 ]]; then
-		lang="$1"
-	fi
-	curl "https://cht.sh/$*?T" | bat -l $lang
-}
-function cha() {
-	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat -l sh
-}
-# function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
-alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"
-alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat -l sh"
-
 # function rename() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
@@ -276,6 +263,7 @@ test -x "$(which -p python)" && source "$DOTFILES/modules/python.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
+test -x "$(which -p tldr)" && source "$DOTFILES/modules/tldr.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 
 autoload -U compinit && compinit
