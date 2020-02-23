@@ -16,6 +16,7 @@ alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="sudo rm -rfv $HOME/.Trash/.* $HOME/.Trash/* && exit"
 
+alias .zsh_history="subl $HOME/.zsh_history"
 alias .prettierrc="subl $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl $DOTFILES/configs/starship.toml"
 
