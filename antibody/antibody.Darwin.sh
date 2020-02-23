@@ -1,4 +1,4 @@
-nilsonholger/osx-zsh-completions
+nilsonholger/osx-zsh-completions kind:fpath
 # rgcr/m-cli path:completion/zsh kind:fpath
 
 ohmyzsh/ohmyzsh path:plugins/adb

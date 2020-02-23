@@ -1,7 +1,14 @@
 #!/usr/bin/env zsh
 
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
-test -d "$HOME/.nix-profile" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+if [[ -d "$HOME/.nix-profile" ]]; then
+	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+	local nixbin="$HOME/.nix-profile/bin"
+	if echo $PATH | grep --quiet --fixed-strings "$nixbin"; then
+		export PATH="${PATH#$nixbin:}:$nixbin"
+	fi
+fi
 
 test -x "$(which -p tabs)" && tabs -4
 
@@ -190,6 +197,7 @@ function idk() {
 }; compdef idk=man
 
 function show() {
+	[[ "$#" -gt 1 ]] && echo "🔴 only 1 argument supported" && return 1
 	type -a $@
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
