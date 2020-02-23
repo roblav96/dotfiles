@@ -87,6 +87,8 @@ function app-bak() {
 unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotcd="cd $DOTFILES"
+alias dotgs="cd $DOTFILES && git status --short --branch && cd \"\$OLDPWD\""
+alias dotgd="cd $DOTFILES && git diff && cd \"\$OLDPWD\""
 
 function dotpush() {
 	cd "$DOTFILES"

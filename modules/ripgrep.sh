@@ -8,6 +8,8 @@ alias rgp="rg --color=always --passthru --ignore-case --fixed-strings"
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --color=always --smart-case"
 
+alias rgls="rg --type-list"
+
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }
 # function r() { grep "$1" ${@:2} -R . }
