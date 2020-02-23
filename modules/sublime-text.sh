@@ -1,12 +1,15 @@
 alias st="subl"
 alias sm="smerge"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
 alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
 # alias stbak="rm -fv \"\$HOME/Downloads/st3-backup.\$(date --iso-8601).zip\"; zip -r \"\$HOME/Downloads/st3-backup.\$(date --iso-8601).zip\" \"\$HOME/Library/Application Support/Sublime Text 3\""
 # alias smbak="rm -fv \"\$HOME/Downloads/sm-backup.\$(date --iso-8601).zip\"; zip -r \"\$HOME/Downloads/sm-backup.\$(date --iso-8601).zip\" \"\$HOME/Library/Application Support/Sublime Merge\""
+
+alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
+alias ststs="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text Snippets.sublime-project'"
+alias ststp="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text Projects.sublime-project'"
 
 alias stgs="cd '$HOME/Library/Application Support/Sublime Text 3' && git status --short --branch && cd \"\$OLDPWD\""
 alias stgd="cd '$HOME/Library/Application Support/Sublime Text 3' && git diff && cd \"\$OLDPWD\""
