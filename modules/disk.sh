@@ -1,10 +1,10 @@
 alias diskus="diskus --apparent-size"
 
 alias loc="loc -uu"
-alias locf="loc --files"
+alias loca="loc --files"
 
 alias tokei="tokei --hidden --no-ignore --no-ignore-parent"
-alias tokeif="tokei --files"
+alias tokeia="tokei --files"
 
 alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
 # export DUST_FLAGS="--apparent-size --reverse"
