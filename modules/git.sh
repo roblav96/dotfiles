@@ -39,7 +39,7 @@ function gc() {
 	[[ -e "$outdir.sln" ]] && cd "$outdir"
 	if [[ -x "$(which -p snyk)" ]]; then
 		echo "🌕 snyk test ->"
-		snyk test --all-projects
+		snyk test --dev --all-projects --detection-depth=1
 	fi
 	if [[ -e "package.json" ]]; then
 		cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
