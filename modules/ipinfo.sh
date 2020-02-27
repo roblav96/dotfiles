@@ -1,8 +1,9 @@
 function ipinfo() {
 	if [[ -z "$@" ]]; then
-		echo; echo -n '🌕 icanhazip.com -> '; curl "https://icanhazip.com"
-		echo; echo -n '🌕 api6.ipify.org -> '; curl "https://api6.ipify.org"
-		echo; echo;
+		echo
+		echo -n '🌕 icanhazip.com -> '; curl "https://icanhazip.com"; echo
+		echo -n '🌕 api6.ipify.org -> '; curl "https://api6.ipify.org"; echo
+		echo
 		if [[ -z "$_IPIFY_API_KEY" ]]; then
 			echo "🌕 ipinfo.io"
 			curl "https://ipinfo.io" | json '. |= del(.readme)'
@@ -16,7 +17,7 @@ function ipinfo() {
 		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
 	fi
 }
-alias ipallinfo="echo -n '🌕 icanhazip.com -> '; curl https://icanhazip.com; echo; echo -n '🌕 api6.ipify.org -> '; curl https://api6.ipify.org; echo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
+alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
 
 function dns() {
 	nslookup "google.com" | head -n2

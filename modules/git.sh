@@ -42,10 +42,10 @@ function gc() {
 		snyk test --all-projects
 	fi
 	if [[ -e "package.json" ]]; then
-		cat "package.json" | jq --monochrome-output --tab --indent 4 '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
+		cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
 		read -q "?npm install? [y/n]: " || return 1
 		npm install --ignore-scripts --no-bin-links --no-optional
-		cat "package.json" | jq --monochrome-output --tab --indent 4 '{scripts}' | bat -ljson
+		cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -ljson
 	fi
 	if [[ -e "requirements.txt" ]]; then
 		bat "requirements.txt" -l sh

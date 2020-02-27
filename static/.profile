@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
+test -x "$(which tabs)" && tabs -4
 
 # set completion-ignore-case on
 # set completion-query-items 256
@@ -37,7 +38,7 @@ alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --ascii-output --color-output --sort-keys --tab --indent 4"
+alias json="jq --color-output --sort-keys --tab"
 
 if [[ -x "$(which tsudo)" ]]; then
 	alias sudo="tsudo "
