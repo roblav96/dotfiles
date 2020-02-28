@@ -3,7 +3,7 @@
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
 function bupd() {
-	echo; echo "🌕 Updating taps..."
+	echo; echo "🌕 Updating taps"
 	brew update --verbose
 }
 
