@@ -134,6 +134,7 @@ fi
 test -x "$(which wget)" && alias wget="wget --connect-timeout=3"
 test -x "$(which curl)" && alias curl="curl --silent --show-error --connect-timeout 3"
 
+test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which htop)" && source "$DOTFILES/modules/htop.sh"
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
