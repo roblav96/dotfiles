@@ -6,7 +6,7 @@ alias tkf="tokei --files"
 alias tka="tokei --hidden --no-ignore --no-ignore-parent"
 alias tkaf="tokei --hidden --no-ignore --no-ignore-parent --files"
 
-alias dust="dust --apparent-size --reverse --full-paths"
+alias dust="dust --apparent-size --full-paths --ignore-directory .git"
 # alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
 # export DUST_FLAGS="--apparent-size --reverse"
 # alias dust="command dust $DUST_FLAGS --depth=1"
