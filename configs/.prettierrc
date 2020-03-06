@@ -12,6 +12,7 @@
 	"singleQuote": true,
 	"tabWidth": 4,
 	"trailingComma": "all",
+	"trailingCommaPHP": "all",
 	"useTabs": true,
 	"vueIndentScriptAndStyle": false,
 	"overrides": [
@@ -45,8 +46,9 @@
 			}
 		},
 		{
-			"files": ["*.sublime-syntax", "*.yaml", "*.yml", "h2o.conf"],
+			"files": ["*.sublime-syntax", "*.sublime-syntax.yaml-macros", "*.yaml", "*.yml", "h2o.conf"],
 			"options": {
+				"parser": "yaml",
 				"tabWidth": 2,
 				"useTabs": false
 			}
@@ -73,6 +75,12 @@
 			"files": ["*.toml"],
 			"options": {
 				"parser": "toml"
+			}
+		},
+		{
+			"files": ["*.blade.php"],
+			"options": {
+				"parser": "html"
 			}
 		}
 	]

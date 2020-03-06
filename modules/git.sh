@@ -37,26 +37,25 @@ function gc() {
 	[[ ! -d "$outdir" ]] && return 1
 	cd "$outdir"
 	[[ -e "$outdir.sln" ]] && cd "$outdir"
-	if [[ -x "$(which -p snyk)" ]]; then
-		echo "🌕 snyk test ->"
-		snyk test --dev --all-projects --detection-depth=1
-	fi
-	if [[ -e "package.json" ]]; then
-		cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
-		read -q "?npm install? [y/n]: " || return 1
-		npm install --ignore-scripts --no-bin-links --no-optional
-		cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -ljson
-	fi
-	if [[ -e "requirements.txt" ]]; then
-		bat "requirements.txt" -l sh
-		read -q "?pip install? [y/n]: " || return 1
-		pip install --requirements "requirements.txt"
-	fi
-	if [[ -e "$outdir.csproj" ]]; then
-		prettier "$outdir.csproj" | bat -lxml
-		read -q "?dotnet restore? [y/n]: " || return 1
-		dotnet restore
-	fi
+	# echo "🌕 snyk test ->"
+	# pnpx snyk test --dev --all-projects --detection-depth=1
+	# if [[ -e "package.json" ]]; then
+	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
+	# 	read -q "?npm install? [y/n]: " || return 1
+	# 	npm install
+	# 	# --ignore-scripts --no-bin-links --no-optional
+	# 	cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -ljson
+	# fi
+	# if [[ -e "requirements.txt" ]]; then
+	# 	bat "requirements.txt" -l sh
+	# 	read -q "?pip install? [y/n]: " || return 1
+	# 	pip install --requirements "requirements.txt"
+	# fi
+	# if [[ -e "$outdir.csproj" ]]; then
+	# 	prettier "$outdir.csproj" | bat -lxml
+	# 	read -q "?dotnet restore? [y/n]: " || return 1
+	# 	dotnet restore
+	# fi
 }
 # alias gc="git clone"
 alias gcr="git clone --recursive"
