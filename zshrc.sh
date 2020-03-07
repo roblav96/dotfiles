@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
+[[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
 if [[ -d "$HOME/.nix-profile" ]]; then
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
@@ -10,7 +10,7 @@ if [[ -d "$HOME/.nix-profile" ]]; then
 	fi
 fi
 
-test -x "$(which -p tabs)" && tabs -4
+[[ -x "$(which -p tabs)" ]] && tabs -4
 
 export CLICOLOR="1"
 export ADBLOCK="1"
@@ -60,9 +60,9 @@ export DISABLE_AUTO_UPDATE="true"
 
 # ████  zinit  ████
 # export ZSH="$HOME/.zinit/plugins/ohmyzsh---ohmyzsh"
-# test -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
-# test -f "$DOTFILES/zinit/zinit.$PLATFORM.sh" && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
-# test -f "$DOTFILES/zinit/zinit.sh" && source "$DOTFILES/zinit/zinit.sh"
+# [[ -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" ]] && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
+# [[ -f "$DOTFILES/zinit/zinit.$PLATFORM.sh" ]] && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
+# [[ -f "$DOTFILES/zinit/zinit.sh" ]] && source "$DOTFILES/zinit/zinit.sh"
 
 
 

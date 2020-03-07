@@ -46,7 +46,13 @@
 			}
 		},
 		{
-			"files": ["*.sublime-syntax", "*.sublime-syntax.yaml-macros", "*.yaml", "*.yml", "h2o.conf"],
+			"files": [
+				"*.sublime-syntax",
+				"*.sublime-syntax.yaml-macros",
+				"*.yaml",
+				"*.yml",
+				"h2o.conf"
+			],
 			"options": {
 				"parser": "yaml",
 				"tabWidth": 2,
