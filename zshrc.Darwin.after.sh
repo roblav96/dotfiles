@@ -9,8 +9,9 @@ source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 
+alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{}"'
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
-alias dstore="fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv {}"
+
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
@@ -52,7 +53,7 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function app-bak() {
-	# echo "🌕 # -> $#"
+	echo "🌕 # -> $#"
 	if [[ -z "$1" ]]; then
 		echo "🔴 Application name required"
 		return 1
@@ -61,28 +62,29 @@ function app-bak() {
 	# local date="${$(date --rfc-3339=seconds):0:-6}"
 	# local date="${$(date --rfc-3339=date):0:-6}"
 	# local date="${$(date --rfc-email):0:-6}"
-	# echo "🌕 date -> $date"
-	local name="$1 ($date)"
-	local targz="$HOME/Downloads/$name.tar.gz"
-	# echo "🌕 targz -> $targz"
+	echo "🌕 date -> $date"
+	local tarname="$1 ($date).tar.gz"
+	local tarpath="$HOME/Downloads/$tarname"
+	echo "🌕 tarpath -> $tarpath"
 	local appdir="$HOME/Library/Application Support/$1"
 	if [[ ! -d "$appdir" ]]; then
 		echo "🔴 No such file or directory -> '$appdir'"
 		return 1
 	fi
-	# echo "🌕 appdir -> $appdir"
-	if [[ -f "$targz" ]]; then
-		rm -iv "$targz"
-		if [[ -f "$targz" ]]; then
-			echo "🔴 Aborting, existing backup not removed -> '$targz'"
+	echo "🌕 appdir -> $appdir"
+	if [[ -f "$tarpath" ]]; then
+		rm -iv "$tarpath"
+		if [[ -f "$tarpath" ]]; then
+			echo "🔴 Aborted, existing backup exists"
 			return 1
 		fi
 	fi
 	cd "$appdir"
-	tar --create --gzip --verbose --preserve-permissions --file "$targz" --exclude=".git" "."
+	dstore
+	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' "."
 	cd "$OLDPWD"
 	echo; echo "✅ Backup complete"
-	echo; exa --oneline "$targz"
+	echo; exa --oneline "$tarpath"
 }
 
 unalias src
