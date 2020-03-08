@@ -53,25 +53,23 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function app-bak() {
-	echo "🌕 # -> $#"
+	# echo "🌕 # -> '$#'"
 	if [[ -z "$1" ]]; then
 		echo "🔴 Application name required"
 		return 1
 	fi
-	local date="$(date --iso-8601)"
-	# local date="${$(date --rfc-3339=seconds):0:-6}"
-	# local date="${$(date --rfc-3339=date):0:-6}"
-	# local date="${$(date --rfc-email):0:-6}"
-	echo "🌕 date -> $date"
-	local tarname="$1 ($date).tar.gz"
-	local tarpath="$HOME/Downloads/$tarname"
-	echo "🌕 tarpath -> $tarpath"
 	local appdir="$HOME/Library/Application Support/$1"
+	# echo "🌕 appdir -> '$appdir'"
 	if [[ ! -d "$appdir" ]]; then
 		echo "🔴 No such file or directory -> '$appdir'"
 		return 1
 	fi
-	echo "🌕 appdir -> $appdir"
+	local date="$(date --iso-8601)"
+	# echo "🌕 date -> '$date'"
+	local tarname="${1//\// } ($date).tar.gz"
+	# echo "🌕 tarname -> '$tarname'"
+	local tarpath="$HOME/Downloads/$tarname"
+	# echo "🌕 tarpath -> '$tarpath'"
 	if [[ -f "$tarpath" ]]; then
 		rm -iv "$tarpath"
 		if [[ -f "$tarpath" ]]; then
@@ -81,7 +79,7 @@ function app-bak() {
 	fi
 	cd "$appdir"
 	dstore
-	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' "."
+	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.'
 	cd "$OLDPWD"
 	echo; echo "✅ Backup complete"
 	echo; exa --oneline "$tarpath"

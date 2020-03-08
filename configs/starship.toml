@@ -8,12 +8,12 @@ scan_timeout = 10
 symbol = "➤" # The "symbol" segment is being set to "➜"
 
 [directory]
-style = "purple bold"
+style = "fg:blue bg:16 bold"
 truncate_to_repo = false
 truncation_length = -1
 
-[git_branch]
-style = "blue"
+# [git_branch]
+# style = "blue"
 
 [hostname]
 style = "red bold"
