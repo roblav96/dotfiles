@@ -30,5 +30,6 @@ function lc-r() {
 }
 
 function lc-a() {
-	lc-f $@; lcr $@
+	lc-f $@
+	lc-r $@
 }
