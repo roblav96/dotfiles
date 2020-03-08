@@ -1,4 +1,5 @@
-export RG_FLAGS="--color=always --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
+export RG_FLAGS="--color=always --colors=path:fg:blue --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
+# --colors=path:fg:green --colors=path:style:bold
 export RG_MAX_COLUMNS_FLAGS="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
