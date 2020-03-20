@@ -13,6 +13,7 @@ alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
+alias unquarantinea="sudo xattr -rc"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="sudo rm -rfv $HOME/.Trash/.* $HOME/.Trash/* && exit"
