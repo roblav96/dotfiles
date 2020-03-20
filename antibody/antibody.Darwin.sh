@@ -6,7 +6,7 @@ ohmyzsh/ohmyzsh path:plugins/adb
 # ohmyzsh/ohmyzsh path:plugins/composer kind:fpath
 # ohmyzsh/ohmyzsh path:plugins/gem
 # ohmyzsh/ohmyzsh path:plugins/gradle
-ohmyzsh/ohmyzsh path:plugins/laravel kind:fpath
+# ohmyzsh/ohmyzsh path:plugins/laravel kind:fpath
 # ohmyzsh/ohmyzsh path:plugins/osx
 # ohmyzsh/ohmyzsh path:plugins/pod
 # ohmyzsh/ohmyzsh path:plugins/python

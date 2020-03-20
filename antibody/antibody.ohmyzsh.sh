@@ -15,8 +15,8 @@ ohmyzsh/ohmyzsh path:plugins/github
 ohmyzsh/ohmyzsh path:plugins/last-working-dir
 # ohmyzsh/ohmyzsh path:plugins/nmap
 ohmyzsh/ohmyzsh path:plugins/perms
-ohmyzsh/ohmyzsh path:plugins/pip
-ohmyzsh/ohmyzsh path:plugins/redis-cli
+# ohmyzsh/ohmyzsh path:plugins/pip
+# ohmyzsh/ohmyzsh path:plugins/redis-cli
 # ohmyzsh/ohmyzsh path:plugins/rust
 ohmyzsh/ohmyzsh path:plugins/safe-paste
 ohmyzsh/ohmyzsh path:plugins/sudo
