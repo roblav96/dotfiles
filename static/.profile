@@ -48,7 +48,7 @@ fi
 
 # alias dot="subl /opt/etc/profile"
 # alias src="source /opt/etc/profile"
-# alias type="f() { type $@ && ls -laph --color=always $(which $@); unset -f f; }; f"
+# alias type="f() { type $@ && l $(which $@); unset -f f; }; f"
 
 function f() {
 	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
@@ -61,17 +61,17 @@ function show() {
 	type -a $@
 	local which="$(which $@)"
 	if [[ -e "$which" ]]; then
-		ls -laph --color=always "$which"
+		l "$which"
 		if [[ "$which" != "$(readlink -f $which)" ]]; then
-			ls -laph --color=always "$(readlink -f $which)"
+			l "$(readlink -f $which)"
 		fi
 	fi
 }
 function rl() {
 	if [[ -x "$(which $@)" ]]; then
-		ls -laph --color=always "$(readlink -f $(which $@))"
+		l "$(readlink -f $(which $@))"
 	else
-		ls -laph --color=always "$(readlink -f $@)"
+		l "$(readlink -f $@)"
 	fi
 }
 
@@ -113,9 +113,11 @@ export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export TERM="xterm-256color"
 
-export HISTFILESIZE="5000000"
-export HISTSIZE="5000000"
-export SAVEHIST="1000000"
+if [[ -n "$HISTFILE" ]]; then
+	export HISTFILESIZE="5000000"
+	export HISTSIZE="5000000"
+	export SAVEHIST="1000000"
+fi
 
 if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkg="opkg"

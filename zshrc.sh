@@ -118,6 +118,7 @@ unalias pip &>/dev/null
 alias sudo="sudo "
 alias e="nano"
 alias mv="mv -v"
+alias rm="rm -v"
 alias cp="cp -rv"
 alias rd="rm -rf"
 alias k="killall -KILL"
@@ -166,7 +167,6 @@ alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias aliaslss="aliasls | grep --color=never"
 alias dotcd="cd $DOTFILES"
-alias vue="FORCE_COLOR=0 npx vue-cli-service"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
@@ -199,7 +199,10 @@ function idk() {
 }; compdef idk=man
 
 function show() {
-	[[ "$#" -gt 1 ]] && echo "🔴 only 1 argument supported" && return 1
+	if [[ -n $2 ]]; then
+		echo "🔴 only 1 argument supported"
+		return 1
+	fi
 	type -a $@
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid

@@ -5,9 +5,7 @@ alias tls="tldr --list | sed --unbuffered --regexp-extended 's/, /\n/g' | grep"
 
 function ch() {
 	local lang="sh"
-	if [[ $# -gt 1 ]]; then
-		lang="$1"
-	fi
+	[[ -n $2 ]] && lang="$1"
 	curl "https://cht.sh/$*?T" | bat -l $lang
 }
 function cha() {

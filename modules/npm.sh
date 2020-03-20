@@ -13,3 +13,7 @@ function npmin() {
 function npmv() {
 	npm info --json $@ | jq --color-output --tab '.time'
 }
+
+alias tsc="npx tsc"
+alias vue="npx vue-cli-service"
+alias vue.inspect="FORCE_COLOR=0 npx vue-cli-service inspect"

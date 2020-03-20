@@ -37,6 +37,9 @@ disabled = true
 [java]
 disabled = true
 
+[ruby]
+disabled = true
+
 [username]
 disabled = true
 
