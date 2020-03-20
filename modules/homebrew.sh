@@ -192,7 +192,7 @@ function bupg.sudo() {
 	fi
 	output="sudo env -i $(which -p bash) -c '$output'"
 	echo "$output"
-	echo "$output" | clipcopy
+	echo " $output" | clipcopy
 	echo "✅ Copied to clipboard"
 }; compdef bupg.sudo=command
 
