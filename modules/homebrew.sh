@@ -172,3 +172,15 @@ function bsrun() {
 	done
 	echo; brew services list
 }
+
+function bupg.procs() {
+	local link="$(which -p procs)"
+	local cellar="$(readlink -f $link)"
+	echo sudo env -i "$(which -p bash)" -c "'chown root:wheel $cellar; chmod u+s $cellar; ln -sf $cellar $link; chown root:wheel $link; chmod u+s $link'"
+}
+
+function bupg.node() {
+	local node_dir="$(dirname "$(readlink -f "$(which -p node)")")"
+	local npm_dir="$(dirname "$(readlink -f "$(which -p npm)")")"
+	echo "ln -sf "$npm_dir/npm-cli.js" "$node_dir/npm"; ln -sf "$npm_dir/npx-cli.js" "$node_dir/npx""
+}

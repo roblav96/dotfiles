@@ -194,9 +194,11 @@ alias p="ps auxww | grep --invert-match grep | grep"
 
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-function idk() {
-	man --apropos $@ | grep "$@|$"
-}; compdef idk=man
+alias mans="man -k"
+alias manfs="man -w"
+# function idk() {
+# 	man --apropos $@ | grep "$@|$"
+# }; compdef idk=man
 
 function show() {
 	if [[ -n $2 ]]; then
