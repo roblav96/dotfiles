@@ -173,11 +173,28 @@ function bsrun() {
 	echo; brew services list
 }
 
-function bupg.procs() {
-	local link="$(which -p procs)"
+function bupg.sudo() {
+	local link="$(brew --prefix)/bin/$1"
+	if [[ ! -f "$link" || ! -x "$link" ]]; then
+		echo "🔴 Command not found -> '$link'"
+		return 1
+	fi
+	echo "🌕 link -> '$link'"
 	local cellar="$(readlink -f $link)"
-	echo sudo env -i "$(which -p bash)" -c "'chown root:wheel $cellar; chmod u+s $cellar; ln -sf $cellar $link; chown root:wheel $link; chmod u+s $link'"
-}
+	if [[ ! "$cellar" =~ "^$(brew --prefix).*" ]]; then
+		echo "🔴 Command not found -> '$cellar'"
+		return 1
+	fi
+	echo "🌕 cellar -> '$cellar'"
+	local output="chown root:wheel $cellar; chmod u+s $cellar"
+	if [[ "$link" != "$cellar" ]]; then
+		output="$output; ln -sf $cellar $link; chown root:wheel $link; chmod u+s $link"
+	fi
+	output="sudo env -i $(which -p bash) -c '$output'"
+	echo "$output"
+	echo "$output" | clipcopy
+	echo "✅ Copied to clipboard"
+}; compdef bupg.sudo=command
 
 function bupg.node() {
 	local node_dir="$(dirname "$(readlink -f "$(which -p node)")")"
