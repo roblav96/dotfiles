@@ -228,7 +228,7 @@ AGENTS+=(
 )
 
 for i in ./System/Library/LaunchAgents/*.bak; do
-	mv -f $i "${i:0:-4}"
+	mv -f "$i" "${i:0:-4}"
 done
 for AGENT in "${AGENTS[@]}"; do
 	if test -f "./System/Library/LaunchAgents/${AGENT}.plist"; then
@@ -313,10 +313,12 @@ DAEMONS+=(
 	'com.apple.security.FDERecoveryAgent'
 	'com.apple.SubmitDiagInfo'
 	'org.cups.cupsd'
+	# 'com.apple.backupd'
+	# 'com.apple.backupd-helper'
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
-	mv -f $i "${i:0:-4}"
+	mv -f "$i" "${i:0:-4}"
 done
 for DAEMON in "${DAEMONS[@]}"; do
 	if test -f "./System/Library/LaunchDaemons/${DAEMON}.plist"; then

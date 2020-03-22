@@ -1,10 +1,10 @@
 alias diskus="diskus --apparent-size"
 
-alias tk="tokei"
+alias tk="tokei --sort=code"
+alias tkf="tokei --sort=code --files"
+alias tka="tokei --sort=code --hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
+alias tkaf="tokei --sort=code --hidden --no-ignore --no-ignore-parent --no-ignore-vcs --files"
 alias tkls="tokei --languages"
-alias tkf="tokei --files"
-alias tka="tokei --hidden --no-ignore --no-ignore-parent"
-alias tkaf="tokei --hidden --no-ignore --no-ignore-parent --files"
 
 alias dust="dust --apparent-size --full-paths --ignore-directory .git"
 # alias dust="dust --apparent-size --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
