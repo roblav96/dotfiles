@@ -6,22 +6,19 @@ function bupd() {
 	echo; echo "🌕 Updating taps"
 	brew update --verbose
 }
-
 function bout() {
 	echo; echo "🌕 Outdated formulas"
 	brew outdated --verbose
 	echo; echo "🌕 Outdated casks"
 	brew cask outdated --verbose --greedy | grep --invert-match 'latest'
 }
-
 function bls() {
 	echo; echo "🌕 List formulas"
 	brew list --versions
 	echo; echo "🌕 List casks"
 	brew cask list --versions
 }
-
-function blsp() {
+function bpls() {
 	echo; echo "🌕 Pinned formulas"
 	brew list --versions --pinned
 }
@@ -38,105 +35,112 @@ function bs() {
 function bin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing formula -> '$v'"
-		brew install $v
+		brew install "$v"
 	done
 }
 function bcin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing cask -> '$v'"
-		brew cask install $v
+		brew cask install "$v"
 	done
 }
 
 function brein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling formula -> '$v'"
-		brew reinstall $v
+		brew reinstall "$v"
 	done
 }
 function bcrein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling cask -> '$v'"
-		brew cask reinstall $v
+		brew cask reinstall "$v"
 	done
 }
 
 function bupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading formula -> '$v'"
-		brew upgrade $v
+		brew upgrade "$v"
 	done
 }
 function bcupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading cask -> '$v'"
-		brew cask upgrade $v
+		brew cask upgrade "$v"
 	done
 }
 
 function bi() {
 	for v in "$@"; do
 		echo; echo "🌕 Info formula -> '$v'"
-		brew desc $v
-		brew info $v
+		brew desc "$v"
+		brew info "$v"
 	done
 }
 function bci() {
 	for v in "$@"; do
 		echo; echo "🌕 Info cask -> '$v'"
-		brew cask info $v
+		brew cask info "$v"
 	done
 }
+
 function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files of formula -> '$v'"
-		brew list $v
+		brew list "$v"
 	done
 }
 function bjson() {
 	for v in "$@"; do
 		echo; echo "🌕 JSON formula -> '$v'"
-		brew desc $v
-		brew info $v --json | json
+		brew desc "$v"
+		brew info "$v" --json | json
+	done
+}
+function bdep() {
+	for v in "$@"; do
+		echo; echo "🌕 Dependencies for formula -> '$v'"
+		brew deps "$v" -n --tree
 	done
 }
 
 function bcat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat formula -> '$v'"
-		brew cat $v | pbat ruby
+		brew cat "$v" | pbat ruby
 	done
 }
 function bccat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat cask -> '$v'"
-		brew cask cat $v | pbat ruby
+		brew cask cat "$v" | pbat ruby
 	done
 }
 
 function bopen() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening formula -> '$v'"
-		brew home $v
+		brew home "$v"
 	done
 }
 function bcopen() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening cask -> '$v'"
-		brew cask home $v
+		brew cask home "$v"
 	done
 }
 
 function brm() {
 	for v in "$@"; do
 		echo; echo "🌕 Uninstalling formula -> '$v'"
-		brew uninstall --force $v
+		brew uninstall --force "$v"
 	done
 }
 function bcrm() {
 	for v in "$@"; do
 		echo; echo "🌕 Uninstalling cask -> '$v'"
-		brew cask zap --force $v
+		brew cask zap --force "$v"
 	done
 }
 
@@ -147,28 +151,28 @@ function bsls() {
 function bsdown() {
 	for v in "$@"; do
 		echo; echo "🌕 Stopping service -> '$v'"
-		brew services stop $v
+		brew services stop "$v"
 	done
 	echo; brew services list
 }
 function bsup() {
 	for v in "$@"; do
 		echo; echo "🌕 Starting service -> '$v'"
-		brew services restart $v
+		brew services restart "$v"
 	done
 	echo; brew services list
 }
 function bsre() {
 	for v in "$@"; do
 		echo; echo "🌕 Restarting service -> '$v'"
-		brew services restart $v
+		brew services restart "$v"
 	done
 	echo; brew services list
 }
 function bsrun() {
 	for v in "$@"; do
 		echo; echo "🌕 Running service -> '$v'"
-		brew services run $v
+		brew services run "$v"
 	done
 	echo; brew services list
 }

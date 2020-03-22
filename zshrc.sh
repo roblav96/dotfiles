@@ -253,7 +253,6 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 	fi
 fi
 
-# test -d "/usr/local/opt/wireguard-tools/etc/bash_completion.d" && source /usr/local/opt/wireguard-tools/etc/bash_completion.d/*
 source "$DOTFILES/modules/disk.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$_HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
