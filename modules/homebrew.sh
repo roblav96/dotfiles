@@ -197,7 +197,10 @@ function bupg.sudo() {
 }; compdef bupg.sudo=command
 
 function bupg.node() {
-	local node_dir="$(dirname "$(readlink -f "$(which -p node)")")"
-	local npm_dir="$(dirname "$(readlink -f "$(which -p npm)")")"
-	echo "ln -sf "$npm_dir/npm-cli.js" "$node_dir/npm"; ln -sf "$npm_dir/npx-cli.js" "$node_dir/npx""
+	local node="$(dirname "$(readlink -f "$(which -p node)")")"
+	local npm="$(dirname "$(readlink -f "$(which -p npm)")")"
+	local output="ln -sf "$npm/npm-cli.js" "$node/npm"; ln -sf "$npm/npx-cli.js" "$node/npx""
+	echo "$output"
+	echo " $output" | clipcopy
+	echo "✅ Copied to clipboard"
 }
