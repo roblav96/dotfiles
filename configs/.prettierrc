@@ -6,7 +6,6 @@
 	"htmlWhitespaceSensitivity": "ignore",
 	"jsxBracketSameLine": false,
 	"jsxSingleQuote": false,
-	"no-semi": false,
 	"printWidth": 100,
 	"proseWrap": "never",
 	"quoteProps": "consistent",
