@@ -87,7 +87,7 @@ function bci() {
 
 function bfs() {
 	for v in "$@"; do
-		echo; echo "🌕 Files of formula -> '$v'"
+		echo; echo "🌕 Files formula -> '$v'"
 		brew list "$v"
 	done
 }
@@ -100,7 +100,7 @@ function bjson() {
 }
 function bdep() {
 	for v in "$@"; do
-		echo; echo "🌕 Dependencies for formula -> '$v'"
+		echo; echo "🌕 Dependencies formula -> '$v'"
 		brew deps "$v" -n --tree
 	done
 }
