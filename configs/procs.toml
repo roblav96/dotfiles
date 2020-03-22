@@ -20,20 +20,6 @@ nonnumeric_search = false
 align = "Left"
 
 [[columns]]
-kind = "State"
-style = "ByState"
-numeric_search = false
-nonnumeric_search = false
-align = "Left"
-
-[[columns]]
-kind = "Nice"
-style = "BrightMagenta"
-numeric_search = false
-nonnumeric_search = false
-align = "Right"
-
-[[columns]]
 kind = "Tty"
 style = "BrightWhite"
 numeric_search = false
@@ -55,20 +41,6 @@ nonnumeric_search = false
 align = "Right"
 
 [[columns]]
-kind = "VmSize"
-style = "ByUnit"
-numeric_search = false
-nonnumeric_search = false
-align = "Right"
-
-[[columns]]
-kind = "VmRss"
-style = "ByUnit"
-numeric_search = false
-nonnumeric_search = false
-align = "Right"
-
-[[columns]]
 kind = "TcpPort"
 style = "BrightCyan"
 numeric_search = true
@@ -83,20 +55,6 @@ numeric_search = true
 nonnumeric_search = false
 align = "Left"
 max_width = 20
-
-[[columns]]
-kind = "ReadBytes"
-style = "ByUnit"
-numeric_search = false
-nonnumeric_search = false
-align = "Right"
-
-[[columns]]
-kind = "WriteBytes"
-style = "ByUnit"
-numeric_search = false
-nonnumeric_search = false
-align = "Right"
 
 [[columns]]
 kind = "Slot"
@@ -127,13 +85,6 @@ nonnumeric_search = false
 align = "Left"
 
 [[columns]]
-kind = "Docker"
-style = "BrightGreen"
-numeric_search = false
-nonnumeric_search = true
-align = "Left"
-
-[[columns]]
 kind = "Separator"
 style = "White"
 numeric_search = false
@@ -150,6 +101,7 @@ align = "Left"
 [style]
 header = "BrightWhite"
 unit = "BrightWhite"
+tree = "BrightWhite"
 
 [style.by_percentage]
 color_000 = "BrightBlue"
@@ -202,5 +154,5 @@ order = "Ascending"
 path = "unix:///var/run/docker.sock"
 
 [pager]
-mode = "Auto"
+mode = "Disable"
 
