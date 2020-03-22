@@ -74,8 +74,7 @@ function bcupg() {
 function bi() {
 	for v in "$@"; do
 		echo; echo "🌕 Info formula -> '$v'"
-		brew desc "$v"
-		brew info "$v"
+		brew desc "$v" && brew info "$v"
 	done
 }
 function bci() {
@@ -94,8 +93,7 @@ function bfs() {
 function bjson() {
 	for v in "$@"; do
 		echo; echo "🌕 JSON formula -> '$v'"
-		brew desc "$v"
-		brew info "$v" --json | json
+		brew desc "$v" && brew info "$v" --json | json
 	done
 }
 function bdep() {
@@ -115,6 +113,17 @@ function bccat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat cask -> '$v'"
 		brew cask cat "$v" | pbat ruby
+	done
+}
+
+function bia() {
+	for v in "$@"; do
+		bi "$@" && bcat "$@"
+	done
+}
+function bcia() {
+	for v in "$@"; do
+		bci "$@" && bccat "$@"
 	done
 }
 
