@@ -67,7 +67,7 @@ function show() {
 		fi
 	fi
 }
-function rl() {
+function readlinka() {
 	if [[ -x "$(which $@)" ]]; then
 		l "$(readlink -f $(which $@))"
 	else

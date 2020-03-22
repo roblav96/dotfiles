@@ -229,8 +229,8 @@ function show() {
 	fi
 }; compdef show=which
 
-# function rl() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
-function rl() {
+# function readlinka() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+function readlinka() {
 	if [[ -x "$(which -p $@)" ]]; then
 		exa --long --all --group --classify --extended "$(readlink -f $(which -p $@))"
 	else

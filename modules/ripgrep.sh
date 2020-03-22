@@ -4,6 +4,7 @@ export RG_MAX_COLUMNS_FLAGS="--max-columns-preview --max-columns=\$(expr \$(tput
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias r="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
+alias rl="rg $RG_FLAGS --glob='!node_modules'"
 alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow"
 alias ral="rg $RG_FLAGS --no-ignore --stats --follow"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"

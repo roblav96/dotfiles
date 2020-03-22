@@ -19,7 +19,7 @@ alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSRespond
 alias rmtrash="sudo rm -rfv $HOME/.Trash/.* $HOME/.Trash/* && exit"
 
 alias .zsh_history="subl $HOME/.zsh_history"
-alias .prettierrc="subl $DOTFILES/configs/.prettierrc"
+alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl $DOTFILES/configs/starship.toml"
 
 alias pfc="sudo subl /etc/pf.conf"
