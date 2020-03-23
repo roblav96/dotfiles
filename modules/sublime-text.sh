@@ -6,8 +6,7 @@ alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
 
-alias stgs="cd '$HOME/Library/Application Support/Sublime Text 3' && git status --short --branch && cd \"\$OLDPWD\""
-alias stgd="cd '$HOME/Library/Application Support/Sublime Text 3' && git diff && cd \"\$OLDPWD\""
+alias stgs='stcd; gd; echo; gs; cd "$OLDPWD"'
 function stpush() {
 	cd "$HOME/Library/Application Support/Sublime Text 3"
 	local gs="$(git status -z)"

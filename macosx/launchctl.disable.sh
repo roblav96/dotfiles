@@ -216,6 +216,7 @@ AGENTS+=(
 	'com.apple.parentalcontrols.check'
 	'com.apple.parsecd'
 	'com.apple.photoanalysisd'
+	# 'com.apple.printtool.agent'
 	'com.apple.remindd'
 	'com.apple.RemoteDesktop'
 	'com.apple.security.keychain-circle-notification'
@@ -297,6 +298,8 @@ DAEMONS+=(
 DAEMONS+=(
 	'com.apple.appleseed.fbahelperd'
 	'com.apple.apsd'
+	# 'com.apple.backupd'
+	# 'com.apple.backupd-helper'
 	'com.apple.eapolcfg_auth'
 	'com.apple.locate'
 	'com.apple.locationd'
@@ -312,9 +315,7 @@ DAEMONS+=(
 	'com.apple.screensharing'
 	'com.apple.security.FDERecoveryAgent'
 	'com.apple.SubmitDiagInfo'
-	'org.cups.cupsd'
-	# 'com.apple.backupd'
-	# 'com.apple.backupd-helper'
+	# 'org.cups.cupsd'
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do

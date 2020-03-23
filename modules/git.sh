@@ -1,9 +1,17 @@
-alias gh="github"
+alias gh='github'
 
-alias gd="git diff"
-alias gl="git log --stat --reverse --max-count=5"
-alias gs="git status --short --branch"
-alias gsu="git standup"
+function _git-hr() {
+	if [[ ! -d ".git" ]]; then
+		echo "🔴 Not a git repository"
+		return 1
+	fi
+	bat-hr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bat-hr; echo
+}
+alias gd="_git-hr 'diff' && git diff"
+alias gl="_git-hr 'log' && git log --stat --reverse --max-count=5"
+alias gs="_git-hr 'status' && git status --short --branch"
+alias gsu="_git-hr 'standup' && git standup"
+# alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
 alias gf="git fetch"
 alias gfa="git fetch --all --prune"
@@ -16,7 +24,10 @@ alias gi="git check-ignore --verbose"
 alias gia="git check-ignore --verbose **/.* **/*"
 
 function gc() {
-	[[ -z "$@" ]] && return 1
+	if [[ -z "$@" ]]; then
+		echo "🔴 You must specify a repository to clone"
+		return 1
+	fi
 	local outdir="${1##*/}"
 	if [[ "${1##*.}" == "git" ]]; then
 		outdir="${outdir:0:-4}"
