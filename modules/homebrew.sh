@@ -118,12 +118,12 @@ function bccat() {
 
 function bia() {
 	for v in "$@"; do
-		bi "$@" && bcat "$@"
+		bi "$v" && bcat "$v"
 	done
 }
 function bcia() {
 	for v in "$@"; do
-		bci "$@" && bccat "$@"
+		bci "$v" && bccat "$v"
 	done
 }
 
