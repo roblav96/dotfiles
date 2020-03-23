@@ -3,10 +3,10 @@ export NIX_PAGER=""
 unalias ni &>/dev/null
 unalias ns &>/dev/null
 
-alias nin="nix-env --install"
-alias nls="nix-env --query"
-alias nout="nix-env -qc"
-alias nrm="nix-env --uninstall"
-alias ns="nix search"
-alias nupd="nix search --update-cache"
-alias nupg="nix-env --upgrade"
+alias nxin="nix-env --install"
+alias nxls="nix-env --query"
+alias nxout="nix-env -qc"
+alias nxrm="nix-env --uninstall"
+alias nxs="nix search"
+alias nxupd="nix search --update-cache"
+alias nxupg="nix-env --upgrade"
