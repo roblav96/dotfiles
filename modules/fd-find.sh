@@ -3,6 +3,7 @@ export FD_FLAGS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
 alias f="fd $FD_FLAGS --fixed-strings --exclude='node_modules'"
 alias fa="fd $FD_FLAGS --fixed-strings --no-ignore --follow"
 alias faa="fd $FD_FLAGS --fixed-strings --no-ignore --follow --full-path"
+
 alias fgl="fd $FD_FLAGS --glob --exclude='node_modules'"
 alias fagl="fd $FD_FLAGS --glob --no-ignore --follow"
 alias faagl="fd $FD_FLAGS --glob --no-ignore --follow --full-path"
