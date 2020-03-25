@@ -80,8 +80,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 
 
-export HISTSIZE="5000000000"
-export SAVEHIST="1000000000"
+export HISTSIZE="10000000"
+export SAVEHIST="10000000"
 setopt hist_ignore_all_dups
 
 setopt rm_star_silent
