@@ -16,7 +16,7 @@ alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias unquarantinea="sudo xattr -rc"
 alias hosts="sudo subl /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias rmtrash="sudo rm -rfv $HOME/.Trash/.* $HOME/.Trash/* && exit"
+alias rmtrash="rm -rfv $HOME/.Trash/.* $HOME/.Trash/*"
 
 alias .zsh_history="subl $HOME/.zsh_history"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
