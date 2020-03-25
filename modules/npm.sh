@@ -7,7 +7,7 @@ alias npmout="pnpx npm-check"
 alias npmupg="pnpx npm-check --update"
 alias npmwhy="pnpx npm-why"
 
-alias snykt="pnpx snyk test --dev --all-projects" # --detection-depth=1"
+alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
 alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'
 
 function npmin() {

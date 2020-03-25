@@ -80,8 +80,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 
 
-export HISTSIZE="5000000"
-export SAVEHIST="1000000"
+export HISTSIZE="5000000000"
+export SAVEHIST="1000000000"
 setopt hist_ignore_all_dups
 
 setopt rm_star_silent
@@ -127,7 +127,7 @@ alias ll="ls -laph"
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
-alias manpathls="man --path | sed 's/:\//\n\//g'"
+# alias manpathls="man --path | sed 's/:\//\n\//g'"
 alias commandsls="echo \$commands | sed 's/ \//\n\//g' | sortt"
 # alias commandsls="print -l \$commands | sortt"
 alias rc="rclone"
@@ -195,6 +195,7 @@ alias p="ps auxww | grep --invert-match grep | grep"
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias mans="man -k"
+alias mansa="man -K"
 alias manfs="man -w"
 # function idk() {
 # 	man --apropos $@ | grep "$@|$"
