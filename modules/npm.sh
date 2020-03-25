@@ -3,9 +3,9 @@ alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated --long"
-alias npmout="pnpx npm-check"
-alias npmupg="pnpx npm-check --update"
-alias npmwhy="pnpx npm-why"
+
+alias npmout="pnpx updates"
+alias npmupg="pnpx updates --update"
 
 alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
 alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'

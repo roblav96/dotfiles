@@ -51,6 +51,9 @@ alias o="open ."
 # 	test $# -eq 0 && open . || open $@
 # }; compdef o=open
 
+# alias sw_vers="echo 10.14.6"
+# alias sw_vers="echo 10.14.6; &>/dev/null"
+
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
