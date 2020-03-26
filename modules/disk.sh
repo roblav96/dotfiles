@@ -1,9 +1,11 @@
 alias diskus="diskus --apparent-size"
 
-alias tk="tokei --sort=code"
-alias tkf="tokei --sort=code --files"
-alias tka="tokei --sort=code --hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
-alias tkaf="tokei --sort=code --hidden --no-ignore --no-ignore-parent --no-ignore-vcs --files"
+export TK_FLAGS="--sort=code --exclude=.git"
+export TK_FLAGS_ALL="--hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
+alias tk="tokei $TK_FLAGS --exclude=node_modules"
+alias tka="tokei $TK_FLAGS $TK_FLAGS_ALL"
+alias tkf="tokei $TK_FLAGS --files --exclude=node_modules"
+alias tkfa="tokei $TK_FLAGS --files $TK_FLAGS_ALL"
 alias tkls="tokei --languages"
 
 alias dust="command dust --apparent-size --ignore-directory .git --ignore-directory node_modules"

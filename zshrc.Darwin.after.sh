@@ -14,13 +14,13 @@ alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{
 
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias unquarantinea="sudo xattr -rc"
-alias hosts="sudo subl /etc/hosts"
+alias hosts="sudo subl --new-window /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="rm -rfv $HOME/.Trash/.* $HOME/.Trash/*"
 
-alias .zsh_history="subl $HOME/.zsh_history"
+alias .zsh_history="subl --new-window $HOME/.zsh_history"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
-alias .starship.toml="subl $DOTFILES/configs/starship.toml"
+alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
 
 alias pfc="sudo subl --new-window /etc/pf.conf"
 alias pfcat="bat /etc/pf.conf -l sh"
