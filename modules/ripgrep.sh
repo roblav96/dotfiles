@@ -9,6 +9,7 @@ alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow"
 alias ral="rg $RG_FLAGS --no-ignore --stats --follow"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
 alias raal="rg $RG_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
+alias raf="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --case-sensitive"
 
 alias rgg="rg --color=never --ignore-case --fixed-strings"
 alias rgp="rg --color=always --ignore-case --fixed-strings --passthru"

@@ -1,5 +1,5 @@
-alias st="subl"
-alias sm="smerge"
+alias st="subl --new-window"
+alias sm="smerge --new-window"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
 alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"

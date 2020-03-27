@@ -1,16 +1,16 @@
 alias gh='github'
 
-function _git-hr() {
-	if [[ ! -d ".git" ]]; then
-		echo "🔴 Not a git repository"
-		return 1
-	fi
-	bat-hr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bat-hr; echo
-}
-alias gd="_git-hr 'diff' && git diff"
-alias gl="_git-hr 'log' && git log --stat --reverse --max-count=5"
-alias gs="_git-hr 'status' && git status --short --branch"
-alias gsu="_git-hr 'standup' && git standup"
+# function _git-hr() {
+# 	if [[ ! -d ".git" ]]; then
+# 		echo "🔴 Not a git repository"
+# 		return 1
+# 	fi
+# 	bat-hr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bat-hr; echo
+# }
+alias gd="git diff" # _git-hr 'diff' &&
+alias gl="git log --stat --reverse --max-count=5" # _git-hr 'log' &&
+alias gs="git status --short --branch" # _git-hr 'status' &&
+alias gsu="git standup" # _git-hr 'standup' &&
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
 alias gf="git fetch"
