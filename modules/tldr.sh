@@ -3,6 +3,8 @@ alias tlupd="tldr --update"
 alias tlls="tldr --list"
 alias tls="tldr --list | sed --unbuffered --regexp-extended 's/, /\n/g' | grep"
 
+alias how="howdoi --color --all"
+
 function ch() {
 	local lang="sh"
 	[[ -n $2 ]] && lang="$1"
