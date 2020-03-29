@@ -4,6 +4,8 @@ alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated --long"
 
+alias npm.publish="source $DOTFILES/.env.npm; npm publish; unset NPM_TOKEN"
+
 alias npmout="pnpx updates"
 alias npmupg="pnpx updates --update"
 
