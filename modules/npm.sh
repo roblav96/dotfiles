@@ -15,6 +15,9 @@ alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-script
 function npmin() {
 	npm install "$@" && npm install -D "@types/$@"
 }
+function npmrm() {
+	npm uninstall "$@" "@types/$@"
+}
 function npmv() {
 	npm info --json $@ | jq --color-output --tab '.time'
 }
@@ -22,5 +25,6 @@ function npmv() {
 alias tsc="npx tsc"
 alias vue="npx vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 npx vue-cli-service inspect"
+# alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx vue-cli-service inspect)" | bat -lts'
 
 # [[ -x "$(which -p pnpm)" ]] && source "$HOME/.config/tabtab/zsh/pnpm.zsh"

@@ -1,3 +1,5 @@
+# MenkeTechnologies/zsh-more-completions path:man_src kind:fpath
+# MenkeTechnologies/zsh-more-completions path:src kind:fpath
 # jwilm/alacritty path:extra/completions kind:path
 # junegunn/fzf path:completion.zsh kind:fpath
 # caarlos0/ports kind:path
