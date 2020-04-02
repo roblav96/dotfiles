@@ -44,3 +44,6 @@ main.tfvars
 
 # python mypy
 .mypy_cache
+
+# npm
+.npmrc
