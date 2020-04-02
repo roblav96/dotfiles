@@ -37,6 +37,11 @@ alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 
+if test -x "$(which nano)"; then
+	export EDITOR="nano"
+	export VEDITOR="nano"
+fi
+
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
