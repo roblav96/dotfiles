@@ -1,12 +1,14 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-alias cg="cargo --verbose --color=always"
+alias cg="cargo --color=always --verbose"
 alias cgcd="cd $HOME/.cargo"
-alias cgls="lm $HOME/.cargo/bin"
 alias cgin="cargo install --force"
-alias cgout="cargo install-update --all --list"
-alias cgupd="cargo install-update --all"
-alias cgs="cargo ssearch"
+alias cgls="cargo install-update --list"
+alias cgout="cargo install-update --list"
+alias cgupg="cargo install-update"
+
+# alias cgls="lm $HOME/.cargo/bin"
+# alias cgs="cargo ssearch"
 # alias cglnls="l /usr/local/bin | grep cargo/bin"
 # alias cglnbin="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 
