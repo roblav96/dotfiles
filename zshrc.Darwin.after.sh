@@ -18,6 +18,7 @@ alias hosts="sudo subl --new-window /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="rm -rfv $HOME/.Trash/.* $HOME/.Trash/*"
 
+alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
