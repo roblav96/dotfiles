@@ -21,7 +21,3 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 
 alias dff="df -h"
 alias dfc="dfc -d -T -f -c always -q type"
-
-# alias locf="loc --files"
-# alias loca="loc -uu"
-# alias locaf="loc -uu --files"
