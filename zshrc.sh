@@ -174,9 +174,9 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab"
 alias j="json"
 
-alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=10"
-alias wget="wget --connect-timeout=10"
-alias curl="curl --silent --show-error --connect-timeout 10"
+alias http="echo; http --verbose --ignore-stdin --pretty=all --style=monokai --timeout=5"
+alias wget="wget --connect-timeout=5"
+alias curl="curl --silent --show-error --connect-timeout 5"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
 	curl "$@" | json
