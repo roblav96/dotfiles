@@ -144,7 +144,7 @@ alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; exit"
 # alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc"
+alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore"
 # --with-node-modules --print-width \$(tput cols)
 alias archey="archey --offline"
 # alias play="mkc $HOME/.playground; l"
