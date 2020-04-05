@@ -1,7 +1,7 @@
 # export ADB_LIBUSB="1"
 
-# if [[ -e "/usr/local/etc/bash_completion.d/rogcat" ]]; then
-# 	source "/usr/local/etc/bash_completion.d/rogcat"
+# if [[ -e "/usr/local/etc/bash_completion.d/rogcat.bash" ]]; then
+# 	source "/usr/local/etc/bash_completion.d/rogcat.bash"
 # fi
 # if [[ -e "/usr/local/etc/bash_completion.d/pidcat" ]]; then
 # 	source "/usr/local/etc/bash_completion.d/pidcat"

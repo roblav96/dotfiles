@@ -11,6 +11,7 @@ alias gd="git diff" # _git-hr 'diff' &&
 alias gl="git log --stat --reverse --max-count=5" # _git-hr 'log' &&
 alias gs="git status --short --branch" # _git-hr 'status' &&
 alias gsu="git standup" # _git-hr 'standup' &&
+alias gsa="gd; echo; gs"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
 alias gf="git fetch"

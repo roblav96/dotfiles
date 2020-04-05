@@ -2,6 +2,10 @@
 # export HOMEBREW_NO_ANALYTICS="1"
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
 
+# if [[ -e "/usr/local/etc/bash_completion.d/pueue.bash" ]]; then
+# 	source "/usr/local/etc/bash_completion.d/pueue.bash"
+# fi
+
 function bupd() {
 	echo; echo "🌕 Updating taps"
 	brew update --verbose
