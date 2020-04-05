@@ -13,7 +13,6 @@
 	"singleQuote": true,
 	"tabWidth": 4,
 	"trailingComma": "all",
-	"trailingCommaPHP": "all",
 	"useTabs": true,
 	"vueIndentScriptAndStyle": false,
 	"overrides": [

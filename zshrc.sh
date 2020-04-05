@@ -54,7 +54,6 @@ export DISABLE_AUTO_UPDATE="true"
 # fi
 
 [[ -x "$(which -p starship)" ]] && eval "$(starship init zsh)"
-[[ -x "$(which -p php)" ]] && alias artisan="php artisan"
 
 
 
@@ -138,10 +137,11 @@ alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | batrb"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias redis-cli="redis-cli --no-auth-warning"
-alias gradlew="./gradlew"
+alias gradlew="\$PWD/gradlew"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
-alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
+alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; exit"
+# alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
 alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc"
@@ -272,9 +272,11 @@ test -x "$(which -p go)" && source "$DOTFILES/modules/go.sh"
 test -x "$(which -p htop)" && source "$DOTFILES/modules/htop.sh"
 test -x "$(which -p ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
+test -x "$(which -p navi)" && source "$DOTFILES/modules/navi.sh"
 test -x "$(which -p nix)" && source "$DOTFILES/modules/nix.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
+test -x "$(which -p php)" && source "$DOTFILES/modules/php.sh"
 test -x "$(which -p pip)" && source "$DOTFILES/modules/pip.sh"
 test -x "$(which -p python)" && source "$DOTFILES/modules/python.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
@@ -284,7 +286,7 @@ test -x "$(which -p tldr)" && source "$DOTFILES/modules/tldr.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 
 autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
+# autoload -U bashcompinit && bashcompinit
 
 # autoload -U promptinit; promptinit
 # autoload -U compinit && compinit

@@ -28,6 +28,9 @@ function how() {
 alias hdi="howdoi --color --all"
 # alias hdi='function _hdi() { howdoi --color --all $@ }; _hdi'
 
+# alias genc="gencomp"
+compdef gencomp=which
+
 function ch() {
 	local lang="sh"
 	[[ -n $2 ]] && lang="$1"

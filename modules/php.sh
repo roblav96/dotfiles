@@ -1,0 +1,1 @@
+alias artisan="php artisan"

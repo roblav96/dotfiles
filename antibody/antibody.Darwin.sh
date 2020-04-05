@@ -1,5 +1,6 @@
 nilsonholger/osx-zsh-completions kind:fpath
 # rgcr/m-cli path:completion/zsh kind:fpath
+RobSis/zsh-completion-generator
 
 ohmyzsh/ohmyzsh path:plugins/adb
 # ohmyzsh/ohmyzsh path:plugins/bundler
