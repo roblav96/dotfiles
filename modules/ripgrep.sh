@@ -13,8 +13,10 @@ alias raal="rg $RG_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
 alias rf="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --case-sensitive --glob='!node_modules'"
 alias rfa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --case-sensitive --no-ignore --stats"
 
+alias rgx="rg --color=never --ignore-case --regexp"
 alias rgg="rg --color=never --ignore-case --fixed-strings"
 alias rgp="rg --color=always --ignore-case --fixed-strings --passthru"
+
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --color=always --smart-case"
 
