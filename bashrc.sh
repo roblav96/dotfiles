@@ -149,7 +149,6 @@ alias gmnet='adb shell settings put global http_proxy localhost:4200; adb revers
 # }
 
 alias rr-macrandom="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
-alias rr-telnet="echo && echo nj3nxCEBUX7BDDei && echo && telnet 192.168.1.1"
 alias rr-router="ssh -p 1337 admin@192.168.50.1"
 alias rr-phone="ssh -p 1337 192.168.50.168"
 alias rr-phonee="ssh -p 1337 192.168.1.170"

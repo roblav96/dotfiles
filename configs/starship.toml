@@ -15,6 +15,9 @@ truncation_length = -1
 # [git_branch]
 # style = "blue"
 
+[time]
+disabled = true
+
 [hostname]
 style = "red bold"
 

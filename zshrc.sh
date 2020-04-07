@@ -21,17 +21,17 @@ export SUPPRESS_SUPPORT="1"
 
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
 # export RPROMPT="%F{008}%*"
-export RPROMPT="%F{008}%*"
-export PURE_PROMPT_SYMBOL="➤"
-export PURE_CMD_MAX_EXEC_TIME="1"
-export KEYTIMEOUT="25"
+# export RPROMPT="%F{008}%*"
+# export PURE_PROMPT_SYMBOL="➤"
+# export PURE_CMD_MAX_EXEC_TIME="1"
+export KEYTIMEOUT="10"
 # export PROMPT_EOL_MARK="➜"
 # source "$DOTFILES/modules/geometry.sh"
 
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
