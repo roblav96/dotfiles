@@ -1,2 +1,2 @@
 # alias aws="aws --color=off" # --no-paginate"
-alias awsconfig="bat ~/.aws/config -ltoml"
+alias aws.config="bat ~/.aws/config -lini"

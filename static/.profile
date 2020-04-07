@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [[ -n "$BASH_VERSION" ]]; then
+	if [[ -f "$HOME/.bashrc" ]]; then
+		source "$HOME/.bashrc"
+	fi
+fi
+
 test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
 test -x "$(which tabs)" && tabs -4
 

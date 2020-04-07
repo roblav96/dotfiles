@@ -25,6 +25,9 @@ style = "red bold"
 [package]
 disabled = true
 
+[aws]
+disabled = true
+
 [nodejs]
 disabled = true
 
