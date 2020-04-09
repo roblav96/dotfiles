@@ -48,7 +48,7 @@ else
 		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
 	}
 fi
-[[ -x "$(which -p tldr)" ]] && alias tl="ch"
+[[ ! -x "$(which -p tldr)" ]] && alias tl="ch"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"
