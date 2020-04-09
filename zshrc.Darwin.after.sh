@@ -3,7 +3,7 @@ export SDKROOT="macosx10.14"
 
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
-source "$DOTFILES/modules/deving.sh"
+# source "$DOTFILES/modules/deving.sh"
 source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
@@ -96,7 +96,6 @@ unalias src
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotcd="cd $DOTFILES"
 alias dotgs='dotcd; gd; echo; gs; cd "$OLDPWD"'
-
 function dotpush() {
 	cd "$DOTFILES"
 	local gs="$(git status -z)"
