@@ -31,14 +31,25 @@ alias hdi="howdoi --color --all"
 # alias genc="gencomp"
 # compdef gencomp=which
 
-function ch() {
-	local lang="sh"
-	[[ -n $2 ]] && lang="$1"
-	curl "https://cht.sh/$*?T" | bat -l $lang
-}
-function cha() {
-	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat -l sh
-}
+if [[ -x "$(which -p bat)" ]]; then
+	function ch() {
+		local lang="sh"
+		[[ -n $2 ]] && lang="$1"
+		curl "https://cht.sh/$*?T" | bat -l $lang
+	}
+	function cha() {
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat -l sh
+	}
+else
+	function ch() {
+		curl "https://cht.sh/$*"
+	}
+	function cha() {
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
+	}
+fi
+[[ -x "$(which -p tldr)" ]] && alias tl="ch"
+
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"
 alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat -l sh"
