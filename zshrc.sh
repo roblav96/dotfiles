@@ -153,8 +153,10 @@ alias archey="archey --offline"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-export GREP_COLOR="01;31;48;5;16"
-export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+# export GREP_COLOR="01;31;48;5;16"
+# export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+export GREP_COLOR="01;31"
+export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias g="grep"
 
