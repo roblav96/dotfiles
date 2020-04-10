@@ -1,6 +1,6 @@
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
-BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/.profile"
+BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/..bashrc"
 
 echo > $BASHRC
 echo 'export PLATFORM="$(uname -o)"' >> $BASHRC
