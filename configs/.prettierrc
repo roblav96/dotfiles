@@ -17,9 +17,15 @@
 	"vueIndentScriptAndStyle": false,
 	"overrides": [
 		{
-			"files": ["*.html"],
+			"files": ["*.blade.php"],
 			"options": {
-				"singleQuote": false
+				"parser": "html"
+			}
+		},
+		{
+			"files": ["*.php"],
+			"options": {
+				"phpVersion": "7.4"
 			}
 		},
 		{
@@ -27,7 +33,6 @@
 			"options": {
 				"parser": "html",
 				"printWidth": 999999,
-				"singleQuote": false,
 				"htmlWhitespaceSensitivity": "strict"
 			}
 		},
@@ -81,12 +86,6 @@
 			"files": ["*.toml"],
 			"options": {
 				"parser": "toml"
-			}
-		},
-		{
-			"files": ["*.blade.php"],
-			"options": {
-				"parser": "html"
 			}
 		}
 	]

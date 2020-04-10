@@ -135,14 +135,10 @@ alias ipc="ipcalc -b"
 alias dims='echo $COLUMNS x $LINES'
 alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | batrb"
-alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias redis-cli="redis-cli --no-auth-warning"
 alias gradlew="\$PWD/gradlew"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
-alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; exit"
-# alias zcomp="rm -v $(dirname $DOTFILES)/.zcomp*; compinit; bashcompinit; exit"
-alias abupd="antibody update; zcomp"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore"
 # --with-node-modules --print-width \$(tput cols)
@@ -152,6 +148,11 @@ alias archey="archey --offline"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
+alias zcomp="rm -v $HOME/.zcomp*; exit"
+alias abupd="antibody update; zcomp"
+alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324" # --highlight-line=322
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
