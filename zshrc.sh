@@ -288,6 +288,7 @@ test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
+test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtube-dl.sh"
 
 autoload -U compinit && compinit
 # autoload -U bashcompinit && bashcompinit

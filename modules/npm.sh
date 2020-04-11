@@ -8,6 +8,9 @@ alias npm.publish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; r
 
 alias npmout="pnpx updates"
 alias npmupg="pnpx updates --update"
+alias npmaudit="pnpx auditjs ossi"
+alias npmcheck="pnpx npm-check --skip-unused"
+alias npmdepcheck="pnpx depcheck"
 
 alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
 alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'
