@@ -9,6 +9,7 @@ symbol = "➤" # The "symbol" segment is being set to "➜"
 
 [directory]
 style = "fg:blue bg:16 bold"
+# style = "fg:16 bg:blue bold"
 truncate_to_repo = false
 truncation_length = -1
 
