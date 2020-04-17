@@ -3,6 +3,7 @@ alias aptupg="sudo apt upgrade"
 alias apti="apt show"
 alias aptls="apt list"
 alias aptlsi="apt list --installed"
+alias aptfs="dpkg-query --listfiles"
 
 alias dpkgi="dpkg-query --status"
 alias dpkgfs="dpkg-query --listfiles"

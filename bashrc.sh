@@ -5,9 +5,9 @@ export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
 export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 
-export EDITOR="subl -w"
-export VEDITOR="subl -w"
-export BUNDLE_EDITOR="subl -w"
+export EDITOR="subl --new-window"
+export VEDITOR="subl --new-window"
+export BUNDLE_EDITOR="subl --new-window"
 
 # local HOME=/Users/roblav96
 
