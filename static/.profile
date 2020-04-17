@@ -43,7 +43,10 @@ alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 
-if test -x "$(which nano)"; then
+if [[ -x "$(which micro)" ]]; then
+	export EDITOR="micro"
+	export VEDITOR="micro"
+elif [[ -x "$(which nano)" ]]; then
 	export EDITOR="nano"
 	export VEDITOR="nano"
 fi
