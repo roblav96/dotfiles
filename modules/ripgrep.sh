@@ -16,6 +16,7 @@ alias rfa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats"
 
 alias rgx="rg --color=never --ignore-case --regexp"
 alias rgg="rg --color=never --ignore-case --fixed-strings"
+alias rgs="rg --color=always --ignore-case --fixed-strings"
 alias rgp="rg --color=always --ignore-case --fixed-strings --passthru"
 
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"

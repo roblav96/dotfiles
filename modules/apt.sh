@@ -1,5 +1,6 @@
 alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
+alias apti="apt show"
 alias aptls="apt list"
 alias aptlsi="apt list --installed"
 
