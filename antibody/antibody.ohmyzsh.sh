@@ -23,6 +23,6 @@ ohmyzsh/ohmyzsh path:plugins/safe-paste
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/systemadmin
 ohmyzsh/ohmyzsh path:plugins/transfer
-ohmyzsh/ohmyzsh path:plugins/wd
+# ohmyzsh/ohmyzsh path:plugins/wd
 # ohmyzsh/ohmyzsh path:plugins/z
-ohmyzsh/ohmyzsh path:plugins/zsh-navigation-tools
+# ohmyzsh/ohmyzsh path:plugins/zsh-navigation-tools

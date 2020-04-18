@@ -1,3 +1,4 @@
+compdef tldr=which
 alias tl="tldr"
 alias tlupd="tldr --update"
 alias tlls="tldr --list"
@@ -29,7 +30,7 @@ alias hdi="howdoi --color --all"
 # alias hdi='function _hdi() { howdoi --color --all $@ }; _hdi'
 
 # alias genc="gencomp"
-# compdef gencomp=which
+compdef gencomp=which
 
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {

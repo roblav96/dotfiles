@@ -13,6 +13,10 @@
 	ui = always
 [core]
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy
+	pager = diffr
 [pager]
-	diff = diff-so-fancy
+	diff = diffr
+	log = diffr
+	show = diffr
+[interactive]
+	diffFilter = diffr

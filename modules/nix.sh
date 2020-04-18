@@ -3,14 +3,14 @@ export NIX_PAGER=""
 unalias ni &>/dev/null
 unalias ns &>/dev/null
 
-alias nxin="nix-env --install"
-alias nxls="nix-env --query"
-alias nxout="nix-env --query --compare-versions"
-alias nxrm="nix-env --uninstall"
-alias nxupd="nix search --update-cache"
-alias nxupg="nix-env --upgrade"
+alias nixin="nix-env --install"
+alias nixls="nix-env --query"
+alias nixout="nix-env --query --compare-versions"
+alias nixrm="nix-env --uninstall"
+alias nixupd="nix search --update-cache"
+alias nixupg="nix-env --upgrade"
 
-function nxs() {
+function nixs() {
 	nix-env --query --available --description --attr-path --prebuilt-only ".*$1.*"
 }
-# alias nxs="nix search"
+# alias nixs="nix search"
