@@ -7,8 +7,10 @@ alias gh='github'
 # 	fi
 # 	bat-hr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bat-hr; echo
 # }
+
+# --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff" # _git-hr 'diff' &&
-alias gl="git log --stat --reverse --max-count=5" # _git-hr 'log' &&
+alias gl="git log --patch --stat --reverse --max-count=5" # _git-hr 'log' &&
 alias gs="git status --short --branch" # _git-hr 'status' &&
 alias gsu="git standup" # _git-hr 'standup' &&
 alias gsa="gd; echo; gs"

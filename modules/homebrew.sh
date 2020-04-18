@@ -131,13 +131,13 @@ function bcia() {
 	done
 }
 
-function bopen() {
+function bo() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening formula -> '$v'"
 		brew home "$v"
 	done
 }
-function bcopen() {
+function bco() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening cask -> '$v'"
 		brew cask home "$v"

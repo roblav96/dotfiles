@@ -13,10 +13,10 @@
 	ui = always
 [core]
 	excludesfile = ~/.gitignore
-	pager = diffr
+	pager = delta --dark --theme='Monokai Pro Classic'
 [pager]
-	diff = diffr
-	log = diffr
-	show = diffr
+	diff = delta --dark --theme='Monokai Pro Classic'
+	log = delta --dark --theme='Monokai Pro Classic'
+	show = delta --dark --theme='Monokai Pro Classic'
 [interactive]
 	diffFilter = diffr
