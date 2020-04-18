@@ -22,13 +22,13 @@ style = "ByPercentage"
 kind = "UsageMem"
 style = "ByPercentage"
 
-[[columns]]
-kind = "TcpPort"
-style = "BrightCyan"
+# [[columns]]
+# kind = "TcpPort"
+# style = "BrightCyan"
 
-[[columns]]
-kind = "UdpPort"
-style = "BrightCyan"
+# [[columns]]
+# kind = "UdpPort"
+# style = "BrightCyan"
 
 [[columns]]
 kind = "Slot"
