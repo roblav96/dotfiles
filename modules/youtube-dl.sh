@@ -1,7 +1,7 @@
 alias yt="youtube-dl"
-alias ytdl="youtube-dl --restrict-filenames --merge-output-format mp4"
-alias ytls="youtube-dl --list-formats"
+alias ytdl="youtube-dl --merge-output-format mp4 --restrict-filenames"
+alias ytls="youtube-dl --merge-output-format mp4 --list-formats"
 
 function ytmpv() {
-	yt --output - "$1" | mpv --force-seekable=yes -
+	youtube-dl --output - "$1" | mpv --force-seekable=yes -
 }
