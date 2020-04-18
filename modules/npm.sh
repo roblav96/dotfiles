@@ -25,7 +25,10 @@ function npmv() {
 	npm info --json $@ | jq --color-output --tab '.time'
 }
 
+# alias forever="npx forever"
+# alias pm2="npx pm2"
 alias tsc="npx tsc"
+
 alias vue="npx vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 npx vue-cli-service inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx vue-cli-service inspect)" | bat -lts'
