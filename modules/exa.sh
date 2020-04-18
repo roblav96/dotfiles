@@ -3,8 +3,8 @@ export EXA_FLAGS="--long --all --header --classify --group --color-scale --color
 # export EXA_STRICT="1"
 
 alias l="exa $EXA_FLAGS"
-alias lsi="exa $EXA_FLAGS --sort=size"
-alias lmo="exa $EXA_FLAGS --sort=modified --time=modified"
+alias lb="exa $EXA_FLAGS --sort=size"
+alias lm="exa $EXA_FLAGS --sort=modified --time=modified"
 alias lch="exa $EXA_FLAGS --sort=changed --time=changed"
 alias lac="exa $EXA_FLAGS --sort=accessed --time=accessed"
 alias lcr="exa $EXA_FLAGS --sort=created --time=created"
