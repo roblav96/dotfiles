@@ -55,12 +55,12 @@
 				"*.sublime-syntax",
 				"*.sublime-syntax.yaml-macros",
 				"*.yaml",
+				"*.YAML-tm*",
 				"*.yml",
 				"h2o.conf"
 			],
 			"options": {
 				"parser": "yaml",
-				"tabWidth": 2,
 				"useTabs": false
 			}
 		},
