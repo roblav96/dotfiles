@@ -11,7 +11,8 @@
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adb.shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 alias adb.text="adb shell input keyboard text"
-alias rogcat="rogcat --level trace"
+alias rogcat="rogcat --level trace --hide-timestamp"
+alias rogcatl="rogcat --level trace"
 alias pidcat="pidcat --all"
 # alias adb.pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd --string-mode 'package:' '' pm-list-*.log"
 

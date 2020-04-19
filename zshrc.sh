@@ -65,17 +65,19 @@ export DISABLE_AUTO_UPDATE="true"
 
 
 
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
-# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-# zle_highlight+=(paste:bold)
+if [[ -x "$(which -p antibody)" ]]; then
+	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
+	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+	# zle_highlight+=(paste:bold)
 
-source <(antibody init)
-antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.${PLATFORM##*/}.sh" < "$DOTFILES/antibody/antibody.sh"
-# eval $(starship init zsh)
+	source <(antibody init)
+	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.${PLATFORM##*/}.sh" < "$DOTFILES/antibody/antibody.sh"
+	# eval $(starship init zsh)
 
-eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-# LS_COLORS+="di=38;5;30"
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+	eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+	# LS_COLORS+="di=38;5;30"
+	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+fi
 
 
 
@@ -115,6 +117,7 @@ unalias pip &>/dev/null
 # alias rm="rm -v"
 
 alias sudo="sudo "
+alias chmodx="chmod a+x"
 alias e="nano"
 alias mv="mv -v"
 alias rm="rm -v"

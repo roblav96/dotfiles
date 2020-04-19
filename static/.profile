@@ -35,7 +35,7 @@ alias lra="tree -F -l -a -A -C"
 alias pwda="pwd && pwd -P"
 alias bat="cat"
 alias grep="grep --color=always --ignore-case --extended-regexp"
-alias htop="htop --delay=10"
+alias htop="htop --delay=5"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
 # alias s="subl -f"
