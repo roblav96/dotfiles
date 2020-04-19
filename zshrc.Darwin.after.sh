@@ -11,8 +11,8 @@ alias pst="pstree -w"
 alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{}"'
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 
+alias rmxattr="sudo xattr -rc"
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
-alias unquarantinea="sudo xattr -rc"
 alias hosts="sudo subl --new-window /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias rmtrash="rm -rfv $HOME/.Trash/.* $HOME/.Trash/*"
@@ -39,14 +39,10 @@ alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
-if [[ -x "$(which -p m)" ]]; then
-	alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
-fi
-
-if test -d "/Applications/Firefox Developer Edition.app"; then
-	alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
-	alias firefox-bin="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin"
-fi
+alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
+alias gpu="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
+alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+alias firefox-bin="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin"
 
 alias o="open ."
 # function o() {
