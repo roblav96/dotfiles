@@ -40,7 +40,7 @@ function bsw() {
 		echo; echo "🌕 Searching descriptions -> '$v'"
 		brew search --desc "$v" | rgw "$v"
 		echo; echo "🌕 Searching names -> '$v'"
-		brew search "$v" | rgp "$v"
+		brew search "$v" | rgw "$v"
 	done
 }
 
