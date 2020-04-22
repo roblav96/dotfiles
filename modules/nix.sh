@@ -9,8 +9,9 @@ alias nixout="nix-env --query --compare-versions"
 alias nixrm="nix-env --uninstall"
 alias nixupd="nix search --update-cache"
 alias nixupg="nix-env --upgrade"
+alias nixs="nix-env --query --available --description --attr-path --prebuilt-only"
 
-function nixs() {
-	nix-env --query --available --description --attr-path --prebuilt-only ".*$1.*"
-}
-# alias nixs="nix search"
+# function nixs() {
+# 	nix-env --query --available --description --attr-path --prebuilt-only ".*$1.*"
+# }
+# # alias nixs="nix search"
