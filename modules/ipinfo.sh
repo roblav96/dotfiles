@@ -24,4 +24,4 @@ function dns() {
 	scutil --dns | grep -A99 --color=never 'for scoped queries' | tail -n+3
 }
 alias dnsinfo="scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)'"
-alias dnsallinfo="scutil --dns"
+alias dnsinfoall="scutil --dns"
