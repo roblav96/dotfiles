@@ -2,7 +2,7 @@
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
-if [[ -d "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 	if echo $PATH | grep --quiet --fixed-strings "$HOME/.nix-profile/bin"; then
 		export PATH="${PATH#$HOME/.nix-profile/bin:}:$HOME/.nix-profile/bin"
