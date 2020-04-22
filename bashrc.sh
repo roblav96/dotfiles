@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
-export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
+export OPENSSL_DIR="/usr/local/opt/openssl"
+export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 
 export EDITOR="subl"
