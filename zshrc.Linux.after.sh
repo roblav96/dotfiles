@@ -1,7 +1,9 @@
 export PURE_PROMPT_SYMBOL="SERVER ➤"
 
-export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
-export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
+if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
+	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
+	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
+fi
 
 export SYSTEMD_PAGER=""
 unalias sc-status &>/dev/null
