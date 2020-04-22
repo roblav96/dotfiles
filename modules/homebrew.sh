@@ -35,6 +35,14 @@ function bs() {
 		brew search "$v" | rgp "$v"
 	done
 }
+function bsw() {
+	for v in "$@"; do
+		echo; echo "🌕 Searching descriptions -> '$v'"
+		brew search --desc "$v" | rgw "$v"
+		echo; echo "🌕 Searching names -> '$v'"
+		brew search "$v" | rgp "$v"
+	done
+}
 
 function bin() {
 	for v in "$@"; do

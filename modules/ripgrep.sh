@@ -14,10 +14,13 @@ alias raal="rg $RG_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
 alias rf="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
 alias rfa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats"
 
-alias rgg="rg --color=never --smart-case --fixed-strings"
-alias rgx="rg --color=always --smart-case --regexp"
-alias rgs="rg --color=always --smart-case --fixed-strings"
 alias rgp="rg --color=always --smart-case --fixed-strings --passthru"
+alias rgpw="rg --color=always --smart-case --fixed-strings --passthru --word-regexp"
+
+alias rgf="rg --color=never --smart-case --fixed-strings"
+alias rgg="rg --color=always --smart-case --fixed-strings"
+alias rgw="rg --color=always --smart-case --fixed-strings --word-regexp"
+alias rgx="rg --color=always --smart-case --regexp"
 
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --color=always --smart-case"
