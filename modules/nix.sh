@@ -3,7 +3,7 @@ export NIX_PAGER=""
 unalias ni &>/dev/null
 unalias ns &>/dev/null
 
-alias nixupd="nix upgrade-nix; nix search --update-cache"
+alias nixupd="nix upgrade-nix; nix-channel --update; nix search --update-cache"
 alias nixs="nix search"
 alias nixsa="nix-env --query --available --description --attr-path --prebuilt-only"
 
