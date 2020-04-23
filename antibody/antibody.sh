@@ -3,6 +3,7 @@
 # jwilm/alacritty path:extra/completions kind:path
 # junegunn/fzf path:completion.zsh kind:fpath
 # caarlos0/ports kind:path
+RobSis/zsh-completion-generator
 spwhitt/nix-zsh-completions
 trapd00r/LS_COLORS kind:fpath
 mafredri/zsh-async
