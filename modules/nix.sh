@@ -7,9 +7,9 @@ alias nixupd="nix upgrade-nix; nix-channel --update; nix search --update-cache; 
 alias nixs="nix search"
 alias nixsa="nix-env --query --available --description --attr-path --prebuilt-only"
 
-alias nixin="nix-env --install"
-alias nixls="nix-env --query"
-alias nixout="nix-env --query --compare-versions"
+alias nixin="nix-env --install --attr"
+alias nixls="nix-env --query --description"
+alias nixout="nix-env --query --description --compare-versions"
 alias nixrm="nix-env --uninstall"
 alias nixupg="nix-env --upgrade"
 
