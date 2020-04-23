@@ -1,5 +1,20 @@
+export EDITOR="subl"
+export VEDITOR="subl"
+export BUNDLE_EDITOR="subl"
+
+# export RMATE_HOST="localhost"
+# export RMATE_PORT="52699"
+
 export PASTEL_COLOR_MODE="8bit"
 export SDKROOT="macosx10.14"
+# export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+if [[ -d "/usr/local/opt/openssl" ]]; then
+	export OPENSSL_DIR="/usr/local/opt/openssl"
+	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
+fi
 
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
