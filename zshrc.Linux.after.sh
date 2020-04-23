@@ -3,11 +3,6 @@ unalias sc-status &>/dev/null
 alias systemctl="systemctl --no-pager"
 alias sc-status="systemctl --full status"
 
-if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
-	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
-	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
-fi
-
 alias pst="pstree -achls"
 
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"

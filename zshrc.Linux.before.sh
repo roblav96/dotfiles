@@ -13,10 +13,13 @@ if [[ -x "$(which nano)" ]]; then
 	export VEDITOR="nano"
 fi
 
-# if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
-# 	export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/functions:$FPATH"
-# 	export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/site-functions:$FPATH"
-# fi
+if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
+	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
+	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
+fi
+
+[[ -d "/home/linuxbrew/.linuxbrew/share/zsh/functions" ]] && export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/functions:$FPATH"
+[[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]] && export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/site-functions:$FPATH"
 
 # export FZF_BASE="$HOME/.fzf"
 # [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
