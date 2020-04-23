@@ -119,6 +119,7 @@ unalias pip &>/dev/null
 alias sudo="sudo "
 alias chmodx="chmod a+x"
 alias e="nano"
+alias ln="ln -v"
 alias mv="mv -v"
 alias rm="rm -v"
 alias cp="cp -vr"
