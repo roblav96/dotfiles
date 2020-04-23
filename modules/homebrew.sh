@@ -6,6 +6,8 @@
 # 	source "/usr/local/etc/bash_completion.d/pueue.bash"
 # fi
 
+alias bh="brew commands --quiet"
+
 function bupd() {
 	echo; echo "🌕 Updating taps"
 	brew update --verbose
