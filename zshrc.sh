@@ -133,6 +133,7 @@ alias manpathls="manpath | sed 's/:\//\n\//g'"
 # alias manpathls="man --path | sed 's/:\//\n\//g'"
 alias commandsls="echo \$commands | sed 's/ \//\n\//g' | sortt"
 # alias commandsls="print -l \$commands | sortt"
+alias functionsls="functions"
 alias rc="rclone"
 alias ipc="ipcalc -b"
 alias dims='echo $COLUMNS x $LINES'
