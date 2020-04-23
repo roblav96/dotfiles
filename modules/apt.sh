@@ -11,8 +11,8 @@ function apts() {
 	apt search $@ 2>/dev/null | rgp $@
 }
 function aptls() {
-	apt list 2>/dev/null
-}
-function aptlsi() {
 	apt list --installed 2>/dev/null
+}
+function aptlsa() {
+	apt list 2>/dev/null
 }

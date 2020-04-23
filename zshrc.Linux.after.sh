@@ -12,7 +12,7 @@ alias sc-status="systemctl --full status"
 
 alias pst="pstree -achls"
 
-alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
+# alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
 
 # if which -w cglnbin | grep -q "alias$"; then
