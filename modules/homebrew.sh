@@ -40,9 +40,9 @@ function bs() {
 function bsw() {
 	for v in "$@"; do
 		echo; echo "🌕 Searching descriptions -> '$v'"
-		brew search --desc "$v" | rgw "$v"
+		brew search --desc "$v" | rgpw "$v"
 		echo; echo "🌕 Searching names -> '$v'"
-		brew search "$v" | rgw "$v"
+		brew search "$v" | rgpw "$v"
 	done
 }
 
