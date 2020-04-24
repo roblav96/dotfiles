@@ -4,9 +4,11 @@ export LSCOLORS="ExFxBxDxCxegedabagacad"
 if [[ -x "$(which -p rmate)" ]]; then
 	export EDITOR="rmate"
 	export VEDITOR="rmate"
+	export VISUAL="rmate"
 elif [[ -x "$(which -p nano)" ]]; then
 	export EDITOR="nano"
 	export VEDITOR="nano"
+	export VISUAL="nano"
 fi
 
 if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then

@@ -53,6 +53,7 @@ alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 if [[ -x "$(which nano)" ]]; then
 	export EDITOR="nano"
 	export VEDITOR="nano"
+	export VISUAL="nano"
 fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
