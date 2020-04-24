@@ -20,3 +20,6 @@ fi
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa
 # zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
+
+# unalias run-help &>/dev/null
+# autoload run-help
