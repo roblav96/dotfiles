@@ -7,7 +7,7 @@ alias bat="bat $BAT_FLAGS --style=header,grid"
 alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias batt="bat --style=header,grid,numbers"
 # alias bbat="bat --style=header,grid,numbers"
-alias b="bat -l config"
+alias b="bat -l sh"
 
 alias batls="bat --list-languages"
 
