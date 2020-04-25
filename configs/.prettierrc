@@ -3,7 +3,7 @@
 	"arrowParens": "always",
 	"bracketSpacing": true,
 	"endOfLine": "lf",
-	"htmlWhitespaceSensitivity": "ignore",
+	"htmlWhitespaceSensitivity": "css",
 	"jsxBracketSameLine": false,
 	"jsxSingleQuote": false,
 	"printWidth": 100,
@@ -29,15 +29,15 @@
 			}
 		},
 		{
-			"files": ["*.tmPreferences"],
-			"options": {
-				"parser": "html",
-				"printWidth": 999999,
-				"htmlWhitespaceSensitivity": "strict"
-			}
-		},
-		{
-			"files": ["*.tmLanguage", "*.tmTheme"],
+			"files": [
+				"*.csproj",
+				"*.plist",
+				"*.svg",
+				"*.tmLanguage",
+				"*.tmPreferences",
+				"*.tmTheme",
+				"*.xml"
+			],
 			"options": {
 				"parser": "xml",
 				"printWidth": 999999
@@ -74,12 +74,6 @@
 			"files": ["*.sass", "*.scss"],
 			"options": {
 				"parser": "scss"
-			}
-		},
-		{
-			"files": ["*.plist", "*.svg", "*.xml", "*.csproj"],
-			"options": {
-				"parser": "xml"
 			}
 		},
 		{

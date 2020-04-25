@@ -10,7 +10,9 @@ export PASTEL_COLOR_MODE="8bit"
 export SDKROOT="macosx10.14"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
+# export JAVA_HOME="$(/usr/libexec/java_home)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 if [[ -d "/usr/local/opt/openssl" ]]; then
 	export OPENSSL_DIR="/usr/local/opt/openssl"
