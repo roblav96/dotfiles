@@ -12,7 +12,7 @@ alias rmxattr="sudo xattr -rc"
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias hosts="sudo subl --new-window /etc/hosts"
 alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias rmtrash="rm -rfv $HOME/.Trash/.* $HOME/.Trash/*"
+alias rmtrash="rm -rfv $HOME/.Trash/*; rm -rfv $HOME/.Trash/.*"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"
