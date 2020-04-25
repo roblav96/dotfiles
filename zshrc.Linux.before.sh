@@ -1,15 +1,18 @@
 export CLICOLOR="1"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
 
-if [[ -x "$(which -p rmate)" ]]; then
-	export EDITOR="rmate"
-	export VEDITOR="rmate"
-	export VISUAL="rmate"
-elif [[ -x "$(which -p nano)" ]]; then
-	export EDITOR="nano"
-	export VEDITOR="nano"
-	export VISUAL="nano"
-fi
+export EDITOR="nano"
+export VEDITOR="nano"
+export VISUAL="nano"
+# if [[ -x "$(which -p rmate)" ]]; then
+# 	export EDITOR="rmate"
+# 	export VEDITOR="rmate"
+# 	export VISUAL="rmate"
+# elif [[ -x "$(which -p nano)" ]]; then
+# 	export EDITOR="nano"
+# 	export VEDITOR="nano"
+# 	export VISUAL="nano"
+# fi
 
 if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
 	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
