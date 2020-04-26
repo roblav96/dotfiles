@@ -12,7 +12,11 @@ function ipinfo() {
 			curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY" | json
 		fi
 	elif [[ $@ =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&ipAddress=$@" | json
+		if [[ -z "$_IPIFY_API_KEY" ]]; then
+			curl "https://ipinfo.io/$@" | json '. |= del(.readme)'
+		else
+			curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&ipAddress=$@" | json
+		fi
 	else
 		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
 	fi
