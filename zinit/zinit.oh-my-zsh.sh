@@ -25,4 +25,4 @@ zinit ice svn; zinit snippet OMZ::plugins/systemadmin
 zinit ice svn; zinit snippet OMZ::plugins/transfer
 zinit ice svn; zinit snippet OMZ::plugins/wd
 # zinit ice svn; zinit snippet OMZ::plugins/z
-zinit ice svn; zinit snippet OMZ::plugins/zsh-navigation-tools
+# zinit ice svn; zinit snippet OMZ::plugins/zsh-navigation-tools
