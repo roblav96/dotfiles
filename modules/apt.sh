@@ -3,7 +3,10 @@ alias aptupg="sudo apt upgrade"
 alias apti="apt show"
 alias aptfs="apt-file list"
 
-export DPKG_PAGER=""
+export DPKG_PAGER="cat"
+alias dpkg="dpkg --no-pager"
+alias dpkg-query="dpkg-query --no-pager"
+
 alias dpkgi="dpkg-query --status"
 alias dpkgls="dpkg-query --show | column -t"
 alias dpkgfs="dpkg-query --listfiles"
