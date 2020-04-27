@@ -14,7 +14,7 @@ function aptlsa() {
 	apt list 2>/dev/null
 }
 
-# export DPKG_PAGER="cat"
+export DPKG_PAGER="cat"
 alias dpkg="dpkg --no-pager"
 alias dpkg-query="dpkg-query --no-pager"
 
