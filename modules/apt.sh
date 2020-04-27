@@ -4,7 +4,9 @@ alias apti="apt show"
 alias aptfs="apt-file list"
 
 alias dpkgi="dpkg-query --status"
+alias dpkgls="dpkg-query --show | column -t"
 alias dpkgfs="dpkg-query --listfiles"
+alias dpkgowns="dpkg --search"
 
 # alias apts="apt search"
 function apts() {
