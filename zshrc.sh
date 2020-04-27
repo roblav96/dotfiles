@@ -192,7 +192,10 @@ function curlj() {
 	curl "$@" | json
 }
 
-test -x "$(which -p rmate)" && alias st="rmate --new --force --verbose"
+if [[ -x "$(which -p rmate)" ]]; then
+	alias st="rmate --new"
+	alias subl="rmate --new"
+fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
