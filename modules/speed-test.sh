@@ -1,4 +1,4 @@
-alias speedtest="wget --quiet --show-progress --output-document=/dev/null"
+alias speedtest="wget --quiet --output-document=/dev/null"
 alias cachefly="speedtest https://cachefly.cachefly.net/100mb.test"
 alias linode="speedtest http://speedtest.newark.linode.com/100MB-newark.bin"
 alias ievbox="speedtest https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
