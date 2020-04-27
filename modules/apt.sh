@@ -8,10 +8,10 @@ function apts() {
 	apt search $@ 2>/dev/null | rgp $@
 }
 function aptls() {
-	apt list --installed 2>/dev/null
+	apt list --installed 2>/dev/null | rgf --invert-match automatic
 }
 function aptlsa() {
-	apt list 2>/dev/null
+	apt list --installed 2>/dev/null
 }
 
 export DPKG_PAGER="cat"

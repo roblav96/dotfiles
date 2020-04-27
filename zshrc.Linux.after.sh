@@ -1,4 +1,4 @@
-export SYSTEMD_PAGER=""
+export SYSTEMD_PAGER="cat"
 alias systemctl="systemctl --no-pager"
 
 unalias sc-status &>/dev/null
