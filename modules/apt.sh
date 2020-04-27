@@ -3,10 +3,12 @@ alias aptupg="sudo apt upgrade"
 alias apti="apt show"
 alias aptfs="apt-file list"
 
+export DPKG_PAGER=""
 alias dpkgi="dpkg-query --status"
 alias dpkgls="dpkg-query --show | column -t"
 alias dpkgfs="dpkg-query --listfiles"
 alias dpkgowns="dpkg --search"
+alias dpkgdump="dpkg --contents"
 
 # alias apts="apt search"
 function apts() {
