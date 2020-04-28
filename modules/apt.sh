@@ -1,11 +1,14 @@
 alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
-alias apti="apt show"
 alias aptfs="apt-file list"
-
+# alias apti="apt show"
 # alias apts="apt search"
+
+function apti() {
+	apt show "$1" 2>/dev/null | bat -l yaml
+}; compdef apti=apt
 function apts() {
-	apt search $@ 2>/dev/null | rgp $@
+	apt search "$1" 2>/dev/null | rgp "$1"
 }
 function aptls() {
 	apt list --installed 2>/dev/null | rgf --invert-match automatic
