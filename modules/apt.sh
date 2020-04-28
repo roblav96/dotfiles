@@ -6,7 +6,7 @@ alias aptfs="apt-file list"
 
 function apti() {
 	apt show "$1" 2>/dev/null | bat --plain -l yaml
-}; compdef apti=apt
+}; compdef apti='apt show'
 function apts() {
 	apt search "$1" 2>/dev/null | rgp "$1"
 }
