@@ -193,8 +193,8 @@ function curlj() {
 }
 
 if [[ -x "$(which -p rmate)" ]]; then
-	alias st="rmate --new"
-	alias subl="rmate --new"
+	alias st="rmate"
+	alias subl="rmate"
 fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
