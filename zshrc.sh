@@ -217,24 +217,22 @@ alias manfs="man -w"
 # }; compdef idk=man
 
 function show() {
-	if [[ -n $2 ]]; then
-		echo "🔴 only 1 argument supported"
-		return 1
-	fi
-	type -a $@
+	[[ -z $1 ]] && return 1
+	type -a $1
+	[[ $? != 0 ]] && return 1
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
-	if which -w $@ | grep -q 'none$'; then
+	if which -w $1 | grep -q 'none$'; then
 		return 1
-	elif which -w $@ | grep -q 'function$'; then
+	elif which -w $1 | grep -q 'function$'; then
 		echo
-		type -f $@ | bat -p -l sh
-		exa --long --all --group --classify --extended "${$(type $@)/$@ is a shell function from /}"
-	elif which -w $@ | grep -q 'alias$'; then
+		type -f $1 | bat -p -l sh
+		exa --long --all --group --classify --extended "${$(type $1)/$1 is a shell function from /}"
+	elif which -w $1 | grep -q 'alias$'; then
 		echo
-		alias -L $@ | bat -p -l sh
+		alias -L $1 | bat -p -l sh
 	fi
-	local which="$(which -p $@)"
+	local which="$(which -p $1)"
 	if [[ -e "$which" ]]; then
 		echo
 		# bat --style=header "$which"
@@ -245,12 +243,12 @@ function show() {
 	fi
 }; compdef show=which
 
-# function readlinka() { echo -n "$(test -x "$(which -p $@)" && readlink -f $(which $@) || readlink -f $@)" | pbcopy; pbpaste | cat; echo }
+# function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {
-	if [[ -x "$(which -p $@)" ]]; then
-		exa --long --all --group --classify --extended "$(readlink -f $(which -p $@))"
+	if [[ -x "$(which -p $1)" ]]; then
+		exa --long --all --group --classify --extended "$(readlink -f $(which -p $1))"
 	else
-		exa --long --all --group --classify --extended "$(readlink -f $@)"
+		exa --long --all --group --classify --extended "$(readlink -f $1)"
 	fi
 }
 
