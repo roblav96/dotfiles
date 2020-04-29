@@ -1,6 +1,7 @@
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31"
-export EXA_FLAGS="--long --all --header --classify --group --color-scale --color=always --ignore-glob='.git|.DS_Store'"
 # export EXA_STRICT="1"
+
+local EXA_FLAGS="--long --all --header --classify --group --color-scale --color=always --ignore-glob='.git|.DS_Store'"
 
 alias l="exa $EXA_FLAGS"
 alias lb="exa $EXA_FLAGS --sort=size"
@@ -21,3 +22,5 @@ alias larr="exa $EXA_FLAGS --extended --links --tree --recurse --level=3"
 alias larrr="exa $EXA_FLAGS --extended --links --tree --recurse --level=4"
 alias larrrr="exa $EXA_FLAGS --extended --links --tree --recurse --level=5"
 alias lara="exa $EXA_FLAGS --extended --links --tree --recurse"
+
+unset EXA_FLAGS

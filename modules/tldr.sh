@@ -5,7 +5,7 @@ alias tlls="tldr --list"
 alias tls="tldr --list | sed --unbuffered --regexp-extended 's/, /\n/g' | grep"
 
 function how() {
-	local output="$(howdoi --color --all --num-answers=3 "$@")"
+	local output="$(howdoi --color --all --num-answers=5 "$@")"
 	for i in "${@}"; do
 		output="$(echo "$output" | rgp "$i")"
 	done

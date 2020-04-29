@@ -1,9 +1,8 @@
 export BAT_PAGER="never"
 export BAT_THEME="Monokai Pro Classic"
-export BAT_FLAGS="--color=always --italic-text=always --decorations=always --tabs=0 --paging=$BAT_PAGER --wrap=never --theme='$BAT_THEME'"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
-alias bat="bat $BAT_FLAGS --style=header,grid"
+alias bat="bat --color=always --italic-text=always --decorations=always --tabs=0 --paging=$BAT_PAGER --wrap=never --theme='$BAT_THEME' --style=header,grid"
 alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias batt="bat --style=header,grid,numbers"
 # alias bbat="bat --style=header,grid,numbers"

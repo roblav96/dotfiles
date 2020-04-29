@@ -1,10 +1,12 @@
-export FD_FLAGS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
+local FD_FLAGS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
 
 alias f="fd $FD_FLAGS --fixed-strings --exclude='node_modules'"
 alias fa="fd $FD_FLAGS --fixed-strings --no-ignore --full-path --follow"
 
 alias fgl="fd $FD_FLAGS --glob --exclude='node_modules'"
 alias fagl="fd $FD_FLAGS --glob --no-ignore --full-path --follow"
+
+unset FD_FLAGS
 
 # function frm() {
 # 	f $@ --exec-batch zsh -ic 'rm -rfv "$@"'

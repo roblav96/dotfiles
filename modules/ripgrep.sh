@@ -1,7 +1,7 @@
-export RG_FLAGS="--color=always --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
+local RG_FLAGS="--color=always --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
 # --colors=match:bg:16 --colors=path:bg:16
 # --colors=path:fg:green --colors=path:style:bold
-export RG_MAX_COLUMNS_FLAGS="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
+local RG_MAX_COLUMNS_FLAGS="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias r="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
@@ -22,10 +22,13 @@ alias rgg="rg --color=always --smart-case --fixed-strings"
 alias rgw="rg --color=always --smart-case --fixed-strings --word-regexp"
 alias rgx="rg --color=always --smart-case --regexp"
 
-# alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
-# alias r="rg --color=always --smart-case"
+unset RG_FLAGS
+unset RG_MAX_COLUMNS_FLAGS
 
 alias rgls="rg --type-list"
+
+# alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
+# alias r="rg --color=always --smart-case"
 
 # function r() { rg "$1" ${@:2} --smart-case }
 # function ra() { rg -uu "$1" ${@:2} --smart-case }

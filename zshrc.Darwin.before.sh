@@ -1,7 +1,7 @@
-export EDITOR="subl"
-export VEDITOR="subl"
-export VISUAL="subl"
-export BUNDLE_EDITOR="subl"
+export EDITOR="nano"
+export VEDITOR="nano"
+export VISUAL="nano"
+export BUNDLE_EDITOR="nano"
 
 # export RMATE_HOST="localhost"
 # export RMATE_PORT="52699"
