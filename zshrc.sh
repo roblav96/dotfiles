@@ -183,7 +183,7 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --color-output --sort-keys --tab"
 alias j="json"
 
-alias http="echo; https --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
+alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --alternate --verbose --num-connections=4 --timeout=5"
 alias wget="wget --no-verbose --show-progress --connect-timeout=5"
 alias curl="curl --silent --show-error --connect-timeout 5"
