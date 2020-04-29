@@ -227,8 +227,4 @@ function bupg.node() {
 function bcupg.chrome() {
 	find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
 	echo "✅ Disabled launch agents"
-	# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} && echo "✅ Disabled {}" || echo "✅ Already disabled {}" \;
-	# for plist in $HOME/Library/LaunchAgents/com.google.*.plist; do
-	# 	echo "🌕 plist -> '$plist'"
-	# done
 }
