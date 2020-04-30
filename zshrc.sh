@@ -299,7 +299,8 @@ test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speed-test.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtube-dl.sh"
 
-autoload -U compinit && compinit
+compinit -d "${ZSH_COMPDUMP}"
+# autoload -U compinit && compinit
 # autoload -U bashcompinit && bashcompinit
 
 # autoload -U promptinit; promptinit

@@ -8,15 +8,16 @@ alias fagl="fd $FD_FLAGS --glob --no-ignore --full-path --follow"
 
 unset FD_FLAGS
 
+# function fbat() {
+# 	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
+# }; [[ "$PLATFORM" == "Darwin" ]] && compdef fbat=fd
+# function fprettier() {
+# 	f --type=file $@ --exec-batch zsh -ic 'prettier --write "$@"'
+# }; [[ "$PLATFORM" == "Darwin" ]] && compdef fprettier=fd
+
 # function frm() {
 # 	f $@ --exec-batch zsh -ic 'rm -rfv "$@"'
 # }
-function fbat() {
-	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
-}; [[ "$PLATFORM" == "Darwin" ]] && compdef fbat=fd
-function fprettier() {
-	f --type=file $@ --exec-batch zsh -ic 'prettier --write "$@"'
-}; [[ "$PLATFORM" == "Darwin" ]] && compdef fprettier=fd
 
 # function f() { fd "$1" ${@:2} --color=always }
 # | grep "$1" --ignore-case --color=always }
