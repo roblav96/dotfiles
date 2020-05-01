@@ -10,6 +10,8 @@ alias sc-status="systemctl --full status"
 
 alias pst="pstree -achls"
 
+alias nftl="sudo nft list ruleset --handle | bat -l conf"
+
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
 
