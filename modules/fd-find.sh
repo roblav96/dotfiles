@@ -8,6 +8,18 @@ alias fagl="fd $FD_FLAGS --glob --no-ignore --full-path --follow"
 
 unset FD_FLAGS
 
+# # alias snakecase='fd --fixed-strings --exec mv "{}"'
+# function snakecase() {
+# 	for file in "$@"; do
+# 		if [[ -f "$file" ]]; then
+# 			# echo "🌕 file -> '$file'"
+# 			local base="$(basename "$file")"
+# 			echo "🌕 base -> '$base'"
+# 		fi
+# 	done
+# 	unset file
+# }
+
 # function fbat() {
 # 	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
 # }; [[ "$PLATFORM" == "Darwin" ]] && compdef fbat=fd

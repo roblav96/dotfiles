@@ -5,14 +5,17 @@ source "$DOTFILES/modules/sublime-text.sh"
 
 alias pst="pstree -w"
 
+alias rmtrash="rm -rfv $HOME/.Trash/*; rm -rfv $HOME/.Trash/.*"
 alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{}"'
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 
 alias rmxattr="sudo xattr -rc"
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
+
 alias hosts="sudo subl --new-window /etc/hosts"
-alias hosts-flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias rmtrash="rm -rfv $HOME/.Trash/*; rm -rfv $HOME/.Trash/.*"
+alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias paths="sudo subl --new-window /etc/paths"
+alias profile="sudo subl --new-window /etc/zprofile /etc/profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"
