@@ -3,6 +3,10 @@ alias systemctl="systemctl --no-pager"
 
 unalias sc-status &>/dev/null
 alias sc-status="systemctl --full status"
+unalias sc-list-units &>/dev/null
+alias sc-list-units="systemctl --all list-units"
+unalias sc-list-unit-files &>/dev/null
+alias sc-list-unit-files="systemctl --all list-unit-files"
 
 alias pst="pstree -achls"
 
