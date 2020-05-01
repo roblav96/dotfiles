@@ -23,9 +23,11 @@ function ipinfo() {
 }
 alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
 
-function dns() {
-	nslookup "google.com" | head -n2
-	scutil --dns | grep -A99 --color=never 'for scoped queries' | tail -n+3
+function dnsinfo() {
+	echo; echo "🌕 nslookup google.com"
+	nslookup -all "google.com"
+	if [[ "$PLATFORM" == "Darwin" ]]; then
+		echo "🌕 scutil --dns"
+		scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)'
+	fi
 }
-alias dnsinfo="scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)'"
-alias dnsinfoall="scutil --dns"
