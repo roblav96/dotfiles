@@ -97,7 +97,7 @@ setopt rm_star_silent
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
 
-alias bindkey-debug="echo press key to observe key codes:; cat -v"
+alias bindkey-debug="echo press key to observe key codes; echo; cat --show-nonprinting"
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
