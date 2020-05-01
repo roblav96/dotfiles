@@ -16,6 +16,7 @@ alias hosts="sudo subl --new-window /etc/hosts"
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias paths="sudo subl --new-window /etc/paths"
 alias profile="sudo subl --new-window /etc/zprofile /etc/profile"
+alias sshconfig="subl --new-window $HOME/.ssh/config"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"

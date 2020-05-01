@@ -1,3 +1,6 @@
+export NODE_OPTIONS="--max-old-space-size=2048"
+export NODE_REPL_HISTORY=""
+
 # alias n="npm"
 alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
