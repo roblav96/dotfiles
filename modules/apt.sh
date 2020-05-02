@@ -18,6 +18,11 @@ function aptlsa() {
 	apt list --installed 2>/dev/null
 }
 
+function manapt() {
+	[[ $# -eq 1 ]] && debman -p "$1" "$1"
+	[[ $# -eq 2 ]] && debman -p "$1" "$2"
+}
+
 export DPKG_PAGER="cat"
 alias dpkg="dpkg --no-pager"
 alias dpkg-query="dpkg-query --no-pager"
