@@ -22,8 +22,7 @@ alias rgg="rg --color=always --smart-case --fixed-strings"
 alias rgw="rg --color=always --smart-case --fixed-strings --word-regexp"
 alias rgx="rg --color=always --smart-case --regexp"
 
-unset RG_FLAGS
-unset RG_MAX_COLUMNS_FLAGS
+unset RG_FLAGS RG_MAX_COLUMNS_FLAGS
 
 alias rgls="rg --type-list"
 
