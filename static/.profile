@@ -98,7 +98,7 @@ function readlinka() {
 
 alias tl="ch"
 function ch() {
-	curl "https://cht.sh/$*"
+	curl "http://cht.sh/$*"
 }
 function cha() {
 	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"

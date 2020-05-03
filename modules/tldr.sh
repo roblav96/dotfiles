@@ -1,8 +1,7 @@
 compdef tldr=which
 alias tl="tldr"
-alias tlupd="tldr --update"
-alias tlls="tldr --list"
-alias tls="tldr --list | sed --unbuffered --regexp-extended 's/, /\n/g' | grep"
+alias tlls="tldr --list | sed 's/, /\n/g'"
+alias tls="tldr --list | sed 's/, /\n/g' | grep"
 
 function how() {
 	local output="$(howdoi --color --all --num-answers=5 "$@")"
@@ -36,20 +35,25 @@ if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
 		local lang="sh"
 		[[ -n $2 ]] && lang="$1"
-		curl "https://cht.sh/$*?T" | bat -l $lang
+		curl "http://cht.sh/$*?T" | bat -l $lang
+	}
+	function chp() {
+		curl "http://cht.sh/$*?T"
 	}
 	function cha() {
 		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat -l sh
 	}
 else
 	function ch() {
-		curl "https://cht.sh/$*"
+		curl "http://cht.sh/$*"
 	}
 	function cha() {
 		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
 	}
 fi
 [[ ! -x "$(which -p tldr)" ]] && alias tl="ch"
+alias chls="curl http://cht.sh/:list"
+alias chs="curl http://cht.sh/:list | grep"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"

@@ -9,8 +9,12 @@ unset TK_FLAGS TK_FLAGS_ALL
 
 alias diskus="diskus --verbose"
 
-alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
-alias dusta="command dust --ignore-directory .git"
+alias dust="command dust --ignore-directory='.git' --depth=1"
+alias dustr="command dust --ignore-directory='.git' --depth=2"
+alias dustra="command dust --ignore-directory='.git'"
+alias dusta="command dust"
+# alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
+# alias dusta="command dust --ignore-directory .git"
 # alias dust="dust --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
 # export DUST_FLAGS= --reverse"
 # alias dust="command dust $DUST_FLAGS --depth=1"
