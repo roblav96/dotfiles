@@ -4,6 +4,20 @@ alias colorls="spectrum_ls | head -n 16"
 alias colorls-bg="spectrum_bls | head -n 16"
 alias colorls-spectrum="spectrum_ls"
 alias colorls-spectrum-bg="spectrum_bls"
+alias colorls-codes="echo '
+ 1	bold
+ 2	dim
+ 3	italic
+ 4	underline
+
+31	red
+32	green
+33	yellow
+34	blue
+35	purple
+36	cyan
+37	white
+'"
 
 # alias color-FG="echo '$FG'"
 # alias color-BG="echo '$BG'"
