@@ -94,6 +94,8 @@ function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files formula -> '$v'"
 		brew list "$v"
+		echo
+		lara "$(brew --prefix)/opt/$v/"
 	done
 }
 function bjson() {
