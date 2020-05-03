@@ -160,9 +160,9 @@ test -x "$(which curl)" && alias curl="curl --silent --show-error --connect-time
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which htop)" && source "$DOTFILES/modules/htop.sh"
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
-test -x "$(which subl)" && source "$DOTFILES/modules/sublime-text.sh"
+test -x "$(which subl)" && source "$DOTFILES/modules/sublimetext.sh"
 test -x "$(which tc)" && source "$DOTFILES/modules/tc.sh"
-test -x "$(which wget)" && source "$DOTFILES/modules/speed-test.sh"
+test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 
 # alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
