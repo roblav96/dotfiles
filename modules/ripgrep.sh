@@ -24,6 +24,8 @@ alias rgx="rg --color=always --smart-case --regexp"
 
 unset RG_FLAGS RG_MAX_COLUMNS_FLAGS
 
+unalias g &>/dev/null
+alias g="rg --color=always --smart-case --fixed-strings"
 alias rgls="rg --type-list"
 
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
