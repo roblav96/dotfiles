@@ -1,10 +1,14 @@
-local FD_FLAGS="--color=always --hidden --exclude='.git' --exclude='.DS_Store'"
+local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
+alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
+alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 
-alias f="fd $FD_FLAGS --fixed-strings --exclude='node_modules'"
-alias fa="fd $FD_FLAGS --fixed-strings --no-ignore --full-path --follow"
+local FD_FLAGS="$FD_FLAGS --no-ignore --full-path --follow"
+alias fa="fd $FD_FLAGS --fixed-strings"
+alias fagl="fd $FD_FLAGS --glob"
 
-alias fgl="fd $FD_FLAGS --glob --exclude='node_modules'"
-alias fagl="fd $FD_FLAGS --glob --no-ignore --full-path --follow"
+if [[ "${PLATFORM##*/}" == "Linux" ]]; then
+	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/home --exclude=/proc --exclude=/sys"
+fi
 
 unset FD_FLAGS
 
