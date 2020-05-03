@@ -21,5 +21,4 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 # alias .du="du -d 1 -h"
 
 alias dff="df -h"
-alias dfc="dfc -c always -q mount -f -T -m"
-# alias dfc="dfc -d -T -f -c always -q type"
+alias dfc="dfc -c always -q mount -f -T -m -l"
