@@ -25,7 +25,7 @@ function npmrm() {
 	npm uninstall "$@" "@types/$@"
 }
 function npmv() {
-	npm info --json $@ | jq --color-output --tab '.time'
+	npm info --json "$@" | jq --color-output --tab '.time'
 }
 
 [[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm"; alias fpm="final-pm"
