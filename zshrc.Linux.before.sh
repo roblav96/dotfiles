@@ -14,6 +14,10 @@ export VISUAL="nano"
 # 	export VISUAL="nano"
 # fi
 
+if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+	alias brew="$HOME/.linuxbrew/bin/brew"
+fi
+
 # if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
 # 	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
 # 	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
