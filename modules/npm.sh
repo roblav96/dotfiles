@@ -1,4 +1,4 @@
-export NODE_NO_WARNINGS="1"
+# export NODE_NO_WARNINGS="1"
 export NODE_OPTIONS="--max-old-space-size=2048"
 export NODE_REPL_HISTORY=""
 
