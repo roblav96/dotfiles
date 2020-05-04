@@ -95,7 +95,7 @@ function bfs() {
 		echo; echo "🌕 Files formula -> '$v'"
 		brew list "$v"
 		echo
-		lara "$(brew --prefix)/opt/$v/"
+		lara --ignore-glob='.git|.DS_Store|.bottle' "$(brew --prefix)/opt/$v/"
 	done
 }
 function bjson() {
