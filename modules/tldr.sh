@@ -1,5 +1,5 @@
 compdef tldr=which
-alias tl="tldr"
+alias tl="tldr --quiet"
 alias tlls="tldr --list | sed 's/, /\n/g'"
 alias tls="tldr --list | sed 's/, /\n/g' | grep"
 
