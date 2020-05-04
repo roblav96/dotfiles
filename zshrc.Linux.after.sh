@@ -12,6 +12,11 @@ alias pst="pstree -achls"
 
 alias nftl="sudo nft list ruleset --handle | bat -l conf"
 
+if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+	alias brew="$HOME/.linuxbrew/bin/brew"
+	source "$DOTFILES/modules/homebrew.sh"
+fi
+
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
 
