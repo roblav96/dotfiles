@@ -34,9 +34,13 @@ else
 	alias fpm="pnpx final-pm"
 fi
 
+[[ ! -x "$(which -p forever)" ]] && alias forever="pnpx forever"
+[[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
+[[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx tsc"
+
 # alias forever="npx forever"
 # alias pm2="npx pm2"
-alias tsc="npx tsc"
+# alias tsc="npx tsc"
 
 alias vue="npx vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 npx vue-cli-service inspect"
