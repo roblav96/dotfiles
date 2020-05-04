@@ -28,15 +28,18 @@ function npmv() {
 	npm info --json $@ | jq --color-output --tab '.time'
 }
 
-if [[ -x "$(which -p final-pm)" ]]; then
-	alias fpm="final-pm"
-else
-	alias fpm="pnpx final-pm"
-fi
+# if [[ -x "$(which -p final-pm)" ]]; then
+# 	alias fpm="final-pm"
+# else
+# 	alias fpm="pnpx final-pm"
+# fi
 
 [[ ! -x "$(which -p forever)" ]] && alias forever="pnpx forever"
 [[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
 [[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx tsc"
+[[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm"
+alias fpm="final-pm"
+
 
 # alias forever="npx forever"
 # alias pm2="npx pm2"
