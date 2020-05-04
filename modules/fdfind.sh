@@ -10,7 +10,7 @@ if [[ "${PLATFORM##*/}" == "Linux" ]]; then
 	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
 fi
 if [[ "${PLATFORM##*/}" == "Darwin" ]]; then
-	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/Users"
+	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/Applications --exclude=/private --exclude=/System --exclude=/Users"
 fi
 
 unset FD_FLAGS
