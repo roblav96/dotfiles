@@ -36,7 +36,8 @@ function npmv() {
 
 [[ ! -x "$(which -p forever)" ]] && alias forever="pnpx forever"
 [[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
-[[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx tsc"
+[[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx --package typescript tsc"
+
 [[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm"
 alias fpm="final-pm"
 
