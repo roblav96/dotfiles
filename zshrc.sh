@@ -200,8 +200,6 @@ fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 
-# function ipcalc() { npx -q ipcalc-cli $@ | grep Net --color=never | tail -n 4 }
-
 alias p="ps auxww | grep --invert-match grep | grep"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
