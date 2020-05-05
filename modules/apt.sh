@@ -24,8 +24,8 @@ function manapt() {
 }
 
 export DPKG_PAGER="cat"
-alias dpkg="dpkg --no-pager"
-alias dpkg-query="dpkg-query --no-pager"
+# alias dpkg="dpkg --no-pager"
+# alias dpkg-query="dpkg-query --no-pager"
 
 alias dpkgi="dpkg-query --status"
 alias dpkgls="dpkg-query --show | column -t"
