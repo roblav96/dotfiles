@@ -155,8 +155,6 @@ alias archey="archey --offline"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-[[ -x "/usr/local/opt/ipcalc/bin/ipcalc" ]] && alias ipcalc="ipcalc -b"
-
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias zcomp="rm -v $HOME/.zcomp*; exit"
 alias abupd="antibody update; zcomp"
