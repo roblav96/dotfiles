@@ -90,6 +90,9 @@ function bci() {
 	done
 }
 
+function bcd() {
+	cd "$(brew --prefix)/opt/$1"
+}
 function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files formula -> '$v'"
