@@ -298,8 +298,8 @@ test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
 
 function dotcompinit() {
-	echo "🌕 dotcompinit"
-	echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
+	# echo "🌕 dotcompinit"
+	# echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
 	[[ ! -z "$ZSH_COMPDUMP_EXISTS" ]] && return 0
 	local zcompdump_metadata="$(command grep '^#omz' "$ZSH_COMPDUMP" 2>/dev/null)"
 	compinit -d "${ZSH_COMPDUMP}"
