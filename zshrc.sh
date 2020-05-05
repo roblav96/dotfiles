@@ -187,7 +187,7 @@ alias j="json"
 alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --alternate --verbose --num-connections=4 --timeout=5"
 alias wget="wget --no-verbose --show-progress --connect-timeout=5"
-alias curl="curl --silent --show-error --connect-timeout 5"
+alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
 	curl "$@" | json
@@ -255,14 +255,11 @@ function readlinka() {
 # }
 
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
-# alias ffprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
+# alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams $@ | json | rg --passthru --ignore-case --regexp='".*_frame_.*"'
-	}
-	if [[ "$PLATFORM" == "Darwin" ]]; then
-		compdef fprobe=ffprobe
-	fi
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
+	}; compdef fprobe=ffprobe
 fi
 
 source "$DOTFILES/modules/disk.sh"

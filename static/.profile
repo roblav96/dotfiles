@@ -155,7 +155,7 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 fi
 
 test -x "$(which wget)" && alias wget="wget --no-verbose --show-progress --connect-timeout=5"
-test -x "$(which curl)" && alias curl="curl --silent --show-error --connect-timeout 5"
+test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which htop)" && source "$DOTFILES/modules/htop.sh"
