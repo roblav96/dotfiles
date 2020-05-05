@@ -201,6 +201,7 @@ if [[ -x "$(which -p rmate)" ]]; then
 fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
+alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
 alias p="ps auxww | grep --invert-match grep | grep"
 # function p() {
@@ -256,7 +257,6 @@ function readlinka() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 # alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
@@ -304,7 +304,7 @@ function dotcompinit() {
 	local zcompdump_metadata="$(command grep '^#omz' "$ZSH_COMPDUMP" 2>/dev/null)"
 	compinit -d "${ZSH_COMPDUMP}"
 	echo "\n$zcompdump_metadata" >>! "$ZSH_COMPDUMP"
-	echo "✅ dotcompinit"
+	echo; echo "✅ dotcompinit"
 }
 # compinit -d "${ZSH_COMPDUMP}"
 # autoload -U compinit && compinit
