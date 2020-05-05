@@ -102,3 +102,6 @@ function dotpush() {
 	git push origin master
 	cd "$OLDPWD"
 }
+
+# echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
+# unset DOTBENCH

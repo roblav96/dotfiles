@@ -1,3 +1,6 @@
+# export DOTBENCH="$(date +%s%3N)"
+# echo "🌕 $PLATFORM before"
+
 export EDITOR="nano"
 export VEDITOR="nano"
 export VISUAL="nano"
@@ -13,6 +16,8 @@ export SDKROOT="macosx10.14"
 # export JAVA_HOME="$(/usr/libexec/java_home)"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
+
+[[ -x "/usr/local/opt/ipcalc/bin/ipcalc" ]] && alias ipcalc="ipcalc --nobinary"
 
 if [[ -d "/usr/local/opt/openssl" ]]; then
 	export OPENSSL_DIR="/usr/local/opt/openssl"
