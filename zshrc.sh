@@ -138,7 +138,6 @@ alias commandsls="echo \$commands | sed 's/ \//\n\//g' | sortt"
 # alias commandsls="print -l \$commands | sortt"
 alias functionsls="functions"
 alias rc="rclone"
-alias ipc="ipcalc -b"
 alias dims='echo $COLUMNS x $LINES'
 alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | batrb"
@@ -155,6 +154,8 @@ alias archey="archey --offline"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+[[ -x "/usr/local/opt/ipcalc/bin/ipcalc" ]] && alias ipcalc="ipcalc -b"
 
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias zcomp="rm -v $HOME/.zcomp*; exit"
