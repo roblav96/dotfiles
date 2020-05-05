@@ -7,10 +7,10 @@ alias fa="fd $FD_FLAGS --fixed-strings"
 alias fagl="fd $FD_FLAGS --glob"
 
 if [[ "${PLATFORM##*/}" == "Linux" ]]; then
-	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
+	alias fr="fd $FD_FLAGS --fixed-strings --absolute-path --base-directory=/ --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
 fi
 if [[ "${PLATFORM##*/}" == "Darwin" ]]; then
-	alias fr="fd $FD_FLAGS --base-directory=/ --absolute-path --exclude=/Applications --exclude=/private --exclude=/System --exclude=/Users"
+	alias fr="fd $FD_FLAGS --fixed-strings --absolute-path --base-directory=/ --exclude=/Applications --exclude=/private --exclude=/System --exclude=$HOME/Library/Containers"
 fi
 
 unset FD_FLAGS

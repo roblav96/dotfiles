@@ -2,6 +2,9 @@
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
+[[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
+export ZSH_COMPDUMP_EXISTS="$(echo $HOME/.zcomp*)" 2>/dev/null
+
 if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 	if echo $PATH | grep --quiet --fixed-strings "$HOME/.nix-profile/bin"; then
@@ -156,7 +159,7 @@ alias archey="archey --offline"
 # alias man="man -P more"
 
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
-alias zcomp="rm -v $HOME/.zcomp*; exit"
+alias zcomp="command rm -v $HOME/.zcomp*; exit"
 alias abupd="antibody update; zcomp"
 alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
 
@@ -294,7 +297,16 @@ test -x "$(which -p tc)" && source "$DOTFILES/modules/tc.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
 
-compinit -d "${ZSH_COMPDUMP}"
+function dotcompinit() {
+	# echo "🌕 dotcompinit"
+	# echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
+	[[ ! -z "$ZSH_COMPDUMP_EXISTS" ]] && return 0
+	local zcompdump_metadata="$(command grep '^#omz' "$ZSH_COMPDUMP" 2>/dev/null)"
+	compinit -d "${ZSH_COMPDUMP}"
+	echo "\n$zcompdump_metadata" >>! "$ZSH_COMPDUMP"
+	echo "✅ dotcompinit"
+}
+# compinit -d "${ZSH_COMPDUMP}"
 # autoload -U compinit && compinit
 # autoload -U bashcompinit && bashcompinit
 

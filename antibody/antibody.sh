@@ -8,6 +8,8 @@ RobSis/zsh-completion-generator
 trapd00r/LS_COLORS kind:fpath
 mafredri/zsh-async
 caarlos0/zsh-mkc
+# agkozak/zhooks
+# agkozak/zsh-z
 rupa/z
 changyuheng/fz
 # changyuheng/zsh-interactive-cd
