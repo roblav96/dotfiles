@@ -10,6 +10,7 @@ alias colorls-codes="echo '
  3	italic
  4	underline
 
+30	black
 31	red
 32	green
 33	yellow

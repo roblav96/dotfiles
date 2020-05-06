@@ -1,19 +1,22 @@
 local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
+local FD_FLAGS_ALL="$FD_FLAGS --no-ignore --full-path --follow"
+
 alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 
-local FD_FLAGS="$FD_FLAGS --no-ignore --full-path --follow"
-alias fa="fd $FD_FLAGS --fixed-strings"
-alias fagl="fd $FD_FLAGS --glob"
+alias fa="fd $FD_FLAGS_ALL --fixed-strings"
+alias fagl="fd $FD_FLAGS_ALL --glob"
+
+alias fpathf="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\$(printf \" --search-path %q\" \"\${fpath[@]}\")"
 
 if [[ "${PLATFORM##*/}" == "Linux" ]]; then
-	alias fr="fd $FD_FLAGS --fixed-strings --absolute-path --base-directory=/ --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
+	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
 fi
 if [[ "${PLATFORM##*/}" == "Darwin" ]]; then
-	alias fr="fd $FD_FLAGS --fixed-strings --absolute-path --base-directory=/ --exclude=/Applications --exclude=/private --exclude=/System --exclude=$HOME/Library/Containers"
+	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=/Applications --exclude=/private --exclude=/System --exclude=$HOME/Library/Containers"
 fi
 
-unset FD_FLAGS
+unset FD_FLAGS FD_FLAGS_ALL
 
 # # alias snakecase='fd --fixed-strings --exec mv "{}"'
 # function snakecase() {
