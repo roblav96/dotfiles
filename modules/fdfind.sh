@@ -7,7 +7,7 @@ alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 alias fa="fd $FD_FLAGS_ALL --fixed-strings"
 alias fagl="fd $FD_FLAGS_ALL --glob"
 
-alias fpathf="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 if [[ "${PLATFORM##*/}" == "Linux" ]]; then
 	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www"
