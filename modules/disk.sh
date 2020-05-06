@@ -1,9 +1,9 @@
 local TK_FLAGS="--sort=code --exclude=.git"
 local TK_FLAGS_ALL="--hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
 alias tk="tokei $TK_FLAGS --exclude=node_modules"
+alias tkf="tokei $TK_FLAGS --exclude=node_modules --files"
 alias tka="tokei $TK_FLAGS $TK_FLAGS_ALL"
-alias tkf="tokei $TK_FLAGS --files --exclude=node_modules"
-alias tkfa="tokei $TK_FLAGS --files $TK_FLAGS_ALL"
+alias tkaf="tokei $TK_FLAGS $TK_FLAGS_ALL --files"
 alias tkls="tokei --languages"
 unset TK_FLAGS TK_FLAGS_ALL
 
