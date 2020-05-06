@@ -24,7 +24,7 @@ function ipinfo() {
 alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
 
 function dnsinfo() {
-	echo; echo "🌕 nslookup ${1:-google.com}"
+	echo; echo "🌕 nslookup -all ${1:-google.com}"
 	nslookup -all "${1:-google.com}"
 	if [[ "$PLATFORM" == "Darwin" ]]; then
 		echo "🌕 scutil --dns"

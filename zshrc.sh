@@ -264,6 +264,15 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
 	}; which -w _ffprobe &>/dev/null && compdef fprobe=ffmpeg
 fi
+if [[ -x "$(which -p ffmpeg)" ]]; then
+	function ftomp3() {
+		for file in "$@"; do
+			if [[ -f "$file" ]]; then
+				ffmpeg -i "$file" -vn -b:a 320k "$file.mp3"
+			fi
+		done
+	}
+fi
 
 source "$DOTFILES/modules/disk.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"

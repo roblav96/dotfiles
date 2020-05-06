@@ -97,7 +97,11 @@ function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files formula -> '$v'"
 		brew list "$v"
-		echo
+	done
+}
+function bfsa() {
+	for v in "$@"; do
+		echo; echo "🌕 All files formula -> '$v'"
 		lara --ignore-glob='.git|.DS_Store|.bottle' "$(brew --prefix)/opt/$v/"
 	done
 }
