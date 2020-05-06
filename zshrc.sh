@@ -262,7 +262,7 @@ function readlinka() {
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
-	}; compdef fprobe=ffprobe
+	}; which -w _ffprobe &>/dev/null && compdef fprobe=ffmpeg
 fi
 
 source "$DOTFILES/modules/disk.sh"
