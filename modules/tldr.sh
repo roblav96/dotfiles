@@ -1,10 +1,19 @@
-compdef tldr=which
-# alias tl="tldr --quiet"
-function tl() {
-	tldr --quiet "$1" || ch "$1"
-}; compdef tl=which
-alias tlls="tldr --list | sed 's/, /\n/g'"
-alias tls="tldr --list | sed 's/, /\n/g' | grep"
+if [[ -x "$(which -p tldr)" ]]; then
+	export TEALDEER_CACHE_DIR="$HOME/.cache/tealdeer"
+	if [[ ! -d "$TEALDEER_CACHE_DIR" ]]; then
+		echo "🌕 mkdir -> '$TEALDEER_CACHE_DIR'"
+		mkdir -p "$TEALDEER_CACHE_DIR"
+		tldr --update
+	fi
+	function tl() {
+		tldr --quiet "$1" || ch "$1"
+	}; compdef tl=which
+	alias tlls="tldr --list | sed 's/, /\n/g'"
+	alias tls="tldr --list | sed 's/, /\n/g' | grep"
+	# function tlsr() {
+	# 	rg --files-with-matches --smart-case --fixed-strings "$@"
+	# }
+fi
 
 function how() {
 	local output="$(howdoi --color --all --num-answers=5 "$@")"
