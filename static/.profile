@@ -6,8 +6,9 @@ if [[ -n "$BASH_VERSION" ]]; then
 	fi
 fi
 
-test -e "$DOTFILES/.env" && source "$DOTFILES/.env"
-test -x "$(which tabs)" && tabs -4
+[[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
+[[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
+[[ -x "$(which tabs)" ]] && tabs -4
 
 # set completion-ignore-case on
 # set completion-query-items 256
@@ -75,7 +76,7 @@ function f() {
 	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
-	grep --no-messages --ignore-case --fixed-strings $@ --recursive .
+	grep --no-messages --ignore-case --fixed-strings "$@" --recursive .
 }
 
 function show() {
@@ -158,6 +159,7 @@ test -x "$(which wget)" && alias wget="wget --no-verbose --show-progress --conne
 test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
+# test -x "$(which curl)" && source "$DOTFILES/modules/tldr.sh"
 test -x "$(which htop)" && source "$DOTFILES/modules/htop.sh"
 test -x "$(which ip)" && source "$DOTFILES/modules/ip.sh"
 test -x "$(which subl)" && source "$DOTFILES/modules/sublimetext.sh"
