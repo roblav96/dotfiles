@@ -230,10 +230,7 @@ function bin-linux() {
 			if [[ "$other" == "share" || "$other" == "libexec/lib" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
 				local file; for file in "${finds[@]}"; do
-					echo "🌕 file -> '$file'"
-					echo "🌕 prefix -> '$prefix'"
 					local relative="${file/$prefix//usr/local}"
-					echo "🌕 relative -> '$relative'"
 					remove="$remove sudo rm -fv '${relative/$other/$tail}';"
 				done
 			fi
