@@ -7,15 +7,20 @@
 # echo "🌕 SHELL -> '$SHELL'"; echo
 # echo "🌕 HOME -> '$HOME'"; echo
 
+if [[ ! -f "$0" ]]; then
+	echo "🔴 Invalid directory of script -> '$0'"
+	return 1
+fi
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 
 ZSHRC="$HOME/.zshrc"
-if [[ -z "$HOME" ]]; then
-	ZSHRC="$(dirname "$DOTFILES")/.zshrc"
-fi
-PLATFORM="${$(uname -o)##*/}"
+[[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
+ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo true)"
 
-[[ "$PLATFORM" != "Darwin" ]] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
+PLATFORM="${$(uname -o)##*/}"
+if [[ "$PLATFORM" != "Darwin" ]]; then
+	(cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
+fi
 
 echo > $ZSHRC
 echo "export PLATFORM='$PLATFORM'" >> $ZSHRC
