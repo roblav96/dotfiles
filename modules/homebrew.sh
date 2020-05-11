@@ -208,8 +208,8 @@ function bin.linux() {
 	[[ ! -d "$prefix" ]] && return
 	for v in $prefix/*; do
 		v="$(readlink -f $v)"
-		echo 'chmod -v u+w "$v"'
-		echo 'sudo cp "$v" "/usr/bin"'
+		echo "'chmod -v u+w "$v"'"
+		echo "'sudo cp "$v" "/usr/bin"'"
 	done
 }; compdef bin.linux=command
 
