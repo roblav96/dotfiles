@@ -42,10 +42,7 @@ function bin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing formula -> '$v'"
 		brew install "$v"
-		if [[ "${PLATFORM##*/}" == "Linux" ]]; then
-			echo; bfsa "$v"
-			echo; bin.linux "$v"
-		fi
+		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcin() {
@@ -72,11 +69,7 @@ function bupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading formula -> '$v'"
 		brew upgrade "$v"
-		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux
-		if [[ "${PLATFORM##*/}" == "Linux" ]]; then
-			echo; bfsa "$v"
-			echo; bin.linux "$v"
-		fi
+		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcupg() {
@@ -215,10 +208,12 @@ function bin-linux() {
 	[[ -z "$prefix" ]] && return
 	prefix="$prefix/bin"
 	[[ ! -d "$prefix" ]] && return
+	bfsa "$1"
 	local output=""
 	for v in $prefix/*; do
 		output="$output sudo cp -v '$(realpath $v)' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
 	done
+	echo; echo "🌕 bin-linux -> '$1'"
 	echo "$output"
 }
 
