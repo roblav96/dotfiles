@@ -19,7 +19,7 @@ if [[ -x "$(which -p tldr)" ]]; then
 	}
 	function tl() {
 		tldr --quiet "$@" || ch "$@"
-	}; compdef tl=which
+	}; compdef tl=command
 	alias tlls="tldr --list | sed 's/, /\n/g'"
 	alias tls="tldr --list | sed 's/, /\n/g' | grep"
 fi
@@ -50,7 +50,7 @@ alias hdi="howdoi --color --all"
 # alias hdi='function _hdi() { howdoi --color --all $@ }; _hdi'
 
 # alias genc="gencomp"
-compdef gencomp=which
+compdef gencomp=command
 
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {

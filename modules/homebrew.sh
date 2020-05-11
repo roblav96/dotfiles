@@ -201,6 +201,18 @@ function bsrun() {
 	echo; brew services list
 }
 
+function bin.linux() {
+	local prefix="$(brew --prefix "$1")"
+	[[ -z "$prefix" ]] && return
+	prefix="$prefix/bin"
+	[[ ! -d "$prefix" ]] && return
+	for v in $prefix/*; do
+		v="$(readlink -f $v)"
+		echo 'chmod -v u+w "$v"'
+		echo 'sudo cp "$v" "/usr/bin"'
+	done
+}; compdef bin.linux=command
+
 function bupg.sudo() {
 	local link="$(brew --prefix)/bin/$1"
 	if [[ ! -f "$link" || ! -x "$link" ]]; then
