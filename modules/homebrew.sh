@@ -211,7 +211,7 @@ function bin-linux() {
 	bfsa "$1"
 	local output=""
 	for v in $prefix/*; do
-		output="$output sudo cp -v '$(realpath $v)' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
+		output="$output sudo cp -v '$(realpath $v)' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/local/bin/${v##*/}';"
 	done
 	echo; echo "🌕 bin-linux -> '$1'"
 	echo "$output"
