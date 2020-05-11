@@ -8,7 +8,14 @@ if [[ -x "$(which -p tldr)" ]]; then
 	local TEALDEER_CACHE_DIR_PAGES="$TEALDEER_CACHE_DIR/tldr-master/pages"
 	local TEALDEER_CACHE_DIR_OS="$([[ "${PLATFORM##*/}" == "Darwin" ]] && echo "osx" || echo "linux")"
 	function tlsr() {
-		rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
+		local files=($(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | sort))
+		for file in "${files[@]}"; do
+			local name="$(basename "$file" '.md')"
+			echo "🌕 '$name'"
+			tldr "$name" | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
+		done
+		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS")"} )
+		# rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
 	}
 	function tl() {
 		tldr --quiet "$@" || ch "$@"

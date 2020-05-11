@@ -34,6 +34,8 @@ function npmv() {
 [[ ! -x "$(which -p ipcalc)" ]] && alias ipcalc="pnpx --package=ipcalc-cli ipcalc"
 [[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
 [[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx --package=typescript tsc"
+[[ ! -x "$(which -p rush)" ]] && alias rush="pnpx --package=@microsoft/rush rush"
+[[ ! -x "$(which -p rushx)" ]] && alias rushx="pnpx --package=@microsoft/rush rushx"
 
 alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"

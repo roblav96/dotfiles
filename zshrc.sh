@@ -316,6 +316,7 @@ function dotcompinit() {
 	echo "\n$zcompdump_metadata" >>! "$ZSH_COMPDUMP"
 	echo; echo "✅ dotcompinit"
 }
+
 # compinit -d "${ZSH_COMPDUMP}"
 # autoload -U compinit && compinit
 # autoload -U bashcompinit && bashcompinit
