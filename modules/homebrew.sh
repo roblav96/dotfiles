@@ -216,7 +216,7 @@ function bin-linux() {
 	local bin; for bin in "${bins[@]}"; do
 		if [[ -d "$prefix/$bin" ]]; then
 			local xfile; for xfile in $prefix/$bin/*; do
-				install="$install sudo cp -v '$xfile' '/usr/local/$bin/${xfile##*/}' && sudo chmod -v u+w '/usr/local/$bin/${xfile##*/}';"
+				install="$install sudo cp -v '$(realpath "$xfile")' '/usr/local/$bin/${xfile##*/}' && sudo chmod -v u+w '/usr/local/$bin/${xfile##*/}';"
 				remove="$remove sudo rm -fv '/usr/local/$bin/${xfile##*/}';"
 			done
 		fi
