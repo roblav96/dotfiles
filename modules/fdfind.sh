@@ -9,10 +9,10 @@ alias fagl="fd $FD_FLAGS_ALL --glob"
 
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
-if [[ "${PLATFORM##*/}" == "Linux" ]]; then
+if [[ "$PLATFORM" == "Linux" ]]; then
 	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=/home --exclude=/proc --exclude=/sys --exclude=/var/www --exclude=/var/lib/emby/cache --exclude=/var/lib/emby/metadata"
 fi
-if [[ "${PLATFORM##*/}" == "Darwin" ]]; then
+if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=/Applications --exclude=/private --exclude=/System --exclude=$HOME/Library/Containers"
 fi
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 [ -z "$DEV" ] && (cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
 BASHRC="$(cd "$(dirname "$0")/.."; pwd -P)/..bashrc"

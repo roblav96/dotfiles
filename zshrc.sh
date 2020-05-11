@@ -74,7 +74,7 @@ if [[ -x "$(which -p antibody)" ]]; then
 	# zle_highlight+=(paste:bold)
 
 	source <(antibody init)
-	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.${PLATFORM##*/}.sh" < "$DOTFILES/antibody/antibody.sh"
+	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 	# eval $(starship init zsh)
 
 	eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
@@ -158,13 +158,12 @@ alias archey="archey --offline"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
+alias src="eval 'cd $DOTFILES && git pull --quiet && git reset --quiet --hard'"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp.log"
+alias zreload="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
 alias zcomp="command rm -v $HOME/.zcomp*; exit"
 alias abupd="antibody update; zcomp"
 alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
-# if [[ -n "$ZSH_COMPLETION_GENERATOR_DIR" ]]; then
-# 	export FPATH="$ZSH_COMPLETION_GENERATOR_DIR:$FPATH"
-# fi
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
@@ -297,7 +296,7 @@ source "$DOTFILES/modules/disk.sh"
 test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$_HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
-test -x "$(which -p apt)" && [[ "${PLATFORM##*/}" != "Darwin" ]] &&  source "$DOTFILES/modules/apt.sh"
+test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] &&  source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p aws)" && source "$DOTFILES/modules/aws.sh"
 test -x "$(which -p brew)" && source "$DOTFILES/modules/homebrew.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
