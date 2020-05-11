@@ -39,7 +39,7 @@ cat $ZSHRC
 # reset
 # echo "exec $(echo "$0") -l"
 
-echo "✅ $DOTFILES/install.zsh"; echo
+echo "✅ ZSH dotfiles install"; echo
 
 
 
