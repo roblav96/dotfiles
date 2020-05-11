@@ -56,6 +56,7 @@ function brein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling formula -> '$v'"
 		brew reinstall "$v"
+		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcrein() {
@@ -160,6 +161,7 @@ function bco() {
 function brm() {
 	for v in "$@"; do
 		echo; echo "🌕 Uninstalling formula -> '$v'"
+		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux "$v"
 		brew uninstall --force "$v"
 	done
 }
@@ -205,9 +207,8 @@ function bsrun() {
 
 function bin-linux() {
 	local prefix="$(brew --prefix)/opt/$1"
-	[[ -z "$prefix" ]] && return
-	prefix="$(realpath $prefix)"
 	[[ ! -d "$prefix" ]] && return
+	prefix="$(realpath $prefix)"
 	[[ "${PLATFORM##*/}" == "Linux" ]] && bfsa "$1"
 	local install=""
 	local remove=""
