@@ -218,13 +218,13 @@ function bin-linux() {
 			done
 		fi
 	done
-	local others=('etc' 'shared')
+	local others=('etc' 'share')
 	for other in "${others[@]}"; do
 		if [[ -d "$prefix/$other" ]]; then
 			output="$output sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
 		fi
 	done
-	echo; echo "🌕 bin-linux -> '$1'"
+	echo; echo "🔶 '$1'"
 	echo "$output"
 }
 
