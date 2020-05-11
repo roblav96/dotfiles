@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # # [[ -x "$(which clear)" ]] && clear
 # echo "🌕 (env) -> '$(env)'"; echo
@@ -25,13 +25,14 @@ fi
 echo > $ZSHRC
 echo "export PLATFORM='$PLATFORM'" >> $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
-# echo "alias src='sh $DOTFILES/install.zsh.sh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> $ZSHRC
+# echo "alias src='zsh $DOTFILES/zsh-install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> $ZSHRC
 # echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> $ZSHRC
 # echo "source ~/.zinit/bin/zinit.zsh" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.$PLATFORM.before.sh' ] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> $ZSHRC
-echo "[ -f '$DOTFILES/zshrc.sh' ] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
+echo "[ -f '$DOTFILES/zshrc.zsh' ] && source '$DOTFILES/zshrc.zsh'" >> $ZSHRC
 echo "[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> $ZSHRC
 echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> $ZSHRC
+echo >> $ZSHRC
 cat $ZSHRC
 
 # clear
@@ -43,7 +44,7 @@ echo; echo '✅ .dotfiles ZSH install complete!'; echo
 
 
 # export DOTFILES=""
-# echo [ -f "$DOTFILES/zshrc.sh" ] && source "$DOTFILES/zshrc.sh" >> $ZSHRC
+# echo [ -f "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh" >> $ZSHRC
 # echo `echo '[ -f "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"'` >> $ZSHRC
 
 # mkdir -p "$DOTFILES/.bin"
@@ -76,7 +77,7 @@ echo; echo '✅ .dotfiles ZSH install complete!'; echo
 # echo "ZSHRC -> $ZSHRC"
 # cat $ZSHRC
 # # echo > $ZSHRC
-# # echo '[ -f "$DOTFILES/zshrc.sh" ] && source "$DOTFILES/zshrc.sh"' >> $ZSHRC
+# # echo '[ -f "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh"' >> $ZSHRC
 # # echo '[ -f "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"' >> $ZSHRC
 
 # DIR="${0%/*}"
