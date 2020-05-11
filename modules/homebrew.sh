@@ -72,6 +72,11 @@ function bupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading formula -> '$v'"
 		brew upgrade "$v"
+		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux
+		if [[ "${PLATFORM##*/}" == "Linux" ]]; then
+			echo; bfsa "$v"
+			echo; bin.linux "$v"
+		fi
 	done
 }
 function bcupg() {
@@ -205,19 +210,19 @@ function bsrun() {
 	echo; brew services list
 }
 
-function bin.linux() {
+function bin-linux() {
 	local prefix="$(brew --prefix "$1")"
 	[[ -z "$prefix" ]] && return
 	prefix="$prefix/bin"
 	[[ ! -d "$prefix" ]] && return
 	local output=""
 	for v in $prefix/*; do
-		output="$output sudo cp -v '$(realpath $v)' '/usr/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
+		output="$output sudo cp -v '$(realpath $v)' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
 	done
 	echo "$output"
 }
 
-function bupg.sudo() {
+function bupg-sudo() {
 	local link="$(brew --prefix)/bin/$1"
 	if [[ ! -f "$link" || ! -x "$link" ]]; then
 		echo "🔴 Command not found -> '$link'"
@@ -238,9 +243,9 @@ function bupg.sudo() {
 	echo "$output"
 	echo " $output" | clipcopy
 	echo "✅ Copied to clipboard"
-}; compdef bupg.sudo=command
+}; compdef bupg-sudo=command
 
-function bupg.node() {
+function bupg-node() {
 	local node="$(dirname "$(realpath "$(which -p node)")")"
 	local npm="$(dirname "$(realpath "$(which -p npm)")")"
 	local output="ln -sf "$npm/npm-cli.js" "$node/npm"; ln -sf "$npm/npx-cli.js" "$node/npx""
@@ -249,7 +254,7 @@ function bupg.node() {
 	echo "✅ Copied to clipboard"
 }
 
-function bcupg.chrome() {
+function bcupg-chrome() {
 	find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
 	echo "✅ Disabled launch agents"
 }

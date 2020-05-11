@@ -176,7 +176,17 @@ test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 
-alias hist="history | tail -n $(expr $(tput lines) - 10) | bat -l sh"
+# if [[ -x "$(which -p sd)" ]]; then
+# 	function .zsd() {
+# 		[[ "$#" != "2" ]] && echo "🔴 number of args '$#' != '2' -> '$*'" && return
+# 		rg --no-line-number --fixed-strings ":0;$1 "
+# 		sd --string-mode ":0;$1 " ":0;$2 " "/Users/roblav96/.playground/zsh_history.zsh"
+# 		rg --no-line-number --fixed-strings ":0;$2 "
+# 		# sd --string-mode --flags=cw "$1" "$2" "/Users/roblav96/.playground/zsh_history.zsh"
+# 		# rg --no-line-number --fixed-strings --case-sensitive --word-regexp "$2"
+# 	}; compdef .zsd=which
+# fi
+
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias aliaslss="aliasls | grep --color=never"
 alias dotcd="cd $DOTFILES"

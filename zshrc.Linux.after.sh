@@ -12,6 +12,9 @@ alias pst="pstree -achls"
 
 alias nftl="sudo nft list ruleset --handle | bat -l conf"
 
+alias .z="rmate --new --line 999999 $HOME/.z"
+alias .zsh_history="rmate --new --line 999999 $HOME/.zsh_history"
+
 if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 	alias brew="$HOME/.linuxbrew/bin/brew"
 	source "$DOTFILES/modules/homebrew.sh"
