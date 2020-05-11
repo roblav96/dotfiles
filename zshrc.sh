@@ -158,6 +158,7 @@ alias archey="archey --offline"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
+alias dotcd="cd $DOTFILES"
 alias src="zsh $DOTFILES/install.zsh"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp.log"
 alias zreload="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
@@ -192,7 +193,6 @@ test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias aliaslss="aliasls | grep --color=never"
-alias dotcd="cd $DOTFILES"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
