@@ -206,22 +206,22 @@ function bsrun() {
 function bin-linux() {
 	local prefix="$(brew --prefix "$1")"
 	[[ -z "$prefix" ]] && return
-	# prefix="$prefix/bin"
-	# [[ ! -d "$prefix/bin" ]] && return
+	prefix="$(realpath $prefix)"
+	[[ ! -d "$prefix" ]] && return
 	bfsa "$1"
 	local output=""
 	if [[ -d "$prefix/bin" ]]; then
 		for v in $prefix/bin/*; do
-			output="$output sudo cp -v '$(realpath $v)' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/local/bin/${v##*/}';"
+			output="$output sudo cp -v '$v' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/local/bin/${v##*/}';"
 		done
 	fi
 	if [[ -d "$prefix/sbin" ]]; then
 		for v in $prefix/sbin/*; do
-			output="$output sudo cp -v '$(realpath $v)' '/usr/local/sbin/${v##*/}' && sudo chmod -v u+w '/usr/local/sbin/${v##*/}';"
+			output="$output sudo cp -v '$v' '/usr/local/sbin/${v##*/}' && sudo chmod -v u+w '/usr/local/sbin/${v##*/}';"
 		done
 	fi
 	if [[ -d "$prefix/share" ]]; then
-		output="$output sudo cp -vr $prefix/share/* /usr/local/share"
+		output="$output sudo cp -vr '$prefix/share/'* '/usr/local/share';"
 	fi
 	echo; echo "🌕 bin-linux -> '$1'"
 	echo "$output"
