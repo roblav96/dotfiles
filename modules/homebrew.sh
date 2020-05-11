@@ -210,7 +210,7 @@ function bin.linux() {
 		echo "🌕 v -> '$v'"
 		local path="$(realpath $v)"
 		echo "🌕 path -> '$path'"
-		local name="$(basename $v)"
+		local name="${path##*/}"
 		echo "🌕 name -> '$name'"
 		# chmod --verbose u+w "$path"
 		# sudo cp --verbose "$path" "/usr/bin/$name"
