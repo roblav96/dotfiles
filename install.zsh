@@ -25,11 +25,11 @@ fi
 echo > $ZSHRC
 echo "export PLATFORM='$PLATFORM'" >> $ZSHRC
 echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
-# echo "alias src='zsh $DOTFILES/zsh-install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> $ZSHRC
+# echo "alias src='zsh $DOTFILES/install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> $ZSHRC
 # echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> $ZSHRC
 # echo "source ~/.zinit/bin/zinit.zsh" >> $ZSHRC
 echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> $ZSHRC
-echo "[[ -f '$DOTFILES/zshrc.zsh' ]] && source '$DOTFILES/zshrc.zsh'" >> $ZSHRC
+echo "[[ -f '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
 echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> $ZSHRC
 echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> $ZSHRC
 echo >> $ZSHRC

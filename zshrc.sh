@@ -158,7 +158,7 @@ alias archey="archey --offline"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-alias src="sh $DOTFILES/install.zsh.sh"
+alias src="sh $DOTFILES/install.zsh"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp.log"
 alias zreload="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
 alias zcomp="command rm -v $HOME/.zcomp*; exit"
