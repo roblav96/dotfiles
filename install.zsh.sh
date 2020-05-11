@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # # [[ -x "$(which clear)" ]] && clear
 # echo "🌕 (env) -> '$(env)'"; echo
