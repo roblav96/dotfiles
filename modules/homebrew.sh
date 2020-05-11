@@ -213,22 +213,22 @@ function bin-linux() {
 	local install=""
 	local remove=""
 	local bins=('bin' 'sbin')
-	for i in "${bins[@]}"; do
-		if [[ -d "$prefix/$i" ]]; then
-			for v in $prefix/$i/*; do
-				install="$install sudo cp -v '$v' '/usr/local/$i/${v##*/}' && sudo chmod -v u+w '/usr/local/$i/${v##*/}';"
-				remove="$remove sudo rm -fv '/usr/local/$i/${v##*/}';"
+	local bin; for bin in "${bins[@]}"; do
+		if [[ -d "$prefix/$bin" ]]; then
+			local xfile; for xfile in $prefix/$bin/*; do
+				install="$install sudo cp -v '$xfile' '/usr/local/$bin/${xfile##*/}' && sudo chmod -v u+w '/usr/local/$bin/${xfile##*/}';"
+				remove="$remove sudo rm -fv '/usr/local/$bin/${xfile##*/}';"
 			done
 		fi
 	done
 	local others=('etc' 'share')
-	for i in "${others[@]}"; do
-		if [[ -d "$prefix/$i" ]]; then
-			install="$install sudo cp -vr '$prefix/$i/'* '/usr/local/$i';"
-			if [[ "$i" == "share" ]]; then
-				local finds=($(find "$prefix/$i" -type f))
-				for v in "${finds[@]}"; do
-					remove="$remove sudo rm -fv '${v/$prefix//usr/local}';"
+	local other; for other in "${others[@]}"; do
+		if [[ -d "$prefix/$other" ]]; then
+			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
+			if [[ "$other" == "share" ]]; then
+				local finds=($(find "$prefix/$other" -type f))
+				local file; for file in "${finds[@]}"; do
+					remove="$remove sudo rm -fv '${file/$prefix//usr/local}';"
 				done
 			fi
 		fi
