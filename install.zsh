@@ -30,8 +30,6 @@ echo >> "$ZSHRC"
 if [[ -z "$ZSHRC_EXISTS" ]]; then
 	cat $ZSHRC
 	echo; echo "✅ ZSH dotfiles install"
-else
-	echo "$(basename "$0")"
 fi
 
 # clear
