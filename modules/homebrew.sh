@@ -43,6 +43,7 @@ function bin() {
 		echo; echo "🌕 Installing formula -> '$v'"
 		brew install "$v"
 		if [[ "${PLATFORM##*/}" == "Linux" ]]; then
+			echo; bfsa "$v"
 			echo; bin.linux "$v"
 		fi
 	done
