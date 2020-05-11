@@ -207,6 +207,7 @@ function bin.linux() {
 	prefix="$prefix/bin"
 	[[ ! -d "$prefix" ]] && return
 	for v in $prefix/*; do
+		echo "🌕 v -> '$v'"
 		local path="$(realpath $v)"
 		echo "🌕 path -> '$path'"
 		local name="$(basename $v)"
