@@ -211,8 +211,8 @@ function bin.linux() {
 		echo "🌕 path -> '$path'"
 		local name="$(basename $v)"
 		echo "🌕 name -> '$name'"
-		chmod --verbose u+w "$path"
-		sudo cp --verbose "$path" "/usr/bin/$name"
+		# chmod --verbose u+w "$path"
+		# sudo cp --verbose "$path" "/usr/bin/$name"
 	done
 }; compdef bin.linux=command
 
