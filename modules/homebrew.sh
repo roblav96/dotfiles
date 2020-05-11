@@ -160,8 +160,8 @@ function bco() {
 
 function brm() {
 	for v in "$@"; do
-		echo; echo "🌕 Uninstalling formula -> '$v'"
 		[[ "${PLATFORM##*/}" == "Linux" ]] && bin-linux "$v"
+		echo; echo "🌕 Uninstalling formula -> '$v'"
 		brew uninstall --force "$v"
 	done
 }
