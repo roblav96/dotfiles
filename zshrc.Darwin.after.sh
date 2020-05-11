@@ -89,8 +89,8 @@ function app-bak() {
 	echo; exa --oneline "$tarpath"
 }
 
-unalias src
-alias src="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec /usr/local/bin/zsh"
+unalias src &>/dev/null
+alias src="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotcd="cd $DOTFILES"
 alias dotgs='dotcd; gd; echo; gs; cd "$OLDPWD"'
