@@ -15,7 +15,7 @@ DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
 
 ZSHRC="$HOME/.zshrc"
 [[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
-ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo true)"
+ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo 1)"
 
 PLATFORM="${$(uname -o)##*/}"
 if [[ "$PLATFORM" != "Darwin" ]]; then
@@ -33,13 +33,13 @@ echo "[[ -f '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
 echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> $ZSHRC
 echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> $ZSHRC
 echo >> $ZSHRC
-cat $ZSHRC
+[[ -z "$ZSHRC_EXISTS" ]] && cat $ZSHRC
 
 # clear
 # reset
 # echo "exec $(echo "$0") -l"
 
-echo "✅ ZSH dotfiles install"; echo
+echo; echo "✅ ZSH dotfiles install"
 
 
 
