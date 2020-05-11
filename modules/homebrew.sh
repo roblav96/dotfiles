@@ -208,9 +208,7 @@ function bin.linux() {
 	[[ ! -d "$prefix" ]] && return
 	local output=""
 	for v in $prefix/*; do
-		local path="$(realpath $v)"
-		local name="${path##*/}"
-		output="$output sudo cp -v '$path' '/usr/bin/$name' && sudo chmod -v u+w '/usr/bin/$name';"
+		output="$output sudo cp -v '$(realpath $v)' '/usr/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
 	done
 	echo "$output"
 }; compdef bin.linux=command
