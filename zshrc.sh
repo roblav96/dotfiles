@@ -224,10 +224,13 @@ alias p="ps auxww | grep --invert-match grep | grep"
 
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-# alias mans="man -k"
-function mans() {
-	man -k "$*" | rgp "$*"
-}; compdef mans=man
+if [[ -x "$(which -p rg)" ]]; then
+	function mans() {
+		man -k "$*" | rgp "$*"
+	}; compdef mans=man
+else
+	alias mans="man -k"
+fi
 alias mansr="man -K"
 alias manfs="man -w"
 # function idk() {
