@@ -206,15 +206,13 @@ function bin.linux() {
 	[[ -z "$prefix" ]] && return
 	prefix="$prefix/bin"
 	[[ ! -d "$prefix" ]] && return
+	local output=""
 	for v in $prefix/*; do
-		echo "🌕 v -> '$v'"
 		local path="$(realpath $v)"
-		echo "🌕 path -> '$path'"
 		local name="${path##*/}"
-		echo "🌕 name -> '$name'"
-		# chmod --verbose u+w "$path"
-		# sudo cp --verbose "$path" "/usr/bin/$name"
+		output="$output sudo cp -v '$path' '/usr/bin/$name' && sudo chmod -v u+w '/usr/bin/$name';"
 	done
+	echo "$output"
 }; compdef bin.linux=command
 
 function bupg.sudo() {
