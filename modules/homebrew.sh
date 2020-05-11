@@ -207,9 +207,10 @@ function bin.linux() {
 	prefix="$prefix/bin"
 	[[ ! -d "$prefix" ]] && return
 	for v in $prefix/*; do
-		v="$(readlink -f $v)"
-		echo "'chmod -v u+w "$v"'"
-		echo "'sudo cp "$v" "/usr/bin"'"
+		local path="$(realpath $v)"
+		local name="$(basename $v)"
+		chmod --verbose u+w "$path"
+		sudo cp --verbose "$path" "/usr/bin/$name"
 	done
 }; compdef bin.linux=command
 
@@ -220,7 +221,7 @@ function bupg.sudo() {
 		return 1
 	fi
 	echo "🌕 link -> '$link'"
-	local cellar="$(readlink -f $link)"
+	local cellar="$(realpath $link)"
 	if [[ ! "$cellar" =~ "^$(brew --prefix).*" ]]; then
 		echo "🔴 Command not found -> '$cellar'"
 		return 1
@@ -237,8 +238,8 @@ function bupg.sudo() {
 }; compdef bupg.sudo=command
 
 function bupg.node() {
-	local node="$(dirname "$(readlink -f "$(which -p node)")")"
-	local npm="$(dirname "$(readlink -f "$(which -p npm)")")"
+	local node="$(dirname "$(realpath "$(which -p node)")")"
+	local npm="$(dirname "$(realpath "$(which -p npm)")")"
 	local output="ln -sf "$npm/npm-cli.js" "$node/npm"; ln -sf "$npm/npx-cli.js" "$node/npx""
 	echo "$output"
 	echo " $output" | clipcopy
