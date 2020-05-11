@@ -162,9 +162,8 @@ alias dotcd="cd $DOTFILES"
 alias src="zsh $DOTFILES/install.zsh"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp.log"
 alias zreload="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
-alias zcomp="command rm -v $HOME/.zcomp*; exit"
-
-alias abupd="antibody update; zcomp"
+alias zcomp="rm -fv $HOME/.zcomp* && zreload"
+alias abupd="antibody update && zcomp"
 alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
 
 # export GREP_COLOR="01;31;48;5;16"
