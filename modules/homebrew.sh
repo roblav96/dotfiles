@@ -208,7 +208,9 @@ function bin.linux() {
 	[[ ! -d "$prefix" ]] && return
 	for v in $prefix/*; do
 		local path="$(realpath $v)"
+		echo "🌕 path -> '$path'"
 		local name="$(basename $v)"
+		echo "🌕 name -> '$name'"
 		chmod --verbose u+w "$path"
 		sudo cp --verbose "$path" "/usr/bin/$name"
 	done
