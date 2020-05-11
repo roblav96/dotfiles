@@ -1,14 +1,7 @@
 #!/usr/bin/env zsh
 
-# # [[ -x "$(which clear)" ]] && clear
-# echo "🌕 (env) -> '$(env)'"; echo
-# echo "🌕 0 -> '$0'"; echo
-# echo "🌕 PATH -> '$PATH'"; echo
-# echo "🌕 SHELL -> '$SHELL'"; echo
-# echo "🌕 HOME -> '$HOME'"; echo
-
 if [[ ! -f "$0" ]]; then
-	echo "🔴 Invalid directory of script -> '$0'"
+	echo "🔴 Invalid script directory -> '$0'"
 	return 1
 fi
 DOTFILES="$(cd "$(dirname "$0")"; pwd -P)"
@@ -19,27 +12,31 @@ ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo 1)"
 
 PLATFORM="${$(uname -o)##*/}"
 if [[ "$PLATFORM" != "Darwin" ]]; then
-	(cd $DOTFILES && git pull --quiet && git reset --quiet --hard)
+	(cd "$DOTFILES" && git pull --quiet && git reset --quiet --hard)
 fi
 
-echo > $ZSHRC
-echo "export PLATFORM='$PLATFORM'" >> $ZSHRC
-echo "export DOTFILES='$DOTFILES'" >> $ZSHRC
-# echo "alias src='zsh $DOTFILES/install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> $ZSHRC
-# echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> $ZSHRC
-# echo "source ~/.zinit/bin/zinit.zsh" >> $ZSHRC
-echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> $ZSHRC
-echo "[[ -f '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> $ZSHRC
-echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> $ZSHRC
-echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> $ZSHRC
-echo >> $ZSHRC
-[[ -z "$ZSHRC_EXISTS" ]] && cat $ZSHRC
+echo > "$ZSHRC"
+echo "export PLATFORM='$PLATFORM'" >> "$ZSHRC"
+echo "export DOTFILES='$DOTFILES'" >> "$ZSHRC"
+# echo "alias src='zsh $DOTFILES/install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> "$ZSHRC"
+# echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> "$ZSHRC"
+# echo "source ~/.zinit/bin/zinit.zsh" >> "$ZSHRC"
+echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> "$ZSHRC"
+echo "[[ -f '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> "$ZSHRC"
+echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> "$ZSHRC"
+echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> "$ZSHRC"
+echo >> "$ZSHRC"
+
+if [[ -z "$ZSHRC_EXISTS" ]]; then
+	cat $ZSHRC
+	echo; echo "✅ ZSH dotfiles install"
+else
+	echo "$(basename "$0")"
+fi
 
 # clear
 # reset
 # echo "exec $(echo "$0") -l"
-
-echo; echo "✅ ZSH dotfiles install"
 
 
 
