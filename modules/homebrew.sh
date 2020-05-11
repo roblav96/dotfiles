@@ -41,7 +41,7 @@ function bs() {
 function bin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing formula -> '$v'"
-		brew install "$v"
+		brew install "$v" && [[ "${PLATFORM##*/}" == "Linux" ]] && bin.linux "$v"
 	done
 }
 function bcin() {
@@ -211,7 +211,7 @@ function bin.linux() {
 		output="$output sudo cp -v '$(realpath $v)' '/usr/bin/${v##*/}' && sudo chmod -v u+w '/usr/bin/${v##*/}';"
 	done
 	echo "$output"
-}; compdef bin.linux=command
+}
 
 function bupg.sudo() {
 	local link="$(brew --prefix)/bin/$1"
