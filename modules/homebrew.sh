@@ -210,19 +210,20 @@ function bin-linux() {
 	[[ ! -d "$prefix" ]] && return
 	bfsa "$1"
 	local output=""
-	if [[ -d "$prefix/bin" ]]; then
-		for v in $prefix/bin/*; do
-			output="$output sudo cp -v '$v' '/usr/local/bin/${v##*/}' && sudo chmod -v u+w '/usr/local/bin/${v##*/}';"
-		done
-	fi
-	if [[ -d "$prefix/sbin" ]]; then
-		for v in $prefix/sbin/*; do
-			output="$output sudo cp -v '$v' '/usr/local/sbin/${v##*/}' && sudo chmod -v u+w '/usr/local/sbin/${v##*/}';"
-		done
-	fi
-	if [[ -d "$prefix/share" ]]; then
-		output="$output sudo cp -vr '$prefix/share/'* '/usr/local/share';"
-	fi
+	local bins=('bin' 'sbin')
+	for bin in "${bins[@]}"; do
+		if [[ -d "$prefix/$bin" ]]; then
+			for v in $prefix/$bin/*; do
+				output="$output sudo cp -v '$v' '/usr/local/$bin/${v##*/}' && sudo chmod -v u+w '/usr/local/$bin/${v##*/}';"
+			done
+		fi
+	done
+	local others=('etc' 'shared')
+	for other in "${others[@]}"; do
+		if [[ -d "$prefix/$other" ]]; then
+			output="$output sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
+		fi
+	done
 	echo; echo "🌕 bin-linux -> '$1'"
 	echo "$output"
 }
