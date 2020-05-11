@@ -204,28 +204,38 @@ function bsrun() {
 }
 
 function bin-linux() {
-	local prefix="$(brew --prefix "$1")"
+	local prefix="$(brew --prefix)/opt/$1"
 	[[ -z "$prefix" ]] && return
 	prefix="$(realpath $prefix)"
 	[[ ! -d "$prefix" ]] && return
-	bfsa "$1"
-	local output=""
+	[[ "${PLATFORM##*/}" == "Linux" ]] && bfsa "$1"
+	local install=""
+	local remove=""
 	local bins=('bin' 'sbin')
-	for bin in "${bins[@]}"; do
-		if [[ -d "$prefix/$bin" ]]; then
-			for v in $prefix/$bin/*; do
-				output="$output sudo cp -v '$v' '/usr/local/$bin/${v##*/}' && sudo chmod -v u+w '/usr/local/$bin/${v##*/}';"
+	for i in "${bins[@]}"; do
+		if [[ -d "$prefix/$i" ]]; then
+			for v in $prefix/$i/*; do
+				install="$install sudo cp -v '$v' '/usr/local/$i/${v##*/}' && sudo chmod -v u+w '/usr/local/$i/${v##*/}';"
+				remove="$remove sudo rm -fv '/usr/local/$i/${v##*/}';"
 			done
 		fi
 	done
 	local others=('etc' 'share')
-	for other in "${others[@]}"; do
-		if [[ -d "$prefix/$other" ]]; then
-			output="$output sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
+	for i in "${others[@]}"; do
+		if [[ -d "$prefix/$i" ]]; then
+			install="$install sudo cp -vr '$prefix/$i/'* '/usr/local/$i';"
+			if [[ "$i" == "share" ]]; then
+				local finds=($(find "$prefix/$i" -type f))
+				for v in "${finds[@]}"; do
+					remove="$remove sudo rm -fv '${v/$prefix//usr/local}';"
+				done
+			fi
 		fi
 	done
-	echo; echo "🔶 '$1'"
-	echo "$output"
+	echo; echo "🔴 Remove '$1'"
+	echo "$remove"
+	echo; echo "✅ Install '$1'"
+	echo "$install"
 }
 
 function bupg-sudo() {

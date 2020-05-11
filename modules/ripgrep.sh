@@ -11,9 +11,6 @@ alias ral="rg $RG_FLAGS --no-ignore --stats --follow"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
 alias raal="rg $RG_FLAGS --no-ignore --stats --follow --text --search-zip -uuu"
 
-alias rf="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
-alias rfa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats"
-
 alias rgp="rg --color=always --smart-case --fixed-strings --passthru"
 alias rgpw="rg --color=always --smart-case --fixed-strings --passthru --word-regexp"
 
