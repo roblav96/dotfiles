@@ -221,7 +221,7 @@ function bin-linux() {
 			done
 		fi
 	done
-	local others=('etc' 'share' 'libexec')
+	local others=('etc' 'include' 'lib' 'libexec' 'share')
 	local other; for other in "${others[@]}"; do
 		if [[ -d "$prefix/$other" ]]; then
 			# local head="${other%%/*}"
