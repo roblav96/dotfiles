@@ -1,4 +1,4 @@
-zdharma/zsh-diff-so-fancy
+# zdharma/zsh-diff-so-fancy
 
 # ohmyzsh/ohmyzsh path:plugins/debian
 ohmyzsh/ohmyzsh path:plugins/fzf
