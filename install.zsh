@@ -15,7 +15,7 @@ ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo 1)"
 
 PLATFORM="${$(uname -o)##*/}"
 if [[ "$PLATFORM" != "Darwin" ]]; then
-	(cd "$DOTFILES" && git pull --quiet && git reset --quiet --hard)
+	(cd "$DOTFILES" && git pull && git reset --hard)
 fi
 
 echo > "$ZSHRC"
