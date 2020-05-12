@@ -226,7 +226,7 @@ function bin-linux() {
 		if [[ -d "$prefix/$other" ]]; then
 			# local head="${other%%/*}"
 			# local tail="${other##*/}"
-			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
+			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
 			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
 			if [[ "$other" == "share" || "$other" == "libexec" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
