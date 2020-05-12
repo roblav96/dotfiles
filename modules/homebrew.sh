@@ -221,17 +221,19 @@ function bin-linux() {
 			done
 		fi
 	done
-	local others=('etc' 'share' 'libexec/lib')
+	local others=('etc' 'share' 'libexec')
 	local other; for other in "${others[@]}"; do
 		if [[ -d "$prefix/$other" ]]; then
-			local head="${other%%/*}"
-			local tail="${other##*/}"
+			# local head="${other%%/*}"
+			# local tail="${other##*/}"
 			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
-			if [[ "$other" == "share" || "$other" == "libexec/lib" ]]; then
+			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
+			if [[ "$other" == "share" || "$other" == "libexec" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
 				local file; for file in "${finds[@]}"; do
-					local relative="${file/$prefix//usr/local}"
-					remove="$remove sudo rm -fv '${relative/$other/$tail}';"
+					remove="$remove sudo rm -fv '${file/$prefix//usr/local}';"
+					# local relative="${file/$prefix//usr/local}"
+					# remove="$remove sudo rm -fv '${relative/$other/$tail}';"
 				done
 			fi
 		fi
