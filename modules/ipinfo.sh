@@ -24,10 +24,13 @@ function ipinfo() {
 alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
 
 function dnsinfo() {
-	echo; echo "🌕 nslookup -all ${1:-google.com}"
-	nslookup -all "${1:-google.com}"
+	local domain="${1:-google.com}"
+	echo; echo "🌕 nslookup -all $domain"
+	nslookup -all "$domain"
 	if [[ "$PLATFORM" == "Darwin" ]]; then
-		echo "🌕 scutil --dns"
+		echo "🌕 networksetup -getdnsservers"
+		networksetup -getdnsservers 'Wi-Fi'
+		echo; echo "🌕 scutil --dns"
 		scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)'
 	fi
 }

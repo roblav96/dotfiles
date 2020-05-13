@@ -8,7 +8,7 @@ alias sc-status="systemctl --full status"
 # unalias sc-list-unit-files &>/dev/null
 # alias sc-list-unit-files="systemctl --all list-unit-files"
 
-alias pst="pstree -achls"
+alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 
 alias nftl="sudo nft list ruleset --handle | bat -l nft"
 
@@ -19,6 +19,8 @@ if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 	alias brew="$HOME/.linuxbrew/bin/brew"
 	source "$DOTFILES/modules/homebrew.sh"
 fi
+
+[[ -x "$(which -p hub)" ]] && alias git=hub
 
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
