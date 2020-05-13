@@ -10,7 +10,7 @@ alias sc-status="systemctl --full status"
 
 alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 
-alias nftl="sudo nft list ruleset --handle | bat -l nft"
+alias nftl="sudo nft list ruleset --handle | bat -p -l nft"
 
 alias .z="rmate --new --line 999999 $HOME/.z"
 alias .zsh_history="rmate --new --line 999999 $HOME/.zsh_history"
