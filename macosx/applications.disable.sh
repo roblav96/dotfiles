@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "🌕 csrutil enable --without dtrace"
+
 APPLICATIONS=(
 	'Calendar'
 	'Chess'
