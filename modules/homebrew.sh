@@ -228,7 +228,7 @@ function bin-linux() {
 			# local tail="${other##*/}"
 			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
 			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
-			if [[ "$other" == "share" || "$other" == "libexec" ]]; then
+			if [[ "$other" != "etc" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
 				local file; for file in "${finds[@]}"; do
 					remove="$remove sudo rm -fv '${file/$prefix//usr/local}';"
