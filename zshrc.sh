@@ -159,9 +159,9 @@ alias archey="archey --offline"
 # alias man="man -P more"
 
 alias dotcd="cd $DOTFILES"
-alias dotsrc="zsh $DOTFILES/install.zsh; src"
+alias dotsrc="zsh $DOTFILES/install.zsh && src"
 alias src="[[ -n "$SHELL" ]] && exec ${SHELL#-} || exec $(which -p zsh)"
-alias zcomp="rm -fv $HOME/.zcomp*; src"
+alias zcomp="rm -fv $HOME/.zcomp* && src"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp"
 alias abupd="antibody update && zcomp"
 alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
