@@ -5,9 +5,9 @@
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 export ZSH_COMPDUMP_EXISTS="$(echo $HOME/.zcomp*)" 2>/dev/null
 
-if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-	if echo $PATH | grep --quiet --fixed-strings "$HOME/.nix-profile/bin"; then
+	if echo "$PATH" | grep --quiet --fixed-strings "$HOME/.nix-profile/bin"; then
 		export PATH="${PATH#$HOME/.nix-profile/bin:}"
 		# export PATH="${PATH#$HOME/.nix-profile/bin:}:$HOME/.nix-profile/bin"
 	fi
