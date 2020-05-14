@@ -9,6 +9,7 @@ alias rmtrash="rm -rfv $HOME/.Trash/*; rm -rfv $HOME/.Trash/.*"
 alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{}"'
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 
+alias pbcopy="xargs echo -n | pbcopy -Prefer txt"
 alias rmxattr="sudo xattr -rc"
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 
