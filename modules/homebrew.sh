@@ -230,9 +230,9 @@ function bin-linux() {
 			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
 			if [[ "$other" != "etc" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
-				local file; for file in "${finds[@]}"; do
-					remove="$remove sudo rm -fv '${file/$prefix//usr/local}';"
-					# local relative="${file/$prefix//usr/local}"
+				local ofile; for ofile in "${finds[@]}"; do
+					remove="$remove sudo rm -fv '${ofile/$prefix//usr/local}';"
+					# local relative="${ofile/$prefix//usr/local}"
 					# remove="$remove sudo rm -fv '${relative/$other/$tail}';"
 				done
 			fi
