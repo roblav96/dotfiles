@@ -17,12 +17,12 @@ alias hosts="sudo subl --new-window /etc/hosts"
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias paths="sudo subl --new-window /etc/paths"
 alias profile="sudo subl --new-window /etc/zprofile /etc/profile"
-alias sshconfig="subl --new-window $HOME/.ssh/config"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
+alias .ssh_config="subl --new-window $HOME/.ssh/config"
 
 alias pfc="sudo subl --new-window /etc/pf.conf"
 alias pfcat="bat /etc/pf.conf -l sh"
