@@ -10,10 +10,10 @@ alias fagl="fd $FD_FLAGS_ALL --glob"
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 if [[ "$PLATFORM" == "Linux" ]]; then
-	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/emby --exclude=/dev --exclude=/proc --exclude=/sys --exclude=/var/www --exclude=/var/lib/emby/cache --exclude=/var/lib/emby/metadata"
+	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/emby --exclude=/dev --exclude=/proc --exclude=/sys --exclude=/var/www --exclude=/var/lib/emby/cache --exclude=/var/lib/emby/metadata"
 fi
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/Library/Containers --exclude=/Applications --exclude=/private --exclude=/System"
+	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/Library/Containers --exclude=/Applications --exclude=/private --exclude=/System"
 fi
 
 unset FD_FLAGS FD_FLAGS_ALL
