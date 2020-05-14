@@ -18,6 +18,9 @@ fi
 
 unset FD_FLAGS FD_FLAGS_ALL
 
+alias fcount="fd -uu | wc -l"
+alias fcounta="fd -uu --follow | wc -l"
+
 # # alias snakecase='fd --fixed-strings --exec mv "{}"'
 # function snakecase() {
 # 	for file in "$@"; do
