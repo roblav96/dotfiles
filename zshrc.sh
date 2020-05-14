@@ -200,7 +200,7 @@ alias j="json"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
-alias axel="axel --alternate --timeout=5 -vv"
+alias axel="axel --alternate --timeout=5"
 alias wget="wget --no-verbose --show-progress --connect-timeout=5 --hsts-file=/dev/null"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
