@@ -1,7 +1,6 @@
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 # source "$DOTFILES/modules/deving.sh"
-source "$DOTFILES/modules/sublimetext.sh"
 
 alias pst="pstree -w"
 
@@ -91,9 +90,19 @@ function app-bak() {
 	echo; exa --oneline "$tarpath"
 }
 
+alias st="subl"
+alias sm="smerge --new-window"
+alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
+alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
+alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
+alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
+alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
+alias stgs='(stcd && gsa)'
+alias stpush='(stcd && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
+
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
-alias dotgs='dotcd; gd; echo; gs; cd "$OLDPWD"'
+alias dotgs='(dotcd && gsa)'
 alias dotpush='(dotcd && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
 # function dotpush() {
 # 	cd "$DOTFILES"
