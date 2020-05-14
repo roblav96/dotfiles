@@ -20,7 +20,7 @@ if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 	source "$DOTFILES/modules/homebrew.sh"
 fi
 
-[[ -x "$(which -p hub)" ]] && alias git=hub
+[[ -x "$(which -p hub)" ]] && alias git="hub"
 
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
