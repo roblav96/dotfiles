@@ -94,10 +94,16 @@ function app-bak() {
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='dotcd; gd; echo; gs; cd "$OLDPWD"'
-alias dotpush='(cd "$DOTFILES"; local gs="$(git status -z)"; git add -A; git commit -a -m "[`uname -o`] $gs"; git push origin master; cd "$OLDPWD") && src'
-# function dotpush() {
-# 	cd "$DOTFILES"; local gs="$(git status -z)"; git add -A; git commit -a -m "[`uname -o`] $gs"; git push origin master; cd "$OLDPWD"; src
-# }
+# alias dotpush='(cd "$DOTFILES"; local gs="$(git status -z)"; git add -A; git commit -a -m "[`uname -o`] $gs"; git push origin master; cd "$OLDPWD") && src'
+function dotpush() {
+	cd "$DOTFILES"
+	local gs="$(git status -z)"
+	git add -A
+	git commit -a -m "[$PLATFORM] $gs"
+	git push origin master
+	cd "$OLDPWD"
+	src
+}
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 # unset DOTBENCH
