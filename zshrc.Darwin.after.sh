@@ -94,12 +94,12 @@ function app-bak() {
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='dotcd; gd; echo; gs; cd "$OLDPWD"'
-alias dotpush='(dotcd && local gs="$(git status -z)" && git add -A && git commit -a -m "[$PLATFORM] $gs" && git push origin master) && src'
+alias dotpush='(dotcd && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
 # function dotpush() {
 # 	cd "$DOTFILES"
 # 	local gs="$(git status -z)"
 # 	git add -A
-# 	git commit -a -m "[$PLATFORM] $gs"
+# 	git commit -a -m "[$(uname -o)] $(git status -z)"
 # 	git push origin master
 # 	cd "$OLDPWD"
 # 	src
