@@ -10,21 +10,21 @@ alias faagl="fd $FD_FLAGS_ALL --glob --follow"
 
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
-[[ "$PLATFORM" == "Linux" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
---exclude=$HOME/.playground \
---exclude=$HOME/.cargo \
---exclude=$HOME/.rustup \
---exclude=$HOME/.node-gyp \
---exclude=$HOME/.npm \
---exclude=$HOME/.pnpm-store \
---exclude=$HOME/.linuxbrew \
---exclude=$HOME/emby \
---exclude=/dev \
---exclude=/proc \
---exclude=/sys \
---exclude=/var/www \
---exclude=/var/lib/emby/cache \
---exclude=/var/lib/emby/metadata \
+[[ "$PLATFORM" == "Linux" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
+ --exclude=$HOME/.cargo\
+ --exclude=$HOME/.linuxbrew\
+ --exclude=$HOME/.node-gyp\
+ --exclude=$HOME/.npm\
+ --exclude=$HOME/.playground\
+ --exclude=$HOME/.pnpm-store\
+ --exclude=$HOME/.rustup\
+ --exclude=$HOME/emby\
+ --exclude=/dev\
+ --exclude=/proc\
+ --exclude=/sys\
+ --exclude=/var/lib/emby/cache\
+ --exclude=/var/lib/emby/metadata\
+ --exclude=/var/www\
 "
 
 [[ "$PLATFORM" == "Darwin" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
