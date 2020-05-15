@@ -33,7 +33,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=/private \
 --exclude=/System \
 "
-alias fr="$(echo $fr | xargs)"
+alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 unset fr
 
 # [[ "$PLATFORM" == "Linux" ]] && alias fr="$fr\
