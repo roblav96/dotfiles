@@ -19,11 +19,13 @@ alias rgg="rg --color=always --smart-case --fixed-strings"
 alias rgw="rg --color=always --smart-case --fixed-strings --word-regexp"
 alias rgx="rg --color=always --smart-case --regexp"
 
-unset RG_FLAGS RG_MAX_COLUMNS_FLAGS
-
 unalias g &>/dev/null
 alias g="rg --color=always --smart-case --fixed-strings"
 alias rgls="rg --type-list"
+
+unset RG_FLAGS RG_MAX_COLUMNS_FLAGS
+
+
 
 # alias raf="rg $RG_FLAGS --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --color=always --smart-case"

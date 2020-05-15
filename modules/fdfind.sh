@@ -10,36 +10,54 @@ alias faagl="fd $FD_FLAGS_ALL --glob --follow"
 
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
-local FD_COMMON_EXCLUDE="\
- --exclude=$HOME/.cargo\
- --exclude=$HOME/.node-gyp\
- --exclude=$HOME/.npm\
- --exclude=$HOME/.playground\
- --exclude=$HOME/.pnpm-store\
- --exclude=$HOME/.rustup\
+local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
+--exclude=$HOME/.cargo \
+--exclude=$HOME/.node-gyp \
+--exclude=$HOME/.npm \
+--exclude=$HOME/.playground \
+--exclude=$HOME/.pnpm-store \
+--exclude=$HOME/.rustup \
 "
-[[ "$PLATFORM" == "Linux" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
-$FD_COMMON_EXCLUDE\
- --exclude=$HOME/emby\
- --exclude=/dev\
- --exclude=/proc\
- --exclude=/sys\
- --exclude=/var/lib/emby/cache\
- --exclude=/var/lib/emby/metadata\
- --exclude=/var/www\
+[[ "$PLATFORM" == "Linux" ]] && fr="$fr\
+--exclude=$HOME/emby \
+--exclude=/dev \
+--exclude=/proc \
+--exclude=/sys \
+--exclude=/var/lib/emby/cache \
+--exclude=/var/lib/emby/metadata \
+--exclude=/var/www \
 "
-[[ "$PLATFORM" == "Darwin" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
-$FD_COMMON_EXCLUDE\
- --exclude=$HOME/Library/Containers\
- --exclude=/Applications\
- --exclude=/private\
- --exclude=/System\
+[[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/Library/Containers \
+--exclude=/Applications \
+--exclude=/private \
+--exclude=/System \
 "
+alias fr="$(echo $fr | xargs)"
+unset fr
 
-unset FD_FLAGS FD_FLAGS_ALL FD_COMMON_EXCLUDE
+# [[ "$PLATFORM" == "Linux" ]] && alias fr="$fr\
+# --exclude=$HOME/emby \
+# --exclude=/dev \
+# --exclude=/proc \
+# --exclude=/sys \
+# --exclude=/var/lib/emby/cache \
+# --exclude=/var/lib/emby/metadata \
+# --exclude=/var/www \
+# "
+# [[ "$PLATFORM" == "Darwin" ]] && alias fr="$fr\
+# --exclude=$HOME/Library/Containers \
+# --exclude=/Applications \
+# --exclude=/private \
+# --exclude=/System \
+# "
 
 alias fcount="fd --color=never --hidden --no-ignore | wc -l"
 alias fcounta="fd --color=never --hidden --no-ignore --follow | wc -l"
+
+unset FD_FLAGS FD_FLAGS_ALL FD_COMMON_EXCLUDE
+
+
 
 # # alias snakecase='fd --fixed-strings --exec mv "{}"'
 # function snakecase() {
