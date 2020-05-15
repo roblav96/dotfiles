@@ -8,6 +8,7 @@ export ANDROID_SDK_ROOT="$ANDROID_HOME"
 # export PATH="$PATH:$ANDROID_HOME/tools/bin"
 # export PATH="$PATH:$ANDROID_HOME/tools"
 
+alias gradlew="\$PWD/gradlew"
 # alias gradle="gradle --no-daemon"
 
 function apksign() {

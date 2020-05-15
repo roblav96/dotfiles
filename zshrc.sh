@@ -145,7 +145,6 @@ alias dims='echo $COLUMNS x $LINES'
 alias dateiso="date --iso-8601"
 alias sedbat="sed -u -r 's/\"|\x27|\#|\`//g' | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
-alias gradlew="\$PWD/gradlew"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
