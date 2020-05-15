@@ -1,5 +1,5 @@
 local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
-local FD_FLAGS_ALL="$FD_FLAGS --no-ignore --full-path --follow"
+local FD_FLAGS_ALL="$FD_FLAGS --no-ignore --full-path"
 
 alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
@@ -10,16 +10,16 @@ alias fagl="fd $FD_FLAGS_ALL --glob"
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 if [[ "$PLATFORM" == "Linux" ]]; then
-	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.playground --exclude=$HOME/.cargo --exclude=$HOME/.rustup --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/.linuxbrew --exclude=$HOME/emby --exclude=/dev --exclude=/proc --exclude=/sys --exclude=/var/www --exclude=/var/lib/emby/cache --exclude=/var/lib/emby/metadata"
+	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.playground --exclude=$HOME/.cargo --exclude=$HOME/.rustup --exclude=$HOME/.node-gyp --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/.linuxbrew --exclude=$HOME/emby --exclude=/dev --exclude=/proc --exclude=/sys --exclude=/var/www --exclude=/var/lib/emby/cache --exclude=/var/lib/emby/metadata"
 fi
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.playground --exclude=$HOME/.cargo --exclude=$HOME/.rustup --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/Library/Containers --exclude=/Applications --exclude=/private --exclude=/System"
+	alias fr="fd $FD_FLAGS --no-ignore --full-path --fixed-strings --absolute-path --base-directory=/ --exclude=$HOME/.playground --exclude=$HOME/.cargo --exclude=$HOME/.rustup --exclude=$HOME/.node-gyp --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/Library/Containers --exclude=/Applications --exclude=/private --exclude=/System"
 fi
 
 unset FD_FLAGS FD_FLAGS_ALL
 
 alias fcount="fd -uu | wc -l"
-alias fcounta="fd -uu --follow | wc -l"
+alias fcountf="fd -uu --follow | wc -l"
 
 # # alias snakecase='fd --fixed-strings --exec mv "{}"'
 # function snakecase() {

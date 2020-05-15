@@ -1,6 +1,6 @@
 source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
-# source "$DOTFILES/modules/deving.sh"
+source "$DOTFILES/modules/dotwatch.sh"
 
 alias pst="pstree -w"
 
