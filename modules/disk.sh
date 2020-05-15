@@ -9,9 +9,9 @@ unset TK_FLAGS TK_FLAGS_ALL
 
 alias diskus="diskus --verbose"
 
-alias dust="command dust --ignore-directory='.git' --depth=1"
-alias dustr="command dust --ignore-directory='.git' --depth=2"
-alias dustra="command dust --ignore-directory='.git'"
+alias dust="dust --ignore-directory='.git'"
+alias dustr="dust --depth=1"
+alias dustrr="dust --depth=2"
 alias dusta="command dust"
 # alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
 # alias dusta="command dust --ignore-directory .git"
@@ -25,4 +25,4 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 # alias .du="du -d 1 -h"
 
 alias dff="df -h"
-alias dfc="dfc -c always -q mount -f -T -m -l"
+alias dfc="dfc -c always -q mount -d -f -T -m -l"
