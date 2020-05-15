@@ -103,7 +103,7 @@ alias stpush='(stcd && git add -A && git commit -a -m "[$(uname -o)] $(git statu
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gsa)'
-alias dotpush='(dotcd && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
+alias dotpush='(dotcd && gs && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
 # function dotpush() {
 # 	cd "$DOTFILES"
 # 	local gs="$(git status -z)"
