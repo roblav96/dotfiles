@@ -159,7 +159,7 @@ alias archey="archey --offline"
 
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && src"
-alias src="exec ${SHELL:-$(which -p bash)}"
+alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp"
 alias abupd="antibody update && zcomp"
