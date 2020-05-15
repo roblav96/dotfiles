@@ -10,14 +10,16 @@ alias faagl="fd $FD_FLAGS_ALL --glob --follow"
 
 alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
-[[ "$PLATFORM" == "Linux" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
+local FD_COMMON_EXCLUDE="\
  --exclude=$HOME/.cargo\
- --exclude=$HOME/.linuxbrew\
  --exclude=$HOME/.node-gyp\
  --exclude=$HOME/.npm\
  --exclude=$HOME/.playground\
  --exclude=$HOME/.pnpm-store\
  --exclude=$HOME/.rustup\
+"
+[[ "$PLATFORM" == "Linux" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
+$FD_COMMON_EXCLUDE\
  --exclude=$HOME/emby\
  --exclude=/dev\
  --exclude=/proc\
@@ -26,11 +28,15 @@ alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=
  --exclude=/var/lib/emby/metadata\
  --exclude=/var/www\
 "
+[[ "$PLATFORM" == "Darwin" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/\
+$FD_COMMON_EXCLUDE\
+ --exclude=$HOME/Library/Containers\
+ --exclude=/Applications\
+ --exclude=/private\
+ --exclude=/System\
+"
 
-[[ "$PLATFORM" == "Darwin" ]] && alias fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
---exclude=$HOME/.playground --exclude=$HOME/.cargo --exclude=$HOME/.rustup --exclude=$HOME/.node-gyp --exclude=$HOME/.npm --exclude=$HOME/.pnpm-store --exclude=$HOME/Library/Containers --exclude=/Applications --exclude=/private --exclude=/System"
-
-unset FD_FLAGS FD_FLAGS_ALL
+unset FD_FLAGS FD_FLAGS_ALL FD_COMMON_EXCLUDE
 
 alias fcount="fd --color=never --hidden --no-ignore | wc -l"
 alias fcounta="fd --color=never --hidden --no-ignore --follow | wc -l"
