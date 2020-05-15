@@ -33,24 +33,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=/private \
 --exclude=/System \
 "
-alias fr="$(echo "${fr}" | sed 's/ *$//g')"
-unset fr
-
-# [[ "$PLATFORM" == "Linux" ]] && alias fr="$fr\
-# --exclude=$HOME/emby \
-# --exclude=/dev \
-# --exclude=/proc \
-# --exclude=/sys \
-# --exclude=/var/lib/emby/cache \
-# --exclude=/var/lib/emby/metadata \
-# --exclude=/var/www \
-# "
-# [[ "$PLATFORM" == "Darwin" ]] && alias fr="$fr\
-# --exclude=$HOME/Library/Containers \
-# --exclude=/Applications \
-# --exclude=/private \
-# --exclude=/System \
-# "
+alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 
 alias fcount="fd --color=never --hidden --no-ignore | wc -l"
 alias fcounta="fd --color=never --hidden --no-ignore --follow | wc -l"
