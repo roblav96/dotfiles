@@ -15,7 +15,6 @@ export VISUAL="nano"
 # fi
 
 # if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
-# 	export OPENSSL_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
 # 	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
 # fi
 

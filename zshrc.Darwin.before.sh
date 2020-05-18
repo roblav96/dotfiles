@@ -20,9 +20,12 @@ export SDKROOT="macosx10.14"
 [[ -x "/usr/local/opt/ipcalc/bin/ipcalc" ]] && alias ipcalc="ipcalc --nobinary"
 
 if [[ -d "/usr/local/opt/openssl@1.1" ]]; then
-	export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
 	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
 fi
+# if [[ -d "/usr/local/opt/libressl" ]]; then
+# 	export OPENSSL_ROOT_DIR="/usr/local/opt/libressl"
+# 	export PKG_CONFIG_PATH="/usr/local/opt/libressl/lib/pkgconfig"
+# fi
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa

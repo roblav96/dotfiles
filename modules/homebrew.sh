@@ -257,11 +257,11 @@ function bupg-sudo() {
 		return 1
 	fi
 	echo "🌕 cellar -> '$cellar'"
-	local output="chown root:wheel $cellar; chmod u+s $cellar"
+	local output="/usr/sbin/chown root:wheel $cellar; /bin/chmod u+s $cellar"
 	if [[ "$link" != "$cellar" ]]; then
-		output="$output; ln -sf $cellar $link; chown root:wheel $link; chmod u+s $link"
+		output="$output; ln -sf $cellar $link; /usr/sbin/chown root:wheel $link; /bin/chmod u+s $link"
 	fi
-	output="sudo env -i $(which -p bash) -c '$output'"
+	output="sudo /usr/bin/env -i $(which -p bash) -c '$output'"
 	echo "$output"
 	echo " $output" | clipcopy
 	echo "✅ Copied to clipboard"
