@@ -38,7 +38,7 @@ alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 alias fcount="fd --color=never --hidden --no-ignore | wc -l"
 alias fcounta="fd --color=never --hidden --no-ignore --follow | wc -l"
 
-unset FD_FLAGS FD_FLAGS_ALL FD_COMMON_EXCLUDE
+unset FD_FLAGS FD_FLAGS_ALL
 
 
 
