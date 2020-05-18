@@ -28,7 +28,11 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \
+--exclude=$HOME/MediaBrowser \
+--exclude=$HOME/Projects \
+--exclude=$HOME/Sandbox \
 --exclude=/Applications \
 --exclude=/private \
 --exclude=/System \
