@@ -19,6 +19,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.rustup \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
+--exclude=$HOME/.linuxbrew \
 --exclude=$HOME/emby \
 --exclude=/dev \
 --exclude=/proc \
