@@ -4,8 +4,8 @@ source "$DOTFILES/modules/dotwatch.sh"
 
 alias pst="pstree -w"
 
-alias rmtrash="rm -rfv $HOME/.Trash/*; rm -rfv $HOME/.Trash/.*"
-alias dstore='fd --hidden --no-ignore --fixed-strings .DS_Store --exec rm -fv "{}"'
+alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
+alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 # alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
 
 alias pbcopy="pbcopy -Prefer txt"
