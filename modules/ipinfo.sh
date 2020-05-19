@@ -26,7 +26,7 @@ alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api
 function dnsinfo() {
 	local domain="${1:-google.com}"
 	echo; echo "🌕 nslookup -all $domain"
-	nslookup -all "$domain"
+	nslookup -all -timeout=1 "$domain"
 	if [[ "$PLATFORM" == "Darwin" ]]; then
 		echo "🌕 networksetup -getdnsservers"
 		networksetup -getdnsservers 'Wi-Fi'
