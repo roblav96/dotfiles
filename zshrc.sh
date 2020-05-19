@@ -84,6 +84,8 @@ fi
 
 
 
+# export ZSH_COMPDEF="$(which -w compdef | grep -q 'function$' && echo 1)"
+
 export HISTSIZE="10000000"
 export SAVEHIST="10000000"
 setopt hist_ignore_all_dups
@@ -150,9 +152,9 @@ alias redis-cli="redis-cli --no-auth-warning"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore"
-# --with-node-modules --print-width \$(tput cols)
+alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore" # --with-node-modules --print-width \$(tput cols)
 alias archey="archey --offline"
+alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
@@ -281,7 +283,8 @@ function readlinka() {
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
 		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
-	}; which -w _ffprobe &>/dev/null && compdef fprobe=ffmpeg
+	}
+	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
 fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
 	function ftomp3() {
