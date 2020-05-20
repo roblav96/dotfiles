@@ -17,8 +17,6 @@ export SDKROOT="macosx10.14"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-[[ -x "/usr/local/opt/ipcalc/bin/ipcalc" ]] && alias ipcalc="ipcalc --nobinary"
-
 if [[ -d "/usr/local/opt/openssl@1.1" ]]; then
 	export OPENSSL="/usr/local/opt/openssl@1.1/bin/openssl"
 	export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
