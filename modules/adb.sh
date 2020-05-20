@@ -25,21 +25,21 @@ alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
-function adb.settings() {
+function adb.settings.l() {
 	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh
+	echo "$(adb shell settings list system)" | sortt | bat --style=grid -l ini
 	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh
+	echo "$(adb shell settings list secure)" | sortt | bat --style=grid -l ini
 	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh
+	echo "$(adb shell settings list global)" | sortt | bat --style=grid -l ini
 }
-function adb.settings-f() {
+function adb.settings.f() {
 	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list system)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
 	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list secure)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
 	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sort --ignore-case | bat --style=grid -l sh | rg --ignore-case --fixed-strings $@
+	echo "$(adb shell settings list global)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
 }
 
 function adb.su() {
@@ -63,17 +63,17 @@ function adb.wget() {
 # https://developer.android.com/studio/command-line/adb#pm
 function adb.pm() {
 	echo; echo "🌕 Disabled Packages"
-	echo "$(adb shell pm list packages -d)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages -d)" | sd --string-mode 'package:' '' | sortt
 	echo; echo "🌕 Uninstalled Packages"
-	echo "$(adb shell pm list packages -u)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages -u)" | sd --string-mode 'package:' '' | sortt
 	echo; echo "🌕 Enabled Packages"
-	echo "$(adb shell pm list packages -e)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages -e)" | sd --string-mode 'package:' '' | sortt
 	echo; echo "🌕 Default Packages"
-	echo "$(adb shell pm list packages)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages)" | sd --string-mode 'package:' '' | sortt
 	echo; echo "🌕 System Packages"
-	echo "$(adb shell pm list packages -s)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages -s)" | sd --string-mode 'package:' '' | sortt
 	echo; echo "🌕 Third-Party Packages"
-	echo "$(adb shell pm list packages -3)" | sort --ignore-case | sed --unbuffered --regexp-extended 's/^package://'
+	echo "$(adb shell pm list packages -3)" | sd --string-mode 'package:' '' | sortt
 }
 
 # function adb.pm-ls() {
@@ -84,7 +84,7 @@ function adb.pm() {
 # 		echo; echo "🌕 System"; pm list packages -s;
 # 		echo; echo "🌕 Enabled"; pm list packages -e;
 # 		echo; echo "🌕 Third-Party"; pm list packages -3;
-# 	')" | sed --unbuffered --regexp-extended 's/^package://' | bat -p -l properties
+# 	')" | sd --string-mode 'package:' '' | bat -p -l properties
 # }
 # alias adb.pm-f="adb.pm-ls | grep"
 # alias adb.pm-f="adb.pm-ls | rgp"
