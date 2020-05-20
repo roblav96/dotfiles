@@ -1,4 +1,4 @@
-export NIX_PAGER=""
+export NIX_PAGER="cat"
 
 unalias ni &>/dev/null
 unalias ns &>/dev/null

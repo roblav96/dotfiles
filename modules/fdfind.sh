@@ -12,6 +12,7 @@ alias ffpath="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
+--exclude=$HOME/.gradle \
 --exclude=$HOME/.node-gyp \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.playground \
@@ -29,19 +30,17 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/Desktop \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \
---exclude=$HOME/MediaBrowser \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
---exclude=/Applications \
---exclude=/private \
 --exclude=/System \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 
-alias fcount="fd --color=never --hidden --no-ignore | wc -l"
-alias fcounta="fd --color=never --hidden --no-ignore --follow | wc -l"
+alias fcount="fd --color=never --type=file --hidden --no-ignore | wc -l"
+alias fcounta="fd --color=never --type=file --hidden --no-ignore --follow | wc -l"
 
 unset FD_FLAGS FD_FLAGS_ALL
 

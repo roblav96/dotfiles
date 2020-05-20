@@ -205,7 +205,7 @@ alias j="json"
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --alternate --timeout=5"
-alias wget="wget --quiet --show-progress --connect-timeout=5 --hsts-file=/dev/null"
+alias wget="wget --quiet --show-progress --connect-timeout=5"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
@@ -227,13 +227,9 @@ alias p="ps auxww | grep --invert-match grep | grep"
 
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-if [[ -x "$(which -p rg)" ]]; then
-	function mans() {
-		man -k "$*" | rgp "$*"
-	}; compdef mans=man
-else
-	alias mans="man -k"
-fi
+function mans() {
+	man -k "$*" | rgp "$*"
+}; compdef mans=man
 alias mansr="man -K"
 alias manfs="man -w"
 # function idk() {
