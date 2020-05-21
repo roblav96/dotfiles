@@ -42,7 +42,7 @@ function bin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing formula -> '$v'"
 		brew install "$v"
-		[[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcin() {
@@ -56,7 +56,7 @@ function brein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling formula -> '$v'"
 		brew reinstall "$v"
-		[[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcrein() {
@@ -70,7 +70,7 @@ function bupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading formula -> '$v'"
 		brew upgrade "$v"
-		[[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 }
 function bcupg() {
@@ -160,7 +160,7 @@ function bco() {
 
 function brm() {
 	for v in "$@"; do
-		[[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo; echo "🌕 Uninstalling formula -> '$v'"
 		brew uninstall --force "$v"
 	done

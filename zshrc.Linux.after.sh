@@ -15,12 +15,12 @@ alias nftl="sudo nft list ruleset --handle | bat --style=grid -l nft"
 alias .z="rmate --new --line 999999 $HOME/.z"
 alias .zsh_history="rmate --new --line 999999 $HOME/.zsh_history"
 
-if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
-	alias brew="$HOME/.linuxbrew/bin/brew"
-	source "$DOTFILES/modules/homebrew.sh"
-fi
+# if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+# 	alias brew="$HOME/.linuxbrew/bin/brew"
+# 	source "$DOTFILES/modules/homebrew.sh"
+# fi
 
-[[ -x "$(which -p hub)" ]] && alias git="hub"
+# [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 # alias nixcp="sudo cp -f $HOME/.nix-profile/bin/* /usr/local/bin"
 # alias nixln="sudo ln -sfv $HOME/.nix-profile/bin/* /usr/local/bin"
