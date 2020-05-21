@@ -41,7 +41,7 @@ function bs() {
 function bin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing formula -> '$v'"
-		brew install --display-times "$v"
+		brew install "$v"
 		[[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 }
