@@ -43,34 +43,3 @@ alias fcount="fd --color=never --type=file --follow --hidden --no-ignore | wc -l
 alias fcounta="fd --color=never --type=file --follow --hidden --no-ignore --follow | wc -l"
 
 unset FD_FLAGS FD_FLAGS_ALL
-
-
-
-# # alias snakecase='fd --fixed-strings --exec mv "{}"'
-# function snakecase() {
-# 	for file in "$@"; do
-# 		if [[ -f "$file" ]]; then
-# 			# echo "🌕 file -> '$file'"
-# 			local base="$(basename "$file")"
-# 			echo "🌕 base -> '$base'"
-# 		fi
-# 	done
-# 	unset file
-# }
-
-# function fbat() {
-# 	f --type=file $@ --exec-batch zsh -ic 'bat "$@"'
-# }; [[ "$PLATFORM" == "Darwin" ]] && compdef fbat=fd
-# function fprettier() {
-# 	f --type=file $@ --exec-batch zsh -ic 'prettier --write "$@"'
-# }; [[ "$PLATFORM" == "Darwin" ]] && compdef fprettier=fd
-
-# function frm() {
-# 	f $@ --exec-batch zsh -ic 'rm -rfv "$@"'
-# }
-
-# function f() { fd "$1" ${@:2} --color=always }
-# | grep "$1" --ignore-case --color=always }
-# function fa() { fd "$1" ${@:2} --color=always --hidden --no-ignore --show-errors }
-# function fa() { fd "$1" ${@:2} --hidden --no-ignore --show-errors --color=always | grep "$1" --ignore-case --color=always }
-# function f() { find . -iname "*$1*" ${@:2} }
