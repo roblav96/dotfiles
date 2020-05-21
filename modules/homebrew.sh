@@ -58,13 +58,13 @@ function brein() {
 		brew reinstall "$v"
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
-}
+}; compdef brein=command
 function bcrein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling cask -> '$v'"
 		brew cask reinstall "$v"
 	done
-}
+}; compdef bcrein=command
 
 function bupg() {
 	for v in "$@"; do
@@ -72,91 +72,91 @@ function bupg() {
 		brew upgrade "$v"
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
-}
+}; compdef bupg=command
 function bcupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading cask -> '$v'"
 		brew cask upgrade "$v"
 	done
-}
+}; compdef bcupg=command
 
 function bi() {
 	for v in "$@"; do
 		echo; echo "🌕 Info formula -> '$v'"
 		brew desc "$v" && brew info "$v"
 	done
-}
+}; compdef bi=command
 function bci() {
 	for v in "$@"; do
 		echo; echo "🌕 Info cask -> '$v'"
 		brew cask info "$v"
 	done
-}
+}; compdef bci=command
 
 function bcd() {
 	cd "$(brew --prefix)/opt/$1"
-}
+}; compdef bcd=command
 function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files formula -> '$v'"
 		brew list "$v"
 	done
-}
+}; compdef bfs=command
 function bfsa() {
 	for v in "$@"; do
 		echo; echo "🌕 All files formula -> '$v'"
 		lara "$(brew --prefix)/opt/$v/"
 	done
-}
+}; compdef bfsa=command
 function bjson() {
 	for v in "$@"; do
 		echo; echo "🌕 JSON formula -> '$v'"
 		brew desc "$v" && brew info "$v" --json | json
 	done
-}
+}; compdef bjson=command
 function bdep() {
 	for v in "$@"; do
 		echo; echo "🌕 Dependencies formula -> '$v'"
 		brew deps "$v" -n --tree
 	done
-}
+}; compdef bdep=command
 
 function bcat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat formula -> '$v'"
 		brew cat "$v" | pbat ruby
 	done
-}
+}; compdef bcat=command
 function bccat() {
 	for v in "$@"; do
 		echo; echo "🌕 Cat cask -> '$v'"
 		brew cask cat "$v" | pbat ruby
 	done
-}
+}; compdef bccat=command
 
 function bia() {
 	for v in "$@"; do
 		bi "$v" && bcat "$v"
 	done
-}
+}; compdef bia=command
 function bcia() {
 	for v in "$@"; do
 		bci "$v" && bccat "$v"
 	done
-}
+}; compdef bcia=command
 
 function bo() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening formula -> '$v'"
 		brew home "$v"
 	done
-}
+}; compdef bo=command
 function bco() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening cask -> '$v'"
 		brew cask home "$v"
 	done
-}
+}; compdef bco=command
 
 function brm() {
 	for v in "$@"; do
@@ -164,13 +164,13 @@ function brm() {
 		echo; echo "🌕 Uninstalling formula -> '$v'"
 		brew uninstall --force "$v"
 	done
-}
+}; compdef brm=command
 function bcrm() {
 	for v in "$@"; do
 		echo; echo "🌕 Uninstalling cask -> '$v'"
 		brew cask zap --force "$v"
 	done
-}
+}; compdef bcrm=command
 
 function bsls() {
 	echo; echo "🌕 List services"
