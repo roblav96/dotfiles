@@ -4,6 +4,7 @@
 # junegunn/fzf path:completion.zsh kind:fpath
 # caarlos0/ports kind:path
 # spwhitt/nix-zsh-completions
+# 3v1n0/zsh-bash-completions-fallback
 RobSis/zsh-completion-generator
 trapd00r/LS_COLORS kind:fpath
 mafredri/zsh-async

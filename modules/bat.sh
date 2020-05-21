@@ -17,7 +17,10 @@ alias bat-build="rm -v \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/t
 function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat -l xml
 }
-# alias batpl="batplist"
+
+function dotbat() {
+	cat "$@" | grep --invert-match '^# ' | bat -l sh
+}
 
 function pbat() {
 	if [[ -e $1 ]]; then
