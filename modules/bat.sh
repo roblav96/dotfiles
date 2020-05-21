@@ -19,7 +19,7 @@ function batplist() {
 }
 
 function dotbat() {
-	cat "$@" | grep --invert-match '^# ' | bat --style=grid -l sh
+	cat "$@" | grep --invert-match '^# ' | bat -l sh
 }
 
 function pbat() {
