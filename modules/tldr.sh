@@ -50,7 +50,7 @@ alias hdi="howdoi --color --all"
 # alias hdi='function _hdi() { howdoi --color --all $@ }; _hdi'
 
 # alias genc="gencomp"
-compdef gencomp=command
+which -w gencomp | grep -q 'function$' && compdef gencomp=command
 
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
