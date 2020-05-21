@@ -18,7 +18,7 @@ function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat -l xml
 }
 
-function dotbat() {
+function batdot() {
 	cat "$@" | grep --invert-match '^# ' | bat -l sh
 }
 
