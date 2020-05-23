@@ -35,6 +35,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/Library/Containers \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
+--exclude=/Applications \
 --exclude=/System \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr

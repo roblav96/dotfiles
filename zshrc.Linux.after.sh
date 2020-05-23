@@ -11,6 +11,7 @@ alias sc-status="systemctl --full status"
 alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 
 alias nftl="sudo nft list ruleset --handle | bat --style=grid -l nft"
+alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 
 alias .z="rmate --new --line 999999 $HOME/.z"
 alias .zsh_history="rmate --new --line 999999 $HOME/.zsh_history"

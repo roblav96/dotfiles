@@ -32,13 +32,13 @@ alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
-alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfs"
-alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfd"
+alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfs"
+alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfd"
 
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
-alias voxel='echo; echo -n "nj3nxCEBUX7BDDei" | pbcopy; echo "✅ clipboard -> nj3nxCEBUX7BDDei"; echo; telnet 192.168.1.1'
+alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
 alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"

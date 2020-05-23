@@ -27,3 +27,5 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 
 alias dff="df -h"
 alias dfc="dfc -c always -q mount -d -f -T -m -l"
+
+alias .rclone.conf="subl --new-window $HOME/.config/rclone/rclone.conf"
