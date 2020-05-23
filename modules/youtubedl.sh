@@ -1,3 +1,4 @@
+alias youtube-dl="youtube-dl --no-call-home"
 alias yt="youtube-dl"
 alias ytdl="youtube-dl --merge-output-format mp4 --restrict-filenames"
 alias ytls="youtube-dl --merge-output-format mp4 --list-formats"
