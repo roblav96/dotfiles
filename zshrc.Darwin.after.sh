@@ -4,19 +4,29 @@ source "$DOTFILES/modules/dotwatch.sh"
 
 alias pst="pstree -w"
 
+# if [[ -x "$(which -p trash)" ]]; then
+# 	unalias rm &>/dev/null
+# 	unalias rd &>/dev/null
+# 	unalias rdd &>/dev/null
+# 	alias rm="trash"
+# 	alias rd="trash"
+# 	alias rdd="trash"
+# fi
+
 alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
-alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
-# alias dstore="find . -name .DS_Store -type f && find . -name .DS_Store -type f -delete"
+# alias rmtrash="find $HOME/.Trash -print -delete"
+alias dstore="find . -name .DS_Store -type f -print -delete"
+# alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
 alias pbcopy="pbcopy -Prefer txt"
 # alias pbcopy="xargs echo -n | pbcopy -Prefer txt"
 alias rmxattr="sudo xattr -rc"
 alias unquarantine="sudo xattr -rd com.apple.quarantine"
 
-alias hosts="sudo subl --new-window /etc/hosts"
+alias .hosts="sudo subl --new-window /etc/hosts"
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias paths="sudo subl --new-window /etc/paths"
-alias profile="sudo subl --new-window /etc/zprofile /etc/profile"
+alias .paths="sudo subl --new-window /etc/paths"
+alias .profiles="sudo subl --new-window /etc/zprofile /etc/profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"

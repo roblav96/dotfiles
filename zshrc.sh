@@ -90,7 +90,7 @@ export HISTSIZE="10000000"
 export SAVEHIST="10000000"
 setopt hist_ignore_all_dups
 
-setopt rm_star_silent
+# setopt rm_star_silent
 # setopt bash_auto_list
 # setopt list_ambiguous
 
@@ -127,7 +127,7 @@ alias ln="ln -v"
 alias mv="mv -v"
 alias cp="cp -vr"
 alias rm="rm -v"
-alias rd="rm -rf"
+alias rd="command rm -rfv"
 alias rdd="command rm -rf"
 alias chown="chown -v"
 alias chmod="chmod -v"

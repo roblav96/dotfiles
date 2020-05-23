@@ -10,7 +10,6 @@ alias cgrm="cargo uninstall"
 alias cgi="cargo info"
 
 # alias cgls="lm $HOME/.cargo/bin"
-# alias cgs="cargo ssearch"
 # alias cglnls="l /usr/local/bin | grep cargo/bin"
 # alias cglnbin="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 

@@ -7,8 +7,8 @@ if [[ "$USER" == "root" ]]; then
 	alias pkg="echo 'root will destroy pkg file locks'"
 fi
 
-unalias sudo
-alias sudo="tsudo "
+# unalias sudo
+# alias sudo="tsudo "
 
 test -x "$(which dropbear)" && alias dropbear='echo; getip; echo; dropbear -F'
 
