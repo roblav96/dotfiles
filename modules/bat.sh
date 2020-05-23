@@ -12,7 +12,7 @@ alias batls="bat --list-languages"
 
 alias bat-hr="echo | bat --terminal-width=\$(tput cols) --style=grid | head -n1"
 alias bat-cd="cd \"\$(command bat --config-dir)\""
-alias bat-build="rm -v \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
+alias bat-build="rm -rfv \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
 
 function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat -l xml
