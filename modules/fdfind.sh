@@ -44,3 +44,5 @@ alias fcount="fd --color=never --type=file --follow --hidden --no-ignore | wc -l
 alias fcounta="fd --color=never --type=file --follow --hidden --no-ignore --follow | wc -l"
 
 unset FD_FLAGS FD_FLAGS_ALL
+
+# function f() { find . -name "*$1*" ${@:2} }

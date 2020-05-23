@@ -220,6 +220,7 @@ fi
 if [[ -x "$(which -p trash-put)" ]]; then
 	unalias rd &>/dev/null; alias rd="trash-put --verbose"
 	unalias rdd &>/dev/null; alias rdd="trash-put"
+	alias trash-ls="lch ~/.local/share/Trash/files"
 fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
