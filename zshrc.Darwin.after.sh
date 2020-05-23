@@ -4,15 +4,6 @@ source "$DOTFILES/modules/dotwatch.sh"
 
 alias pst="pstree -w"
 
-# if [[ -x "$(which -p trash)" ]]; then
-# 	unalias rm &>/dev/null
-# 	unalias rd &>/dev/null
-# 	unalias rdd &>/dev/null
-# 	alias rm="trash"
-# 	alias rd="trash"
-# 	alias rdd="trash"
-# fi
-
 alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
 # alias rmtrash="find $HOME/.Trash -print -delete"
 alias dstore="find . -name .DS_Store -type f -print -delete"
@@ -20,8 +11,8 @@ alias dstore="find . -name .DS_Store -type f -print -delete"
 
 alias pbcopy="pbcopy -Prefer txt"
 # alias pbcopy="xargs echo -n | pbcopy -Prefer txt"
-alias rmxattr="sudo xattr -rc"
-alias unquarantine="sudo xattr -rd com.apple.quarantine"
+alias rmxattr="xattr -c -r"
+alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias .hosts="sudo subl --new-window /etc/hosts"
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"

@@ -217,6 +217,13 @@ if [[ -x "$(which -p rmate)" ]]; then
 	alias subl="rmate"
 fi
 
+if [[ -x "$(which -p trash-put)" ]]; then
+	unalias rd &>/dev/null
+	unalias rdd &>/dev/null
+	alias rd="trash-put --verbose"
+	alias rdd="trash-put"
+fi
+
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
