@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-echo "🌕 csrutil enable --without dtrace"
+echo "🔴 csrutil enable --without dtrace"
+echo "🔴 csrutil enable --without fs"
 
 APPLICATIONS=(
 	'Calendar'
