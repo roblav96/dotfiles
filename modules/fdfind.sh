@@ -8,7 +8,7 @@ alias faa="fd $FD_FLAGS_ALL --fixed-strings --follow"
 alias fagl="fd $FD_FLAGS_ALL --glob"
 alias faagl="fd $FD_FLAGS_ALL --glob --follow"
 
-alias fpathf="fd $FD_FLAGS_ALL --type=file --follow --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias fpathf="fd $FD_FLAGS --no-ignore --type=file --follow --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
@@ -34,9 +34,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \
 --exclude=$HOME/Projects \
---exclude=$HOME/Sandbox \
 --exclude=/Applications \
---exclude=/System \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 
