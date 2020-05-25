@@ -21,9 +21,12 @@ function bout() {
 function bls() {
 	echo; echo "🌕 List formulas"
 	brew list --versions
+}
+function bcls() {
 	echo; echo "🌕 List casks"
 	brew cask list --versions
 }
+alias blsa="bls; bcls"
 function bpls() {
 	echo; echo "🌕 Pinned formulas"
 	brew list --versions --pinned
