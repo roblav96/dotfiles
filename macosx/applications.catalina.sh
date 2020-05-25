@@ -10,7 +10,7 @@ APPLICATIONS=(
 	'Contacts'
 	'DVD Player'
 	'FaceTime'
-	'Find My'
+	'FindMy'
 	'Home'
 	'iBooks'
 	'iTunes'
@@ -30,7 +30,7 @@ APPLICATIONS=(
 	'Stickies'
 	'Stocks'
 	'TV'
-	'Voice Memos'
+	'VoiceMemos'
 )
 
 for APPLICATION in "${APPLICATIONS[@]}"; do
