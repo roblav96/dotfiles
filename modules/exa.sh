@@ -1,12 +1,11 @@
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31:lc=2;3;37:lm=3;37"
 # export EXA_STRICT="1"
 
-local EXA_FLAGS="--long --all --header --classify --group --color-scale --color=always"
-alias la="exa $EXA_FLAGS --tree --level=1"
+local EXA_FLAGS="--long --all --header --classify --group --icons --color-scale --color=always"
+alias la="exa $EXA_FLAGS --extended --links --tree --level=1"
 local EXA_FLAGS="$EXA_FLAGS --ignore-glob='.git|.DS_Store'"
 
 alias l="exa $EXA_FLAGS"
-alias le="exa $EXA_FLAGS --extended --links"
 alias lb="exa $EXA_FLAGS --sort=size"
 alias lm="exa $EXA_FLAGS --sort=modified --time=modified"
 alias lch="exa $EXA_FLAGS --sort=changed --time=changed"
