@@ -41,7 +41,7 @@ for APPLICATION in "${APPLICATIONS[@]}"; do
 	fi
 	if test -d "./System/Applications/${APPLICATION}.app"; then
 		chmod 000 "./System/Applications/${APPLICATION}.app"
-		mv -f "./System/Applications/${APPLICATION}.app" "./Applications/.${APPLICATION}.app"
+		mv -f "./System/Applications/${APPLICATION}.app" "./System/Applications/.${APPLICATION}.app"
 		echo "👍 [DISABLED] System Applications -> '${APPLICATION}'"
 	fi
 done
