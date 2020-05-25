@@ -81,6 +81,12 @@ if [[ -x "$(which -p antibody)" ]]; then
 	eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
 	# LS_COLORS+="di=38;5;30"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+	# local sitefns="${fpath[2]}"
+	# unset fpath[2]
+	# local fns="${fpath[2]}"
+	# unset fpath[2]
+	# echo "fpath -> '$fpath'"
 fi
 
 

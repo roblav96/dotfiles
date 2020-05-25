@@ -1,3 +1,4 @@
+sticklerm3/macos-zsh-comps path:src kind:fpath
 nilsonholger/osx-zsh-completions kind:fpath
 scriptingosx/mac-zsh-completions path:completions kind:fpath
 # rgcr/m-cli path:completion/zsh kind:fpath
