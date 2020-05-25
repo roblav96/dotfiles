@@ -48,7 +48,7 @@ function bin() {
 function bcin() {
 	for v in "$@"; do
 		echo; echo "🌕 Installing cask -> '$v'"
-		brew cask install --no-quarantine "$v"
+		brew cask install "$v"
 	done
 }
 
@@ -62,7 +62,7 @@ function brein() {
 function bcrein() {
 	for v in "$@"; do
 		echo; echo "🌕 Reinstalling cask -> '$v'"
-		brew cask reinstall --no-quarantine "$v"
+		brew cask reinstall "$v"
 	done
 }; compdef bcrein=command
 

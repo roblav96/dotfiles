@@ -12,7 +12,10 @@
 # Agents to disable
 # 'com.apple.speech.speechdatainstallerd' 'com.apple.speech.speechsynthesisd' 'com.apple.speech.synthesisserver' will freeze Edit menus
 # 'com.apple.bird' will prevent saving prompt from being shown
-AGENTS=()
+
+AGENTS=(
+	'com.apple.AMPDeviceDiscoveryAgent'
+)
 
 AGENTS=(
 	'com.apple.AddressBook.ContactsAccountsService'
