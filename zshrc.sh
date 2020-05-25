@@ -169,7 +169,12 @@ alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp"
 alias abupd="antibody update && zcomp"
-alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
+# alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
+function abfixpaste() {
+	local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
+	local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
+	nano +$line "$file"
+}
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
