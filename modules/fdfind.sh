@@ -18,6 +18,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.playground \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.rustup \
+--exclude=$HOME/.local/share/Trash \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
 --exclude=$HOME/.linuxbrew \
