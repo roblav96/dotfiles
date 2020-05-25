@@ -70,6 +70,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 if [[ -x "$(which -p antibody)" ]]; then
 	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
+	zstyle :plugin:zsh-completion-generator programs ""
 	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	# zle_highlight+=(paste:bold)
 
