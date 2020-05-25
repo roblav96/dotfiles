@@ -15,7 +15,7 @@ alias rmxattr="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias .hosts="sudo subl --new-window /etc/hosts"
-alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias .hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias .paths="sudo subl --new-window /etc/paths"
 alias .profiles="sudo subl --new-window /etc/zprofile /etc/profile"
 
