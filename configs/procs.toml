@@ -7,22 +7,6 @@ kind = "User"
 style = "BrightGreen"
 
 [[columns]]
-kind = "Separator"
-style = "White"
-
-[[columns]]
-kind = "Tty"
-style = "White"
-
-[[columns]]
-kind = "UsageCpu"
-style = "ByPercentage"
-
-[[columns]]
-kind = "UsageMem"
-style = "ByPercentage"
-
-[[columns]]
 kind = "TcpPort"
 style = "BrightCyan"
 
@@ -35,8 +19,12 @@ kind = "Slot"
 style = "ByUnit"
 
 [[columns]]
-kind = "Separator"
-style = "White"
+kind = "UsageMem"
+style = "ByPercentage"
+
+[[columns]]
+kind = "UsageCpu"
+style = "ByPercentage"
 
 [[columns]]
 kind = "CpuTime"
@@ -53,3 +41,6 @@ style = "White"
 [[columns]]
 kind = "Command"
 style = "White"
+
+[pager]
+mode = "Disable"
