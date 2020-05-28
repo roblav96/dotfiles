@@ -164,7 +164,7 @@ alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc
 alias archey="archey --offline"
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 alias ipcalc="ipcalc --nobinary"
-alias serve="miniserve --verbose --auth=admin: --port=8080"
+alias serve="miniserve --no-symlinks --verbose --auth=admin: --port=8888"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
