@@ -43,6 +43,6 @@ function lcsr() {
 }
 
 function lca() {
-	lc.f "$*"
-	lc.r "$*"
+	lcf "$*"
+	lcr "$*"
 }
