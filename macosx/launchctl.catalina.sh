@@ -140,12 +140,12 @@ AGENTS=(
 )
 
 for i in ./System/Library/LaunchAgents/*.bak; do
-	if test -f "$i"; then
+	if test -e "$i"; then
 		mv -f "$i" "${i:0:-4}"
 	fi
 done
 for AGENT in "${AGENTS[@]}"; do
-	if test -f "./System/Library/LaunchAgents/${AGENT}.plist"; then
+	if test -e "./System/Library/LaunchAgents/${AGENT}.plist"; then
 		mv -f "./System/Library/LaunchAgents/${AGENT}.plist" "./System/Library/LaunchAgents/${AGENT}.plist.bak"
 		echo "👍 [DISABLED] System Library LaunchAgent -> '${AGENT}'"
 	fi
@@ -209,12 +209,12 @@ DAEMONS=(
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
-	if test -f "$i"; then
+	if test -e "$i"; then
 		mv -f "$i" "${i:0:-4}"
 	fi
 done
 for DAEMON in "${DAEMONS[@]}"; do
-	if test -f "./System/Library/LaunchDaemons/${DAEMON}.plist"; then
+	if test -e "./System/Library/LaunchDaemons/${DAEMON}.plist"; then
 		mv -f "./System/Library/LaunchDaemons/${DAEMON}.plist" "./System/Library/LaunchDaemons/${DAEMON}.plist.bak"
 		echo "👍 [DISABLED] System Library LaunchDaemon -> '${DAEMON}'"
 	fi
