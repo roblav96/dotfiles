@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🔴 csrutil enable --without debug --without dtrace --without fs"
+# echo "🔴 csrutil enable --without debug --without dtrace --without fs"
 
 APPLICATIONS=(
 	'Books'
@@ -31,7 +31,6 @@ APPLICATIONS=(
 	'TV'
 	'VoiceMemos'
 )
-
 for APPLICATION in "${APPLICATIONS[@]}"; do
 	if test -d "./System/Applications/${APPLICATION}.app"; then
 		chmod 000 "./System/Applications/${APPLICATION}.app"
@@ -45,19 +44,18 @@ for APPLICATION in "${APPLICATIONS[@]}"; do
 	fi
 done
 
-CORE_SERVICES=(
-	'MRT'
-)
-
-for CORE_SERVICE in "${CORE_SERVICES[@]}"; do
-	if test -d "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app"; then
-		chmod 000 "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app"
-		mv -f "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app" "./Library/Apple/System/Library/CoreServices/.${CORE_SERVICE}.app"
-		echo "👍 [DISABLED] Library Apple System Library CoreServices -> '${CORE_SERVICE}'"
-	fi
-	if test -d "./System/Library/CoreServices/${CORE_SERVICE}.app"; then
-		chmod 000 "./System/Library/CoreServices/${CORE_SERVICE}.app"
-		mv -f "./System/Library/CoreServices/${CORE_SERVICE}.app" "./System/Library/CoreServices/.${CORE_SERVICE}.app"
-		echo "👍 [DISABLED] System Library CoreServices -> '${CORE_SERVICE}'"
-	fi
-done
+# CORE_SERVICES=(
+# 	'MRT'
+# )
+# for CORE_SERVICE in "${CORE_SERVICES[@]}"; do
+# 	if test -d "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app"; then
+# 		chmod 000 "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app"
+# 		mv -f "./Library/Apple/System/Library/CoreServices/${CORE_SERVICE}.app" "./Library/Apple/System/Library/CoreServices/.${CORE_SERVICE}.app"
+# 		echo "👍 [DISABLED] Library Apple System Library CoreServices -> '${CORE_SERVICE}'"
+# 	fi
+# 	if test -d "./System/Library/CoreServices/${CORE_SERVICE}.app"; then
+# 		chmod 000 "./System/Library/CoreServices/${CORE_SERVICE}.app"
+# 		mv -f "./System/Library/CoreServices/${CORE_SERVICE}.app" "./System/Library/CoreServices/.${CORE_SERVICE}.app"
+# 		echo "👍 [DISABLED] System Library CoreServices -> '${CORE_SERVICE}'"
+# 	fi
+# done

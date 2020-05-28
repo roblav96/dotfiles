@@ -14,6 +14,7 @@
 # 'com.apple.bird' will prevent saving prompt from being shown
 
 AGENTS=(
+	# 'com.apple.MRTa'
 	# 'com.apple.printtool.agent'
 	'com.apple.accessibility.AXVisualSupportAgent'
 	'com.apple.accessibility.dfrhud'
@@ -80,7 +81,6 @@ AGENTS=(
 	'com.apple.mediaanalysisd'
 	'com.apple.mediaremoteagent'
 	'com.apple.mobileassetd'
-	'com.apple.MRTa'
 	'com.apple.NowPlayingTouchUI'
 	'com.apple.parentalcontrols.check'
 	'com.apple.parsec-fbf'
@@ -140,7 +140,9 @@ AGENTS=(
 )
 
 for i in ./System/Library/LaunchAgents/*.bak; do
-	mv -f "$i" "${i:0:-4}"
+	if test -f "$i"; then
+		mv -f "$i" "${i:0:-4}"
+	fi
 done
 for AGENT in "${AGENTS[@]}"; do
 	if test -f "./System/Library/LaunchAgents/${AGENT}.plist"; then
@@ -152,6 +154,7 @@ done
 DAEMONS=(
 	# 'com.apple.backupd'
 	# 'com.apple.backupd-helper'
+	# 'com.apple.MRTd'
 	# 'org.cups.cupsd'
 	'com.apple.AirPlayXPCHelper'
 	'com.apple.analyticsd'
@@ -186,7 +189,6 @@ DAEMONS=(
 	'com.apple.metadata.mds.index'
 	'com.apple.metadata.mds.scan'
 	'com.apple.metadata.mds.spindump'
-	'com.apple.MRTd'
 	'com.apple.netbiosd'
 	'com.apple.osanalytics.osanalyticshelper'
 	'com.apple.preferences.timezone.admintool'
@@ -207,7 +209,9 @@ DAEMONS=(
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
-	mv -f "$i" "${i:0:-4}"
+	if test -f "$i"; then
+		mv -f "$i" "${i:0:-4}"
+	fi
 done
 for DAEMON in "${DAEMONS[@]}"; do
 	if test -f "./System/Library/LaunchDaemons/${DAEMON}.plist"; then
