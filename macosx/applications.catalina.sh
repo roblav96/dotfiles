@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "🔴 csrutil enable --without dtrace"
-echo "🔴 csrutil enable --without fs"
+echo "🔴 csrutil enable --without debug --without dtrace --without fs"
 
 APPLICATIONS=(
 	'Books'

@@ -14,62 +14,93 @@
 # 'com.apple.bird' will prevent saving prompt from being shown
 
 AGENTS=(
-	'com.apple.AMPDeviceDiscoveryAgent'
-)
-
-AGENTS=(
+	# 'com.apple.printtool.agent'
+	'com.apple.accessibility.AXVisualSupportAgent'
+	'com.apple.accessibility.dfrhud'
+	'com.apple.accessibility.heard'
+	'com.apple.AddressBook.abd'
 	'com.apple.AddressBook.ContactsAccountsService'
+	'com.apple.AddressBook.SourceSync'
 	'com.apple.AirPlayUIAgent'
 	'com.apple.AirPortBaseStationAgent'
+	'com.apple.amp.mediasharingd'
+	'com.apple.AMPDeviceDiscoveryAgent'
+	'com.apple.AOSHeartbeat'
 	'com.apple.AOSPushRelay'
+	'com.apple.ap.adprivacyd'
+	'com.apple.ap.adservicesd'
 	'com.apple.appleseed.seedusaged'
+	'com.apple.appleseed.seedusaged.postinstall'
 	'com.apple.assistant_service'
 	'com.apple.assistantd'
 	'com.apple.atsd.useragent'
+	'com.apple.avconferenced'
 	'com.apple.CalendarAgent'
 	'com.apple.CallHistoryPluginHelper'
 	'com.apple.CallHistorySyncHelper'
 	'com.apple.cloudd'
 	'com.apple.cloudfamilyrestrictionsd-mac'
 	'com.apple.cloudpaird'
+	'com.apple.cloudphotod'
 	'com.apple.cloudphotosd'
 	'com.apple.CommCenter-osx'
 	'com.apple.coreparsec.silhouette'
 	'com.apple.corespotlightd'
 	'com.apple.corespotlightservice'
+	'com.apple.DiagnosticReportCleanup'
 	'com.apple.DictationIM'
+	'com.apple.exchange.exchangesyncd'
 	'com.apple.familycircled'
 	'com.apple.familycontrols.useragent'
 	'com.apple.familynotificationd'
+	'com.apple.findmymacmessenger'
 	'com.apple.followupd'
 	'com.apple.gamed'
 	'com.apple.geodMachServiceBridge'
+	'com.apple.helpd'
+	'com.apple.homed'
 	'com.apple.icdd'
 	'com.apple.icloud.findmydeviced.findmydevice-user-agent'
 	'com.apple.icloud.fmfd'
+	'com.apple.icloud.searchpartyuseragent'
 	'com.apple.iCloudUserNotifications'
 	'com.apple.identityservicesd'
 	'com.apple.imagent'
+	'com.apple.imautomatichistorydeletionagent'
+	'com.apple.imklaunchagent'
 	'com.apple.IMLoggingAgent'
+	'com.apple.imtransferagent'
+	'com.apple.java.InstallOnDemand'
+	'com.apple.KeyboardAccessAgent'
+	'com.apple.keyboardservicesd'
+	'com.apple.knowledge-agent'
 	'com.apple.macos.studentd'
 	'com.apple.Maps.mapspushd'
 	'com.apple.Maps.pushdaemon'
+	'com.apple.mediaanalysisd'
 	'com.apple.mediaremoteagent'
+	'com.apple.mobileassetd'
 	'com.apple.MRTa'
 	'com.apple.NowPlayingTouchUI'
 	'com.apple.parentalcontrols.check'
+	'com.apple.parsec-fbf'
 	'com.apple.parsecd'
 	'com.apple.passd'
 	'com.apple.personad'
 	'com.apple.photoanalysisd'
 	'com.apple.photolibraryd'
+	'com.apple.protectedcloudstorage.protectedcloudkeysyncing'
 	'com.apple.quicklook'
 	'com.apple.quicklook.ThumbnailsAgent'
+	'com.apple.quicklook.ui.helper'
 	'com.apple.rapportd-user'
 	'com.apple.rcd'
+	'com.apple.remindd'
 	'com.apple.RemoteDesktop'
 	'com.apple.ReportCrash'
 	'com.apple.ReportCrash.Self'
+	'com.apple.ReportGPURestart'
+	'com.apple.ReportPanic'
 	'com.apple.Safari.SafeBrowsing.Service'
 	'com.apple.SafariBookmarksSyncAgent'
 	'com.apple.SafariCloudHistoryPushAgent'
@@ -87,7 +118,10 @@ AGENTS=(
 	'com.apple.security.keychain-circle-notification'
 	'com.apple.security.keychainsyncingoveridsproxy'
 	'com.apple.sharingd'
+	'com.apple.sidecar-hid-relay'
+	'com.apple.sidecar-relay'
 	'com.apple.Siri.agent'
+	'com.apple.siriknowledged'
 	'com.apple.soagent'
 	'com.apple.SocialPushAgent'
 	'com.apple.spindump_agent'
@@ -97,283 +131,12 @@ AGENTS=(
 	'com.apple.syncdefaultsd'
 	'com.apple.telephonyutilities.callservicesd'
 	'com.apple.touristd'
+	'com.apple.TrustEvaluationAgent'
 	'com.apple.UsageTrackingAgent'
-)
-
-# iCloud
-AGENTS+=(
-	'com.apple.cloudd'
-	'com.apple.cloudpaird'
-	'com.apple.cloudphotod'
-	'com.apple.icloud.findmydeviced.findmydevice-user-agent'
-	'com.apple.icloud.fmfd'
-	'com.apple.icloud.searchpartyuseragent'
-	'com.apple.iCloudUserNotifications'
-	'com.apple.protectedcloudstorage.protectedcloudkeysyncing'
-	'com.apple.security.cloudkeychainproxy3'
-)
-
-# Safari useless stuff
-AGENTS+=(
-	'com.apple.SafariBookmarksSyncAgent'
-	'com.apple.SafariCloudHistoryPushAgent'
-	'com.apple.WebKit.PluginAgent'
-)
-
-# iMessage / Facetime
-AGENTS+=(
-	'com.apple.avconferenced'
-	'com.apple.imagent'
-	'com.apple.imautomatichistorydeletionagent'
-	'com.apple.imklaunchagent'
-	'com.apple.imtransferagent'
-)
-
-# Game Center / Passbook / Apple TV / Homekit...
-AGENTS+=(
-	'com.apple.CommCenter-osx'
-	'com.apple.gamed'
-	'com.apple.homed'
-	'com.apple.Maps.pushdaemon'
-	'com.apple.passd'
 	'com.apple.videosubscriptionsd'
-)
-
-# Ad-related
-AGENTS+=(
-	'com.apple.ap.adprivacyd'
-	'com.apple.ap.adservicesd'
-)
-
-# Screensharing
-AGENTS+=(
-	'com.apple.screensharing.agent'
-	'com.apple.screensharing.menuextra'
-	'com.apple.screensharing.MessagesAgent'
-)
-
-# Siri
-AGENTS+=(
-	'com.apple.assistant_service'
-	'com.apple.assistantd'
-	'com.apple.parsec-fbf'
-	'com.apple.Siri.agent'
-	'com.apple.siriknowledged'
-)
-
-# VoiceOver / accessibility-related stuff
-AGENTS+=(
-	'com.apple.accessibility.AXVisualSupportAgent'
-	'com.apple.accessibility.dfrhud'
-	'com.apple.accessibility.heard'
 	'com.apple.voicememod'
 	'com.apple.VoiceOver'
-)
-
-# Quicklook
-AGENTS+=(
-	'com.apple.quicklook'
-	'com.apple.quicklook.ThumbnailsAgent'
-	'com.apple.quicklook.ui.helper'
-)
-
-# Sidecar
-AGENTS+=(
-	'com.apple.sidecar-hid-relay'
-	'com.apple.sidecar-relay'
-)
-
-# Debugging process
-AGENTS+=(
-	'com.apple.DiagnosticReportCleanup'
-	'com.apple.ReportCrash'
-	'com.apple.ReportGPURestart'
-	'com.apple.ReportPanic'
-	'com.apple.spindump_agent'
-	'com.apple.TrustEvaluationAgent'
-)
-
-# Others
-AGENTS+=(
-	'com.apple.AddressBook.abd'
-	'com.apple.AirPlayUIAgent'
-	'com.apple.AirPortBaseStationAgent'
-	'com.apple.amp.mediasharingd'
-	'com.apple.AOSHeartbeat'
-	'com.apple.AOSPushRelay'
-	'com.apple.appleseed.seedusaged'
-	'com.apple.appleseed.seedusaged.postinstall'
-	'com.apple.CallHistoryPluginHelper'
-	'com.apple.CallHistorySyncHelper'
-	'com.apple.exchange.exchangesyncd'
-	'com.apple.familycircled'
-	'com.apple.familycontrols.useragent'
-	'com.apple.familynotificationd'
-	'com.apple.findmymacmessenger'
-	'com.apple.helpd'
-	'com.apple.identityservicesd'
-	'com.apple.java.InstallOnDemand'
-	'com.apple.KeyboardAccessAgent'
-	'com.apple.macos.studentd'
-	'com.apple.mediaanalysisd'
-	'com.apple.mediaremoteagent'
-	'com.apple.parentalcontrols.check'
-	'com.apple.parsecd'
-	'com.apple.photoanalysisd'
-	# 'com.apple.printtool.agent'
-	'com.apple.remindd'
-	'com.apple.RemoteDesktop'
-	'com.apple.security.keychain-circle-notification'
-	'com.apple.sharingd'
-	'com.apple.SocialPushAgent'
-	'com.apple.suggestd'
-	'com.apple.syncdefaultsd'
-	'com.apple.telephonyutilities.callservicesd'
-	'com.apple.touristd'
-)
-
-# iCloud
-AGENTS+=(
-	'com.apple.security.cloudkeychainproxy3'
-	'com.apple.iCloudUserNotifications'
-	'com.apple.icloud.findmydeviced.findmydevice-user-agent'
-	'com.apple.icloud.fmfd'
-	'com.apple.icloud.searchpartyuseragent'
-	'com.apple.cloudd'
-	'com.apple.cloudpaird'
-	'com.apple.cloudphotosd'
-	'com.apple.followupd'
-	'com.apple.protectedcloudstorage.protectedcloudkeysyncing'
-)
-
-# Safari useless stuff
-AGENTS+=(
-	'com.apple.SafariBookmarksSyncAgent'
-	'com.apple.SafariCloudHistoryPushAgent'
 	'com.apple.WebKit.PluginAgent'
-)
-
-# iMessage / Facetime
-AGENTS+=(
-	'com.apple.imagent'
-	'com.apple.imautomatichistorydeletionagent'
-	'com.apple.imklaunchagent'
-	'com.apple.imtransferagent'
-	'com.apple.avconferenced'
-)
-
-# Game Center / Passbook / Apple TV / Homekit...
-AGENTS+=(
-	'com.apple.gamed'
-	'com.apple.passd'
-	'com.apple.Maps.pushdaemon'
-	'com.apple.videosubscriptionsd'
-	'com.apple.CommCenter-osx'
-	'com.apple.homed'
-)
-
-# Ad-related
-AGENTS+=(
-	'com.apple.ap.adprivacyd'
-	'com.apple.ap.adservicesd'
-)
-
-# Screensharing
-AGENTS+=(
-	'com.apple.screensharing.MessagesAgent'
-	'com.apple.screensharing.agent'
-	'com.apple.screensharing.menuextra'
-)
-
-# Siri
-AGENTS+=(
-	'com.apple.siriknowledged'
-	'com.apple.assistant_service'
-	'com.apple.assistantd'
-	'com.apple.Siri.agent'
-	'com.apple.parsec-fbf'
-)
-
-# VoiceOver / accessibility-related stuff
-AGENTS+=(
-	'com.apple.VoiceOver'
-	'com.apple.voicememod'
-	'com.apple.accessibility.AXVisualSupportAgent'
-	'com.apple.accessibility.dfrhud'
-	'com.apple.accessibility.heard'
-)
-
-# Quicklook
-AGENTS+=(
-	'com.apple.quicklook.ui.helper'
-	'com.apple.quicklook.ThumbnailsAgent'
-	'com.apple.quicklook'
-)
-
-# Sidecar
-AGENTS+=(
-	'com.apple.sidecar-hid-relay'
-	'com.apple.sidecar-relay'
-)
-
-# Debugging process
-AGENTS+=(
-	'com.apple.spindump_agent'
-	'com.apple.ReportCrash'
-	'com.apple.ReportGPURestart'
-	'com.apple.ReportPanic'
-	'com.apple.DiagnosticReportCleanup'
-	'com.apple.TrustEvaluationAgent'
-)
-
-# Screentime
-AGENTS+=(
-	'com.apple.ScreenTimeAgent'
-	'com.apple.UsageTrackingAgent'
-)
-
-# Others
-AGENTS+=(
-	'com.apple.telephonyutilities.callservicesd'
-	'com.apple.photoanalysisd'
-	'com.apple.parsecd'
-	'com.apple.AOSPushRelay'
-	'com.apple.AOSHeartbeat'
-	'com.apple.AirPlayUIAgent'
-	'com.apple.AirPortBaseStationAgent'
-	'com.apple.familycircled'
-	'com.apple.familycontrols.useragent'
-	'com.apple.familynotificationd'
-	'com.apple.findmymacmessenger'
-	'com.apple.sharingd'
-	'com.apple.identityservicesd'
-	'com.apple.java.InstallOnDemand'
-	'com.apple.parentalcontrols.check'
-	'com.apple.security.keychain-circle-notification'
-	'com.apple.syncdefaultsd'
-	'com.apple.appleseed.seedusaged'
-	'com.apple.appleseed.seedusaged.postinstall'
-	'com.apple.CallHistorySyncHelper'
-	'com.apple.RemoteDesktop'
-	'com.apple.CallHistoryPluginHelper'
-	'com.apple.SocialPushAgent'
-	'com.apple.touristd'
-	'com.apple.macos.studentd'
-	'com.apple.KeyboardAccessAgent'
-	'com.apple.exchange.exchangesyncd'
-	'com.apple.suggestd'
-	'com.apple.AddressBook.abd'
-	'com.apple.helpd'
-	'com.apple.amp.mediasharingd'
-	'com.apple.mediaanalysisd'
-	'com.apple.mediaremoteagent'
-	'com.apple.remindd'
-	'com.apple.keyboardservicesd'
-	'com.apple.AddressBook.SourceSync'
-	'com.apple.telephonyutilities.callservicesd'
-	'com.apple.mobileassetd'
-	'com.apple.CalendarAgent'
-	'com.apple.knowledge-agent'
 )
 
 for i in ./System/Library/LaunchAgents/*.bak; do
@@ -386,10 +149,10 @@ for AGENT in "${AGENTS[@]}"; do
 	fi
 done
 
-# Daemons to disable
-DAEMONS=()
-
 DAEMONS=(
+	# 'com.apple.backupd'
+	# 'com.apple.backupd-helper'
+	# 'org.cups.cupsd'
 	'com.apple.AirPlayXPCHelper'
 	'com.apple.analyticsd'
 	'com.apple.AOSNotificationOSX'
@@ -411,6 +174,7 @@ DAEMONS=(
 	'com.apple.icloud.findmydeviced'
 	'com.apple.iCloudStats'
 	'com.apple.laterscheduler'
+	'com.apple.locate'
 	'com.apple.locationd'
 	'com.apple.ManagedClient'
 	'com.apple.ManagedClient.cloudconfigurationd'
@@ -423,13 +187,16 @@ DAEMONS=(
 	'com.apple.metadata.mds.scan'
 	'com.apple.metadata.mds.spindump'
 	'com.apple.MRTd'
+	'com.apple.netbiosd'
 	'com.apple.osanalytics.osanalyticshelper'
 	'com.apple.preferences.timezone.admintool'
 	'com.apple.preferences.timezone.auto'
 	'com.apple.rapportd'
+	'com.apple.RemoteDesktop.PrivilegeProxy'
 	'com.apple.remotepairtool'
 	'com.apple.ReportCrash.Root'
 	'com.apple.rpmuxd'
+	'com.apple.screensharing'
 	'com.apple.security.FDERecoveryAgent'
 	'com.apple.spindump'
 	'com.apple.SubmitDiagInfo'
@@ -437,62 +204,6 @@ DAEMONS=(
 	'com.apple.systemstats.analysis'
 	'ssh'
 	'tftp'
-)
-
-# iCloud
-DAEMONS+=(
-	'com.apple.analyticsd'
-)
-
-# Others
-DAEMONS+=(
-	'com.apple.appleseed.fbahelperd'
-	'com.apple.apsd'
-	# 'com.apple.backupd'
-	# 'com.apple.backupd-helper'
-	'com.apple.eapolcfg_auth'
-	'com.apple.locate'
-	'com.apple.locationd'
-	'com.apple.ManagedClient'
-	'com.apple.ManagedClient.cloudconfigurationd'
-	'com.apple.ManagedClient.enroll'
-	'com.apple.ManagedClient.startup'
-	'com.apple.mediaremoted'
-	'com.apple.netbiosd'
-	'com.apple.preferences.timezone.admintool'
-	'com.apple.RemoteDesktop.PrivilegeProxy'
-	'com.apple.remotepairtool'
-	'com.apple.screensharing'
-	'com.apple.security.FDERecoveryAgent'
-	'com.apple.SubmitDiagInfo'
-	# 'org.cups.cupsd'
-)
-
-# iCloud
-DAEMONS+=(
-	'com.apple.analyticsd'
-	'com.apple.icloud.findmydeviced'
-)
-
-# Others
-DAEMONS+=(
-	'com.apple.netbiosd'
-	'com.apple.preferences.timezone.admintool'
-	'com.apple.remotepairtool'
-	'com.apple.security.FDERecoveryAgent'
-	'com.apple.SubmitDiagInfo'
-	'com.apple.screensharing'
-	'com.apple.appleseed.fbahelperd'
-	'com.apple.apsd'
-	'com.apple.ManagedClient.cloudconfigurationd'
-	'com.apple.ManagedClient.enroll'
-	'com.apple.ManagedClient'
-	'com.apple.ManagedClient.startup'
-	'com.apple.locate'
-	'com.apple.locationd'
-	'com.apple.eapolcfg_auth'
-	'com.apple.RemoteDesktop.PrivilegeProxy'
-	'com.apple.mediaremoted'
 )
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
