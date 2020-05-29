@@ -10,7 +10,7 @@ export BUNDLE_EDITOR="nano"
 # export RMATE_PORT="52699"
 
 export PASTEL_COLOR_MODE="8bit"
-export SDKROOT="macosx10.14"
+# export SDKROOT="macosx10.14"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 
 # export JAVA_HOME="$(/usr/libexec/java_home)"
