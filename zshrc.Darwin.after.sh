@@ -99,16 +99,18 @@ alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gsa)'
-alias stpush='(stcd && echo && gs && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master)'
+alias stpush='(stcd && gitpush)'
 
 alias sm="smerge --new-window"
 alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
 alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
+alias smgs='(smcd && gsa)'
+alias smpush='(smcd && gitpush)'
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gsa)'
-alias dotpush='(dotcd && echo && gs && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master) && src'
+alias dotpush='(dotcd && gitpush) && src'
 # function dotpush() {
 # 	cd "$DOTFILES"
 # 	local gs="$(git status -z)"
