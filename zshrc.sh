@@ -162,11 +162,8 @@ alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore" # --with-node-modules --print-width \$(tput cols)
-alias archey="archey --offline"
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine='hyperfine --shell=$(which -p bash)'
 alias ipcalc="ipcalc --nobinary"
-alias serve="miniserve --no-symlinks --verbose --auth=admin: --port=8888"
-alias servewget="wget --http-user=admin --http-password="
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
@@ -241,6 +238,10 @@ fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
+
+alias serve="miniserve --no-symlinks --verbose --port=8888"
+alias pub-serve="serve --auth=admin: ~/Public"
+alias pub-wget="wget --http-user=admin --http-password="
 
 alias p="ps auxww | grep --invert-match grep | grep"
 # function p() {
