@@ -26,6 +26,8 @@ alias gpr="git pull --rebase"
 alias gi="git check-ignore --verbose"
 alias gia="git check-ignore --verbose **/.* **/*"
 
+alias gitpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gs && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master'
+
 # function gc() {
 # 	if [[ -z "$@" ]]; then
 # 		echo "🔴 You must specify a repository to clone"

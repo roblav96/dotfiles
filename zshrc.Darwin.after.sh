@@ -94,14 +94,16 @@ function app-bak() {
 }
 
 alias st="subl"
-alias sm="smerge --new-window"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
-alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gsa)'
 alias stpush='(stcd && echo && gs && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master)'
+
+alias sm="smerge --new-window"
+alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
+alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
