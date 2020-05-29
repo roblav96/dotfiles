@@ -1,4 +1,4 @@
-local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
+local FD_FLAGS="--hidden --exclude=.git --exclude=.DS_Store"
 alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 
@@ -8,7 +8,7 @@ alias faa="fd $FD_FLAGS_ALL --fixed-strings --follow"
 alias fagl="fd $FD_FLAGS_ALL --glob"
 alias faagl="fd $FD_FLAGS_ALL --glob --follow"
 
-alias fpathf="fd $FD_FLAGS --exact-depth=1 --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias fpathf="fd $FD_FLAGS --no-ignore --exact-depth=1 --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
@@ -31,6 +31,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/.Trash \
 --exclude=$HOME/Desktop \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \
