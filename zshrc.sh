@@ -93,8 +93,8 @@ fi
 
 # export ZSH_COMPDEF="$(which -w compdef | grep -q 'function$' && echo 1)"
 
-export HISTSIZE="10000000"
-export SAVEHIST="10000000"
+export HISTSIZE="999999999"
+export SAVEHIST="999999999"
 setopt hist_ignore_all_dups
 
 # setopt rm_star_silent

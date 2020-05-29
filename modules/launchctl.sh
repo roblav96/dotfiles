@@ -1,5 +1,6 @@
 alias lcls="(echo; echo '🌕 User Agents'; launchctl list | column -t; echo; echo '🌕 System Daemons'; sudo launchctl list | column -t)"
 alias lchostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo 2>/dev/null | bat -p -l ini; echo; echo '🌕 System Host Info'; echo; sudo launchctl hostinfo 2>/dev/null | bat -p -l ini"
+alias lcdomains="defaults domains | sed 's/, /\n/g'"
 
 function lcl() {
 	echo; echo "🌕 $HOME/Library/LaunchAgents"

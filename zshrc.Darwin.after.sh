@@ -20,7 +20,7 @@ alias .paths="sudo subl --new-window /etc/paths"
 alias .profiles="sudo subl --new-window /etc/zprofile /etc/profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
-alias .zsh_history="subl --new-window $HOME/.zsh_history:999999"
+alias .zsh_history="subl --new-window $HOME/.zsh_history:999999; exit"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
