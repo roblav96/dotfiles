@@ -1,4 +1,4 @@
-local FD_FLAGS="--hidden --exclude=.git --exclude=.DS_Store"
+local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
 alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 
