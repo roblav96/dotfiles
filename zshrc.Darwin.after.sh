@@ -46,8 +46,6 @@ alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_conf
 
 alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
 alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
-alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
-alias firefox-bin="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin"
 
 alias o="open ."
 # function o() {
