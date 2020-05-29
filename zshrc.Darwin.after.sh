@@ -45,7 +45,7 @@ alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
 
 alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
-alias gpu="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
+alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
 alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
 alias firefox-bin="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox-bin"
 
