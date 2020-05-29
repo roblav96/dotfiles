@@ -1,4 +1,4 @@
-alias ghub="github"
+alias ghb="github"
 
 # function _git-hr() {
 # 	if [[ ! -d ".git" ]]; then
