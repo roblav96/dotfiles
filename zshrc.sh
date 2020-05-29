@@ -166,6 +166,7 @@ alias archey="archey --offline"
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 alias ipcalc="ipcalc --nobinary"
 alias serve="miniserve --no-symlinks --verbose --auth=admin: --port=8888"
+alias getserve="wget --http-user=admin --http-password="
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
