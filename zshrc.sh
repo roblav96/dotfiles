@@ -241,7 +241,7 @@ alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | r
 
 alias serve="miniserve --no-symlinks --verbose --port=8888"
 alias pubserve="serve --auth=admin: ~/Public"
-alias pubwget="wget --http-user=admin --http-password="
+alias pubget="wget --http-user=admin --http-password="
 
 alias p="ps auxww | grep --invert-match grep | grep"
 # function p() {
