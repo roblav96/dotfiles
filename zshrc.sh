@@ -243,7 +243,7 @@ alias serve="miniserve --no-symlinks --verbose --port=8888"
 alias pubserve="serve --auth=admin: ~/Public"
 alias pubget="wget --http-user=admin --http-password="
 
-alias p="ps auxww | grep --invert-match grep | grep"
+alias p="ps auxww | rg --invert-match rg | rg --smart-case --fixed-strings"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
