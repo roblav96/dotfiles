@@ -1,14 +1,16 @@
 local FD_FLAGS="--color=always --hidden --exclude=.git --exclude=.DS_Store"
+
 alias f="fd $FD_FLAGS --exclude=node_modules --fixed-strings"
 alias fgl="fd $FD_FLAGS --exclude=node_modules --glob"
 
+alias fpathf="fd $FD_FLAGS --no-ignore --fixed-strings --exact-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+
 local FD_FLAGS_ALL="$FD_FLAGS --no-ignore --full-path"
+
 alias fa="fd $FD_FLAGS_ALL --fixed-strings"
 alias faa="fd $FD_FLAGS_ALL --fixed-strings --follow"
 alias fagl="fd $FD_FLAGS_ALL --glob"
 alias faagl="fd $FD_FLAGS_ALL --glob --follow"
-
-alias fpathf="fd $FD_FLAGS --no-ignore --exact-depth=1 --fixed-strings --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
