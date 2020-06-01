@@ -1,7 +1,7 @@
 #!/bin/sh
 
-/usr/bin/lego --path /etc/lego --accept-tos --email roblav96@gmx.com --domains futon.media --http --http.webroot /var/www renew
-/usr/bin/lego --path /etc/lego --accept-tos --email roblav96@gmx.com --domains emby.futon.media --http --http.webroot /var/www renew
+lego --path /etc/lego --accept-tos --email roblav96@gmx.com --domains futon.media --http --http.webroot /var/www renew
+lego --path /etc/lego --accept-tos --email roblav96@gmx.com --domains emby.futon.media --http --http.webroot /var/www renew
 
 # --server https://acme-staging-v02.api.letsencrypt.org/directory
 

@@ -1,7 +1,7 @@
 alias ip="ip -human -color"
-alias ipm="command ip -human -color -brief"
-alias ipa="command ip -human -color -all -details -stats"
-alias ipj="command ip -human -all -details -stats -json"
+alias ipm="ip -brief"
+alias ipa="ip -all -details -stats"
+alias ipj="ip -all -details -stats -json"
 
 alias tc="tc -color -pretty"
 alias tca="command tc -color -pretty -details -statistics"
