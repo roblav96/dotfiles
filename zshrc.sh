@@ -68,6 +68,9 @@ export DISABLE_AUTO_UPDATE="true"
 
 
 
+export ZSH_COMPLETION_GENERATOR_DIR="$HOME/.cache/gencomp"
+[[ ! -d "$ZSH_COMPLETION_GENERATOR_DIR" ]] && mkdir "$ZSH_COMPLETION_GENERATOR_DIR"
+
 if [[ -x "$(which -p antibody)" ]]; then
 	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
 	zstyle :plugin:zsh-completion-generator programs ""
@@ -158,7 +161,7 @@ alias redis-cli="redis-cli --no-auth-warning"
 alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-path $HOME/.prettierignore" # --with-node-modules --print-width \$(tput cols)
+alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine='hyperfine --shell=$(which -p bash)'
 alias ipcalc="ipcalc --nobinary"
 # alias play="mkc $HOME/.playground; l"
@@ -167,11 +170,11 @@ alias ipcalc="ipcalc --nobinary"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-if [[ ! -d ~/.Trash ]]; then
-	mkdir ~/.Trash
-	chmod 700 ~/.Trash
+if [[ ! -d "$HOME/.Trash" ]]; then
+	mkdir "$HOME/.Trash"
+	chmod 700 "$HOME/.Trash"
 fi
-alias rd="mv -f -t ~/.Trash"
+alias rd="mv -f -t $HOME/.Trash"
 
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && src"
@@ -233,17 +236,11 @@ if [[ -x "$(which -p rmate)" ]]; then
 	alias subl="rmate"
 fi
 
-# if [[ -x "$(which -p trash-put)" ]]; then
-# 	unalias rd &>/dev/null; alias rd="trash-put --verbose"
-# 	unalias rdd &>/dev/null; alias rdd="trash-put"
-# 	alias trash-ls="lch ~/.local/share/Trash/files"
-# fi
-
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
 alias serve="miniserve --no-symlinks --verbose --port=8888"
-alias pubserve="serve --auth=admin: ~/Public"
+alias pubserve="serve --auth=admin: $HOME/Public"
 alias pubget="wget --http-user=admin --http-password="
 
 alias p="ps auxww | rg --invert-match rg | rg --smart-case --fixed-strings"
