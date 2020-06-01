@@ -9,7 +9,7 @@ unset TK_FLAGS TK_FLAGS_ALL
 
 alias diskus="diskus --verbose"
 
-alias dust="dust --ignore-directory='.git'"
+alias dust="dust --ignore-directory=.git"
 alias dustr="dust --depth=1"
 alias dustrr="dust --depth=2"
 alias dustrrr="dust --depth=3"

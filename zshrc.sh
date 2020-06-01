@@ -134,7 +134,6 @@ alias mv="mv -v"
 alias cp="cp -vr"
 alias rm="rm -v"
 alias rmf="rm -rfv"
-alias rd="rm -rfv"
 alias chown="chown -v"
 alias chmod="chmod -v"
 alias chmodx="chmod a+x"
@@ -167,6 +166,12 @@ alias ipcalc="ipcalc --nobinary"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+if [[ ! -d ~/.Trash ]]; then
+	mkdir ~/.Trash
+	chmod 700 ~/.Trash
+fi
+alias rd="mv -f -t ~/.Trash"
 
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && src"
@@ -228,11 +233,11 @@ if [[ -x "$(which -p rmate)" ]]; then
 	alias subl="rmate"
 fi
 
-if [[ -x "$(which -p trash-put)" ]]; then
-	unalias rd &>/dev/null; alias rd="trash-put --verbose"
-	unalias rdd &>/dev/null; alias rdd="trash-put"
-	alias trash-ls="lch ~/.local/share/Trash/files"
-fi
+# if [[ -x "$(which -p trash-put)" ]]; then
+# 	unalias rd &>/dev/null; alias rd="trash-put --verbose"
+# 	unalias rdd &>/dev/null; alias rdd="trash-put"
+# 	alias trash-ls="lch ~/.local/share/Trash/files"
+# fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
