@@ -21,7 +21,19 @@ function ipinfo() {
 		curl "https://geo.ipify.org/api/v1?apiKey=$_IPIFY_API_KEY&domain=$@" | json
 	fi
 }
-alias ipallinfo="ipinfo; echo; echo '🌕 iplist.cc'; curl https://iplist.cc/api | json; echo; echo '🌕 ifconfig.co'; curl https://ifconfig.co/json | json '. |= del(.user_agent)'; echo; echo '🌕 ipinfo.io'; curl https://ipinfo.io | json '. |= del(.readme)'"
+
+alias ipallinfo='
+ipinfo;
+echo;
+echo "🌕 iplist.cc";
+curl https://iplist.cc/api | json;
+echo;
+echo "🌕 ifconfig.co";
+curl https://ifconfig.co/json | json ". |= del(.user_agent)";
+echo;
+echo "🌕 ipinfo.io";
+curl https://ipinfo.io | json ". |= del(.readme)"
+'
 
 function dnsinfo() {
 	local domain="${1:-google.com}"

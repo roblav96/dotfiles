@@ -179,13 +179,12 @@ alias rd="mv -f -t $HOME/.Trash"
 alias rmf="mv -f -t $HOME/.Trash"
 alias rmm="mv -f -t $HOME/.Trash"
 
-alias dotcd="cd $DOTFILES"
-alias dotsrc="zsh $DOTFILES/install.zsh && src"
 alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
-alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z; [[ -n \$ZSH_COMPLETION_GENERATOR_DIR ]] && ls -1 \$ZSH_COMPLETION_GENERATOR_DIR | sort > $HOME/..gencomp"
+alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
+alias dotcd="cd $DOTFILES"
+alias dotsrc="zsh $DOTFILES/install.zsh && zcomp"
 alias abupd="antibody update && zcomp"
-# alias abautosuggestions="bat \$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh --line-range=320:324; echo :322" # --highlight-line=322
 function abfixpaste() {
 	local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
 	local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
