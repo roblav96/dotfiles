@@ -138,7 +138,6 @@ alias ln="ln -v"
 alias mv="mv -v"
 alias cp="cp -vr"
 alias rm="rm -v"
-alias rmf="rm -rfv"
 alias chown="chown -v"
 alias chmod="chmod -v"
 alias chmodx="chmod a+x"
@@ -177,6 +176,8 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	chmod 700 "$HOME/.Trash"
 fi
 alias rd="mv -f -t $HOME/.Trash"
+alias rmf="mv -f -t $HOME/.Trash"
+alias rmm="mv -f -t $HOME/.Trash"
 
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && src"
