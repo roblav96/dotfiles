@@ -20,8 +20,10 @@ function bupd() {
 function bout() {
 	echo; echo "🌕 Outdated formulas"
 	brew outdated --verbose
-	echo; echo "🌕 Outdated casks"
-	brew cask outdated --verbose --greedy | grep --invert-match 'latest'
+	if [[ "$PLATFORM" != "Linux" ]]; then
+		echo; echo "🌕 Outdated casks"
+		brew cask outdated --verbose --greedy | grep --invert-match 'latest'
+	fi
 }
 function bls() {
 	echo; echo "🌕 List formulas"
