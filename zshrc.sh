@@ -178,6 +178,11 @@ fi
 alias rd="mv -f -t $HOME/.Trash"
 alias rmf="mv -f -t $HOME/.Trash"
 alias rmm="mv -f -t $HOME/.Trash"
+if [[ -x "$(which -p fd)" ]]; then
+	alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
+else
+	alias rmtrash="find $HOME/.Trash -print -delete"
+fi
 
 alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"

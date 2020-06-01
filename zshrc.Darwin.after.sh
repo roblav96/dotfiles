@@ -4,8 +4,6 @@ source "$DOTFILES/modules/dotwatch.sh"
 
 alias pst="pstree -w"
 
-alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
-# alias rmtrash="find $HOME/.Trash -print -delete"
 alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
