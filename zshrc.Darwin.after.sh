@@ -23,7 +23,7 @@ alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 
-alias pfc="sudo subl --new-window /etc/pf.conf"
+alias .pf.conf="sudo subl --new-window /etc/pf.conf"
 alias pfcat="bat /etc/pf.conf -l sh"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
 alias pfsr="sudo pfctl -q -s rules"
