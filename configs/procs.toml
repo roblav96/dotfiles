@@ -6,17 +6,13 @@ style = "Yellow"
 kind = "User"
 style = "BrightGreen"
 
-[[columns]]
-kind = "TcpPort"
-style = "BrightCyan"
+# [[columns]]
+# kind = "TcpPort"
+# style = "BrightCyan"
 
-[[columns]]
-kind = "UdpPort"
-style = "BrightCyan"
-
-[[columns]]
-kind = "Slot"
-style = "ByUnit"
+# [[columns]]
+# kind = "UdpPort"
+# style = "BrightCyan"
 
 [[columns]]
 kind = "UsageMem"
@@ -41,6 +37,10 @@ style = "White"
 [[columns]]
 kind = "Command"
 style = "White"
+
+[sort]
+column = 5
+order = "Ascending"
 
 [pager]
 mode = "Disable"

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# SKIP_DIRS+=
+
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
@@ -131,7 +133,7 @@ unalias pip &>/dev/null
 # alias rm="rm -v"
 
 alias sudo="sudo "
-compdef sudo=which
+# compdef sudo=which
 
 alias e="nano"
 alias ln="ln -v"

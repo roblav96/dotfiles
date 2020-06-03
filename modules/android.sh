@@ -12,9 +12,9 @@ alias gradlew="\$PWD/gradlew"
 # alias gradle="gradle --no-daemon"
 
 function apksign() {
-	rm -f $@-signed.apk
-	rm -f $@-unsigned-aligned.apk
-	zipalign -v -p 4 $@-unsigned.apk $@-unsigned-aligned.apk
-	apksigner sign --ks $HOME/.android/release.keystore --out $@-signed.apk $@-unsigned-aligned.apk
-	apksigner verify $@-signed.apk
+	rm -f "$*-signed.apk"
+	rm -f "$*-unsigned-aligned.apk"
+	zipalign -v -p 4 "$*-unsigned.apk" "$*-unsigned-aligned.apk"
+	apksigner sign --ks "$HOME/.android/release.keystore" --out "$*-signed.apk" "$*-unsigned-aligned.apk"
+	apksigner verify "$*-signed.apk"
 }
