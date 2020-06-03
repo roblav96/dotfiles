@@ -14,13 +14,15 @@ alias fpathf="fd $FD_FLAGS_ALL --fixed-strings --exact-depth=1 --absolute-path -
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
+--exclude=$HOME/.go \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.node-gyp \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.playground \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.rustup \
---exclude=$HOME/.local/share/Trash \
+--exclude=$HOME/.Trash \
+--exclude=/usr/local/lib/node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
 --exclude=$HOME/.linuxbrew \
@@ -33,7 +35,6 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
---exclude=$HOME/.Trash \
 --exclude=$HOME/Desktop \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \

@@ -84,7 +84,7 @@ if [[ -x "$(which -p antibody)" ]]; then
 	# eval $(starship init zsh)
 
 	eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
-	# LS_COLORS+="di=38;5;30"
+	LS_COLORS+="*-=38;5;241:*~=38;5;241:"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 	# local sitefns="${fpath[2]}"
