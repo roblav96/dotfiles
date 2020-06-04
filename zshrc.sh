@@ -177,9 +177,10 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	mkdir "$HOME/.Trash"
 	chmod 700 "$HOME/.Trash"
 fi
-alias rd="mv -f -t $HOME/.Trash"
-alias rmf="mv -f -t $HOME/.Trash"
-alias rmm="mv -f -t $HOME/.Trash"
+alias trash='__trash=$HOME/.Trash/$(date --iso-8601=seconds) && mkdir -pv $__trash && mv -f -t $__trash'
+alias rd="trash"
+alias rmf="trash"
+alias rmm="trash"
 if [[ -x "$(which -p fd)" ]]; then
 	alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
 else
@@ -225,9 +226,8 @@ test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
 alias aliaslss="aliasls | grep --color=never"
 
-# export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --monochrome-output --sort-keys --tab | bat -p -l json"
+alias json="jq --color-output --sort-keys --tab"
 alias j="json"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
