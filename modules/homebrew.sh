@@ -11,8 +11,6 @@ export HOMEBREW_NO_INSECURE_REDIRECT="1"
 # 	source "/usr/local/etc/bash_completion.d/pueue.bash"
 # fi
 
-alias bh="brew commands --quiet"
-
 function bupd() {
 	echo; echo "🌕 Updating taps"
 	brew update --verbose
@@ -47,6 +45,13 @@ function bs() {
 		brew search "$v" | rgpw "$v"
 	done
 }
+
+function bhist() {
+	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core" && smerge log "Formula/$*.rb")
+}; compdef bhist=command
+function bchist() {
+	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask" && smerge log "Casks/$*.rb")
+}; compdef bchist=command
 
 function bin() {
 	for v in "$@"; do
