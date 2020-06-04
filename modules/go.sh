@@ -8,6 +8,6 @@ fi
 # export GLIDE_HOME="/usr/local/opt/glide"
 
 alias gocd="cd $GOBIN"
-alias gols="lm $GOBIN"
+alias gols="lr $GOBIN"
 alias goin="go get -u"
 # alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
