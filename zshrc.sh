@@ -227,7 +227,7 @@ alias aliaslss="aliasls | grep --color=never"
 
 # export JQ_COLORS='0;31:0;34:0;34:0;35:0;32:2;30:2;30'
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --color-output --sort-keys --tab"
+alias json="jq --monochrome-output --sort-keys --tab | bat -p -l json"
 alias j="json"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
@@ -237,7 +237,7 @@ alias wget="wget --quiet --show-progress --connect-timeout=5"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
-	curl "$@" | json
+	curl "$*" | json
 }
 
 if [[ -x "$(which -p rmate)" ]]; then
@@ -316,8 +316,8 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
 fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
-	function ftomp3() {
-		for file in "$@"; do
+	function ffmp3() {
+		local file; for file in "$@"; do
 			if [[ -f "$file" ]]; then
 				ffmpeg -i "$file" -vn -b:a 320k "$file.mp3"
 			fi
