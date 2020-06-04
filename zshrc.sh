@@ -165,7 +165,7 @@ alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine='hyperfine --shell=$(which -p bash)'
+alias hyperfine="hyperfine --shell=$(which -p bash)"
 alias ipcalc="ipcalc --nobinary"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
