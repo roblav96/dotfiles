@@ -5,7 +5,7 @@ alias ghb="github"
 # 		echo "🔴 Not a git repository"
 # 		return 1
 # 	fi
-# 	bat-hr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bat-hr; echo
+# 	bathr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bathr; echo
 # }
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"

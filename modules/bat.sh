@@ -10,9 +10,9 @@ alias b="bat -l sh"
 
 alias batls="bat --list-languages"
 
-alias bat-hr="echo | bat --terminal-width=\$(tput cols) --style=grid | head -n1"
-alias bat-cd="cd \"\$(command bat --config-dir)\""
-alias bat-build="rm -rfv \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
+alias bathr="echo | bat --terminal-width=\$(tput cols) --style=grid | head -n1"
+alias batcd="cd \"\$(command bat --config-dir)\""
+alias batbuild="rm -rfv \"\$(command bat --config-dir)\"/themes/*; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
 
 function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat -l xml
@@ -47,22 +47,22 @@ function pbat() {
 # export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc' 'asa' 'yasm' 'awk' 'bat' 'bib' 'c' 'cs' 'cpp' 'cabal' 'clj' 'CMakeLists' 'h' 'hh' 'CMakeCache' 'cr' 'css')
 # export BAT_LANGS=('as' 'csv' 'applescript' 's' 'adoc')
 export BAT_LANGS=('ActionScript' 'Advanced CSV' 'AppleScript' 'ARM Assembly' 'AsciiDoc' 'ASP' 'Assembly (x86_64)' 'AWK' 'Batch File' 'BibTeX' 'Bourne Again Shell (bash)' 'C#' 'C' 'C++' 'Cabal' 'Clojure' 'CMake C Header' 'CMake C++ Header' 'CMake' 'CMakeCache' 'Crystal' 'CSS' 'D' 'Dart' 'Diff' 'Dockerfile' 'DotENV' 'Elixir' 'Elm' 'Erlang' 'F#' 'F#' 'friendly interactive shell (fish)' 'Git Attributes' 'Git Commit' 'Git Config' 'Git Ignore' 'Git Link' 'Git Log' 'Git Rebase Todo' 'Go' 'Graphviz (DOT)' 'Groovy' 'Haskell (improved)' 'Haskell' 'Highlight non-printables' 'hosts' 'HTML (ASP)' 'HTML (EEx)' 'HTML (Erlang)' 'HTML (Rails)' 'HTML (Tcl)' 'HTML (Twig)' 'HTML' 'INI' 'Java Properties' 'Java Server Page (JSP)' 'Java' 'JavaScript (Babel)' 'JavaScript (Rails)' 'JavaScript' 'JSON' 'jsonnet' 'Julia' 'Kotlin' 'LaTeX' 'Less' 'Lisp' 'Literate Haskell' 'Lua' 'Makefile' 'Manpage' 'Markdown' 'MATLAB' 'NAnt Build File' 'Nix' 'Objective-C' 'Objective-C++' 'OCaml' 'OCamllex' 'OCamlyacc' 'orgmode' 'Pascal' 'Perl' 'PHP' 'Plain Text' 'PowerShell' 'Protocol Buffer (TEXT)' 'Protocol Buffer' 'Puppet' 'PureScript' 'Python' 'R' 'Rd (R Documentation)' 'Regular Expression' 'requirements.txt' 'reStructuredText' 'Ruby Haml' 'Ruby on Rails' 'Ruby' 'Rust' 'Sass' 'Scala' 'SCSS' 'SQL (Rails)' 'SQL' 'SSH Config' 'SSHD Config' 'Strace' 'Swift' 'syslog' 'Tcl' 'Terraform' 'TeX' 'Textile' 'TOML' 'TypeScript' 'TypeScriptReact' 'varlink' 'Verilog' 'VimL' 'Vue Component' 'XML' 'YAML')
-function bat-langs() {
+function batlangs() {
 	local data=$(</dev/stdin)
 	for BAT_LANG in "${BAT_LANGS[@]}"; do
 		echo "🌕 $BAT_LANG"
 		echo $data | bat --style=header,grid,numbers --language="$BAT_LANG"
 	done
 }
-# alias bat-langs="print -l $BAT_LANGS | fzf --preview 'bat ~/.config/emby-server/logs/embyserver.txt --color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme="Monokai Pro Classic" --language="{}"'"
+# alias batlangs="print -l $BAT_LANGS | fzf --preview 'bat ~/.config/emby-server/logs/embyserver.txt --color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme="Monokai Pro Classic" --language="{}"'"
 
 export BAT_THEMES=('Monokai Extended Origin' 'Monokai Pro' 'Monokai Pro Classic' 'OneHalfDark')
-function bat-themes() {
+function batthemes() {
 	if [[ $# -eq 0 ]]; then
 		echo "🔴 language syntax extension required!"
 		return 1
 	fi
-	bat-hr
+	bathr
 	local data=$(</dev/stdin)
 	for BAT_THEME in "${BAT_THEMES[@]}"; do
 		echo "🌕 $BAT_THEME"
