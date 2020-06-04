@@ -43,6 +43,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/System/Volumes/Data \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
+alias frls="type fr | sd ' --' '\n--' | sortt | b"
 
 alias fcount="fd --color=never --type=file --follow --hidden --no-ignore | wc -l"
 alias fcounta="fd --color=never --type=file --follow --hidden --no-ignore --follow | wc -l"
