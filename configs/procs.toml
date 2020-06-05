@@ -4,7 +4,7 @@ style = "Yellow"
 
 [[columns]]
 kind = "User"
-style = "BrightGreen"
+style = "Green"
 
 # [[columns]]
 # kind = "TcpPort"

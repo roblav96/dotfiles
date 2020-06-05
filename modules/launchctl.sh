@@ -1,8 +1,34 @@
-alias lcls="(echo; echo '🌕 User Agents'; launchctl list | column -t; echo; echo '🌕 System Daemons'; sudo launchctl list | column -t)"
-alias lchostinfo="echo; echo '🌕 User Host Info'; launchctl hostinfo 2>/dev/null | bat -p -l ini; echo; echo '🌕 System Host Info'; echo; sudo launchctl hostinfo 2>/dev/null | bat -p -l ini"
-alias lcdomains="defaults domains | sed 's/, /\n/g'"
+alias lcdisabled="bat /var/db/com.apple.xpc.launchd/disabled.*"
 
-function lcl() {
+alias lclist='(
+	echo; echo "🌕 User Agents";
+	launchctl list | column -t;
+	echo; echo "🌕 System Daemons";
+	sudo launchctl list | column -t;
+)'
+
+alias lchostinfo='(
+	echo; echo "🌕 User hostinfo";
+	launchctl hostinfo 2>/dev/null | bat -p -l ini;
+	echo; echo "🌕 System hostinfo";
+	sudo launchctl hostinfo 2>/dev/null | bat -p -l ini;
+)'
+
+alias lcdomains='(
+	echo; echo "🌕 User domains";
+	defaults domains | sd ", " "\n" | sortt;
+	echo; echo "🌕 System domains";
+	sudo defaults domains | sd ", " "\n" | sortt;
+)'
+
+alias lcdumpstate='(
+	echo; echo "🌕 User dumpstate";
+	launchctl dumpstate | column -t;
+	echo; echo "🌕 System dumpstate";
+	sudo launchctl dumpstate | column -t;
+)'
+
+function lcls() {
 	echo; echo "🌕 $HOME/Library/LaunchAgents"
 	lara "$HOME/Library/LaunchAgents"
 	echo; echo "🌕 /Library/LaunchAgents"

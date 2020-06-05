@@ -2,8 +2,6 @@ source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
-alias pst="pstree -w"
-
 alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 

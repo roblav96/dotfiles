@@ -8,8 +8,6 @@ alias sc-status="systemctl --full status"
 # unalias sc-list-unit-files &>/dev/null
 # alias sc-list-unit-files="systemctl --all list-unit-files"
 
-alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
-
 alias nftl="sudo nft list ruleset --handle | bat --style=grid -l nft"
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 

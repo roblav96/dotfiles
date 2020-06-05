@@ -252,7 +252,11 @@ alias serve="miniserve --no-symlinks --verbose --port=8888"
 alias pubserve="serve --auth=admin: $HOME/Public"
 alias pubget="wget --http-user=admin --http-password="
 
-alias p="ps auxww | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+alias pa="ps auxww"
+alias p="pa | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+[[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
+[[ "$PLATFORM" == "Linux" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
