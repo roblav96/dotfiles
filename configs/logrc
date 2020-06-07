@@ -5,7 +5,7 @@ stream:
 	--source
 
 predicate:
-	iterm2
+	logrc
 		'NOT process IN { "hidd", "iTerm2" }'
 		# 'process != "hidd" && process != "iTerm2"'
 
