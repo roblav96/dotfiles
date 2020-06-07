@@ -33,6 +33,7 @@ alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-nj
 alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfd"
 
 alias ifcls="ifconfig -v -a -r | bat --style=grid -l yml"
+alias lsapps="lsappinfo list | bat --style=grid -l ini"
 
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
