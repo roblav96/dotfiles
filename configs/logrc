@@ -1,0 +1,45 @@
+stream:
+	--color always
+	--style compact
+	--level info
+	--source
+
+predicate:
+	iterm2
+		'NOT process IN { "hidd", "iTerm2" }'
+		# 'process != "hidd" && process != "iTerm2"'
+
+	exch
+		'(subsystem == "com.apple.dataaccess") && (category == "EAS") || (process== "MobileMail" || process == "accountsd")'
+
+	iosen
+		'(category == "ProfileEvents" && eventMessage CONTAINS "com.apple.mcdiagnostics") || '
+		'(process IN {"Setup","teslad"} && (subsystem == "com.apple.cloudconfigurationdaemon" || '
+		'(eventMessage CONTAINS "CloudConfig" || eventMessage CONTAINS "loud config"))) || '
+		'(process IN {"mdmd","profiled"} && subsystem == "com.apple.ManagedConfiguration" && (eventMessage CONTAINS "nstal" || eventMessage CONTAINS "Command Status" || '
+		'eventMessage CONTAINS "Configured")) || (process == "mdmd" && subsystem == "com.apple.apsd" && eventMessage CONTAINS "com.apple.mgmt") '
+		'|| (category IN {"MDM","MC"} && messageType == error)'
+
+	mosen
+		'((process == "Setup Assistant" && subsystem == "com.apple.mac.install" && (eventMessage CONTAINS "NetworkingManager" || '
+		'eventMessage CONTAINS "CloudConfigurationManager" || eventMessage CONTAINS "Pane --" || eventMessage CONTAINS "current wireless name")) || '
+		'(process == "cloudconfigurationd" && (eventMessage CONTAINS "Configuration" || eventMessage CONTAINS "enroll" || messageType ==error)) || '
+		'(subsystem == "com.apple.ManagedClient" && eventMessage CONTAINS "OTA profile"))'
+
+	ioscp
+		'(process =="profiled" && (messageType == error || eventMessage CONTAINS "installed.")) || '
+		'(subsystem == "com.apple.ManagedConfiguration" && (messageType == error || eventMessage CONTAINS "Attempting to perform")) || '
+		'(sender == "MDM" && eventMessage CONTAINS "Returning profile array")'
+
+	moscp
+		'(subsystem == "com.apple.ManagedClient" && category =="MDMDaemon" && (eventMessage CONTAINS "Processing server request" || '
+		'eventMessage CONTAINS "profile" || messageType == error))'
+
+	iosa
+		'(process =="mdmd" && eventMessage CONTAINS "InstallApplication") || (subsystem == "com.apple.dmd" && category == "Apps" && eventMessage CONTAINS "Set state") || '
+		'(category IN {"Install","appInstallation","MDM"} && messageType == error)'
+
+	mosa
+		'(subsystem == "com.apple.ManagedClient" && (eventMessage CONTAINS "InstallApplication" || eventMessage CONTAINS "VPP completion" || eventMessage CONTAINS "Setting MDM")) || '
+		'(process == "storedownloadd" && (eventMessage CONTAINS "sending status" || eventMessage CONTAINS "installClientDidFinish")) || ((subsystem == "com.apple.ManagedClient" || '
+		'process IN {"commerced","storedownloadd","mdmclient"}) && messageType == error)'
