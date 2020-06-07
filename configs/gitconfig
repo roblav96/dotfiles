@@ -20,3 +20,5 @@
 	show = diff-so-fancy
 [interactive]
 	diffFilter = diff-so-fancy
+[hub]
+	protocol = ssh

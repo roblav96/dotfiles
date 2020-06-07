@@ -15,7 +15,7 @@ alias .paths="subl --new-window /etc/paths"
 alias .profiles="subl --new-window /etc/zprofile /etc/profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
-alias .zsh_history="subl --new-window $HOME/.zsh_history:999999 && exit"
+alias .zsh_history="subl --new-window $HOME/.zsh_history:999999; exit"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .alacritty.yml="subl --new-window $DOTFILES/configs/alacritty.yml"
 alias .starship.toml="subl --new-window $DOTFILES/configs/starship.toml"
