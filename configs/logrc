@@ -2,12 +2,25 @@ stream:
 	--color always
 	--style compact
 	--level info
+	--backtrace
 	--source
 
 predicate:
 	logrc
-		'NOT process IN { "hidd", "iTerm2" }'
-		# 'process != "hidd" && process != "iTerm2"'
+		'NOT process IN {'
+			'"diskarbitrationd",'
+			'"iTerm2",'
+			'"hidd"'
+		'}'
+
+	debug
+		'NOT process IN {'
+			'"diskarbitrationd",'
+			'"WindowServer",'
+			'"powerd",'
+			'"iTerm2",'
+			'"hidd"'
+		'}'
 
 	exch
 		'(subsystem == "com.apple.dataaccess") && (category == "EAS") || (process== "MobileMail" || process == "accountsd")'
