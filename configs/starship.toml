@@ -11,7 +11,7 @@ symbol = "▶" # The "symbol" segment is being set to "➜"
 
 [cmd_duration]
 min_time = 1000
-show_milliseconds = true
+show_milliseconds = false
 style = "yellow"
 
 [directory]
