@@ -6,8 +6,17 @@ alias bat="bat --color=always --italic-text=always --decorations=always --tabs=0
 alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias batt="bat --style=header,grid,numbers"
 # alias bbat="bat --style=header,grid,numbers"
+
 alias b="bat -l sh"
-alias bj="bat -p -l json"
+alias bconf="bat -l conf"
+alias bdiff="bat -l diff"
+alias bini="bat -l ini"
+alias bjs="bat -l js"
+alias bnix="bat -l nix"
+alias bprops="bat -l properties"
+alias btoml="bat -l toml"
+alias bxml="bat -l xml"
+alias byml="bat -l yml"
 
 alias batls="bat --list-languages"
 
