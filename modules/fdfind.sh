@@ -25,9 +25,9 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/usr/local/lib/node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
---exclude=$HOME/.linuxbrew \
 --exclude=$HOME/emby \
 --exclude=/dev \
+--exclude=/home/linuxbrew/.linuxbrew \
 --exclude=/proc \
 --exclude=/sys \
 --exclude=/var/lib/emby/cache \
@@ -39,15 +39,15 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \
 --exclude=$HOME/Projects \
---exclude=/Applications \
+--exclude=$HOME/Sandbox \
 --exclude=/System/Volumes/Data \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 alias frls="type fr | sd ' --' '\n--' | sortt | b"
 
-alias fcount="fd --color=never --type=file --follow --hidden --no-ignore | wc -l"
-alias fcounta="fd --color=never --type=file --follow --hidden --no-ignore --follow | wc -l"
-
 unset FD_FLAGS FD_FLAGS_ALL
+
+alias fwc="fd --color=never --type=file --hidden --no-ignore | wc --lines"
+alias fwca="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
 
 # function f() { find . -name "*$1*" ${@:2} }

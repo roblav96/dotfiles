@@ -24,7 +24,7 @@ alias gp="git pull"
 alias gpr="git pull --rebase"
 
 alias gi="git check-ignore --verbose"
-alias gia="git check-ignore --verbose **/.* **/*"
+alias gia="git check-ignore --verbose **/.* **/* | sortt"
 
 alias gitpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gs && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status -z)" && git push origin master'
 
