@@ -14,6 +14,7 @@ alias lara="exa $EXA_FLAGS --extended --links --tree"
 local EXA_FLAGS="$EXA_FLAGS --ignore-glob='.git|.DS_Store'"
 
 alias l="exa $EXA_FLAGS"
+alias lt="exa $EXA_FLAGS --modified --changed --created --accessed"
 alias lb="exa $EXA_FLAGS --sort=size"
 alias lm="exa $EXA_FLAGS --sort=modified --time=modified"
 alias lch="exa $EXA_FLAGS --sort=changed --time=changed"
