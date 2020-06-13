@@ -82,7 +82,7 @@ if [[ -x "$(which -p antibody)" ]]; then
 	source <(antibody init)
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 
-	eval "$(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
+	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	LS_COLORS+="*-=38;5;241:*~=38;5;241:"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
