@@ -47,7 +47,7 @@ alias frls="type fr | sd ' --' '\n--' | sortt | b"
 
 unset FD_FLAGS FD_FLAGS_ALL
 
-alias fwc="fd --color=never --type=file --hidden --no-ignore | wc --lines"
-alias fwca="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
+alias fwc="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
+alias fwcm="fd --color=never --type=file --hidden --no-ignore | wc --lines"
 
 # function f() { find . -name "*$1*" ${@:2} }
