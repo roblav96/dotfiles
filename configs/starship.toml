@@ -36,6 +36,9 @@ disabled = true
 [aws]
 disabled = true
 
+[dotnet]
+disabled = true
+
 [nodejs]
 disabled = true
 
