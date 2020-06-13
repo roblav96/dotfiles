@@ -81,9 +81,8 @@ if [[ -x "$(which -p antibody)" ]]; then
 
 	source <(antibody init)
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
-	# eval $(starship init zsh)
 
-	eval $(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")
+	eval "$(dircolors -b "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	LS_COLORS+="*-=38;5;241:*~=38;5;241:"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
@@ -342,6 +341,7 @@ test -x "$(which -p curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/tldr.sh"
 test -x "$(which -p defaults)" && source "$DOTFILES/modules/defaults.sh"
 test -x "$(which -p diff)" && source "$DOTFILES/modules/diff.sh"
+test -x "$(which -p direnv)" && source "$DOTFILES/modules/direnv.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which -p gem)" && source "$DOTFILES/modules/gem.sh"
