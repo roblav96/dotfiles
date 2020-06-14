@@ -72,10 +72,10 @@ export DISABLE_AUTO_UPDATE="true"
 
 local GENCOMPL_FPATH="$HOME/.cache/gencomp"
 [[ ! -d "$GENCOMPL_FPATH" ]] && mkdir -pv "$GENCOMPL_FPATH"
+zstyle :plugin:zsh-completion-generator programs ""
 
 if [[ -x "$(which -p antibody)" ]]; then
 	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
-	zstyle :plugin:zsh-completion-generator programs ""
 	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	# zle_highlight+=(paste:bold)
 
@@ -164,7 +164,7 @@ alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # alias clear="clear && printf '\e[3J'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine="hyperfine --shell=$SHELL"
 alias ipcalc="ipcalc --nobinary"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
@@ -210,6 +210,7 @@ test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"
 test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
+test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
 # if [[ -x "$(which -p sd)" ]]; then
 # 	function .zsd() {

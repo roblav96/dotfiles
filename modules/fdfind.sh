@@ -35,6 +35,9 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/.config/emby-server/cache \
+--exclude=$HOME/.config/emby-server/media \
+--exclude=$HOME/.config/emby-server/metadata \
 --exclude=$HOME/Desktop \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \

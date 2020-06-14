@@ -3,4 +3,4 @@ export FZF_DEFAULT_OPTS="--no-multi --tabstop=4 --height=$(expr $(tput lines) - 
 # --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 
 bindkey '^[r' fzf-history-widget
-# bindkey '^F' fzf-history-widget
+bindkey '^[t' fzf-file-widget
