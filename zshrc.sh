@@ -152,6 +152,7 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
+alias aliasls="alias -L | sed 's#^#\n#g' | bat -l sh"
 alias rc="rclone"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"Terminal\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
@@ -220,8 +221,6 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # 	}; compdef .zsd=which
 # fi
 
-alias aliasls="alias -L | sed 's#^#\n#g' | bat -l sh"
-
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab"
 alias j="json"
@@ -264,6 +263,9 @@ function mans() {
 }; compdef mans=man
 alias mansr="man -K"
 alias manfs="man -w"
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}
 # function idk() {
 # 	man --apropos $@ | grep "$@|$"
 # }; compdef idk=man
