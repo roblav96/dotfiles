@@ -93,19 +93,19 @@ alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}
 alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
-alias stgs='(stcd && gsa)'
-alias stpush='(stcd && gitpush)'
+alias stgs='(stcd && gs)'
+alias stpush='(stcd && gpush)'
 
 alias sm="smerge --new-window"
 alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
 alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
-alias smgs='(smcd && gsa)'
-alias smpush='(smcd && gitpush)'
+alias smgs='(smcd && gs)'
+alias smpush='(smcd && gpush)'
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
-alias dotgs='(dotcd && gsa)'
-alias dotpush='(dotcd && gitpush) && zcomp'
+alias dotgs='(dotcd && gs)'
+alias dotpush='(dotcd && gpush) && zcomp'
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 # unset DOTBENCH

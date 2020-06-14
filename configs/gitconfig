@@ -6,6 +6,8 @@
 [user]
 	email = roblav96@gmail.com
 	name = Robert Laverty
+[hub]
+	protocol = ssh
 [color]
 	branch = always
 	diff = always
@@ -20,5 +22,3 @@
 	show = diff-so-fancy
 [interactive]
 	diffFilter = diff-so-fancy
-[hub]
-	protocol = ssh

@@ -1,4 +1,4 @@
-alias diffs="icdiff --highlight --line-numbers --unified=3"
+alias diffs="icdiff --highlight --line-numbers --unified=5"
 
 if [[ -x "$(which -p diff-color)" ]]; then
 	function diffc() {
