@@ -20,8 +20,8 @@ if [[ -x "$(which -p tldr)" ]]; then
 	function tl() {
 		tldr --quiet "$@" || ch "$@"
 	}; compdef tl=command
-	alias tlls="tldr --list | sed 's/, /\n/g'"
-	alias tls="tldr --list | sed 's/, /\n/g' | grep"
+	alias tlls="tldr --list | sed 's#, #\n#g'"
+	alias tls="tldr --list | sed 's#, #\n#g' | g"
 fi
 
 function how() {

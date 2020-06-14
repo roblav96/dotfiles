@@ -147,13 +147,11 @@ alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
 alias pwda="pwd && pwd -P"
-alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
-alias fpathls="echo \$FPATH | sed 's/:\//\n\//g'"
-alias manpathls="manpath | sed 's/:\//\n\//g'"
-# alias manpathls="man --path | sed 's/:\//\n\//g'"
-alias commandsls="echo \$commands | sed 's/ \//\n\//g' | sortt"
-# alias commandsls="print -l \$commands | sortt"
-alias functionsls="functions"
+alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
+# alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
+alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
+alias manpathls="man --path | sed 's#:/#\n/#g'"
+alias commandsls='printf "%s\n" $commands | sortt'
 alias rc="rclone"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"Terminal\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
@@ -222,8 +220,7 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # 	}; compdef .zsd=which
 # fi
 
-alias aliasls="alias -L | sed 's/^/\n/g' | bat -l sh"
-alias aliaslss="aliasls | grep --color=never"
+alias aliasls="alias -L | sed 's#^#\n#g' | bat -l sh"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab"

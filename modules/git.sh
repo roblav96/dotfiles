@@ -1,5 +1,7 @@
 alias ghb="github"
 
+# alias delta="delta --tabs=0 --highlight-removed"
+
 # function _git-hr() {
 # 	if [[ ! -d ".git" ]]; then
 # 		echo "🔴 Not a git repository"
@@ -11,7 +13,7 @@ alias ghb="github"
 # --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff"
 alias gss="git status --short --branch"
-alias gs="gd; echo; gss"
+alias gs="gd; echo; bathr; echo; gss"
 
 alias gl="git log --patch --stat --reverse --max-count=5"
 alias gsu="git standup"

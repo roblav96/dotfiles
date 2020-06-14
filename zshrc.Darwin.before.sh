@@ -9,7 +9,7 @@ export BUNDLE_EDITOR="nano"
 # export RMATE_HOST="localhost"
 # export RMATE_PORT="52699"
 
-export PASTEL_COLOR_MODE="8bit"
+# export PASTEL_COLOR_MODE="8bit"
 # export SDKROOT="macosx10.14"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 

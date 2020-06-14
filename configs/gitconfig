@@ -15,10 +15,6 @@
 	ui = always
 [core]
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy
-[pager]
-	diff = diff-so-fancy
-	log = diff-so-fancy
-	show = diff-so-fancy
+	pager = delta --commit-style=box --file-color=magenta --file-style=box --tabs=0 --highlight-removed --plus-color="#313939" --minus-color="#37303a"
 [interactive]
-	diffFilter = diff-so-fancy
+	diffFilter = delta --commit-style=box --file-color=magenta --file-style=box --tabs=0 --highlight-removed --color-only
