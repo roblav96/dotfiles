@@ -65,7 +65,7 @@
 			}
 		},
 		{
-			"files": ["*.toml"],
+			"files": ["*.tml", "*.toml"],
 			"options": {
 				"parser": "toml"
 			}

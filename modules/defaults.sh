@@ -5,3 +5,7 @@ alias dfrt="defaults read-type"
 alias dfw="defaults write"
 
 alias dfdomains="defaults domains | sed 's#, #\n#g' | sortt"
+
+function dfs() {
+	defaults find "$*" | rgp "$*"
+}
