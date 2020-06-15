@@ -16,7 +16,7 @@ alias gsm="git status --short --branch"
 alias gs="gd; echo; gsm"
 
 alias gl="git log --reverse --max-count=10 --date=local --stat"
-alias gl1="git log --reverse --max-count=10 --oneline"
+alias glm="git log --reverse --max-count=10 --oneline"
 alias glp="git log --reverse --max-count=5 --date=local --patch-with-stat"
 alias glp1="glp --max-count=1"
 
