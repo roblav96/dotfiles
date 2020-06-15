@@ -52,7 +52,7 @@ alias hdi="howdoi --color --all"
 # alias genc="gencomp"
 if which -w gencomp | grep -q 'function$'; then
 	function gcomp() {
-		gencomp "$*" && b "$GENCOMPL_FPATH/_$*"
+		gencomp "$*" && bat -l sh "$GENCOMPL_FPATH/_$*"
 	}; compdef gcomp=command
 	compdef gencomp=command
 fi
