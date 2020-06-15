@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
 	<dict>
 		<key>name</key>
@@ -31,7 +31,7 @@
 					<key>tagsOptions</key>
 					<string>stippled_underline</string>
 					<key>lineHighlight</key>
-					<string>#fcfcfabf4</string>
+					<string>#fcfcfa0c</string>
 					<key>gutterForeground</key>
 					<string>#5b595c</string>
 					<key>selection</key>
@@ -1025,7 +1025,7 @@
 				<key>name</key>
 				<string>rust specific (brackets and certain type names)</string>
 				<key>scope</key>
-				<string>meta.typeParams.rust</string>
+				<string>meta.type_params.rust</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
@@ -1141,7 +1141,7 @@
 					<key>foreground</key>
 					<string>#ff6188</string>
 					<key>background</key>
-					<string>#ff618858a7</string>
+					<string>#ff618859</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1154,7 +1154,7 @@
 					<key>foreground</key>
 					<string>#fc9867</string>
 					<key>background</key>
-					<string>#fc986758a7</string>
+					<string>#fc986759</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1167,7 +1167,7 @@
 					<key>foreground</key>
 					<string>#ffd866</string>
 					<key>background</key>
-					<string>#ffd86658a7</string>
+					<string>#ffd86659</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1180,7 +1180,7 @@
 					<key>foreground</key>
 					<string>#a9dc76</string>
 					<key>background</key>
-					<string>#a9dc7658a7</string>
+					<string>#a9dc7659</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1193,7 +1193,7 @@
 					<key>foreground</key>
 					<string>#78dce8</string>
 					<key>background</key>
-					<string>#78dce858a7</string>
+					<string>#78dce859</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1206,7 +1206,7 @@
 					<key>foreground</key>
 					<string>#ab9df2</string>
 					<key>background</key>
-					<string>#ab9df258a7</string>
+					<string>#ab9df259</string>
 				</dict>
 			</dict>
 			<dict>
@@ -1219,7 +1219,7 @@
 					<key>foreground</key>
 					<string>#ff6188</string>
 					<key>background</key>
-					<string>#ff618858a7</string>
+					<string>#ff618859</string>
 				</dict>
 			</dict>
 			<dict>
