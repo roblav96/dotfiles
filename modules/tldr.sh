@@ -60,21 +60,21 @@ fi
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
 		local lang="sh"
-		[[ -n $2 ]] && lang="$1"
+		# [[ -n $2 ]] && lang="$1"
 		curl "http://cht.sh/$*?T" | bat --style=grid -l $lang
 	}
 	function chp() {
 		curl "http://cht.sh/$*?T"
 	}
 	function cha() {
-		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$1" | bat --style=grid -l sh
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*" | bat --style=grid -l sh
 	}
 else
 	function ch() {
 		curl "http://cht.sh/$*"
 	}
 	function cha() {
-		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*"
 	}
 fi
 [[ ! -x "$(which -p tldr)" ]] && alias tl="ch"

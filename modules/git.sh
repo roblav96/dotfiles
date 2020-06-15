@@ -12,10 +12,13 @@ alias ghb="github"
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff"
-alias gss="git status --short --branch"
-alias gs="gd; echo; gss"
+alias gsm="git status --short --branch"
+alias gs="gd; echo; gsm"
 
-alias gl="git log --patch --stat --reverse --max-count=5"
+alias gl="git log --reverse --max-count=10 --date=local --stat"
+alias gl1="git log --reverse --max-count=10 --oneline"
+alias glp="git log --reverse --max-count=5 --date=local --patch-with-stat"
+
 alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
@@ -29,7 +32,7 @@ alias gpr="git pull --rebase"
 alias gi="git check-ignore --verbose"
 alias gia="git check-ignore --verbose **/.* **/* | sortt"
 
-alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 # function gc() {
 # 	if [[ -z "$@" ]]; then

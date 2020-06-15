@@ -313,7 +313,7 @@ function readlinka() {
 # alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json --color-output | rg --passthru --ignore-case --regexp='".*_frame_.*"'
 	}
 	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
 fi
