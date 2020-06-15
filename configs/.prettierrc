@@ -44,7 +44,11 @@
 			}
 		},
 		{
-			"files": ["*.hidden-color-scheme", "*.sublime-color-scheme", "*.sublime-theme-template"],
+			"files": [
+				"*.hidden-color-scheme",
+				"*.sublime-color-scheme",
+				"*.sublime-theme-template"
+			],
 			"options": {
 				"parser": "json",
 				"printWidth": 1

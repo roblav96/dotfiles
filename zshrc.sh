@@ -263,8 +263,8 @@ function mans() {
 }; compdef mans=man
 alias mansr="man -K"
 alias manfs="man -w"
-fman() {
-    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+function manf() {
+    man -k . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
 }
 # function idk() {
 # 	man --apropos $@ | grep "$@|$"
