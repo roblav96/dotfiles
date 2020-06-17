@@ -215,9 +215,9 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # 	function .zsd() {
 # 		[[ "$#" != "2" ]] && echo "🔴 number of args '$#' != '2' -> '$*'" && return
 # 		rg --no-line-number --fixed-strings ":0;$1 "
-# 		sd --string-mode ":0;$1 " ":0;$2 " "/Users/roblav96/.playground/zsh_history.zsh"
+# 		sd --string-mode ":0;$1 " ":0;$2 " "$HOME/.playground/zsh_history.zsh"
 # 		rg --no-line-number --fixed-strings ":0;$2 "
-# 		# sd --string-mode --flags=cw "$1" "$2" "/Users/roblav96/.playground/zsh_history.zsh"
+# 		# sd --string-mode --flags=cw "$1" "$2" "$HOME/.playground/zsh_history.zsh"
 # 		# rg --no-line-number --fixed-strings --case-sensitive --word-regexp "$2"
 # 	}; compdef .zsd=which
 # fi
@@ -329,7 +329,7 @@ if [[ -x "$(which -p ffmpeg)" ]]; then
 fi
 
 source "$DOTFILES/modules/disk.sh"
-test -d "/usr/local/share/android-sdk" && source "$DOTFILES/modules/android.sh"
+test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$_HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/modules/apt.sh"

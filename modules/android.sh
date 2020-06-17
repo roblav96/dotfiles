@@ -1,4 +1,4 @@
-export ANDROID_HOME="/usr/local/share/android-sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 # export ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
 
