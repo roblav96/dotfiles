@@ -17,14 +17,14 @@ export BUNDLE_EDITOR="nano"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-# if [[ -d "/usr/local/opt/openssl" ]]; then
+if [[ -d "/usr/local/opt/openssl" ]]; then
 # 	export OPENSSL="/usr/local/opt/openssl"
 # 	export OPENSSL_DIR="/usr/local/opt/openssl"
 # 	export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
 # 	export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
-# 	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
+	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
 # 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl"
-# fi
+fi
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa
