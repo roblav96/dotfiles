@@ -29,14 +29,15 @@ disabled = true
 [hostname]
 style = "red bold"
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+# ████  disables  ████
 
 [aws]
 disabled = true
 
 [dotnet]
+disabled = true
+
+[env_var]
 disabled = true
 
 [nodejs]
@@ -54,6 +55,9 @@ disabled = true
 [java]
 disabled = true
 
+[package]
+disabled = true
+
 [ruby]
 disabled = true
 
@@ -62,6 +66,7 @@ disabled = true
 
 [username]
 disabled = true
+show_always = true
 
 # [memory_usage]
 # disabled = false
