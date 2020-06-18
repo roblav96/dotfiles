@@ -1,3 +1,5 @@
+export RUBYOPT="-W0"
+
 alias gemenv="gem env"
 alias gemfs="gem which"
 alias gemi="gem info"
