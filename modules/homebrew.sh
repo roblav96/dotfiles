@@ -111,6 +111,10 @@ function bci() {
 function bcd() {
 	cd "$(brew --prefix)/opt/$1"
 }; compdef bcd=command
+function bbin() {
+	lara "$(brew --prefix)/opt/$1/bin"
+	lara "$(brew --prefix)/opt/$1/sbin"
+}; compdef bbin=command
 function bfs() {
 	for v in "$@"; do
 		echo; echo "🌕 Files formula -> '$v'"
