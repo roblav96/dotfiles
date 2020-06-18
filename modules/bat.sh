@@ -74,9 +74,9 @@ function pbat() {
 export BAT_LANGS=('ActionScript' 'AppleScript' 'AWK' 'Bash' 'Erlang' 'F#' 'Generic Config' 'Haskell' 'INI' 'Julia' 'Kotlin' 'Lua' 'Nim' 'Nix' 'OCaml' 'Pascal' 'Perl' 'Python' 'QML' 'Ruby' 'Strace' 'Stylus' 'Swift' 'Tcl' 'TOML' 'Verilog' 'YAML')
 function batlangs() {
 	local data=$(</dev/stdin)
-	for BAT_LANG in "${BAT_LANGS[@]}"; do
+	local BAT_LANG; for BAT_LANG in "${BAT_LANGS[@]}"; do
 		echo "🌕 $BAT_LANG"
-		echo $data | bat --style=header,grid,numbers --language="$BAT_LANG"
+		echo $data | bat --style=grid --language="$BAT_LANG"
 	done
 }
 # alias batlangs="print -l $BAT_LANGS | fzf --preview 'bat ~/.config/emby-server/logs/embyserver.txt --color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme="Monokai Pro Classic" --language="{}"'"
