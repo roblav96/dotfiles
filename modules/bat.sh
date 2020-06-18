@@ -9,7 +9,8 @@ alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 
 alias b="bat"
 alias bl="bat -l"
-alias bp="bat --style=grid"
+alias bp="bat --plain"
+alias bpg="bat --style=grid"
 
 alias bconf="bat -l conf"
 alias bdiff="bat -l diff"
