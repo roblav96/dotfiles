@@ -179,7 +179,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 fi
 alias trash='__trash=$HOME/.Trash/$(date --iso-8601=seconds) && mkdir -pv $__trash && mv -f -t $__trash'
 alias rd="trash"
-alias rmf="trash"
+alias rmf="command rm -rf"
 if [[ -x "$(which -p fd)" ]]; then
 	alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
 else
