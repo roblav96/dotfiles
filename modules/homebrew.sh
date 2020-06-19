@@ -82,12 +82,9 @@ function bcrein() {
 }; compdef bcrein=command
 
 function bupg() {
-	for v in "$@"; do
-		echo; echo "🌕 Upgrading formula -> '$v'"
-		brew upgrade "$v"
-		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
-	done
-}; compdef bupg=command
+	echo; echo "🌕 Upgrading formulas"
+	brew upgrade
+}
 function bcupg() {
 	for v in "$@"; do
 		echo; echo "🌕 Upgrading cask -> '$v'"

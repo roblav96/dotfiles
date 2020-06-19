@@ -1,4 +1,4 @@
-export ZSH_SPECTRUM_TEXT="	$(uname -a | head -c 49)"
+export ZSH_SPECTRUM_TEXT="	$(uname -a | head -c 49)	"
 
 alias colorls="spectrum_ls | head -n 16"
 alias colorls-bg="spectrum_bls | head -n 16"
