@@ -291,6 +291,20 @@ function bupg-node() {
 	echo " $output" | clipcopy
 	echo "✅ Copied to clipboard"
 }
+function bupg-node@12() {
+	brm node node@12
+	brew cleanup --verbose
+	bin node node@12
+	bcd node@12
+	mkdir libexec/bin libexec/lib
+	mv bin/npm bin/npx libexec/bin
+	mv lib/node_modules libexec/lib
+	brew unlink node --verbose --debug
+	brew link --force node@12 --verbose --debug
+	bupg-node
+	echo "🌕 npm i -g npm"
+	echo "🌕 npm doctor"
+}
 
 function bcupg-chrome() {
 	find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
