@@ -21,7 +21,7 @@ alias .alacritty="subl --new-window $DOTFILES/configs/alacritty.yml"
 alias .starship="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 
-alias .pfconf="subl --new-window /etc/pf.conf"
+alias .pfc="subl --new-window /etc/pf.conf"
 alias pfcat="bat /etc/pf.conf -l sh"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
 alias pfsr="sudo pfctl -q -s rules"
