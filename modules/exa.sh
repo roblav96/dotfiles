@@ -1,7 +1,7 @@
 export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31:lc=2;3;37:lm=3;37"
 # export EXA_STRICT="1"
 
-local EXA_FLAGS="--long --all --header --classify --group --color-scale --ignore-glob='.git|.DS_Store'"
+local EXA_FLAGS="--long --all --header --classify --group --color-scale --color=always --ignore-glob='.git|.DS_Store'"
 # realpath "$(which -p exa)" | grep -q 'HEAD' && EXA_FLAGS="$EXA_FLAGS --icons"
 
 alias la="exa $EXA_FLAGS --extended --links --tree --level=1"
