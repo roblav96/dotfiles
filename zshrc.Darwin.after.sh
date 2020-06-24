@@ -22,7 +22,7 @@ alias .starship="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 
 alias .pfc="subl --new-window /etc/pf.conf"
-alias pfcat="bat /etc/pf.conf -l sh"
+alias pfcat="cat /etc/pf.conf | grep --invert-match '^#' | bat -l sh"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
 alias pfsr="sudo pfctl -q -s rules"
 alias pfsa="sudo pfctl -q -s all"
