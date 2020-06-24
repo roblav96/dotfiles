@@ -108,6 +108,9 @@ function bci() {
 function bcd() {
 	cd "$(brew --prefix)/opt/$1"
 }; compdef bcd=command
+function bcdcellar() {
+	cd $(realpath $(brew --prefix $1))
+}; compdef bcd=command
 function bbin() {
 	lara "$(brew --prefix)/opt/$1/bin"
 	lara "$(brew --prefix)/opt/$1/sbin"
