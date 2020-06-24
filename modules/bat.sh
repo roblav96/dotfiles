@@ -11,6 +11,7 @@ alias b="bat"
 alias bl="bat -l"
 alias bp="bat --plain"
 alias bpg="bat --style=grid"
+alias bh="bat --style=grid -l man"
 
 # alias bconf="bat -l conf"
 # alias bdiff="bat -l diff"
