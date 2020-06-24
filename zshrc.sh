@@ -250,7 +250,7 @@ alias pubserve="serve --auth=admin: $HOME/Public"
 alias pubget="wget --http-user=admin --http-password="
 
 alias pa="ps auxww"
-alias p="pa | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+alias p="pa | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" == "Linux" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
