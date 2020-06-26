@@ -16,7 +16,7 @@ alias adb.shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; 
 alias adb.text="adb shell input keyboard text"
 alias adb.scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
-alias rogcat="rogcat --level trace"
+# alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
 # alias adb.pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd --string-mode 'package:' '' pm-list-*.log"
 

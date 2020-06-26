@@ -11,7 +11,7 @@ export ANDROID_SDK_ROOT="$ANDROID_HOME"
 alias gradlew="\$PWD/gradlew"
 # alias gradle="gradle --no-daemon"
 
-alias apksign='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --overwrite --ks ~/.android/release.keystore --ksAlias androidreleasekey --apks'
+alias apksign='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks ~/.android/release.keystore --ksAlias androidreleasekey --apks'
 # function apksign() {
 # 	rm -f "$*-signed.apk"
 # 	rm -f "$*-unsigned-aligned.apk"
