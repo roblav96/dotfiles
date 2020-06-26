@@ -27,8 +27,7 @@
 				"*.xml"
 			],
 			"options": {
-				"parser": "xml",
-				"printWidth": 999999
+				"parser": "xml"
 			}
 		},
 		{
