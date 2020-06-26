@@ -177,9 +177,9 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	mkdir "$HOME/.Trash"
 	chmod 700 "$HOME/.Trash"
 fi
-alias trash='__trash=$HOME/.Trash/$(date --iso-8601=seconds) && mkdir -pv $__trash && mv -f -t $__trash'
-alias rd="trash"
-alias rmf="command rm -rf"
+alias trash='local __trash=$HOME/.Trash/$(date --iso-8601=seconds) && mkdir -pv $__trash'
+alias rd='trash && mv -f -t $__trash'
+alias rmf='trash && command mv -f -t $__trash'
 if [[ -x "$(which -p fd)" ]]; then
 	alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
 else
