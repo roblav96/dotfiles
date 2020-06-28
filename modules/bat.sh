@@ -9,6 +9,7 @@ alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 
 alias b="bat"
 alias bl="bat -l"
+alias by="bat -l yml"
 alias bp="bat --plain"
 alias bpg="bat --style=grid"
 alias bh="bat --style=grid -l man"
