@@ -32,7 +32,7 @@ function bcls() {
 	brew cask list --versions
 }
 alias blsa="bls; bcls"
-function bpls() {
+function bpinned() {
 	echo; echo "🌕 Pinned formulas"
 	brew list --versions --pinned
 }

@@ -42,7 +42,7 @@ alias batbuild="rm -rfv \"\$(command bat --config-dir)\"/themes/*.tmTheme; cp $D
 function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat -l xml
 }
-alias bpl="batplist"
+alias bplist="batplist"
 
 function dotbat() {
 	cat "$@" | grep --invert-match '^# ' | bat -l sh
