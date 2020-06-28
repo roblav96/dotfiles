@@ -181,7 +181,7 @@ alias trash='local __trash=$HOME/.Trash/$(date --iso-8601=seconds) && mkdir -pv 
 alias rd='trash && mv -f -t $__trash'
 alias rmf='trash && command mv -f -t $__trash'
 if [[ -x "$(which -p fd)" ]]; then
-	alias rmtrash="fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rfv"
+	alias rmtrash="l $HOME/.Trash/*; fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf"
 else
 	alias rmtrash="find $HOME/.Trash -print -delete"
 fi
