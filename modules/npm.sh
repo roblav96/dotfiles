@@ -1,5 +1,5 @@
 # export NODE_NO_WARNINGS="1"
-# export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="--max-old-space-size=4096"
 export NODE_REPL_HISTORY=""
 
 # alias n="npm"
