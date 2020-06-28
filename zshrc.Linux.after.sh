@@ -8,7 +8,7 @@ alias sc-status="systemctl --full status"
 # unalias sc-list-unit-files &>/dev/null
 # alias sc-list-unit-files="systemctl --all list-unit-files"
 
-alias nftl="sudo nft list ruleset --handle | bat --style=grid -l nft"
+alias nftl="sudo nft list ruleset --handle | bat -l nft"
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 
 alias .z="rmate --new --line 999999 $HOME/.z"
