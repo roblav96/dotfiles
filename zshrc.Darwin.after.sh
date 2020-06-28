@@ -12,7 +12,7 @@ alias unquarantine="xattr -d -r com.apple.quarantine"
 alias .hosts="subl --new-window /etc/hosts"
 alias .hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias .paths="subl --new-window /etc/paths"
-alias .profiles="subl --new-window /etc/zprofile /etc/profile"
+alias .profile="subl --new-window /etc/.profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
 alias .zsh_history="subl --new-window $HOME/.zsh_history:999999; exit"
