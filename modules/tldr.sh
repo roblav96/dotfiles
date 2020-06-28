@@ -50,7 +50,7 @@ alias hdi="howdoi --color --all"
 # alias hdi='function _hdi() { howdoi --color --all $@ }; _hdi'
 
 # alias genc="gencomp"
-if which -w gencomp | grep -q 'function$'; then
+if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	function gcomp() {
 		gencomp "$*" && bat -l sh "$GENCOMPL_FPATH/_$*"
 	}; compdef gcomp=command
