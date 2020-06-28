@@ -7,13 +7,13 @@ alias tkaf="tokei $TK_FLAGS $TK_FLAGS_ALL --files"
 alias tkls="tokei --languages"
 unset TK_FLAGS TK_FLAGS_ALL
 
-alias diskus="diskus --verbose"
+alias diskus="diskus --apparent-size --verbose"
 
-alias dust="dust --ignore-directory=.git"
+alias dust="dust --apparent-size --ignore-directory=.git"
 alias dustr="dust --depth=1"
 alias dustrr="dust --depth=2"
 alias dustrrr="dust --depth=3"
-alias dusta="command dust"
+# alias dusta="command dust"
 # alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
 # alias dusta="command dust --ignore-directory .git"
 # alias dust="dust --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
