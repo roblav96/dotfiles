@@ -179,7 +179,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
-alias rmtrash="lr $HOME/.Trash; fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf"
+alias rmtrash="lr $HOME/.Trash; fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf; lr $HOME/.Trash"
 
 alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
