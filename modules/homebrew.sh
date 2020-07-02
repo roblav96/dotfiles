@@ -112,8 +112,8 @@ function bcdcellar() {
 	cd $(realpath $(brew --prefix $1))
 }; compdef bcd=command
 function bbin() {
-	lara "$(brew --prefix)/opt/$1/bin"
-	lara "$(brew --prefix)/opt/$1/sbin"
+	[[ -d "$(brew --prefix)/opt/$1/bin" ]] && lara "$(brew --prefix)/opt/$1/bin"
+	[[ -d "$(brew --prefix)/opt/$1/sbin" ]] && lara "$(brew --prefix)/opt/$1/sbin"
 }; compdef bbin=command
 function bfs() {
 	for v in "$@"; do
