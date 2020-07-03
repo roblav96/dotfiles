@@ -44,18 +44,18 @@ alias batcd="cd \"\$(command bat --config-dir)\""
 alias batbuild="rm -rfv \"\$(command bat --config-dir)\"/themes/*.tmTheme; cp $DOTFILES/tmthemes/* \"\$(command bat --config-dir)\"/themes; echo; lra \"\$(command bat --config-dir)\"; echo; command bat cache --clear; command bat cache --build; echo; l \"\$(command bat --cache-dir)\""
 
 function batplist() {
-	plistutil --infile "$1" | prettier --parser xml | bat -l xml
+	plistutil --infile "$1" | prettier --parser xml | bat --style=grid -l xml
 }
 alias bpl="batplist"
 
 function dotbat() {
-	cat "$@" | grep --invert-match '^# ' | bat -l sh
+	cat "$@" | grep --invert-match '^# ' | bat --style=grid -l sh
 }
 
 function pbat() {
 	if [[ -e $1 ]]; then
 		if [[ $# -eq 1 ]]; then
-			prettier $1 | bat -l ${1##*.}
+			prettier $1 | bat --style=grid -l ${1##*.}
 		else
 			prettier --parser $2 $1 | bat -p -l $2
 		fi
@@ -65,7 +65,7 @@ function pbat() {
 		# if echo "$output" | grep -q '^[error]'; then
 		# 	bat $@
 		# else
-		# 	echo "$output" | bat -l ${@##*.}
+		# 	echo "$output" | bat --style=grid -l ${@##*.}
 		# fi
 	else
 		prettier --parser $@ | bat -p -l $@

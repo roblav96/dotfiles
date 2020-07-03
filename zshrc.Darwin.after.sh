@@ -22,9 +22,9 @@ alias .starship="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 
 alias .pfc="subl --new-window /etc/pf.conf"
-alias pfcat="cat /etc/pf.conf | grep --invert-match '^#' | bat -l sh"
+alias pfcat="cat /etc/pf.conf | grep --invert-match '^#' | bat --style=grid -l sh"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
-alias pfsr="sudo pfctl -q -s rules | bat -l py"
+alias pfsr="sudo pfctl -q -s rules | bat --style=grid -l py"
 alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
@@ -32,14 +32,14 @@ alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.c
 alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfs"
 alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfd"
 
-alias ifcls="ifconfig -v -a -r | bat -l yml"
-alias lsapps="lsappinfo list | bat -l ini"
+alias ifcls="ifconfig -v -a -r | bat --style=grid -l yml"
+alias lsapps="lsappinfo list | bat --style=grid -l ini"
 
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
-alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat -l html"
+alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
 alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
 alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"

@@ -47,7 +47,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/System/Volumes/Data \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
-alias frls="type fr | sd ' --' '\n--' | sortt | bat -l sh"
+alias frls="type fr | sd ' --' '\n--' | sortt | bat --style=grid -l sh"
 
 unset FD_FLAGS FD_FLAGS_ALL
 

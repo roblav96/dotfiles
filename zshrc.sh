@@ -152,7 +152,7 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
-alias aliasls="alias -L | sed 's#^#\n#g' | bat -l sh"
+alias aliasls="alias -L | sed 's#^#\n#g' | bat --style=grid -l sh"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
 alias rc="rclone"

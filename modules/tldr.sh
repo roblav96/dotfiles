@@ -52,7 +52,7 @@ alias hdi="howdoi --color --all"
 # alias genc="gencomp"
 if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	function gcomp() {
-		gencomp "$*" && bat -l sh "$GENCOMPL_FPATH/_$*"
+		gencomp "$*" && bat --style=grid -l sh "$GENCOMPL_FPATH/_$*"
 	}; compdef gcomp=command
 	compdef gencomp=command
 fi
@@ -61,13 +61,13 @@ if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
 		local lang="sh"
 		# [[ -n $2 ]] && lang="$1"
-		curl "http://cht.sh/$*?T" | bat -l $lang
+		curl "http://cht.sh/$*?T" | bat --style=grid -l $lang
 	}
 	function chp() {
 		curl "http://cht.sh/$*?T"
 	}
 	function cha() {
-		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*" | bat -l sh
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*" | bat --style=grid -l sh
 	}
 else
 	function ch() {
@@ -82,5 +82,5 @@ alias chls="curl http://cht.sh/:list"
 alias chs="curl http://cht.sh/:list | grep"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
-alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat -l sh"
-alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat -l sh"
+alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat --style=grid -l sh"
+alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat --style=grid -l sh"
