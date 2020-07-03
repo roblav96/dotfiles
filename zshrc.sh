@@ -4,6 +4,16 @@
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
+export EDITOR="nano"
+export VEDITOR="nano"
+export VISUAL="nano"
+if [[ -x "$(which -p micro)" ]]; then
+	export EDITOR="micro"
+	export VEDITOR="micro"
+	export VISUAL="micro"
+fi
+export BUNDLE_EDITOR="$EDITOR"
+
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 export ZSH_COMPDUMP_EXISTS="$(echo $HOME/.zcomp*)" 2>/dev/null
 

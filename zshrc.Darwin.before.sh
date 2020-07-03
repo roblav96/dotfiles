@@ -1,11 +1,6 @@
 # export DOTBENCH="$(date +%s%3N)"
 # echo "🌕 $PLATFORM before"
 
-export EDITOR="nano"
-export VEDITOR="nano"
-export VISUAL="nano"
-export BUNDLE_EDITOR="nano"
-
 # export RMATE_HOST="localhost"
 # export RMATE_PORT="52699"
 
