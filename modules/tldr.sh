@@ -52,7 +52,9 @@ alias hdi="howdoi --color --all"
 # alias genc="gencomp"
 if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	function gcomp() {
-		gencomp "$*" && bat --style=grid -l sh "$GENCOMPL_FPATH/_$*"
+		for v in "$@"; do
+			gencomp "$v" && bat --style=grid -l sh "$GENCOMPL_FPATH/_$v"
+		done
 	}; compdef gcomp=command
 	compdef gencomp=command
 fi
