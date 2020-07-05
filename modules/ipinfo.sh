@@ -38,11 +38,11 @@ curl https://ipinfo.io | json ". |= del(.readme)"
 function dnsinfo() {
 	local domain="${1:-google.com}"
 	echo; echo "🌕 nslookup -all $domain"
-	nslookup -all -timeout=1 "$domain"
+	nslookup -all -timeout=1 "$domain" | bl yml
 	if [[ "$PLATFORM" == "Darwin" ]]; then
-		echo "🌕 networksetup -getdnsservers"
-		networksetup -getdnsservers 'Wi-Fi'
+		echo; echo "🌕 networksetup -getdnsservers"
+		networksetup -getdnsservers 'Wi-Fi' | bl yml
 		echo; echo "🌕 scutil --dns"
-		scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)'
+		scutil --dns | grep -B99 --color=never 'for scoped queries' | grep --color=never '(resolver|search|domain|nameserver)' | bl yml
 	fi
 }
