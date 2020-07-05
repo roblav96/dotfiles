@@ -1,14 +1,6 @@
 alias ghb="github"
 
-# alias delta="delta --tabs=0 --highlight-removed"
-
-# function _git-hr() {
-# 	if [[ ! -d ".git" ]]; then
-# 		echo "🔴 Not a git repository"
-# 		return 1
-# 	fi
-# 	bathr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bathr; echo
-# }
+[[ -x "$(which -p hub)" ]] && alias git="hub"
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff"
@@ -80,6 +72,16 @@ alias gcr="git clone --recurse-submodules"
 # 	# 	read -q "?dotnet restore? [y/n]: " || return 1
 # 	# 	dotnet restore
 # 	# fi
+# }
+
+# alias delta="delta --tabs=0 --highlight-removed"
+
+# function _git-hr() {
+# 	if [[ ! -d ".git" ]]; then
+# 		echo "🔴 Not a git repository"
+# 		return 1
+# 	fi
+# 	bathr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bathr; echo
 # }
 
 # if [[ -x "$(which -p delta)" ]]; then
