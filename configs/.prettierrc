@@ -3,7 +3,7 @@
 	"arrowParens": "always",
 	"bracketSpacing": true,
 	"endOfLine": "lf",
-	"htmlWhitespaceSensitivity": "css",
+	"htmlWhitespaceSensitivity": "ignore",
 	"jsxBracketSameLine": false,
 	"jsxSingleQuote": false,
 	"printWidth": 100,
@@ -15,6 +15,7 @@
 	"trailingComma": "all",
 	"useTabs": true,
 	"vueIndentScriptAndStyle": false,
+	"xmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
 			"files": [
