@@ -11,10 +11,21 @@
 [color]
 	branch = always
 	diff = always
+	log = always
 	status = always
 	ui = always
 [core]
 	excludesfile = ~/.gitignore
-	pager = delta --commit-style=box --file-color=magenta --file-style=box --highlight-removed --plus-color="#36403b" --minus-color="#40323d"
+	pager = delta
 [interactive]
-	diffFilter = delta --commit-style=box --file-color=magenta --file-style=box --highlight-removed --color-only
+	diffFilter = delta --color-only
+[delta]
+	line-numbers = true
+	commit-decoration-style = 255 box
+	hunk-header-decoration-style = 255 box
+	file-decoration-style = 255 box
+	file-style = blue
+	minus-style = syntax "#3f0001" # 52
+	minus-emph-style = syntax 88
+	plus-style = syntax "#002800" # 22
+	plus-emph-style = syntax 28
