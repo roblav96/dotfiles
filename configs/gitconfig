@@ -21,8 +21,8 @@
 	line-numbers = true
 	commit-decoration-style = 255 box
 	hunk-header-decoration-style = 255 box
-	file-decoration-style = 255 box
-	file-style = blue
+	file-decoration-style = magenta box
+	file-style = 255 bold
 	minus-style = syntax "#3f0001" # 52
 	minus-emph-style = syntax 88
 	plus-style = syntax "#002800" # 22
