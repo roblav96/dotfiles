@@ -1,7 +1,14 @@
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
+alias ru="rustup --verbose"
+alias rucd="cd $HOME/.rustup"
+alias ruout="rustup check"
+alias ruupg="rustup update stable"
+alias rucls="rustup component list --installed"
+alias rucin="rustup component add"
+
 alias cg="cargo --color=always --verbose"
-alias cgcd="cd $HOME/.cargo/bin"
+alias cgcd="cd $HOME/.cargo"
 alias cgin="cargo install --force"
 alias cgls="cargo install-update --list"
 alias cgout="cargo install-update --list"

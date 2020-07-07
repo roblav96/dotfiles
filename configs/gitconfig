@@ -18,11 +18,12 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
+	tabs = 0
 	line-numbers = true
-	commit-decoration-style = 255 box
-	hunk-header-decoration-style = 255 box
+	commit-decoration-style = 16 16 box
+	hunk-header-decoration-style = 231 box
 	file-decoration-style = magenta box
-	file-style = 255 bold
+	file-style = 231 bold
 	minus-style = syntax "#3f0001" # 52
 	minus-emph-style = syntax 88
 	plus-style = syntax "#002800" # 22
