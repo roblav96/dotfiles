@@ -22,7 +22,7 @@
 	line-numbers = true
 	commit-decoration-style = 16 16 overline
 	hunk-header-decoration-style = black box
-	file-decoration-style = magenta box
+	file-decoration-style = magenta overline
 	file-style = 231 bold
 	minus-style = syntax "#3f0001" # 52
 	minus-emph-style = syntax 88
