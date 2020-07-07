@@ -45,6 +45,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=$HOME/Sandbox \
 --exclude=/System/Library/Templates/Data \
 --exclude=/System/Volumes/Data \
+--exclude=/usr/local/var/dmgs \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
 alias frls="type fr | sd ' --' '\n--' | sortt | bat --style=grid -l sh"

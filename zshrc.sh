@@ -79,6 +79,7 @@ export DISABLE_AUTO_UPDATE="true"
 local GENCOMPL_FPATH="$HOME/.cache/gencomp"
 [[ ! -d "$GENCOMPL_FPATH" ]] && mkdir -pv "$GENCOMPL_FPATH"
 zstyle :plugin:zsh-completion-generator programs ""
+fpath=($GENCOMPL_FPATH $fpath)
 
 if [[ -x "$(which -p antibody)" ]]; then
 	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
