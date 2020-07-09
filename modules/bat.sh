@@ -8,7 +8,7 @@ alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias bbat="bat --style=header,grid,numbers"
 
 alias b="bat"
-alias bl="bat --style=grid -l"
+alias bl="bat --style=grid --language"
 alias bn="bat --style=header,grid,numbers"
 alias bp="bat --plain"
 alias bpg="bat --style=grid"
