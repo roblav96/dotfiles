@@ -7,9 +7,9 @@ alias gd="git diff"
 alias gsm="git status --short --branch"
 alias gs="gd; echo; gsm"
 
-alias gl="git log --reverse --max-count=10 --date=local --stat"
+alias gl="git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
-alias gla="git log --reverse --max-count=10 --date=local --patch-with-stat"
+alias gla="git log --reverse --max-count=3 --date=relative --patch-with-stat"
 
 alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
