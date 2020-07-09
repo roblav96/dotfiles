@@ -49,6 +49,7 @@ function bs() {
 		brew search "$v" | rgpw "$v"
 	done
 }
+alias bscd='cd $(brew --prefix)/Homebrew'
 
 function bhist() {
 	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core" && smerge log "Formula/$*.rb")

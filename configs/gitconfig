@@ -6,6 +6,8 @@
 [user]
 	email = roblav96@gmail.com
 	name = Robert Laverty
+[hub]
+	protocol = https
 [color]
 	branch = always
 	diff = always
@@ -20,7 +22,7 @@
 [delta]
 	tabs = 0
 	line-numbers = true
-	commit-decoration-style = 16 16 overline
+	commit-decoration-style = 231 231 overline
 	hunk-header-decoration-style = black box
 	file-decoration-style = magenta overline
 	file-style = 231 bold
