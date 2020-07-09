@@ -27,9 +27,9 @@ alias gia="git check-ignore --verbose **/.* **/* | sortt"
 
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
-alias gc="gh repo clone"
-# alias gc="git clone"
+alias gc="git clone"
 alias gcr="git clone --recurse-submodules"
+# alias gc="gh repo clone"
 # function gc() {
 # 	if [[ -z "$@" ]]; then
 # 		echo "🔴 You must specify a repository to clone"
