@@ -14,6 +14,7 @@ alias gla="git log --reverse --max-count=10 --date=local --patch-with-stat"
 alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
+alias gsw="git switch"
 alias gf="git fetch"
 alias gfa="git fetch --all --prune"
 alias gfo="git fetch origin"

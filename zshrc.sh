@@ -237,7 +237,25 @@ alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=mo
 alias axel="axel --alternate --timeout=5"
 alias wget="wget --quiet --show-progress --connect-timeout=5"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
-alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
+alias curlt='curl --output /dev/null --write-out "
+	%{url_effective} ● Effective URL
+	%{content_type} ● Content Type
+	%{http_code} ● Status Code
+	%{http_connect} ● Connect Code
+	%{num_connects} ● Connects
+	%{num_redirects} ● Redirects %{redirect_url} ● Redirect URL
+	%{size_download} ● Size Download
+	%{size_upload} ● Size Upload
+	%{ssl_verify_result} ● SSL Verify
+	%{time_appconnect} ● Handshake
+	%{time_connect} ● Connect
+	%{time_namelookup} ● DNS Lookup Time
+	%{time_pretransfer} ● Pretransfer
+	%{time_redirect} ● Redirect
+	%{time_starttransfer} ● Start Transfer
+	%{time_total} = Total
+"'
+# alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
 	curl "$*" | json
 }

@@ -18,7 +18,7 @@ alias adb.scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCAN
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
-# alias adb.pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd --string-mode 'package:' '' pm-list-*.log"
+# alias adb.pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
@@ -35,11 +35,11 @@ function adb.settings.l() {
 }
 function adb.settings.f() {
 	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
+	echo "$(adb shell settings list system)" | sortt | rgf "$*" | bat --style=grid -l ini
 	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
+	echo "$(adb shell settings list secure)" | sortt | rgf "$*" | bat --style=grid -l ini
 	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sortt | bat --style=grid -l ini | rg --ignore-case --fixed-strings "$*"
+	echo "$(adb shell settings list global)" | sortt | rgf "$*" | bat --style=grid -l ini
 }
 
 function adb.su() {
@@ -63,17 +63,17 @@ function adb.wget() {
 # https://developer.android.com/studio/command-line/adb#pm
 function adb.pm() {
 	echo; echo "🌕 Disabled Packages"
-	echo "$(adb shell pm list packages -d)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages -d)" | sd '^package:' '' | sortt
 	echo; echo "🌕 Uninstalled Packages"
-	echo "$(adb shell pm list packages -u)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages -u)" | sd '^package:' '' | sortt
 	echo; echo "🌕 Enabled Packages"
-	echo "$(adb shell pm list packages -e)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages -e)" | sd '^package:' '' | sortt
 	echo; echo "🌕 Default Packages"
-	echo "$(adb shell pm list packages)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages)" | sd '^package:' '' | sortt
 	echo; echo "🌕 System Packages"
-	echo "$(adb shell pm list packages -s)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages -s)" | sd '^package:' '' | sortt
 	echo; echo "🌕 Third-Party Packages"
-	echo "$(adb shell pm list packages -3)" | sd --string-mode 'package:' '' | sortt
+	echo "$(adb shell pm list packages -3)" | sd '^package:' '' | sortt
 }
 
 # function adb.pm-ls() {
@@ -84,7 +84,7 @@ function adb.pm() {
 # 		echo; echo "🌕 System"; pm list packages -s;
 # 		echo; echo "🌕 Enabled"; pm list packages -e;
 # 		echo; echo "🌕 Third-Party"; pm list packages -3;
-# 	')" | sd --string-mode 'package:' '' | bat -p -l properties
+# 	')" | sd '^package:' '' | bat -p -l properties
 # }
 # alias adb.pm-f="adb.pm-ls | grep"
 # alias adb.pm-f="adb.pm-ls | rgp"
