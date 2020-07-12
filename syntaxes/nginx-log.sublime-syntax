@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+name: Nginx Log
+file_extensions: [log]
+scope: text.nginx
+
+# To use this syntax, save this file to %APPDATA%\Sublime Text 3\Packages\nginx-log.sublime-syntax
+# Then, select Nginx Log from the syntax selector in the bottom-right of Sublime
+
+contexts:
+  main:
+    - match: '(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|(?:[A-Fa-f0-9]{0,4}:){1,7}[A-Fa-f0-9]{1,4}|\-) (\-) ([A-Za-z0-9_-]|\-) (\[[A-Za-z0-9_\-\\\/\: +]+\]) "([A-Za-z]+ ([\w\W]+?) ([\w\W]+?))" ([0-9]+) ([0-9]+)?(?: "([\w\W]+?)")?(?: "([\w\W]+?)")?(?: "([\w\W]+?)")?'
+      scope: meta.nginx.log
+      captures:
+        1: keyword remote_addr
+        2: comment spacer
+        3: text remote_user
+        4: string time_local
+        5: constant request_type
+        6: support.function request
+        7: keyword.operator request_result
+        8: keyword.other status
+        9: entity.other.attribute-name body_bytes_sent
+        10: entity.name.tag http_referer
+        11: constant.numeric http_user_agent
+        12: string http_x_forwarded_for
