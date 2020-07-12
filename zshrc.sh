@@ -120,6 +120,7 @@ setopt hist_ignore_all_dups
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
 
+alias bindkey-ls="bindkey -L"
 alias bindkey-debug="echo press key to observe key codes; echo; cat --show-nonprinting"
 bindkey '^[[5C' forward-word
 bindkey '^[[5D' backward-word
@@ -163,7 +164,6 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias -L | sed 's#^#\n#g'"
-alias bindkeyls="bindkey -L"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
 alias rc="rclone"
