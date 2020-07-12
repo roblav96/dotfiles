@@ -208,6 +208,13 @@ function abfixpaste() {
 	nano +$line "$file"
 }
 
+function clear-and-accept-line() { clear && zle accept-line -w }
+zle -N clear-and-accept-line
+bindkey '^[k' clear-and-accept-line
+function clear-and-accept-and-hold() { clear && zle accept-and-hold -w }
+zle -N clear-and-accept-and-hold
+bindkey '^[K' clear-and-accept-and-hold
+
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 export GREP_COLOR="01;31"
