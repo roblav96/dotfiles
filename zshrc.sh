@@ -120,8 +120,8 @@ setopt hist_ignore_all_dups
 # export PROMPT="%(?.%F{magenta}△.%F{red}▲)%f "
 # unsetopt prompt_cr prompt_sp
 
-alias bindkey-ls="bindkey -L"
-alias bindkey-debug="echo press key to observe key codes; echo; cat --show-nonprinting"
+alias bindkeyls="bindkey -L"
+alias bindkeydebug="echo press key to observe key codes; echo; cat --show-nonprinting"
 bindkey '^[[5C' forward-word
 bindkey '^[[5D' backward-word
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
