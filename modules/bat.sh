@@ -44,7 +44,7 @@ alias bathr='echo | bat --terminal-width=$(tput cols) --style=grid | head -n1'
 alias batcd='cd $(command bat --config-dir)/syntaxes'
 # rm -rfv \"\$(command bat --config-dir)\"/*/*;
 alias batbuild="
-cp $DOTFILES/syntaxes $DOTFILES/themes \"\$(command bat --config-dir)\";
+cp $DOTFILES/themes \"\$(command bat --config-dir)\";
 echo;
 lch --tree \"\$(command bat --config-dir)\";
 echo;
