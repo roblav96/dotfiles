@@ -10,8 +10,6 @@ alias faa="fd $FD_FLAGS_ALL --fixed-strings --follow --full-path --absolute-path
 alias fagl="fd $FD_FLAGS_ALL --glob"
 alias faagl="fd $FD_FLAGS_ALL --glob --follow --full-path --absolute-path"
 
-alias fpathf="fd $FD_FLAGS_ALL --fixed-strings --exact-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
-
 local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
 --exclude=$HOME/.go \
@@ -54,5 +52,7 @@ unset FD_FLAGS FD_FLAGS_ALL
 
 alias fwc="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
 alias fwcm="fd --color=never --type=file --hidden --no-ignore | wc --lines"
+
+alias fpathf="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 # function f() { find . -name "*$1*" ${@:2} }
