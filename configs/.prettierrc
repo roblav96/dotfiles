@@ -21,6 +21,7 @@
 			"files": [
 				"*.csproj",
 				"*.plist",
+				"*.storyboard",
 				"*.svg",
 				"*.tmLanguage",
 				"*.tmPreferences",

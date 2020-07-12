@@ -121,6 +121,8 @@ setopt hist_ignore_all_dups
 # unsetopt prompt_cr prompt_sp
 
 alias bindkey-debug="echo press key to observe key codes; echo; cat --show-nonprinting"
+bindkey '^[[5C' forward-word
+bindkey '^[[5D' backward-word
 # bindkey '^E' sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
