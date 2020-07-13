@@ -16,7 +16,7 @@ alias adb.shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; 
 alias adb.text="adb shell input keyboard text"
 alias adb.scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
-alias adb.display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat -l yml"
+alias adb.display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
