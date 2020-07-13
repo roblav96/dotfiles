@@ -161,7 +161,7 @@ alias pwda="pwd && pwd -P"
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
-alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
+alias fpath-ls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias -L | sed 's#^#\n#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
@@ -208,12 +208,12 @@ function abfixpaste() {
 	nano +$line "$file"
 }
 
-function clear-and-accept-line() { clear && zle accept-line -w }
-zle -N clear-and-accept-line
-bindkey '^[k' clear-and-accept-line
-function clear-and-accept-and-hold() { clear && zle accept-and-hold -w }
-zle -N clear-and-accept-and-hold
-bindkey '^[K' clear-and-accept-and-hold
+function __clear-and-accept-line() { clear && zle accept-line -w }
+zle -N __clear-and-accept-line
+bindkey '^[k' __clear-and-accept-line
+function __clear-and-accept-and-hold() { clear && zle accept-and-hold -w }
+zle -N __clear-and-accept-and-hold
+bindkey '^[K' __clear-and-accept-and-hold
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"

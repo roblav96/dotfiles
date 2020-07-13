@@ -1,6 +1,6 @@
 # cod configuration
 # Put this configuration into '~/.config/cod/config.toml'.
-# 
+
 # Lines starting with '#' are comments.
 
 #
@@ -36,7 +36,7 @@
 #   [[rule]]
 #   executable = "/usr/bin/*"
 #   policy = 'ignore'
-# 
+
 #   [[rule]]
 #   executable = "~/bin/*"
 #   policy = 'trust'

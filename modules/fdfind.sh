@@ -53,6 +53,6 @@ unset FD_FLAGS FD_FLAGS_ALL
 alias fwc="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
 alias fwcm="fd --color=never --type=file --hidden --no-ignore | wc --lines"
 
-alias fpathf="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias fpath-f="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 # function f() { find . -name "*$1*" ${@:2} }
