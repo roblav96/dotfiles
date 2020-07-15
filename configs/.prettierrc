@@ -33,7 +33,7 @@
 			}
 		},
 		{
-			"files": ["*.hidden-color-scheme", "*.sublime-color-scheme"],
+			"files": ["*.hidden-color-scheme", "*.map", "*.sublime-color-scheme"],
 			"options": {
 				"parser": "json",
 				"printWidth": 1

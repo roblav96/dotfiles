@@ -20,7 +20,9 @@ alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
 alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'
 
 function npmin() {
-	npm install "$@" && npm install -D "@types/$@"
+	local v; for v in "$@"; do
+		npm install "$v" && npm install -D "@types/$v"
+	done
 }
 function npmrm() {
 	npm uninstall "$@" "@types/$@"
