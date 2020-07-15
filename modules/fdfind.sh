@@ -46,7 +46,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/usr/local/var/dmgs \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"; unset fr
-alias frls="type fr | sd ' --' '\n--' | sortt | bat --style=grid -l sh"
+alias frls="type fr | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
 
 unset FD_FLAGS FD_FLAGS_ALL
 
