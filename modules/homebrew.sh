@@ -29,7 +29,7 @@ function bls() {
 }
 function blsm() {
 	echo; echo "🌕 List recently modified formulas"
-	lm "/usr/local/Cellar"
+	lm "$(brew --prefix)/Cellar"
 }
 function bcls() {
 	echo; echo "🌕 List casks"
