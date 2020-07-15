@@ -197,6 +197,7 @@ alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lr $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?Empty Trash? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf; echo; ltrash"
 
+alias zdebug="zsh -lixc : 2>&1"
 alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
 alias zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
