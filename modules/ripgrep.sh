@@ -1,7 +1,7 @@
-local RG_FLAGS="--color=always --heading --line-number --trim --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
+local RG_FLAGS="--color=always --heading --line-number --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
 # --colors=match:bg:16 --colors=path:bg:16
 # --colors=path:fg:green --colors=path:style:bold
-local RG_MAX_COLUMNS_FLAGS="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
+local RG_MAX_COLUMNS_FLAGS="--trim --max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias r="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
