@@ -1,9 +1,4 @@
 alias diffs="icdiff --highlight --line-numbers --unified=5"
-
-if [[ -x "$(which -p diff-color)" ]]; then
-	function diffc() {
-		diff --unified "$@" | diff-color
-	}; compdef diffc=rm
-fi
+alias diffc='diff <($(fc -ln -1 -1)) <($(fc -ln -2 -2)) | diffr'
 
 alias checksum="sha256sum"; compdef checksum=rm
