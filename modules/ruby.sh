@@ -1,3 +1,4 @@
+export COCOAPODS_DISABLE_STATS="true"
 export RUBYOPT="-W0"
 
 alias gemenv="gem env"
