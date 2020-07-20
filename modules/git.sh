@@ -25,6 +25,9 @@ alias gpr="git pull --rebase"
 alias gi="git check-ignore --verbose"
 alias gia="git check-ignore --verbose **/.* **/* | sortt"
 
+alias gclean="git clean -d -x -f"
+alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
+
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 alias gc="git clone"
