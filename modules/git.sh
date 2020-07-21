@@ -27,7 +27,7 @@ alias gia="git check-ignore --verbose **/.* **/* | sortt"
 
 alias gclean="git clean -f -d -x"
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcl="gclean --dry-run; echo; read -q '?continue...? \n' && return 1; gclean && greset"
+alias gcl="gclean --dry-run; echo; read -q '?continue...?' && return 1; echo; gclean && greset"
 
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
