@@ -51,8 +51,7 @@ alias frls="type fr | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
 
 unset FD_FLAGS FD_FLAGS_ALL
 
-alias fwc="fd --color=never --type=file --hidden --no-ignore --follow | wc --lines"
-alias fwcm="fd --color=never --type=file --hidden --no-ignore | wc --lines"
+alias fwc="fd --color=never --type=file --hidden --no-ignore | wc --lines"
 
 alias fpath-f="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
