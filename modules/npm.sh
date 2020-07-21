@@ -45,7 +45,7 @@ alias vue.inspect="FORCE_COLOR=0 vue inspect"
 function tns-platform-versions() {
 	local platforms=('android' 'ios')
 	local platform; for platform in "${platforms[@]}"; do
-		echo; echo -n "$platform "
+		echo; echo "🌕 $platform"
 		npm info tns-$platform --json | jq --tab '.["dist-tags"]'
 	done
 }
