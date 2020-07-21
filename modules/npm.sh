@@ -31,16 +31,23 @@ function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
 
-[[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm"; alias fpm="final-pm"
+[[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm" # ; alias fpm="final-pm"
 [[ ! -x "$(which -p forever)" ]] && alias forever="pnpx forever"
 [[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
 [[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx --package=typescript tsc"
-[[ ! -x "$(which -p rush)" ]] && alias rush="pnpx --package=@microsoft/rush rush"
-[[ ! -x "$(which -p rushx)" ]] && alias rushx="pnpx --package=@microsoft/rush rushx"
+# [[ ! -x "$(which -p rush)" ]] && alias rush="pnpx --package=@microsoft/rush rush"
+# [[ ! -x "$(which -p rushx)" ]] && alias rushx="pnpx --package=@microsoft/rush rushx"
 
 alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
+function tns-platform-versions() {
+	local platforms=('android' 'ios')
+	local platform; for platform in "${platforms[@]}"; do
+		echo; echo -n "$platform "
+		npm info tns-$platform --json | jq --tab '.["dist-tags"]'
+	done
+}
 
 # [[ -x "$(which -p pnpm)" ]] && source "$HOME/.config/tabtab/zsh/pnpm.zsh"
