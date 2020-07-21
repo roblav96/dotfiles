@@ -12,22 +12,25 @@
 
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
-alias adb.shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
-alias adb.text="adb shell input keyboard text"
-alias adb.scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
+alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
+function adb-text() {
+	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
+}
+# alias adb-text="adb shell input keyboard text"
+alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
-alias adb.display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
+alias adb-display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
-# alias adb.pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
+# alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
-function adb.settings.l() {
+function adb-settings.l() {
 	echo; echo "🌕 System Settings"
 	echo "$(adb shell settings list system)" | sortt | bat --style=grid -l ini
 	echo; echo "🌕 Secure Settings"
@@ -35,7 +38,7 @@ function adb.settings.l() {
 	echo; echo "🌕 Global Settings"
 	echo "$(adb shell settings list global)" | sortt | bat --style=grid -l ini
 }
-function adb.settings.f() {
+function adb-settings.f() {
 	echo; echo "🌕 System Settings"
 	echo "$(adb shell settings list system)" | sortt | rgf "$*" | bat --style=grid -l ini
 	echo; echo "🌕 Secure Settings"
@@ -44,11 +47,11 @@ function adb.settings.f() {
 	echo "$(adb shell settings list global)" | sortt | rgf "$*" | bat --style=grid -l ini
 }
 
-function adb.su() {
+function adb-su() {
 	adb shell su -c ${@:2}
 }
 
-function adb.wget() {
+function adb-wget() {
 	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
 	adb shell input keyboard text "'wget -O /dev/null $1'"
 	adb shell input keyevent KEYCODE_ENTER
@@ -60,10 +63,10 @@ function adb.wget() {
 	# adb shell input keyevent KEYCODE_ENTER
 	# adb shell am force-stop com.termux
 }
-# function adb.wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
+# function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
 # https://developer.android.com/studio/command-line/adb#pm
-function adb.pm() {
+function adb-pm() {
 	echo; echo "🌕 Disabled Packages"
 	echo "$(adb shell pm list packages -d)" | sd '^package:' '' | sortt
 	echo; echo "🌕 Uninstalled Packages"
@@ -78,7 +81,7 @@ function adb.pm() {
 	echo "$(adb shell pm list packages -3)" | sd '^package:' '' | sortt
 }
 
-# function adb.pm-ls() {
+# function adb-pm-ls() {
 # 	echo "$(adb shell '
 # 		echo; echo "🌕 Disabled"; pm list packages -d;
 # 		echo; echo "🌕 Uninstalled"; pm list packages -u;
@@ -88,5 +91,5 @@ function adb.pm() {
 # 		echo; echo "🌕 Third-Party"; pm list packages -3;
 # 	')" | sd '^package:' '' | bat -p -l properties
 # }
-# alias adb.pm-f="adb.pm-ls | grep"
-# alias adb.pm-f="adb.pm-ls | rgp"
+# alias adb-pm-f="adb-pm-ls | grep"
+# alias adb-pm-f="adb-pm-ls | rgp"
