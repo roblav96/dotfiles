@@ -303,7 +303,7 @@ function mans() {
 	man -k "$*" | rgp "$*"
 }; compdef mans=man
 alias mansr="man -K"
-alias manfs="man -w"
+alias manfs="man -wa"
 function manf() {
     man -k . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
 }
