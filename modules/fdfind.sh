@@ -12,12 +12,16 @@ alias faagl="fd $FD_FLAGS_ALL --glob --follow --full-path --absolute-path"
 
 local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-directory=/ \
 --exclude=$HOME/.cargo \
+--exclude=$HOME/.dartServer \
 --exclude=$HOME/.go \
 --exclude=$HOME/.gradle \
+--exclude=$HOME/.m2 \
 --exclude=$HOME/.node-gyp \
 --exclude=$HOME/.npm \
+--exclude=$HOME/.nuget \
 --exclude=$HOME/.playground \
 --exclude=$HOME/.pnpm-store \
+--exclude=$HOME/.pub-cache \
 --exclude=$HOME/.rustup \
 --exclude=$HOME/.Trash \
 --exclude=/usr/local/lib/node_modules \
@@ -33,9 +37,7 @@ local fr="fd $FD_FLAGS_ALL --fixed-strings --full-path --absolute-path --base-di
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
---exclude=$HOME/.config/emby-server/cache \
---exclude=$HOME/.config/emby-server/media \
---exclude=$HOME/.config/emby-server/metadata \
+--exclude=$HOME/.config/emby-server \
 --exclude=$HOME/Desktop \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Library/Containers \

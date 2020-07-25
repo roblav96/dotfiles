@@ -9,6 +9,7 @@ export ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
 # export PATH="$PATH:$ANDROID_HOME/tools"
 
 alias gradlew='$PWD/gradlew'
+alias mvnw='$PWD/mvnw'
 # alias gradle="gradle --no-daemon"
 
 alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"

@@ -21,8 +21,20 @@ truncate_to_repo = false
 truncation_length = -1
 # prefix = " in "
 
-# [git_branch]
-# style = "blue"
+[git_branch]
+symbol = "⑆ "
+# symbol = "ᚬ ᚼ ᛅ ᛘ ᛦ ᛋ ⑆ "
+# [git_commit]
+# only_detached = false
+# [git_status]
+# show_sync_count = true
+# conflicted_count = true
+# untracked_count = true
+# stashed_count = true
+# modified_count = true
+# staged_count = true
+# renamed_count = true
+# deleted_count = true
 
 [time]
 disabled = true

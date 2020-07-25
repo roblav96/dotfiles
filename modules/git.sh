@@ -29,6 +29,7 @@ alias gclean="git clean -f -d -x"
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
 alias gcl="gclean --dry-run; echo; read -q '?continue...?' && return 1; echo; gclean && greset"
 
+alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 alias gc="git clone"
