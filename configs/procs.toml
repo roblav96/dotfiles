@@ -92,7 +92,7 @@ logic = "And"
 
 [display]
 show_self = false
-cut_to_terminal = true
+cut_to_terminal = false
 cut_to_pager = false
 cut_to_pipe = false
 color_mode = "Auto"
