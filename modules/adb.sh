@@ -13,10 +13,10 @@
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
-function adbt() {
-	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
-}
-# alias adb-text="adb shell input keyboard text"
+# function adbt() {
+# 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
+# }
+alias adbt="adb shell input keyboard text"
 alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
 alias adb-display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
