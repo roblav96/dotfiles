@@ -32,18 +32,18 @@ alias gcl="gclean --dry-run; echo; read -q '?continue...?' && return 1; echo; gc
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
-function gc() {
-	local repo=(${@/-*/})
-	local outdir="$(basename "${repo[-1]}")"
-	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
-	gh repo clone "$@" || return 1
-	[[ -d "$outdir" ]] && cd "$outdir"
-}
-function gcr() {
-	gc "$@" -- --recurse-submodules
-}
+alias gc="gh repo clone"
+# function gc() {
+# 	local repo=(${@/-*/})
+# 	local outdir="$(basename "${repo[-1]}")"
+# 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
+# 	gh repo clone "$@" || return 1
+# 	[[ -d "$outdir" ]] && cd "$outdir"
+# }
+# function gcr() {
+# 	gc "$@" -- --recurse-submodules
+# }
 # alias gc="git clone"
-# alias gc="gh repo clone"
 # alias gcr="git clone --recurse-submodules"
 
 # function gc() {
