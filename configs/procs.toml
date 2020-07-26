@@ -36,8 +36,8 @@ align = "Left"
 [[columns]]
 kind = "StartTime"
 style = "Magenta"
-numeric_search = false
-nonnumeric_search = false
+numeric_search = true
+nonnumeric_search = true
 align = "Left"
 
 [[columns]]
