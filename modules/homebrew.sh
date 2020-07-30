@@ -318,6 +318,11 @@ function bupg-node@12() {
 	echo "🌕 npm doctor"
 }
 
+function bupg-deno() {
+	wget --output-document ~/Library/Caches/deno/lib.deno.d.ts https://github.com/denoland/deno/releases/latest/download/lib.deno.d.ts
+	wget --output-document ~/Library/Caches/deno/lib.deno.unstable.d.ts https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.unstable.d.ts
+}
+
 function bcupg-chrome() {
 	find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
 	echo "✅ Disabled launch agents"
