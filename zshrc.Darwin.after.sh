@@ -10,7 +10,7 @@ alias rmxattr="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias .hosts="sudo micro /etc/hosts && read -q '?hostsflush...?' || hostsflush"
+alias .hosts="sudo micro /etc/hosts && read -q '?hostsflush...?' && return 1; hostsflush; echo '✅ hostsflush'"
 alias .paths="subl --new-window /etc/paths"
 alias .profile="subl --new-window /etc/.profile"
 
