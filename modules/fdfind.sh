@@ -68,6 +68,7 @@ fr="$fr\
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
+--exclude=/Applications \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
