@@ -22,27 +22,27 @@ alias gfo="git fetch origin"
 alias gp="git pull"
 alias gpr="git pull --rebase"
 
-alias gi="git check-ignore --verbose"
-alias gia="git check-ignore --verbose **/.* **/* | sortt"
+alias gi="git check-ignore --verbose **/.* **/* | sortt | lscolors"
+alias gia="git check-ignore --verbose **/.* **/* --non-matching | sortt | lscolors"
 
 alias gclean="git clean -f -d -x"
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcl="gclean --dry-run; echo; read -q '?continue...?' && return 1; echo; gclean && greset"
+alias gcl="gclean --dry-run; echo; read -q '?git clean + git reset ?' && return 1; echo; gclean && greset"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
-alias gc="gh repo clone"
-# function gc() {
-# 	local repo=(${@/-*/})
-# 	local outdir="$(basename "${repo[-1]}")"
-# 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
-# 	gh repo clone "$@" || return 1
-# 	[[ -d "$outdir" ]] && cd "$outdir"
-# }
-# function gcr() {
-# 	gc "$@" -- --recurse-submodules
-# }
+# alias gc="gh repo clone"
+function gc() {
+	local repo=(${@/ -*/})
+	local outdir="$(basename "${repo[-1]}")"
+	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
+	gh repo clone "$@" || return 1
+	[[ -d "$outdir" ]] && cd "$outdir"
+}
+function gcr() {
+	gc "$@" -- --recurse-submodules
+}
 # alias gc="git clone"
 # alias gcr="git clone --recurse-submodules"
 
