@@ -183,6 +183,7 @@ alias hyperfine="hyperfine --shell=$(which -p bash)"
 alias shellcheck="shellcheck --shell=sh --external-sources"
 alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
+alias en="trans -engine bing -brief"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
