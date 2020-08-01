@@ -37,7 +37,7 @@ function gc() {
 	local repo=(${@/ -*/})
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
-	gh repo clone "$@" || return 1
+	git clone "$@" || return 1
 	[[ -d "$outdir" ]] && cd "$outdir"
 }
 function gcr() {
