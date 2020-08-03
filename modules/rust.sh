@@ -8,7 +8,7 @@ alias rucls="rustup component list --installed"
 alias rucin="rustup component add"
 
 alias cg="cargo --verbose"
-alias cgcd="cd $HOME/.cargo"
+alias cgcd="cd $HOME/.cargo/bin"
 alias cgin="cargo install --force"
 alias cgls="cargo install-update --list"
 alias cgout="cargo install-update --list"

@@ -40,9 +40,7 @@ function gc() {
 	git clone "$@" || return 1
 	[[ -d "$outdir" ]] && cd "$outdir"
 }
-function gcr() {
-	gc "$@" -- --recurse-submodules
-}
+alias gcr="gc --recurse-submodules"
 # alias gc="git clone"
 # alias gcr="git clone --recurse-submodules"
 

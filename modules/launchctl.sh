@@ -1,6 +1,6 @@
 alias lcdisabled="bat /var/db/com.apple.xpc.launchd/disabled.*"
 
-alias lclist='(
+alias lcl='(
 	echo; echo "🌕 User Agents";
 	launchctl list | column -t;
 	echo; echo "🌕 System Daemons";

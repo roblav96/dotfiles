@@ -144,7 +144,8 @@ unalias pip &>/dev/null
 alias sudo="sudo "
 # compdef sudo=which
 
-alias e="nano"
+alias e="micro"
+alias mc="micro"
 alias ln="ln -v"
 alias mv="mv -v"
 alias cp="cp -vr"

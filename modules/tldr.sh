@@ -82,7 +82,7 @@ else
 fi
 [[ ! -x "$(which -p tldr)" ]] && alias tl="ch"
 alias chls="curl http://cht.sh/:list"
-alias chs="curl http://cht.sh/:list | grep"
+alias chs="curl http://cht.sh/:list | g"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat --style=grid -l sh"
