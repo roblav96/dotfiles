@@ -33,6 +33,13 @@
 			}
 		},
 		{
+			"files": ["*.gson"],
+			"options": {
+				"parser": "json",
+				"printWidth": 1
+			}
+		},
+		{
 			"files": ["*.hidden-color-scheme", "*.map", "*.sublime-color-scheme"],
 			"options": {
 				"parser": "json",
