@@ -25,8 +25,12 @@ truncation_length = -1
 symbol = "⑆ "
 # symbol = "ᚬ ᚼ ᛅ ᛘ ᛦ ᛋ ⑆ "
 # [git_commit]
+# disabled = true
 # only_detached = false
+# [git_state]
+# disabled = true
 # [git_status]
+# disabled = true
 # show_sync_count = true
 # conflicted_count = true
 # untracked_count = true

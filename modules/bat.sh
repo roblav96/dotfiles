@@ -58,6 +58,7 @@ function batplist() {
 	plistutil --infile "$1" | prettier --parser xml | bat --style=grid -l xml
 }
 alias bpl="batplist"
+alias bplist="batplist"
 
 function dotbat() {
 	cat "$@" | grep --invert-match '^# ' | bat --style=grid -l sh

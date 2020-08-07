@@ -6,7 +6,8 @@ alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
 alias pbcopy="pbcopy -Prefer txt"
-alias rmxattr="xattr -c -r"
+alias rmxattr="xattr -c"
+alias rmfxattr="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
@@ -40,7 +41,8 @@ alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
-alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
+alias denon="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | pb xml"
+# alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
 alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
 alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
