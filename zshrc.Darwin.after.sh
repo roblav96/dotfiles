@@ -5,6 +5,7 @@ source "$DOTFILES/modules/dotwatch.sh"
 alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
+# alias ssh="ssh -L 52698:localhost:52699"
 alias pbcopy="pbcopy -Prefer txt"
 alias rmxattr="xattr -c"
 alias rmfxattr="xattr -c -r"
