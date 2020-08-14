@@ -21,7 +21,6 @@ alias fpath-f="fd --fixed-strings --max-depth=1 --absolute-path --base-directory
 local fr="fd -uu --fixed-strings --full-path --absolute-path --base-directory=/"
 
 fr="$fr \
---exclude=$HOME/.node-gyp \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
@@ -30,16 +29,12 @@ fr="$fr \
 --exclude=node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
---exclude=$HOME/emby \
 --exclude=/dev \
 --exclude=/proc \
 --exclude=/sys \
---exclude=/var/lib/emby/cache \
---exclude=/var/lib/emby/metadata \
 --exclude=/var/www \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
---exclude=$HOME/.config/emby-server \
 --exclude=$HOME/Desktop \
 --exclude=$HOME/Library/Containers \
 --exclude=/System/Library/Templates/Data \
@@ -48,7 +43,7 @@ fr="$fr \
 --exclude=/usr/local/var/dmgs \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
-alias frals="command -V fra | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
+alias frals="command -V fra | sed 's# --#\n--#g' | rgw exclude | sortt | bat --style=grid -l ini"
 
 fr="$fr\
 --exclude=$HOME/.cargo \
@@ -58,6 +53,7 @@ fr="$fr\
 --exclude=$HOME/.go \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.m2 \
+--exclude=$HOME/.node-gyp \
 --exclude=$HOME/.nuget \
 --exclude=$HOME/.playground \
 --exclude=$HOME/.pub-cache \
@@ -65,15 +61,19 @@ fr="$fr\
 --exclude=$HOME/.vscode-oss \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
+--exclude=$HOME/emby \
 --exclude=/home/linuxbrew/.linuxbrew \
+--exclude=/var/lib/emby/cache \
+--exclude=/var/lib/emby/metadata \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
+--exclude=$HOME/.config/emby-server \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
 --exclude=/Applications \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
-alias frls="command -V fr | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
+alias frls="command -V fr | sed 's# --#\n--#g' | rgw exclude | sortt | bat --style=grid -l ini"
 
 unset fd_flags fd_flags_all fr
