@@ -52,7 +52,9 @@ alias frals="command -V fra | sd ' --' '\n--' | sortt | bat --style=grid -l ini"
 
 fr="$fr\
 --exclude=$HOME/.cargo \
+--exclude=$HOME/.cocoapods \
 --exclude=$HOME/.dartServer \
+--exclude=$HOME/.gem \
 --exclude=$HOME/.go \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.m2 \
@@ -60,6 +62,7 @@ fr="$fr\
 --exclude=$HOME/.playground \
 --exclude=$HOME/.pub-cache \
 --exclude=$HOME/.rustup \
+--exclude=$HOME/.vscode-oss \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
 --exclude=/home/linuxbrew/.linuxbrew \
