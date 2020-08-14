@@ -14,8 +14,7 @@ alias bp="bat --plain"
 alias bpg="bat --style=grid"
 
 alias bh="bat --style=grid -l man"
-alias bpy="bat --style=grid -l py"
-alias bsh="bat --style=grid -l sh"
+alias bb="bat --style=grid -l bash"
 alias by="bat --style=grid -l yml"
 
 # alias bconf="bat -l conf"

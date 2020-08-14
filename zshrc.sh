@@ -4,11 +4,10 @@
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 
-if [[ -x "$(which -p nano)" ]]; then
-	export EDITOR="nano"
-	export VEDITOR="nano"
-	export VISUAL="nano"
-fi
+[[ -x "$(which -p nano)" ]] && export EDITOR="nano"
+[[ -x "$(which -p micro)" ]] && export EDITOR="micro"
+export VEDITOR="$EDITOR"
+export VISUAL="$EDITOR"
 
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 export ZSH_COMPDUMP_EXISTS="$(echo $HOME/.zcomp*)" 2>/dev/null
@@ -144,8 +143,7 @@ unalias pip &>/dev/null
 alias sudo="sudo "
 # compdef sudo=which
 
-alias e="micro"
-alias mc="micro"
+alias e="$EDITOR"
 alias ln="ln -v"
 alias mv="mv -v"
 alias cp="cp -vr"
@@ -211,7 +209,7 @@ alias abupd="antibody update && zcomp"
 function abfixpaste() {
 	local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
 	local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
-	nano +$line "$file"
+	$EDITOR +$line "$file"
 }
 
 function __clear-and-accept-line() { clear && zle accept-line -w }

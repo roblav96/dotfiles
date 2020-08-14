@@ -27,9 +27,16 @@ function bls() {
 	echo; echo "🌕 List formulas"
 	brew list --versions
 }
+function blscd() {
+	cd "$(brew --prefix)/Cellar"
+}
 function blsm() {
 	echo; echo "🌕 List recently modified formulas"
 	lm "$(brew --prefix)/Cellar"
+}
+function blsch() {
+	echo; echo "🌕 List recently changed formulas"
+	lch "$(brew --prefix)/Cellar"
 }
 function bcls() {
 	echo; echo "🌕 List casks"
