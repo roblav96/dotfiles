@@ -94,10 +94,10 @@ function app-bak() {
 
 alias st="subl"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
-alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
-alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
-alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
+alias stcd="cd '$HOME/Library/Application Support/Sublime Text'"
+alias stcdp="cd '$HOME/Library/Application Support/Sublime Text/Packages'"
+alias stcdu="cd '$HOME/Library/Application Support/Sublime Text/Packages/User'"
+alias stst="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
 alias stpush='(stcd && gpush)'
 
@@ -108,7 +108,7 @@ alias smgs='(smcd && gs)'
 alias smpush='(smcd && gpush)'
 
 unalias dotsrc &>/dev/null
-alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dot="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
 alias dotpush='(dotcd && gpush) && zcomp'
 
