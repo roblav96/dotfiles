@@ -22,12 +22,3 @@ alias cglnbin="ln -sf $HOME/.cargo/bin/* /usr/local/bin"
 # 	fi
 # 	cargo uninstall $@
 # }
-
-if [[ -x "$(which -p rustup)" ]]; then
-	alias ru="rustup --verbose"
-	alias rucd="cd $HOME/.rustup"
-	alias ruout="rustup check"
-	alias ruupg="rustup update stable"
-	alias rucls="rustup component list --installed"
-	alias rucin="rustup component add"
-fi

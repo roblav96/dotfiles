@@ -357,7 +357,7 @@ function readlinka() {
 # alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json --color-output | rg --passthru --ignore-case --regexp='".*_frame_.*"'
+		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json --color-output # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
 	}
 	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
 fi
@@ -378,7 +378,7 @@ test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p aws)" && source "$DOTFILES/modules/aws.sh"
 test -x "$(which -p brew)" && source "$DOTFILES/modules/homebrew.sh"
-test -x "$(which -p cargo)" && source "$DOTFILES/modules/rust.sh"
+test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
 test -x "$(which -p cod)" && source "$DOTFILES/modules/cod.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/tldr.sh"
@@ -400,6 +400,7 @@ test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p php)" && source "$DOTFILES/modules/php.sh"
 test -x "$(which -p python)" && source "$DOTFILES/modules/python.sh"
 test -x "$(which -p ruby)" && source "$DOTFILES/modules/ruby.sh"
+test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
