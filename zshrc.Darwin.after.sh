@@ -5,6 +5,25 @@ source "$DOTFILES/modules/dotwatch.sh"
 alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
+alias utis-cache-sync="(lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/utis.lsregister.dump && wc --lines $HOME/.cache/utis.lsregister.dump"
+alias utis="cat $HOME/.cache/utis.lsregister.dump"
+function utis-sublime() {
+	git clone "https://github.com/sublimehq/Packages.git"
+	cd "Packages"
+	rm "AppleScript/AppleScript.sublime-syntax" "C++/C++.sublime-settings" "R/R Console.sublime-syntax"
+	local bundle_id="$(osascript -e 'id of app "Sublime Text"')"
+	rg --files-with-matches "file_extensions" | while read i; do
+		echo && echo "🔴 $i 🔴"
+		cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do
+			echo && echo "🌕 $ii"
+			duti -x "$ii"
+			[[ "$1" == "set" && -n "$ii" ]] && duti -s "$bundle_id" "$ii" all
+		done
+	done
+}
+# alias utis-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.4 "$ii" all; done; done'
+# r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🌕 $ii"; duti -x "$ii"; done; done
+
 # alias ssh="ssh -L 52698:localhost:52699"
 alias pbcopy="pbcopy -Prefer txt"
 alias rmxattr="xattr -c"
@@ -88,8 +107,8 @@ function app-bak() {
 	dstore
 	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.'
 	cd "$OLDPWD"
-	echo; echo "✅ Backup complete"
-	echo; exa --oneline "$tarpath"
+	echo && echo "✅ Backup complete"
+	echo && exa --oneline "$tarpath"
 }
 
 alias st="subl"

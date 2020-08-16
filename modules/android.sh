@@ -14,7 +14,11 @@ alias mvnw='$PWD/mvnw'
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"
 
-alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
+alias fernflower="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar"
+alias uber-apk-signer="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $_UBER_APK_SIGNER --ksPass $_UBER_APK_SIGNER --apks"
+unset _UBER_APK_SIGNER
+
+# alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
 # alias android-dts-generator="java -jar $ANDROID_HOME/android-dts-generator.jar"
 # function apksign() {
 # 	rm -f "$*-signed.apk"
