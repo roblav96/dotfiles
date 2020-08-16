@@ -179,18 +179,18 @@ function bcia() {
 	done
 }; compdef bcia=command
 
-function bopen() {
+function bo() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening formula -> '$v'"
 		brew home "$v"
 	done
-}; compdef bopen=command
-function bcopen() {
+}; compdef bo=command
+function bco() {
 	for v in "$@"; do
 		echo; echo "🌕 Opening cask -> '$v'"
 		brew cask home "$v"
 	done
-}; compdef bcopen=command
+}; compdef bco=command
 
 function brm() {
 	for v in "$@"; do
