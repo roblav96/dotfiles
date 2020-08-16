@@ -10,7 +10,7 @@ alias faa="fd $fd_flags_all --fixed-strings --follow --full-path --absolute-path
 alias fagl="fd $fd_flags_all --glob"
 alias faagl="fd $fd_flags_all --glob --follow --full-path --absolute-path"
 
-alias fwc="fd --color=never --type=file --hidden --no-ignore | wc --lines"
+alias fwc="fd -uu --type=file | wc --lines"
 
 alias fpath-f="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
@@ -43,7 +43,7 @@ fr="$fr \
 --exclude=/usr/local/var/dmgs \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
-alias frals="command -V fra | sed 's# --#\n--#g' | rgw exclude | sortt | bat --style=grid -l ini"
+alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
 
 fr="$fr\
 --exclude=$HOME/.cargo \
@@ -74,6 +74,6 @@ fr="$fr\
 --exclude=/Applications \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
-alias frls="command -V fr | sed 's# --#\n--#g' | rgw exclude | sortt | bat --style=grid -l ini"
+alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
 
 unset fd_flags fd_flags_all fr

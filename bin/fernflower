@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+java -jar "${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar" $@
