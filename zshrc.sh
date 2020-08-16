@@ -132,6 +132,7 @@ unalias la &>/dev/null
 unalias ls &>/dev/null
 unalias path &>/dev/null
 unalias pip &>/dev/null
+[[ "$PLATFORM" == "Linux" ]] && unalias diff &>/dev/null
 
 # alias fo="forever "
 # alias rma="rm -rf"
