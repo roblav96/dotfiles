@@ -168,6 +168,7 @@ alias aliasls="alias -L | sed 's#^#\n#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
 alias rc="rclone"
+alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
 alias dateiso="date --iso-8601"

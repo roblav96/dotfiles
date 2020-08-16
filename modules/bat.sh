@@ -15,7 +15,7 @@ alias bpg="bat --style=grid"
 
 alias bb="bat --style=grid -l bash"
 alias be="bat --style=grid -l perl"
-alias bf="bat --style=grid -l cfg"
+alias bf="bat --style=grid -l ini"
 alias bh="bat --style=grid -l man"
 alias bk="bat --style=grid -l make"
 alias bm="bat --style=grid -l nim"
