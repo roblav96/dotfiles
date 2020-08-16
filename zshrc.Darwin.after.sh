@@ -5,7 +5,7 @@ source "$DOTFILES/modules/dotwatch.sh"
 alias dstore="find . -name .DS_Store -type f -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
-alias utis-cache-sync="(lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/utis.lsregister.dump && wc --lines $HOME/.cache/utis.lsregister.dump"
+alias utis-cache-sync="(/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/utis.lsregister.dump && wc --lines $HOME/.cache/utis.lsregister.dump"
 alias utis="cat $HOME/.cache/utis.lsregister.dump"
 function utis-sublime() {
 	git clone "https://github.com/sublimehq/Packages.git"
