@@ -405,6 +405,10 @@ test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
 
+function histw() {
+	hist | rgw "$1" | bb --color=always | rgp "$1"
+}
+
 function dotcompinit() {
 	# echo "🌕 dotcompinit"
 	# echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
