@@ -10,6 +10,7 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 
 alias gradlew='$PWD/gradlew'
 alias mvnw='$PWD/mvnw'
+alias configure='$PWD/configure'
 # alias mvn="mvn -Dmaven.test.skip=true -DskipTests"
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"

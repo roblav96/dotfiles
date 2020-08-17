@@ -11,13 +11,11 @@ alias ral="rg $RG_FLAGS --no-ignore --stats"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow -uuu"
 alias raal="rg $RG_FLAGS --no-ignore --stats --follow -uuu"
 
-alias rgp="rg --smart-case --fixed-strings --passthru"
-alias rgpw="rg --smart-case --fixed-strings --passthru --word-regexp"
-
-alias rgf="rg --color=never --smart-case --fixed-strings"
-alias rgg="rg --smart-case --fixed-strings"
-alias rgw="rg --smart-case --fixed-strings --word-regexp"
-alias rgx="rg --smart-case --regexp"
+alias gf="rg --color=never --smart-case --fixed-strings"
+alias gg="rg --smart-case --fixed-strings"
+alias gp="rg --smart-case --fixed-strings --passthru"
+alias gw="rg --smart-case --fixed-strings --word-regexp"
+alias gx="rg --smart-case --regexp"
 
 unalias g &>/dev/null
 alias g="rg --smart-case --fixed-strings"

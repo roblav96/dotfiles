@@ -15,12 +15,12 @@ alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
 alias gsw="git switch"
-alias gf="git fetch"
-alias gfa="git fetch --all --prune"
+alias gft="git fetch"
+alias gfta="git fetch --all --prune"
 alias gfo="git fetch origin"
 
-alias gp="git pull"
-alias gpr="git pull --rebase"
+alias gpl="git pull"
+alias gplr="git pull --rebase"
 
 alias gi="git check-ignore --verbose **/.* **/* | sortt"
 alias gia="git check-ignore --verbose **/.* **/* --non-matching | sortt"
