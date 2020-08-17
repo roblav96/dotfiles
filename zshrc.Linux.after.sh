@@ -1,3 +1,4 @@
+export DPKG_PAGER="cat"
 export SYSTEMD_PAGER="cat"
 # alias systemctl="systemctl --no-pager"
 
