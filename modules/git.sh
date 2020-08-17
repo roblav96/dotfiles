@@ -38,10 +38,10 @@ function gc() {
 	local repo=(${@/ -*/})
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
-	git clone "$@" || return 1
-	[[ -d "$outdir" ]] && cd "$outdir"
+	git clone --recurse-submodules "$@" && cd "$outdir"
+	# [[ -f ".gitmodules" ]] && git submodule update --init --recursive
 }
-alias gcr="gc --recurse-submodules"
+# alias gcr="gc --recurse-submodules"
 # alias gc="git clone"
 # alias gcr="git clone --recurse-submodules"
 
