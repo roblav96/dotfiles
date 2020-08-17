@@ -29,6 +29,7 @@ fr="$fr \
 --exclude=node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
+--exclude=$HOME/mega-webdav \
 --exclude=/dev \
 --exclude=/proc \
 --exclude=/sys \
@@ -41,6 +42,7 @@ fr="$fr \
 --exclude=/System/Volumes/Data \
 --exclude=/usr/local/var/.DS_Store \
 --exclude=/usr/local/var/dmgs \
+--exclude=/usr/local/var/mega-webdav \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
 alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
