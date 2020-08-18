@@ -8,7 +8,7 @@ function apti() {
 	apt show "$*" 2>/dev/null | bat --plain -l yml
 }
 function aptfs() {
-	apt-file list "$*" | awk '{for (i=2; i <= NF; i++) printf $i""FS; print""}' | sortt | lsc
+	apt-file list "$*" | sed 's#^.*: ##' | sortt | lscolors
 }
 function apts() {
 	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
