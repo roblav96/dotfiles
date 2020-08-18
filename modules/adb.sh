@@ -41,11 +41,11 @@ function adb-settings.l() {
 }
 function adb-settings.f() {
 	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sortt | rgf "$*" | bat --style=grid -l ini
+	echo "$(adb shell settings list system)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
 	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sortt | rgf "$*" | bat --style=grid -l ini
+	echo "$(adb shell settings list secure)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
 	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sortt | rgf "$*" | bat --style=grid -l ini
+	echo "$(adb shell settings list global)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
 }
 
 function adb-su() {
@@ -93,4 +93,4 @@ function adb-pm() {
 # 	')" | sd '^package:' '' | bat -p -l properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"
-# alias adb-pm-f="adb-pm-ls | rgp"
+# alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"

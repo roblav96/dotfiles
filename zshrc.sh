@@ -305,11 +305,11 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
 function histw() {
-	hist | rg --fixed-strings --word-regexp "$1" | bat --color=always --style=grid -l bash | rg --fixed-strings --passthru "$1"
+	hist | rg --smart-case --fixed-strings --word-regexp "$1" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --passthru "$1"
 }
 
 function mans() {
-	man -k "$*" | rgp "$*"
+	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
 }; compdef mans=man
 alias mansr="man -K"
 alias manfs="man -wa"

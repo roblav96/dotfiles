@@ -51,9 +51,9 @@ function bpinned() {
 function bs() {
 	for v in "$@"; do
 		echo; echo "🌕 Searching descriptions -> '$v'"
-		brew search --desc "$v" | rgpw "$v"
+		brew search --desc "$v" | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
 		echo; echo "🌕 Searching names -> '$v'"
-		brew search "$v" | rgpw "$v"
+		brew search "$v" | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
 	done
 }
 alias bscd='cd $(brew --prefix)/Homebrew'

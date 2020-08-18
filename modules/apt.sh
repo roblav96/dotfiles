@@ -8,13 +8,13 @@ function apti() {
 	apt show "$1" 2>/dev/null | bat --plain -l yml
 }
 function apts() {
-	apt search --names-only "$1" 2>/dev/null | rgp "$1"
+	apt search --names-only "$1" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$1"
 }
 function aptsa() {
-	apt search "$1" 2>/dev/null | rgp "$1"
+	apt search "$1" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$1"
 }
 function aptls() {
-	apt list --installed 2>/dev/null | rgf --invert-match automatic
+	apt list --installed 2>/dev/null | rg --smart-case --fixed-strings --color=never --invert-match automatic
 }
 function aptlsa() {
 	apt list --installed 2>/dev/null

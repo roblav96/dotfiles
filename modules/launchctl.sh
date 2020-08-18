@@ -49,19 +49,19 @@ function lcls() {
 function lcs() {
 	echo
 	echo "🌕 [fd] $HOME/Library/LaunchAgents"
-	faa --ignore-case "$*" "$HOME/Library/LaunchAgents" | rgf "$*"
+	faa --ignore-case "$*" "$HOME/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
 	echo
 	echo "🌕 [fd] /Library/LaunchAgents"
-	faa --ignore-case "$*" "/Library/LaunchAgents" | rgf "$*"
+	faa --ignore-case "$*" "/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
 	echo
 	echo "🌕 [fd] /System/Library/LaunchAgents"
-	faa --ignore-case "$*" "/System/Library/LaunchAgents" | rgf "$*"
+	faa --ignore-case "$*" "/System/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
 	echo
 	echo "🌕 [fd] /Library/LaunchDaemons"
-	faa --ignore-case "$*" "/Library/LaunchDaemons" | rgf "$*"
+	faa --ignore-case "$*" "/Library/LaunchDaemons" | rg --smart-case --fixed-strings --color=never "$*"
 	echo
 	echo "🌕 [fd] /System/Library/LaunchDaemons"
-	faa --ignore-case "$*" "/System/Library/LaunchDaemons" | rgf "$*"
+	faa --ignore-case "$*" "/System/Library/LaunchDaemons" | rg --smart-case --fixed-strings --color=never "$*"
 	# fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings
 }
 

@@ -27,7 +27,7 @@ fi
 function how() {
 	local output="$(howdoi --color --all --num-answers=5 "$@")"
 	for i in "${@}"; do
-		output="$(echo "$output" | rgp "$i")"
+		output="$(echo "$output" | rg --smart-case --fixed-strings --passthru "$i")"
 	done
 	echo "$output"
 	#
