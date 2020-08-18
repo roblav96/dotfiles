@@ -159,7 +159,6 @@ alias k="killall -KILL"
 alias ls="ls --color=always"
 alias ll="ls -laph"
 alias pwda="pwd && pwd -P"
-alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
 alias fpath-ls="echo \$FPATH | sed 's#:/#\n/#g'"
@@ -293,6 +292,7 @@ alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | r
 alias serve="miniserve --no-symlinks --verbose --port=8888"
 alias pubserve="serve --auth=admin: $HOME/Public"
 alias pubget="wget --http-user=admin --http-password="
+# test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias pa="ps auxww"
 alias p="pa | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
@@ -303,7 +303,10 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-# test -x "$(which -p watchexec)" && alias watch="watchexec"
+alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
+function histw() {
+	hist | rg --fixed-strings --word-regexp "$1" | bat --color=always --style=grid -l bash | rg --fixed-strings --passthru "$1"
+}
 
 function mans() {
 	man -k "$*" | rgp "$*"
@@ -407,10 +410,6 @@ test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
-
-function histw() {
-	hist | rgw "$1" | bb --color=always | rgp "$1"
-}
 
 function dotcompinit() {
 	# echo "🌕 dotcompinit"
