@@ -12,6 +12,11 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"
 
+alias gradle='sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"'
+alias mvn='sh "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")"'
+# alias gradlew="sh gradlew"
+# alias mvnw="sh mvnw"
+
 alias fernflower="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar"
 alias uber-apk-signer="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass \$(cat \$DOTFILES/.env.kspass) --ksPass \$(cat \$DOTFILES/.env.kspass) --apks"
 

@@ -194,10 +194,6 @@ alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-alias configure='$PWD/configure'
-alias gradlew='$PWD/gradlew'
-alias mvnw='$PWD/mvnw'
-
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 export GREP_COLOR="01;31"
