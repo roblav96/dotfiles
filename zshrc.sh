@@ -12,7 +12,7 @@ export VISUAL="$EDITOR"
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 export ZSH_COMPDUMP_EXISTS="$(echo $HOME/.zcomp*)" 2>/dev/null
 
-if [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 	# if echo "$PATH" | grep --quiet --fixed-strings "$HOME/.nix-profile/bin"; then
 	# 	export PATH="${PATH#$HOME/.nix-profile/bin:}"
@@ -69,9 +69,9 @@ export DISABLE_AUTO_UPDATE="true"
 
 # ████  zinit  ████
 # export ZSH="$HOME/.zinit/plugins/ohmyzsh---ohmyzsh"
-# [[ -f "$DOTFILES/zinit/zinit.oh-my-zsh.sh" ]] && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
-# [[ -f "$DOTFILES/zinit/zinit.$PLATFORM.sh" ]] && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
-# [[ -f "$DOTFILES/zinit/zinit.sh" ]] && source "$DOTFILES/zinit/zinit.sh"
+# [[ -e "$DOTFILES/zinit/zinit.oh-my-zsh.sh" ]] && source "$DOTFILES/zinit/zinit.oh-my-zsh.sh"
+# [[ -e "$DOTFILES/zinit/zinit.$PLATFORM.sh" ]] && source "$DOTFILES/zinit/zinit.$PLATFORM.sh"
+# [[ -e "$DOTFILES/zinit/zinit.sh" ]] && source "$DOTFILES/zinit/zinit.sh"
 
 
 
@@ -154,7 +154,7 @@ alias rm="rm -v"
 alias shred="shred -v"
 alias chown="chown -v"
 alias chmod="chmod -v"
-alias chmodx="chmod a+x"
+alias chmodx="chmod u+x"
 alias rp="realpath"
 alias k="killall -KILL"
 alias ls="ls --color=always"
@@ -193,6 +193,10 @@ alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+alias configure='$PWD/configure'
+alias gradlew='$PWD/gradlew'
+alias mvnw='$PWD/mvnw'
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
@@ -306,7 +310,7 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
 function histw() {
-	hist | rg --smart-case --fixed-strings --word-regexp "$1" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --passthru "$1"
+	hist | rg --smart-case --fixed-strings --word-regexp "$*" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --word-regexp --passthru "$*"
 }
 
 function mans() {
@@ -322,22 +326,20 @@ function manf() {
 # }; compdef idk=man
 
 function show() {
-	[[ -z $1 ]] && return 1
-	type -a $1
-	[[ $? != 0 ]] && return 1
+	type -a "$1" || return 1
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
-	if which -w $1 | grep -q 'none$'; then
+	if which -w "$1" | grep -q 'none$'; then
 		return 1
-	elif which -w $1 | grep -q 'function$'; then
+	elif which -w "$1" | grep -q 'function$'; then
 		echo
-		type -f $1 | bat -p -l sh
-		exa --long --all --group --classify --extended "${$(type $1)/$1 is a shell function from /}"
-	elif which -w $1 | grep -q 'alias$'; then
+		type -f "$1" | bat -p -l sh
+		exa --long --all --group --classify --extended "${$(type "$1")/"$1" is a shell function from /}"
+	elif which -w "$1" | grep -q 'alias$'; then
 		echo
-		alias -L $1 | bat -p -l sh
+		alias -L "$1" | bat -p -l sh
 	fi
-	local which="$(which -p $1)"
+	local which="$(which -p "$1")"
 	if [[ -e "$which" ]]; then
 		echo
 		# bat --style=header "$which"
@@ -371,7 +373,7 @@ fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
 	function ffmp3() {
 		local file; for file in "$@"; do
-			if [[ -f "$file" ]]; then
+			if [[ -e "$file" ]]; then
 				ffmpeg -i "$file" -vn -b:a 320k "$file.mp3"
 			fi
 		done

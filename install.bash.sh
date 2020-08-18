@@ -8,7 +8,7 @@ echo > $BASHRC
 echo 'export PLATFORM="$(uname -o)"' >> $BASHRC
 echo "export DOTFILES='$DOTFILES'" >> $BASHRC
 echo "alias src='sh $DOTFILES/install.bash.sh; exit'" >> $BASHRC
-echo "[ -f '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
+echo "[ -e '$DOTFILES/static/.profile' ] && source '$DOTFILES/static/.profile'" >> $BASHRC
 chmod a+x $BASHRC
 cat $BASHRC
 

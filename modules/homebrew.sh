@@ -281,7 +281,7 @@ function bin-linux() {
 
 function bupg-sudo() {
 	local link="$(brew --prefix)/bin/$1"
-	if [[ ! -f "$link" || ! -x "$link" ]]; then
+	if [[ ! -e "$link" || ! -x "$link" ]]; then
 		echo "🔴 Command not found -> '$link'"
 		return 1
 	fi

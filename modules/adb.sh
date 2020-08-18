@@ -12,7 +12,7 @@
 
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
-alias adb-shell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
+alias adbshell="echo && echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
@@ -20,7 +20,7 @@ alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
-alias adb-display="adb shell dumpsys SurfaceFlinger | rg --color=never --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
+alias adb-display="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
@@ -31,21 +31,21 @@ alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
-function adb-settings.l() {
-	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sortt | bat --style=grid -l ini
-	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sortt | bat --style=grid -l ini
-	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sortt | bat --style=grid -l ini
+function adb-settings-ls() {
+	echo && echo "🌕 System Settings"
+	adb shell settings list system | sortt | bat --style=grid -l properties
+	echo && echo "🌕 Secure Settings"
+	adb shell settings list secure | sortt | bat --style=grid -l properties
+	echo && echo "🌕 Global Settings"
+	adb shell settings list global | sortt | bat --style=grid -l properties
 }
-function adb-settings.f() {
-	echo; echo "🌕 System Settings"
-	echo "$(adb shell settings list system)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
-	echo; echo "🌕 Secure Settings"
-	echo "$(adb shell settings list secure)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
-	echo; echo "🌕 Global Settings"
-	echo "$(adb shell settings list global)" | sortt | rg --smart-case --fixed-strings --color=never "$*" | bat --style=grid -l ini
+function adb-settings-f() {
+	echo && echo "🌕 System Settings"
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
+	echo && echo "🌕 Secure Settings"
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
+	echo && echo "🌕 Global Settings"
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
 }
 
 function adb-su() {
@@ -67,30 +67,44 @@ function adb-wget() {
 # function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
 # https://developer.android.com/studio/command-line/adb#pm
-function adb-pm() {
-	echo; echo "🌕 Disabled Packages"
-	echo "$(adb shell pm list packages -d)" | sd '^package:' '' | sortt
-	echo; echo "🌕 Uninstalled Packages"
-	echo "$(adb shell pm list packages -u)" | sd '^package:' '' | sortt
-	echo; echo "🌕 Enabled Packages"
-	echo "$(adb shell pm list packages -e)" | sd '^package:' '' | sortt
-	echo; echo "🌕 Default Packages"
-	echo "$(adb shell pm list packages)" | sd '^package:' '' | sortt
-	echo; echo "🌕 System Packages"
-	echo "$(adb shell pm list packages -s)" | sd '^package:' '' | sortt
-	echo; echo "🌕 Third-Party Packages"
-	echo "$(adb shell pm list packages -3)" | sd '^package:' '' | sortt
+function adb-pm-ls() {
+	echo && echo "🌕 Disabled Packages"
+	adb shell pm list packages -d | sed 's#^package:##' | sortt
+	echo && echo "🌕 Uninstalled Packages"
+	adb shell pm list packages -u | sed 's#^package:##' | sortt
+	echo && echo "🌕 Enabled Packages"
+	adb shell pm list packages -e | sed 's#^package:##' | sortt
+	echo && echo "🌕 Default Packages"
+	adb shell pm list packages | sed 's#^package:##' | sortt
+	echo && echo "🌕 System Packages"
+	adb shell pm list packages -s | sed 's#^package:##' | sortt
+	echo && echo "🌕 Third-Party Packages"
+	adb shell pm list packages -3 | sed 's#^package:##' | sortt
 }
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
-# 		echo; echo "🌕 Disabled"; pm list packages -d;
-# 		echo; echo "🌕 Uninstalled"; pm list packages -u;
-# 		echo; echo "🌕 Default"; pm list packages;
-# 		echo; echo "🌕 System"; pm list packages -s;
-# 		echo; echo "🌕 Enabled"; pm list packages -e;
-# 		echo; echo "🌕 Third-Party"; pm list packages -3;
-# 	')" | sd '^package:' '' | bat -p -l properties
+# 		echo && echo "🌕 Disabled"; pm list packages -d;
+# 		echo && echo "🌕 Uninstalled"; pm list packages -u;
+# 		echo && echo "🌕 Default"; pm list packages;
+# 		echo && echo "🌕 System"; pm list packages -s;
+# 		echo && echo "🌕 Enabled"; pm list packages -e;
+# 		echo && echo "🌕 Third-Party"; pm list packages -3;
+# 	')" | sed 's#^package:##' | bat -p -l properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
+
+function adb-play-store() {
+	local action="${1:-disable}"
+	echo "🌕 action -> '$action'"
+	adb shell pm $action --user 0 com.android.inputmethod.latin
+	adb shell pm disable-user --user 0 com.android.vending
+	adb shell pm $action --user 0 com.google.android.ext.services
+	adb shell pm $action --user 0 com.google.android.feedback
+	adb shell pm $action --user 0 com.google.android.gms
+	adb shell pm $action --user 0 com.google.android.gsf
+	adb shell pm $action --user 0 com.google.android.katniss
+	adb shell pm $action --user 0 com.google.android.sss.authbridge
+	adb shell pm $action --user 0 com.google.android.tv.bugreportsender
+}

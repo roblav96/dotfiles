@@ -12,4 +12,4 @@ if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" && ":$FPATH:" != 
 fi
 
 # export FZF_BASE="$HOME/.fzf"
-# [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+# [ -e $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh

@@ -22,13 +22,13 @@ alias gfo="git fetch origin"
 alias gpl="git pull"
 alias gplr="git pull --rebase"
 
-alias gi="git check-ignore --verbose **/.* **/* | sortt"
-alias gia="git check-ignore --verbose **/.* **/* --non-matching | sortt"
+alias gi="git check-ignore --verbose **/{.,}* | sortt"
+alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt"
 
 alias gclean="git clean -f -d -x"
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcl="gclean --dry-run; echo; read -q '?continue...?' && return 1; echo; gclean && greset"
-alias gcld="git clean -f -d -x --dry-run | sed 's/^Would remove //g'"
+alias gcld="gclean --dry-run | sed 's#^Would remove ##' | lscolors"
+alias gcl="gcld; echo; read -q '?Would remove...?' && return 1; echo; gclean; greset"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
@@ -38,8 +38,8 @@ function gc() {
 	local repo=(${@/ -*/})
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
-	git clone --recurse-submodules "$@" && cd "$outdir"
-	# [[ -f ".gitmodules" ]] && git submodule update --init --recursive
+	git clone "$@" && cd "$outdir"
+	[[ -e ".gitmodules" ]] && git submodule update --init --recursive
 }
 # alias gcr="gc --recurse-submodules"
 # alias gc="git clone"

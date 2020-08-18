@@ -3,7 +3,7 @@
 # DOTBENCH="$(date +%s%3N)"
 # echo "🌕 ZSH install before"
 
-if [[ ! -f "$0" ]]; then
+if [[ ! -e "$0" ]]; then
 	echo "🔴 Invalid script directory -> '$0'"
 	return 1
 fi
@@ -11,7 +11,7 @@ DOTFILES="$(dirname "$(readlink -f "$0")")"
 
 ZSHRC="$HOME/.zshrc"
 [[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
-ZSHRC_EXISTS="$([[ -f "$ZSHRC" ]] && echo 1)"
+ZSHRC_EXISTS="$([[ -e "$ZSHRC" ]] && echo 1)"
 
 PLATFORM="${$(uname -o)##*/}"
 if [[ "$PLATFORM" != "Darwin" ]]; then
@@ -24,9 +24,9 @@ echo "export DOTFILES='$DOTFILES'" >> "$ZSHRC"
 # echo "alias src='zsh $DOTFILES/install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> "$ZSHRC"
 # echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> "$ZSHRC"
 # echo "source ~/.zinit/bin/zinit.zsh" >> "$ZSHRC"
-echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> "$ZSHRC"
-echo "[[ -f '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> "$ZSHRC"
-echo "[[ -f '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> "$ZSHRC"
+echo "[[ -e '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> "$ZSHRC"
+echo "[[ -e '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> "$ZSHRC"
+echo "[[ -e '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> "$ZSHRC"
 echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> "$ZSHRC"
 echo >> "$ZSHRC"
 
@@ -44,8 +44,8 @@ fi
 # echo "exec $(echo "$0") -l"
 
 # export DOTFILES=""
-# echo [ -f "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh" >> $ZSHRC
-# echo `echo '[ -f "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"'` >> $ZSHRC
+# echo [ -e "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh" >> $ZSHRC
+# echo `echo '[ -e "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"'` >> $ZSHRC
 
 # mkdir -p "$DOTFILES/.bin"
 
@@ -77,8 +77,8 @@ fi
 # echo "ZSHRC -> $ZSHRC"
 # cat $ZSHRC
 # # echo > $ZSHRC
-# # echo '[ -f "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh"' >> $ZSHRC
-# # echo '[ -f "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"' >> $ZSHRC
+# # echo '[ -e "$DOTFILES/zshrc.zsh" ] && source "$DOTFILES/zshrc.zsh"' >> $ZSHRC
+# # echo '[ -e "$DOTFILES/zshrc.$PLATFORM.sh" ] && source "$DOTFILES/zshrc.$PLATFORM.sh"' >> $ZSHRC
 
 # DIR="${0%/*}"
 # DIR="$(readlink -f "$0")"

@@ -6,8 +6,8 @@ local RG_MAX_COLUMNS_FLAGS="--trim --max-columns-preview --max-columns=\$(expr \
 
 alias r="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
 alias rl="rg $RG_FLAGS --glob='!node_modules'"
-alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore"
-alias ral="rg $RG_FLAGS --no-ignore"
+alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats"
+alias ral="rg $RG_FLAGS --no-ignore --stats"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow -uuu"
 alias raal="rg $RG_FLAGS --no-ignore --stats --follow -uuu"
 

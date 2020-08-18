@@ -96,9 +96,9 @@ function app-bak() {
 	# echo "🌕 tarname -> '$tarname'"
 	local tarpath="$HOME/Downloads/$tarname"
 	# echo "🌕 tarpath -> '$tarpath'"
-	if [[ -f "$tarpath" ]]; then
+	if [[ -e "$tarpath" ]]; then
 		rm -iv "$tarpath"
-		if [[ -f "$tarpath" ]]; then
+		if [[ -e "$tarpath" ]]; then
 			echo "🔴 Aborted, existing backup exists"
 			return 1
 		fi
