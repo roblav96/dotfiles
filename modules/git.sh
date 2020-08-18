@@ -20,7 +20,7 @@ alias gfta="git fetch --all --prune"
 alias gfo="git fetch origin"
 
 alias gpl="git pull"
-alias gplr="git pull --rebase"
+alias gpr="git pull --rebase"
 
 alias gi="git check-ignore --verbose **/{.,}* | sortt"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt"
