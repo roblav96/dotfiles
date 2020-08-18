@@ -32,8 +32,15 @@ export DPKG_PAGER="cat"
 # alias dpkg="dpkg --no-pager"
 # alias dpkg-query="dpkg-query --no-pager"
 
-alias dpkgi="dpkg-query --status"
-alias dpkgls="dpkg-query --show | column -t"
-alias dpkgfs="dpkg-query --listfiles"
-alias dpkgowns="dpkg --search"
-alias dpkgdump="dpkg --contents"
+function dpkgi() {
+	dpkg-query --status "$*" | bat --plain -l yml
+}
+function dpkgfs() {
+	dpkg-query --listfiles "$*" | sortt | lscolors
+}
+function dpkgowns() {
+	dpkg --search "$*" | bat --plain -l yml
+}
+function dpkgdump() {
+	dpkg --contents "$*" | lscolors
+}
