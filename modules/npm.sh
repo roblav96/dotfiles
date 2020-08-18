@@ -21,7 +21,7 @@ alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
 alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'
 
 function npmin() {
-	local v; for v in "$@"; do
+	local v && for v in "$@"; do
 		npm install "$v" && npm install -D "@types/$v"
 	done
 }
@@ -45,8 +45,8 @@ alias vue.inspect="FORCE_COLOR=0 vue inspect"
 
 function tnsv() {
 	local platforms=('android' 'ios')
-	local platform; for platform in "${platforms[@]}"; do
-		echo; echo "🌕 $platform"
+	local platform && for platform in "${platforms[@]}"; do
+		echo && echo "🌕 $platform"
 		npm info "tns-$platform" --json | jq --tab '.["dist-tags"]'
 	done
 }

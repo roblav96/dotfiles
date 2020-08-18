@@ -12,47 +12,47 @@ export HOMEBREW_NO_INSECURE_REDIRECT="1"
 # fi
 
 function bupd() {
-	echo; echo "🌕 Updating taps"
+	echo && echo "🌕 Updating taps"
 	brew update --verbose
 }
 function bout() {
-	echo; echo "🌕 Outdated formulas"
+	echo && echo "🌕 Outdated formulas"
 	brew outdated --verbose
 	if [[ "$PLATFORM" != "Linux" ]]; then
-		echo; echo "🌕 Outdated casks"
+		echo && echo "🌕 Outdated casks"
 		brew cask outdated --verbose --greedy | grep --invert-match 'latest'
 	fi
 }
 function bls() {
-	echo; echo "🌕 List formulas"
+	echo && echo "🌕 List formulas"
 	brew list --versions
 }
 function blscd() {
 	cd "$(brew --prefix)/Cellar"
 }
 function blsm() {
-	echo; echo "🌕 List recently modified formulas"
+	echo && echo "🌕 List recently modified formulas"
 	lm "$(brew --prefix)/Cellar"
 }
 function blsch() {
-	echo; echo "🌕 List recently changed formulas"
+	echo && echo "🌕 List recently changed formulas"
 	lch "$(brew --prefix)/Cellar"
 }
 function bcls() {
-	echo; echo "🌕 List casks"
+	echo && echo "🌕 List casks"
 	brew cask list --versions
 }
 alias blsa="bls; bcls"
 function bpinned() {
-	echo; echo "🌕 Pinned formulas"
+	echo && echo "🌕 Pinned formulas"
 	brew list --versions --pinned
 }
 
 function bs() {
-	for v in "$@"; do
-		echo; echo "🌕 Searching descriptions -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Searching descriptions -> '$v'"
 		brew search --desc "$v" | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
-		echo; echo "🌕 Searching names -> '$v'"
+		echo && echo "🌕 Searching names -> '$v'"
 		brew search "$v" | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
 	done
 }
@@ -60,204 +60,198 @@ alias bscd='cd $(brew --prefix)/Homebrew'
 
 function bhist() {
 	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core" && smerge log "Formula/$*.rb")
-}; compdef bhist=command
+} && compdef bhist=command
 function bchist() {
 	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask" && smerge log "Casks/$*.rb")
-}; compdef bchist=command
+} && compdef bchist=command
 
 function bin() {
-	for v in "$@"; do
-		echo; echo "🌕 Installing formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Installing formula -> '$v'"
 		brew install "$v"
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 	src
 }
 function bcin() {
-	for v in "$@"; do
-		echo; echo "🌕 Installing cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Installing cask -> '$v'"
 		brew cask install --no-quarantine "$v"
 	done
 }
 
 function brein() {
-	for v in "$@"; do
-		echo; echo "🌕 Reinstalling formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Reinstalling formula -> '$v'"
 		brew reinstall "$v"
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 	done
 	src
-}; compdef brein=command
+} && compdef brein=command
 function bcrein() {
-	for v in "$@"; do
-		echo; echo "🌕 Reinstalling cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Reinstalling cask -> '$v'"
 		brew cask reinstall --no-quarantine "$v"
 	done
-}; compdef bcrein=command
+} && compdef bcrein=command
 
 function bupg() {
-	echo; echo "🌕 Upgrading formulas"
+	echo && echo "🌕 Upgrading formulas"
 	brew upgrade
 	src
 }
 function bcupg() {
-	for v in "$@"; do
-		echo; echo "🌕 Upgrading cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Upgrading cask -> '$v'"
 		brew cask upgrade --no-quarantine "$v"
 	done
-}; compdef bcupg=command
+} && compdef bcupg=command
 
 function bi() {
-	for v in "$@"; do
-		echo; echo "🌕 Info formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Info formula -> '$v'"
 		brew desc "$v" && brew info "$v"
 	done
-}; compdef bi=command
+} && compdef bi=command
 function bci() {
-	for v in "$@"; do
-		echo; echo "🌕 Info cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Info cask -> '$v'"
 		brew cask info "$v"
 	done
-}; compdef bci=command
+} && compdef bci=command
 
 function bcd() {
 	cd "$(brew --prefix)/opt/$1"
-}; compdef bcd=command
+} && compdef bcd=command
 function bcdcellar() {
 	cd $(realpath $(brew --prefix $1))
-}; compdef bcd=command
+} && compdef bcd=command
 function bbin() {
 	[[ -d "$(brew --prefix)/opt/$1/bin" ]] && lara "$(brew --prefix)/opt/$1/bin"
 	[[ -d "$(brew --prefix)/opt/$1/sbin" ]] && lara "$(brew --prefix)/opt/$1/sbin"
-}; compdef bbin=command
+} && compdef bbin=command
 function bfs() {
-	for v in "$@"; do
-		echo; echo "🌕 Files formula -> '$v'"
-		brew list "$v"
-	done
-}; compdef bfs=command
-function bfsa() {
-	for v in "$@"; do
-		echo; echo "🌕 All files formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Files formula -> '$v'"
 		lara "$(brew --prefix)/opt/$v/"
 	done
-}; compdef bfsa=command
+} && compdef bfs=command
 function bjson() {
-	for v in "$@"; do
-		echo; echo "🌕 JSON formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 JSON formula -> '$v'"
 		brew desc "$v" && brew info "$v" --json | json
 	done
-}; compdef bjson=command
+} && compdef bjson=command
 function bdep() {
-	for v in "$@"; do
-		echo; echo "🌕 Dependencies formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Dependencies formula -> '$v'"
 		brew deps "$v" -n --tree
 	done
-}; compdef bdep=command
+} && compdef bdep=command
 
 function bcat() {
-	for v in "$@"; do
-		echo; echo "🌕 Cat formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Cat formula -> '$v'"
 		brew cat "$v" | pbat ruby
 	done
-}; compdef bcat=command
+} && compdef bcat=command
 function bccat() {
-	for v in "$@"; do
-		echo; echo "🌕 Cat cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Cat cask -> '$v'"
 		brew cask cat "$v" | pbat ruby
 	done
-}; compdef bccat=command
+} && compdef bccat=command
 
 function bia() {
-	for v in "$@"; do
+	local v && for v in "$@"; do
 		bi "$v" && bcat "$v"
 	done
-}; compdef bia=command
+} && compdef bia=command
 function bcia() {
-	for v in "$@"; do
+	local v && for v in "$@"; do
 		bci "$v" && bccat "$v"
 	done
-}; compdef bcia=command
+} && compdef bcia=command
 
 function bo() {
-	for v in "$@"; do
-		echo; echo "🌕 Opening formula -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Opening formula -> '$v'"
 		brew home "$v"
 	done
-}; compdef bo=command
+} && compdef bo=command
 function bco() {
-	for v in "$@"; do
-		echo; echo "🌕 Opening cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Opening cask -> '$v'"
 		brew cask home "$v"
 	done
-}; compdef bco=command
+} && compdef bco=command
 
 function brm() {
-	for v in "$@"; do
+	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
-		echo; echo "🌕 Uninstalling formula -> '$v'"
+		echo && echo "🌕 Uninstalling formula -> '$v'"
 		brew uninstall --force "$v"
 	done
 	src
-}; compdef brm=command
+} && compdef brm=command
 function bcrm() {
-	for v in "$@"; do
-		echo; echo "🌕 Uninstalling cask -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Uninstalling cask -> '$v'"
 		brew cask zap --force "$v"
 	done
-}; compdef bcrm=command
+} && compdef bcrm=command
 
 function bsls() {
-	echo; echo "🌕 List services"
+	echo && echo "🌕 List services"
 	brew services list
 }
 function bsdown() {
-	for v in "$@"; do
-		echo; echo "🌕 Stopping service -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Stopping service -> '$v'"
 		brew services stop "$v"
 	done
-	echo; brew services list
+	echo && brew services list
 }
 function bsup() {
-	for v in "$@"; do
-		echo; echo "🌕 Starting service -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Starting service -> '$v'"
 		brew services restart "$v"
 	done
-	echo; brew services list
+	echo && brew services list
 }
 function bsre() {
-	for v in "$@"; do
-		echo; echo "🌕 Restarting service -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Restarting service -> '$v'"
 		brew services restart "$v"
 	done
-	echo; brew services list
+	echo && brew services list
 }
 function bsrun() {
-	for v in "$@"; do
-		echo; echo "🌕 Running service -> '$v'"
+	local v && for v in "$@"; do
+		echo && echo "🌕 Running service -> '$v'"
 		brew services run "$v"
 	done
-	echo; brew services list
+	echo && brew services list
 }
 
 function bin-linux() {
 	local prefix="$(brew --prefix)/opt/$1"
 	[[ ! -d "$prefix" ]] && return
 	prefix="$(realpath $prefix)"
-	[[ "$PLATFORM" == "Linux" ]] && bfsa "$1"
+	[[ "$PLATFORM" == "Linux" ]] && bfs "$1"
 	local install=""
 	local remove=""
 	local bins=('bin' 'sbin')
-	local bin; for bin in "${bins[@]}"; do
+	local bin && for bin in "${bins[@]}"; do
 		if [[ -d "$prefix/$bin" ]]; then
-			local xfile; for xfile in $prefix/$bin/*; do
+			local xfile && for xfile in $prefix/$bin/*; do
 				install="$install sudo cp -v '$(realpath "$xfile")' '/usr/local/$bin/${xfile##*/}' && sudo chmod -v u+w '/usr/local/$bin/${xfile##*/}';"
 				remove="$remove sudo rm -fv '/usr/local/$bin/${xfile##*/}';"
 			done
 		fi
 	done
 	local others=('etc' 'include' 'lib' 'libexec' 'share')
-	local other; for other in "${others[@]}"; do
+	local other && for other in "${others[@]}"; do
 		if [[ -d "$prefix/$other" ]]; then
 			# local head="${other%%/*}"
 			# local tail="${other##*/}"
@@ -265,7 +259,7 @@ function bin-linux() {
 			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
 			if [[ "$other" != "etc" ]]; then
 				local finds=($(find "$prefix/$other" -type f))
-				local ofile; for ofile in "${finds[@]}"; do
+				local ofile && for ofile in "${finds[@]}"; do
 					remove="$remove sudo rm -fv '${ofile/$prefix//usr/local}';"
 					# local relative="${ofile/$prefix//usr/local}"
 					# remove="$remove sudo rm -fv '${relative/$other/$tail}';"
@@ -273,9 +267,9 @@ function bin-linux() {
 			fi
 		fi
 	done
-	echo; echo "🔴 Remove '$1'"
+	echo && echo "🔴 Remove '$1'"
 	echo "$remove"
-	echo; echo "✅ Install '$1'"
+	echo && echo "✅ Install '$1'"
 	echo "$install"
 }
 
@@ -300,7 +294,7 @@ function bupg-sudo() {
 	echo "$output"
 	echo " $output" | clipcopy
 	echo "✅ Copied to clipboard"
-}; compdef bupg-sudo=command
+} && compdef bupg-sudo=command
 
 function bupg-node() {
 	local node="$(dirname "$(realpath "$(which -p node)")")"
