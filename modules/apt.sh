@@ -1,17 +1,20 @@
 alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
-alias aptfs="apt-file list"
+# alias aptfs="apt-file list"
 # alias apti="apt show"
 # alias apts="apt search"
 
 function apti() {
-	apt show "$1" 2>/dev/null | bat --plain -l yml
+	apt show "$*" 2>/dev/null | bat --plain -l yml
+}
+function aptfs() {
+	apt-file list "$*" | awk '{for (i=2; i <= NF; i++) printf $i""FS; print""}' | sortt | lsc
 }
 function apts() {
-	apt search --names-only "$1" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$1"
+	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
 }
 function aptsa() {
-	apt search "$1" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$1"
+	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
 }
 function aptls() {
 	apt list --installed 2>/dev/null | rg --smart-case --fixed-strings --color=never --invert-match automatic
