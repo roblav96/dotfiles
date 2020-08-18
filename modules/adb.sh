@@ -83,6 +83,12 @@ function adb-pm-ls() {
 	echo && echo "🌕 Third-Party Packages"
 	adb shell pm list packages -3 | sed 's#^package:##' | sortt
 }
+function adb-pm-f() {
+	echo && echo "🌕 Enabled Packages"
+	adb shell pm list packages -e | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
+	echo && echo "🌕 Disabled Packages"
+	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
+}
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
@@ -98,15 +104,20 @@ function adb-pm-ls() {
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
 
 function adb-play-store() {
-	local action="${1:-disable}"
+	local action="${1:-disable-user}"
 	echo "🌕 action -> '$action'"
-	adb shell pm $action --user 0 com.android.inputmethod.latin
-	adb shell pm disable-user --user 0 com.android.vending
-	adb shell pm $action --user 0 com.google.android.ext.services
-	adb shell pm $action --user 0 com.google.android.feedback
-	adb shell pm $action --user 0 com.google.android.gms
-	adb shell pm $action --user 0 com.google.android.gsf
-	adb shell pm $action --user 0 com.google.android.katniss
-	adb shell pm $action --user 0 com.google.android.sss.authbridge
-	adb shell pm $action --user 0 com.google.android.tv.bugreportsender
+	local packages=(
+		'com.android.inputmethod.latin'
+		'com.android.vending'
+		'com.google.android.ext.services'
+		'com.google.android.feedback'
+		'com.google.android.gms'
+		'com.google.android.gsf'
+		'com.google.android.katniss'
+		'com.google.android.sss.authbridge'
+		'com.google.android.tv.bugreportsender'
+	)
+	local package && for package in "${packages[@]}"; do
+		adb shell pm $action --user 0 $package
+	done
 }
