@@ -29,7 +29,7 @@ fr="$fr \
 --exclude=node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
---exclude=$HOME/mega-webdav \
+--exclude='$HOME/mega*' \
 --exclude=/dev \
 --exclude=/proc \
 --exclude=/sys \

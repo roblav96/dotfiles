@@ -193,6 +193,13 @@ alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
+# export GREP_COLOR="01;31;48;5;16"
+# export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+export GREP_COLOR="01;31"
+export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+alias grep="grep --color=auto" # --ignore-case --extended-regexp"
+alias g="grep"
+
 if [[ ! -d "$HOME/.Trash" ]]; then
 	mkdir "$HOME/.Trash"
 	chmod 700 "$HOME/.Trash"
@@ -221,13 +228,6 @@ bindkey '^[k' __clear-and-accept-line
 function __clear-and-accept-and-hold() { clear && zle accept-and-hold -w }
 zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
-
-# export GREP_COLOR="01;31;48;5;16"
-# export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
-export GREP_COLOR="01;31"
-export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
-alias grep="grep --color=auto --ignore-case --extended-regexp"
-alias g="grep"
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"

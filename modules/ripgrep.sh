@@ -6,19 +6,20 @@ local RG_MAX_COLUMNS_FLAGS="--trim --max-columns-preview --max-columns=\$(expr \
 
 alias r="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --glob='!node_modules'"
 alias rl="rg $RG_FLAGS --glob='!node_modules'"
-alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats"
-alias ral="rg $RG_FLAGS --no-ignore --stats"
+alias ra="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore"
+alias ral="rg $RG_FLAGS --no-ignore"
 alias raa="rg $RG_FLAGS $RG_MAX_COLUMNS_FLAGS --no-ignore --stats --follow -uuu"
 alias raal="rg $RG_FLAGS --no-ignore --stats --follow -uuu"
 
-alias gf="rg --color=never --smart-case --fixed-strings"
+alias gf="rg --smart-case --fixed-strings --color=never"
 alias gg="rg --smart-case --fixed-strings"
 alias gp="rg --smart-case --fixed-strings --passthru"
+alias gpw="rg --smart-case --fixed-strings --passthru --word-regexp"
 alias gw="rg --smart-case --fixed-strings --word-regexp"
 alias gx="rg --smart-case --regexp"
 
 unalias g &>/dev/null
-alias g="rg --smart-case --fixed-strings"
+alias g="rg --smart-case"
 alias rgls="rg --type-list"
 
 unset RG_FLAGS RG_MAX_COLUMNS_FLAGS
