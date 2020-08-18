@@ -7,7 +7,7 @@ alias dstore="find . -name .DS_Store -type f -print -delete"
 
 alias duti-cache="(/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
 alias duti-ls="cat $HOME/.cache/lsregister.duti.dump"
-function utis-sublime() {
+function duti-sublime() {
 	git clone "https://github.com/sublimehq/Packages.git"
 	cd "Packages"
 	rm "AppleScript/AppleScript.sublime-syntax" "C++/C++.sublime-settings" "R/R Console.sublime-syntax"
@@ -21,7 +21,7 @@ function utis-sublime() {
 		done
 	done
 }
-# alias utis-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.4 "$ii" all; done; done'
+# alias duti-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.4 "$ii" all; done; done'
 # r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🌕 $ii"; duti -x "$ii"; done; done
 
 # alias ssh="ssh -L 52698:localhost:52699"
