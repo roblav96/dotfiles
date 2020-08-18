@@ -119,6 +119,13 @@ alias stcdu="cd '$HOME/Library/Application Support/Sublime Text/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
 alias stpush='(stcd && gpush)'
+function stbak() {
+	(
+		cd "$HOME/Library/Application Support"
+		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz" "Sublime Text" | lscolors
+		echo && l "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz"
+	)
+}
 
 alias sm="smerge --new-window"
 alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
