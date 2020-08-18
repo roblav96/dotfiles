@@ -70,18 +70,14 @@ function adb-wget() {
 
 # https://developer.android.com/studio/command-line/adb#pm
 function adb-pm-ls() {
-	echo && echo "🌕 Disabled Packages"
-	adb shell pm list packages -d | sed 's#^package:##' | sortt
-	echo && echo "🌕 Uninstalled Packages"
-	adb shell pm list packages -u | sed 's#^package:##' | sortt
-	echo && echo "🌕 Enabled Packages"
-	adb shell pm list packages -e | sed 's#^package:##' | sortt
-	echo && echo "🌕 Default Packages"
-	adb shell pm list packages | sed 's#^package:##' | sortt
-	echo && echo "🌕 System Packages"
-	adb shell pm list packages -s | sed 's#^package:##' | sortt
-	echo && echo "🌕 Third-Party Packages"
-	adb shell pm list packages -3 | sed 's#^package:##' | sortt
+	echo && echo "🌕 System Enabled Packages"
+	adb shell pm list packages -s -e | sed 's#^package:##' | sortt
+	echo && echo "🌕 System Disabled Packages"
+	adb shell pm list packages -s -d | sed 's#^package:##' | sortt
+	echo && echo "🌕 User Enabled Packages"
+	adb shell pm list packages -3 -e | sed 's#^package:##' | sortt
+	echo && echo "🌕 User Disabled Packages"
+	adb shell pm list packages -3 -d | sed 's#^package:##' | sortt
 }
 function adb-pm-f() {
 	echo && echo "🌕 Enabled Packages"
