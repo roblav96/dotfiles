@@ -10,8 +10,8 @@ function lcl() {
 function lchostinfo() {
 	echo && echo "🌕 User Hostinfo"
 	launchctl hostinfo 2>/dev/null | bat --plain -l ini
-	# echo && echo "🌕 System hostinfo"
-	# sudo launchctl hostinfo 2>/dev/null | bat --style=grid -l ini
+	echo && echo "🌕 System hostinfo"
+	sudo launchctl hostinfo 2>/dev/null | bat --plain -l ini
 }
 
 function lcdomains() {
