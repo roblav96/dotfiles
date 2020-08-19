@@ -39,7 +39,7 @@ function dpkgfs() {
 	dpkg-query --listfiles "$*" | sortt | lscolors
 }
 function dpkgowns() {
-	dpkg --search "$*" | bat --plain -l properties
+	dpkg --search "$*" | bat --plain -l yml
 }
 function dpkgdump() {
 	dpkg --contents "$*" | lscolors
