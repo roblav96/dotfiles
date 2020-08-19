@@ -4,8 +4,8 @@ alias ghb="github"
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff"
-alias gsm="git status --short --branch"
-alias gs="gd; echo; gsm"
+alias gss="git status --short --branch | lscolors"
+alias gs="gd; echo; gss"
 
 alias gl="git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
@@ -31,7 +31,7 @@ alias gcld="gclean --dry-run | sed 's#^Would remove ##' | lscolors"
 alias gcl="gcld; echo; read -q '?Would remove...?' && return 1; echo; gclean; greset"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
-alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gsm && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 # alias gc="gh repo clone"
 function gc() {

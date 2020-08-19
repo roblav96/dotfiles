@@ -171,6 +171,7 @@ alias rc="rclone"
 alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
+alias day='date +"%c"'
 alias dateiso="date --iso-8601"
 alias sedlog="sed -u -r 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
@@ -307,7 +308,7 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
 function histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp "$*" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --word-regexp --passthru "$*"
-}
+}; compdef show=which
 
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
