@@ -21,6 +21,7 @@ alias gfo="git fetch origin"
 
 alias gpl="git pull"
 alias gpr="git pull --rebase"
+alias gsm="git submodule update --init --recursive"
 
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
@@ -39,7 +40,7 @@ function gc() {
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
 	git clone "$@" && cd "$outdir"
-	[[ -e ".gitmodules" ]] && git submodule update --init --recursive
+	[[ -e ".gitmodules" ]] && gsm
 }
 # alias gcr="gc --recurse-submodules"
 # alias gc="git clone"
