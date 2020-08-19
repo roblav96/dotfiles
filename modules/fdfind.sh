@@ -48,6 +48,7 @@ alias fra="$(echo "${fr}" | sed 's/ *$//g')"
 alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
 
 fr="$fr\
+--exclude=$(antibody home) \
 --exclude=$HOME/.cargo \
 --exclude=$HOME/.cocoapods \
 --exclude=$HOME/.dartServer \
