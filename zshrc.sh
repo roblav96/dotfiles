@@ -305,9 +305,9 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##g'"
+alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##'"
 function histw() {
-	hist | rg --smart-case --fixed-strings --word-regexp "$*" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --word-regexp --passthru "$*"
+	hist | rg --smart-case --fixed-strings --word-regexp "$*" | bat --color=always --style=grid -l bash | rg --smart-case --fixed-strings --passthru "$*"
 }; compdef show=which
 
 function mans() {
