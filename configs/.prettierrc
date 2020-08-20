@@ -63,26 +63,6 @@
 			}
 		},
 		{
-			"files": [
-				"*.hidden-color-scheme",
-				"*.sublime-build",
-				"*.sublime-color-scheme",
-				"*.sublime-commands",
-				"*.sublime-completions",
-				"*.sublime-keymap",
-				"*.sublime-settings",
-				"*.sublime-snippet",
-				"*.sublime-syntax",
-				"*.sublime-syntax.yaml-macros",
-				"*.sublime-theme",
-				"*.tmLanguage",
-				"*.tmPreferences",
-				"*.tmTheme",
-				"*.YAML-tm*"
-			],
-			"options": { "printWidth": 150 }
-		},
-		{
 			"files": ["*.less"],
 			"options": {
 				"parser": "less"
