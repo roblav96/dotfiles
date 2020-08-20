@@ -24,27 +24,27 @@
 				"*.storyboard",
 				"*.svg",
 				"*.tmLanguage",
+				"*.sublime-snippet",
 				"*.tmPreferences",
 				"*.tmTheme",
 				"*.xml"
 			],
-			"options": {
-				"parser": "xml"
-			}
+			"options": { "parser": "xml" }
 		},
 		{
-			"files": ["*.gson"],
-			"options": {
-				"parser": "json",
-				"printWidth": 1
-			}
-		},
-		{
-			"files": ["*.hidden-color-scheme", "*.map", "*.sublime-color-scheme"],
-			"options": {
-				"parser": "json",
-				"printWidth": 1
-			}
+			"files": [
+				"*.gson",
+				"*.hidden-color-scheme",
+				"*.map",
+				"*.sublime-build",
+				"*.sublime-color-scheme",
+				"*.sublime-commands",
+				"*.sublime-completions",
+				"*.sublime-keymap",
+				"*.sublime-settings",
+				"*.sublime-theme"
+			],
+			"options": { "parser": "json" }
 		},
 		{
 			"files": [
@@ -61,6 +61,26 @@
 				"tabWidth": 2,
 				"useTabs": false
 			}
+		},
+		{
+			"files": [
+				"*.hidden-color-scheme",
+				"*.sublime-build",
+				"*.sublime-color-scheme",
+				"*.sublime-commands",
+				"*.sublime-completions",
+				"*.sublime-keymap",
+				"*.sublime-settings",
+				"*.sublime-snippet",
+				"*.sublime-syntax",
+				"*.sublime-syntax.yaml-macros",
+				"*.sublime-theme",
+				"*.tmLanguage",
+				"*.tmPreferences",
+				"*.tmTheme",
+				"*.YAML-tm*"
+			],
+			"options": { "printWidth": 150 }
 		},
 		{
 			"files": ["*.less"],

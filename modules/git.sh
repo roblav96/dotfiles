@@ -28,7 +28,7 @@ alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors
 
 alias gclean="git clean -f -d -x"
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcld='gclean --dry-run | sed "s#^Would remove ##" | lscolors'
+alias gcld='gss; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
