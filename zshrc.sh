@@ -189,6 +189,7 @@ alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
+alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 67)'
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"

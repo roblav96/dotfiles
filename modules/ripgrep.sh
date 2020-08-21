@@ -13,6 +13,7 @@ alias raal="rg $RG_FLAGS --no-ignore --stats --follow -uuu"
 
 unalias g &>/dev/null
 alias g="rg --smart-case --fixed-strings"
+alias gf="rg --smart-case --fixed-strings --color=never"
 alias gp="rg --smart-case --fixed-strings --passthru"
 alias gw="rg --smart-case --fixed-strings --word-regexp"
 alias gx="rg --smart-case --fixed-strings --regexp"

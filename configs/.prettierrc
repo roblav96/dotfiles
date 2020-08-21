@@ -29,7 +29,9 @@
 				"*.tmTheme",
 				"*.xml"
 			],
-			"options": { "parser": "xml" }
+			"options": {
+				"parser": "xml"
+			}
 		},
 		{
 			"files": [
@@ -44,7 +46,9 @@
 				"*.sublime-settings",
 				"*.sublime-theme"
 			],
-			"options": { "parser": "json" }
+			"options": {
+				"parser": "json"
+			}
 		},
 		{
 			"files": [

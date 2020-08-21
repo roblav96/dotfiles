@@ -21,14 +21,15 @@ alias gfo="git fetch origin"
 
 alias gpl="git pull"
 alias gpr="git pull --rebase"
+alias gpf="git pull --ff-only"
 alias gsm="git submodule update --init --recursive"
 
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
 
-alias gclean="git clean -f -d -x"
+alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcld='gss; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
+alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
