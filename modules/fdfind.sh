@@ -12,7 +12,7 @@ alias faagl="fd $fd_flags_all --glob --follow --full-path --absolute-path"
 
 alias fwc="fd -uu --type=file | wc --lines"
 
-alias fpath-f="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias fpathf="fd --fixed-strings --max-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
 
 # function f() { find . -name "*$1*" ${@:2} }
 

@@ -162,7 +162,7 @@ alias ll="ls -laph"
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
-alias fpath-ls="echo \$FPATH | sed 's#:/#\n/#g'"
+alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias -L | sed 's#^#\n#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
@@ -176,13 +176,12 @@ alias dateiso="date --iso-8601"
 alias sedlog="sed -u -r 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
-# alias clear="clear && printf '\e[3J'"
-alias clear="printf '\033[2J\033[3J\033[1;1H'"
-alias cl="clear"
-# alias clear="clear && printf '\e[3J'"
+alias cl='printf "\ec\e[3J"'
+# alias cl="clear && printf '\e[3J'"
+# alias cl="printf '\033[2J\033[3J\033[1;1H'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias shellcheck="shellcheck --external-sources"
 alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
@@ -225,10 +224,10 @@ function abfixpaste() {
 	$EDITOR +$line "$file"
 }
 
-function __clear-and-accept-line() { clear && zle accept-line -w }
+function __clear-and-accept-line() { cl && zle .reset-prompt && zle -R && zle accept-line -w }
 zle -N __clear-and-accept-line
 bindkey '^[k' __clear-and-accept-line
-function __clear-and-accept-and-hold() { clear && zle accept-and-hold -w }
+function __clear-and-accept-and-hold() { cl && zle .reset-prompt && zle -R && zle accept-and-hold -w }
 zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
 
