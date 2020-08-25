@@ -21,7 +21,7 @@ if [[ -x "$(which -p tldr)" ]]; then
 		tldr --quiet "$@" || ch "$@"
 	}; compdef tl=command
 	alias tlls="tldr --list | sed 's#, #\n#g'"
-	alias tls="tldr --list | sed 's#, #\n#g' | g"
+	alias tls="tlls | g"
 fi
 
 function how() {
@@ -82,7 +82,7 @@ else
 fi
 [[ ! -x "$(which -p tldr)" ]] && alias tl="ch"
 alias chls="curl http://cht.sh/:list"
-alias chs="curl http://cht.sh/:list | g"
+alias chs="chls | g"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat --style=grid -l sh"

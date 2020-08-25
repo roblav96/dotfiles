@@ -12,12 +12,12 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"
 
-function gradle() {
-	sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
-} && compdef gradle=gradle
-function mvn() {
-	sh "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
-} && compdef mvn=mvn
+# function gradle() {
+# 	sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
+# } && compdef gradle=gradle
+# function mvn() {
+# 	sh "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
+# } && compdef mvn=mvn
 # alias gradle="./gradlew || gradle"
 # alias mvn="./mvnw || mvn"
 # alias gradle='sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
