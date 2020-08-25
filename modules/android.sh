@@ -12,16 +12,16 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"
 
-# function gradle() {
-# 	sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
-# } && compdef gradle=gradle
-# function mvn() {
-# 	sh "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
-# } && compdef mvn=mvn
-# alias gradle="./gradlew || gradle"
-# alias mvn="./mvnw || mvn"
-# alias gradle='sh "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
-# alias mvn='sh "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")"' && compdef mvn=mvn
+function gradlew() {
+	bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
+} # && compdef gradle=gradle
+function mvnw() {
+	bash "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
+} # && compdef mvn=mvn
+# alias gradlew="./gradlew || gradle"
+# alias mvnw="./mvnw || mvn"
+# alias gradle='bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
+# alias mvn='bash "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")"' && compdef mvn=mvn
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
