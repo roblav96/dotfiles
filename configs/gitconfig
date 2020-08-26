@@ -12,7 +12,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	tabs = 0
+	paging = never
 	line-numbers = true
 	commit-decoration-style = 231 231 overline
 	hunk-header-decoration-style = black box
