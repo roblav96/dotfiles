@@ -118,7 +118,7 @@ alias stcdp="cd '$HOME/Library/Application Support/Sublime Text/Packages'"
 alias stcdu="cd '$HOME/Library/Application Support/Sublime Text/Packages/User'"
 alias stst="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
-alias stpush='(stcd && gpush)'
+alias stpush='(stcd && gtp)'
 function stbak() {
 	(
 		cd "$HOME/Library/Application Support"
@@ -131,12 +131,12 @@ alias sm="smerge"
 alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
 alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
 alias smgs='(smcd && gs)'
-alias smpush='(smcd && gpush)'
+alias smpush='(smcd && gtp)'
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
-alias dotpush='(dotcd && gpush) && zcomp'
+alias dotpush='(dotcd && gtp) && zcomp'
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 # unset DOTBENCH

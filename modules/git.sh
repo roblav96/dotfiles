@@ -33,7 +33,7 @@ alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
-alias gpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gtp='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 # alias gc="gh repo clone"
 function gc() {
