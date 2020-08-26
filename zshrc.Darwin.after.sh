@@ -127,7 +127,7 @@ function stbak() {
 	)
 }
 
-alias sm="smerge --new-window"
+alias sm="smerge"
 alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
 alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
 alias smgs='(smcd && gs)'

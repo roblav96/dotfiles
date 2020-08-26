@@ -5,7 +5,6 @@ alias cgcd="cd $HOME/.cargo/bin"
 alias cgin="cargo install --force"
 alias cgls="lch $HOME/.cargo/bin"
 alias cgout="cargo install-update --list"
-alias cgupg="cargo install-update"
 alias cgrm="cargo uninstall"
 
 alias cglnls="lch /usr/local/bin | g cargo/bin"

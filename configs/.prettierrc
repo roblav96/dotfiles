@@ -67,6 +67,15 @@
 			}
 		},
 		{
+			"files": ["*.tml", "*.toml"],
+			"options": {
+				"parser": "toml",
+				"singleQuote": false,
+				"tabWidth": 2,
+				"useTabs": false
+			}
+		},
+		{
 			"files": ["*.less"],
 			"options": {
 				"parser": "less"
@@ -76,15 +85,6 @@
 			"files": ["*.sass", "*.scss"],
 			"options": {
 				"parser": "scss"
-			}
-		},
-		{
-			"files": ["*.tml", "*.toml"],
-			"options": {
-				"parser": "toml",
-				"singleQuote": false,
-				"tabWidth": 2,
-				"useTabs": false
 			}
 		},
 		{

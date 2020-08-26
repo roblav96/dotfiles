@@ -25,6 +25,8 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
+# alias smali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/smali-2.4.0.jar"
+# alias baksmali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/baksmali-2.4.0.jar"
 alias fernflower="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar"
 alias uber-apk-signer="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass \$(cat \$DOTFILES/.env.kspass) --ksPass \$(cat \$DOTFILES/.env.kspass) --apks"
 
