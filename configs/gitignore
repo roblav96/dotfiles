@@ -25,25 +25,28 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# caarlos0/dotfiles
-.java-version
-.svn
-*~
-*.swp
-*.orig
-*.rbc
-.idea
-*.iml
-.classpath
-.project
-.settings
-.ruby-version
-.vscode/
-dump.rdb
-main.tfvars
+# /usr/local/share/flutter
+flutter.bat
 
-# python mypy
-.mypy_cache
+# # caarlos0/dotfiles
+# .java-version
+# .svn
+# *~
+# *.swp
+# *.orig
+# *.rbc
+# .idea
+# *.iml
+# .classpath
+# .project
+# .settings
+# .ruby-version
+# .vscode/
+# dump.rdb
+# main.tfvars
 
-# npm
-.npmrc
+# # python mypy
+# .mypy_cache
+
+# # npm
+# .npmrc

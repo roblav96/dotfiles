@@ -38,6 +38,10 @@ function blsch() {
 	echo && echo "🌕 List recently changed formulas"
 	lch "$(brew --prefix)/Cellar"
 }
+function blscr() {
+	echo && echo "🌕 List recently created formulas"
+	lcr "$(brew --prefix)/Cellar"
+}
 function bcls() {
 	echo && echo "🌕 List casks"
 	brew cask list --versions
