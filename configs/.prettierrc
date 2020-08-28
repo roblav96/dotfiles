@@ -76,27 +76,24 @@
 			}
 		},
 		{
-			"files": ["*.less"],
-			"options": {
-				"parser": "less"
-			}
-		},
-		{
-			"files": ["*.sass", "*.scss"],
-			"options": {
-				"parser": "scss"
-			}
-		},
-		{
-			"files": ["*.blade.php"],
+			"files": [
+				"*.aw",
+				"*.blade.php",
+				"*.ctp",
+				"*.fcgi",
+				"*.inc",
+				"*.php",
+				"*.php3",
+				"*.php4",
+				"*.php5",
+				"*.php_cs",
+				"*.php_cs.dist",
+				"*.phps",
+				"*.phpt",
+				"*Phakefile"
+			],
 			"options": {
 				"parser": "html"
-			}
-		},
-		{
-			"files": ["*.php"],
-			"options": {
-				"phpVersion": "7.4"
 			}
 		}
 	]

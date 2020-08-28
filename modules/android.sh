@@ -14,10 +14,12 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 
 function gradlew() {
 	bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
-} # && compdef gradle=gradle
+}
+# && compdef gradlew=gradle
 function mvnw() {
 	bash "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
-} # && compdef mvn=mvn
+}
+# && compdef mvnw=mvn
 # alias gradlew="./gradlew || gradle"
 # alias mvnw="./mvnw || mvn"
 # alias gradle='bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
@@ -27,6 +29,7 @@ function mvnw() {
 
 # alias smali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/smali-2.4.0.jar"
 # alias baksmali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/baksmali-2.4.0.jar"
+# alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/google-java-format-1.9-all-deps.jar"
 alias fernflower="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar"
 alias uber-apk-signer="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass \$(cat \$DOTFILES/.env.kspass) --ksPass \$(cat \$DOTFILES/.env.kspass) --apks"
 
