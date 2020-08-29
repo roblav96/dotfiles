@@ -1,3 +1,4 @@
+# ████  github/gitignore Global/macOS.gitignore  ████
 # General
 .DS_Store
 .AppleDouble
@@ -25,10 +26,18 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# /usr/local/share/flutter
+# ████  roblav96/dotfiles  ████
+.classpath
+.hg
+.idea
+.mypy_cache
+.project
+.settings
+.svn
+.vscode
 flutter.bat
 
-# # caarlos0/dotfiles
+# # ████  caarlos0/dotfiles  ████
 # .java-version
 # .svn
 # *~
