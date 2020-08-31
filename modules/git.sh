@@ -3,7 +3,7 @@ alias ghb="github"
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"
-alias gd="git diff"
+alias gd="git diff 2>/dev/null"
 alias gss="git status --short --branch | lscolors"
 alias gs="gd; echo; gss"
 
