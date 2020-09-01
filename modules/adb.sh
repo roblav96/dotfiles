@@ -29,7 +29,7 @@ alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
-function exoplayers() {
+function exolist() {
 	local args=""
 	local i && for ((i = 0; i < $#; i++)); do
 		args="$args--es uri_$i ${@[$((i + 1))]} "
