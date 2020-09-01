@@ -21,7 +21,7 @@ function duti-sublime() {
 		done
 	done
 }
-# alias duti-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.4 "$ii" all; done; done'
+# alias duti-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.3 "$ii" all; done; done'
 # r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🌕 $ii"; duti -x "$ii"; done; done
 
 # alias ssh="ssh -L 52698:localhost:52699"
@@ -113,10 +113,10 @@ function app-bak() {
 
 alias st="subl"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stcd="cd '$HOME/Library/Application Support/Sublime Text'"
-alias stcdp="cd '$HOME/Library/Application Support/Sublime Text/Packages'"
-alias stcdu="cd '$HOME/Library/Application Support/Sublime Text/Packages/User'"
-alias stst="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Sublime Text.sublime-project'"
+alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
+alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
+alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
+alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
 alias stpush='(stcd && gitpush)'
 function stbak() {
@@ -134,7 +134,7 @@ alias smgs='(smcd && gs)'
 alias smpush='(smcd && gitpush)'
 
 unalias dotsrc &>/dev/null
-alias dot="subl '$HOME/Library/Application Support/Sublime Text/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
 alias dotpush='(dotcd && gitpush) && zcomp'
 
