@@ -6,6 +6,7 @@ alias ghb="github"
 alias gd="git diff 2>/dev/null"
 alias gss="git status --short --branch | lscolors"
 alias gs="gd; echo; gss"
+alias ghw="gh repo view --web"
 
 alias gl="git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
