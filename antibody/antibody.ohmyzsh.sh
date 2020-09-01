@@ -7,6 +7,7 @@ ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/extract
 # ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 # ohmyzsh/ohmyzsh path:plugins/fd
+ohmyzsh/ohmyzsh path:plugins/fzf
 # ohmyzsh/ohmyzsh path:plugins/git-extras
 # ohmyzsh/ohmyzsh path:plugins/gitfast
 # ohmyzsh/ohmyzsh path:plugins/github

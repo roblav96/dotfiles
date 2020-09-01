@@ -6,7 +6,6 @@ scriptingosx/mac-zsh-completions path:completions kind:fpath
 ohmyzsh/ohmyzsh path:plugins/adb
 # ohmyzsh/ohmyzsh path:plugins/bundler
 # ohmyzsh/ohmyzsh path:plugins/composer kind:fpath
-ohmyzsh/ohmyzsh path:plugins/fzf
 # ohmyzsh/ohmyzsh path:plugins/gem
 # ohmyzsh/ohmyzsh path:plugins/gradle
 # ohmyzsh/ohmyzsh path:plugins/laravel kind:fpath
