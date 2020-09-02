@@ -28,13 +28,17 @@ alias adb-display="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
-function exolist() {
-	local args=""
-	local i && for ((i = 0; i < $#; i++)); do
-		args="$args--es uri_$i ${@[$((i + 1))]} "
-	done
-	adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args"
+# alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
+function exoplayer() {
+	if [[ "$#" == "1" ]]; then
+		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
+	else
+		local args=""
+		local i && for ((i = 0; i < $#; i++)); do
+			args="$args--es uri_$i ${@[$((i + 1))]} "
+		done
+		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
+	fi
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
