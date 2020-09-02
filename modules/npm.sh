@@ -43,7 +43,7 @@ alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
-function tnsv() {
+function nsv() {
 	local platforms=('android' 'ios')
 	local platform && for platform in "${platforms[@]}"; do
 		echo && echo "🌕 $platform"
