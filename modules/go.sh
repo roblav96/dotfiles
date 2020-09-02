@@ -9,5 +9,5 @@ fi
 
 alias gocd="cd $GOBIN"
 alias gols="lch $GOBIN"
-alias goin="go get -u"
+alias goin="env GO111MODULE=on go get"
 # alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
