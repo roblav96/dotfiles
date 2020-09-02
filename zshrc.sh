@@ -189,6 +189,7 @@ alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 67)'
+alias mdcat="mdcat --local --no-pager"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
@@ -308,7 +309,7 @@ alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##'"
 function histw() {
 	hist | rg --fixed-strings --case-sensitive --word-regexp "$*" | bat --plain -l sh
-}; compdef histw=rg
+}; compdef histw=which
 
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
