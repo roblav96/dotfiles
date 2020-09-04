@@ -167,6 +167,7 @@ alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias -L | sed 's#^#\n#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
+alias wcl="wc --lines"
 alias rc="rclone"
 alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
