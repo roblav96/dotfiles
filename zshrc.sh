@@ -299,10 +299,25 @@ alias pubget="wget --http-user=admin --http-password="
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias pa="ps auxww"
-alias p="pa | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+alias p="ps auxww | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" == "Linux" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
-alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+function pe() {
+	pgrep "$*" | while read pid; do
+		# echo "🌕 pid -> '$pid'"
+		echo && ps -ww -o user,pid,ppid,%cpu,%mem,time,start,command -p $pid
+		local command="$(ps -ww -o command= -p $pid)"
+		# echo "🌕 command -> '$command'"
+		local environment="$(ps -ww -o command= -E -p $pid)"
+		if [[ "${#command}" != "${#environment}" ]]; then
+			environment="${environment#$command }"
+			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sortt | bat --plain -l properties
+		fi
+		# echo $environment | sd ' (\w+)=' '\n$1='
+		# ps -ww -E -p $pid | tr ' ' '\n' | rg --fixed-strings --case-sensitive '=' | sortt | bat --plain -l properties
+	done
+} && compdef pe=pgrep
+# alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
