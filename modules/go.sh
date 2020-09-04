@@ -1,4 +1,5 @@
 # export PATH="/usr/local/opt/go/bin:$PATH"
+export GO111MODULE="auto"
 if [[ -d "$HOME/.go" ]]; then
 	export GOPATH="$HOME/.go"
 	export GOBIN="$HOME/.go/bin"
@@ -9,5 +10,5 @@ fi
 
 alias gocd="cd $GOBIN"
 alias gols="lch $GOBIN"
-alias goin="env GO111MODULE=on go get"
+alias goin="env GO111MODULE=on go get -v"
 # alias golnbin="ln -sf $GOBIN/* /usr/local/bin"

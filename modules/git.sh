@@ -3,10 +3,12 @@ alias ghb="github"
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 # --plus-color="#A2BF8A" --minus-color="#C16069"
-alias gd="git diff 2>/dev/null"
+alias gd="git diff"
 alias gss="git status --short --branch | lscolors"
 alias gs="gd; echo; gss"
+alias gho="gh repo view --web"
 alias ghw="gh repo view --web"
+alias gbl="git branch --list --all"
 
 alias gl="git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
