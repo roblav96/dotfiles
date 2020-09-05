@@ -7,7 +7,7 @@
 # export PYTHONPATH="$HOME/Downloads/AndroidViewClient-15.5.1"
 # export PYTHONHOME="$HOME/Downloads/AndroidViewClient-15.5.1"
 
-alias black="black --verbose --fast --line-length 100 --target-version py38"
+alias black="black --verbose --line-length=100 --target-version=py38"
 alias yapf="yapf --style='{ based_on_style: facebook, column_limit: 100, continuation_align_style: FIXED, continuation_indent_width: 4, indent_width: 4, spaces_before_comment: 1, use_tabs: true }'"
 
 # alias pip='pip --target=$HOME/.virtualenv'

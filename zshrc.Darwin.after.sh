@@ -57,6 +57,8 @@ alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivp
 alias ifcls="ifconfig -v -a -r | bat --style=grid -l yml"
 alias lsapps="lsappinfo list | bat --style=grid -l ini"
 
+alias restic-laptop="restic --verbose --repo rclone:drive:restic-laptop"
+
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
