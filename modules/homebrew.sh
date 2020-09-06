@@ -296,7 +296,7 @@ function bupg-sudo() {
 	fi
 	output="sudo /usr/bin/env -i $(which -p bash) -c '$output'"
 	echo "$output"
-	echo " $output" | clipcopy
+	echo " $output" | pbcopy
 	echo "✅ Copied to clipboard"
 } && compdef bupg-sudo=command
 
@@ -305,7 +305,7 @@ function bupg-node() {
 	local npm="$(dirname "$(realpath "$(which -p npm)")")"
 	local output="ln -sf "$npm/npm-cli.js" "$node/npm"; ln -sf "$npm/npx-cli.js" "$node/npx""
 	echo "$output"
-	echo " $output" | clipcopy
+	echo " $output" | pbcopy
 	echo "✅ Copied to clipboard"
 }
 function bupg-node@12() {
@@ -324,10 +324,10 @@ function bupg-node@12() {
 }
 
 function bupg-deno() {
-	rm -v -f ~/Library/Caches/deno/lib.deno.d.ts
-	wget --output-document ~/Library/Caches/deno/lib.deno.d.ts https://github.com/denoland/deno/releases/latest/download/lib.deno.d.ts
-	rm -v -f ~/Library/Caches/deno/lib.deno.unstable.d.ts
-	wget --output-document ~/Library/Caches/deno/lib.deno.unstable.d.ts https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.unstable.d.ts
+	rm -v -f "$DENO_DIR/lib.deno.d.ts"
+	wget --output-document "$DENO_DIR/lib.deno.d.ts" "https://github.com/denoland/deno/releases/latest/download/lib.deno.d.ts"
+	rm -v -f "$DENO_DIR/lib.deno.unstable.d.ts"
+	wget --output-document "$DENO_DIR/lib.deno.unstable.d.ts" "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.unstable.d.ts"
 }
 
 function bcupg-chrome() {

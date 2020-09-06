@@ -27,28 +27,71 @@
 				"*.sublime-snippet",
 				"*.tmPreferences",
 				"*.tmTheme",
-				"*.xml"
+				"*.xml",
 			],
 			"options": {
-				"parser": "xml"
-			}
+				"parser": "xml",
+			},
 		},
 		{
 			"files": [
+				"*.avsc",
+				"*.geojson",
+				"*.gltf",
 				"*.gson",
+				"*.har",
 				"*.hidden-color-scheme",
+				"*.ice",
+				"*.json",
+				"*.JSON-tmLanguage",
+				"*.jsonc",
+				"*.jsonl",
 				"*.map",
+				"*.mcmeta",
 				"*.sublime-build",
 				"*.sublime-color-scheme",
 				"*.sublime-commands",
 				"*.sublime-completions",
 				"*.sublime-keymap",
+				"*.sublime-macro",
+				"*.sublime-menu",
+				"*.sublime-mousemap",
+				"*.sublime-project",
 				"*.sublime-settings",
-				"*.sublime-theme"
+				"*.sublime-theme",
+				"*.sublime-workspace",
+				"*.sublime_metrics",
+				"*.sublime_session",
+				"*.tfstate",
+				"*.tfstate.backup",
+				"*.topojson",
+				"*.webapp",
+				"*.webmanifest",
+				"*.yy",
+				"*.yyp",
+				".arcconfig",
+				".babelrc",
+				".eslintrc",
+				".eslintrc.json",
+				".htmlhintrc",
+				".jscsrc",
+				".jshintrc",
+				".jslintrc",
+				".prettierrc",
+				".tern-config",
+				".tern-project",
+				".watchmanconfig",
+				"composer.lock",
+				"jsconfig.json",
+				"language-configuration.json",
+				"mcmod.info",
+				"tsconfig.json",
 			],
 			"options": {
-				"parser": "json"
-			}
+				"parser": "json5",
+				"quoteProps": "preserve",
+				"singleQuote": false,
+			},
 		},
 		{
 			"files": [
@@ -57,14 +100,14 @@
 				"*.yaml",
 				"*.YAML-tm*",
 				"*.yml",
-				"h2o.conf"
+				"h2o.conf",
 			],
 			"options": {
 				"parser": "yaml",
 				"singleQuote": false,
 				"tabWidth": 2,
-				"useTabs": false
-			}
+				"useTabs": false,
+			},
 		},
 		{
 			"files": ["*.tml", "*.toml"],
@@ -72,8 +115,8 @@
 				"parser": "toml",
 				"singleQuote": false,
 				"tabWidth": 2,
-				"useTabs": false
-			}
+				"useTabs": false,
+			},
 		},
 		{
 			"files": [
@@ -90,11 +133,11 @@
 				"*.php_cs.dist",
 				"*.phps",
 				"*.phpt",
-				"*Phakefile"
+				"*Phakefile",
 			],
 			"options": {
-				"parser": "html"
-			}
-		}
-	]
+				"parser": "html",
+			},
+		},
+	],
 }
