@@ -66,7 +66,12 @@ alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | oq -i xml -o json | json '.Information'"
 # alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
-alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
+function wifi() {
+	m wifi status | bat --file-name='airport --getinfo' -l yml
+	networksetup -getinfo Wi-Fi | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
+}
+alias wifi-setmanual-hotspot="networksetup -setmanual Wi-Fi 192.168.43.113 255.255.255.0 192.168.43.42"
+# alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
 alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
 
 alias o="open ."
