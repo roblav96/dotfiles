@@ -332,7 +332,7 @@ function pe() {
 
 alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##'"
 function histw() {
-	hist | rg --fixed-strings --case-sensitive --word-regexp "$*" | bat --plain -l sh
+	hist | rg --smart-case --fixed-strings --word-regexp "$*" | bat --plain -l sh
 }; compdef histw=which
 
 function mans() {
