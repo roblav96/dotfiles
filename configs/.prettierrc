@@ -19,22 +19,6 @@
 	"overrides": [
 		{
 			"files": [
-				"*.csproj",
-				"*.plist",
-				"*.storyboard",
-				"*.svg",
-				"*.tmLanguage",
-				"*.sublime-snippet",
-				"*.tmPreferences",
-				"*.tmTheme",
-				"*.xml",
-			],
-			"options": {
-				"parser": "xml",
-			},
-		},
-		{
-			"files": [
 				"*.avsc",
 				"*.geojson",
 				"*.gltf",
@@ -82,15 +66,35 @@
 				".tern-project",
 				".watchmanconfig",
 				"composer.lock",
-				"jsconfig.json",
 				"language-configuration.json",
 				"mcmod.info",
-				"tsconfig.json",
 			],
 			"options": {
 				"parser": "json5",
 				"quoteProps": "preserve",
 				"singleQuote": false,
+			},
+		},
+		{
+			"files": ["jsconfig.json", "package.json", "tsconfig.json"],
+			"options": {
+				"parser": "json",
+			},
+		},
+		{
+			"files": [
+				"*.csproj",
+				"*.plist",
+				"*.storyboard",
+				"*.svg",
+				"*.tmLanguage",
+				"*.sublime-snippet",
+				"*.tmPreferences",
+				"*.tmTheme",
+				"*.xml",
+			],
+			"options": {
+				"parser": "xml",
 			},
 		},
 		{
