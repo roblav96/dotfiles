@@ -1,0 +1,11 @@
+export FLUTTER_ROOT="/usr/local/share/flutter"
+export DART_SDK="/usr/local/share/flutter/bin/cache/dart-sdk"
+
+alias flutter="flutter --suppress-analytics"
+alias fl="flutter"
+alias flp="flutter pub"
+alias flcd="cd $FLUTTER_ROOT"
+alias flls="lch $FLUTTER_ROOT/bin $FLUTTER_ROOT/.pub-cache/bin"
+alias flpls="flutter pub global list"
+alias flpin="flutter pub global activate"
+alias flprm="flutter pub global deactivate"

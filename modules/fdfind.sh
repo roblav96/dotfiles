@@ -1,24 +1,19 @@
 local fd_flags="--hidden --exclude=.git --exclude=.DS_Store"
-
-alias f="fd $fd_flags --exclude=node_modules --fixed-strings"
-alias fgl="fd $fd_flags --exclude=node_modules --glob"
-
 local fd_flags_all="$fd_flags --no-ignore"
 
-alias fa="fd $fd_flags_all --fixed-strings"
-alias faa="fd $fd_flags_all --fixed-strings --follow --full-path --absolute-path"
-alias fagl="fd $fd_flags_all --glob"
-alias faagl="fd $fd_flags_all --glob --follow --full-path --absolute-path"
+alias f="fd $fd_flags --exclude=node_modules"
+alias fa="fd $fd_flags_all"
+alias faa="fd $fd_flags_all --follow --full-path --absolute-path"
 
 alias fwc="fd -uu --type=file | wc --lines"
 
-alias fpathf="fd --fixed-strings --exact-depth=1 --absolute-path --base-directory=/ \$(printf \"--search-path %q \" \"\${fpath[@]}\")"
+alias fpathf='fd -uu --max-depth=1 --absolute-path --base-directory=/ $(printf "--search-path %q " "${fpath[@]}")'
 
 # function f() { find . -name "*$1*" ${@:2} }
 
 
 
-local fr="fd -uu --fixed-strings --full-path --absolute-path --base-directory=/"
+local fr="fd -uu --absolute-path --base-directory=/"
 
 fr="$fr \
 --exclude=$HOME/.npm \
@@ -75,7 +70,6 @@ fr="$fr\
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
---exclude=/Applications \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"

@@ -12,14 +12,14 @@ if [[ -x "$(which -p tldr)" ]]; then
 		for file in "${files[@]}"; do
 			local name="$(basename "$file" '.md')"
 			echo "🌕 '$name'"
-			tldr "$name" | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
+			tldr --color=always "$name" | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
 		done
 		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS")"} )
 		# rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
 	}
 	function tl() {
 		tldr --quiet "$@" || ch "$@"
-	}; compdef tl=command
+	} && compdef tl=command
 	alias tlls="tldr --list | sed 's#, #\n#g'"
 	alias tls="tlls | g"
 fi
@@ -53,11 +53,11 @@ alias hdi="howdoi --color --all"
 if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	function gcomp() {
 		gencomp "$1" && bat --style=grid -l sh "$GENCOMPL_FPATH/_$1" && zcomp
-	}; compdef gcomp=command
+	} && compdef gcomp=command
 	compdef gencomp=command
 	function mgcomp() {
 		man "$1" | cat | python $ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py "$1" >! "$GENCOMPL_FPATH/_$1" && bat --style=grid -l sh "$GENCOMPL_FPATH/_$1" && zcomp
-	}; compdef mgcomp=man
+	} && compdef mgcomp=man
 fi
 
 if [[ -x "$(which -p bat)" ]]; then

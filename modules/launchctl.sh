@@ -43,27 +43,26 @@ function lcls() {
 
 function lcs() {
 	echo && echo "🌕 [fd] $HOME/Library/LaunchAgents"
-	faa --ignore-case "$*" "$HOME/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
+	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "$HOME/Library/LaunchAgents"
 	echo && echo "🌕 [fd] /Library/LaunchAgents"
-	faa --ignore-case "$*" "/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
+	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/Library/LaunchAgents"
 	echo && echo "🌕 [fd] /System/Library/LaunchAgents"
-	faa --ignore-case "$*" "/System/Library/LaunchAgents" | rg --smart-case --fixed-strings --color=never "$*"
+	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/System/Library/LaunchAgents"
 	echo && echo "🌕 [fd] /Library/LaunchDaemons"
-	faa --ignore-case "$*" "/Library/LaunchDaemons" | rg --smart-case --fixed-strings --color=never "$*"
+	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/Library/LaunchDaemons"
 	echo && echo "🌕 [fd] /System/Library/LaunchDaemons"
-	faa --ignore-case "$*" "/System/Library/LaunchDaemons" | rg --smart-case --fixed-strings --color=never "$*"
-	# fd --color=always --hidden --full-path --absolute-path --no-ignore --follow --fixed-strings
+	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/System/Library/LaunchDaemons"
 }
 
 function lcsr() {
 	echo && echo "🌕 [rg] $HOME/Library/LaunchAgents"
-	raa --ignore-case --no-stats "$*" "$HOME/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case "$*" "$HOME/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /Library/LaunchAgents"
-	raa --ignore-case --no-stats "$*" "/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case "$*" "/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /System/Library/LaunchAgents"
-	raa --ignore-case --no-stats "$*" "/System/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case "$*" "/System/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /Library/LaunchDaemons"
-	raa --ignore-case --no-stats "$*" "/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case "$*" "/Library/LaunchDaemons"
 	echo && echo "🌕 [rg] /System/Library/LaunchDaemons"
-	raa --ignore-case --no-stats "$*" "/System/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case "$*" "/System/Library/LaunchDaemons"
 }

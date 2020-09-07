@@ -220,7 +220,7 @@ fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lch --tree --level=2 $HOME/.Trash"
-alias rmtrash="ltrash; echo; read -q '?Empty Trash? ' && return 1; fd --hidden --no-ignore --exact-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf; echo; ltrash"
+alias rmtrash="ltrash; echo; read -q '?Empty Trash? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec-batch rm -rf; echo; ltrash"
 
 alias zdebug="zsh -lixc : 2>&1"
 alias src="exec ${SHELL:-$(which -p zsh)}"
@@ -355,16 +355,13 @@ function show() {
 	if which -w "$1" | grep -q 'none$'; then
 		return 1
 	elif which -w "$1" | grep -q 'function$'; then
-		echo
 		type -f "$1" | bat -p -l sh
 		exa --long --all --group --classify --extended "${$(type "$1")/"$1" is a shell function from /}"
 	elif which -w "$1" | grep -q 'alias$'; then
-		echo
 		alias -L "$1" | bat -p -l sh
 	fi
 	local which="$(which -p "$1")"
 	if [[ -e "$which" ]]; then
-		echo
 		# bat --style=header "$which"
 		exa --long --all --group --classify --extended "$which"
 		if [[ "$which" != "$(readlink -f $which)" ]]; then
@@ -372,6 +369,16 @@ function show() {
 		fi
 	fi
 }; compdef show=which
+
+function showv() {
+	local vflag="${2:---version}"
+	which -ap "$1" | while read i; do
+		echo
+		exa "$i"
+		b3sum --no-names --length=8 "$i"
+		eval "$i $vflag"
+	done
+} && compdef showv=command
 
 # function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {
@@ -419,6 +426,7 @@ test -x "$(which -p diff)" && source "$DOTFILES/modules/diff.sh"
 test -x "$(which -p direnv)" && source "$DOTFILES/modules/direnv.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
+test -x "$(which -p flutter)" && source "$DOTFILES/modules/flutter.sh"
 test -x "$(which -p git)" && source "$DOTFILES/modules/git.sh"
 test -x "$(which -p go)" && source "$DOTFILES/modules/go.sh"
 test -x "$(which -p htop)" && source "$DOTFILES/modules/processes.sh"

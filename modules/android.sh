@@ -13,13 +13,19 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 # alias gradle="gradle --no-daemon"
 
 function gradlew() {
-	bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")" "$@"
-}
-# && compdef gradlew=gradle
+	if [[ -e "$PWD/gradlew" ]]; then
+		bash "$PWD/gradlew" "$@"
+	else
+		gradle "$@"
+	fi
+} && compdef gradlew=gradle
 function mvnw() {
-	bash "$(test -e "$PWD/mvnw" && echo "$PWD/mvnw" || echo "$(which -p mvn)")" "$@"
-}
-# && compdef mvnw=mvn
+	if [[ -e "$PWD/mvnw" ]]; then
+		bash "$PWD/mvnw" "$@"
+	else
+		mvn "$@"
+	fi
+} && compdef mvnw=mvn
 # alias gradlew="./gradlew || gradle"
 # alias mvnw="./mvnw || mvn"
 # alias gradle='bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
@@ -27,11 +33,12 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
-# alias smali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/smali-2.4.0.jar"
-# alias baksmali="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/baksmali-2.4.0.jar"
-# alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/google-java-format-1.9-all-deps.jar"
-alias fernflower="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/fernflower.jar"
-alias uber-apk-signer="java -jar ${ANDROID_HOME:-"$ANDROID_SDK_ROOT"}/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass \$(cat \$DOTFILES/.env.kspass) --ksPass \$(cat \$DOTFILES/.env.kspass) --apks"
+# alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
+# alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"
+# alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar $ANDROID_HOME/google-java-format-1.9-all-deps.jar"
+alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
+alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
+alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/.env.kspass) --ksPass $(cat $DOTFILES/.env.kspass) --overwrite --apks'
 
 # alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
 # alias android-dts-generator="java -jar $ANDROID_HOME/android-dts-generator.jar"
