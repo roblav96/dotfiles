@@ -7,7 +7,7 @@ alias tkaf="tokei $TK_FLAGS $TK_FLAGS_ALL --files"
 alias tkls="tokei --languages"
 unset TK_FLAGS TK_FLAGS_ALL
 
-alias diskus="diskus --apparent-size --verbose"
+alias diskus="diskus --apparent-size"
 
 alias dust="dust --apparent-size --ignore-directory=.git"
 alias dustr="dust --depth=1"

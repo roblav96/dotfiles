@@ -376,6 +376,9 @@ function showv() {
 		echo
 		exa "$i"
 		b3sum --no-names --length=8 "$i"
+		i="$(realpath "$i")"
+		diskus "$i"
+		echo "$i $vflag" | bat --plain -l sh
 		eval "$i $vflag"
 	done
 } && compdef showv=command
