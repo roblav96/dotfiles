@@ -355,14 +355,17 @@ function show() {
 	if which -w "$1" | grep -q 'none$'; then
 		return 1
 	elif which -w "$1" | grep -q 'function$'; then
+		echo
 		type -f "$1" | bat -p -l sh
 		exa --long --all --group --classify --extended "${$(type "$1")/"$1" is a shell function from /}"
 	elif which -w "$1" | grep -q 'alias$'; then
+		echo
 		alias -L "$1" | bat -p -l sh
 	fi
 	local which="$(which -p "$1")"
 	if [[ -e "$which" ]]; then
 		# bat --style=header "$which"
+		echo
 		exa --long --all --group --classify --extended "$which"
 		if [[ "$which" != "$(readlink -f $which)" ]]; then
 			exa --long --all --group --classify --extended "$(readlink -f $which)"
