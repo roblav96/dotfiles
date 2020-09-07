@@ -70,8 +70,9 @@ function wifi() {
 	m wifi status | bat --file-name='airport --getinfo' -l yml
 	networksetup -getinfo Wi-Fi | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
 }
-alias wifi-setmanual-hotspot="networksetup -setmanual Wi-Fi 192.168.43.113 255.255.255.0 192.168.43.42"
-# alias wifi="m wifi status | rg --passthru --ignore-case --regexp='.*rate:.*'"
+alias wifi-setmanual-hotspot="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.hotspot)"
+alias wifi-setmanual-r7800="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.r7800)"
+
 alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
 
 alias o="open ."
