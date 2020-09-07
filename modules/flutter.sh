@@ -3,7 +3,7 @@ export DART_SDK="/usr/local/share/flutter/bin/cache/dart-sdk"
 
 alias fl="flutter"
 alias flcd="cd $FLUTTER_ROOT"
-alias flls="lch $FLUTTER_ROOT/bin $FLUTTER_ROOT/.pub-cache/bin"
+alias flls="lch $FLUTTER_ROOT/.pub-cache/bin $FLUTTER_ROOT/bin"
 
 alias pub="flutter pub"
 alias publs="flutter pub global list"
