@@ -18,14 +18,14 @@ function gradlew() {
 	else
 		gradle "$@"
 	fi
-} && compdef gradlew=gradle
+} # && compdef gradlew=gradle
 function mvnw() {
 	if [[ -e "$PWD/mvnw" ]]; then
 		bash "$PWD/mvnw" "$@"
 	else
 		mvn "$@"
 	fi
-} && compdef mvnw=mvn
+} # && compdef mvnw=mvn
 # alias gradlew="./gradlew || gradle"
 # alias mvnw="./mvnw || mvn"
 # alias gradle='bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle

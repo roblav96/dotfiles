@@ -198,7 +198,7 @@ alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 67)'
+alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
@@ -376,11 +376,11 @@ function show() {
 function showv() {
 	local vflag="${2:---version}"
 	which -ap "$1" | while read i; do
-		echo -n "\n🌕 "
+		echo && echo -n "🌕 "
 		exa "$i"
-		b3sum --no-names --length=8 "$i"
 		i="$(realpath "$i")"
-		diskus "$i"
+		echo -n "   " && b3sum --no-names --length=16 "$i"
+		echo -n "   " && diskus "$i"
 		echo "$i $vflag" | bat --plain -l sh
 		eval "$i $vflag"
 	done
