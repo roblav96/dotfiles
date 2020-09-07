@@ -192,7 +192,7 @@ alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc
 # alias just="just --shell=$(which -p bash) --justfile=justfile.mk"
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
-alias shellcheck="shellcheck --external-sources"
+alias shellcheck="shellcheck --shell=bash --external-sources"
 alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"

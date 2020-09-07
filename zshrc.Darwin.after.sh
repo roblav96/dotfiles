@@ -73,7 +73,7 @@ function wifi() {
 alias wifi-setmanual-hotspot="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.hotspot)"
 alias wifi-setmanual-r7800="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.r7800)"
 
-alias display="m display status | rg --passthru --ignore-case --regexp='.* Built-In .*'"
+alias display="m display status | bat --plain -l yml"
 
 alias o="open ."
 # function o() {
