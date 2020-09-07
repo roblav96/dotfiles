@@ -376,7 +376,7 @@ function show() {
 function showv() {
 	local vflag="${2:---version}"
 	which -ap "$1" | while read i; do
-		echo
+		echo -n "\n🌕 "
 		exa "$i"
 		b3sum --no-names --length=8 "$i"
 		i="$(realpath "$i")"
