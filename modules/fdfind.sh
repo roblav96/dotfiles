@@ -19,12 +19,11 @@ fr="$fr \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
---exclude=.DS_Store \
 --exclude=.git \
+--exclude=mega-webdav \
 --exclude=node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
---exclude='$HOME/mega*' \
 --exclude=/dev \
 --exclude=/proc \
 --exclude=/sys \
@@ -37,13 +36,11 @@ fr="$fr \
 --exclude=/System/Volumes/Data \
 --exclude=/usr/local/var/.DS_Store \
 --exclude=/usr/local/var/dmgs \
---exclude=/usr/local/var/mega-webdav \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
 alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
 
 fr="$fr\
---exclude=$(antibody home) \
 --exclude=$HOME/.cargo \
 --exclude=$HOME/.cocoapods \
 --exclude=$HOME/.dartServer \
@@ -51,12 +48,9 @@ fr="$fr\
 --exclude=$HOME/.go \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.m2 \
---exclude=$HOME/.node-gyp \
 --exclude=$HOME/.nuget \
 --exclude=$HOME/.playground \
---exclude=$HOME/.pub-cache \
 --exclude=$HOME/.rustup \
---exclude=$HOME/.vscode-oss \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
 --exclude=$HOME/downloads \
@@ -67,9 +61,11 @@ fr="$fr\
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
 --exclude=$HOME/.config/emby-server \
+--exclude=$HOME/.vscode-oss \
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
+--exclude=/usr/local/share/flutter/.pub-cache \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
