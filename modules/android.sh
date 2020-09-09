@@ -39,6 +39,10 @@ function mvnw() {
 alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
 alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/.env.kspass) --ksPass $(cat $DOTFILES/.env.kspass) --overwrite --apks'
+function uber-apk-install() {
+	uber-apk-release "$@"
+	adb install "$@"
+}
 
 # alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
 # alias android-dts-generator="java -jar $ANDROID_HOME/android-dts-generator.jar"

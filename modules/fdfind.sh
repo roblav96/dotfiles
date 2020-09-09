@@ -6,7 +6,7 @@ alias fa="fd $fd_flags_all"
 alias faa="fd $fd_flags_all --follow --full-path --absolute-path"
 
 function fwc() {
-	fd -uu --type=file '' "$@" | wc --lines
+	fd -uu --type=file --exclude=.git '' "$@" | wc --lines
 }
 # alias fwc="fd -uu --type=file | wc --lines"
 

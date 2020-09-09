@@ -68,10 +68,10 @@ alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_co
 
 function wifi() {
 	m wifi status | bat --file-name='airport --getinfo' -l yml
-	networksetup -getinfo Wi-Fi | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
+	networksetup -getinfo 'Wi-Fi' | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
 }
-alias wifi-setmanual-hotspot="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.hotspot)"
-alias wifi-setmanual-r7800="networksetup -setmanual Wi-Fi \$(cat \$DOTFILES/.env.r7800)"
+alias wifi-setmanual-hotspot='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.hotspot)'
+alias wifi-setmanual-r7800='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.r7800)'
 
 alias display="m display status | bat --plain -l yml"
 
