@@ -5,7 +5,10 @@ alias f="fd $fd_flags --exclude=node_modules"
 alias fa="fd $fd_flags_all"
 alias faa="fd $fd_flags_all --follow --full-path --absolute-path"
 
-alias fwc="fd -uu --type=file | wc --lines"
+function fwc() {
+	fd -uu --type=file '' "$@" | wc --lines
+}
+# alias fwc="fd -uu --type=file | wc --lines"
 
 alias fpathf='fd -uu --max-depth=1 --absolute-path --base-directory=/ $(printf "--search-path %q " "${fpath[@]}")'
 
