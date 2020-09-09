@@ -374,6 +374,7 @@ function show() {
 }; compdef show=which
 
 function showv() {
+	type -a "$1" || return 1
 	local vflag="${2:---version}"
 	which -ap "$1" | while read i; do
 		echo && echo -n "🌕 "
