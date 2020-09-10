@@ -3,6 +3,7 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
+[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
 [[ -x "$(which -p micro)" ]] && export EDITOR="micro"
@@ -430,7 +431,6 @@ test -x "$(which -p curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/tldr.sh"
 test -x "$(which -p defaults)" && source "$DOTFILES/modules/defaults.sh"
 test -x "$(which -p diff)" && source "$DOTFILES/modules/diff.sh"
-test -x "$(which -p direnv)" && source "$DOTFILES/modules/direnv.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which -p flutter)" && source "$DOTFILES/modules/flutter.sh"

@@ -43,12 +43,15 @@ alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
-function nsv() {
-	local platforms=('android' 'ios')
-	local platform && for platform in "${platforms[@]}"; do
-		echo && echo "🌕 $platform"
-		npm info "tns-$platform" --json | jq --tab '.["dist-tags"]'
-	done
-}
+# alias ns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home ns"
+# alias tns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home tns"
+
+# function nsv() {
+# 	local platforms=('android' 'ios')
+# 	local platform && for platform in "${platforms[@]}"; do
+# 		echo && echo "🌕 $platform"
+# 		npm info "tns-$platform" --json | jq --tab '.["dist-tags"]'
+# 	done
+# }
 
 # [[ -x "$(which -p pnpm)" ]] && source "$HOME/.config/tabtab/zsh/pnpm.zsh"
