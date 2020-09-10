@@ -3,10 +3,11 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
-[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
+# [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
+[[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
-[[ -x "$(which -p micro)" ]] && export EDITOR="micro"
+[[ -x "$(which -p rnano)" ]] && export EDITOR="rnano"
 export VEDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
@@ -191,7 +192,7 @@ alias cl='printf "\ec\e[3J"'
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 # alias just="just --shell=$(which -p bash) --justfile=justfile.mk"
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+# alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias shellcheck="shellcheck --shell=bash --external-sources"
 alias ipcalc="ipcalc --nobinary"

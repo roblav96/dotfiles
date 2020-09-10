@@ -119,17 +119,18 @@ function app-bak() {
 	echo && exa --oneline "$tarpath"
 }
 
+local SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text 3")"
 alias st="subl"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
-alias stcd="cd '$HOME/Library/Application Support/Sublime Text 3'"
-alias stcdp="cd '$HOME/Library/Application Support/Sublime Text 3/Packages'"
-alias stcdu="cd '$HOME/Library/Application Support/Sublime Text 3/Packages/User'"
-alias stst="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Sublime Text.sublime-project'"
+alias stcd="cd '$SUBLIME_DATA'"
+alias stcdp="cd '$SUBLIME_DATA/Packages'"
+alias stcdu="cd '$SUBLIME_DATA/Packages/User'"
+alias stst="subl '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
 alias stpush='(stcd && gitpush)'
 function stbak() {
 	(
-		cd "$HOME/Library/Application Support"
+		cd "$(dirname "$SUBLIME_DATA")"
 		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz" "Sublime Text" | lscolors
 		echo && l "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz"
 	)
@@ -142,7 +143,7 @@ alias smgs='(smcd && gs)'
 alias smpush='(smcd && gitpush)'
 
 unalias dotsrc &>/dev/null
-alias dot="subl '$HOME/Library/Application Support/Sublime Text 3/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
 alias dotpush='(dotcd && gitpush) && zcomp'
 
