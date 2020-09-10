@@ -34,6 +34,7 @@ alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEA
 alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
+alias greload="git rev-parse --show-toplevel"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gitpush='test ! -d .git && echo "fatal: not a git repository" && return 1 || echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
@@ -43,6 +44,11 @@ function gc() {
 	local repo=(${@/ -*/})
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
+	if [[ -d "$outdir" ]]; then
+		read -q "?🔴 Remove existing directory '$outdir'...?" && return 1
+		rd "$outdir"
+	fi
+	[[ -d "$outdir" ]]
 	git clone "$@" && cd "$outdir"
 	[[ -e ".gitmodules" ]] && gsm
 }
