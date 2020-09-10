@@ -48,7 +48,6 @@ function gc() {
 		read -q "?🔴 Remove existing directory '$outdir'...?" && return 1
 		rd "$outdir"
 	fi
-	[[ -d "$outdir" ]]
 	git clone "$@" && cd "$outdir"
 	[[ -e ".gitmodules" ]] && gsm
 }
