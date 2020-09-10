@@ -13,7 +13,7 @@
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
-alias adbtop="echo; echo 'top -H -s11 -d1'; echo; adb shell"
+alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
