@@ -3,7 +3,7 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
-# [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
+[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
@@ -169,6 +169,7 @@ alias rp="realpath"
 alias k="killall -v -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -laph"
+alias ebash="/usr/bin/env -i /usr/local/bin/bash -l"
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
