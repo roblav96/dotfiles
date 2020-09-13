@@ -18,7 +18,7 @@ alias gsu="git standup"
 
 alias gsw="git switch"
 alias gft="git fetch --verbose"
-alias gft="git fetch --all --verbose"
+alias gfa="git fetch --all --verbose"
 alias gfo="git fetch origin --verbose"
 alias gfu="git fetch upstream --verbose"
 # alias gfta="git fetch --all --prune"
