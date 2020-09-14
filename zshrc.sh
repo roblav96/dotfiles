@@ -8,6 +8,7 @@
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
 [[ -x "$(which -p rnano)" ]] && export EDITOR="rnano"
+[[ -x "$(which -p micro)" ]] && export EDITOR="micro"
 export VEDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 

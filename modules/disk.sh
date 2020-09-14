@@ -8,6 +8,7 @@ alias tkls="tokei --languages"
 unset TK_FLAGS TK_FLAGS_ALL
 
 alias diskus="diskus --apparent-size"
+alias diskonaut="diskonaut --apparent-size"
 
 alias dust="dust --apparent-size --ignore-directory=.git"
 alias dustr="dust --depth=1"
