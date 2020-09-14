@@ -131,16 +131,12 @@ alias stpush='(stcd && gitpush)'
 function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
-		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz" "Sublime Text" | lscolors
-		echo && l "$HOME/Downloads/Sublime Text ($(date --iso-8601)).tar.gz"
+		local name="$(basename "$SUBLIME_DATA")"
+		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/$name ($(date --iso-8601)).tar.gz" "$name" | lscolors
+		echo && l "$HOME/Downloads/$name ($(date --iso-8601)).tar.gz"
 	)
 }
-
 alias sm="smerge"
-alias smcd="cd '$HOME/Library/Application Support/Sublime Merge'"
-alias smcdu="cd '$HOME/Library/Application Support/Sublime Merge/Packages/User'"
-alias smgs='(smcd && gs)'
-alias smpush='(smcd && gitpush)'
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
