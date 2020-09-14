@@ -12,6 +12,14 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 # alias mvnw='$PWD/mvnw -Dmaven.test.skip=true -DskipTests'
 # alias gradle="gradle --no-daemon"
 
+# alias androidx='rd $ANDROID_HOME/androidx/*; cp ~/Sandbox/android-dts-generator/dts-generator/jar-files/* $ANDROID_HOME/androidx'
+function sync-jar-files() {
+	rd "$ANDROID_HOME/jar-files"
+	cp "$HOME/Sandbox/android-dts-generator/dts-generator/jar-files" "$ANDROID_HOME"
+	fd --base-directory "$ANDROID_HOME/jar-files" --type=file --extension=jar lint.jar -X rm -rfv
+	fd --base-directory "$ANDROID_HOME/jar-files" --type=file --extension=jar lint.jar -X rm -rfv
+}
+
 function gradlew() {
 	if [[ -e "$PWD/gradlew" ]]; then
 		bash "$PWD/gradlew" "$@"

@@ -180,6 +180,7 @@ alias aliasls="alias -L | sed 's#^#\n#g'"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
 alias wcl="wc --lines"
+alias jt="just"
 alias rc="rclone"
 alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
@@ -194,7 +195,6 @@ alias cl='printf "\ec\e[3J"'
 # alias cl="printf '\033[2J\033[3J\033[1;1H'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-# alias just="just --shell=$(which -p bash) --justfile=justfile.mk"
 # alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias shellcheck="shellcheck --shell=bash --severity=error --external-sources"
