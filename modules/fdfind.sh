@@ -1,9 +1,11 @@
-local fd_flags="--hidden --exclude=.git --exclude=.DS_Store"
+local fd_flags="--hidden --exclude=.git"
 local fd_flags_all="$fd_flags --no-ignore"
 
 alias f="fd $fd_flags --exclude=node_modules"
 alias fa="fd $fd_flags_all"
 alias faa="fd $fd_flags_all --follow --full-path --absolute-path"
+
+unset fd_flags fd_flags_all
 
 function fwc() {
 	fd -uu --type=file --exclude=.git $([[ -n "$1" ]] && printf "--search-path %q " "$@") | wc --lines
@@ -73,4 +75,4 @@ fr="$fr\
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
 
-unset fd_flags fd_flags_all fr
+unset fr
