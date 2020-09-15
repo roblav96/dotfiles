@@ -27,7 +27,7 @@ alias gfu="git fetch upstream --verbose"
 alias gpl="git pull"
 alias gpr="git pull --rebase"
 alias gpf="git pull --ff-only"
-alias gsm="git submodule update --init --recursive"
+alias gmupd="git submodule update --init --recursive"
 
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
@@ -51,7 +51,7 @@ function gc() {
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
-	[[ -e ".gitmodules" ]] && gsm
+	[[ -e ".gitmodules" ]] && gmupd
 }
 function greload() {
 	local topdir="$(git rev-parse --show-toplevel)"
