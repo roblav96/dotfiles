@@ -8,6 +8,7 @@ alias gss="git status --short --branch | lscolors"
 alias gs="gd; echo; gss"
 alias gho="gh repo view --web"
 alias gbl="git branch --list --all"
+alias isg='[[ -d "$(git rev-parse --show-toplevel)" ]] || return 1'
 
 alias gl="git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
