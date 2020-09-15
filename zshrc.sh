@@ -194,7 +194,8 @@ alias cl='printf "\ec\e[3J"'
 # alias cl="clear && printf '\e[3J'"
 # alias cl="printf '\033[2J\033[3J\033[1;1H'"
 alias sortt="sort --ignore-case --ignore-leading-blanks --ignore-nonprinting"
-alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc" # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
+alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
+# --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 # alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias shellcheck="shellcheck --shell=bash --severity=error --external-sources"
