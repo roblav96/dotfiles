@@ -21,7 +21,10 @@ alias fpathf='fd -uu --max-depth=1 --absolute-path --base-directory=/ $(printf "
 local fr="fd -uu --absolute-path --base-directory=/"
 
 fr="$fr \
+--exclude=$HOME/.cocoapods \
+--exclude=$HOME/.gradle \
 --exclude=$HOME/.npm \
+--exclude=$HOME/.nuget \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
 --exclude=.git \
@@ -48,13 +51,10 @@ alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l i
 
 fr="$fr\
 --exclude=$HOME/.cargo \
---exclude=$HOME/.cocoapods \
 --exclude=$HOME/.dartServer \
 --exclude=$HOME/.gem \
 --exclude=$HOME/.go \
---exclude=$HOME/.gradle \
 --exclude=$HOME/.m2 \
---exclude=$HOME/.nuget \
 --exclude=$HOME/.playground \
 --exclude=$HOME/.rustup \
 "
