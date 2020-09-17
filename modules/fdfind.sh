@@ -25,11 +25,11 @@ fr="$fr \
 --exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
 --exclude=.git \
+--exclude=/dev \
 --exclude=mega-webdav \
 --exclude=node_modules \
 "
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
---exclude=/dev \
 --exclude=/proc \
 --exclude=/sys \
 --exclude=/var/www \
@@ -40,6 +40,7 @@ fr="$fr \
 --exclude=/System/Library/Templates/Data \
 --exclude=/System/Volumes/Data \
 --exclude=/usr/local/var/.DS_Store \
+--exclude=/usr/local/var/.TemporaryItems \
 --exclude=/usr/local/var/dmgs \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
