@@ -45,6 +45,7 @@ fr="$fr \
 --exclude=/usr/local/var/.DS_Store \
 --exclude=/usr/local/var/.TemporaryItems \
 --exclude=/usr/local/var/dmgs \
+--exclude=/Volumes \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
 alias frals="command -V fra | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
