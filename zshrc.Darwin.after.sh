@@ -62,6 +62,8 @@ alias restic-laptop="restic --verbose --repo rclone:drive:restic-laptop"
 alias razer-up="open -a RzDeviceEngine && open -a RzUpdater"
 alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 
+alias gmtool="gmtool --verbose"
+
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"
 # alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"

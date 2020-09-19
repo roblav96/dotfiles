@@ -20,18 +20,15 @@ function ipinfo() {
 	fi
 }
 
-alias ipallinfo='
-ipinfo;
-echo;
-echo "🌕 iplist.cc";
-curl https://iplist.cc/api | json;
-echo;
-echo "🌕 ifconfig.co";
-curl https://ifconfig.co/json | json ". |= del(.user_agent)";
-echo;
-echo "🌕 ipinfo.io";
-curl https://ipinfo.io | json ". |= del(.readme)"
-'
+function ipallinfo() {
+	ipinfo
+	echo && echo "🌕 iplist.cc"
+	curl "https://iplist.cc/api" | json
+	echo && echo "🌕 ifconfig.co"
+	curl "https://ifconfig.co/json" | json '. |= del(.user_agent)'
+	echo && echo "🌕 ipinfo.io"
+	curl "https://ipinfo.io" | json '. |= del(.readme)'
+}
 
 function dns() {
 	if [[ "$PLATFORM" == "Darwin" ]]; then
