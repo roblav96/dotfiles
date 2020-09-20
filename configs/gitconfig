@@ -1,5 +1,15 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+[user]
+	email = roblav96@gmail.com
+	name = Robert Laverty
 [hub]
 	protocol = https
+[log]
+	date = relative
 [color]
 	branch = always
 	diff = always
@@ -22,12 +32,3 @@
 	minus-emph-style = syntax 88
 	plus-style = syntax "#002800" # 22
 	plus-emph-style = syntax 28
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	process = git-lfs filter-process
-	required = true
-	smudge = git-lfs smudge -- %f
-[user]
-	email = roblav96@gmail.com
-	name = Robert Laverty
