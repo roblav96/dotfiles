@@ -5,17 +5,17 @@ if [[ -x "$(which -p tldr)" ]]; then
 		mkdir -p "$TEALDEER_CACHE_DIR"
 		tldr --update
 	fi
-	local TEALDEER_CACHE_DIR_PAGES="$TEALDEER_CACHE_DIR/tldr-master/pages"
-	local TEALDEER_CACHE_DIR_OS="$([[ "$PLATFORM" == "Darwin" ]] && echo "osx" || echo "linux")"
 	function tlsr() {
-		local files=($(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | sort))
-		for file in "${files[@]}"; do
+		local cache_dir_pages="$TEALDEER_CACHE_DIR/tldr-master/pages"
+		local cache_dir_os="$([[ "$PLATFORM" == "Darwin" ]] && echo "osx" || echo "linux")"
+		local files=($(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
+		local file && for file in "${files[@]}"; do
 			local name="$(basename "$file" '.md')"
 			echo "🌕 '$name'"
 			tldr --color=always "$name" | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
 		done
-		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS")"} )
-		# rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$TEALDEER_CACHE_DIR_PAGES/common" "$TEALDEER_CACHE_DIR_PAGES/$TEALDEER_CACHE_DIR_OS" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
+		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os")"} )
+		# rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"
 	}
 	function tl() {
 		tldr --quiet "$@" || ch "$@"
@@ -55,11 +55,13 @@ if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 		gencomp "$@" && bat -l sh "$GENCOMPL_FPATH/_$1" && zcomp
 	} && compdef gcomp=command
 	compdef gencomp=command
-	function mgcomp() {
-		man "$1" | cat | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >| "$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && zcomp
-	} && compdef mgcomp=man
+	function man2comp() {
+		man "$1" | cat | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && zcomp
+	} && compdef man2comp=command
 	function help2comp() {
-		echo "$(</dev/stdin)" | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >| "$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1"
+		local stdin=$(</dev/stdin)
+		echo "🌕 stdin -> '$stdin'"
+		echo $stdin | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1"
 	} && compdef help2comp=command
 fi
 
@@ -90,3 +92,7 @@ alias chs="chls | g"
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
 alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat --style=grid -l sh"
 alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat --style=grid -l sh"
+
+function clfu() {
+	echo curl "http://www.commandlinefu.com/commands/tagged/163/$*/plaintext" | bat --style=grid -l sh
+} && compdef clfu=command

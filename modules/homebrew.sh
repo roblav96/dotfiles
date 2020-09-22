@@ -310,9 +310,9 @@ function bupg-node() {
 	echo "✅ Copied to clipboard"
 }
 function bupg-node@12() {
-	brm node node@12
+	brm node node@12 node@10
 	brew cleanup --verbose
-	bin node node@12
+	bin node node@12 node@10
 	bcd node@12
 	mkdir libexec/bin libexec/lib
 	mv bin/npm bin/npx libexec/bin
@@ -326,9 +326,9 @@ function bupg-node@12() {
 
 function bupg-deno() {
 	rm -v -f "$DENO_DIR/lib.deno.d.ts"
-	wget --output-document "$DENO_DIR/lib.deno.d.ts" "https://github.com/denoland/deno/releases/latest/download/lib.deno.d.ts"
+	deno types > "$DENO_DIR/lib.deno.d.ts"
 	rm -v -f "$DENO_DIR/lib.deno.unstable.d.ts"
-	wget --output-document "$DENO_DIR/lib.deno.unstable.d.ts" "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.unstable.d.ts"
+	deno types --unstable > "$DENO_DIR/lib.deno.unstable.d.ts"
 }
 
 function bcupg-chrome() {

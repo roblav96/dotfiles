@@ -37,6 +37,9 @@ disabled = true
 # renamed_count = true
 # deleted_count = true
 
+[battery]
+disabled = true
+
 [time]
 disabled = true
 

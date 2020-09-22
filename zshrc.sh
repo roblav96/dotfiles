@@ -92,7 +92,15 @@ if [[ -x "$(which -p antibody)" ]]; then
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 
 	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
+	if [[ -x "$(which -p vivid)" ]]; then
+		# export LS_COLORS="$(vivid generate molokai)"
+	fi
 	LS_COLORS+="*-=38;5;241:*~=38;5;241:"
+	echo "🌕 LS_COLORS -> '$LS_COLORS'"
+
+	local ls_colors=$(echo $LS_COLORS | sed 's|:|\n|g')
+	echo "🌕 ls_colors -> '$ls_colors'"
+
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 	# local sitefns="${fpath[2]}"
@@ -203,7 +211,7 @@ alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
-alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
+alias uuid8="uuid | head -c8"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 # alias play="mkc $HOME/.playground; l"
@@ -267,8 +275,8 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # fi
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --sort-keys --tab"
-alias j="json"
+alias json="jq --sort-keys --tab" && alias j="json"
+# alias {json,j}="jq --sort-keys --tab"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"

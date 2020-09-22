@@ -13,15 +13,15 @@
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
-alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
 alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
-alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
+alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
+alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adb-display="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
 
 # alias rogcat="rogcat --level trace"
@@ -112,7 +112,6 @@ function adb-pm-f() {
 
 function adb-play-store() {
 	local action="${1:-disable-user}"
-	echo "🌕 action -> '$action'"
 	local packages=(
 		'com.android.inputmethod.latin'
 		'com.android.vending'

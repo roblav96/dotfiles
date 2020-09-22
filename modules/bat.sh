@@ -71,7 +71,7 @@ alias bpl="batplist"
 alias bplist="batplist"
 
 function dotbat() {
-	cat "$@" | grep --invert-match '^# ' | bat --style=grid -l sh
+	cat "$@" | sed -e '/^\s*#/d' | bat --file-name="$@" -l sh
 }
 
 function pbat() {
