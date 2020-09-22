@@ -93,14 +93,11 @@ if [[ -x "$(which -p antibody)" ]]; then
 
 	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	if [[ -x "$(which -p vivid)" ]]; then
-		# export LS_COLORS="$(vivid generate molokai)"
+		LS_COLORS="$(vivid -m 8-bit generate molokai):$LS_COLORS"
 	fi
-	LS_COLORS+="*-=38;5;241:*~=38;5;241:"
-	echo "🌕 LS_COLORS -> '$LS_COLORS'"
-
-	local ls_colors=$(echo $LS_COLORS | sed 's|:|\n|g')
-	echo "🌕 ls_colors -> '$ls_colors'"
-
+	LS_COLORS="$LS_COLORS*-=38;5;241:*~=38;5;241:"
+	# echo "🌕 LS_COLORS -> '$LS_COLORS'"
+	# echo "🌕 LS_COLORS -> $(echo $LS_COLORS | sed -e 's|:|\n|g')"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 	# local sitefns="${fpath[2]}"

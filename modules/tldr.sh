@@ -42,7 +42,7 @@ function how() {
 	#
 	# local regexp="$(echo "$@" | sd ' ' '|')"
 	# local regexp="($(echo "$@" | sed 's/ /|/g'))"
-	# local regexp="${@//\\s/|}"
+	# local regexp="${@//\ /|}"
 	# echo "🌕 regexp -> '$regexp'"
 	# howdoi --color --all "$@" | rg --color=always --ignore-case --passthru --regexp="'"$regexp"'"
 }

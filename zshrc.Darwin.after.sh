@@ -44,7 +44,7 @@ alias .ssh_config="subl --new-window $HOME/.ssh/config"
 alias .known_hosts="subl --new-window $HOME/.ssh/known_hosts"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
-alias pfcat="cat /etc/pf.conf | grep --invert-match '^#' | sed '/^$/d' | bat --style=grid -l py"
+alias pfcat="cat /etc/pf.conf | sed -e '/^[ ]*#/d' -e '/^$/d' | bat --file-name=/etc/pf.conf -l py"
 alias pfs="sudo pfctl -q -s info | head -n 1; sudo pfctl -q -s states"
 alias pfsr="sudo pfctl -q -s rules | bat --style=grid -l py"
 alias pfsa="sudo pfctl -q -s all"
