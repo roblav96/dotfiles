@@ -94,5 +94,6 @@ alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheet
 alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat --style=grid -l sh"
 
 function clfu() {
-	echo curl "http://www.commandlinefu.com/commands/tagged/163/$*/plaintext" | bat --style=grid -l sh
+	local b64="$(echo -n "$*" | base64)"
+	curl "http://www.commandlinefu.com/commands/matching/$*/$b64/sort-by-votes/plaintext" | bat --style=grid -l sh
 } && compdef clfu=command

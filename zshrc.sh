@@ -203,6 +203,7 @@ alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-u
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 # alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
+alias hors="hors --raw --paging=never"
 alias shellcheck="shellcheck --shell=bash --severity=error --external-sources"
 alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
