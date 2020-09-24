@@ -276,11 +276,11 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
-# alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
-alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
-alias axel="axel --alternate --timeout=5"
-alias wget="wget --quiet --show-progress --connect-timeout=5"
-alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
+# alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
+alias http="echo; http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
+alias axel="axel --alternate --timeout=3"
+alias wget="wget --quiet --show-progress --connect-timeout=3"
+alias curl="curl --silent --show-error --fail-early --location --connect-timeout 3"
 alias curlt='curl --output /dev/null --write-out "
 	Effective URL = %{url_effective}
 	Content Type = %{content_type}
@@ -303,8 +303,8 @@ alias curlt='curl --output /dev/null --write-out "
 "'
 # alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
-	curl "$*" | json
-}
+	curl $@ | json
+} && compdef curlj=curl
 
 if [[ -x "$(which -p rmate)" ]]; then
 	alias st="rmate"

@@ -1,5 +1,5 @@
 export HOMEBREW_AUTO_UPDATE_SECS="3600"
-export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
+export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine --verbose"
 export HOMEBREW_DISPLAY_INSTALL_TIMES="1"
 export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
@@ -81,7 +81,7 @@ function bin() {
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		brew cask install --no-quarantine "$v"
+		brew cask install --no-quarantine --verbose "$v"
 	done
 }
 
@@ -96,7 +96,7 @@ function brein() {
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		brew cask reinstall --no-quarantine "$v"
+		brew cask reinstall --no-quarantine --verbose "$v"
 	done
 } && compdef bcrein=command
 
@@ -108,7 +108,7 @@ function bupg() {
 function bcupg() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Upgrading cask -> '$v'"
-		brew cask upgrade --no-quarantine "$v"
+		brew cask upgrade --no-quarantine --verbose "$v"
 	done
 } && compdef bcupg=command
 
