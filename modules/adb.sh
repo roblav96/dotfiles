@@ -21,9 +21,6 @@ alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
-alias gmls="genyshell -c 'devices list'; echo; VBoxManage list vms"
-alias gmup="open -a player --args --vm-name"
-
 alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adb-display="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
 

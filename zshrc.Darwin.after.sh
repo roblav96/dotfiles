@@ -54,6 +54,9 @@ alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.c
 alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfs"
 alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-nj.plist; sleep 1; echo; sudo wg; echo; pfd"
 
+alias gmls="genyshell -c 'devices list'; echo; VBoxManage list vms"
+alias gmup="open -a player --args --vm-name"
+
 alias ifcls="ifconfig -v -a -r | bat --style=grid -l yml"
 alias lsapps="lsappinfo list | bat --style=grid -l ini"
 
