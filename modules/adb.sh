@@ -119,11 +119,14 @@ function adb-play-store() {
 		'com.google.android.feedback'
 		'com.google.android.gms'
 		'com.google.android.gsf'
+		'com.google.android.inputmethod.latin'
 		'com.google.android.katniss'
+		'com.google.android.sss'
 		'com.google.android.sss.authbridge'
 		'com.google.android.tv.bugreportsender'
 	)
 	local package && for package in "${packages[@]}"; do
-		adb shell pm $action --user 0 $package
+		echo "🌕 $action -> '$package'"
+		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
 	done
 }
