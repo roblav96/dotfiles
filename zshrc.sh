@@ -391,15 +391,16 @@ function show() {
 
 function showv() {
 	type -a "$1" || return 1
-	local vflag="${2:---version}"
+	local vflags=${@:2}
+	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do
 		echo && echo -n "🌕 "
 		exa "$i"
 		i="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$i"
 		echo -n "   " && diskus "$i"
-		echo "$i $vflag" | bat --plain -l sh
-		eval "$i $vflag"
+		echo "$i $vflags" | bat --plain -l sh
+		eval "$i $vflags"
 	done
 } && compdef showv=command
 
