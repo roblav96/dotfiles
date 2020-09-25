@@ -1,6 +1,3 @@
-export CLICOLOR="1"
-export LSCOLORS="ExFxBxDxCxegedabagacad"
-
 # if [[ -d "/home/linuxbrew/.linuxbrew/opt/openssl" ]]; then
 # 	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
 # fi

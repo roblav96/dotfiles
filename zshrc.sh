@@ -92,8 +92,9 @@ if [[ -x "$(which -p antibody)" ]]; then
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 
 	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
+	# vivid -m 8-bit generate molokai | sed -e 's|:|\n|g' -e 's|=[0,1,2,3,4];|\t\t|g' -e 's|=|\t|g' > "$TMPDIR/LS_COLORS"
 	if [[ -x "$(which -p vivid)" ]]; then
-		LS_COLORS="$(vivid -m 8-bit generate molokai):$LS_COLORS"
+		LS_COLORS="$LS_COLORS$(vivid -m 8-bit generate molokai):$LS_COLORS"
 	fi
 	LS_COLORS="$LS_COLORS*-=38;5;241:*~=38;5;241:"
 	# echo "🌕 LS_COLORS -> '$LS_COLORS'"
