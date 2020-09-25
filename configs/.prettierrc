@@ -86,6 +86,15 @@
 			},
 		},
 		{
+			"files": ["*.java-properties", "*.java"],
+			"options": {
+				"parser": "java",
+				"singleQuote": false,
+				"tabWidth": 4,
+				"useTabs": false,
+			},
+		},
+		{
 			"files": [
 				"*.aw",
 				"*.blade.php",
