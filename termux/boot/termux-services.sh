@@ -4,7 +4,7 @@ if [ -x "$(which pgrep)" ]; then
 	[ -x "$(which sshd)" ] && pgrep -x sshd >/dev/null || sshd
 	if [ -x "$(which tinyproxy)" ]; then
 		if [ -x "$(which sed)" ]; then
-			sed --in-place='' 's/^Allow/#Allow/' "$PREFIX/usr/etc/tinyproxy/tinyproxy.conf"
+			sed --in-place='' 's/^Allow/#Allow/' "$PREFIX/etc/tinyproxy/tinyproxy.conf"
 		fi
 		pgrep -x tinyproxy >/dev/null || tinyproxy
 	fi
