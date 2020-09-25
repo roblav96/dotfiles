@@ -321,8 +321,11 @@ alias pubget="wget --http-user=admin --http-password="
 
 alias pa="ps auxww"
 alias p="ps auxww | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
-[[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
-[[ "$PLATFORM" == "Linux" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	alias pst="pstree -wg3"
+else
+	alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+fi
 function pe() {
 	pgrep "$*" | while read pid; do
 		# echo "🌕 pid -> '$pid'"

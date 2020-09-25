@@ -1,4 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/sh
-if [ -x /data/data/com.termux/files/usr/bin/termux-wake-lock ]; then
-	/data/data/com.termux/files/usr/bin/termux-wake-lock
+[ -x "$(which termux-wake-lock)" ] && termux-wake-lock
+if [ -x "$(which pgrep)" ]; then
+	[ -x "$(which sshd)" ] && pgrep -x sshd >/dev/null || sshd
+	[ -x "$(which tinyproxy)" ] && pgrep -x tinyproxy >/dev/null || tinyproxy
 fi
