@@ -12,7 +12,7 @@ alias npmcd='cd $(npm root -g)'
 alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
 
 alias npmout="pnpx updates"
-alias npmupg="pnpx updates --update"
+alias npmupg="pnpx updates --update && npm install"
 alias npmaudit="pnpx auditjs ossi"
 alias npmcheck="pnpx npm-check --skip-unused"
 alias npmdepcheck="pnpx depcheck"
