@@ -80,10 +80,6 @@ alias wifi-setmanual-hotspot='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env
 alias wifi-setmanual-r7800='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.r7800)'
 alias wifi-setmanual-e300='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.e300)'
 
-function premiumize() {
-	curlj --proxy "192.168.1.2:8888" "https://www.premiumize.me/api/transfer/directdl?$(cat $DOTFILES/.env.premiumize)&src=magnet:?xt=urn:btih:0e53586d87195efd87b082cec14733be09cb02d1"
-}
-
 alias display="m display status | bat --plain -l yml"
 
 alias o="open ."
