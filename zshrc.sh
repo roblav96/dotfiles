@@ -213,6 +213,7 @@ alias lsd="lsd --icon=never --long --all --classify"
 alias uuid8="uuid | head -c8"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
+alias cpanm="cpanm --notest"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
