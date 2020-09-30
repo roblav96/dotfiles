@@ -11,10 +11,10 @@ function aptfs() {
 	apt-file list "$*" | sed 's#^.*: ##' | sortt | lscolors
 }
 function apts() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --after-context=1 "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
 }
 function aptsw() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp --after-context=1 "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp "$*"
 }
 function aptsa() {
 	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
