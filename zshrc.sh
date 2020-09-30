@@ -215,7 +215,6 @@ alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias tstamp='echo -e "\n\n$(date +%c)\n\n" | sudo tee -a'
-# alias tstamp='sudo bash -c "echo -e '\n\n$(date +%c)\n\n' >> /var/log/h2o/error.log"'
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
