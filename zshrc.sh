@@ -471,8 +471,6 @@ test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
 
-[[ -x "$(which -p pkgconf)" ]] && compdef pkgconf=pkg-config
-
 function dotcompinit() {
 	# echo "🌕 dotcompinit"
 	# echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
