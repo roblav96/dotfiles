@@ -4,7 +4,7 @@ scan_timeout = 30
 [character]
 success_symbol = "[█](green)"
 error_symbol = "[█](red)"
-# symbol = "█"
+symbol = "█"
 # error_symbol = "✖"
 # use_symbol_for_status = true
 
