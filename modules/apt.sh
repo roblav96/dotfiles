@@ -6,6 +6,7 @@ alias aptupg="sudo apt upgrade"
 
 function apti() {
 	apt show "$*" 2>/dev/null | bat --plain -l yml
+	apt policy "$*" 2>/dev/null | bat --plain -l yml
 }
 function aptfs() {
 	apt-file list "$*" | sed 's#^.*: ##' | sortt | lscolors
