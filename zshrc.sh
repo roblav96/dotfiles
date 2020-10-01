@@ -214,12 +214,14 @@ alias uuid8="uuid | head -c8"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
-alias tstamp='echo -e "\n\n$(date +%c)\n\n" | sudo tee -a'
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
+
+[[ "$PLATFORM" != "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | tee -a'
+[[ "$PLATFORM" == "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | sudo tee -a'
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
