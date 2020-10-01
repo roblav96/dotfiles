@@ -53,6 +53,9 @@ style = "red bold"
 [aws]
 disabled = true
 
+[cmake]
+disabled = true
+
 [dart]
 disabled = true
 
