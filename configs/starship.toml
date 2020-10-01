@@ -2,7 +2,9 @@ add_newline = true
 scan_timeout = 30
 
 [character]
-symbol = "█"
+success_symbol = "[█](bold green)"
+error_symbol = "[█](bold red)"
+# symbol = "█"
 # error_symbol = "✖"
 # use_symbol_for_status = true
 
@@ -19,7 +21,7 @@ truncation_length = -1
 # prefix = " in "
 
 [git_branch]
-symbol = "⑆ "
+symbol = ""
 # symbol = "ᚬ ᚼ ᛅ ᛘ ᛦ ᛋ ⑆ "
 # [git_commit]
 # disabled = true
