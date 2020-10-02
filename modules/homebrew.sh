@@ -116,7 +116,11 @@ function bi() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Info formula -> '$v'"
 		brew desc "$v" && brew info "$v"
-		[[ "$PLATFORM" == "Linux" ]] && brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux'
+		if [[ "$PLATFORM" == "Linux" ]]; then
+			local bottle=$(brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url' &>/dev/null && echo ✅ || echo 🔴)
+			echo -n "x86_64_linux bottle: $bottle"
+
+		fi
 	done
 } && compdef bi=command
 function bci() {
