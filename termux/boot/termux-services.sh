@@ -2,11 +2,11 @@
 
 if [ -x "$(which pgrep)" ]; then
 	[ -x "$(which termux-wake-lock)" ] && termux-wake-lock
-	[ -x "$(which sshd)" ] && pgrep -x sshd >/dev/null || sshd
+	[ -x "$(which sshd)" ] && pgrep -xo sshd >/dev/null || sshd
 	if [ -x "$(which tinyproxy)" ]; then
 		if [ -x "$(which sed)" ]; then
 			sed --in-place='' 's/^Allow/#Allow/' "$PREFIX/etc/tinyproxy/tinyproxy.conf"
 		fi
-		pgrep -x tinyproxy >/dev/null || tinyproxy -c "$PREFIX/etc/tinyproxy/tinyproxy.conf"
+		pgrep -xo tinyproxy >/dev/null || tinyproxy -c "$PREFIX/etc/tinyproxy/tinyproxy.conf"
 	fi
 fi
