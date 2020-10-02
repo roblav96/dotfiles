@@ -220,8 +220,8 @@ alias cpanm="cpanm --notest"
 # alias ll="ls -lAFhnU"
 # alias man="man -P more"
 
-[[ "$PLATFORM" != "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | tee -a'
 [[ "$PLATFORM" == "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | sudo tee -a'
+[[ "$PLATFORM" != "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | tee -a'
 
 # export GREP_COLOR="01;31;48;5;16"
 # export GREP_COLORS="ms=01;31;48;5;16:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
@@ -325,12 +325,9 @@ alias pubget="wget --http-user=admin --http-password="
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias pa="ps auxww"
-alias p="ps auxww | rg --fixed-strings --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
-if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias pst="pstree -wg3"
-else
-	alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
-fi
+alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+[[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
+[[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 function pe() {
 	pgrep "$*" | while read pid; do
 		# echo "🌕 pid -> '$pid'"
