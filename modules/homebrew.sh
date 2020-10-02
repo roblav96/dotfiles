@@ -117,9 +117,8 @@ function bi() {
 		echo && echo "🌕 Info formula -> '$v'"
 		brew desc "$v" && brew info "$v"
 		if [[ "$PLATFORM" == "Linux" ]]; then
-			local bottle=$(brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url' &>/dev/null && echo ✅ || echo 🔴)
-			echo -n "x86_64_linux bottle: $bottle"
-
+			echo "x86_64_linux bottle:"
+			brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
 	done
 } && compdef bi=command
