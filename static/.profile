@@ -131,7 +131,7 @@ if [[ "$USER" == "root" ]]; then
 fi
 export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 
-export CLICOLOR="1"
+# export CLICOLOR="1"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 # export TERM="xterm-256color"
 

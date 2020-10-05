@@ -25,11 +25,11 @@ fi
 
 [[ -x "$(which -p tabs)" ]] && tabs -4
 
-export CLICOLOR="1"
+# export CLICOLOR="1"
 export ADBLOCK="1"
-export DEBUG_COLORS="1"
+# export DEBUG_COLORS="1"
 export DISABLE_OPENCOLLECTIVE="1"
-export FORCE_COLOR="1"
+# export FORCE_COLOR="1"
 export SUPPRESS_SUPPORT="1"
 
 # export RPROMPT="%F{000}%* %F{001}%* %F{002}%* %F{003}%* %F{004}%* %F{005}%* %F{006}%* %F{007}%* %F{008}%* %F{009}%*"
@@ -235,6 +235,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	chmod 700 "$HOME/.Trash"
 fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
+# alias rda="rd {.,}*"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lm --tree --level=2 $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?Empty Trash? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash"
