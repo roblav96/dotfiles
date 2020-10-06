@@ -12,7 +12,7 @@ alias b="bat"
 alias bl="bat --style=grid --language"
 alias bn="bat --style=header,grid,numbers"
 alias bp="bat --plain"
-alias bpg="bat --style=grid"
+alias bgr="bat --style=grid"
 
 alias bb="bat --style=grid -l bash"
 # alias be="bat --style=grid -l perl"

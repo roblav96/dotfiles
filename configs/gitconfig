@@ -6,6 +6,8 @@
 [user]
 	email = roblav96@gmail.com
 	name = Robert Laverty
+[advice]
+	detachedHead = false
 [hub]
 	protocol = https
 [log]

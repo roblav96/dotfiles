@@ -6,7 +6,7 @@ alias cgin="cargo install --force"
 alias cgls="lch $HOME/.cargo/bin"
 alias cgout="cargo install-update --list"
 alias cgrm="cargo uninstall"
-alias cgc="cargo check --workspace"
+alias cgc="cargo check --workspace --verbose"
 alias cgf="cargo fetch --verbose"
 
 alias cglnls="lch /usr/local/bin | g cargo/bin"
