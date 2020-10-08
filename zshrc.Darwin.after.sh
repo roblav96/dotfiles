@@ -25,13 +25,13 @@ function duti-sublime() {
 # r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🌕 $ii"; duti -x "$ii"; done; done
 
 # alias ssh="ssh -L 52698:localhost:52699"
-alias pbcopy="pbcopy -Prefer txt"
+# alias pbcopy="pbcopy -Prefer txt"
 alias rmxattr="xattr -c"
 alias rmfxattr="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias .hosts="sudo $EDITOR /etc/hosts && read -q '?hostsflush...?' && return 1; hostsflush; echo '✅ hostsflush'"
+alias .hosts="sudo $EDITOR /etc/hosts"
 alias .paths="sudo $EDITOR /etc/paths"
 alias .profile="sudo $EDITOR /etc/.profile"
 
@@ -42,6 +42,7 @@ alias .alacritty="subl --new-window $DOTFILES/configs/alacritty.yml"
 alias .starship="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 alias .known_hosts="subl --new-window $HOME/.ssh/known_hosts"
+alias .h2o="subl --new-window /usr/local/etc/h2o/h2o.conf"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
 alias pfcat="cat /etc/pf.conf | sed -e '/^[ ]*#/d' -e '/^$/d' | bat --file-name=/etc/pf.conf -l py"
