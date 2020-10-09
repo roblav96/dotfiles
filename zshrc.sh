@@ -205,7 +205,7 @@ alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-u
 # alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --raw --paging=never"
-alias shellcheck="shellcheck --shell=bash --severity=error --external-sources"
+alias shellcheck="shellcheck --shell=bash --external-sources"
 alias ipcalc="ipcalc --nobinary"
 alias chars="echo; bat --plain $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"

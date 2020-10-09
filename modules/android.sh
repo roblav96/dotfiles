@@ -14,14 +14,14 @@ export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 
 function gradlew() {
 	if [[ -e "$PWD/gradlew" ]]; then
-		bash "$PWD/gradlew" "$@"
+		./gradlew "$@"
 	else
 		gradle "$@"
 	fi
 }
 function mvnw() {
 	if [[ -e "$PWD/mvnw" ]]; then
-		bash "$PWD/mvnw" "$@"
+		./mvnw "$@"
 	else
 		mvn "$@"
 	fi
