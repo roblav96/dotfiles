@@ -132,8 +132,12 @@ function bcdcellar() {
 	cd $(realpath $(brew --prefix $1))
 } && compdef bcd=command
 function bbin() {
-	[[ -d "$(brew --prefix)/opt/$1/bin" ]] && lara "$(brew --prefix)/opt/$1/bin"
-	[[ -d "$(brew --prefix)/opt/$1/sbin" ]] && lara "$(brew --prefix)/opt/$1/sbin"
+	local v && for v in "$@"; do
+		echo && echo "🌕 /bin files -> '$v'"
+		[[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]] && lara "$(brew --prefix)/opt/$v/libexec/bin"
+		[[ -d "$(brew --prefix)/opt/$v/bin" ]] && lara "$(brew --prefix)/opt/$v/bin"
+		[[ -d "$(brew --prefix)/opt/$v/sbin" ]] && lara "$(brew --prefix)/opt/$v/sbin"
+	done
 } && compdef bbin=command
 function bfs() {
 	local v && for v in "$@"; do

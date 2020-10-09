@@ -9,13 +9,3 @@
 
 alias black="black --verbose --line-length=100 --target-version=py38"
 alias yapf="yapf --style='{ based_on_style: facebook, column_limit: 100, continuation_align_style: FIXED, continuation_indent_width: 4, indent_width: 4, spaces_before_comment: 1, use_tabs: true }'"
-
-# alias pip='pip --target=$HOME/.virtualenv'
-alias pips="pip search"
-alias pipi="pip show"
-alias pipfs="pip show --files"
-alias pipin="pip install"
-alias piprm="pip uninstall --yes"
-alias pipls="pip list --format columns --verbose"
-alias pipout="pip list --format columns --outdated"
-alias pipupg="pip install --upgrade"
