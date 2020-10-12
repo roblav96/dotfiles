@@ -10,9 +10,12 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
+# declare ADB_SERIAL="192.168.2.40"
+
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
+
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
@@ -41,7 +44,6 @@ function exoplayer() {
 	fi
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
-alias soundcloud="adb shell am start -a android.intent.action.VIEW -d"
 
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings-ls() {
