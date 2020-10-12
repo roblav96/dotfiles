@@ -91,6 +91,8 @@ if [[ -x "$(which -p antibody)" ]]; then
 	source <(antibody init)
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 
+	setopt share_history
+
 	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	# vivid -m 8-bit generate molokai | sed -e 's|:|\n|g' -e 's|=[0,1,2,3,4];|\t\t|g' -e 's|=|\t|g' > "$TMPDIR/LS_COLORS"
 	if [[ -x "$(which -p vivid)" ]]; then
@@ -349,9 +351,9 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias hist="cat $HOME/.zsh_history | sed 's#^.*:0;##'"
+alias hist="cat $HOME/.zsh_history | sed 's|^: .*:0;||'"
 function histw() {
-	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's#^#\n#g' | bat --plain -l sh
+	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's|^|\n|g' | bat --plain -l sh
 }; compdef histw=which
 
 function mans() {

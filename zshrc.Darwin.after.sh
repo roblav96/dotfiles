@@ -95,9 +95,9 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function phone-bak() {
-	adb shell pm list packages -3 | sed 's|^package:||' | sortt > 'adb shell pm list packages -3.log'
-	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt > 'adb shell pm list packages -3 -d.log'
-	adb shell pm list packages -s -d | sed 's|^package:||' | sortt > 'adb shell pm list packages -s -d.log'
+	adb shell pm list packages -3 | sed 's|^package:||' | sortt > 'pm list packages -3.log'
+	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt > 'pm list packages -3 -d.log'
+	adb shell pm list packages -s -d | sed 's|^package:||' | sortt > 'pm list packages -s -d.log'
 	adb pull "/sdcard/.rclone/"
 	adb pull "/sdcard/.ssh/"
 	adb pull "/sdcard/data/"
