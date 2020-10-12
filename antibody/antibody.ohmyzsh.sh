@@ -22,7 +22,7 @@ ohmyzsh/ohmyzsh path:plugins/last-working-dir
 # ohmyzsh/ohmyzsh path:plugins/rust
 ohmyzsh/ohmyzsh path:plugins/safe-paste
 # ohmyzsh/ohmyzsh path:plugins/sudo
-ohmyzsh/ohmyzsh path:plugins/systemadmin
+# ohmyzsh/ohmyzsh path:plugins/systemadmin
 # ohmyzsh/ohmyzsh path:plugins/transfer
 # ohmyzsh/ohmyzsh path:plugins/wd
 # ohmyzsh/ohmyzsh path:plugins/z

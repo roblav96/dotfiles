@@ -43,6 +43,18 @@ alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
+alias nssed="sed -e 's|^JS: ||'$(
+	local sedexp=""
+	for ((i = 4; i > 0; i--)); do
+		sedexp+=" -e 's|^"
+		for i in {1..$i}; do sedexp+="  "; done
+		sedexp+="|"
+		for i in {1..$i}; do sedexp+="\\\t"; done
+		sedexp+="|'"
+	done
+	echo -n $sedexp
+)"
+
 # alias ns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home ns"
 # alias tns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home tns"
 

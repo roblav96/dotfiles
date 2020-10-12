@@ -311,7 +311,7 @@ alias curlt='curl --output /dev/null --write-out "
 "'
 # alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
-	curl $@ | json
+	curl "$@" | json
 } && compdef curlj=curl
 
 if [[ -x "$(which -p rmate)" ]]; then
@@ -392,6 +392,7 @@ function show() {
 		fi
 	fi
 }; compdef show=which
+alias s="show"
 
 function showv() {
 	type -a "$1" || return 1
