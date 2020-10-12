@@ -91,8 +91,6 @@ if [[ -x "$(which -p antibody)" ]]; then
 	source <(antibody init)
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
 
-	setopt share_history
-
 	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	# vivid -m 8-bit generate molokai | sed -e 's|:|\n|g' -e 's|=[0,1,2,3,4];|\t\t|g' -e 's|=|\t|g' > "$TMPDIR/LS_COLORS"
 	if [[ -x "$(which -p vivid)" ]]; then
@@ -120,6 +118,7 @@ export WORDCHARS=""
 export HISTSIZE="999999999"
 export SAVEHIST="999999999"
 setopt hist_ignore_all_dups
+setopt share_history
 
 # setopt rm_star_silent
 # setopt bash_auto_list
