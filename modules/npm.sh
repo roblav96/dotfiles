@@ -45,7 +45,7 @@ alias vue.inspect="FORCE_COLOR=0 vue inspect"
 
 alias nssed="sed -e 's|^JS: ||'$(
 	local sedexp=""
-	for ((i = 4; i > 0; i--)); do
+	for ((i = 16; i > 0; i--)); do
 		sedexp+=" -e 's|^"
 		for i in {1..$i}; do sedexp+="  "; done
 		sedexp+="|"
