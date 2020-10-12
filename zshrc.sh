@@ -78,7 +78,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 
 
-local GENCOMPL_FPATH="$HOME/.cache/gencomp"
+export GENCOMPL_FPATH="$HOME/.cache/gencomp"
 [[ ! -d "$GENCOMPL_FPATH" ]] && mkdir -pv "$GENCOMPL_FPATH"
 zstyle :plugin:zsh-completion-generator programs ""
 fpath=($GENCOMPL_FPATH $fpath)
@@ -87,6 +87,7 @@ if [[ -x "$(which -p antibody)" ]]; then
 	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
 	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	# zle_highlight+=(paste:bold)
+	# zle_highlight=('paste:none')
 
 	source <(antibody init)
 	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
@@ -120,6 +121,7 @@ export SAVEHIST="999999999"
 setopt hist_ignore_all_dups
 setopt share_history
 
+unset zle_bracketed_paste
 # setopt rm_star_silent
 # setopt bash_auto_list
 # setopt list_ambiguous
