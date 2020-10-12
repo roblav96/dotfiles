@@ -68,6 +68,9 @@ disabled = true
 [nodejs]
 disabled = true
 
+[perl]
+disabled = true
+
 [python]
 disabled = true
 

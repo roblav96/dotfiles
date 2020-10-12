@@ -11,6 +11,8 @@ alias ral="rg $rg_flags --no-ignore --stats"
 alias raa="rg $rg_flags $rg_max_columns_flags --no-ignore --stats --follow -uuu"
 alias raal="rg $rg_flags --no-ignore --stats --follow -uuu"
 
+alias rfs="rg -uu --smart-case --fixed-strings --files-with-matches"
+
 unalias g &>/dev/null
 alias g="rg --smart-case --fixed-strings"
 alias gf="rg --smart-case --fixed-strings --color=never"
