@@ -159,6 +159,7 @@ function stbak() {
 	)
 }
 alias sm="smerge"
+alias smo="smerge ."
 
 unalias dotsrc &>/dev/null
 alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"

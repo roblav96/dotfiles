@@ -10,8 +10,6 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
-# declare ADB_SERIAL="192.168.2.40"
-
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
@@ -31,19 +29,19 @@ alias adb-display="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-# alias exoplayer="adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d"
+declare ADB_SERIAL="192.168.2.40"
 function exoplayer() {
 	if [[ "$#" == "1" ]]; then
-		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
+		adb -s $ADB_SERIAL shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
 	else
 		local args=""
 		local i && for ((i = 0; i < $#; i++)); do
 			args="$args--es uri_$i ${@[$((i + 1))]} "
 		done
-		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
+		adb -s $ADB_SERIAL shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
 	fi
 }
-alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adb -s $ADB_SERIAL shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings-ls() {
