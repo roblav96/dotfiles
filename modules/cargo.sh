@@ -1,5 +1,5 @@
 if [[ -d "$HOME/.cargo" ]]; then
-	export CARGO_INCREMENTAL="1"
+	[[ -z "$CARGO_INCREMENTAL" ]] && export CARGO_INCREMENTAL="1"
 	[[ -z "$CARGO_HOME" ]] && export CARGO_HOME="$HOME/.cargo"
 fi
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
