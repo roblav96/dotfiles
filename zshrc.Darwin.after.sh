@@ -150,6 +150,7 @@ alias stcdp="cd '$SUBLIME_DATA/Packages'"
 alias stcdu="cd '$SUBLIME_DATA/Packages/User'"
 alias stst="subl '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
+alias stgl='(stcd && gla --max-count=1)'
 alias stpush='(stcd && gpush)'
 function stbak() {
 	(
