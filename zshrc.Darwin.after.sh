@@ -151,7 +151,7 @@ alias stcdu="cd '$SUBLIME_DATA/Packages/User'"
 alias stst="subl '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
 alias stgl='(stcd && gla --max-count=1)'
-alias stpush='(stcd && gd && gpush)'
+alias stpush='(stcd && gpush)'
 function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
@@ -167,7 +167,7 @@ unalias dotsrc &>/dev/null
 alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
 alias dotgl='(dotcd && gla --max-count=1)'
-alias dotpush='(dotcd && gd && gpush) && zcomp'
+alias dotpush='(dotcd && gpush) && zcomp'
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 # unset DOTBENCH
