@@ -1,52 +1,63 @@
-export HOMEBREW_AUTO_UPDATE_SECS="3600"
-export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine --verbose"
-export HOMEBREW_DISPLAY_INSTALL_TIMES="1"
-export HOMEBREW_NO_AUTO_UPDATE="1"
-export HOMEBREW_NO_INSECURE_REDIRECT="1"
 # export HOMEBREW_DEV_CMD_RUN="0"
+# export HOMEBREW_DISPLAY_INSTALL_TIMES="1"
 # export HOMEBREW_INSTALL_BADGE="✅"
 # export HOMEBREW_NO_ANALYTICS="1"
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
+export HOMEBREW_AUTO_UPDATE_SECS="3600"
+export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
+export HOMEBREW_NO_AUTO_UPDATE="1"
+export HOMEBREW_NO_INSECURE_REDIRECT="1"
+export HOMEBREW_NO_INSTALL_CLEANUP="1"
+export HOMEBREW_VERBOSE="1"
+
+alias bcl="brew cleanup | lsc"
+alias bcfg="brew config | bat --plain -l yml"
+alias benv="brew --env --plain | bat --plain -l yml"
 
 function bupd() {
 	echo && echo "🌕 Updating taps"
-	brew update --verbose
+	brew update
 }
 function bout() {
 	echo && echo "🌕 Outdated formulas"
-	brew outdated --verbose
+	brew outdated --formula
 	if [[ "$PLATFORM" != "Linux" ]]; then
 		echo && echo "🌕 Outdated casks"
-		brew cask outdated --verbose --greedy | grep --invert-match 'latest'
+		brew outdated --cask --greedy | rg --invert-match 'latest'
 	fi
 }
+function bupg() {
+	if [[ -z "$@" ]]; then
+		echo && echo "🌕 Upgrading formulas"
+		brew upgrade --formula | lsc
+	else
+		local v && for v in "$@"; do
+			echo && echo "🌕 Upgrading formula -> '$v'"
+			brew upgrade --formula "$v" | lsc
+		done
+	fi
+	src
+} && compdef bupg=command
+function bcupg() {
+	local v && for v in "$@"; do
+		echo && echo "🌕 Upgrading cask -> '$v'"
+		brew upgrade --cask "$v" | lsc
+	done
+} && compdef bcupg=command
+
 function bls() {
 	echo && echo "🌕 List formulas"
-	brew list --versions
+	brew list --formula --versions
 }
-function blscd() {
-	cd "$(brew --prefix)/Cellar"
-}
-function blsm() {
-	echo && echo "🌕 List recently modified formulas"
-	lm "$(brew --prefix)/Cellar"
-}
-function blsch() {
-	echo && echo "🌕 List recently changed formulas"
-	lch "$(brew --prefix)/Cellar"
-}
-function blscr() {
-	echo && echo "🌕 List recently created formulas"
-	lcr "$(brew --prefix)/Cellar"
-}
+alias blscd='cd "$(brew --prefix)/Cellar"'
 function bcls() {
 	echo && echo "🌕 List casks"
-	brew cask list --versions
+	brew list --cask --versions
 }
-alias blsa="bls; bcls"
+alias blsa="bls; echo; bcls"
 function bpinned() {
 	echo && echo "🌕 Pinned formulas"
-	brew list --versions --pinned
+	brew list --formula --versions --pinned
 }
 
 function bs() {
@@ -59,6 +70,9 @@ function bs() {
 }
 alias bscd='cd $(brew --prefix)/Homebrew'
 
+alias blog="brew log --max-count=5"
+alias blogm="brew log --max-count=10 --oneline"
+alias bloga="brew log --max-count=3 --patch"
 function bhist() {
 	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core" && smerge log "Formula/$*.rb")
 } && compdef bhist=command
@@ -69,44 +83,30 @@ function bchist() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing formula -> '$v'"
-		brew install "$v"
-		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		brew install --formula "$v" | lsc
 	done
 	src
 }
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		brew cask install --no-quarantine --verbose "$v"
+		brew install --cask "$v" | lsc
 	done
 }
 
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling formula -> '$v'"
-		brew reinstall "$v"
-		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
+		brew reinstall --formula "$v" | lsc
 	done
 	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		brew cask reinstall --no-quarantine --verbose "$v"
+		brew reinstall --cask "$v" | lsc
 	done
 } && compdef bcrein=command
-
-function bupg() {
-	echo && echo "🌕 Upgrading formulas"
-	brew upgrade
-	src
-}
-function bcupg() {
-	local v && for v in "$@"; do
-		echo && echo "🌕 Upgrading cask -> '$v'"
-		brew cask upgrade --no-quarantine --verbose "$v"
-	done
-} && compdef bcupg=command
 
 function bi() {
 	local v && for v in "$@"; do
@@ -114,7 +114,7 @@ function bi() {
 		brew desc "$v" && brew info "$v"
 		if [[ "$PLATFORM" == "Linux" ]]; then
 			echo "x86_64_linux bottle:"
-			brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
+			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
 	done
 } && compdef bi=command
@@ -126,16 +126,18 @@ function bci() {
 } && compdef bci=command
 
 function bcd() {
-	cd "$(brew --prefix)/opt/$1"
+	cd "$(brew --prefix)/opt/$*"
 } && compdef bcd=command
 function bcdcellar() {
-	cd $(realpath $(brew --prefix $1))
+	cd "$(realpath $(brew --prefix $*))"
 } && compdef bcd=command
 function bbin() {
 	local v && for v in "$@"; do
+		# echo && echo "🌕 /libexec/bin files -> '$v'"
+		# [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]] && lara "$(brew --prefix)/opt/$v/libexec/bin"
 		echo && echo "🌕 /bin files -> '$v'"
-		[[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]] && lara "$(brew --prefix)/opt/$v/libexec/bin"
 		[[ -d "$(brew --prefix)/opt/$v/bin" ]] && lara "$(brew --prefix)/opt/$v/bin"
+		echo && echo "🌕 /sbin files -> '$v'"
 		[[ -d "$(brew --prefix)/opt/$v/sbin" ]] && lara "$(brew --prefix)/opt/$v/sbin"
 	done
 } && compdef bbin=command
@@ -148,7 +150,7 @@ function bfs() {
 function bjson() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 JSON formula -> '$v'"
-		brew desc "$v" && brew info "$v" --json | json
+		brew desc "$v" && brew info --json=v1 "$v" | json
 	done
 } && compdef bjson=command
 function bdep() {
@@ -244,10 +246,10 @@ function bsrun() {
 }
 
 function bin-linux() {
-	local prefix="$(brew --prefix)/opt/$1"
+	local prefix="$(brew --prefix)/opt/$*"
 	[[ ! -d "$prefix" ]] && return
 	prefix="$(realpath $prefix)"
-	[[ "$PLATFORM" == "Linux" ]] && bfs "$1"
+	[[ "$PLATFORM" == "Linux" ]] && bfs "$*"
 	local install=""
 	local remove=""
 	local bins=('bin' 'sbin')
@@ -276,14 +278,14 @@ function bin-linux() {
 			fi
 		fi
 	done
-	echo && echo "🔴 Remove '$1'"
+	echo && echo "🔴 Remove '$*'"
 	echo "$remove"
-	echo && echo "✅ Install '$1'"
+	echo && echo "✅ Install '$*'"
 	echo "$install"
 }
 
 function bupg-sudo() {
-	local link="$(brew --prefix)/bin/$1"
+	local link="$(brew --prefix)/bin/$*"
 	if [[ ! -e "$link" || ! -x "$link" ]]; then
 		echo "🔴 Command not found -> '$link'"
 		return 1
@@ -315,14 +317,14 @@ function bupg-node() {
 }
 function bupg-node@12() {
 	brm node node@12 node@10
-	brew cleanup --verbose
+	brew cleanup
 	bin node node@12 node@10
 	bcd node@12
 	mkdir libexec/bin libexec/lib
 	mv bin/npm bin/npx libexec/bin
 	mv lib/node_modules libexec/lib
-	brew unlink node --verbose --debug
-	brew link --force node@12 --verbose --debug
+	brew unlink node --debug
+	brew link --force node@12 --debug
 	bupg-node
 	echo "🌕 npm i -g npm"
 	echo "🌕 npm doctor"
