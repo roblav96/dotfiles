@@ -6,7 +6,7 @@
 alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
-alias npmo="npm outdated --long"
+alias npmo="npm outdated"
 alias npmcd='cd $(npm root -g)'
 
 alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
@@ -39,7 +39,7 @@ function npmv() {
 # [[ ! -x "$(which -p rush)" ]] && alias rush="pnpx --package=@microsoft/rush rush"
 # [[ ! -x "$(which -p rushx)" ]] && alias rushx="pnpx --package=@microsoft/rush rushx"
 
-alias vue="pnpx --package=@vue/cli-service vue-cli-service"
+[[ ! -x "$(which -p vue)" ]] && alias vue="pnpx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 

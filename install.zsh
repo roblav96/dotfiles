@@ -31,8 +31,8 @@ echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompini
 echo >> "$ZSHRC"
 
 if [[ -z "$ZSHRC_EXISTS" ]]; then
-	cat $ZSHRC
-	echo; echo "✅ ZSH dotfiles install"
+	cat "$ZSHRC"
+	echo && echo "✅ ZSH dotfiles install"
 fi
 
 # echo "🌕 ZSH install after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"

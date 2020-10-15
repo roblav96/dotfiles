@@ -3,27 +3,27 @@
 # export HOMEBREW_INSTALL_BADGE="✅"
 # export HOMEBREW_NO_ANALYTICS="1"
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
+# export HOMEBREW_VERBOSE="1"
 export HOMEBREW_AUTO_UPDATE_SECS="3600"
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
-export HOMEBREW_VERBOSE="1"
 
-alias bcl="brew cleanup | lsc"
+alias bcl="brew cleanup --verbose | lsc"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
 function bupd() {
 	echo && echo "🌕 Updating taps"
-	brew update
+	brew update --verbose
 }
 function bout() {
 	echo && echo "🌕 Outdated formulas"
-	brew outdated --formula
+	brew outdated --formula --verbose
 	if [[ "$PLATFORM" != "Linux" ]]; then
 		echo && echo "🌕 Outdated casks"
-		brew outdated --cask --greedy | rg --invert-match 'latest'
+		brew outdated --cask --greedy --verbose | rg --invert-match 'latest'
 	fi
 }
 function bupg() {
@@ -83,28 +83,28 @@ function bchist() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing formula -> '$v'"
-		brew install --formula "$v" | lsc
+		brew install --formula --verbose "$v" | lsc
 	done
 	src
 }
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		brew install --cask "$v" | lsc
+		brew install --cask --verbose "$v" | lsc
 	done
 }
 
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling formula -> '$v'"
-		brew reinstall --formula "$v" | lsc
+		brew reinstall --formula --verbose "$v" | lsc
 	done
 	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		brew reinstall --cask "$v" | lsc
+		brew reinstall --cask --verbose "$v" | lsc
 	done
 } && compdef bcrein=command
 
@@ -212,38 +212,40 @@ function bcrm() {
 	done
 } && compdef bcrm=command
 
-function bsls() {
-	echo && echo "🌕 List services"
-	brew services list
-}
-function bsdown() {
-	local v && for v in "$@"; do
-		echo && echo "🌕 Stopping service -> '$v'"
-		brew services stop "$v"
-	done
-	echo && brew services list
-}
-function bsup() {
-	local v && for v in "$@"; do
-		echo && echo "🌕 Starting service -> '$v'"
-		brew services restart "$v"
-	done
-	echo && brew services list
-}
-function bsre() {
-	local v && for v in "$@"; do
-		echo && echo "🌕 Restarting service -> '$v'"
-		brew services restart "$v"
-	done
-	echo && brew services list
-}
-function bsrun() {
-	local v && for v in "$@"; do
-		echo && echo "🌕 Running service -> '$v'"
-		brew services run "$v"
-	done
-	echo && brew services list
-}
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	function bsls() {
+		echo && echo "🌕 List services"
+		brew services list
+	}
+	function bsdown() {
+		local v && for v in "$@"; do
+			echo && echo "🌕 Stopping service -> '$v'"
+			brew services stop "$v"
+		done
+		echo && brew services list
+	}
+	function bsup() {
+		local v && for v in "$@"; do
+			echo && echo "🌕 Starting service -> '$v'"
+			brew services restart "$v"
+		done
+		echo && brew services list
+	}
+	function bsre() {
+		local v && for v in "$@"; do
+			echo && echo "🌕 Restarting service -> '$v'"
+			brew services restart "$v"
+		done
+		echo && brew services list
+	}
+	function bsrun() {
+		local v && for v in "$@"; do
+			echo && echo "🌕 Running service -> '$v'"
+			brew services run "$v"
+		done
+		echo && brew services list
+	}
+fi
 
 function bin-linux() {
 	local prefix="$(brew --prefix)/opt/$*"
@@ -283,6 +285,7 @@ function bin-linux() {
 	echo && echo "✅ Install '$*'"
 	echo "$install"
 }
+unfunction bin-linux
 
 function bupg-sudo() {
 	local link="$(brew --prefix)/bin/$*"
@@ -306,6 +309,7 @@ function bupg-sudo() {
 	echo " $output" | pbcopy
 	echo "✅ Copied to clipboard"
 } && compdef bupg-sudo=command
+[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-sudo
 
 function bupg-node() {
 	local node="$(dirname "$(realpath "$(which -p node)")")"
@@ -315,20 +319,22 @@ function bupg-node() {
 	echo " $output" | pbcopy
 	echo "✅ Copied to clipboard"
 }
+[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
 function bupg-node@12() {
 	brm node node@12 node@10
-	brew cleanup
+	brew cleanup --verbose | lsc
 	bin node node@12 node@10
 	bcd node@12
 	mkdir libexec/bin libexec/lib
 	mv bin/npm bin/npx libexec/bin
 	mv lib/node_modules libexec/lib
-	brew unlink node --debug
-	brew link --force node@12 --debug
+	brew unlink node --verbose --debug
+	brew link --force node@12 --verbose --debug
 	bupg-node
 	echo "🌕 npm i -g npm"
 	echo "🌕 npm doctor"
 }
+[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node@12
 
 alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 # function bupg-deno() {
@@ -338,7 +344,13 @@ alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier -
 # 	deno types --unstable > "$DENO_DIR/lib.deno.unstable.d.ts"
 # }
 
-function bcupg-chrome() {
-	find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
-	echo "✅ Disabled launch agents"
+function bcupg-google-chrome() {
+	# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
+	# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
+	fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' | while read i; do
+		echo "🌕 launchctl unload -w $i" | lsc
+		launchctl unload -w "$i"
+	done
+	echo && echo "✅ Disabled Google Chrome's update background services"
 }
+[[ "$PLATFORM" != "Darwin" ]] && unfunction bcupg-google-chrome
