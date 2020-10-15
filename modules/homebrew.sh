@@ -49,6 +49,18 @@ function bls() {
 	echo && echo "🌕 List formulas"
 	brew list --formula --versions
 }
+function blsm() {
+	echo && echo "🌕 Recently modified formulas"
+	lm "$(brew --prefix)/Cellar"
+}
+function blsch() {
+	echo && echo "🌕 Recently changed formulas"
+	lch "$(brew --prefix)/Cellar"
+}
+function blscr() {
+	echo && echo "🌕 Recently created formulas"
+	lcr "$(brew --prefix)/Cellar"
+}
 alias blscd='cd "$(brew --prefix)/Cellar"'
 function bcls() {
 	echo && echo "🌕 List casks"
