@@ -393,7 +393,7 @@ function show() {
 		fi
 	fi
 }; compdef show=which
-alias s="show"
+which s &>/dev/null || alias s="show"
 
 function showv() {
 	type -a "$1" || return 1
@@ -409,7 +409,7 @@ function showv() {
 		eval "$i $vflags"
 	done
 } && compdef showv=command
-which -w sv | grep -q 'none$' && alias sv="showv"
+which sv &>/dev/null || alias sv="showv"
 
 # function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {

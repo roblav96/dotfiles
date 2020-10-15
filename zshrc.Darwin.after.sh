@@ -165,6 +165,7 @@ alias smo="smerge ."
 unalias dotsrc &>/dev/null
 alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
+alias dotgl='(dotcd && gla --max-count=1)'
 alias dotpush='(dotcd && gpush) && zcomp'
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
