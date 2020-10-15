@@ -18,7 +18,15 @@ alias npmcheck="pnpx npm-check --skip-unused"
 alias npmdepcheck="pnpx depcheck"
 
 alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
-alias npmi='mv package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -f package-lock.json; mv .package-lock.json package-lock.json; read -q "?npm install? [y/n]: " || return 1; npm install'
+function snyknpm() {
+	cat package.json >/dev/null || return 1
+	[[ -e package-lock.json ]] && mv package-lock.json .package-lock.json
+	npm install --ignore-scripts --no-bin-links --package-lock-only
+	pnpx snyk test --dev --all-projects --detection-depth=1
+	rm package-lock.json
+	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
+}
+# alias npmi='mv -v package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -fv package-lock.json; mv -v .package-lock.json package-lock.json'
 
 function npmin() {
 	local v && for v in "$@"; do
