@@ -408,7 +408,7 @@ function showv() {
 		eval "$i $vflags"
 	done
 } && compdef showv=command
-# alias sv="showv"
+which -w sv | grep -q 'none$' && alias sv="showv"
 
 # function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {
