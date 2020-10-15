@@ -201,14 +201,14 @@ function brm() {
 	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo && echo "🌕 Uninstalling formula -> '$v'"
-		brew uninstall --force "$v"
+		brew uninstall --force "$v" | lsc
 	done
 	src
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Uninstalling cask -> '$v'"
-		brew cask zap --force "$v"
+		brew cask zap --force "$v" | lsc
 	done
 } && compdef bcrm=command
 
