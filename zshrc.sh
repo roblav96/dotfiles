@@ -393,8 +393,7 @@ function show() {
 		fi
 	fi
 }; compdef show=which
-alias s="show"
-# which s &>/dev/null || alias s="show"
+which -w s &>/dev/null || alias s="show"
 
 function showv() {
 	type -a "$1" || return 1
@@ -410,8 +409,7 @@ function showv() {
 		eval "$i $vflags"
 	done
 } && compdef showv=command
-alias sv="showv"
-# which sv &>/dev/null || alias sv="showv"
+which -w sv &>/dev/null || alias sv="showv"
 
 # function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {
@@ -467,6 +465,7 @@ test -x "$(which -p ip)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/m
 test -x "$(which -p launchctl)" && source "$DOTFILES/modules/launchctl.sh"
 test -x "$(which -p navi)" && source "$DOTFILES/modules/navi.sh"
 test -x "$(which -p nix)" && source "$DOTFILES/modules/nix.sh"
+test -x "$(which -p nomad)" && source "$DOTFILES/modules/nomad.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p php)" && source "$DOTFILES/modules/php.sh"
