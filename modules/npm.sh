@@ -26,7 +26,6 @@ function snyknpm() {
 	rm package-lock.json
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
-# alias npmi='mv -v package-lock.json .package-lock.json; npm install --ignore-scripts --no-bin-links --package-lock-only; snykt; rm -fv package-lock.json; mv -v .package-lock.json package-lock.json'
 
 function npmin() {
 	local v && for v in "$@"; do

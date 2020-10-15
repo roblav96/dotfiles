@@ -10,7 +10,7 @@ export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
-alias bcl="brew cleanup --verbose | lsc"
+HOMEBREW_COLOR=1 alias bcl="brew cleanup --verbose | lsc"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
@@ -29,11 +29,11 @@ function bout() {
 function bupg() {
 	if [[ -z "$@" ]]; then
 		echo && echo "🌕 Upgrading formulas"
-		brew upgrade --formula | lsc
+		HOMEBREW_COLOR=1 brew upgrade --formula | lsc
 	else
 		local v && for v in "$@"; do
 			echo && echo "🌕 Upgrading formula -> '$v'"
-			brew upgrade --formula "$v" | lsc
+			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lsc
 		done
 	fi
 	src
@@ -41,7 +41,7 @@ function bupg() {
 function bcupg() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Upgrading cask -> '$v'"
-		brew upgrade --cask "$v" | lsc
+		HOMEBREW_COLOR=1 brew upgrade --cask "$v" | lsc
 	done
 } && compdef bcupg=command
 
@@ -83,28 +83,28 @@ function bchist() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing formula -> '$v'"
-		brew install --formula --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --formula --verbose "$v" | lsc
 	done
 	src
 }
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		brew install --cask --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --cask --verbose "$v" | lsc
 	done
 }
 
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling formula -> '$v'"
-		brew reinstall --formula --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --formula --verbose "$v" | lsc
 	done
 	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		brew reinstall --cask --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --cask --verbose "$v" | lsc
 	done
 } && compdef bcrein=command
 
@@ -201,14 +201,14 @@ function brm() {
 	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo && echo "🌕 Uninstalling formula -> '$v'"
-		brew uninstall --force "$v" | lsc
+		HOMEBREW_COLOR=1 brew uninstall --force "$v" | lsc
 	done
 	src
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Uninstalling cask -> '$v'"
-		brew cask zap --force "$v" | lsc
+		HOMEBREW_COLOR=1 brew cask zap --force "$v" | lsc
 	done
 } && compdef bcrm=command
 
@@ -322,7 +322,7 @@ function bupg-node() {
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
 function bupg-node@12() {
 	brm node node@12 node@10
-	brew cleanup --verbose | lsc
+	HOMEBREW_COLOR=1 brew cleanup --verbose | lsc
 	bin node node@12 node@10
 	bcd node@12
 	mkdir libexec/bin libexec/lib
