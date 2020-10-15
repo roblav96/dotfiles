@@ -40,7 +40,7 @@ alias gclf="echo 'gcld; gclean; greset'"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; echo && gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 # alias gc="gh repo clone"
 function gc() {
