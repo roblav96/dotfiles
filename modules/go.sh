@@ -1,8 +1,8 @@
 # export PATH="/usr/local/opt/go/bin:$PATH"
-export GO111MODULE="auto"
+[[ -z "$GO111MODULE" ]] && export GO111MODULE="auto"
 if [[ -d "$HOME/.go" ]]; then
-	export GOPATH="$HOME/.go"
-	export GOBIN="$HOME/.go/bin"
+	[[ -z "$GOPATH" ]] && export GOPATH="$HOME/.go"
+	[[ -z "$GOBIN" ]] && export GOBIN="$HOME/.go/bin"
 	# export PATH="$HOME/.go/bin:$PATH"
 fi
 # export PATH="/usr/local/opt/glide/bin:$PATH"

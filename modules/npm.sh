@@ -1,6 +1,6 @@
-# export NODE_NO_WARNINGS="1"
-# export NODE_OPTIONS="--max-old-space-size=4096"
-export NODE_REPL_HISTORY=""
+# [[ -z "$NODE_NO_WARNINGS" ]] && export NODE_NO_WARNINGS="1"
+# [[ -z "$NODE_OPTIONS" ]] && export NODE_OPTIONS="--max-old-space-size=4096"
+# [[ -z "$NODE_REPL_HISTORY" ]] && export NODE_REPL_HISTORY=""
 
 # alias n="npm"
 alias rr="npm run"

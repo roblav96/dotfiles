@@ -39,7 +39,7 @@ alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; gr
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
-alias gitpush='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1; echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1; echo && gss && echo && git add -A && git commit -a -m "[$(uname -o)] $(git status --null)" && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 # alias gc="gh repo clone"
 function gc() {

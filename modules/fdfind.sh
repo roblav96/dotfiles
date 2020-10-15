@@ -72,7 +72,7 @@ fr="$fr\
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
---exclude=/usr/local/share/flutter/.pub-cache \
+--exclude=/usr/local/var/flutter/.pub-cache \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"

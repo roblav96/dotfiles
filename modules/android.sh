@@ -1,6 +1,6 @@
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export ANDROID_SDK_ROOT="$ANDROID_HOME"
-export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
+[[ -z "$ANDROID_HOME" ]] && export ANDROID_HOME="$HOME/Library/Android/sdk"
+[[ -z "$ANDROID_SDK_ROOT" ]] && export ANDROID_SDK_ROOT="$ANDROID_HOME"
+[[ -z "$ANDROID_NDK" ]] && export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
 
 # export PATH="$PATH:$ANDROID_HOME/build-tools/29.0.3"
 # export PATH="$PATH:$ANDROID_HOME/ndk-bundle"

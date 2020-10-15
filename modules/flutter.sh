@@ -1,5 +1,5 @@
-export FLUTTER_ROOT="/usr/local/share/flutter"
-export DART_SDK="/usr/local/share/flutter/bin/cache/dart-sdk"
+[[ -z "$FLUTTER_ROOT" ]] && export FLUTTER_ROOT="/usr/local/var/flutter"
+[[ -z "$DART_SDK" ]] && export DART_SDK="/usr/local/var/flutter/bin/cache/dart-sdk"
 
 alias fl="flutter"
 alias flcd="cd $FLUTTER_ROOT"

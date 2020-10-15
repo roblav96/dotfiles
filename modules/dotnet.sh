@@ -1,4 +1,4 @@
-export DOTNET_CLI_TELEMETRY_OPTOUT="1"
+[[ -z "$DOTNET_CLI_TELEMETRY_OPTOUT" ]] && export DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 # _dotnet() {
 # 	local completions=("$(dotnet complete "$words")")

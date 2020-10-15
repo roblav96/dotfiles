@@ -141,15 +141,16 @@ function app-bak() {
 	echo && exa --oneline "$tarpath"
 }
 
-local SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text 3")"
+declare SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text 3")"
 alias st="subl"
+alias stn="subl --new-window"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
 alias stcd="cd '$SUBLIME_DATA'"
 alias stcdp="cd '$SUBLIME_DATA/Packages'"
 alias stcdu="cd '$SUBLIME_DATA/Packages/User'"
 alias stst="subl '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.sublime-project'"
 alias stgs='(stcd && gs)'
-alias stpush='(stcd && gitpush)'
+alias stpush='(stcd && gpush)'
 function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
@@ -164,7 +165,7 @@ alias smo="smerge ."
 unalias dotsrc &>/dev/null
 alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs='(dotcd && gs)'
-alias dotpush='(dotcd && gitpush) && zcomp'
+alias dotpush='(dotcd && gpush) && zcomp'
 
 # echo "🌕 $PLATFORM after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 # unset DOTBENCH
