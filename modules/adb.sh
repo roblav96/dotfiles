@@ -44,6 +44,12 @@ function exoplayer() {
 }
 alias kodi="adb -s $ADB_SERIAL shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
+function adbrm() {
+	adb shell am force-stop "$@"
+	adb shell pm clear "$@"
+	adb uninstall "$@"
+}
+
 # https://developer.android.com/reference/android/provider/Settings
 function adb-settings-ls() {
 	echo && echo "🌕 System Settings"
