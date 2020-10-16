@@ -10,9 +10,9 @@ alias gho="gh repo view --web"
 alias gbl="git branch --list --all"
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
-alias gl="git log --reverse --max-count=5 --date=relative --stat"
+alias gl="echo; git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"
-alias gla="git log --reverse --max-count=3 --date=relative --patch-with-stat"
+alias gla="echo; git log --reverse --max-count=3 --date=relative --patch-with-stat"
 
 alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
