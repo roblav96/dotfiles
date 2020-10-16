@@ -2,7 +2,7 @@
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
-alias dstore="find . -name .DS_Store -type f -print -delete"
+alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
 alias duti-cache="(/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
