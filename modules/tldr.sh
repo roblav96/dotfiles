@@ -97,3 +97,10 @@ function clfu() {
 	local b64="$(echo -n "$*" | base64)"
 	curl "http://www.commandlinefu.com/commands/matching/$*/$b64/sort-by-votes/plaintext" | bat --style=grid -l sh
 } && compdef clfu=command
+
+function tla() {
+	[[ -x "$(which -p "$@")" ]] && "$@" --help | bat --style=grid -l man
+	tl "$@"
+	ch "$@"
+	cha "$@"
+} && compdef tla=command
