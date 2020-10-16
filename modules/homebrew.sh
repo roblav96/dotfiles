@@ -41,7 +41,7 @@ function bupg() {
 function bcupg() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Upgrading cask -> '$v'"
-		HOMEBREW_COLOR=1 brew upgrade --cask "$v" | lsc
+		HOMEBREW_COLOR=1 brew upgrade --cask --no-quarantine "$v" | lsc
 	done
 } && compdef bcupg=command
 
@@ -95,28 +95,28 @@ function bchist() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing formula -> '$v'"
-		HOMEBREW_COLOR=1 brew install --formula --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --formula "$v" | lsc
 	done
 	src
 }
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		HOMEBREW_COLOR=1 brew install --cask --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --cask --no-quarantine --verbose "$v" | lsc
 	done
 }
 
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --formula --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --formula "$v" | lsc
 	done
 	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --cask --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --cask --no-quarantine --verbose "$v" | lsc
 	done
 } && compdef bcrein=command
 
@@ -213,14 +213,14 @@ function brm() {
 	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo && echo "🌕 Uninstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew uninstall --force "$v" | lsc
+		HOMEBREW_COLOR=1 brew uninstall --force --verbose "$v" | lsc
 	done
 	src
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Uninstalling cask -> '$v'"
-		HOMEBREW_COLOR=1 brew cask zap --force "$v" | lsc
+		HOMEBREW_COLOR=1 brew cask zap --force --verbose "$v" | lsc
 	done
 } && compdef bcrm=command
 
