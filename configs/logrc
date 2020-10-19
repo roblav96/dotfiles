@@ -22,6 +22,9 @@ predicate:
 			'"hidd"'
 		'}'
 
+	errors
+		'messageType == error'
+
 	exch
 		'(subsystem == "com.apple.dataaccess") && (category == "EAS") || (process== "MobileMail" || process == "accountsd")'
 
