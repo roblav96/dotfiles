@@ -32,15 +32,15 @@ APPLICATIONS=(
 	'VoiceMemos'
 )
 for APPLICATION in "${APPLICATIONS[@]}"; do
-	if test -e "./System/Applications/${APPLICATION}.app"; then
-		chmod 000 "./System/Applications/${APPLICATION}.app"
-		mv -f "./System/Applications/${APPLICATION}.app" "./System/Applications/.${APPLICATION}.app"
-		echo "👍 [DISABLED] System Applications -> '${APPLICATION}'"
+	if test -e "/System/Applications/${APPLICATION}.app"; then
+		chmod 000 "/System/Applications/${APPLICATION}.app"
+		mv -f "/System/Applications/${APPLICATION}.app" "/System/Applications/.${APPLICATION}.app"
+		echo "👍 [DISABLED] System Application -> '${APPLICATION}'"
 	fi
-	if test -e "./Applications/${APPLICATION}.app"; then
-		chmod 000 "./Applications/${APPLICATION}.app"
-		mv -f "./Applications/${APPLICATION}.app" "./Applications/.${APPLICATION}.app"
-		echo "👍 [DISABLED] Applications -> '${APPLICATION}'"
+	if test -e "/Applications/${APPLICATION}.app"; then
+		chmod 000 "/Applications/${APPLICATION}.app"
+		mv -f "/Applications/${APPLICATION}.app" "/Applications/.${APPLICATION}.app"
+		echo "👍 [DISABLED] Application -> '${APPLICATION}'"
 	fi
 done
 

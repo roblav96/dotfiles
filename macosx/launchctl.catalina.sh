@@ -140,6 +140,12 @@ AGENTS=(
 	'com.apple.WebKit.PluginAgent'
 )
 
+# for AGENT in "${AGENTS[@]}"; do
+# 	if [[ -e "/System/Library/LaunchAgents/$AGENT.plist" ]]; then
+# 		launchctl unload -w "/System/Library/LaunchAgents/$AGENT.plist"
+# 	fi
+# done
+
 for i in ./System/Library/LaunchAgents/*.bak; do
 	if test -e "$i"; then
 		mv -f "$i" "${i:0:-4}"
@@ -209,6 +215,12 @@ DAEMONS=(
 	'ssh'
 	'tftp'
 )
+
+# for DAEMON in "${DAEMONS[@]}"; do
+# 	if [[ -e "/System/Library/LaunchDaemons/$DAEMON.plist" ]]; then
+# 		sudo launchctl unload -w "/System/Library/LaunchDaemons/$DAEMON.plist"
+# 	fi
+# done
 
 for i in ./System/Library/LaunchDaemons/*.bak; do
 	if test -e "$i"; then
