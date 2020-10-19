@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # echo "🔴 csrutil enable --without debug --without dtrace --without fs"
 
