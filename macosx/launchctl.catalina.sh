@@ -157,6 +157,7 @@ for AGENT in "${AGENTS[@]}"; do
 		echo "👍 [DISABLED] System Library LaunchAgent -> '${AGENT}'"
 	fi
 done
+unset AGENT AGENTS
 
 DAEMONS=(
 	# 'com.apple.backupd'
@@ -233,3 +234,4 @@ for DAEMON in "${DAEMONS[@]}"; do
 		echo "👍 [DISABLED] System Library LaunchDaemon -> '${DAEMON}'"
 	fi
 done
+unset DAEMON DAEMONS
