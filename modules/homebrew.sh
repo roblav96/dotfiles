@@ -27,8 +27,8 @@ function bout() {
 	fi
 }
 function bupg() {
-	if [[ -z "$@" ]]; then
-		echo && echo "🌕 Upgrading formulas"
+	if [[ $# -eq 0 ]]; then
+		echo && echo "🌕 Upgrading all formulas"
 		HOMEBREW_COLOR=1 brew upgrade --formula | lsc
 	else
 		local v && for v in "$@"; do
