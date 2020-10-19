@@ -92,6 +92,9 @@ disabled = true
 [rust]
 disabled = true
 
+[swift]
+disabled = true
+
 [username]
 show_always = true
 disabled = true
