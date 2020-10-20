@@ -2,13 +2,14 @@ alias ghb="github"
 
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
+alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
+
 # --plus-color="#A2BF8A" --minus-color="#C16069"
 alias gd="git diff"
 alias gss="git status --short --branch | lscolors"
-alias gs="gd; echo; gss"
+alias gs="isgit; gd; echo; gss"
 alias gho="gh repo view --web"
 alias gbl="git branch --list --all"
-alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
 alias gl="echo; git log --reverse --max-count=5 --date=relative --stat"
 alias glm="git log --reverse --max-count=10 --oneline"

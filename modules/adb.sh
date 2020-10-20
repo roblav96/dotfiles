@@ -10,8 +10,6 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
-declare ADB_SERIAL="192.168.2.40"
-
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
@@ -24,34 +22,41 @@ alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
-alias adb-scan-music="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
-alias adb-display="adb -s $ADB_SERIAL shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
+alias adbscanmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
+# declare ADB_SERIAL="192.168.2.40"
+alias adbtv="adb -s 192.168.2.40"
+alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
+
 function exoplayer() {
 	if [[ "$#" == "1" ]]; then
-		adb -s $ADB_SERIAL shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
+		adbtv shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
 	else
 		local args=""
 		local i && for ((i = 0; i < $#; i++)); do
 			args="$args--es uri_$i ${@[$((i + 1))]} "
 		done
-		adb -s $ADB_SERIAL shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
+		adbtv shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
 	fi
 }
-alias kodi="adb -s $ADB_SERIAL shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adbtv shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
-function adbrm() {
+alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
+function adbcl() {
 	adb shell am force-stop "$@"
 	adb shell pm clear "$@"
+}
+function adbrm() {
+	adbcl "$@"
 	adb uninstall "$@"
 }
 
 # https://developer.android.com/reference/android/provider/Settings
-function adb-settings-ls() {
+function adbsettingsls() {
 	echo && echo "🌕 System Settings"
 	adb shell settings list system | sortt | bat --style=grid -l properties
 	echo && echo "🌕 Secure Settings"
@@ -59,7 +64,7 @@ function adb-settings-ls() {
 	echo && echo "🌕 Global Settings"
 	adb shell settings list global | sortt | bat --style=grid -l properties
 }
-function adb-settings-f() {
+function adbsettingsf() {
 	echo && echo "🌕 System Settings"
 	adb shell settings list system | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
 	echo && echo "🌕 Secure Settings"
@@ -68,26 +73,26 @@ function adb-settings-f() {
 	adb shell settings list global | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
 }
 
-function adb-su() {
-	adb shell su -c ${@:2}
+function adbsu() {
+	adb shell su -c "${@:2}"
 }
 
-function adb-wget() {
-	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
-	adb shell input keyboard text "'wget -O /dev/null $1'"
-	adb shell input keyevent KEYCODE_ENTER
-	sleep 10
-	adb shell am force-stop com.termux
-	# sleep 1
-	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
-	# adb shell input keyboard text "'rm ./*'"
-	# adb shell input keyevent KEYCODE_ENTER
-	# adb shell am force-stop com.termux
-}
-# function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
+# function adb-wget() {
+# 	adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
+# 	adb shell input keyboard text "'wget -O /dev/null $1'"
+# 	adb shell input keyevent KEYCODE_ENTER
+# 	sleep 10
+# 	adb shell am force-stop com.termux
+# 	# sleep 1
+# 	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
+# 	# adb shell input keyboard text "'rm ./*'"
+# 	# adb shell input keyevent KEYCODE_ENTER
+# 	# adb shell am force-stop com.termux
+# }
+# # function adb-wget() { adb shell export PATH=/data/data/ru.meefik.busybox/files/bin:$PATH }
 
 # https://developer.android.com/studio/command-line/adb#pm
-function adb-pm-ls() {
+function adbpmls() {
 	echo && echo "🌕 System Enabled Packages"
 	adb shell pm list packages -s -e | sed 's#^package:##' | sortt
 	echo && echo "🌕 System Disabled Packages"
@@ -97,7 +102,7 @@ function adb-pm-ls() {
 	echo && echo "🌕 User Disabled Packages"
 	adb shell pm list packages -3 -d | sed 's#^package:##' | sortt
 }
-function adb-pm-f() {
+function adbpmf() {
 	echo && echo "🌕 Enabled Packages"
 	adb shell pm list packages -e | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 	echo && echo "🌕 Disabled Packages"

@@ -72,6 +72,7 @@ alias bplist="batplist"
 
 function dotbat() {
 	cat "$@" | sed -e '/^[ ]*#/d' | bat --file-name="$@" -l sh
+	# -e 's#^[\n]{2,}#\n#'
 }
 
 function pbat() {

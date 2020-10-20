@@ -6,7 +6,7 @@ declare rg_max_columns_flags="--trim --max-columns-preview --max-columns=\$(expr
 
 alias r="rg $rg_flags $rg_max_columns_flags --glob='!node_modules'"
 alias rl="rg $rg_flags --glob='!node_modules'"
-alias ra="rg $rg_flags $rg_max_columns_flags --no-ignore --stats"
+alias ra="rg $rg_flags $rg_max_columns_flags --no-ignore"
 alias ral="rg $rg_flags --no-ignore --stats"
 alias raa="rg $rg_flags $rg_max_columns_flags --no-ignore --stats --follow -uuu"
 alias raal="rg $rg_flags --no-ignore --stats --follow -uuu"
