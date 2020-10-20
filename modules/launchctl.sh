@@ -23,9 +23,9 @@ function lcdomains() {
 
 function lcdumpstate() {
 	echo && echo "🌕 User Dumpstate"
-	launchctl dumpstate | column -t
+	launchctl dumpstate
 	echo && echo "🌕 System Dumpstate"
-	sudo launchctl dumpstate | column -t
+	sudo launchctl dumpstate
 }
 
 function lcls() {
