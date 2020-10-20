@@ -262,6 +262,7 @@ bindkey '^[k' __clear-and-accept-line
 function __clear-and-accept-and-hold() { cl && zle .reset-prompt && zle -R && zle accept-and-hold -w }
 zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
+bindkey '^[[K' accept-and-hold
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"
