@@ -1,7 +1,7 @@
 [[ -z "$COCOAPODS_DISABLE_STATS" ]] && export COCOAPODS_DISABLE_STATS="true"
 [[ -z "$RUBYOPT" ]] && export RUBYOPT="-W0"
 
-alias gemenv="gem env"
+alias gemenv="gem env | bat --plain -l yml"
 alias gemfs="gem which"
 alias gemi="gem info"
 alias gemin="gem install"
