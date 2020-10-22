@@ -349,13 +349,11 @@ function bupg-node@12() {
 }
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node@12
 
-alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
-# function bupg-deno() {
-# 	rm -v -f "$DENO_DIR/lib.deno.d.ts"
-# 	deno types > "$DENO_DIR/lib.deno.d.ts"
-# 	rm -v -f "$DENO_DIR/lib.deno.unstable.d.ts"
-# 	deno types --unstable > "$DENO_DIR/lib.deno.unstable.d.ts"
-# }
+# alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
+function bupg-deno() {
+	deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && chmod 644 "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"
+	deno types --unstable > "$DENO_DIR/lib.deno.unstable.d.ts" && chmod 644 "$DENO_DIR/lib.deno.unstable.d.ts" && prettier --write "$DENO_DIR/lib.deno.unstable.d.ts"
+}
 
 function bcupg-google-chrome() {
 	# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
