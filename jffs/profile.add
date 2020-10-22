@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# if [[ -d "/opt/root" ]]; then
-# 	export HOME="/opt/root"
-# 	cd $HOME
-# fi
+if [[ -d "/opt/root" ]]; then
+	export HOME="/opt/root"
+	cd $HOME
+fi
 
 if [[ -x "/opt/bin/zsh" ]]; then
 	export SHELL="/opt/bin/zsh"
