@@ -13,19 +13,12 @@
 # alias gradle="gradle --no-daemon"
 
 function gradlew() {
-	if [[ -e "$PWD/gradlew" ]]; then
-		./gradlew "$@"
-	else
-		gradle "$@"
-	fi
+	if [[ -e "$PWD/gradlew" ]]; then ./gradlew "$@"; else gradle "$@"; fi
 }
 function mvnw() {
-	if [[ -e "$PWD/mvnw" ]]; then
-		./mvnw "$@"
-	else
-		mvn "$@"
-	fi
+	if [[ -e "$PWD/mvnw" ]]; then ./mvnw "$@"; else mvn "$@"; fi
 }
+# compdef mvnw=mvn
 # alias gradlew="./gradlew || gradle"
 # alias mvnw="./mvnw || mvn"
 # alias gradle='bash "$(test -e "$PWD/gradlew" && echo "$PWD/gradlew" || echo "$(which -p gradle)")"' && compdef gradle=gradle
