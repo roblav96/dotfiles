@@ -1,4 +1,5 @@
 alias ghb="github"
+alias gho="gh repo view --web"
 
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
@@ -8,7 +9,6 @@ alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 alias gd="git diff"
 alias gss="git status --short --branch | lscolors"
 alias gs="isgit; gd; echo; gss"
-alias gho="gh repo view --web"
 alias gbl="git branch --list --all"
 
 alias gl="echo; git log --reverse --max-count=5 --date=relative --stat"
@@ -25,8 +25,8 @@ alias gfo="git fetch origin --verbose"
 alias gfu="git fetch upstream --verbose"
 # alias gfta="git fetch --all --prune"
 
-alias gpl="git pull"
-alias gpr="git pull --rebase"
+alias gpl="git pull --rebase"
+alias gpr="git pull --rebase --recurse-submodules"
 alias gpf="git pull --ff-only"
 alias gmupd="git submodule update --init --recursive"
 

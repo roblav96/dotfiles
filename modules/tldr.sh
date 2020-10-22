@@ -52,16 +52,18 @@ alias hdi="howdoi --color --all"
 # alias genc="gencomp"
 if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	function gcomp() {
-		gencomp "$@" && bat -l sh "$GENCOMPL_FPATH/_$1" && zcomp
+		gencomp "$@" && bat -l sh "$GENCOMPL_FPATH/_$1" && wc --lines "$GENCOMPL_FPATH/_$1" && zcomp
 	} && compdef gcomp=command
 	compdef gencomp=command
 	function man2comp() {
-		man "$1" | cat | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && zcomp
+		man "$1" | cat | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && wc --lines "$GENCOMPL_FPATH/_$1" && zcomp
 	} && compdef man2comp=command
 	function help2comp() {
 		local stdin=$(</dev/stdin)
 		echo "🌕 stdin -> '$stdin'"
-		echo $stdin | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1"
+		if [[ -n "$stdin" ]]; then
+			echo $stdin | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && wc --lines "$GENCOMPL_FPATH/_$1" && zcomp
+		fi
 	} && compdef help2comp=command
 fi
 
@@ -99,8 +101,10 @@ function clfu() {
 } && compdef clfu=command
 
 function tla() {
-	[[ -x "$(which -p "$@")" ]] && "$@" --help | bat --style=grid -l man
-	tl "$@"
-	ch "$@"
-	cha "$@"
+	if [[ -x "$(which -p "$1")" ]]; then
+		echo && "$1" "${2:---help}" | bat --style=grid -l man
+	fi
+	tl "$1"
+	ch "$1"
+	cha "$1"
 } && compdef tla=command
