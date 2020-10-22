@@ -102,7 +102,7 @@ function clfu() {
 
 function tla() {
 	if [[ -x "$(which -p "$1")" ]]; then
-		echo && "$1" "${2:---help}" | bat --style=grid -l man
+		"$1" "${2:---help}" | bat --style=grid -l man
 	fi
 	tl "$1"
 	ch "$1"
