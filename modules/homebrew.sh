@@ -138,6 +138,10 @@ function bci() {
 	done
 } && compdef bci=command
 
+function bmd() {
+	find "$(brew --prefix)/opt/$*/" -type f -iname '*readme*' | while read i; do mdcat "$i"; done
+} && compdef bmd=command
+
 function bcd() {
 	cd "$(brew --prefix)/opt/$*"
 } && compdef bcd=command
