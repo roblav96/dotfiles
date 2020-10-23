@@ -2,7 +2,7 @@ zinit load ohmyzsh/ohmyzsh
 zinit ice svn; zinit snippet OMZ::lib
 # zinit ice svn; zinit snippet OMZ::plugins/aws
 # zinit ice svn; zinit snippet OMZ::plugins/cargo
-zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
+# zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
 # zinit ice svn; zinit snippet OMZ::plugins/compleat
 zinit ice svn; zinit snippet OMZ::plugins/extract
 # zinit ice svn; zinit snippet OMZ::plugins/fd
