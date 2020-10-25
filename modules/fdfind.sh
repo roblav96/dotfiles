@@ -8,7 +8,7 @@ alias faa="fd $fd_flags_all --follow --full-path --absolute-path"
 unset fd_flags fd_flags_all
 
 function fwc() {
-	fd -uu --type=file --exclude=.git $([[ -n "$1" ]] && printf "--search-path %q " "$@") | wc --lines
+	fd -uu --type=file --exclude=.git $([[ $# -ne 0 ]] && printf "--search-path %q " "$@") | wc --lines
 }
 # alias fwc="fd -uu --type=file | wc --lines"
 
@@ -72,7 +72,7 @@ fr="$fr\
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
---exclude=/usr/local/var/flutter/.pub-cache \
+--exclude=/usr/local/share/flutter/.pub-cache \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"
