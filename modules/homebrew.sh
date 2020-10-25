@@ -331,10 +331,8 @@ function bupg-sudo() {
 function bupg-node() {
 	local node="$(dirname "$(realpath "$(which -p node)")")"
 	local npm="$(dirname "$(realpath "$(which -p npm)")")"
-	local output="ln -sf "$npm/npm-cli.js" "$node/npm"; ln -sf "$npm/npx-cli.js" "$node/npx""
-	echo "$output"
-	echo " $output" | pbcopy
-	echo "✅ Copied to clipboard"
+	ln -sf "$npm/npm-cli.js" "$node/npm"
+	ln -sf "$npm/npx-cli.js" "$node/npx"
 }
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
 function bupg-node@12() {

@@ -30,6 +30,7 @@ function mvnw() {
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"
 # alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar $ANDROID_HOME/google-java-format-1.9-all-deps.jar"
 alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
+alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
 alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/.env.kspass) --ksPass $(cat $DOTFILES/.env.kspass) --overwrite --apks'
 function uber-apk-install() {
