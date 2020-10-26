@@ -10,5 +10,5 @@ fi
 
 alias gocd="cd $GOBIN"
 alias gols="lch $GOBIN"
-alias goin="env GO111MODULE=on go get -v"
+alias goin="GO111MODULE=on go get -v"
 # alias golnbin="ln -sf $GOBIN/* /usr/local/bin"

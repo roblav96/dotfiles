@@ -7,11 +7,11 @@ alias tkaf="tokei $TK_FLAGS $TK_FLAGS_ALL --files"
 alias tkls="tokei --languages"
 unset TK_FLAGS TK_FLAGS_ALL
 
-[[ -x "$(which -p diskonaut)" ]] && alias diskonaut="diskonaut --apparent-size"
-[[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
-[[ -x "$(which -p dua)" ]] && alias dua="dua --apparent-size"
+# [[ -x "$(which -p diskonaut)" ]] && alias diskonaut="diskonaut --apparent-size"
+# [[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
+# [[ -x "$(which -p dua)" ]] && alias dua="dua --apparent-size"
 
-alias dust="dust --apparent-size --ignore-directory=.git"
+alias dust="dust --ignore-directory=.git"
 alias dustr="dust --depth=1"
 alias dustrr="dust --depth=2"
 alias dustrrr="dust --depth=3"
@@ -29,5 +29,3 @@ alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 
 # alias dff="df -h"
 alias dfc="dfc -q name -d -f -T -m -l"
-
-alias .rclone.conf="subl --new-window $HOME/.config/rclone/rclone.conf"

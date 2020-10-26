@@ -42,6 +42,7 @@ alias .alacritty="subl --new-window $DOTFILES/configs/alacritty.yml"
 alias .starship="subl --new-window $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl --new-window $HOME/.ssh/config"
 alias .known_hosts="subl --new-window $HOME/.ssh/known_hosts"
+alias .rclone="subl --new-window $HOME/.config/rclone/rclone.conf"
 alias .h2o="subl --new-window /usr/local/etc/h2o/h2o.conf"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
@@ -69,8 +70,9 @@ alias razer-down="killit RzDeviceEngine && killit RzUpdater"
 alias gmtool="gmtool --verbose"
 
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
-alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"
-# alias denon-avr="curl --insecure 'https://192.168.2.54:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"
+alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml --sort-keys '.Information' | pb yaml"
+# alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"
+# alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"
 # alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
 function wifi() {
