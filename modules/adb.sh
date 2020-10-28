@@ -31,7 +31,7 @@ alias pidcat="pidcat --all"
 
 export ADB_TV="192.168.1.2"
 alias adbtv="adb -s $ADB_TV"
-alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid --language yml"
+alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
 
 function exoplayer() {
 	if [[ "$#" == "1" ]]; then
@@ -137,6 +137,7 @@ function adb-play-store() {
 		'com.google.android.sss'
 		'com.google.android.sss.authbridge'
 		'com.google.android.tv.bugreportsender'
+		'com.nvidia.ota'
 	)
 	local package && for package in "${packages[@]}"; do
 		echo "🌕 $action -> '$package'"
