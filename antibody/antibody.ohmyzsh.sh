@@ -1,7 +1,7 @@
 ohmyzsh/ohmyzsh
 # ohmyzsh/ohmyzsh path:plugins/aws
 # ohmyzsh/ohmyzsh path:plugins/cargo
-ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+# ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 # ohmyzsh/ohmyzsh path:plugins/compleat
 # ohmyzsh/ohmyzsh path:plugins/dirhistory
 ohmyzsh/ohmyzsh path:plugins/extract

@@ -26,6 +26,8 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
+alias em="daemonize $(which -p emulator) -verbose -accel on -avd"
+
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"
 # alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar $ANDROID_HOME/google-java-format-1.9-all-deps.jar"
