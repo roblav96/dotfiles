@@ -29,7 +29,6 @@ alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-export ADB_TV="192.168.1.2"
 alias adbtv="adb -s $ADB_TV"
 alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
 
