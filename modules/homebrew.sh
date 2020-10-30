@@ -124,9 +124,8 @@ function bcrein() {
 
 function bi() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 Formula '$v'"
-		brew desc "$v" | bat --plain --language=cpuinfo
-		brew info "$v" | bat --plain --language=cpuinfo
+		echo && echo "🌕 Formula -> '$v'"
+		brew desc "$v" && brew info "$v"
 		if [[ "$PLATFORM" == "Linux" ]]; then
 			echo "x86_64_linux bottle:"
 			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
@@ -135,8 +134,8 @@ function bi() {
 } && compdef bi=command
 function bci() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 Cask '$v'"
-		brew cask info "$v" | bat --plain --language=cpuinfo
+		echo && echo "🌕 Cask -> '$v'"
+		brew cask info "$v"
 	done
 } && compdef bci=command
 
@@ -355,8 +354,8 @@ function bupg-node@12() {
 
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
-	deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && chmod 644 "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"
-	deno types --unstable > "$DENO_DIR/lib.deno.unstable.d.ts" && chmod 644 "$DENO_DIR/lib.deno.unstable.d.ts" && prettier --write "$DENO_DIR/lib.deno.unstable.d.ts"
+	deno types --unstable >"$DENO_DIR/lib.deno.d.ts" && chmod 644 "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"
+	deno types --unstable >"$DENO_DIR/lib.deno.unstable.d.ts" && chmod 644 "$DENO_DIR/lib.deno.unstable.d.ts" && prettier --write "$DENO_DIR/lib.deno.unstable.d.ts"
 }
 
 function bcupg-google-chrome() {
