@@ -26,7 +26,7 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
-alias ademu="daemonize $(which -p emulator) -verbose -accel on -avd"
+alias emulatord='daemonize -- "$(which -p emulator)" -verbose -accel on -avd'
 
 alias apkanalyzer="apkanalyzer --human-readable"
 alias apki="apkanalyzer apk summary"
