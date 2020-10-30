@@ -124,7 +124,7 @@ function bcrein() {
 
 function bi() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 '$v'"
+		echo && echo "🌕 Formula '$v'"
 		brew desc "$v" | bat --plain --language=cpuinfo
 		brew info "$v" | bat --plain --language=cpuinfo
 		if [[ "$PLATFORM" == "Linux" ]]; then
@@ -135,8 +135,8 @@ function bi() {
 } && compdef bi=command
 function bci() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 Info cask -> '$v'"
-		brew cask info "$v"
+		echo && echo "🌕 Cask '$v'"
+		brew cask info "$v" | bat --plain --language=cpuinfo
 	done
 } && compdef bci=command
 

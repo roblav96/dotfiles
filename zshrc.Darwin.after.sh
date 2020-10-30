@@ -86,8 +86,8 @@ alias getip="ifconfig | awk '/inet /{print \$2}' | grep ^192 | cat"
 
 alias display="m display status | bat --plain -l yml"
 
-# alias cdpl='cd "$HOME/.playground"'
-# alias cdd='cd "$HOME/Downloads"'
+alias cdpl='cd "$HOME/.playground"'
+alias cdd='cd "$HOME/Downloads"'
 alias lmd='lm --color=always "$HOME/Downloads" | tail --lines="$(expr "$(tput lines)" / 2)"'
 
 alias o="open ."
