@@ -124,8 +124,9 @@ function bcrein() {
 
 function bi() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 Info formula -> '$v'"
-		brew desc "$v" && brew info "$v"
+		echo && echo "🌕 '$v'"
+		brew desc "$v" | bat --plain --language=cpuinfo
+		brew info "$v" | bat --plain --language=cpuinfo
 		if [[ "$PLATFORM" == "Linux" ]]; then
 			echo "x86_64_linux bottle:"
 			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
