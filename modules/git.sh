@@ -33,6 +33,7 @@ alias gmupd="gfa && git submodule update --init --recursive"
 alias gtl="git tag -n99 --list"
 alias gtlm="git tag -n --list"
 alias gtf="git tag --contains"
+alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
