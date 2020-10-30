@@ -7,6 +7,8 @@ alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated"
+alias npms="npm search --no-description"
+alias npmsa="npm search"
 alias npmcd='cd $(npm root -g)'
 
 alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
