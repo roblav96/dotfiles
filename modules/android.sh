@@ -26,10 +26,14 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
-alias emulatord='daemonize $(which -p emulator) -accel on -gpu host -avd'
-
 alias apkanalyzer="apkanalyzer --human-readable"
 alias apki="apkanalyzer apk summary"
+
+alias avdls="avdmanager list avd"
+local emu_opts="accel on -gpu host"
+alias emu="emulator $emu_opts -avd"
+alias emud="daemonize \$(which -p emulator) $emu_opts -avd"
+unset emu_opts
 
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"

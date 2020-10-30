@@ -30,6 +30,11 @@ alias gpr="gfa && git pull --rebase --recurse-submodules"
 alias gpf="gfa && git pull --ff-only"
 alias gmupd="gfa && git submodule update --init --recursive"
 
+alias gtl="git tag -n99 --list"
+alias gtlm="git tag -n --list"
+alias gtf="git tag --contains"
+alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
+
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
 
@@ -39,7 +44,6 @@ alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
-alias gtag='git fetch --tags && git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
 alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
