@@ -10,6 +10,8 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
+# alias adbtv="adb -s $ANDROID_SERIAL"
+
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
@@ -29,30 +31,31 @@ alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-alias adbtv="adb -s $ADB_TV"
-alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
-alias adbstack="adbtv shell am stack list | bat --style=grid -l nix"
+alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
+alias adbstack="adb shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
 	if [[ $# -eq 1 ]]; then
-		adbtv shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
+		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
 	else
 		local args=""
 		local i && for ((i = 0; i < $#; i++)); do
 			args="$args--es uri_$i ${@[$((i + 1))]} "
 		done
-		adbtv shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
+		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
 	fi
 }
-alias kodi="adbtv shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
 alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
+alias adbk="adb shell am force-stop"
 function adbcl() {
 	adb shell am force-stop "$@"
 	adb shell pm clear "$@"
 }
 function adbrm() {
-	adbcl "$@"
+	adb shell am force-stop "$@"
+	adb shell pm clear "$@"
 	adb uninstall "$@"
 }
 
