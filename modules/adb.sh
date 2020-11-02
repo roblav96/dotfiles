@@ -34,7 +34,7 @@ alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multilin
 alias adbstack="adbtv shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
-	if [[ "$#" == "1" ]]; then
+	if [[ $# -eq 1 ]]; then
 		adbtv shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
 	else
 		local args=""
@@ -46,7 +46,7 @@ function exoplayer() {
 }
 alias kodi="adbtv shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
-alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
+alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
 function adbcl() {
 	adb shell am force-stop "$@"
 	adb shell pm clear "$@"
