@@ -59,19 +59,19 @@ function adbrm() {
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
 	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | bat --style=grid -l properties
+	adb shell settings list system | sortt | bat --style=grid -l ini
 	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | bat --style=grid -l properties
+	adb shell settings list secure | sortt | bat --style=grid -l ini
 	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | bat --style=grid -l properties
+	adb shell settings list global | sortt | bat --style=grid -l ini
 }
 function adbsettingsf() {
 	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
 	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
 	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings "$*" | bat --color=always --style=grid -l properties
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
 }
 
 function adbsu() {
