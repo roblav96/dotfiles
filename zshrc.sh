@@ -439,7 +439,7 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 fi
 if [[ -x "$(which -p mediaconch)" ]]; then
 	function mi() {
-		mediaconch -mi "$*" | sed -e 's|/String |        |' -e 's|/Info |      |' | bat --style=grid -l yml
+		mediaconch -mi "$*" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --style=grid -l yml
 	}
 fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
