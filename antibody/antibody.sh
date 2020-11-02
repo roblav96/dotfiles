@@ -7,7 +7,8 @@
 # 3v1n0/zsh-bash-completions-fallback
 # Aloxaf/gencomp
 # nevesnunes/sh-manpage-completions
-RobSis/zsh-completion-generator
+# RobSis/zsh-completion-generator
+roblav96/zsh-completion-generator branch:patch-1
 trapd00r/LS_COLORS kind:fpath
 mafredri/zsh-async
 caarlos0/zsh-mkc
