@@ -31,6 +31,7 @@ alias pidcat="pidcat --all"
 
 alias adbtv="adb -s $ADB_TV"
 alias adbdisplay="adbtv shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
+alias adbstack="adbtv shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
 	if [[ "$#" == "1" ]]; then
