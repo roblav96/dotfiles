@@ -1,3 +1,8 @@
+# /usr/local/opt/python@3.9/bin
+# /usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin
+# /usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/bin
+# /usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7/bin
+
 # [[ -z "$PATH" ]] && export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # [[ -z "$MYPYPATH" ]] && export MYPYPATH="/Applications/Sublime Text.app/Contents/MacOS"
 # [[ -z "$PYTHONPATH" ]] && export PYTHONPATH="/usr/local/lib/python3.7:/usr/local/lib/python3.7/site-packages"

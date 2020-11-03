@@ -58,6 +58,9 @@ function adbrm() {
 	adb shell pm clear "$@"
 	adb uninstall "$@"
 }
+function adbdp() {
+	adb shell dumpsys package "$@" | bat --style=grid -l yml
+}
 
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {

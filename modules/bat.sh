@@ -78,7 +78,7 @@ function dotbat() {
 
 function pbat() {
 	if [[ -e "$1" ]]; then
-		if [[ "$#" -eq "1" ]]; then
+		if [[ $# -eq 1 ]]; then
 			prettier "$1" | bat --style=grid -l "${1##*.}"
 		else
 			prettier --parser "$2" "$1" | bat --plain -l "$2"
