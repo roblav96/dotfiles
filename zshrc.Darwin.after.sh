@@ -171,7 +171,7 @@ alias sm="smerge"
 alias smo="smerge ."
 
 unalias dotsrc &>/dev/null
-alias dot="subl '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dot="subl --command 'project_manager {\"project\": \"Dotfiles\"}'"
 alias dotgs='(dotcd && gs)'
 alias dotgl='(dotcd && gla --max-count=1)'
 alias dotpush='(dotcd && gpush) && zcomp'
