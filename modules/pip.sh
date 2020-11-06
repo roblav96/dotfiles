@@ -1,6 +1,5 @@
 # alias pip='pip --target=$HOME/.virtualenv'
 alias pip="python -m pip"
-alias pip3="python3 -m pip"
 alias pips="pip search"
 alias pipi="pip show"
 alias pipfs="pip show --files"

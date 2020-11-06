@@ -151,12 +151,18 @@ function bcdcellar() {
 } && compdef bcd=command
 function bbin() {
 	local v && for v in "$@"; do
-		# echo && echo "🌕 /libexec/bin files -> '$v'"
-		# [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]] && lara "$(brew --prefix)/opt/$v/libexec/bin"
-		echo && echo "🌕 /bin files -> '$v'"
-		[[ -d "$(brew --prefix)/opt/$v/bin" ]] && lara "$(brew --prefix)/opt/$v/bin"
-		echo && echo "🌕 /sbin files -> '$v'"
-		[[ -d "$(brew --prefix)/opt/$v/sbin" ]] && lara "$(brew --prefix)/opt/$v/sbin"
+		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
+			echo && echo "🌕 /libexec/bin -> '$v'"
+			lara "$(brew --prefix)/opt/$v/libexec/bin"
+		fi
+		if [[ -d "$(brew --prefix)/opt/$v/bin" ]]; then
+			echo && echo "🌕 /bin -> '$v'"
+			lara "$(brew --prefix)/opt/$v/bin"
+		fi
+		if [[ -d "$(brew --prefix)/opt/$v/sbin" ]]; then
+			echo && echo "🌕 /sbin -> '$v'"
+			lara "$(brew --prefix)/opt/$v/sbin"
+		fi
 	done
 } && compdef bbin=command
 function bfs() {
