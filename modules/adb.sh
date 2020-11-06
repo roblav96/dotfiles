@@ -10,7 +10,7 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
-export ANDROID_SERIAL="192.168.2.99"
+export ANDROID_SERIAL="192.168.2.40"
 # alias adb="adb -t1"
 # alias adbtv="adb -s $ANDROID_SERIAL"
 
