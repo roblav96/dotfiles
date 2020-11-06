@@ -13,18 +13,18 @@ alias npmcd='cd $(npm root -g)'
 
 alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
 
-alias npmout="pnpx updates"
-alias npmupg="pnpx updates --update && npm install"
-alias npmaudit="pnpx auditjs ossi"
-alias npmcheck="pnpx npm-check --skip-unused"
-alias npmdepcheck="pnpx depcheck"
+alias npmout="npx updates"
+alias npmupg="npx updates --update && npm install"
+alias npmaudit="npx auditjs ossi"
+alias npmcheck="npx npm-check --skip-unused"
+alias npmdepcheck="npx depcheck"
 
-alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
+alias snykt="npx snyk test --dev --all-projects --detection-depth=1"
 function snyknpm() {
 	cat package.json >/dev/null || return 1
 	[[ -e package-lock.json ]] && mv package-lock.json .package-lock.json
 	npm install --ignore-scripts --no-bin-links --package-lock-only
-	pnpx snyk test --dev --all-projects --detection-depth=1
+	npx snyk test --dev --all-projects --detection-depth=1
 	rm package-lock.json
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
@@ -41,17 +41,20 @@ function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
 
-[[ ! -x "$(which -p final-pm)" ]] && alias final-pm="pnpx final-pm" # ; alias fpm="final-pm"
-[[ ! -x "$(which -p forever)" ]] && alias forever="pnpx forever"
-[[ ! -x "$(which -p pm2)" ]] && alias pm2="pnpx pm2"
-[[ ! -x "$(which -p tsc)" ]] && alias tsc="pnpx --package=typescript tsc"
-# [[ ! -x "$(which -p rush)" ]] && alias rush="pnpx --package=@microsoft/rush rush"
-# [[ ! -x "$(which -p rushx)" ]] && alias rushx="pnpx --package=@microsoft/rush rushx"
+[[ ! -x "$(which -p final-pm)" ]] && alias final-pm="npx final-pm" # ; alias fpm="final-pm"
+[[ ! -x "$(which -p forever)" ]] && alias forever="npx forever"
+[[ ! -x "$(which -p pm2)" ]] && alias pm2="npx pm2"
+[[ ! -x "$(which -p tsc)" ]] && alias tsc="npx --package=typescript tsc"
+# [[ ! -x "$(which -p rush)" ]] && alias rush="npx --package=@microsoft/rush rush"
+# [[ ! -x "$(which -p rushx)" ]] && alias rushx="npx --package=@microsoft/rush rushx"
 
-[[ ! -x "$(which -p vue)" ]] && alias vue="pnpx --package=@vue/cli-service vue-cli-service"
+[[ ! -x "$(which -p vue)" ]] && alias vue="npx --package=@vue/cli-service vue-cli-service"
 alias vue.inspect="FORCE_COLOR=0 vue inspect"
 # alias vue.inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
+function nscreate() {
+	ns create "$@" --template "@nativescript/$@" && cd "$@"
+}
 alias nssed="sed -e 's|^JS: ||'$(
 	local sedexp=""
 	for ((i = 16; i > 0; i--)); do
