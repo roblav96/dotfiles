@@ -52,9 +52,11 @@ function npmv() {
 alias vue-inspect="FORCE_COLOR=0 vue inspect"
 # alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
-function nscreate() {
+function nsc() {
+	npm info "@nativescript/$@"
 	ns create "$@" --template "@nativescript/$@" && cd "$@"
 }
+alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
 alias nssed="sed -e 's|^JS: ||'$(
 	local sedexp=""
 	for ((i = 16; i > 0; i--)); do

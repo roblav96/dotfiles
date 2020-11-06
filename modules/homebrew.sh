@@ -337,11 +337,13 @@ function bupg-sudo() {
 
 function bupg-node() {
 	local node="$(dirname "$(realpath "$(which -p node)")")"
-	local npm="$(dirname "$(realpath "$(which -p npm)")")"
-	ln -sf "$npm/npm-cli.js" "$node/npm"
-	ln -sf "$npm/npx-cli.js" "$node/npx"
+	local npm="$(npm root -g)"
+	ln -sf "$npm/npm/bin/npm-cli.js" "$node/npm"
+	ln -sf "$npm/npm/bin/npx-cli.js" "$node/npx"
+	[[ -x "$(which -p node-gyp)" ]] && node-gyp install
 }
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
+
 function bupg-node@12() {
 	brm node node@12 node@10
 	HOMEBREW_COLOR=1 brew cleanup --verbose | lsc
