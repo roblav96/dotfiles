@@ -17,7 +17,7 @@ function duti-sublime() {
 		cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do
 			echo && echo "🌕 $ii"
 			duti -x "$ii"
-			[[ "$1" == "set" && -n "$ii" ]] && duti -s "$bundle_id" "$ii" all
+			[[ -n "$ii" ]] && duti -s "$bundle_id" "$ii" all
 		done
 	done
 }
