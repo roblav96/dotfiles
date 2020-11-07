@@ -2,7 +2,7 @@ export EXA_COLORS="uu=2;37:gu=2;3;37:da=32:un=31:gn=2;3;31:lc=2;3;37:lm=3;37"
 # export EXA_STRICT="1"
 
 local exa_flags="--long --all --header --classify --group --color-scale"
-local exa_ignore="--ignore-glob='.git|.DS_Store'"
+local exa_ignore='--ignore-glob=".git|.DS_Store"'
 # realpath "$(which -p exa)" | grep -q 'HEAD' && exa_flags="$exa_flags --icons"
 
 alias la="exa $exa_flags $exa_ignore --extended --tree --level=1"
@@ -20,7 +20,7 @@ alias lch="exa $exa_flags $exa_ignore --sort=changed --time=changed"
 alias lac="exa $exa_flags $exa_ignore --sort=accessed --time=accessed"
 alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created"
 
-local exa_ignore="--ignore-glob='.git|.DS_Store|node_modules'"
+local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"'
 alias lr="exa $exa_flags $exa_ignore --git-ignore --tree --level=2"
 alias lrr="exa $exa_flags $exa_ignore --git-ignore --tree --level=3"
 alias lrrr="exa $exa_flags $exa_ignore --git-ignore --tree --level=4"

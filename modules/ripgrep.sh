@@ -15,6 +15,7 @@ alias rfs="rg -uu --smart-case --fixed-strings --files-with-matches"
 
 unalias g &>/dev/null
 alias g="rg --smart-case --fixed-strings"
+alias g1="rg --smart-case --fixed-strings --context=1"
 alias gf="rg --smart-case --fixed-strings --color=never"
 alias gp="rg --smart-case --fixed-strings --passthru"
 alias gw="rg --smart-case --fixed-strings --word-regexp"

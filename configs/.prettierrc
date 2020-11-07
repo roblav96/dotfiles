@@ -95,6 +95,15 @@
 			},
 		},
 		{
+			"files": [".cs", ".cake", ".cshtml", ".csx"],
+			"options": {
+				"parser": "java",
+				"singleQuote": false,
+				"tabWidth": 4,
+				"useTabs": false,
+			},
+		},
+		{
 			"files": [
 				"*.aw",
 				"*.blade.php",
