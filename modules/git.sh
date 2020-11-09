@@ -98,7 +98,7 @@ function greload() {
 # 	cd "$outdir"
 # 	[[ -e "$outdir.sln" ]] && cd "$outdir"
 # 	# echo "🌕 snyk test ->"
-# 	# pnpx snyk test --dev --all-projects --detection-depth=1
+# 	# npx snyk test --dev --all-projects --detection-depth=1
 # 	# if [[ -e "package.json" ]]; then
 # 	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
 # 	# 	read -q "?npm install? [y/n]: " || return 1

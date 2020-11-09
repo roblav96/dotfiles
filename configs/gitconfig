@@ -24,13 +24,13 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	paging = never
-	line-numbers = true
 	commit-decoration-style = 231 231 overline
-	hunk-header-decoration-style = black box
 	file-decoration-style = magenta overline
 	file-style = 231 bold
-	minus-style = syntax "#3f0001" # 52
+	hunk-header-decoration-style = black box
+	line-numbers = true
 	minus-emph-style = syntax 88
-	plus-style = syntax "#002800" # 22
+	minus-style = syntax "#3f0001"
+	paging = never
 	plus-emph-style = syntax 28
+	plus-style = syntax "#002800"
