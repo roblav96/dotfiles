@@ -104,6 +104,15 @@
 			},
 		},
 		{
+			"files": [".kt", ".ktm", ".kts"],
+			"options": {
+				"parser": "kotlin",
+				"singleQuote": false,
+				"tabWidth": 4,
+				"useTabs": false,
+			},
+		},
+		{
 			"files": [
 				"*.aw",
 				"*.blade.php",

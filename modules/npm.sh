@@ -7,7 +7,7 @@ alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated"
-alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do (npm i \$i@latest); done"
+alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm i \$i@latest; done"
 alias npms="npm search --no-description"
 alias npmsa="npm search"
 alias npmcd='cd $(npm root -g)'
