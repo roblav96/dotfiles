@@ -144,7 +144,7 @@ function app-bak() {
 	fi
 	cd "$appdir"
 	dstore
-	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.'
+	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.' | lsc
 	cd "$OLDPWD"
 	echo && echo "✅ Backup complete"
 	echo && exa --oneline "$tarpath"
@@ -171,6 +171,13 @@ function stbak() {
 }
 alias sm="smerge"
 alias smo="smerge ."
+
+declare VSCODE_DATA="$(realpath "$HOME/Library/Application Support/VSCodium")"
+alias vs="code"
+alias vsn="code --new-window"
+alias vscd="cd '$VSCODE_DATA'"
+alias vscdp="cd '$HOME/.vscode-oss/extensions'"
+alias vscdu="cd '$VSCODE_DATA/User'"
 
 unalias dotsrc &>/dev/null
 alias dot="subl --command 'project_manager {\"project\": \"Dotfiles\"}'"
