@@ -11,7 +11,7 @@ export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
-alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lsc"
+alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose --debug | lsc"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
@@ -53,15 +53,15 @@ function bls() {
 }
 function blsm() {
 	echo && echo "🌕 Recently modified formulas"
-	lm --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" / 2)"
+	lm --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
 }
 function blsch() {
 	echo && echo "🌕 Recently changed formulas"
-	lch --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" / 2)"
+	lch --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
 }
 function blscr() {
 	echo && echo "🌕 Recently created formulas"
-	lcr --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" / 2)"
+	lcr --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
 }
 alias blscd='cd "$(brew --prefix)/Cellar"'
 function bcls() {
