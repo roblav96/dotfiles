@@ -11,7 +11,7 @@ export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
-alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose --debug | lsc"
+alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lsc"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
