@@ -11,7 +11,7 @@ unset TK_FLAGS TK_FLAGS_ALL
 # [[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
 # [[ -x "$(which -p dua)" ]] && alias dua="dua --apparent-size"
 
-alias dust="dust --ignore-directory=.git"
+alias dust='dust --reverse --ignore-directory=.git --number-of-lines="$(expr "$(tput lines)" - 10)"'
 alias dustr="dust --depth=1"
 alias dustrr="dust --depth=2"
 alias dustrrr="dust --depth=3"

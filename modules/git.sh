@@ -2,6 +2,7 @@ alias ghb="github"
 alias gho="gh repo view --web"
 
 [[ -x "$(which -p hub)" ]] && alias git="hub"
+[[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 

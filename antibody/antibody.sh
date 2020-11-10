@@ -10,6 +10,7 @@
 # RobSis/zsh-completion-generator
 roblav96/zsh-completion-generator branch:patch-1
 trapd00r/LS_COLORS kind:fpath
+MestreLion/git-tools kind:clone
 mafredri/zsh-async
 caarlos0/zsh-mkc
 # agkozak/zhooks
