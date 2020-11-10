@@ -7,7 +7,7 @@ alias rr="npm run"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated"
-alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm i \$i@latest; done"
+alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm install \$i@latest; done"
 alias npms="npm search --no-description"
 alias npmsa="npm search"
 alias npmcd='cd $(npm root -g)'
@@ -55,7 +55,11 @@ alias vue-inspect="FORCE_COLOR=0 vue inspect"
 
 function nsc() {
 	npm info "@nativescript/$@"
-	ns create "$@" --template "@nativescript/$@" && cd "$@"
+	ns create "$@" --template "@nativescript/$@" || return 1
+	cd "$@"
+	npm install
+	npx update-ns-webpack --configs
+	prettier --write .
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
 alias nssed="sed -e 's|^JS: ||'$(
