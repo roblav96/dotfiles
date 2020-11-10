@@ -50,7 +50,7 @@ function npmv() {
 # [[ ! -x "$(which -p rushx)" ]] && alias rushx="npx --package=@microsoft/rush rushx"
 
 [[ ! -x "$(which -p vue)" ]] && alias vue="npx --package=@vue/cli-service vue-cli-service"
-alias vue-inspect="FORCE_COLOR=0 vue inspect"
+alias vueinspect="FORCE_COLOR=0 vue inspect"
 # alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 
 function nsc() {

@@ -72,9 +72,11 @@ alias bpl="batplist"
 alias bplist="batplist"
 
 function dotbat() {
-	cat "$@" | sed -e '/^[ ]*#/d' | bat --file-name="$@" -l sh
-	# -e 's#^[\n]{2,}#\n#'
-}
+	local file="$DOTFILES/modules/$@.sh"
+	[[ ! -e "$file" ]] && echo "🔴 No such file -> \$DOTFILES/modules/$@.sh" | lsc && return 1
+	cat "$file" | sed -e '/^[\s]*# /d' -e '/^$/d' | bat --file-name="$@" -l sh
+} && compdef dotbat=command
+alias dbat='dotbat'
 
 function pbat() {
 	if [[ -e "$1" ]]; then
