@@ -16,6 +16,18 @@ export ANDROID_SERIAL="192.168.2.40"
 # alias adb="adb -t1"
 # alias adbtv="adb -s $ANDROID_SERIAL"
 
+function curltv() {
+	if [[ $# -ne 2 ]]; then
+		echo "🔴 '$#' -ne 2"
+	elif [[ "$1" == "premiumize" ]]; then
+		curlj --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$_PREMIUMIZE_ID&pin=$_PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2"
+	elif [[ "$1" == "real-debrid" ]]; then
+		curlj --proxy "$ANDROID_SERIAL:8888" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$_REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2"
+	elif [[ "$1" == "alldebrid" ]]; then
+		curlj --proxy "$ANDROID_SERIAL:8888" "https://api.alldebrid.com/v4/link/unlock?agent=$_ALLDEBRID_AGENT&apikey=$_ALLDEBRID_KEY&link=https://uptobox.com/$2"
+	fi
+}
+
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
