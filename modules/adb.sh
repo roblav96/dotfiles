@@ -164,3 +164,26 @@ function adb-play-store() {
 		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
 	done
 }
+
+
+function adb-play-store() {
+	local action="${1:-disable-user}"
+	local _package_ids=(
+		'com.android.inputmethod.latin'
+		'com.android.vending'
+		'com.google.android.ext.services'
+		'com.google.android.feedback'
+		'com.google.android.gms'
+		'com.google.android.gsf'
+		'com.google.android.inputmethod.latin'
+		'com.google.android.katniss'
+		'com.google.android.sss'
+		'com.google.android.sss.authbridge'
+		'com.google.android.tv.bugreportsender'
+		'com.nvidia.ota'
+	)
+	local package && for package in "${packages[@]}"; do
+		echo "🌕 $action -> '$package'"
+		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
+	done
+}
