@@ -1,4 +1,4 @@
-alias dfd="defaults delete"
+# alias dfrm="defaults delete"
 alias dff="defaults find"
 # alias dfr="defaults read"
 alias dfrt="defaults read-type"
