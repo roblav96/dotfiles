@@ -8,6 +8,8 @@ fi
 # export PATH="/usr/local/opt/glide/bin:$PATH"
 # export GLIDE_HOME="/usr/local/opt/glide"
 
+alias goget='go mod download -x all'
+alias goc='go mod download -x all && go mod verify'
 alias gocd="cd $GOBIN"
 alias gols="lch $GOBIN"
 alias goin="GO111MODULE=on go get -v"

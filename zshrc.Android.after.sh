@@ -10,6 +10,13 @@ if [[ -x "$HOME/.termux/boot/termux-services.sh" ]]; then
 	sh "$HOME/.termux/boot/termux-services.sh"
 fi
 
+if [[ -x "$PREFIX/bin/$EDITOR" ]]; then
+	if [[ ! -e "$HOME/bin/termux-file-editor" ]]; then
+		[[ ! -d "$HOME/bin" ]] && mkdir -p "$HOME/bin"
+		ln -sf "$PREFIX/bin/$EDITOR" "$HOME/bin/termux-file-editor"
+	fi
+fi
+
 # test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
 # test -d "/system/bin" && export PATH="$PATH:/system/bin"
 # test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"

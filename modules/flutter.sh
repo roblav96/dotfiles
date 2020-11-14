@@ -9,3 +9,4 @@ alias pubin="flutter pub global activate"
 alias publs="flutter pub global list"
 alias publs="lch $FLUTTER_ROOT/.pub-cache/bin"
 alias pubrm="flutter pub global deactivate"
+alias pubget='flutter pub get'
