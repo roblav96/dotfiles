@@ -18,11 +18,11 @@ export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
-		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$_PREMIUMIZE_ID&pin=$_PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)' --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$_PREMIUMIZE_ID&pin=$_PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "real-debrid" ]]; then
-		curl --proxy "$ANDROID_SERIAL:8888" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$_REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:8888" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$_REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
-		curl --proxy "$ANDROID_SERIAL:8888" "https://api.alldebrid.com/v4/link/unlock?agent=$_ALLDEBRID_AGENT&apikey=$_ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:8888" "https://api.alldebrid.com/v4/link/unlock?agent=$_ALLDEBRID_AGENT&apikey=$_ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --tab --monochrome-output --raw-output
 	fi
 }
 
