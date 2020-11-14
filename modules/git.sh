@@ -1,9 +1,10 @@
 alias ghb="github"
-# alias gho="gh repo view --web"
-alias gho='open $(git remote get-url origin)'
+alias gho="gh repo view --web"
+# alias gho='open $(git remote get-url origin)'
 
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
+[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='git-restore-mtime --force'
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
@@ -61,6 +62,10 @@ function gc() {
 	fi
 	git clone "$@" && cd "$outdir"
 	[[ -e ".gitmodules" ]] && gmupd
+	if [[ -x "$(which -p git-restore-mtime)" ]]; then
+		git-restore-mtime --force --quiet
+		touch "$PWD"
+	fi
 }
 function greload() {
 	local topdir="$(git rev-parse --show-toplevel)"
