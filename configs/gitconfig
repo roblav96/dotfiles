@@ -8,6 +8,8 @@
 	name = Robert Laverty
 [advice]
 	detachedHead = false
+[diff]
+	renameLimit = 2048
 [hub]
 	protocol = https
 [log]

@@ -1,6 +1,6 @@
 alias ghb="github"
 alias gho="gh repo view --web"
-# alias gho='open $(git remote get-url origin)'
+alias gurl='git remote get-url origin'
 
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"

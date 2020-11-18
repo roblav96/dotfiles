@@ -29,6 +29,7 @@ function curltv() {
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
+alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
 
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
@@ -74,6 +75,9 @@ function adbrm() {
 }
 function adbdp() {
 	adb shell dumpsys package "$@" | bat --style=grid -l yml
+}
+function adblp() {
+	adb shell monkey -p "$@" -c android.intent.category.LAUNCHER 1
 }
 
 # https://developer.android.com/reference/android/provider/Settings
@@ -129,6 +133,9 @@ function adbpmf() {
 	echo && echo "🌕 Disabled Packages"
 	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 }
+function adbpmdis() {
+	adb shell pm disable-user --user 0 "$@" && adb shell am force-stop "$@"
+}
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
@@ -146,29 +153,6 @@ function adbpmf() {
 function adb-play-store() {
 	local action="${1:-disable-user}"
 	local packages=(
-		'com.android.inputmethod.latin'
-		'com.android.vending'
-		'com.google.android.ext.services'
-		'com.google.android.feedback'
-		'com.google.android.gms'
-		'com.google.android.gsf'
-		'com.google.android.inputmethod.latin'
-		'com.google.android.katniss'
-		'com.google.android.sss'
-		'com.google.android.sss.authbridge'
-		'com.google.android.tv.bugreportsender'
-		'com.nvidia.ota'
-	)
-	local package && for package in "${packages[@]}"; do
-		echo "🌕 $action -> '$package'"
-		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
-	done
-}
-
-
-function adb-play-store() {
-	local action="${1:-disable-user}"
-	local _package_ids=(
 		'com.android.inputmethod.latin'
 		'com.android.vending'
 		'com.google.android.ext.services'
