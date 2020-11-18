@@ -1,5 +1,4 @@
-# export DOTBENCH="$(date +%s%3N)"
-# echo "🌕 $PLATFORM before"
+# declare DOTBENCH="$(date +%s%3N)"
 
 # export RMATE_HOST="localhost"
 # export RMATE_PORT="52699"

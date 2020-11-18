@@ -10,9 +10,10 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
-# if pgrep -q -x adb; then
-export ANDROID_SERIAL="192.168.2.40"
-# fi
+if pgrep -x adb &>/dev/null; then
+	export ANDROID_SERIAL="${"$(adb get-serialno)"%:5555}"
+fi
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 # alias adb="adb -t1"
 # alias adbtv="adb -s $ANDROID_SERIAL"
 
