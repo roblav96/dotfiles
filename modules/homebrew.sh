@@ -233,10 +233,16 @@ function brm() {
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
-		echo && echo "🌕 Uninstalling cask -> '$v'"
+		echo && echo "🌕 Zapping cask -> '$v'"
 		HOMEBREW_COLOR=1 brew cask zap --force --verbose "$v" | lsc
 	done
 } && compdef bcrm=command
+function bcun() {
+	local v && for v in "$@"; do
+		echo && echo "🌕 Uninstalling cask -> '$v'"
+		HOMEBREW_COLOR=1 brew cask uninstall --force --verbose "$v" | lsc
+	done
+} && compdef bcun=command
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	function bsls() {
