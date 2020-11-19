@@ -11,11 +11,11 @@
 # fi
 
 if pgrep -x adb &>/dev/null; then
-	export ANDROID_SERIAL="${"$(adb get-serialno)"%:5555}"
+	if [[ $(adb devices | wc -l) -gt 2 ]]; then
+		export ANDROID_SERIAL="${"$(adb get-serialno)"%:5555}"
+	fi
 fi
 [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
-# alias adb="adb -t1"
-# alias adbtv="adb -s $ANDROID_SERIAL"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then

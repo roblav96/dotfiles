@@ -72,7 +72,7 @@ alias gmtool="gmtool --verbose"
 
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 
-alias denonavr='curl --insecure "https://192.168.2.119:10443/ajax/general/get_config?type=12" | oq -i xml -o yaml ".Information" | bat --style=grid -l yml'
+alias denonavr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | bat --style=grid -l yml"
 alias denonavr-device-info='curl http://192.168.2.119:8080/goform/Deviceinfo.xml | oq -i xml -o yaml | bat --style=grid -l yml'
 # alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"
 # alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"

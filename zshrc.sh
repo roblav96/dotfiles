@@ -3,7 +3,7 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
-# [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
+[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
@@ -194,7 +194,7 @@ alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias | sortt | sed 's#^#\n#'"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt"
-alias wcl="wc --lines"
+alias wcl="wc -l"
 alias jj="just" # --verbose"
 alias rc="rclone"
 alias lsc="lscolors"
@@ -365,6 +365,8 @@ function histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's|^|\n|g' | bat --plain -l sh
 }; compdef histw=which
 
+bindkey '^[H' man
+bindkey '^[h' man
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
 }; compdef mans=man
@@ -441,7 +443,10 @@ if [[ -x "$(which -p ffprobe)" ]]; then
 fi
 if [[ -x "$(which -p mediaconch)" ]]; then
 	function mi() {
-		mediaconch -mi "$*" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --style=grid -l yml
+		local i && for i in "$@"; do
+
+			mediaconch -mi "$i" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --file-name="$i" -l yml
+		done
 	}
 fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
