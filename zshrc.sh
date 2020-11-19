@@ -365,8 +365,8 @@ function histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's|^|\n|g' | bat --plain -l sh
 }; compdef histw=which
 
-bindkey '^[H' man
-bindkey '^[h' man
+# bindkey '^[H' man
+# bindkey '^[h' man
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
 }; compdef mans=man
