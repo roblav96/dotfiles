@@ -434,27 +434,29 @@ function readlinka() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
+alias ffmpeg="ffmpeg -hide_banner -loglevel error"
+alias ffplay="ffplay -hide_banner -loglevel error"
+alias ffprobe="ffprobe -hide_banner -loglevel error"
 # alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fprobe() {
-		ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams "$*" | json --color-output # | rg --passthru --ignore-case --regexp='".*_frame_.*"'
+		local i && for i in "$@"; do
+			ffprobe -pretty -print_format json -show_format -show_streams "$i" | oq -i json -o yaml --sort-keys | bat --style=grid -l yml
+		done
 	}
 	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
 fi
 if [[ -x "$(which -p mediaconch)" ]]; then
 	function mi() {
 		local i && for i in "$@"; do
-
-			mediaconch -mi "$i" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --file-name="$i" -l yml
+			mediaconch -mi "$i" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --style=grid -l yml
 		done
 	}
 fi
 if [[ -x "$(which -p ffmpeg)" ]]; then
 	function ffmp3() {
-		local file; for file in "$@"; do
-			if [[ -e "$file" ]]; then
-				ffmpeg -i "$file" -vn -b:a 320k "$file.mp3"
-			fi
+		local i; for i in "$@"; do
+			ffmpeg -i "$i" -vn -b:a 320k "$i.mp3"
 		done
 	}
 fi
