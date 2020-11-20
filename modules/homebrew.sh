@@ -87,11 +87,11 @@ alias bscd='cd $(brew --prefix)/Homebrew'
 alias blog="brew log --max-count=5"
 alias blogm="brew log --max-count=10 --oneline"
 alias bloga="brew log --max-count=3 --patch"
-function bhist() {
-	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core" && smerge log "Formula/$*.rb")
-} && compdef bhist=command
-function bchist() {
-	(cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask" && smerge log "Casks/$*.rb")
+function bclog() {
+	(
+		cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask"
+		git log --reverse --max-count=5 --date=relative --stat "Casks/$*.rb"
+	)
 } && compdef bchist=command
 
 function bin() {
@@ -321,6 +321,7 @@ unfunction bin-linux
 
 function bupg-sudo() {
 	local link="$(brew --prefix)/bin/$*"
+	[[ ! -e "$link" ]] && local link="$(brew --prefix)/sbin/$*"
 	if [[ ! -e "$link" || ! -x "$link" ]]; then
 		echo "🔴 Command not found -> '$link'"
 		return 1
