@@ -74,7 +74,7 @@ alias bplist="batplist"
 
 function dotbat() {
 	local file="$DOTFILES/modules/$@.sh"
-	[[ ! -e "$file" ]] && echo "🔴 No such file -> \$DOTFILES/modules/$@.sh" | lsc && return 1
+	[[ ! -e "$file" ]] && echo "🔴 No such file -> \$DOTFILES/modules/$@.sh" | lscolors && return 1
 	cat "$file" | sed -e '/^[\s]*# /d' -e '/^$/d' | bat --file-name="$@" -l sh
 } && compdef dotbat=command
 alias dbat='dotbat'

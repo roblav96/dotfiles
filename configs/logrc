@@ -6,20 +6,21 @@ stream:
 	--source
 
 predicate:
+
 	logrc
 		'NOT process IN {'
 			'"diskarbitrationd",'
-			'"iTerm2",'
-			'"hidd"'
+			'"hidd",'
+			'"iTerm2"'
 		'}'
 
 	debug
 		'NOT process IN {'
 			'"diskarbitrationd",'
-			'"WindowServer",'
-			'"powerd",'
+			'"hidd",'
 			'"iTerm2",'
-			'"hidd"'
+			'"powerd",'
+			'"WindowServer"'
 		'}'
 
 	errors

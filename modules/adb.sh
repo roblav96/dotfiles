@@ -41,6 +41,7 @@ alias rog="rogcat --tag '!^netstats_(\w+)_sample$' --message '!^loading \[eventT
 alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
+alias adbpid=" adbps | g"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
 alias adbscanmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
@@ -55,13 +56,13 @@ alias adbstack="adb shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
 	if [[ $# -eq 1 ]]; then
-		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW' -d "$@"
+		adb shell am start -a "com.google.android.exoplayer.demo.action.VIEW" -d "$@" # --ez prefer_extension_decoders FALSE
 	else
 		local args=""
 		local i && for ((i = 0; i < $#; i++)); do
 			args="$args--es uri_$i ${@[$((i + 1))]} "
 		done
-		adb shell am start -a 'com.google.android.exoplayer.demo.action.VIEW_LIST' "$args"
+		adb shell am start -a "com.google.android.exoplayer.demo.action.VIEW_LIST" "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
@@ -69,16 +70,27 @@ alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
 alias adbk="adb shell am force-stop"
 function adbcl() {
-	adb shell am force-stop "$@"
-	adb shell pm clear "$@"
+	local v && for v in "$@"; do
+		adb shell am force-stop "$v"
+		adb shell pm clear "$v"
+	done
 }
 function adbrm() {
-	adb shell am force-stop "$@"
-	adb shell pm clear "$@"
-	adb uninstall "$@"
+	local v && for v in "$@"; do
+		adb shell am force-stop "$v"
+		adb shell pm clear "$v"
+		adb uninstall "$v"
+	done
 }
 function adbdp() {
-	adb shell dumpsys package "$@" | bat --style=grid -l yml
+	local v && for v in "$@"; do
+		adb shell dumpsys package "$v" | bat --file-name="$v" -l yml
+	done
+}
+function adbdpa() {
+	local v && for v in "$@"; do
+		adb shell pm dump "$v" | bat --file-name="$v" -l yml
+	done
 }
 function adblp() {
 	adb shell monkey -p "$@" -c android.intent.category.LAUNCHER 1
@@ -137,8 +149,15 @@ function adbpmf() {
 	echo && echo "🌕 Disabled Packages"
 	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 }
-function adbpmdis() {
-	adb shell pm disable-user --user 0 "$@" && adb shell am force-stop "$@"
+function adbpmd() {
+	local v && for v in "$@"; do
+		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
+	done
+}
+function adbpmu() {
+	local v && for v in "$@"; do
+		adb shell pm enable --user 0 "$v"
+	done
 }
 
 # function adb-pm-ls() {
@@ -158,6 +177,7 @@ function adb-play-store() {
 	local action="${1:-disable-user}"
 	local packages=(
 		'com.android.inputmethod.latin'
+		'com.android.providers.tv'
 		'com.android.vending'
 		'com.google.android.ext.services'
 		'com.google.android.feedback'
@@ -168,6 +188,7 @@ function adb-play-store() {
 		'com.google.android.sss'
 		'com.google.android.sss.authbridge'
 		'com.google.android.tv.bugreportsender'
+		'com.google.android.tvrecommendations'
 		'com.nvidia.ota'
 	)
 	local package && for package in "${packages[@]}"; do

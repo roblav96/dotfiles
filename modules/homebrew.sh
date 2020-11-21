@@ -11,7 +11,7 @@ export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
-alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lsc"
+alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
@@ -31,11 +31,11 @@ function bcout() {
 function bupg() {
 	if [[ $# -eq 0 ]]; then
 		echo && echo "🌕 Upgrading all formulas"
-		HOMEBREW_COLOR=1 brew upgrade --formula | lsc
+		HOMEBREW_COLOR=1 brew upgrade --formula | lscolors
 	else
 		local v && for v in "$@"; do
 			echo && echo "🌕 Upgrading formula -> '$v'"
-			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lsc
+			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lscolors
 		done
 	fi
 	src
@@ -43,7 +43,7 @@ function bupg() {
 function bcupg() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Upgrading cask -> '$v'"
-		HOMEBREW_COLOR=1 brew upgrade --cask --no-quarantine "$v" | lsc
+		HOMEBREW_COLOR=1 brew upgrade --cask --no-quarantine "$v" | lscolors
 	done
 } && compdef bcupg=command
 
@@ -97,28 +97,28 @@ function bclog() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing formula -> '$v'"
-		HOMEBREW_COLOR=1 brew install --formula "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --formula "$v" | lscolors
 	done
 	src
 }
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Installing cask -> '$v'"
-		HOMEBREW_COLOR=1 brew install --cask --no-quarantine --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew install --cask --no-quarantine --verbose "$v" | lscolors
 	done
 }
 
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --formula "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --formula "$v" | lscolors
 	done
 	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Reinstalling cask -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --cask --no-quarantine --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew reinstall --cask --no-quarantine --verbose "$v" | lscolors
 	done
 } && compdef bcrein=command
 
@@ -140,7 +140,7 @@ function bci() {
 } && compdef bci=command
 
 function bmd() {
-	find "$(brew --prefix)/opt/$*/" -type f -iname '*readme*' | while read i; do
+	find "$(brew --prefix)/opt/$*/" -maxdepth 1 -type f -iname '*readme*' | while read i; do
 		if [[ "${i##*.}" == "md" ]]; then mdcat "$i"; else bat "$i"; fi
 	done
 } && compdef bmd=command
@@ -227,20 +227,20 @@ function brm() {
 	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo && echo "🌕 Uninstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew uninstall --force --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew uninstall --force --verbose "$v" | lscolors
 	done
 	src
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Zapping cask -> '$v'"
-		HOMEBREW_COLOR=1 brew cask zap --force --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew cask zap --force --verbose "$v" | lscolors
 	done
 } && compdef bcrm=command
 function bcun() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Uninstalling cask -> '$v'"
-		HOMEBREW_COLOR=1 brew cask uninstall --force --verbose "$v" | lsc
+		HOMEBREW_COLOR=1 brew cask uninstall --force --verbose "$v" | lscolors
 	done
 } && compdef bcun=command
 
@@ -355,7 +355,7 @@ function bupg-node() {
 
 function bupg-node@12() {
 	brm node node@12 node@10
-	HOMEBREW_COLOR=1 brew cleanup --verbose | lsc
+	HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors
 	bin node node@12 node@10
 	bcd node@12
 	mkdir libexec/bin libexec/lib
@@ -379,7 +379,7 @@ function bcupg-google-chrome() {
 	# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
 	# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
 	fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' | while read i; do
-		echo "🌕 launchctl unload -w $i" | lsc
+		echo "🌕 launchctl unload -w $i" | lscolors
 		launchctl unload -w "$i"
 	done
 	echo && echo "✅ Disabled Google Chrome's update background services"

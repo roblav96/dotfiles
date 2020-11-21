@@ -145,7 +145,7 @@ function app-bak() {
 	fi
 	cd "$appdir"
 	dstore
-	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.' | lsc
+	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.' | lscolors
 	cd "$OLDPWD"
 	echo && echo "✅ Backup complete"
 	echo && exa --oneline "$tarpath"
