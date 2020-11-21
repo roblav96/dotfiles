@@ -5,7 +5,7 @@ alias gurl="git remote get-url origin"
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 [[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
-[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt="git-restore-mtime --force"
+[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt="git-restore-mtime --force --no-directories"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
