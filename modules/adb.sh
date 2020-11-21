@@ -41,7 +41,7 @@ alias rog="rogcat --tag '!^netstats_(\w+)_sample$' --message '!^loading \[eventT
 alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
-alias adbpid=" adbps | g"
+alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
 alias adbscanmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
@@ -56,19 +56,24 @@ alias adbstack="adb shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
 	if [[ $# -eq 1 ]]; then
-		adb shell am start -a "com.google.android.exoplayer.demo.action.VIEW" -d "$@" # --ez prefer_extension_decoders FALSE
+		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d "$@" # --ez prefer_extension_decoders FALSE
 	else
 		local args=""
 		local i && for ((i = 0; i < $#; i++)); do
 			args="$args--es uri_$i ${@[$((i + 1))]} "
 		done
-		adb shell am start -a "com.google.android.exoplayer.demo.action.VIEW_LIST" "$args" # --ez prefer_extension_decoders FALSE
+		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
 alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
-alias adbk="adb shell am force-stop"
+
+function adbk() {
+	local v && for v in "$@"; do
+		adb shell am force-stop "$v"
+	done
+}
 function adbcl() {
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
@@ -83,11 +88,6 @@ function adbrm() {
 	done
 }
 function adbdp() {
-	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | bat --file-name="$v" -l yml
-	done
-}
-function adbdpa() {
 	local v && for v in "$@"; do
 		adb shell pm dump "$v" | bat --file-name="$v" -l yml
 	done
@@ -149,8 +149,14 @@ function adbpmf() {
 	echo && echo "🌕 Disabled Packages"
 	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 }
+function adbpmp() {
+	local v && for v in "$@"; do
+		adb shell pm path --user 0 "$v" | sed 's#^package:##'
+	done
+}
 function adbpmd() {
 	local v && for v in "$@"; do
+		# adb shell am set-inactive --user 0 "$v"
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 }
@@ -159,6 +165,13 @@ function adbpmu() {
 		adb shell pm enable --user 0 "$v"
 	done
 }
+
+# function adbjadx() {
+# 	local v && for v in "$@"; do
+# 		local apk="$(adbpmp "$v")"
+# 		adb pull $(adbpmp "$v")
+# 	done
+# }
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
