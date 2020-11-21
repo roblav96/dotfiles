@@ -40,6 +40,7 @@ alias gtf="git tag --contains"
 alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 
+alias glf="git ls-files | sortt | lscolors"
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
 
