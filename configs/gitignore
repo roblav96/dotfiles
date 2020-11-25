@@ -28,6 +28,7 @@ Temporary Items
 
 # ████  roblav96/dotfiles  ████
 .classpath
+.gradle
 .hg
 .idea
 .mypy_cache
@@ -36,6 +37,7 @@ Temporary Items
 .svn
 .vscode
 flutter.bat
+local.properties
 
 # # ████  caarlos0/dotfiles  ████
 # .java-version

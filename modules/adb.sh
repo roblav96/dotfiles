@@ -32,8 +32,14 @@ function curltv() {
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
 alias rogcat="rogcat --hide-timestamp --level trace"
-alias rog="rogcat --tag '!^netstats_(\w+)_sample$' --message '!^loading \[eventTime=\d'"
+alias rog="rogcat \
+--message '!^Exception checking for game stream. Exception: ' \
+--message '!^interceptKeyT. key.ode=\d' \
+--message '!^loading \[eventTime=\d' \
+--tag '!^netstats_(\w+)_sample$'"
 # alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
+
+alias scrcpy="scrcpy --verbosity debug --disable-screensaver --render-driver opengl"
 
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
@@ -68,6 +74,13 @@ function exoplayer() {
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 
 alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
+
+alias adbin="adb install -r"
+# function adbin() {
+# 	local v && for v in "$@"; do
+# 		adb install -r -t -d "$v"
+# 	done
+# }
 
 function adbk() {
 	local v && for v in "$@"; do
@@ -190,7 +203,6 @@ function adb-play-store() {
 	local action="${1:-disable-user}"
 	local packages=(
 		'com.android.inputmethod.latin'
-		'com.android.providers.tv'
 		'com.android.vending'
 		'com.google.android.ext.services'
 		'com.google.android.feedback'
@@ -198,6 +210,7 @@ function adb-play-store() {
 		'com.google.android.gsf'
 		'com.google.android.inputmethod.latin'
 		'com.google.android.katniss'
+		'com.google.android.leanbacklauncher.recommendations'
 		'com.google.android.sss'
 		'com.google.android.sss.authbridge'
 		'com.google.android.tv.bugreportsender'

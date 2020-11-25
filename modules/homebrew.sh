@@ -345,10 +345,13 @@ function bupg-sudo() {
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-sudo
 
 function bupg-node() {
-	local node="$(dirname "$(realpath "$(which -p node)")")"
-	local npm="$(npm root -g)"
-	ln -sf "$npm/npm/bin/npm-cli.js" "$node/npm"
-	ln -sf "$npm/npm/bin/npx-cli.js" "$node/npx"
+	local npmg="$(npm root --global)"
+	local vnodes=("node" "node@14" "node@12" "node@10")
+	local vnode && for vnode in "${vnodes[@]}"; do
+		local node="$(realpath "$(brew --prefix)/opt/$vnode")"
+		ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
+		ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
+	done
 	[[ -x "$(which -p node-gyp)" ]] && node-gyp install
 }
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
