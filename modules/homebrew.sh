@@ -135,7 +135,7 @@ function bi() {
 function bci() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Cask -> '$v'"
-		brew cask info "$v"
+		brew info --cask "$v"
 	done
 } && compdef bci=command
 
@@ -195,7 +195,7 @@ function bcat() {
 function bccat() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Cat cask -> '$v'"
-		brew cask cat "$v" | pbat ruby
+		brew cat --cask "$v" | pbat ruby
 	done
 } && compdef bccat=command
 
@@ -219,7 +219,7 @@ function bo() {
 function bco() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Opening cask -> '$v'"
-		brew cask home "$v"
+		brew home "$v"
 	done
 } && compdef bco=command
 
