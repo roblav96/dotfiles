@@ -160,9 +160,13 @@ alias stcd="cd '$SUBLIME_DATA'"
 alias stcdp="cd '$SUBLIME_DATA/Packages'"
 alias stcdu="cd '$SUBLIME_DATA/Packages/User'"
 alias stst="subl '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.sublime-project'"
-alias stgs='(stcd && gs)'
-alias stgl='(stcd && gla --max-count=1)'
-alias stpush='(stcd && gpush)'
+alias stgs="(stcd && gs)"
+alias stgl="(stcd && gla --max-count=1)"
+alias stpush="(stcd && gpush)"
+alias stupd='
+(cd "$HOME/Sandbox/Packages" && echo && echo "▶ $(pwd)" && gpr && gmt -q);
+(cd "$HOME/Sandbox/PackageDev" && echo && echo "▶ $(pwd)" && gpr && gmt -q);
+'
 function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
@@ -183,9 +187,9 @@ alias vscdu="cd '$VSCODE_DATA/User'"
 
 unalias dotsrc &>/dev/null
 alias dot="subl --command 'project_manager {\"project\": \"Dotfiles\"}'"
-alias dotgs='(dotcd && gs)'
-alias dotgl='(dotcd && gla --max-count=1)'
-alias dotpush='(dotcd && gpush) && zcomp'
+alias dotgs="(dotcd && gs)"
+alias dotgl="(dotcd && gla --max-count=1)"
+alias dotpush="(dotcd && gpush) && zcomp"
 
 if [[ -n "$DOTBENCH" ]]; then
 	echo && echo "🔶 DOTBENCH -> $(bc <<< "$(date +%s%3N) - $DOTBENCH")"
