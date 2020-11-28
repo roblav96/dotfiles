@@ -39,8 +39,6 @@ alias rog="rogcat \
 --tag '!^netstats_(\w+)_sample$'"
 # alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
 
-alias scrcpy="scrcpy --verbosity debug --disable-screensaver --render-driver opengl"
-
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }

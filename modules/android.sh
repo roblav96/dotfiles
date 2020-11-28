@@ -33,6 +33,7 @@ alias apki="apkanalyzer apk summary"
 
 alias avdls="avdmanager list avd | bat --style=grid -l yml"
 alias emulatord='daemonize -- $(which -p emulator) -avd' # -accel on -gpu host
+alias scrcpy='$(which -p scrcpy) --serial $ANDROID_SERIAL --disable-screensaver --render-driver opengl --stay-awake --verbosity debug'
 
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"
