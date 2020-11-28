@@ -26,6 +26,8 @@ function mvnw() {
 # alias gradlew="sh gradlew"
 # alias mvnw="sh mvnw"
 
+# alias sdkmanager="sdkmanager --channel=3"
+
 alias apkanalyzer="apkanalyzer --human-readable"
 alias apki="apkanalyzer apk summary"
 

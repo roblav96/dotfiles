@@ -45,6 +45,7 @@ alias .ssh_config="subl --new-window $HOME/.ssh/config"
 alias .known_hosts="subl --new-window $HOME/.ssh/known_hosts"
 alias .rclone="subl --new-window $HOME/.config/rclone/rclone.conf"
 alias .h2o="subl --new-window /usr/local/etc/h2o/h2o.conf"
+alias .gradle="subl --new-window $HOME/.gradle/gradle.properties"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
 alias pfcat="cat /etc/pf.conf | sed -e '/^[ ]*#/d' -e '/^$/d' | bat --file-name=/etc/pf.conf -l py"

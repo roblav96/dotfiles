@@ -108,3 +108,4 @@ order = "Ascending"
 
 [pager]
 mode = "Disable"
+detect_width = false

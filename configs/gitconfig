@@ -9,7 +9,7 @@
 [advice]
 	detachedHead = false
 [diff]
-	renameLimit = 2048
+	renameLimit = 8192
 [hub]
 	protocol = https
 [log]
