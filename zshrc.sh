@@ -442,7 +442,7 @@ alias ffplay="ffplay -hide_banner -loglevel error"
 alias ffprobe="ffprobe -hide_banner -loglevel error"
 # alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
 if [[ -x "$(which -p ffprobe)" ]]; then
-	function fprobe() {
+	function fp() {
 		local i && for i in "$@"; do
 			ffprobe -pretty -print_format json -show_format -show_streams "$i" | oq -i json -o yaml --sort-keys | bat --style=grid -l yml
 		done
