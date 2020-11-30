@@ -3,7 +3,7 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
-[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
+# [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
@@ -187,7 +187,7 @@ alias rp="realpath"
 alias k="killall -v -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -laph"
-alias tree="tree -a -N -I '.git'"
+alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
@@ -209,12 +209,13 @@ alias sedlog="sed -u -r 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
 alias cl='printf "\ec\e[3J"'
+# alias cl="tput clear"
 # alias cl="clear && printf '\e[3J'"
 # alias cl="printf '\033[2J\033[3J\033[1;1H'"
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
 alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-# alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --shell=bash --external-sources"
