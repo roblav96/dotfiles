@@ -4,7 +4,7 @@ if [[ -d "$HOME/.cargo" ]]; then
 fi
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-alias cg="cargo --verbose"
+alias cg="cargo"
 alias cgcd="cd $CARGO_HOME/bin"
 alias cgin="cargo install --force"
 alias cgls="lch $CARGO_HOME/bin"

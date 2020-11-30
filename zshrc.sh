@@ -466,7 +466,7 @@ fi
 
 source "$DOTFILES/modules/disk.sh"
 test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
-test -n "$_HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
+test -n "$HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/modules/apt.sh"
 test -x "$(which -p aws)" && source "$DOTFILES/modules/aws.sh"
