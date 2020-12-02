@@ -64,7 +64,6 @@ fr="$fr\
 [[ "$PLATFORM" == "Linux" ]] && fr="$fr\
 --exclude=$HOME/downloads \
 --exclude=$HOME/emby \
---exclude=/home/linuxbrew/.linuxbrew \
 --exclude=/var/lib/emby/cache \
 --exclude=/var/lib/emby/metadata \
 "
