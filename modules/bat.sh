@@ -3,8 +3,10 @@ export BAT_STYLE="header,grid"
 export BAT_THEME="Monokai Pro"
 # export BAT_CONFIG_PATH="$DOTFILES/static"
 
-alias bat="bat --italic-text=always --decorations=always --tabs=0 --wrap=never --paging=$BAT_PAGER --theme='$BAT_THEME' --style=$BAT_STYLE"
-# --map-syntax '*.sublime-snippet:XML'"
+alias bat="bat --italic-text=always --decorations=always --tabs=0 --wrap=never \
+--map-syntax '*.just:Bourne Again Shell (bash)' \
+--map-syntax 'justfile:Bourne Again Shell (bash)' \
+--paging=$BAT_PAGER --theme='$BAT_THEME' --style=$BAT_STYLE"
 alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 # alias batt="bat --style=header,grid,numbers"
 # alias bbat="bat --style=header,grid,numbers"

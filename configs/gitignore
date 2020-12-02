@@ -35,7 +35,6 @@ Temporary Items
 .project
 .settings
 .svn
-.vscode
 flutter.bat
 local.properties
 
