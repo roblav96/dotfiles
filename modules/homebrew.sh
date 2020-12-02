@@ -374,8 +374,9 @@ function bupg-node@12() {
 
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
-	deno types --unstable >"$DENO_DIR/lib.deno.d.ts" && chmod 644 "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"
-	deno types --unstable >"$DENO_DIR/lib.deno.unstable.d.ts" && chmod 644 "$DENO_DIR/lib.deno.unstable.d.ts" && prettier --write "$DENO_DIR/lib.deno.unstable.d.ts"
+	local deno_dir="$HOME/.cache/deno"
+	rm -rf "$deno_dir/lib.deno.d.ts" && deno types --unstable >"$deno_dir/lib.deno.d.ts" && ls -laph "$deno_dir/lib.deno.d.ts"
+	rm -rf "$deno_dir/lib.deno.unstable.d.ts" && deno types --unstable >"$deno_dir/lib.deno.unstable.d.ts" && ls -laph "$deno_dir/lib.deno.unstable.d.ts"
 }
 
 function bcupg-google-chrome() {
