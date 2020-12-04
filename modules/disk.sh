@@ -1,11 +1,11 @@
-local TK_FLAGS="--sort=code --exclude=.git"
-local TK_FLAGS_ALL="--hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
-alias tk="tokei $TK_FLAGS --exclude=node_modules"
-alias tkf="tokei $TK_FLAGS --exclude=node_modules --files"
-alias tka="tokei $TK_FLAGS $TK_FLAGS_ALL"
-alias tkaf="tokei $TK_FLAGS $TK_FLAGS_ALL --files"
+local tk_flags="--exclude=.git"
+local tk_flags_all="--hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
+alias tk="tokei $tk_flags --exclude=node_modules"
+alias tkf="tokei $tk_flags --exclude=node_modules --files"
+alias tka="tokei $tk_flags $tk_flags_all"
+alias tkaf="tokei $tk_flags $tk_flags_all --files"
 alias tkls="tokei --languages"
-unset TK_FLAGS TK_FLAGS_ALL
+unset tk_flags tk_flags_all
 
 # [[ -x "$(which -p diskonaut)" ]] && alias diskonaut="diskonaut --apparent-size"
 # [[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
