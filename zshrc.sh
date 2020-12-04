@@ -328,6 +328,9 @@ alias curlt='curl --output /dev/null --write-out "
 function curlj() {
 	curl "$@" | json
 } && compdef curlj=curl
+function curljy() {
+	curl "$@" | oq -i json -o yaml --sort-keys | bat --plain -l yml
+} && compdef curljy=curl
 
 if [[ -x "$(which -p rmate)" ]]; then
 	alias st="rmate"
