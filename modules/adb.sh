@@ -10,12 +10,12 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
+export ANDROID_SERIAL="192.168.1.2"
 if pgrep -x adb &>/dev/null; then
 	if [[ $(adb devices | wc -l) -gt 2 ]]; then
 		export ANDROID_SERIAL="${"$(adb get-serialno)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
