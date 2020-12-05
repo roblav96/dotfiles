@@ -164,13 +164,13 @@ function adbpmp() {
 		adb shell pm path --user 0 "$v" | sed 's#^package:##'
 	done
 }
-function adbpmd() {
+function adbpmdown() {
 	local v && for v in "$@"; do
 		# adb shell am set-inactive --user 0 "$v"
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 }
-function adbpmu() {
+function adbpmup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
