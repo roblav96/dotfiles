@@ -10,7 +10,7 @@
 # 	source "/usr/local/etc/bash_completion.d/pidcat"
 # fi
 
-export ANDROID_SERIAL="192.168.1.2"
+export ANDROID_SERIAL="192.168.2.40"
 if pgrep -x adb &>/dev/null; then
 	if [[ $(adb devices | wc -l) -gt 2 ]]; then
 		export ANDROID_SERIAL="${"$(adb get-serialno)"%:5555}"

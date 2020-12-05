@@ -305,24 +305,25 @@ alias aria2cdl="aria2c --split=4 --download-result=full"
 alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=3 --restrict-file-names=unix"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 3"
 alias curlt='curl --output /dev/null --write-out "
-	Effective URL = %{url_effective}
-	Content Type = %{content_type}
-	Status Code = %{http_code}
-	Connect Code = %{http_connect}
-	Connects = %{num_connects}
-	Redirects = %{num_redirects}
-	Redirect URL = %{redirect_url}
-	Size Download = %{size_download}
-	Size Upload = %{size_upload}
-	SSL Verify = %{ssl_verify_result}
+Effective URL: %{url_effective}
+Content Type: %{content_type}
+Status Code: %{http_code}
+Connect Code: %{http_connect}
+Connects: %{num_connects}
+Redirects: %{num_redirects}
+Redirect URL: %{redirect_url}
+Size Download: %{size_download}
+Size Upload: %{size_upload}
+SSL Verify: %{ssl_verify_result}
 
-	%{time_appconnect} Handshake
-	%{time_connect} Connect
-	%{time_namelookup} DNS Lookup Time
-	%{time_pretransfer} Pretransfer
-	%{time_redirect} Redirect
-	%{time_starttransfer} Start Transfer
-	%{time_total} = Total
+%{time_appconnect}: Handshake
+%{time_connect}: Connect
+%{time_namelookup}: DNS Lookup Time
+%{time_pretransfer}: Pretransfer
+%{time_redirect}: Redirect
+%{time_starttransfer}: Start Transfer
+%{time_total}: Total
+
 "'
 # alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
 function curlj() {
