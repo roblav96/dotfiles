@@ -9,6 +9,7 @@ if [ -x "$PREFIX/bin/pgrep" ]; then
 	if [ -x "$PREFIX/bin/tinyproxy" ]; then
 		if [ -x "$PREFIX/bin/sed" ]; then
 			sed --in-place='' 's/^Allow/#Allow/' "$PREFIX/etc/tinyproxy/tinyproxy.conf"
+			# sed --in-place='' -c 's/^Allow/#Allow/' -c 's/Servers \d+$/Servers 1/' "$PREFIX/etc/tinyproxy/tinyproxy.conf"
 		fi
 		echo "█ (pgrep -x tinyproxy) -> '$(pgrep -x tinyproxy)'"
 		pgrep -x tinyproxy >/dev/null || tinyproxy -c "$PREFIX/etc/tinyproxy/tinyproxy.conf"

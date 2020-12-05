@@ -31,8 +31,7 @@ function curltv() {
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
-alias rog="rogcat \
---hide-timestamp --level trace \
+alias rog="rogcat --hide-timestamp --level trace \
 --message '!^Exception checking for game stream. Exception: ' \
 --message '!^interceptKeyT. key.ode=\d' \
 --message '!^loading \[eventTime=\d' \
@@ -200,23 +199,25 @@ function adbpmu() {
 function adb-play-store() {
 	local action="${1:-disable-user}"
 	local packages=(
-		'com.android.inputmethod.latin'
-		'com.android.vending'
-		'com.google.android.ext.services'
-		'com.google.android.feedback'
-		'com.google.android.gms'
-		'com.google.android.gsf'
-		'com.google.android.inputmethod.latin'
-		'com.google.android.katniss'
-		'com.google.android.leanbacklauncher.recommendations'
-		'com.google.android.sss'
-		'com.google.android.sss.authbridge'
-		'com.google.android.tv.bugreportsender'
-		'com.google.android.tvrecommendations'
-		'com.nvidia.ota'
+		"android.autoinstalls.config.nvidia"
+		"com.android.inputmethod.latin"
+		"com.android.vending"
+		"com.google.android.ext.services"
+		"com.google.android.feedback"
+		"com.google.android.gms"
+		"com.google.android.gsf"
+		"com.google.android.inputmethod.latin"
+		"com.google.android.katniss"
+		"com.google.android.leanbacklauncher.recommendations"
+		"com.google.android.sss"
+		"com.google.android.sss.authbridge"
+		"com.google.android.tv.bugreportsender"
+		"com.google.android.tvrecommendations"
+		"com.nvidia.ota"
 	)
 	local package && for package in "${packages[@]}"; do
 		echo "🌕 $action -> '$package'"
 		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
 	done
+	adb shell am force-stop "com.google.android.tvlauncher"
 }
