@@ -97,6 +97,11 @@ function adbrm() {
 		adb uninstall "$v"
 	done
 }
+function adbi() {
+	local v && for v in "$@"; do
+		adb shell dumpsys package "$v" | bat --file-name="$v" -l yml
+	done
+}
 function adbdp() {
 	local v && for v in "$@"; do
 		adb shell pm dump "$v" | bat --file-name="$v" -l yml
