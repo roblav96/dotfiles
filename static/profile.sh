@@ -10,6 +10,20 @@
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 [[ -x "$(which tabs)" ]] && tabs -4
 
+# if [[ -x "$(which rmate)" ]]; then
+# 	export EDITOR="rmate"
+# 	export VEDITOR="rmate"
+# elif [[ -x "$(which micro)" ]]; then
+# 	export EDITOR="micro"
+# 	export VEDITOR="micro"
+# el
+if [[ -x "$(which nano)" ]]; then
+	export EDITOR="nano"
+	export VEDITOR="nano"
+	export VISUAL="nano"
+fi
+[[ -n "$EDITOR" ]] && alias e="$EDITOR"
+
 # set completion-ignore-case on
 # set completion-query-items 256
 # set expand-tilde off
@@ -23,6 +37,7 @@
 
 # unalias l
 # unalias ll
+alias sudo="sudo "
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -44,19 +59,6 @@ alias idk="man --apropos"
 alias p="ps aux | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
-
-# if [[ -x "$(which rmate)" ]]; then
-# 	export EDITOR="rmate"
-# 	export VEDITOR="rmate"
-# elif [[ -x "$(which micro)" ]]; then
-# 	export EDITOR="micro"
-# 	export VEDITOR="micro"
-# el
-if [[ -x "$(which nano)" ]]; then
-	export EDITOR="nano"
-	export VEDITOR="nano"
-	export VISUAL="nano"
-fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
