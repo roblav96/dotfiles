@@ -35,6 +35,11 @@ fi
 # set skip-completed-text on
 # set visible-stats on
 
+export GREP_COLOR="01;31"
+export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
+alias grep="grep --color=auto" # --ignore-case --extended-regexp"
+alias g="grep --fixed-strings"
+
 # unalias l
 # unalias ll
 alias sudo="sudo "
@@ -51,14 +56,13 @@ alias lra="tree -N -F -l -a -A -C"
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
 alias bat="cat" && alias b="bat"
-alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop --delay=1"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
 # alias s="subl -f"
-alias p="ps aux | grep --invert-match grep | grep"
+alias p="ps w | grep --invert-match grep | grep"
 alias k="killall -KILL"
-alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
+alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
@@ -76,10 +80,10 @@ alias json="jq --sort-keys --tab"
 # alias type="f() { type $@ && l $(which $@); unset -f f; }; f"
 
 function f() {
-	find . -iname "*$@*" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
+	find . -iname "*$**" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 function r() {
-	grep --no-messages --ignore-case --fixed-strings "$@" --recursive .
+	grep --no-messages --ignore-case --fixed-strings "$*" --recursive .
 }
 
 function show() {
