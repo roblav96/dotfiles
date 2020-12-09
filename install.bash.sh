@@ -6,8 +6,8 @@ if [[ ! -e "$0" ]]; then
 fi
 DOTFILES="$(dirname "$(realpath "$0")")"
 
-BASHRC="$HOME/.bashrc"
-[[ -z "$HOME" ]] && BASHRC="$(dirname "$DOTFILES")/.bashrc"
+BASHRC="$HOME/..bashrc"
+[[ -z "$HOME" ]] && BASHRC="$(dirname "$DOTFILES")/..bashrc"
 BASHRC_EXISTS="$([[ -e "$BASHRC" ]] && echo 1)"
 
 PLATFORM="$(uname -o)"
