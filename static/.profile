@@ -143,15 +143,13 @@ fi
 
 if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkg="opkg"
+	alias pkgi="opkg info"
 	alias pkgfs="opkg files"
 	function pkgs() {
-		opkg find "*$@*"
+		opkg info "'*$**'"
 	}
-	function pkgi() {
-		opkg info "*$@*"
-	}
-	function pkgf() {
-		opkg search "*$@*"
+	function pkgsa() {
+		opkg find "'*$**'"
 	}
 fi
 
