@@ -147,12 +147,16 @@ fi
 if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkg="opkg"
 	alias pkgi="opkg info"
+	alias pkgin="opkg install"
 	alias pkgfs="opkg files"
+	alias pkgupd="opkg update"
+	alias pkgupg="opkg upgrade"
+	alias pkgout="opkg list-upgradable"
 	function pkgs() {
-		opkg info "'*$**'"
+		opkg info "*$**"
 	}
 	function pkgsa() {
-		opkg find "'*$**'"
+		opkg find "*$**"
 	}
 fi
 
