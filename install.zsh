@@ -4,10 +4,10 @@
 # echo "🌕 ZSH install before"
 
 if [[ ! -e "$0" ]]; then
-	echo "🔴 Invalid script directory -> '$0'"
+	echo "[ERROR] Invalid script directory -> '$0'"
 	return 1
 fi
-DOTFILES="$(dirname "$(readlink -f "$0")")"
+DOTFILES="$(dirname "$(realpath "$0")")"
 
 ZSHRC="$HOME/.zshrc"
 [[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
@@ -15,7 +15,7 @@ ZSHRC_EXISTS="$([[ -e "$ZSHRC" ]] && echo 1)"
 
 PLATFORM="${$(uname -o)##*/}"
 if [[ "$PLATFORM" != "Darwin" ]]; then
-	(cd "$DOTFILES" && git pull && git reset --hard origin/master)
+	(cd "$DOTFILES" && git pull --rebase && git reset --hard origin/master)
 fi
 
 echo > "$ZSHRC"
