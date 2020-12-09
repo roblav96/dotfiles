@@ -33,6 +33,7 @@ alias lm="l -laph --sort=time"
 alias lb="l -laph --sort=size"
 alias lr="tree -N -F -l -a -A -C -L 1"
 alias lra="tree -N -F -l -a -A -C"
+alias rp="realpath"
 alias pwda="pwd && pwd -P"
 alias bat="cat"
 alias grep="grep --color=always --ignore-case --extended-regexp"
@@ -89,7 +90,9 @@ function show() {
 		fi
 	fi
 }
-function rp() {
+which s &>/dev/null || alias s="show"
+
+function realpatha() {
 	if [[ -x "$(which $@)" ]]; then
 		l "$(realpath $(which $@))"
 	else
