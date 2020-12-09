@@ -58,8 +58,8 @@ function nsc() {
 	ns create "$@" --template "@nativescript/$@" || return 1
 	cd "$@"
 	npm install
-	npx update-ns-webpack --configs
 	prettier --write .
+	npx update-ns-webpack --configs
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
 alias nssed="sed -e 's|^JS: ||'$(
