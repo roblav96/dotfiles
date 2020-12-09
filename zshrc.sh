@@ -451,7 +451,7 @@ alias ffprobe="ffprobe -hide_banner -loglevel error"
 if [[ -x "$(which -p ffprobe)" ]]; then
 	function fp() {
 		local i && for i in "$@"; do
-			ffprobe -pretty -print_format json -show_format -show_streams "$i" | json --color-output
+			ffprobe -pretty -print_format json -show_format -show_streams "$i" | json
 		done
 	}
 	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
