@@ -35,7 +35,7 @@ alias lr="tree -N -F -l -a -A -C -L 1"
 alias lra="tree -N -F -l -a -A -C"
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
-alias bat="cat"
+alias bat="cat" && alias b="bat"
 alias grep="grep --color=always --ignore-case --extended-regexp"
 alias htop="htop --delay=1"
 # function idk() { man -k $@ | grep "$@|$" }
