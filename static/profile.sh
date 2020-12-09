@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ -n "$BASH_VERSION" ]]; then
-	if [[ -e "$HOME/.bashrc" ]]; then
-		source "$HOME/.bashrc"
-	fi
-fi
+# if [[ -n "$BASH_VERSION" ]]; then
+# 	if [[ -e "$HOME/.bashrc" ]]; then
+# 		source "$HOME/.bashrc"
+# 	fi
+# fi
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"

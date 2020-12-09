@@ -17,8 +17,10 @@ echo > "$BASHRC"
 echo "export PLATFORM='$PLATFORM'" >> "$BASHRC"
 echo "export DOTFILES='$DOTFILES'" >> "$BASHRC"
 echo "alias dotsrc='bash $DOTFILES/install.bash.sh && exit'" >> $BASHRC
-echo "[[ -e '$DOTFILES/static/.profile' ]] && source '$DOTFILES/static/.profile'" >> "$BASHRC"
+echo "[[ -e '$DOTFILES/static/profile.sh' ]] && source '$DOTFILES/static/profile.sh'" >> "$BASHRC"
 echo >> "$BASHRC"
+
+chmod a+x "$BASHRC"
 
 if [[ -z "$BASHRC_EXISTS" ]]; then
 	cat "$BASHRC"
