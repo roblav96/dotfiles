@@ -20,11 +20,10 @@ echo "alias dotsrc='bash $DOTFILES/install.bash.sh && exit'" >> $BASHRC
 echo "[[ -e '$DOTFILES/static/profile.sh' ]] && source '$DOTFILES/static/profile.sh'" >> "$BASHRC"
 echo >> "$BASHRC"
 
-chmod a+x "$BASHRC"
-
 if [[ -z "$BASHRC_EXISTS" ]]; then
+	chmod 755 "$BASHRC"
 	cat "$BASHRC"
-	echo && echo "✔ BASH dotfiles install"
+	echo && echo "✔ BASH dotfiles installed"
 fi
 
 # clear

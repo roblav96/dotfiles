@@ -32,7 +32,7 @@ echo >> "$ZSHRC"
 
 if [[ -z "$ZSHRC_EXISTS" ]]; then
 	cat "$ZSHRC"
-	echo && echo "✅ ZSH dotfiles install"
+	echo && echo "✅ ZSH dotfiles installed"
 fi
 
 # echo "🌕 ZSH install after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
