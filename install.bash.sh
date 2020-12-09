@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
-if [[ ! -e "$0" ]]; then
-	echo "[ERROR] Invalid script directory -> '$0'"
+if [[ -z "$HOME" ]]; then
+	echo "[ERROR] Invalid HOME directory -> '$HOME'"
 	return 1
 fi
-DOTFILES="$(dirname "$(realpath "$0")")"
-
+DOTFILES="$HOME/.dotfiles"
 BASHRC="$HOME/..bashrc"
-[[ -z "$HOME" ]] && BASHRC="$(dirname "$DOTFILES")/..bashrc"
 BASHRC_EXISTS="$([[ -e "$BASHRC" ]] && echo 1)"
 
-PLATFORM="$(uname -o)"
-if [[ "$PLATFORM" != "Darwin" ]]; then
+PLATFORM="$(uname -s)"
+if [[ "$PLATFORM" != "Darwin" && -x "$(which git)" ]]; then
 	(cd "$DOTFILES" && git pull --rebase && git reset --hard origin/master)
 fi
 
@@ -21,8 +19,6 @@ echo "export DOTFILES='$DOTFILES'" >> "$BASHRC"
 echo "alias dotsrc='bash $DOTFILES/install.bash.sh && exit'" >> $BASHRC
 echo "[[ -e '$DOTFILES/static/.profile' ]] && source '$DOTFILES/static/.profile'" >> "$BASHRC"
 echo >> "$BASHRC"
-chmod a+x $BASHRC
-cat $BASHRC
 
 if [[ -z "$BASHRC_EXISTS" ]]; then
 	cat "$BASHRC"
