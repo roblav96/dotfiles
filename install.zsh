@@ -7,7 +7,7 @@ if [[ ! -e "$0" ]]; then
 	echo "[ERROR] Invalid script directory -> '$0'"
 	return 1
 fi
-DOTFILES="$(dirname "$(realpath "$0")")"
+DOTFILES="$(dirname "$(readlink -f "$0")")"
 
 ZSHRC="$HOME/.zshrc"
 [[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
