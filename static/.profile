@@ -31,12 +31,12 @@ alias ls="ls --color=always"
 alias l="ls -laph"
 alias lm="l -laph --sort=time"
 alias lb="l -laph --sort=size"
-alias lr="tree -F -l -a -A -C -L 1"
-alias lra="tree -F -l -a -A -C"
+alias lr="tree -N -a -L 1"
+alias lra="tree -N -a"
 alias pwda="pwd && pwd -P"
 alias bat="cat"
 alias grep="grep --color=always --ignore-case --extended-regexp"
-alias htop="htop --delay=5"
+alias htop="htop --delay=1"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
 # alias s="subl -f"
@@ -62,11 +62,11 @@ fi
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab"
 
-if [[ -x "$(which tsudo)" ]]; then
-	alias sudo="tsudo "
-elif [[ -x "$(which sudo)" ]]; then
-	alias sudo="sudo "
-fi
+# if [[ -x "$(which tsudo)" ]]; then
+# 	alias sudo="tsudo "
+# elif [[ -x "$(which sudo)" ]]; then
+# 	alias sudo="sudo "
+# fi
 
 # alias dot="subl /opt/etc/profile"
 # alias src="source /opt/etc/profile"
@@ -84,16 +84,16 @@ function show() {
 	local which="$(which $@)"
 	if [[ -e "$which" ]]; then
 		l "$which"
-		if [[ "$which" != "$(readlink -f $which)" ]]; then
-			l "$(readlink -f $which)"
+		if [[ "$which" != "$(realpath $which)" ]]; then
+			l "$(realpath $which)"
 		fi
 	fi
 }
-function readlinka() {
+function rp() {
 	if [[ -x "$(which $@)" ]]; then
-		l "$(readlink -f $(which $@))"
+		l "$(realpath $(which $@))"
 	else
-		l "$(readlink -f $@)"
+		l "$(realpath $@)"
 	fi
 }
 
@@ -105,15 +105,15 @@ function cha() {
 	curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$@"
 }
 
-if echo $PATH | grep -q "/system/bin.*/system/xbin"; then
-	export PATH="${PATH/system\/xbin/system\/bin}"
-	export PATH="${PATH/system\/bin/system\/xbin}"
-elif echo $PATH | grep -q "termux"; then
-	test -d "/sbin" && export PATH="$PATH:/sbin"
-	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
-	test -d "/system/bin" && export PATH="$PATH:/system/bin"
-	test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
-fi
+# if echo $PATH | grep -q "/system/bin.*/system/xbin"; then
+# 	export PATH="${PATH/system\/xbin/system\/bin}"
+# 	export PATH="${PATH/system\/bin/system\/xbin}"
+# elif echo $PATH | grep -q "termux"; then
+# 	test -d "/sbin" && export PATH="$PATH:/sbin"
+# 	test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
+# 	test -d "/system/bin" && export PATH="$PATH:/system/bin"
+# 	test -d "/vendor/bin" && export PATH="$PATH:/vendor/bin"
+# fi
 
 # test -d "$HOME/.bin" && export PATH="$HOME/.bin:$PATH"
 # test -d "/system/xbin" && export PATH="$PATH:/system/xbin"
@@ -136,9 +136,9 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 # export TERM="xterm-256color"
 
 if [[ -n "$HISTFILE" ]]; then
-	export HISTFILESIZE="5000000"
-	export HISTSIZE="5000000"
-	export SAVEHIST="1000000"
+	export HISTFILESIZE="999999999"
+	export HISTSIZE="999999999"
+	export SAVEHIST="999999999"
 fi
 
 if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
@@ -160,7 +160,7 @@ test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early -
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 # test -x "$(which curl)" && source "$DOTFILES/modules/tldr.sh"
-test -x "$(which htop)" && source "$DOTFILES/modules/processes.sh"
+# test -x "$(which htop)" && source "$DOTFILES/modules/processes.sh"
 test -x "$(which ip)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/modules/iproute2.sh"
 # test -x "$(which subl)" && source "$DOTFILES/modules/sublimetext.sh"
 test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
