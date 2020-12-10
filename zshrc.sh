@@ -229,6 +229,7 @@ alias uuid8="uuid | head -c8"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
+alias zenith="zenith --disable-history"
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
@@ -382,7 +383,7 @@ function mans() {
 }; compdef mans=man
 alias mansr="man -K"
 alias manfs="man -wa"
-function manf() {
+function manfzf() {
     man -k . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
 }
 # function idk() {
