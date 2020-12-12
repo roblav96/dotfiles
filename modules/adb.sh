@@ -35,6 +35,7 @@ alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rog="rogcat --hide-timestamp --level trace \
 --message '!^Exception checking for game stream. Exception: ' \
 --message '!^interceptKeyT. key.ode=\d' \
+--message '!^handleComboKeys key.ode: \d' \
 --message '!^loading \[eventTime=\d' \
 --tag '!^netstats_(\w+)_sample$'"
 # alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
@@ -165,14 +166,14 @@ function adbpmf() {
 	echo && echo "🌕 Disabled Packages"
 	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 }
-function adbpmp() {
+function adbpmapk() {
 	local v && for v in "$@"; do
 		adb shell pm path --user 0 "$v" | sed 's#^package:##'
 	done
 }
 function adbpmdown() {
 	local v && for v in "$@"; do
-		# adb shell am set-inactive --user 0 "$v"
+		# adb shell am set-inactive --user 0 "$v" true
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 }
@@ -184,8 +185,8 @@ function adbpmup() {
 
 # function adbjadx() {
 # 	local v && for v in "$@"; do
-# 		local apk="$(adbpmp "$v")"
-# 		adb pull $(adbpmp "$v")
+# 		local apk="$(adbpmapk "$v")"
+# 		adb pull $(adbpmapk "$v")
 # 	done
 # }
 
@@ -202,9 +203,7 @@ function adbpmup() {
 # alias adb-pm-f="adb-pm-ls | grep"
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
 
-function adb-play-store() {
-	local action="${1:-disable-user}"
-	local packages=(
+declare PLAY_STORE_PACKAGES=(
 		"android.autoinstalls.config.nvidia"
 		"com.android.inputmethod.latin"
 		"com.android.vending"
@@ -217,13 +216,8 @@ function adb-play-store() {
 		"com.google.android.leanbacklauncher.recommendations"
 		"com.google.android.sss"
 		"com.google.android.sss.authbridge"
+		"com.google.android.tts"
 		"com.google.android.tv.bugreportsender"
 		"com.google.android.tvrecommendations"
 		"com.nvidia.ota"
-	)
-	local package && for package in "${packages[@]}"; do
-		echo "🌕 $action -> '$package'"
-		adb shell pm "$action" --user 0 "$package" && adb shell am force-stop "$package"
-	done
-	adb shell am force-stop "com.google.android.tvlauncher"
-}
+)

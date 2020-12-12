@@ -32,10 +32,13 @@ alias apkanalyzer="apkanalyzer --human-readable"
 alias apki="apkanalyzer apk summary"
 
 alias avdls="avdmanager list avd | bat --style=grid -l yml"
-alias emulator='$(which -p emulator) -verbose -no-passive-gps -no-location-ui -accel on -gpu host'
-alias emulatord="daemonize -- $(echo ${aliases[emulator]})"
-alias scrcpy='$(which -p scrcpy) --serial $ANDROID_SERIAL --disable-screensaver --max-size 1080 --render-driver opengl --verbosity debug'
-alias scrcpyd="daemonize -- $(echo ${aliases[scrcpy]})"
+local emulator_flags='-no-skin -no-passive-gps -no-location-ui' # -accel on -gpu host'
+alias emulator="emulator $emulator_flags -verbose"
+alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
+local scrcpy_flags='--serial $ANDROID_SERIAL --disable-screensaver --max-size 1080 --render-driver opengl'
+alias scrcpy="scrcpy $scrcpy_flags --verbosity debug"
+alias scrcpyd="daemonize -- $(which -p scrcpy) $scrcpy_flags"
+unset emulator_flags scrcpy_flags
 
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"

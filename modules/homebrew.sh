@@ -77,9 +77,9 @@ function bpinned() {
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Searching descriptions -> '$v'"
-		brew search --desc "$v" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
 		echo && echo "🌕 Searching names -> '$v'"
-		brew search "$v" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
 	done
 }
 alias bscd='cd $(brew --prefix)/Homebrew'
