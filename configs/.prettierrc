@@ -1,5 +1,4 @@
 {
-	"addTrailingCommas": true,
 	"arrowParens": "always",
 	"bracketSpacing": true,
 	"endOfLine": "lf",

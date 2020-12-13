@@ -32,7 +32,7 @@ function curltv() {
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
 alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-alias rog="rogcat --hide-timestamp --level trace \
+alias rog="rogcat --level trace \
 --message '!^Exception checking for game stream. Exception: ' \
 --message '!^interceptKeyT. key.ode=\d' \
 --message '!^handleComboKeys key.ode: \d' \
@@ -71,6 +71,7 @@ function exoplayer() {
 	fi
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
 alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
 
