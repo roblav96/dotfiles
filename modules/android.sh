@@ -47,6 +47,16 @@ alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
 alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
 alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
 
+function unapk() {
+	local outdir="${@%.apk}"
+	apktool decode --api-level 28 --match-original --only-main-classes "$@"
+	unzip "$@" '*.dex' -d "$outdir"
+	cd "$outdir"
+	command rm -rf smali*
+	jadx --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
+	command rm -rf *.dex
+}
+
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
 alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/.env.kspass) --ksPass $(cat $DOTFILES/.env.kspass) --overwrite --apks'
 function uber-apk-install() {
