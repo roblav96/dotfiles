@@ -33,11 +33,21 @@ alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; a
 
 alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rog="rogcat --level trace \
+--message '!^Access denied finding property \"RB.tag\"$' \
+--message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
 --message '!^Exception checking for game stream. Exception: ' \
 --message '!^interceptKeyT. key.ode=\d' \
 --message '!^handleComboKeys key.ode: \d' \
 --message '!^loading \[eventTime=\d' \
 --tag '!^netstats_(\w+)_sample$'"
+# local rogs=(
+# 	"!^Exception checking for game stream. Exception: "
+# 	"!^interceptKeyT. key.ode=\d"
+# 	"!^handleComboKeys key.ode: \d"
+# 	"!^loading \[eventTime=\d"
+# )
+# alias rog="rogcat --level trace $(printf "--message '%q' " "$rogs") --tag '!^netstats_(\w+)_sample$'"
+# unset rogs
 # alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
 
 # function adbt() {
