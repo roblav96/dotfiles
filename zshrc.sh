@@ -56,12 +56,12 @@ export LESSCHARSET="utf-8"
 # export MANPAGER="$PAGER"
 # export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | command bat -p -l man --pager \"less $LESS\"'"
 export MANOPT="--encoding=ascii"
-# if [[ "$PLATFORM" == "Android" ]]; then
-export MANPAGER="sh -c 'sed s/.\\\\x08//g | bat --color=always --decorations=always --style=grid --language=man'"
-# else
-# 	export MANPAGER="bash -c 'col -bx | bat --color=always --decorations=always --style=grid --language=man'"
-# 	export MANROFFOPT="-c"
-# fi
+if [[ "$PLATFORM" == "Android" ]]; then
+	export MANPAGER="sh -c 'sed s/.\\\\x08//g | bat --color=always --decorations=always --style=grid --language=man'"
+else
+	export MANPAGER="bash -c 'col -bx | bat --color=always --decorations=always --style=grid --language=man'"
+	export MANROFFOPT="-c"
+fi
 # export MAN_KEEP_FORMATTING="1"
 # export MANOPT="--no-hyphenation"
 
