@@ -79,6 +79,10 @@ alias denonavr-device-info='curl http://192.168.2.119:8080/goform/Deviceinfo.xml
 # alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"
 # alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
+function tapianalyze() {
+	tapi-analyze -v "$@" | bat --style=grid -l yml
+} && compdef tapianalyze=tapi-analyze
+
 function wifi() {
 	m wifi status | bat --file-name='airport --getinfo' -l yml
 	networksetup -getinfo 'Wi-Fi' | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
