@@ -29,7 +29,10 @@ function mvnw() {
 # alias sdkmanager="sdkmanager --channel=3"
 
 alias apkanalyzer="apkanalyzer --human-readable"
-alias apki="apkanalyzer apk summary"
+alias apkm="apkanalyzer apk summary"
+function apki() {
+	aapt2 dump badging "$@" | sed -e "s/='/: '/g" -e "s/:'/: '/g" -e '/^application-label-/d' -e '/^application-icon-/d' | bat --style=grid -l yml
+}
 
 alias avdls="avdmanager list avd | bat --style=grid -l yml"
 local emulator_flags='-no-skin -no-passive-gps -no-location-ui' # -accel on -gpu host'
