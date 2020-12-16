@@ -96,7 +96,7 @@ alias display="m display status | bat --plain -l yml"
 
 alias cdp='cd "$HOME/.playground"'
 alias cdd='cd "$HOME/Downloads"'
-alias lmd='lm --color=always "$HOME/Downloads" | tail --lines="$(expr "$(tput lines)" / 2)"'
+alias lmd='lm --color=always "$HOME/Downloads" | tail --lines="$(expr "$(tput lines)" - 10)"'
 
 alias o="open ."
 # function o() {
