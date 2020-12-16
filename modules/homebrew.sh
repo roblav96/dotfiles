@@ -234,13 +234,13 @@ function brm() {
 function bcrm() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Zapping cask -> '$v'"
-		HOMEBREW_COLOR=1 brew cask zap --force --verbose "$v" | lscolors
+		HOMEBREW_COLOR=1 brew uninstall --cask --zap --force --verbose "$v" | lscolors
 	done
 } && compdef bcrm=command
 function bcun() {
 	local v && for v in "$@"; do
 		echo && echo "🌕 Uninstalling cask -> '$v'"
-		HOMEBREW_COLOR=1 brew cask uninstall --force --verbose "$v" | lscolors
+		HOMEBREW_COLOR=1 brew uninstall --cask --force --verbose "$v" | lscolors
 	done
 } && compdef bcun=command
 

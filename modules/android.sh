@@ -49,11 +49,11 @@ alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
 
 function unapk() {
 	local outdir="${@%.apk}"
-	apktool decode --api-level 28 --match-original --only-main-classes "$@"
+	apktool decode --frame-tag mdarcy --api-level 28 --match-original "$@"
 	unzip "$@" '*.dex' -d "$outdir"
 	cd "$outdir"
 	command rm -rf smali*
-	jadx --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
+	jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
 	command rm -rf *.dex
 }
 
