@@ -179,7 +179,8 @@ function adbpmf() {
 }
 function adbpmapk() {
 	local v && for v in "$@"; do
-		adb shell pm path --user 0 "$v" | sed 's#^package:##'
+		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's#^package:##')"
+		adb pull "$apkpath" "$v.apk"
 	done
 }
 function adbpmdown() {
