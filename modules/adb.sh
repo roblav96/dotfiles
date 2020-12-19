@@ -35,6 +35,7 @@ alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rog="rogcat --level trace \
 --message '!^Access denied finding property \"RB.tag\"$' \
 --message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
+--message '!^Can.t find service car_service$' \
 --message '!^Exception checking for game stream. Exception: ' \
 --message '!^interceptKeyT. key.ode=\d' \
 --message '!^handleComboKeys key.ode: \d' \
@@ -177,19 +178,20 @@ function adbpmf() {
 	echo && echo "🌕 Disabled Packages"
 	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
 }
-function adbpmapk() {
+
+function adbapk() {
 	local v && for v in "$@"; do
 		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's#^package:##')"
 		adb pull "$apkpath" "$v.apk"
 	done
 }
-function adbpmdown() {
+function adbdown() {
 	local v && for v in "$@"; do
 		# adb shell am set-inactive --user 0 "$v" true
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 }
-function adbpmup() {
+function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
@@ -216,20 +218,20 @@ function adbpmup() {
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
 
 declare PLAY_STORE_PACKAGES=(
-		"android.autoinstalls.config.nvidia"
-		"com.android.inputmethod.latin"
-		"com.android.vending"
-		"com.google.android.ext.services"
-		"com.google.android.feedback"
-		"com.google.android.gms"
-		"com.google.android.gsf"
-		"com.google.android.inputmethod.latin"
-		"com.google.android.katniss"
-		"com.google.android.leanbacklauncher.recommendations"
-		"com.google.android.sss"
-		"com.google.android.sss.authbridge"
-		"com.google.android.tts"
-		"com.google.android.tv.bugreportsender"
-		"com.google.android.tvrecommendations"
-		"com.nvidia.ota"
+	"android.autoinstalls.config.nvidia"
+	"com.android.inputmethod.latin"
+	"com.android.vending"
+	"com.google.android.ext.services"
+	"com.google.android.feedback"
+	"com.google.android.gms"
+	"com.google.android.gsf"
+	"com.google.android.inputmethod.latin"
+	"com.google.android.katniss"
+	"com.google.android.leanbacklauncher.recommendations"
+	"com.google.android.sss"
+	"com.google.android.sss.authbridge"
+	"com.google.android.tts"
+	"com.google.android.tv.bugreportsender"
+	"com.google.android.tvrecommendations"
+	"com.nvidia.ota"
 )
