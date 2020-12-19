@@ -94,6 +94,7 @@ alias adbin="adb install -r"
 # }
 
 function adbk() {
+	[[ $# -eq 0 ]] && adbk com.liskovsoft.smarttubetv.beta com.netflix.ninja com.amazon.amazonvideo.livingroom com.hbo.hbonow com.curiosity.curiositystream.androidtv com.google.android.youtube.tvunplugged com.nvidia.ota com.google.android.apps.mediashell com.android.vending com.google.android.gms com.google.android.gsf tv.emby.embyatv org.jellyfin.androidtv org.xbmc.kodi com.google.android.exoplayer2.demo app.debrids.tv
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
 	done
