@@ -20,6 +20,10 @@ function aptsw() {
 function aptsa() {
 	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
 }
+if [[ "$PLATFORM" == "Android" ]]; then
+	unfunction apts
+	alias apts="aptsa"
+fi
 function aptls() {
 	apt list --installed 2>/dev/null | rg --smart-case --fixed-strings --color=never --invert-match automatic
 }
