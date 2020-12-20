@@ -35,7 +35,7 @@ function apki() {
 }
 
 alias avdls="avdmanager list avd | bat --style=grid -l yml"
-local emulator_flags='-no-skin -no-passive-gps -no-location-ui' # -accel on -gpu host'
+local emulator_flags='-no-passive-gps -no-location-ui' # -accel on -gpu host'
 alias emulator="emulator $emulator_flags -verbose"
 alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
 local scrcpy_flags='--serial $ANDROID_SERIAL --disable-screensaver --max-size 1080 --render-driver opengl'
