@@ -65,6 +65,7 @@ if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 			echo $stdin | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && wc --lines "$GENCOMPL_FPATH/_$1" && zcomp
 		fi
 	} && compdef help2comp=command
+	which h2c &>/dev/null || alias h2c="help2comp"
 fi
 
 if [[ -x "$(which -p bat)" ]]; then
