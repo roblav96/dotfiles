@@ -11,13 +11,13 @@
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-if [[ -d "/usr/local/opt/openssl" ]]; then
-# 	export OPENSSL="/usr/local/opt/openssl"
-# 	export OPENSSL_DIR="/usr/local/opt/openssl"
-# 	export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
-# 	export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
-	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
-# 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl"
+if [[ -d "/usr/local/opt/openssl@1.1" ]]; then
+# 	export OPENSSL="/usr/local/opt/openssl@1.1"
+# 	export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
+# 	export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl@1.1/include"
+# 	export OPENSSL_LIB_DIR="/usr/local/opt/openssl@1.1/lib"
+	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 fi
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on

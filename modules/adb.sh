@@ -31,8 +31,9 @@ function curltv() {
 # adb push busybox-arm64 /data/local/tmp/busybox; adb shell /data/local/tmp/busybox/busybox --install -s /data/local/tmp/busybox
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
-alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-alias rog="rogcat --level trace \
+# alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
+alias rogcat="rogcat --hide-timestamp --level trace"
+alias rog="rogcat \
 --message '!^Access denied finding property \"RB.tag\"$' \
 --message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
 --message '!^Can.t find service car_service$' \
@@ -40,6 +41,7 @@ alias rog="rogcat --level trace \
 --message '!^interceptKeyT. key.ode=\d' \
 --message '!^handleComboKeys key.ode: \d' \
 --message '!^loading \[eventTime=\d' \
+--tag '!^JS$' \
 --tag '!^netstats_(\w+)_sample$'"
 # local rogs=(
 # 	"!^Exception checking for game stream. Exception: "
@@ -67,7 +69,8 @@ alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | bat --style=grid -l yml"
+alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bat --style=grid -l yml"
+alias adbaudio="adb shell dumpsys media.audio_flinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\n.+?type 1 \(DIRECT\):\n  .+?\n\n' | t2 | bat --style=grid -l yml"
 alias adbstack="adb shell am stack list | bat --style=grid -l nix"
 
 function exoplayer() {
@@ -93,6 +96,12 @@ function adbin() {
 	done
 }
 
+function adbds() {
+	local v && for v in "$@"; do
+		adb shell dumpsys "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
+	done
+}
+
 function adbk() {
 	[[ $# -eq 0 ]] && adbk com.liskovsoft.smarttubetv.beta com.netflix.ninja com.amazon.amazonvideo.livingroom com.hbo.hbonow com.curiosity.curiositystream.androidtv com.google.android.youtube.tvunplugged com.nvidia.ota com.google.android.apps.mediashell com.android.vending com.google.android.gms com.google.android.gsf tv.emby.embyatv org.jellyfin.androidtv org.xbmc.kodi com.google.android.exoplayer2.demo app.debrids.tv
 	local v && for v in "$@"; do
@@ -114,12 +123,12 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | bat --file-name="$v" -l yml
+		adb shell dumpsys package "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | bat --file-name="$v" -l yml
+		adb shell pm dump "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
 	done
 }
 function adblp() {
