@@ -17,7 +17,7 @@ if [[ -d "/usr/local/opt/openssl@1.1" ]]; then
 # 	export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl@1.1/include"
 # 	export OPENSSL_LIB_DIR="/usr/local/opt/openssl@1.1/lib"
 	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
 fi
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
