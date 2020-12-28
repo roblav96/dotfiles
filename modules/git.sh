@@ -53,7 +53,7 @@ alias gclf="echo 'gcld; gclean; greset'"
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
 alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
-function gups() {
+function gup() {
 	local i && for i in */.git; do (
 		local repo="$(dirname "$i")"
 		cd "$repo"
