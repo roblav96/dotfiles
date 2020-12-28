@@ -53,6 +53,21 @@ alias gclf="echo 'gcld; gclean; greset'"
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
 alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
+function gups() {
+	local i && for i in */.git; do (
+		local repo="$(dirname "$i")"
+		cd "$repo"
+		echo && echo "▶ $repo" && echo -n "  "
+		gurl
+		greset
+		gpr
+		gmt -q
+		if [[ -e package.json ]]; then
+			npm i --ignore-scripts
+		fi
+	); done
+}
+
 # alias gc="gh repo clone"
 function gc() {
 	local repo=(${@/ -*/})
