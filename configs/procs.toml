@@ -1,6 +1,6 @@
 [[columns]]
 kind = "Pid"
-style = "Yellow"
+style = "BrightBlack"
 numeric_search = true
 nonnumeric_search = false
 align = "Left"

@@ -33,16 +33,18 @@ alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; a
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rogcat="rogcat --hide-timestamp --level trace"
-alias rog="rogcat \
---message '!^Access denied finding property \"RB.tag\"$' \
---message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
---message '!^Can.t find service car_service$' \
---message '!^Exception checking for game stream. Exception: ' \
---message '!^interceptKeyT. key.ode=\d' \
---message '!^handleComboKeys key.ode: \d' \
---message '!^loading \[eventTime=\d' \
---tag '!^JS$' \
---tag '!^netstats_(\w+)_sample$'"
+declare rogs="rogcat"
+# rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+rogs="$rogs --message '!^Can.t find service car_service$'"
+rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
+# rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
+rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
+rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+rogs="$rogs --message '!^loading \[eventTime=\d'"
+rogs="$rogs --tag '!^JS$'"
+rogs="$rogs --tag '!^netstats_(\w+)_sample$'"
+alias rog="$rogs"
+unset rogs
 # local rogs=(
 # 	"!^Exception checking for game stream. Exception: "
 # 	"!^interceptKeyT. key.ode=\d"
@@ -103,7 +105,30 @@ function adbds() {
 }
 
 function adbk() {
-	[[ $# -eq 0 ]] && adbk com.liskovsoft.smarttubetv.beta com.netflix.ninja com.amazon.amazonvideo.livingroom com.hbo.hbonow com.curiosity.curiositystream.androidtv com.google.android.youtube.tvunplugged com.nvidia.ota com.google.android.apps.mediashell com.android.vending com.google.android.gms com.google.android.gsf tv.emby.embyatv org.jellyfin.androidtv org.xbmc.kodi com.google.android.exoplayer2.demo app.debrids.tv
+	if [[ $# -eq 0 ]]; then
+		local pkgs=(
+			"app.debrids.tv"
+			"com.amazon.amazonvideo.livingroom"
+			"com.android.vending"
+			"com.curiosity.curiositystream.androidtv"
+			"com.google.android.apps.mediashell"
+			"com.google.android.exoplayer2.demo"
+			"com.google.android.gms"
+			"com.google.android.gsf"
+			"com.google.android.tts"
+			"com.google.android.youtube.tvunplugged"
+			"com.hbo.hbonow"
+			"com.hulu.livingroomplus"
+			"com.liskovsoft.smarttubetv.beta"
+			"com.netflix.ninja"
+			"com.nvidia.nvgamecast"
+			"com.nvidia.ota"
+			"org.jellyfin.androidtv"
+			"org.xbmc.kodi"
+			"tv.emby.embyatv"
+		)
+		adbk $pkgs
+	fi
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
 	done
