@@ -58,15 +58,15 @@ function bls() {
 }
 function blsm() {
 	echo && echo "🌕 Recently modified formulas"
-	lm --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
+	lm --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
 }
 function blsch() {
 	echo && echo "🌕 Recently changed formulas"
-	lch --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
+	lch --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
 }
 function blscr() {
 	echo && echo "🌕 Recently created formulas"
-	lcr --color=always "$(brew --prefix)/Cellar" | tail --lines="$(expr "$(tput lines)" - 10)"
+	lcr --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
 }
 alias blscd='cd "$(brew --prefix)/Cellar"'
 function bcls() {

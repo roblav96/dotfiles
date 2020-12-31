@@ -232,7 +232,8 @@ alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
-which t2 &>/dev/null || alias t2="unexpand -t2 --first-only"
+which t2 &>/dev/null || alias t2='unexpand -t2 --first-only'
+which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"
@@ -295,7 +296,7 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # 		rg --no-line-number --fixed-strings ":0;$2 "
 # 		# sd --string-mode --flags=cw "$1" "$2" "$HOME/.playground/zsh_history.zsh"
 # 		# rg --no-line-number --fixed-strings --case-sensitive --word-regexp "$2"
-# 	}; compdef .zsd=which
+# 	} && compdef .zsd=which
 # fi
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
@@ -374,17 +375,11 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias hist="cat $HOME/.zsh_history | sed 's|^: .*:0;||'"
-function __histw() {
-	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's|^|\n|g' | bat --plain -l sh
-}; compdef __histw=which
-alias histw=" __histw"
-
 # bindkey '^[H' man
 # bindkey '^[h' man
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
-}; compdef mans=man
+} && compdef mans=man
 alias mansr="man -K"
 alias manfs="man -wa"
 function manfzf() {
@@ -392,7 +387,7 @@ function manfzf() {
 }
 # function idk() {
 # 	man --apropos $@ | grep "$@|$"
-# }; compdef idk=man
+# } && compdef idk=man
 
 function show() {
 	type -a "$1" || return 1
@@ -417,7 +412,7 @@ function show() {
 			exa --long --all --group --classify --extended "$(readlink -f $which)"
 		fi
 	fi
-}; compdef show=which
+} && compdef show=which
 which s &>/dev/null || alias s="show"
 
 function showv() {
@@ -477,6 +472,7 @@ if [[ -x "$(which -p ffmpeg)" ]]; then
 fi
 
 source "$DOTFILES/modules/disk.sh"
+source "$DOTFILES/modules/history.sh"
 test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"

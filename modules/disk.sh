@@ -11,17 +11,17 @@ unset tk_flags tk_flags_all
 # [[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
 # [[ -x "$(which -p dua)" ]] && alias dua="dua --apparent-size"
 
-alias dust='dust --reverse --ignore-directory=.git --number-of-lines="$(expr "$(tput lines)" - 10)"'
+alias dust='dust --reverse --ignore-directory=.git --number-of-lines=$(ty)'
 alias dustr="dust --depth=1"
 alias dustrr="dust --depth=2"
 alias dustrrr="dust --depth=3"
 # alias dusta="command dust"
 # alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
 # alias dusta="command dust --ignore-directory .git"
-# alias dust="dust --reverse --number-of-lines=\$(expr \$(tput lines) - 10)"
+# alias dust="dust --reverse --number-of-lines=\$(ty)"
 # export DUST_FLAGS= --reverse"
 # alias dust="command dust $DUST_FLAGS --depth=1"
-# # alias dust="command dust $DUST_FLAGS --depth=1 | tail --lines=\$(expr \$(tput lines) - 10)"
+# # alias dust="command dust $DUST_FLAGS --depth=1 | tail --lines=\$(ty)"
 
 alias duu='du -ah -d 1 | sort -h | sed s/\\t\.\\//\\t/g | tail'
 # alias .du="du -ah * -d 0 | sort -h"
