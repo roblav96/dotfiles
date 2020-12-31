@@ -65,6 +65,10 @@ function gup() {
 		if [[ -e package.json ]]; then
 			npm i --ignore-scripts
 		fi
+		if [[ -e src/package.json ]]; then
+			cd src
+			npm i --ignore-scripts
+		fi
 	); done
 }
 

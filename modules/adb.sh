@@ -34,6 +34,9 @@ alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; a
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rogcat="rogcat --hide-timestamp --level trace"
 declare rogs="rogcat"
+if [[ "$ANDROID_SERIAL" == "91PX1WGPV" ]]; then
+	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
+fi
 # rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 rogs="$rogs --message '!^Can.t find service car_service$'"
 rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
