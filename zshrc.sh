@@ -200,7 +200,6 @@ alias aliasls="alias | sortt | sed 's#^#\n#'"
 alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^ZLS_COLORS/d'"
 alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^ZLS_COLORS/d'"
-
 alias wcl="wc -l"
 alias jj="just" # --verbose"
 alias jjd="just --dry-run" # --verbose"
