@@ -6,7 +6,7 @@ function __histw() {
 } && compdef __histw=which && alias histw=" __histw"
 
 function __histr() {
-	rg --smart-case --fixed-strings --word-regexp "$*" "$HOME/.zsh_history"
+	rg --smart-case --fixed-strings "$*" "$HOME/.zsh_history"
 } && compdef __histr=which && alias histr=" __histr"
 
 function __histsd() {
@@ -15,8 +15,9 @@ function __histsd() {
 		return 1
 	fi
 	echo && echo "🔶 FIND 🔶 -> '$1'"
-	rg --smart-case --fixed-strings --word-regexp "$1" "$HOME/.zsh_history"
-	# sd -f w -s "$1" "$2" "$HOME/.zsh_history"
+	rg --smart-case --fixed-strings "$1" "$HOME/.zsh_history"
+	cp "$HOME/.zsh_history" "$HOME/...zsh_history.bak.$(dateiso)"
+	sd -s "$1" "$2" "$HOME/.zsh_history"
 	echo && echo "🔶 REPLACE 🔶 -> '$2'"
-	rg --smart-case --fixed-strings --word-regexp "$2" "$HOME/.zsh_history"
+	rg --smart-case --fixed-strings "$2" "$HOME/.zsh_history"
 } && compdef __histsd=which && alias histsd=" __histsd"

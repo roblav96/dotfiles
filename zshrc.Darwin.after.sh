@@ -137,7 +137,7 @@ function app-bak() {
 		echo "🔴 No such file or directory -> '$appdir'"
 		return 1
 	fi
-	local date="$(date --iso-8601)"
+	local date="$(dateiso)"
 	# echo "🌕 date -> '$date'"
 	local tarname="${1//\// } ($date).tar.gz"
 	# echo "🌕 tarname -> '$tarname'"
@@ -177,8 +177,8 @@ function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
 		local name="$(basename "$SUBLIME_DATA")"
-		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/$name ($(date --iso-8601)).tar.gz" "$name" | lscolors
-		echo && l "$HOME/Downloads/$name ($(date --iso-8601)).tar.gz"
+		tar --create --gzip --preserve-permissions --verbose --file "$HOME/Downloads/$name ($(dateiso)).tar.gz" "$name" | lscolors
+		echo && l "$HOME/Downloads/$name ($(dateiso)).tar.gz"
 	)
 }
 alias sm="smerge"
