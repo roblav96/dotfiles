@@ -12,7 +12,9 @@ function fwc() {
 }
 # alias fwc="fd -uu --type=file | wc --lines"
 
-alias fpathf='fd -uu --max-depth=1 --absolute-path --base-directory=/ $(printf "--search-path %q " "${fpath[@]}")'
+function fpathf() {
+	fd -uu --max-depth=1 --absolute-path --base-directory=/ $(printf "--search-path %q " "${fpath[@]}") "$@"
+} && compdef fpathf=command
 function fpathfb() {
 	fpathf "$@" | while read i; do bat -l sh "$i"; done
 } && compdef fpathfb=command
