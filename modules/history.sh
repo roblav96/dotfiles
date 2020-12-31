@@ -11,13 +11,19 @@ function __histr() {
 
 function __histsd() {
 	if [[ $# -ne 2 ]]; then
-		echo "🔴 num args '$#' -ne '2' -> '$*'"
+		echo "🟥 num args '$#' -ne '2' -> '$*'"
 		return 1
 	fi
-	echo && echo "🔶 FIND 🔶 -> '$1'"
-	rg --smart-case --fixed-strings "$1" "$HOME/.zsh_history"
-	cp "$HOME/.zsh_history" "$HOME/...zsh_history.bak.$(dateiso)"
-	sd -s "$1" "$2" "$HOME/.zsh_history"
-	echo && echo "🔶 REPLACE 🔶 -> '$2'"
-	rg --smart-case --fixed-strings "$2" "$HOME/.zsh_history"
+	local histfile="${HISTFILE:-$HOME/.zsh_history}"
+	local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
+	echo && echo "🟨 FIND -> '$1'" && echo
+	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings "$1"
+	echo && echo "🟨 REPLACE -> '$2'" && echo
+	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings "$1" --replace "$2" --colors=match:fg:yellow
+	echo && read -q "?🟧 CONFIRM -> '$2' ...? " && return 1
+	cp "$histfile" "$bakfile"
+	chmod 400 "$bakfile"
+	sd --flags c --string-mode "$1" "$2" "$histfile"
+	echo && echo "🟩 REPLACED -> '$2'" && echo
+	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings "$2" --colors=match:fg:green
 } && compdef __histsd=which && alias histsd=" __histsd"
