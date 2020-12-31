@@ -6,7 +6,7 @@ function __histw() {
 } && compdef __histw=which && alias histw=" __histw"
 
 function __histr() {
-	rg --smart-case --fixed-strings "$*" "$HOME/.zsh_history"
+	hist | rg --smart-case --fixed-strings "$*" | sed 's/^/\n/g' | bat --plain -l sh
 } && compdef __histr=which && alias histr=" __histr"
 
 function __histsd() {
