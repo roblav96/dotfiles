@@ -11,6 +11,11 @@ export HOMEBREW_NO_AUTO_UPDATE="1"
 export HOMEBREW_NO_INSECURE_REDIRECT="1"
 export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
+if [[ -z "$OPENSSL_ROOT_DIR" ]]; then
+	export OPENSSL_ROOT_DIR="$(realpath $(brew --prefix)/opt/openssl@1.1)"
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
+fi
+
 alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
