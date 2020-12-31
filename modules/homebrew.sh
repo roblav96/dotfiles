@@ -21,12 +21,12 @@ function bupd() {
 }
 function bout() {
 	echo && echo "🌕 Outdated formulas"
-	brew outdated --formula --verbose
+	brew outdated --formula
 	[[ "$PLATFORM" != "Linux" ]] && bcout
 }
 function bcout() {
 	echo && echo "🌕 Outdated casks"
-	brew outdated --cask --greedy --verbose | rg --invert-match 'latest'
+	brew outdated --cask --greedy --verbose | rg --invert-match '(latest)'
 }
 function bupg() {
 	if [[ $# -eq 0 ]]; then
