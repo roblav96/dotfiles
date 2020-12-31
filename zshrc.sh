@@ -234,6 +234,7 @@ alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
 which t2 &>/dev/null || alias t2='unexpand -t2 --first-only'
 which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
+which ty2 &>/dev/null || alias ty2='expr $(ty) / 2'
 # alias play="mkc $HOME/.playground; l"
 # alias sedbat='sd "\"|\x27|\`" "" | batrb'
 # alias type="type -as"

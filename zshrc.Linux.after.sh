@@ -12,11 +12,11 @@ alias sc-status="systemctl --full status"
 alias nftls="sudo nft --handle list ruleset | bat --style=grid -l nft"
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 
-alias .z='rmate --new --line 999999 $HOME/.z'
-alias .zsh_history='rmate --new --line 999999 $HOME/.zsh_history'
+alias .z="rmate --new --line 999999 $HOME/.z"
+alias .zsh_history="rmate --new --line 999999 $HOME/.zsh_history"
 
-alias cdp='cd "$HOME/.playground"'
-alias cdd='cd "$HOME/downloads"'
+alias cdp="cd $HOME/.playground"
+alias cdd="cd $HOME/downloads"
 
 # if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 # 	alias brew="$HOME/.linuxbrew/bin/brew"
