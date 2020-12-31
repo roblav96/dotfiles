@@ -18,6 +18,7 @@ alias bp="bat --plain"
 alias bgr="bat --style=grid"
 
 alias bb="bat --style=grid -l sh"
+alias bf="bat --style=grid -l fstab"
 alias bh="bat --style=grid -l man"
 alias bj="bat --style=grid -l json"
 alias bk="bat --style=grid -l make"
