@@ -23,6 +23,11 @@ if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
 	# fi
 fi
 
+if [[ -z "$OPENSSL_ROOT_DIR" && -d "$(brew --prefix)/opt/openssl@1.1" ]]; then
+	export OPENSSL_ROOT_DIR="$(brew --prefix)/opt/openssl@1.1"
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
+fi
+
 [[ -x "$(which -p tabs)" ]] && tabs -4
 
 # export CLICOLOR="1"

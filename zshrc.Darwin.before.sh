@@ -11,15 +11,6 @@
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-if [[ -d "/usr/local/opt/openssl@1.1" ]]; then
-# 	export OPENSSL="/usr/local/opt/openssl@1.1"
-# 	export OPENSSL_DIR="/usr/local/opt/openssl@1.1"
-# 	export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl@1.1/include"
-# 	export OPENSSL_LIB_DIR="/usr/local/opt/openssl@1.1/lib"
-	export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
-fi
-
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa
 # zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
