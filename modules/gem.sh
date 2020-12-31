@@ -1,14 +1,14 @@
 [[ -z "$COCOAPODS_DISABLE_STATS" ]] && export COCOAPODS_DISABLE_STATS="true"
 [[ -z "$RUBYOPT" ]] && export RUBYOPT="-W0"
 
-alias gemenv="gem env | bat --plain -l yml"
+alias gemenv="gem environment | bat --plain -l yml"
 alias gemfs="gem which"
-alias gemi="gem info"
+alias gemi="gem info --both"
 alias gemin="gem install"
 alias gemls="gem list"
 alias gemout="gem outdated"
 alias gemrm="gem uninstall --all --executables"
-alias gems="gem search"
+alias gems="gem search --both"
 alias gemupg="gem update"
 alias gemupgsys="gem update --system"
 alias gemcd='cd $(gem environment gemdir)/bin'

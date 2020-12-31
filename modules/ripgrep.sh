@@ -1,4 +1,4 @@
-declare rg_flags="--heading --line-number --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store'"
+declare rg_flags="--heading --line-number --no-messages --smart-case --hidden --fixed-strings --glob='!.git' --glob='!.DS_Store' --context=1 --context-separator=''"
 # --colors=match:bg:16 --colors=path:bg:16
 # --colors=path:fg:green --colors=path:style:bold
 declare rg_max_columns_flags="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"

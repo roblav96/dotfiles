@@ -28,6 +28,7 @@ fr="$fr \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.nuget \
+--exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
 --exclude=.git \
 --exclude=/dev \

@@ -219,7 +219,7 @@ alias cl='printf "\ec\e[3J"'
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
 alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine="hyperfine --shell=$(which -p bash) --min-runs=5"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --shell=sh --external-sources"
@@ -375,9 +375,10 @@ function pe() {
 # }
 
 alias hist="cat $HOME/.zsh_history | sed 's|^: .*:0;||'"
-function histw() {
+function __histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp "$*" | sed 's|^|\n|g' | bat --plain -l sh
-}; compdef histw=which
+}; compdef __histw=which
+alias histw=" __histw"
 
 # bindkey '^[H' man
 # bindkey '^[h' man

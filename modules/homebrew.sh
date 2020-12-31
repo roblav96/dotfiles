@@ -356,27 +356,28 @@ function bupg-node() {
 }
 [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
 
-function bupg-node@12() {
-	brm node node@12 node@10
-	HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors
-	bin node node@12 node@10
-	bcd node@12
-	mkdir libexec/bin libexec/lib
-	mv bin/npm bin/npx libexec/bin
-	mv lib/node_modules libexec/lib
-	brew unlink node --verbose --debug
-	brew link --force node@12 --verbose --debug
-	bupg-node
-	echo "🌕 npm i -g npm"
-	echo "🌕 npm doctor"
-}
-[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node@12
+# function bupg-node@12() {
+# 	brm node node@12 node@10
+# 	HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors
+# 	bin node node@12 node@10
+# 	bcd node@12
+# 	mkdir libexec/bin libexec/lib
+# 	mv bin/npm bin/npx libexec/bin
+# 	mv lib/node_modules libexec/lib
+# 	brew unlink node --verbose --debug
+# 	brew link --force node@12 --verbose --debug
+# 	bupg-node
+# 	echo "🌕 npm i -g npm"
+# 	echo "🌕 npm doctor"
+# }
+# [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node@12
 
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
 	local deno_dir="$HOME/.cache/deno"
-	rm -rf "$deno_dir/lib.deno.d.ts" && deno types --unstable >"$deno_dir/lib.deno.d.ts" && ls -laph "$deno_dir/lib.deno.d.ts"
-	rm -rf "$deno_dir/lib.deno.unstable.d.ts" && deno types --unstable >"$deno_dir/lib.deno.unstable.d.ts" && ls -laph "$deno_dir/lib.deno.unstable.d.ts"
+	rm -rf "$deno_dir/lib.deno.d.ts" && deno types --unstable >"$deno_dir/lib.deno.d.ts"
+	rm -rf "$deno_dir/lib.deno.unstable.d.ts" && deno types --unstable >"$deno_dir/lib.deno.unstable.d.ts"
+	l "$deno_dir"/lib.deno.*.ts
 }
 
 function bcupg-google-chrome() {
