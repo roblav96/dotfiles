@@ -2,11 +2,11 @@ alias hist="cat $HOME/.zsh_history | sed 's/^: .*:0;//'"
 alias histy="hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bat --plain -l sh"
 
 function __histw() {
-	hist | rg --case-sensitive --fixed-strings --word-regexp -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
+	hist | rg --smart-case --fixed-strings --word-regexp -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
 } && compdef __histw=which && alias histw=" __histw"
 
 function __histr() {
-	hist | rg --case-sensitive --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
+	hist | rg --smart-case --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
 } && compdef __histr=which && alias histr=" __histr"
 
 function __histsd() {
