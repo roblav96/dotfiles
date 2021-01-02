@@ -12,13 +12,13 @@ function aptfs() {
 	apt-file list "$*" | sed 's#^.*: ##' | sortt | lscolors
 }
 function apts() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru -e "$*"
 }
 function aptsw() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp -e "$*"
 }
 function aptsa() {
-	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru "$*"
+	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru -e "$*"
 }
 if [[ "$PLATFORM" == "Android" ]]; then
 	unfunction apts

@@ -56,13 +56,13 @@ function lcs() {
 
 function lcsr() {
 	echo && echo "🌕 [rg] $HOME/Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case "$*" "$HOME/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case -e "$*" "$HOME/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case "$*" "/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /System/Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case "$*" "/System/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/System/Library/LaunchAgents"
 	echo && echo "🌕 [rg] /Library/LaunchDaemons"
-	rg -uu --follow --fixed-strings --ignore-case "$*" "/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/Library/LaunchDaemons"
 	echo && echo "🌕 [rg] /System/Library/LaunchDaemons"
-	rg -uu --follow --fixed-strings --ignore-case "$*" "/System/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/System/Library/LaunchDaemons"
 }

@@ -176,11 +176,11 @@ function adbsettingsls() {
 }
 function adbsettingsf() {
 	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
 	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
 	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings "$*" | bat --style=grid -l ini
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
 }
 function adbsettingsput() {
 	adb shell settings put global development_settings_enabled 1
@@ -227,9 +227,9 @@ function adbpmls() {
 }
 function adbpmf() {
 	echo && echo "🌕 Enabled Packages"
-	adb shell pm list packages -e | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
+	adb shell pm list packages -e | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings -e "$*"
 	echo && echo "🌕 Disabled Packages"
-	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings "$*"
+	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings -e "$*"
 }
 
 function adbapk() {

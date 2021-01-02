@@ -380,7 +380,7 @@ function pe() {
 # bindkey '^[H' man
 # bindkey '^[h' man
 function mans() {
-	man -k "$*" | rg --smart-case --fixed-strings --passthru "$*"
+	man -k "$*" | rg --smart-case --fixed-strings --passthru -e "$*"
 } && compdef mans=man
 alias mansr="man -K"
 alias manfs="man -wa"

@@ -10,5 +10,5 @@ alias dfdomains="defaults domains | sed 's#, #\n#g' | sortt"
 # 	defaults read "$*" | bat --plain -l pl
 # }
 function dfs() {
-	defaults find "$*" | rg --smart-case --fixed-strings --passthru "$*" | bat --plain -l pl
+	defaults find "$*" | rg --smart-case --fixed-strings --passthru -e "$*" | bat --plain -l pl
 }
