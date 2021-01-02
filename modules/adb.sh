@@ -34,20 +34,23 @@ alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; a
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rogcat="rogcat --hide-timestamp --level trace"
 declare rogs="rogcat"
-if [[ "$ANDROID_SERIAL" == "91PX1WGPV" ]]; then
+if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
 fi
-# rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
-rogs="$rogs --message '!^Can.t find service car_service$'"
-rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
-# rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
-rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
-rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
-rogs="$rogs --message '!^loading \[eventTime=\d'"
+if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
+	rogs="$rogs --message '!^Can.t find service car_service$'"
+fi
+if [[ "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
+	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
+	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
+	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
+	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+	rogs="$rogs --message '!^loading \[eventTime=\d'"
+fi
 rogs="$rogs --tag '!^JS$'"
 rogs="$rogs --tag '!^netstats_(\w+)_sample$'"
-alias rog="$rogs"
-unset rogs
+alias rog="$rogs" && unset rogs
 # local rogs=(
 # 	"!^Exception checking for game stream. Exception: "
 # 	"!^interceptKeyT. key.ode=\d"
