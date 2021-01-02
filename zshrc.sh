@@ -233,6 +233,7 @@ alias bgrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
+alias lsof="lsof -P"
 which t2 &>/dev/null || alias t2='unexpand -t2 --first-only'
 which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
 which ty2 &>/dev/null || alias ty2='expr $(ty) / 2'
