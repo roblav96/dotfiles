@@ -15,10 +15,15 @@ alias lara="exa $exa_flags $exa_ignore --extended --tree"
 alias l="exa $exa_flags $exa_ignore"
 alias lt="exa $exa_flags $exa_ignore --modified --changed --created --accessed"
 alias lb="exa $exa_flags $exa_ignore --sort=size"
+alias lbt='lb --color=always | tail --lines=$(ty)'
 alias lm="exa $exa_flags $exa_ignore --sort=modified --time=modified"
+alias lmt='lm --color=always | tail --lines=$(ty)'
 alias lch="exa $exa_flags $exa_ignore --sort=changed --time=changed"
+alias lcht='lch --color=always | tail --lines=$(ty)'
 alias lac="exa $exa_flags $exa_ignore --sort=accessed --time=accessed"
+alias lact='lac --color=always | tail --lines=$(ty)'
 alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created"
+alias lcrt='lcr --color=always | tail --lines=$(ty)'
 
 local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"'
 alias lr="exa $exa_flags $exa_ignore --git-ignore --tree --level=2"

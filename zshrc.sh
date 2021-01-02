@@ -3,7 +3,7 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
-# [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
+[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
 [[ -x "$(which -p nano)" ]] && export EDITOR="nano"
@@ -223,7 +223,7 @@ alias hyperfine="hyperfine --shell=$(which -p bash) --min-runs=5"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --external-sources"
-which shch &>/dev/null || alias shch="shellcheck --shell=bash --severity=warning"
+which sc &>/dev/null || alias sc="shellcheck --shell=bash --severity=warning"
 alias ipcalc="ipcalc --nobinary"
 alias chars="bat --style=grid $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"

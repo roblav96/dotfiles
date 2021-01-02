@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # source "$DOTFILES/bashrc.sh"
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"

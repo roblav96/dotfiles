@@ -18,17 +18,20 @@ if [[ "$PLATFORM" != "Darwin" ]]; then
 	(cd "$DOTFILES" && git pull --rebase && git reset --hard origin/master)
 fi
 
-echo > "$ZSHRC"
+echo '#!/usr/bin/env zsh' > "$ZSHRC"
+echo >> "$ZSHRC"
 echo "export PLATFORM='$PLATFORM'" >> "$ZSHRC"
 echo "export DOTFILES='$DOTFILES'" >> "$ZSHRC"
 # echo "alias src='zsh $DOTFILES/install.zsh; command rm -v $(dirname $DOTFILES)/.zcomp*; exit'" >> "$ZSHRC"
 # echo "test ! -d ~/.zinit/bin && mkdir ~/.zinit && rm -rf ~/.zinit/bin && git clone git@github.com:zdharma/zinit.git ~/.zinit/bin" >> "$ZSHRC"
 # echo "source ~/.zinit/bin/zinit.zsh" >> "$ZSHRC"
+echo "[[ -e '$DOTFILES/zshrc.before.sh' ]] && source '$DOTFILES/zshrc.before.sh'" >> "$ZSHRC"
 echo "[[ -e '$DOTFILES/zshrc.$PLATFORM.before.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.before.sh'" >> "$ZSHRC"
 echo "[[ -e '$DOTFILES/zshrc.sh' ]] && source '$DOTFILES/zshrc.sh'" >> "$ZSHRC"
 echo "[[ -e '$DOTFILES/zshrc.$PLATFORM.after.sh' ]] && source '$DOTFILES/zshrc.$PLATFORM.after.sh'" >> "$ZSHRC"
+echo "[[ -e '$DOTFILES/zshrc.after.sh' ]] && source '$DOTFILES/zshrc.after.sh'" >> "$ZSHRC"
 echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompinit" >> "$ZSHRC"
-echo >> "$ZSHRC"
+# echo >> "$ZSHRC"
 
 if [[ -z "$ZSHRC_EXISTS" ]]; then
 	cat "$ZSHRC"

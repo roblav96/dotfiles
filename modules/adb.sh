@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
@@ -126,7 +126,9 @@ function adbk() {
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
 			"com.nvidia.ota"
+			"com.soundcloud.android"
 			"org.jellyfin.androidtv"
+			"org.mozilla.tv.firefox"
 			"org.xbmc.kodi"
 			"tv.emby.embyatv"
 		)
