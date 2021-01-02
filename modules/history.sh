@@ -27,3 +27,11 @@ function __histsd() {
 	echo && echo "🟩 REPLACED -> '$2'" && echo
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green -e "$2"
 } && compdef __histsd=which && alias histsd=" __histsd"
+
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	alias .z=" subl --wait --new-window $HOME/.z:999999"
+	alias .hist=" subl --wait --new-window $HOME/.zsh_history:999999"
+else
+	alias .z="rmate --new --line 999999 $HOME/.z"
+	alias .zsh_history=" rmate --wait --new --line 999999 $HOME/.zsh_history"
+fi
