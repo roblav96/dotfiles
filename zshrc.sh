@@ -351,6 +351,7 @@ alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | r
 alias serve="miniserve --no-symlinks --verbose --port=8888"
 alias pubserve="serve --auth=admin: $HOME/Public"
 alias pubget="wget --http-user=admin --http-password="
+[[ -x "$(which -p ifconfig)" ]] && alias getip="ifconfig | awk '/inet /{print \$2}' | grep -E '^(10|172|192.168)\.' | head -n1"
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias pa="ps auxww"
