@@ -92,7 +92,7 @@ function exoplayer() {
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
-alias adb3="adb shell pm list packages -3 | sed 's#^package:##' | sortt"
+alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
 
 # alias adbin="adb install -r"
 function adbin() {
@@ -103,7 +103,7 @@ function adbin() {
 
 function adbds() {
 	local v && for v in "$@"; do
-		adb shell dumpsys "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
+		adb shell dumpsys "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
 	done
 }
 
@@ -153,12 +153,12 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
+		adb shell dumpsys package "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | sed 's#=#: #' | bat --file-name="$v" -l yml
+		adb shell pm dump "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
 	done
 }
 function adblp() {
@@ -167,20 +167,20 @@ function adblp() {
 
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
-	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | bl properties
-	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | bl properties
-	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | bl properties
+	echo && echo "🟨 System Settings"
+	adb shell settings list system | sortt | sed 's/=/: /' | bl yml
+	echo && echo "🟨 Secure Settings"
+	adb shell settings list secure | sortt | sed 's/=/: /' | bl yml
+	echo && echo "🟨 Global Settings"
+	adb shell settings list global | sortt | sed 's/=/: /' | bl yml
 }
 function adbsettingsf() {
-	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
-	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
-	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
+	echo && echo "🟨 System Settings"
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
+	echo && echo "🟨 Secure Settings"
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
+	echo && echo "🟨 Global Settings"
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
 }
 function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1
@@ -216,25 +216,25 @@ function adbsu() {
 
 # https://developer.android.com/studio/command-line/adb#pm
 function adbpmls() {
-	echo && echo "🌕 System Enabled Packages"
-	adb shell pm list packages -s -e | sed 's#^package:##' | sortt
-	echo && echo "🌕 System Disabled Packages"
-	adb shell pm list packages -s -d | sed 's#^package:##' | sortt
-	echo && echo "🌕 User Enabled Packages"
-	adb shell pm list packages -3 -e | sed 's#^package:##' | sortt
-	echo && echo "🌕 User Disabled Packages"
-	adb shell pm list packages -3 -d | sed 's#^package:##' | sortt
+	echo && echo "🟨 System Enabled Packages"
+	adb shell pm list packages -s -e | sed 's/^package://' | sortt
+	echo && echo "🟨 System Disabled Packages"
+	adb shell pm list packages -s -d | sed 's/^package://' | sortt
+	echo && echo "🟨 User Enabled Packages"
+	adb shell pm list packages -3 -e | sed 's/^package://' | sortt
+	echo && echo "🟨 User Disabled Packages"
+	adb shell pm list packages -3 -d | sed 's/^package://' | sortt
 }
 function adbpmf() {
-	echo && echo "🌕 Enabled Packages"
-	adb shell pm list packages -e | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings -e "$*"
-	echo && echo "🌕 Disabled Packages"
-	adb shell pm list packages -d | sed 's#^package:##' | sortt | rg --smart-case --fixed-strings -e "$*"
+	echo && echo "🟨 Enabled Packages"
+	adb shell pm list packages -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
+	echo && echo "🟨 Disabled Packages"
+	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
 }
 
 function adbapk() {
 	local v && for v in "$@"; do
-		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's#^package:##')"
+		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's/^package://')"
 		adb pull "$apkpath" "$v.apk"
 	done
 }
@@ -259,13 +259,13 @@ function adbup() {
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
-# 		echo && echo "🌕 Disabled"; pm list packages -d;
-# 		echo && echo "🌕 Uninstalled"; pm list packages -u;
-# 		echo && echo "🌕 Default"; pm list packages;
-# 		echo && echo "🌕 System"; pm list packages -s;
-# 		echo && echo "🌕 Enabled"; pm list packages -e;
-# 		echo && echo "🌕 Third-Party"; pm list packages -3;
-# 	')" | sed 's#^package:##' | bat -p -l properties
+# 		echo && echo "🟨 Disabled"; pm list packages -d;
+# 		echo && echo "🟨 Uninstalled"; pm list packages -u;
+# 		echo && echo "🟨 Default"; pm list packages;
+# 		echo && echo "🟨 System"; pm list packages -s;
+# 		echo && echo "🟨 Enabled"; pm list packages -e;
+# 		echo && echo "🟨 Third-Party"; pm list packages -3;
+# 	')" | sed 's/^package://' | bl properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
