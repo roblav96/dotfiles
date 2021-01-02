@@ -74,9 +74,9 @@ alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"
 alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
-alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bat --style=grid -l yml"
-alias adbaudio="adb shell dumpsys media.audio_flinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\n.+?type 1 \(DIRECT\):\n  .+?\n\n' | t2 | bat --style=grid -l yml"
-alias adbstack="adb shell am stack list | bat --style=grid -l nix"
+alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bl yml"
+alias adbaudio="adb shell dumpsys media.audio_flinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\n.+?type 1 \(DIRECT\):\n  .+?\n\n' | t2 | bl yml"
+alias adbstack="adb shell am stack list | bl nix"
 
 function exoplayer() {
 	if [[ $# -eq 1 ]]; then
@@ -168,21 +168,21 @@ function adblp() {
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
 	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | bat --style=grid -l ini
+	adb shell settings list system | sortt | bl properties
 	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | bat --style=grid -l ini
+	adb shell settings list secure | sortt | bl properties
 	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | bat --style=grid -l ini
+	adb shell settings list global | sortt | bl properties
 }
 function adbsettingsf() {
 	echo && echo "🌕 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
 	echo && echo "🌕 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
 	echo && echo "🌕 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | bat --style=grid -l ini
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | bl properties
 }
-function adbsettingsput() {
+function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1
 	adb shell settings put global stay_on_while_plugged_in 3
 	adb shell settings put global verifier_verify_adb_installs 0
