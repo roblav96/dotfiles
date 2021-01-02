@@ -103,7 +103,7 @@ function adbin() {
 
 function adbds() {
 	local v && for v in "$@"; do
-		adb shell dumpsys "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
+		adb shell dumpsys "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
 	done
 }
 
@@ -153,12 +153,12 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
+		adb shell dumpsys package "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | sed 's/=/: /' | bat --file-name="🟦 $v" -l yml
+		adb shell pm dump "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
 	done
 }
 function adblp() {
