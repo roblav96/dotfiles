@@ -55,10 +55,10 @@ alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-par
 
 function gup() {
 	local i && for i in */.git; do (
-		echo && bhr
+		bhr
 		local repo="$(dirname "$i")"
 		cd "$repo"
-		echo "▶ $repo" && echo -n "  "
+		echo "🟨 $repo" && echo -n "   "
 		gurl
 		greset
 		gpr
@@ -71,6 +71,7 @@ function gup() {
 			npm i --ignore-scripts
 		fi
 	); done
+	bhr
 }
 
 # alias gc="gh repo clone"
