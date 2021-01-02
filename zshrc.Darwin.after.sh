@@ -113,9 +113,9 @@ alias o="open ."
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
 function phone-bak() {
-	adb shell pm list packages -3 | sed 's|^package:||' | sortt > 'pm_list_packages_-3.log'
-	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt > 'pm_list_packages_-3_-d.log'
-	adb shell pm list packages -s -d | sed 's|^package:||' | sortt > 'pm_list_packages_-s_-d.log'
+	adb shell pm list packages -3 | sed 's|^package:||' | sortt >'pm_list_packages_-3.log'
+	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt >'pm_list_packages_-3_-d.log'
+	adb shell pm list packages -s -d | sed 's|^package:||' | sortt >'pm_list_packages_-s_-d.log'
 	adb pull "/sdcard/.rclone/"
 	adb pull "/sdcard/.ssh/"
 	adb pull "/sdcard/data/"
@@ -124,6 +124,17 @@ function phone-bak() {
 	adb pull "/sdcard/Pictures/"
 	adb pull "/sdcard/SwiftBackup/"
 	adb pull "/sdcard/TitaniumBackup/"
+}
+
+function fbak() {
+	local outzip="$HOME/Downloads/$*.bak.$(dateiso).zip"
+	[[ -e "$outzip" ]] && rd "$outzip"
+	echo
+	fd --base-directory=$HOME --search-path=Library \
+		--exclude=Caches --exclude=CrashReporter --exclude=WebKit --exclude=.git \
+		--type=file --full-path "$*" \
+		--exec-batch zip -r "$outzip"
+	echo && l "$outzip"
 }
 
 function app-bak() {
@@ -199,6 +210,6 @@ alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
 
 if [[ -n "$DOTBENCH" ]]; then
-	echo && echo "🔶 DOTBENCH -> $(bc <<< "$(date +%s%3N) - $DOTBENCH")"
+	echo && echo "🔶 DOTBENCH -> $(bc <<<"$(date +%s%3N) - $DOTBENCH")"
 	unset DOTBENCH
 fi

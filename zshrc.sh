@@ -153,7 +153,7 @@ unalias la &>/dev/null
 unalias ls &>/dev/null
 unalias path &>/dev/null
 unalias pip &>/dev/null
-[[ "$PLATFORM" == "Linux" ]] && unalias diff &>/dev/null
+unalias diff &>/dev/null
 [[ ! -x "$(which -p lscolors)" ]] && alias lscolors="cat"
 
 # alias fo="forever "
