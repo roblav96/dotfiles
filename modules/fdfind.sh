@@ -21,7 +21,30 @@ function fpathfb() {
 
 # function f() { find . -name "*$1*" ${@:2} }
 
-
+alias fr.="fd -uu --base-directory=$HOME \
+--exclude=.cargo \
+--exclude=.cocoapods \
+--exclude=.dartServer \
+--exclude=.gem \
+--exclude=.git \
+--exclude=.go \
+--exclude=.gradle \
+--exclude=.m2 \
+--exclude=.npm \
+--exclude=.nuget \
+--exclude=.playground \
+--exclude=.pnpm-store \
+--exclude=.rustup \
+--exclude=.Trash \
+--exclude=.vscode-oss \
+--exclude=Desktop \
+--exclude=Downloads \
+--exclude=Library/Containers \
+--exclude=mega-webdav \
+--exclude=node_modules \
+--exclude=Projects \
+--exclude=Sandbox \
+--type=directory --max-depth=5"
 
 local fr="fd -uu --absolute-path --base-directory=/"
 
