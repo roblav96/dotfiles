@@ -450,33 +450,6 @@ function readlinka() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
-alias ffmpeg="ffmpeg -hide_banner -loglevel error"
-alias ffplay="ffplay -hide_banner -loglevel error"
-alias ffprobe="ffprobe -hide_banner -loglevel error"
-# alias fprobe="ffprobe -pretty -loglevel quiet -print_format json -show_format -show_streams"
-if [[ -x "$(which -p ffprobe)" ]]; then
-	function fp() {
-		local i && for i in "$@"; do
-			ffprobe -pretty -print_format json -show_format -show_streams "$i" | json
-		done
-	}
-	# which -w _ffprobe | grep -qv 'none$' && compdef fprobe=ffprobe
-fi
-if [[ -x "$(which -p mediaconch)" ]]; then
-	function mi() {
-		local i && for i in "$@"; do
-			mediaconch -mi "$i" | sed -e 's#/String #        #' -e 's#/Info #      #' | bat --style=grid -l yml
-		done
-	}
-fi
-if [[ -x "$(which -p ffmpeg)" ]]; then
-	function ffmp3() {
-		local i; for i in "$@"; do
-			ffmpeg -i "$i" -vn -b:a 320k "$i.mp3"
-		done
-	}
-fi
-
 source "$DOTFILES/modules/disk.sh"
 source "$DOTFILES/modules/history.sh"
 test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
@@ -493,6 +466,7 @@ test -x "$(which -p defaults)" && source "$DOTFILES/modules/defaults.sh"
 test -x "$(which -p deno)" && source "$DOTFILES/modules/deno.sh"
 test -x "$(which -p diff)" && source "$DOTFILES/modules/diff.sh"
 test -x "$(which -p dotnet)" && source "$DOTFILES/modules/dotnet.sh"
+test -x "$(which -p ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which -p ffsend)" && source "$DOTFILES/modules/ffsend.sh"
 test -x "$(which -p flutter)" && source "$DOTFILES/modules/flutter.sh"
 test -x "$(which -p gem)" && source "$DOTFILES/modules/gem.sh"

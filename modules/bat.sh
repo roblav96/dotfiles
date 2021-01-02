@@ -36,6 +36,7 @@ which bip &>/dev/null || alias bip="bat --style=grid -l properties"
 which bir &>/dev/null || alias bir="bat --style=grid -l ruby"
 which bis &>/dev/null || alias bis="bat --style=grid -l strace"
 which bit &>/dev/null || alias bit="bat --style=grid -l tcl"
+which bix &>/dev/null || alias bix="bat --style=grid -l xml"
 
 # alias bconf="bat -l conf"
 # alias bdiff="bat -l diff"
