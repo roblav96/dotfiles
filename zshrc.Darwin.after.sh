@@ -40,7 +40,7 @@ alias .paths="sudo $EDITOR /etc/paths"
 alias .profile="sudo $EDITOR /etc/.profile"
 
 alias .z="subl --new-window $HOME/.z:999999"
-alias .zsh_history="subl --new-window $HOME/.zsh_history:999999; exit"
+alias .zsh_history=" subl --wait --new-window $HOME/.zsh_history:999999"
 alias .prettierrc="subl --new-window $DOTFILES/configs/.prettierrc"
 alias .gitconfig="subl --new-window $DOTFILES/configs/gitconfig"
 alias .alacritty="subl --new-window $DOTFILES/configs/alacritty.yml"

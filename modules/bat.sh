@@ -57,7 +57,7 @@ which bit &>/dev/null || alias bit="bat --style=grid -l tcl"
 # alias bxml="bat -l xml"
 # alias byml="bat -l yml"
 
-alias bhr='echo | bat --terminal-width=$(tput cols) --color=always --style=grid | head -n1'
+alias bhr='echo | command bat --terminal-width=$(tput cols) --color=always --style=grid | head -n1'
 
 alias batls="bat --list-languages"
 alias batcd='cd $(command bat --config-dir)/syntaxes'

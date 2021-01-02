@@ -55,9 +55,10 @@ alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-par
 
 function gup() {
 	local i && for i in */.git; do (
+		echo && bhr
 		local repo="$(dirname "$i")"
 		cd "$repo"
-		echo && echo "▶ $repo" && echo -n "  "
+		echo "▶ $repo" && echo -n "  "
 		gurl
 		greset
 		gpr
