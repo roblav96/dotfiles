@@ -178,6 +178,10 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 
 # alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
+if [[ -d "/tmp/mnt/WD_GRAPHITE/idk_SMBv2" ]]; then
+	alias cdidk="cd /tmp/mnt/WD_GRAPHITE/idk_SMBv2"
+fi
+
 
 
 # if test -d "/data/data/com.termux/files"; then

@@ -2,17 +2,22 @@ alias ffmpeg="ffmpeg -hide_banner -loglevel error"
 alias ffplay="ffplay -hide_banner -loglevel error"
 alias ffprobe="ffprobe -hide_banner -loglevel error"
 
-alias fpm="ffprobe -pretty -print_format json -show_format"
-alias fpj="ffprobe -pretty -print_format json -show_streams"
+alias fpj="ffprobe -pretty -print_format json"
 
+function fpf() {
+	fpj -show_format "$*" | json '.format'
+}
 function fp() {
-	fpj -show_format "$*" | json
+	fpj -show_format -show_streams "$*" | json
+}
+function fps() {
+	fpj -show_streams "$*" | json '.streams[]'
 }
 function fpa() {
-	fpj -select_streams a "$*" | json '.streams[]'
+	fpj -show_streams -select_streams a "$*" | json '.streams[]'
 }
 function fpv() {
-	fpj -select_streams v "$*" | json '.streams[]'
+	fpj -show_streams -select_streams v "$*" | json '.streams[]'
 }
 
 function mi() {
