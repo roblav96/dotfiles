@@ -228,7 +228,6 @@ alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --external-sources"
 which sc &>/dev/null || alias sc="shellcheck --shell=bash --severity=warning"
 alias ipcalc="ipcalc --nobinary"
-alias chars="bat --style=grid $DOTFILES/static/emoji-chars.conf"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
 alias uuid8="uuid | head -c8"
@@ -459,6 +458,7 @@ function readlinka() {
 # 	fd "$1" --no-ignore -x mv {} $2{}
 # }
 
+source "$DOTFILES/modules/chars.sh"
 source "$DOTFILES/modules/disk.sh"
 source "$DOTFILES/modules/history.sh"
 test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"

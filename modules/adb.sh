@@ -228,19 +228,19 @@ function adbsu() {
 
 # https://developer.android.com/studio/command-line/adb#pm
 function adbpmls() {
-	echo && echo "🟨 System Enabled Packages"
+	echo && echo "🟢 System Enabled Packages"
 	adb shell pm list packages -s -e | sed 's/^package://' | sortt
-	echo && echo "🟨 System Disabled Packages"
+	echo && echo "🔴 System Disabled Packages"
 	adb shell pm list packages -s -d | sed 's/^package://' | sortt
-	echo && echo "🟨 User Enabled Packages"
+	echo && echo "🟢 User Enabled Packages"
 	adb shell pm list packages -3 -e | sed 's/^package://' | sortt
-	echo && echo "🟨 User Disabled Packages"
+	echo && echo "🔴 User Disabled Packages"
 	adb shell pm list packages -3 -d | sed 's/^package://' | sortt
 }
 function adbpmf() {
-	echo && echo "🟨 Enabled Packages"
+	echo && echo "🟢 Enabled Packages"
 	adb shell pm list packages -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
-	echo && echo "🟨 Disabled Packages"
+	echo && echo "🔴 Disabled Packages"
 	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
 }
 
