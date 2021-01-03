@@ -53,17 +53,13 @@ alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
 alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
 
 function unapk() {
-	local v && for v in "$@"; do (
-		bhr
-		local outdir="${@%.apk}"
-		apktool decode --frame-tag mdarcy --api-level 29 --match-original "$v"
-		unzip "$v" '*.dex' -d "$outdir"
-		cd "$outdir"
-		command rm -rf smali*
-		jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bl java
-		command rm -rf *.dex
-	); done
-	bhr
+	local outdir="${@%.apk}"
+	apktool decode --frame-tag mdarcy --api-level 28 --match-original "$@"
+	unzip "$@" '*.dex' -d "$outdir"
+	cd "$outdir"
+	command rm -rf smali*
+	jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
+	command rm -rf *.dex
 }
 
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'

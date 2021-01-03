@@ -47,11 +47,11 @@ alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors
 alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
 alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
-alias gcl='gcld; echo; read -q "?Would remove...?" && return 1; echo; gclean; greset'
+alias gcl='gcld; echo; read -q "?🔴 Would remove ...? " && return 1; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='isgit; gs; echo; read -q "?🟠 $(basename --suffix=.git $(gurl)) -> git push origin ...? " && return 1; gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 function gup() {
 	local v && for v in */.git; do (
@@ -77,10 +77,13 @@ function gup() {
 # alias gc="gh repo clone"
 function gc() {
 	local repo=(${@/ -*/})
+	echo "🟡 repo -> '$repo'"
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
+	echo "🟡 outdir -> '$outdir'"
+	return 1
 	if [[ -d "$outdir" ]]; then
-		read -q "?🔴 Replace existing directory '$outdir'...?" && return 1
+		read -q "?🔴 Replace existing folder -> '$outdir' ...? " && return 1
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
