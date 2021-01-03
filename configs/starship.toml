@@ -65,6 +65,9 @@ disabled = true
 [env_var]
 disabled = true
 
+[kotlin]
+disabled = true
+
 [nodejs]
 disabled = true
 
