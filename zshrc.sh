@@ -165,9 +165,9 @@ unalias diff &>/dev/null
 
 alias sudo="sudo "
 alias xargs="xargs "
-alias rargs="rargs "
-alias just="just "
-alias pueue="pueue "
+# alias rargs="rargs "
+# alias just="just "
+# alias pueue="pueue "
 
 alias e="$EDITOR"
 alias ln="ln -v"
@@ -358,13 +358,14 @@ alias pubget="wget --http-user=admin --http-password="
 [[ -x "$(which -p ifconfig)" ]] && alias getip="ifconfig | awk '/inet /{print \$2}' | grep -E '^(10|172|192.168)\.' | head -n1"
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs="procs --nor '/System/Library/' '/Google Chrome.app/' '/iTerm'"
+alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d'
+[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/Google Chrome.app/" "/iTerm" "$(upiso | sd -s "-" "/")"'
 [[ "$PLATFORM" == "Linux" ]] && alias pcs="procs --nor 'kworker/' 'jfs' '/rmate '"
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 
-alias htop="htop --delay=1 --highlight-changes=1"
+alias htop="htop --delay=1 --highlight-changes=5"
 alias pa="ps auxww"
 alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function pe() {
