@@ -20,7 +20,7 @@ alias glm="git log --reverse --max-count=10 --oneline"
 alias gla="echo; git log --reverse --max-count=3 --date=relative --patch-with-stat"
 
 alias gsu="git standup"
-# alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🌕 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
+# alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🟡 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
 
 alias gsw="git switch"
 alias gft="git fetch"
@@ -58,7 +58,7 @@ function gup() {
 		bhr
 		local repo="$(dirname "$v")"
 		cd "$repo"
-		echo "🟨 $repo" && echo -n "   "
+		echo "🟡 $repo" && echo -n "   "
 		gurl
 		greset
 		gpr
@@ -127,7 +127,7 @@ function greload() {
 # 	[[ ! -d "$outdir" ]] && return 1
 # 	cd "$outdir"
 # 	[[ -e "$outdir.sln" ]] && cd "$outdir"
-# 	# echo "🌕 snyk test ->"
+# 	# echo "🟡 snyk test ->"
 # 	# npx snyk test --dev --all-projects --detection-depth=1
 # 	# if [[ -e "package.json" ]]; then
 # 	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
@@ -155,7 +155,7 @@ function greload() {
 # 		echo "🔴 Not a git repository"
 # 		return 1
 # 	fi
-# 	bathr; echo "🌕 git "$@" -> '"$(basename "$(pwd)")"'"; bathr; echo
+# 	bathr; echo "🟡 git "$@" -> '"$(basename "$(pwd)")"'"; bathr; echo
 # }
 
 # if [[ -x "$(which -p delta)" ]]; then

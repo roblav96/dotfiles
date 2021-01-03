@@ -1,12 +1,12 @@
 function ipinfo() {
 	if [[ -z "$@" ]]; then
-		echo && echo -n '🌕 icanhazip.com -> ' && curl "https://icanhazip.com" && echo
-		echo -n '🌕 api6.ipify.org -> ' && curl "https://api6.ipify.org" && echo && echo
+		echo && echo -n '🟡 icanhazip.com -> ' && curl "https://icanhazip.com" && echo
+		echo -n '🟡 api6.ipify.org -> ' && curl "https://api6.ipify.org" && echo && echo
 		# if [[ -n "$IPIFY_API_KEY" ]]; then
-		# 	echo "🌕 geo.ipify.org"
+		# 	echo "🟡 geo.ipify.org"
 		# 	curl "https://geo.ipify.org/api/v1?apiKey=$IPIFY_API_KEY" | json
 		# else
-		echo "🌕 ipinfo.io"
+		echo "🟡 ipinfo.io"
 		curl "https://ipinfo.io" | json '. |= del(.readme)'
 		# fi
 	elif [[ "$@" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
@@ -22,11 +22,11 @@ function ipinfo() {
 
 function ipallinfo() {
 	ipinfo
-	echo && echo "🌕 iplist.cc"
+	echo && echo "🟡 iplist.cc"
 	curl "https://iplist.cc/api" | json
-	echo && echo "🌕 ifconfig.co"
+	echo && echo "🟡 ifconfig.co"
 	curl "https://ifconfig.co/json" | json '. |= del(.user_agent)'
-	echo && echo "🌕 ipinfo.io"
+	echo && echo "🟡 ipinfo.io"
 	curl "https://ipinfo.io" | json '. |= del(.readme)'
 }
 

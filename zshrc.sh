@@ -104,8 +104,8 @@ if [[ -x "$(which -p antibody)" ]]; then
 		LS_COLORS="$LS_COLORS$(vivid -m 8-bit generate molokai):$LS_COLORS"
 	fi
 	LS_COLORS="$LS_COLORS*-=38;5;241:*~=38;5;241:*.jsx=38;5;074;1:*.svelte=0;38;5;185:*.vue=0;38;5;48:"
-	# echo "🌕 LS_COLORS -> '$LS_COLORS'"
-	# echo "🌕 LS_COLORS -> $(echo $LS_COLORS | sed -e 's|:|\n|g')"
+	# echo "🟡 LS_COLORS -> '$LS_COLORS'"
+	# echo "🟡 LS_COLORS -> $(echo $LS_COLORS | sed -e 's|:|\n|g')"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 	# local sitefns="${fpath[2]}"
@@ -369,10 +369,10 @@ alias pa="ps auxww"
 alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function pe() {
 	pgrep "$*" | while read pid; do
-		# echo "🌕 pid -> '$pid'"
+		# echo "🟡 pid -> '$pid'"
 		echo && ps -ww -o user,pid,ppid,%cpu,%mem,time,start,command -p $pid
 		local command="$(ps -ww -o command= -p $pid)"
-		# echo "🌕 command -> '$command'"
+		# echo "🟡 command -> '$command'"
 		local environment="$(ps -ww -o command= -E -p $pid)"
 		if [[ "${#command}" != "${#environment}" ]]; then
 			environment="${environment#$command }"
@@ -434,7 +434,7 @@ function showv() {
 	local vflags=${@:2}
 	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do
-		echo && echo -n "🌕 "
+		echo && echo -n "🟡 "
 		exa "$i"
 		i="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$i"
@@ -497,13 +497,13 @@ test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
 
 function dotcompinit() {
-	# echo "🌕 dotcompinit"
-	# echo "🌕 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
+	# echo "🟡 dotcompinit"
+	# echo "🟡 ZSH_COMPDUMP_EXISTS -> '$ZSH_COMPDUMP_EXISTS'"
 	[[ ! -z "$ZSH_COMPDUMP_EXISTS" ]] && return 0
 	local zcompdump_metadata="$(command grep '^#omz' "$ZSH_COMPDUMP" 2>/dev/null)"
 	compinit -d "${ZSH_COMPDUMP}"
 	echo "\n$zcompdump_metadata" >>! "$ZSH_COMPDUMP"
-	echo; echo "✅ ZSH compinit"
+	echo; echo "🟢 ZSH compinit"
 }
 
 # compinit -d "${ZSH_COMPDUMP}"

@@ -179,19 +179,19 @@ function adbds() {
 
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
-	echo && echo "🟨 System Settings"
+	echo && echo "🟡 System Settings"
 	adb shell settings list system | sortt | sed 's/=/: /' | bl yml
-	echo && echo "🟨 Secure Settings"
+	echo && echo "🟡 Secure Settings"
 	adb shell settings list secure | sortt | sed 's/=/: /' | bl yml
-	echo && echo "🟨 Global Settings"
+	echo && echo "🟡 Global Settings"
 	adb shell settings list global | sortt | sed 's/=/: /' | bl yml
 }
 function adbsettingsf() {
-	echo && echo "🟨 System Settings"
+	echo && echo "🟡 System Settings"
 	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
-	echo && echo "🟨 Secure Settings"
+	echo && echo "🟡 Secure Settings"
 	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
-	echo && echo "🟨 Global Settings"
+	echo && echo "🟡 Global Settings"
 	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
 }
 function adbsettingsinit() {
@@ -271,12 +271,12 @@ function adbup() {
 
 # function adb-pm-ls() {
 # 	echo "$(adb shell '
-# 		echo && echo "🟨 Disabled"; pm list packages -d;
-# 		echo && echo "🟨 Uninstalled"; pm list packages -u;
-# 		echo && echo "🟨 Default"; pm list packages;
-# 		echo && echo "🟨 System"; pm list packages -s;
-# 		echo && echo "🟨 Enabled"; pm list packages -e;
-# 		echo && echo "🟨 Third-Party"; pm list packages -3;
+# 		echo && echo "🟡 Disabled"; pm list packages -d;
+# 		echo && echo "🟡 Uninstalled"; pm list packages -u;
+# 		echo && echo "🟡 Default"; pm list packages;
+# 		echo && echo "🟡 System"; pm list packages -s;
+# 		echo && echo "🟡 Enabled"; pm list packages -e;
+# 		echo && echo "🟡 Third-Party"; pm list packages -3;
 # 	')" | sed 's/^package://' | bl properties
 # }
 # alias adb-pm-f="adb-pm-ls | grep"

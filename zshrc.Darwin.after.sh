@@ -19,14 +19,14 @@ function duti-sublime() {
 	rg --files-with-matches "file_extensions" | while read i; do
 		echo && echo "🔴 $i 🔴"
 		cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do
-			echo && echo "🌕 $ii"
+			echo && echo "🟡 $ii"
 			duti -x "$ii"
 			[[ -n "$ii" ]] && duti -s "$bundle_id" "$ii" all
 		done
 	done
 }
-# alias duti-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🌕 $ii"; duti -s com.sublimetext.3 "$ii" all; done; done'
-# r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🌕 $ii"; duti -x "$ii"; done; done
+# alias duti-sublime='gc https://github.com/sublimehq/Packages && rg --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r ".file_extensions[]" | while read ii; do echo; echo "🟡 $ii"; duti -s com.sublimetext.3 "$ii" all; done; done'
+# r --files-with-matches file_extensions | while read i; do echo; echo "🔴 $i"; cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do echo; echo "🟡 $ii"; duti -x "$ii"; done; done
 
 # alias ssh="ssh -L 52698:localhost:52699"
 # alias pbcopy="pbcopy -Prefer txt"
@@ -137,23 +137,23 @@ function fbak() {
 }
 
 function app-bak() {
-	# echo "🌕 # -> '$#'"
+	# echo "🟡 # -> '$#'"
 	if [[ -z "$1" ]]; then
 		echo "🔴 Application name required"
 		return 1
 	fi
 	local appdir="$HOME/Library/Application Support/$1"
-	# echo "🌕 appdir -> '$appdir'"
+	# echo "🟡 appdir -> '$appdir'"
 	if [[ ! -d "$appdir" ]]; then
 		echo "🔴 No such file or directory -> '$appdir'"
 		return 1
 	fi
 	local date="$(dateiso)"
-	# echo "🌕 date -> '$date'"
+	# echo "🟡 date -> '$date'"
 	local tarname="${1//\// } ($date).tar.gz"
-	# echo "🌕 tarname -> '$tarname'"
+	# echo "🟡 tarname -> '$tarname'"
 	local tarpath="$HOME/Downloads/$tarname"
-	# echo "🌕 tarpath -> '$tarpath'"
+	# echo "🟡 tarpath -> '$tarpath'"
 	if [[ -e "$tarpath" ]]; then
 		rm -iv "$tarpath"
 		if [[ -e "$tarpath" ]]; then
@@ -165,7 +165,7 @@ function app-bak() {
 	dstore
 	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.' | lscolors
 	cd "$OLDPWD"
-	echo && echo "✅ Backup complete"
+	echo && echo "🟢 Backup complete"
 	echo && exa --oneline "$tarpath"
 }
 
@@ -209,6 +209,6 @@ alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
 
 if [[ -n "$DOTBENCH" ]]; then
-	echo && echo "🔶 DOTBENCH -> $(bc <<<"$(date +%s%3N) - $DOTBENCH")"
+	echo && echo "🟠 DOTBENCH -> $(bc <<<"$(date +%s%3N) - $DOTBENCH")"
 	unset DOTBENCH
 fi

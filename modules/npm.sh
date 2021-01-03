@@ -82,7 +82,7 @@ alias nssed="sed -e 's|^JS: ||'$(
 # function nsv() {
 # 	local platforms=('android' 'ios')
 # 	local platform && for platform in "${platforms[@]}"; do
-# 		echo && echo "🌕 $platform"
+# 		echo && echo "🟡 $platform"
 # 		npm info "tns-$platform" --json | jq --tab '.["dist-tags"]'
 # 	done
 # }

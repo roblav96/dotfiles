@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # DOTBENCH="$(date +%s%3N)"
-# echo "🌕 ZSH install before"
+# echo "🟡 ZSH install before"
 
 if [[ ! -e "$0" ]]; then
 	echo "[ERROR] Invalid script directory -> '$0'"
@@ -35,10 +35,10 @@ echo "typeset -f dotcompinit &>/dev/null && dotcompinit && unfunction dotcompini
 
 if [[ -z "$ZSHRC_EXISTS" ]]; then
 	cat "$ZSHRC"
-	echo && echo "✅ ZSH dotfiles installed"
+	echo && echo "🟢 ZSH dotfiles installed"
 fi
 
-# echo "🌕 ZSH install after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
+# echo "🟡 ZSH install after -> '$(bc <<< "$(date +%s%3N) - $DOTBENCH")'"
 
 
 

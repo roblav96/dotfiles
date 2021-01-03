@@ -1,7 +1,7 @@
 if [[ -x "$(which -p tldr)" ]]; then
 	export TEALDEER_CACHE_DIR="$HOME/.cache/tealdeer"
 	if [[ ! -d "$TEALDEER_CACHE_DIR" ]]; then
-		echo "🌕 mkdir TEALDEER_CACHE_DIR -> '$TEALDEER_CACHE_DIR'"
+		echo "🟡 mkdir TEALDEER_CACHE_DIR -> '$TEALDEER_CACHE_DIR'"
 		mkdir -p "$TEALDEER_CACHE_DIR"
 		tldr --update
 	fi
@@ -11,7 +11,7 @@ if [[ -x "$(which -p tldr)" ]]; then
 		local files=($(rg --files-with-matches --smart-case --regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
 		local file && for file in "${files[@]}"; do
 			local name="$(basename "$file" ".md")"
-			echo "🌕 '$name'"
+			echo "🟡 '$name'"
 			tldr --color=always "$name" | rg --passthru --smart-case --regexp "$*"
 		done
 		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os")"} )
@@ -31,10 +31,10 @@ function how() {
 	done
 	echo "$output"
 	#
-	# # echo; echo "🌕 $(howdoi --all --link "$@")"; echo
+	# # echo; echo "🟡 $(howdoi --all --link "$@")"; echo
 	# local output=""
 	# for i in {1..3}; do
-	# 	output="$output\n🌕 $i $(howdoi --num-answers=3 --pos=$i --link "$@")"
+	# 	output="$output\n🟡 $i $(howdoi --num-answers=3 --pos=$i --link "$@")"
 	# 	output="$output\n$(howdoi --num-answers=3 --pos=$i "$@")"
 	# 	output="$output\n$(howdoi --num-answers=3 --pos=$i --all "$@")"
 	# done
@@ -43,7 +43,7 @@ function how() {
 	# local regexp="$(echo "$@" | sd ' ' '|')"
 	# local regexp="($(echo "$@" | sed 's/ /|/g'))"
 	# local regexp="${@//\ /|}"
-	# echo "🌕 regexp -> '$regexp'"
+	# echo "🟡 regexp -> '$regexp'"
 	# howdoi --color --all "$@" | rg --color=always --ignore-case --passthru --regexp="'"$regexp"'"
 }
 alias hdi="howdoi --color --all"
@@ -60,7 +60,7 @@ if [[ -n "$ZSH_COMPLETION_GENERATOR_SRCDIR" ]]; then
 	} && compdef man2comp=command
 	function help2comp() {
 		local stdin=$(</dev/stdin)
-		echo "🌕 stdin -> '$stdin'"
+		echo "🟡 stdin -> '$stdin'"
 		if [[ -n "$stdin" ]]; then
 			echo $stdin | python "$ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py" "$1" >|"$GENCOMPL_FPATH/_$1" && bat -l sh "$GENCOMPL_FPATH/_$1" && wc --lines "$GENCOMPL_FPATH/_$1" && zcomp
 		fi
