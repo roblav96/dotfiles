@@ -4,11 +4,11 @@ alias dfr="defaults read"
 alias dfrt="defaults read-type"
 alias dfw="defaults write"
 
-alias dfdomains="defaults domains | sed 's#, #\n#g' | sortt"
+alias dfdomains="defaults domains | sed 's/, /\n/g' | sortt"
 
-# function dfr() {
-# 	defaults read "$*" | bat --plain -l pl
-# }
+function dfi() {
+	defaults read "$*" | bl ini
+}
 function dfs() {
-	defaults find "$*" | rg --smart-case --fixed-strings --passthru -e "$*" | bat --plain -l pl
+	defaults find "$*" | bl ini
 }

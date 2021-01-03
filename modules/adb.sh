@@ -104,19 +104,15 @@ function adbin() {
 	done
 }
 
-function adbds() {
-	local v && for v in "$@"; do
-		adb shell dumpsys "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
-	done
-}
-
 function adbk() {
 	if [[ $# -eq 0 ]]; then
 		local pkgs=(
 			"app.debrids.tv"
+			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
 			"com.android.vending"
 			"com.curiosity.curiositystream.androidtv"
+			"com.fgl27.twitch"
 			"com.google.android.apps.mediashell"
 			"com.google.android.exoplayer2.demo"
 			"com.google.android.gms"
@@ -126,14 +122,19 @@ function adbk() {
 			"com.hbo.hbonow"
 			"com.hulu.livingroomplus"
 			"com.liskovsoft.smarttubetv.beta"
+			"com.liskovsoft.videomanager"
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
 			"com.nvidia.ota"
+			"com.perflyst.twire"
 			"com.soundcloud.android"
 			"org.jellyfin.androidtv"
 			"org.mozilla.tv.firefox"
+			"org.schabi.newpipe"
+			"org.schabi.newpipelegacy"
 			"org.xbmc.kodi"
 			"tv.emby.embyatv"
+			"tv.twitch.android.app"
 		)
 		adbk $pkgs
 	fi
@@ -156,16 +157,24 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
+		adb shell dumpsys package "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | sed 's/=/: /' | bat --file-name="$v" -l yml
+		adb shell pm dump "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adblp() {
-	adb shell monkey -p "$@" -c android.intent.category.LAUNCHER 1
+	local v && for v in "$@"; do
+		adb shell monkey -p "$v" -c android.intent.category.LAUNCHER 1
+	done
+}
+
+function adbds() {
+	local v && for v in "$@"; do
+		adb shell dumpsys "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
+	done
 }
 
 # https://developer.android.com/reference/android/provider/Settings

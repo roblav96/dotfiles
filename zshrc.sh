@@ -164,7 +164,10 @@ unalias diff &>/dev/null
 # alias rm="rm -v"
 
 alias sudo="sudo "
-# compdef sudo=which
+alias xargs="xargs "
+alias rargs="rargs "
+alias just="just "
+alias pueue="pueue "
 
 alias e="$EDITOR"
 alias ln="ln -v"

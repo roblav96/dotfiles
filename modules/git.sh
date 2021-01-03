@@ -54,9 +54,9 @@ alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --n
 alias gpush='isgit; gs && echo && gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 function gup() {
-	local i && for i in */.git; do (
+	local v && for v in */.git; do (
 		bhr
-		local repo="$(dirname "$i")"
+		local repo="$(dirname "$v")"
 		cd "$repo"
 		echo "🟨 $repo" && echo -n "   "
 		gurl

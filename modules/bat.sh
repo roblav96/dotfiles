@@ -17,26 +17,26 @@ alias bn="bat --style=header,grid,numbers"
 alias bp="bat --plain"
 alias bgr="bat --style=grid"
 
-alias bb="bat --style=grid -l sh"
-alias bf="bat --style=grid -l fstab"
-alias bh="bat --style=grid -l man"
-alias bj="bat --style=grid -l json"
-alias bk="bat --style=grid -l make"
+alias bb="bl sh"
+alias bf="bl fstab"
+alias bh="bl man"
+alias bj="bl json"
+alias bk="bl make"
 alias bm="mdcat"
-alias bq="bat --style=grid -l qml"
-alias bx="bat --style=grid -l nix"
-alias by="bat --style=grid -l yml"
+alias bq="bl qml"
+alias bx="bl nix"
+alias by="bl yml"
 
-which bic &>/dev/null || alias bic="bat --style=grid -l config"
-which bie &>/dev/null || alias bie="bat --style=grid -l erl"
-which bii &>/dev/null || alias bii="bat --style=grid -l ini"
-which bil &>/dev/null || alias bil="bat --style=grid -l perl"
-which bim &>/dev/null || alias bim="bat --style=grid -l nim"
-which bip &>/dev/null || alias bip="bat --style=grid -l properties"
-which bir &>/dev/null || alias bir="bat --style=grid -l ruby"
-which bis &>/dev/null || alias bis="bat --style=grid -l strace"
-which bit &>/dev/null || alias bit="bat --style=grid -l tcl"
-which bix &>/dev/null || alias bix="bat --style=grid -l xml"
+which bic &>/dev/null || alias bic="bl config"
+which bie &>/dev/null || alias bie="bl erl"
+which bii &>/dev/null || alias bii="bl ini"
+which bil &>/dev/null || alias bil="bl perl"
+which bim &>/dev/null || alias bim="bl nim"
+which bip &>/dev/null || alias bip="bl properties"
+which bir &>/dev/null || alias bir="bl ruby"
+which bis &>/dev/null || alias bis="bl strace"
+which bit &>/dev/null || alias bit="bl tcl"
+which bix &>/dev/null || alias bix="bl xml"
 
 # alias bconf="bat -l conf"
 # alias bdiff="bat -l diff"
@@ -75,7 +75,7 @@ l \"\$(command bat --cache-dir)\"
 "
 
 function batplist() {
-	plistutil --infile "$1" | prettier --parser xml | bat --style=grid -l xml
+	plistutil --infile "$1" | prettier --parser xml | bl xml
 }
 alias bpl="batplist"
 alias bplist="batplist"
@@ -90,7 +90,7 @@ alias dbat='dotbat'
 function pbat() {
 	if [[ -e "$1" ]]; then
 		if [[ $# -eq 1 ]]; then
-			prettier "$1" | bat --style=grid -l "${1##*.}"
+			prettier "$1" | bl "${1##*.}"
 		else
 			prettier --parser "$2" "$1" | bat --plain -l "$2"
 		fi

@@ -31,10 +31,12 @@ function mvnw() {
 alias apkanalyzer="apkanalyzer --human-readable"
 alias apkm="apkanalyzer apk summary"
 function apki() {
-	aapt2 dump badging "$@" | sed -e "s/='/: '/g" -e "s/:'/: '/g" -e '/^application-label-/d' -e '/^application-icon-/d' | bat --style=grid -l yml
+	local v && for v in "$@"; do
+		aapt2 dump badging "$v" | sed -e "s/='/: '/g" -e "s/:'/: '/g" -e '/^application-label-/d' -e '/^application-icon-/d' | t2 | bl yml --file-name="$v"
+	done
 }
 
-alias avdls="avdmanager list avd | bat --style=grid -l yml"
+alias avdls="avdmanager list avd | bl yml"
 local emulator_flags='-no-passive-gps -no-location-ui' # -accel on -gpu host'
 alias emulator="emulator $emulator_flags -verbose"
 alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
@@ -51,13 +53,17 @@ alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
 alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
 
 function unapk() {
-	local outdir="${@%.apk}"
-	apktool decode --frame-tag mdarcy --api-level 28 --match-original "$@"
-	unzip "$@" '*.dex' -d "$outdir"
-	cd "$outdir"
-	command rm -rf smali*
-	jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
-	command rm -rf *.dex
+	local v && for v in "$@"; do (
+		bhr
+		local outdir="${@%.apk}"
+		apktool decode --frame-tag mdarcy --api-level 29 --match-original "$v"
+		unzip "$v" '*.dex' -d "$outdir"
+		cd "$outdir"
+		command rm -rf smali*
+		jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bl java
+		command rm -rf *.dex
+	); done
+	bhr
 }
 
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'

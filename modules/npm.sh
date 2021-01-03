@@ -58,7 +58,8 @@ function nsc() {
 	npm info "@nativescript/$@"
 	ns create "$@" --template "@nativescript/$@" || return 1
 	cd "$@"
-	npm install
+	sed -i 's/": "~/": "^/' package.json
+	npm install --save-dev @nativescript/android
 	prettier --write .
 	npx update-ns-webpack --configs
 }

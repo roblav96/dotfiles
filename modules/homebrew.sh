@@ -56,6 +56,10 @@ function bls() {
 	echo && echo "🌕 List formulas"
 	brew list --formula --versions
 }
+function blsp() {
+	echo && echo "🌕 Pinned formulas"
+	brew list --formula --versions --pinned
+}
 function blsm() {
 	echo && echo "🌕 Recently modified formulas"
 	lm --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
@@ -74,10 +78,6 @@ function bcls() {
 	brew list --cask --versions
 }
 alias blsa="bls; echo; bcls"
-function bpinned() {
-	echo && echo "🌕 Pinned formulas"
-	brew list --formula --versions --pinned
-}
 
 function bs() {
 	local v && for v in "$@"; do
