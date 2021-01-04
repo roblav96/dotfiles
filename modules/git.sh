@@ -51,7 +51,7 @@ alias gcl='gcld; echo; read -q "?🔴 Would remove ...? " && return 1; echo; gcl
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; gs; echo; read -q "?🔴 $(basename --suffix=.git $(gurl)) -> git push origin ...? " && return 1; gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='isgit; gs; echo; read -q "?🔴 git push origin $(basename --suffix=.git $(gurl)) ...? " && return 1; gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
 
 function gup() {
 	local v && for v in */.git; do (
