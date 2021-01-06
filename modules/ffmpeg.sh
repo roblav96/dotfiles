@@ -14,10 +14,10 @@ function fps() {
 	fpj -show_streams "$*" | json '.streams[]'
 }
 function fpa() {
-	fpj -show_streams -select_streams a "$*" | json '.streams[]'
+	fpj -show_streams -select_streams a "$*" | json '.streams[0,1]'
 }
 function fpv() {
-	fpj -show_streams -select_streams v "$*" | json '.streams[]'
+	fpj -show_streams -select_streams v "$*" | json '.streams[0]'
 }
 
 function mi() {

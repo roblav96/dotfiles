@@ -49,6 +49,8 @@ if [[ "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!^loading \[eventTime=\d'"
 fi
 rogs="$rogs --tag '!^JS$'"
+rogs="$rogs --tag '!^JsonPath*'"
+rogs="$rogs --tag '!^mobile-ffmpeg$'"
 rogs="$rogs --tag '!^netstats_(\w+)_sample$'"
 alias rog="$rogs" && unset rogs
 # local rogs=(
@@ -78,7 +80,7 @@ alias pidcat="pidcat --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bl yml"
-alias adbaudio="adb shell dumpsys media.audio_flinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\n.+?type 1 \(DIRECT\):\n  .+?\n\n' | t2 | bl yml"
+alias adbaudio="adb shell dumpsys media.audio_flinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\n.+?type 1 \(DIRECT\):\n  .+?\n\n' | bl yml"
 alias adbstack="adb shell am stack list | bl nix"
 
 function exoplayer() {
