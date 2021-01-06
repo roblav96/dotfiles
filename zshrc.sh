@@ -351,10 +351,10 @@ fi
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
-alias serve="miniserve --no-symlinks --verbose --port=8888"
-alias pubserve="serve --auth=admin: $HOME/Public"
-alias pubget="wget --http-user=admin --http-password="
-[[ -x "$(which -p ifconfig)" ]] && alias getip="ifconfig | awk '/inet /{print \$2}' | grep -E '^(10|172|192.168)\.' | head -n1"
+alias getip="ifconfig | awk '/inet /{print \$2}' | grep -E '^(10|172|192.168)\.' | head -n1"
+alias serve='miniserve --verbose --interfaces=$(getip) --port=8080'
+alias pubserve='serve --auth=admin: $HOME/Public'
+alias pubget='wget --http-user=admin --http-password='
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
 alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d'

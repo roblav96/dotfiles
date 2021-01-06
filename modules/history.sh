@@ -9,6 +9,13 @@ function __histr() {
 	hist | rg --smart-case --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
 } && compdef __histr=which && alias histr=" __histr"
 
+function __histbak() {
+	local histfile="${HISTFILE:-$HOME/.zsh_history}"
+	local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
+	cp "$histfile" "$bakfile"
+	chmod 000 "$bakfile"
+} && alias {histbak,zbak}=" __histbak"
+
 function __histsd() {
 	if [[ $# -ne 2 ]]; then
 		echo "🔴 num args '$#' -ne '2' -> '$*'"
@@ -26,17 +33,10 @@ function __histsd() {
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green -e "$2"
 } && compdef __histsd=which && alias histsd=" __histsd"
 
-function histbak() {
-	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
-	cp "$histfile" "$bakfile"
-	chmod 000 "$bakfile"
-}
-
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias .z=" subl --wait --new-window $HOME/.z:999999"
-	alias .hist=" subl --wait --new-window $HOME/.zsh_history:999999"
+	alias .hist=" histbak; subl --wait --new-window $HOME/.zsh_history:999999"
 else
 	alias .z=" rmate --wait --new --line 999999 $HOME/.z"
-	alias .hist=" rmate --wait --new --line 999999 $HOME/.zsh_history"
+	alias .hist=" histbak; rmate --wait --new --line 999999 $HOME/.zsh_history"
 fi
