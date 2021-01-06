@@ -249,6 +249,7 @@ function adbpmf() {
 function adbapk() {
 	local v && for v in "$@"; do
 		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's/^package://')"
+		[[ -e "$v.apk" ]] && mv "$v.apk" "$v.bak.apk"
 		adb pull "$apkpath" "$v.apk"
 	done
 }
@@ -284,27 +285,36 @@ function adbup() {
 # alias adb-pm-f="adb-pm-ls | grep"
 # alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
 
-declare PLAY_STORE_PACKAGES=(
-	"android.autoinstalls.config.nvidia"
-	"com.android.inputmethod.latin"
-	"com.android.vending"
-	"com.google.android.backdrop"
-	"com.google.android.ext.services"
-	"com.google.android.ext.shared"
-	"com.google.android.feedback"
-	"com.google.android.gms"
-	"com.google.android.gsf"
-	"com.google.android.inputmethod.latin"
-	"com.google.android.katniss"
-	"com.google.android.leanbacklauncher.recommendations"
-	"com.google.android.music"
-	"com.google.android.overlay.googlewebview"
-	"com.google.android.play.games"
-	"com.google.android.sss"
-	"com.google.android.sss.authbridge"
-	"com.google.android.tts"
-	"com.google.android.tv.bugreportsender"
-	"com.google.android.tvrecommendations"
-	"com.google.android.youtube.tv"
-	"com.nvidia.ota"
-)
+# function adbgmsup() {
+# 	adbup "com.google.android.gsf" "com.google.android.gms" "com.android.vending" "com.nvidia.ota"
+# 	adb shell am force-stop "com.google.android.tvlauncher"
+# }
+# function adbgmsdown() {
+# 	adbdown "com.android.vending" "com.google.android.gms" "com.google.android.gsf" "com.nvidia.ota"
+# 	adb shell am force-stop "com.google.android.tvlauncher"
+# }
+
+# declare PLAY_STORE_PACKAGES=(
+# 	"android.autoinstalls.config.nvidia"
+# 	"com.android.inputmethod.latin"
+# 	"com.android.vending"
+# 	"com.google.android.backdrop"
+# 	"com.google.android.ext.services"
+# 	"com.google.android.ext.shared"
+# 	"com.google.android.feedback"
+# 	"com.google.android.gms"
+# 	"com.google.android.gsf"
+# 	"com.google.android.inputmethod.latin"
+# 	"com.google.android.katniss"
+# 	"com.google.android.leanbacklauncher.recommendations"
+# 	"com.google.android.music"
+# 	"com.google.android.overlay.googlewebview"
+# 	"com.google.android.play.games"
+# 	"com.google.android.sss"
+# 	"com.google.android.sss.authbridge"
+# 	"com.google.android.tts"
+# 	"com.google.android.tv.bugreportsender"
+# 	"com.google.android.tvrecommendations"
+# 	"com.google.android.youtube.tv"
+# 	"com.nvidia.ota"
+# )
