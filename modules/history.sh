@@ -29,16 +29,16 @@ function __histsd() {
 	echo && echo "🟡 REPLACE -> '$2'" && echo
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --replace "$2" --colors=match:fg:yellow -e "$1"
 	echo && read -q "?🟠 CONFIRM -> '$2' ...? " && return 1
-	histbak
+	__histbak
 	sd --flags c --string-mode "$1" "$2" "$histfile"
 	echo && echo "🟢 REPLACED -> '$2'" && echo
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green -e "$2"
 } && compdef __histsd=which && alias histsd=" __histsd"
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias .z=" subl --wait --new-window $HOME/.z:999999"
-	alias {.hist,.zsh_history}=" histbak; subl --wait --new-window ${HISTFILE:-$HOME/.zsh_history}:999999"
+	alias .z=" __histbak; subl --wait --new-window $HOME/.z:999999"
+	alias {.hist,.zsh_history}=" __histbak; subl --wait --new-window ${HISTFILE:-$HOME/.zsh_history}:999999"
 else
-	alias .z=" rmate --wait --new --line 999999 $HOME/.z"
-	alias {.hist,.zsh_history}=" histbak; rmate --wait --new --line 999999 ${HISTFILE:-$HOME/.zsh_history}"
+	alias .z=" __histbak; rmate --wait --new --line 999999 $HOME/.z"
+	alias {.hist,.zsh_history}=" __histbak; rmate --wait --new --line 999999 ${HISTFILE:-$HOME/.zsh_history}"
 fi
