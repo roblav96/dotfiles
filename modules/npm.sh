@@ -64,14 +64,14 @@ function nsc() {
 	npx update-ns-webpack --configs
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
-alias nssed="sed -e 's|^JS: ||'$(
+alias nssed="sed -e 's#^JS: ##'$(
 	local sedexp=""
 	for ((i = 16; i > 0; i--)); do
-		sedexp+=" -e 's|^"
+		sedexp+=" -e 's#^"
 		for i in {1..$i}; do sedexp+="  "; done
-		sedexp+="|"
+		sedexp+="#"
 		for i in {1..$i}; do sedexp+="\\\t"; done
-		sedexp+="|'"
+		sedexp+="#'"
 	done
 	echo -n $sedexp
 )"

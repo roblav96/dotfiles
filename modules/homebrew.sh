@@ -31,7 +31,7 @@ function bout() {
 }
 function bcout() {
 	echo && echo "🟡 Outdated casks"
-	brew outdated --cask --greedy --verbose | rg --invert-match '(latest)'
+	brew outdated --cask --greedy --verbose | rg --fixed-strings --invert-match '(latest)'
 }
 function bupg() {
 	if [[ $# -eq 0 ]]; then
@@ -82,9 +82,9 @@ alias blsa="bls; echo; bcls"
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Searching descriptions -> '$v'"
-		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
 		echo && echo "🟡 Searching names -> '$v'"
-		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --smart-case --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
 	done
 }
 alias bscd='cd $(brew --prefix)/Homebrew'
