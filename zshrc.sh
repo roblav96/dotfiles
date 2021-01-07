@@ -357,9 +357,9 @@ alias pubserve='serve --auth=admin: $HOME/Public'
 alias pubget='wget --http-user=admin --http-password='
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d'
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/Google Chrome.app/" "/iTerm" "$(upiso | sd -s "-" "/")"'
-[[ "$PLATFORM" == "Linux" ]] && alias pcs="procs --nor 'kworker/' 'jfs' '/rmate '"
+alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d | sd -s "-" "/"'
+[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/Google Chrome.app/" "/iTerm" "$(upiso)"'
+[[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso)"'
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
