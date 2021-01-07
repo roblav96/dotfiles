@@ -86,7 +86,7 @@ function bs() {
 		echo && echo "🟡 Searching names -> '$v'"
 		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
 	done
-}
+} && compdef bs=command
 alias bscd='cd $(brew --prefix)/Homebrew'
 
 alias blog="brew log --max-count=5"
