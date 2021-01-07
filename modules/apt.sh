@@ -12,24 +12,31 @@ function aptfs() {
 	apt-file list "$*" | sed 's#^.*: ##' | sortt | lscolors
 }
 function apts() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru -e "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --fixed-strings --passthru -e "$*"
 }
 function aptsw() {
-	apt search --names-only "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru --word-regexp -e "$*"
+	apt search --names-only "$*" 2>/dev/null | rg --fixed-strings --passthru --word-regexp -e "$*"
 }
 function aptsa() {
-	apt search "$*" 2>/dev/null | rg --smart-case --fixed-strings --passthru -e "$*"
+	apt search "$*" 2>/dev/null | rg --fixed-strings --passthru -e "$*"
 }
 if [[ "$PLATFORM" == "Android" ]]; then
 	unfunction apts
 	alias apts="aptsa"
 fi
-function aptls() {
-	apt list --installed 2>/dev/null | rg --smart-case --fixed-strings --color=never --invert-match automatic
-}
+
 function aptlsa() {
 	apt list --installed 2>/dev/null
 }
+function aptls() {
+	aptlsa | rg --fixed-strings --color=never --invert-match automatic
+}
+function aptlss() {
+	aptls | rg --fixed-strings -e "$*"
+} && compdef aptlss=command
+function aptlsas() {
+	aptlsa | rg --fixed-strings -e "$*"
+} && compdef aptlsas=command
 
 function manapt() {
 	[[ $# -eq 1 ]] && debman -p "$1" "$1"
