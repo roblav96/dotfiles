@@ -29,9 +29,8 @@ alias gfo="git fetch origin"
 alias gfu="git fetch upstream"
 # alias gfta="git fetch --all --prune"
 
-alias gpl="gfa && git pull --rebase"
 alias gpr="gfa && git pull --rebase --recurse-submodules"
-alias gpf="gfa && git pull --ff-only"
+alias gpf="gfa && git pull --ff-only --recurse-submodules"
 alias gmupd="gfa && git submodule update --init --recursive"
 
 alias gtl="git tag -n99 --list"
