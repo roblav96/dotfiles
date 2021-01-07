@@ -212,3 +212,34 @@ if [[ -n "$DOTBENCH" ]]; then
 	echo && echo "🟠 DOTBENCH -> $(bc <<<"$(date +%s%3N) - $DOTBENCH")"
 	unset DOTBENCH
 fi
+
+# unalias k &>/dev/null
+# function k() {
+# 	local cmds=$@
+# 	if [[ $# -eq 0 ]]; then
+# 		cmds=(
+# 			"com.apple.CoreSimulator.CoreSimulatorService"
+# 			"dart"
+# 			"dotnet"
+# 			"gradle"
+# 			"ibtoold"
+# 			"IDECacheDeleteAppExtension"
+# 			"java"
+# 			"just"
+# 			"mono"
+# 			"mono-sgen32"
+# 			"mono-sgen64"
+# 			"node"
+# 			"npm"
+# 			"rls"
+# 			"rust-analyzer"
+# 			"script"
+# 			"SimAudioProcessorService"
+# 			"SimLaunchHostService"
+# 			"SimStreamProcessorService"
+# 			"SimulatorTrampoline"
+# 			"watchexec"
+# 		)
+# 	fi
+# 	killall -KILL "$cmds"
+# } && compdef k=killall
