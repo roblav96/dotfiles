@@ -25,18 +25,18 @@ if [[ "$PLATFORM" == "Android" ]]; then
 	alias apts="aptsa"
 fi
 
-function aptlsa() {
+function aptls() {
 	apt list --installed 2>/dev/null
 }
-function aptls() {
-	aptlsa | rg --fixed-strings --color=never --invert-match automatic
-}
+# function aptls() {
+# 	aptlsa | rg --fixed-strings --color=never --invert-match automatic
+# }
 function aptlss() {
 	aptls | rg --fixed-strings -e "$*"
 } && compdef aptlss=command
-function aptlsas() {
-	aptlsa | rg --fixed-strings -e "$*"
-} && compdef aptlsas=command
+# function aptlsas() {
+# 	aptlsa | rg --fixed-strings -e "$*"
+# } && compdef aptlsas=command
 
 function manapt() {
 	[[ $# -eq 1 ]] && debman -p "$1" "$1"
