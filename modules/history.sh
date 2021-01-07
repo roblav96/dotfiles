@@ -1,4 +1,4 @@
-alias hist="cat $HOME/.zsh_history | sed 's/^: .*:0;//'"
+alias hist="cat ${HISTFILE:-$HOME/.zsh_history} | sed 's/^: .*:0;//'"
 alias histy="hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bat --plain -l sh"
 
 function __histw() {
@@ -35,8 +35,8 @@ function __histsd() {
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias .z=" subl --wait --new-window $HOME/.z:999999"
-	alias .hist=" histbak; subl --wait --new-window $HOME/.zsh_history:999999"
+	alias {.hist,.zsh_history}=" histbak; subl --wait --new-window ${HISTFILE:-$HOME/.zsh_history}:999999"
 else
 	alias .z=" rmate --wait --new --line 999999 $HOME/.z"
-	alias .hist=" histbak; rmate --wait --new --line 999999 $HOME/.zsh_history"
+	alias {.hist,.zsh_history}=" histbak; rmate --wait --new --line 999999 ${HISTFILE:-$HOME/.zsh_history}"
 fi
