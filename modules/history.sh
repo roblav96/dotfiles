@@ -10,11 +10,13 @@ function __histr() {
 } && compdef __histr=which && alias histr=" __histr"
 
 function __histbak() {
-	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
-	cp "$histfile" "$bakfile"
-	chmod 000 "$bakfile"
-} && alias {histbak,zbak}=" __histbak"
+	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")
+	local histfile && for histfile in "${histfiles[@]}"; do
+		local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
+		cp "$histfile" "$bakfile"
+		chmod 000 "$bakfile"
+	done
+} && alias {histbak,zbak,.zbak}=" __histbak"
 
 function __histsd() {
 	if [[ $# -ne 2 ]]; then
