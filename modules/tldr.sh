@@ -103,9 +103,10 @@ function clfu() {
 
 function tla() {
 	if [[ -x "$(which -p "$1")" ]]; then
-		"$1" "${2:---help}" 2>&1 | bat --style=grid -l man
+		"$@" --help 2>&1 | bat --style=grid -l man
+		# "$@" "${2:---help}" 2>&1 | bat --style=grid -l man
 	fi
-	tl "$1"
-	ch "$1"
-	cha "$1"
+	tl "$@"
+	ch "$@"
+	cha "$@"
 } && compdef tla=command

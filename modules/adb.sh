@@ -19,7 +19,7 @@ fi
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
-		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)' --tab --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=9
 	elif [[ "$1" == "real-debrid" ]]; then
 		curl --proxy "$ANDROID_SERIAL:8888" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
@@ -159,12 +159,12 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
+		adb shell dumpsys package "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
+		adb shell pm dump "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adblp() {
@@ -175,26 +175,26 @@ function adblp() {
 
 function adbds() {
 	local v && for v in "$@"; do
-		adb shell dumpsys "$v" | sed 's/=/: /' | t2 | bl yml --file-name="$v"
+		adb shell dumpsys "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | sed 's/=/: /' | bl yml
+	adb shell settings list system | sortt | sed 's/\b=\b/: /' | bl yml
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | sed 's/=/: /' | bl yml
+	adb shell settings list secure | sortt | sed 's/\b=\b/: /' | bl yml
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | sed 's/=/: /' | bl yml
+	adb shell settings list global | sortt | sed 's/\b=\b/: /' | bl yml
 }
 function adbsettingsf() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/=/: /' | bl yml
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
 }
 function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1
