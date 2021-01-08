@@ -14,7 +14,7 @@ function __histbak() {
 	local histfile && for histfile in "${histfiles[@]}"; do
 		local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
 		cp "$histfile" "$bakfile"
-		chmod 000 "$bakfile"
+		chmod 400 "$bakfile"
 	done
 } && alias {histbak,zbak,.zbak}=" __histbak"
 
