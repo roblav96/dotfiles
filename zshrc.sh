@@ -219,6 +219,7 @@ alias cl='printf "\ec\e[3J"'
 # alias cl="tput clear"
 # alias cl="clear && printf '\e[3J'"
 # alias cl="printf '\033[2J\033[3J\033[1;1H'"
+# alias cl="printf '\x1b[2J\x1b[3J\x1b[1;1H'"
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
 alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
