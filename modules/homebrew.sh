@@ -36,11 +36,11 @@ function bcout() {
 function bupg() {
 	if [[ $# -eq 0 ]]; then
 		echo && echo "🟡 Upgrading all formulas"
-		HOMEBREW_COLOR=1 brew upgrade --formula | lscolors
+		HOMEBREW_COLOR=1 brew upgrade --force-bottle --formula | lscolors
 	else
 		local v && for v in "$@"; do
 			echo && echo "🟡 Upgrading formula -> '$v'"
-			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lscolors
+			HOMEBREW_COLOR=1 brew upgrade --force-bottle --formula "$v" | lscolors
 		done
 	fi
 	src
@@ -102,7 +102,7 @@ function bclog() {
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula -> '$v'"
-		HOMEBREW_COLOR=1 brew install --formula "$v" | lscolors
+		HOMEBREW_COLOR=1 brew install --force-bottle --formula "$v" | lscolors
 	done
 	src
 }
@@ -116,7 +116,7 @@ function bcin() {
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --formula "$v" | lscolors
+		HOMEBREW_COLOR=1 brew reinstall --force-bottle --formula "$v" | lscolors
 	done
 	src
 } && compdef brein=command
