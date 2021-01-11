@@ -98,8 +98,6 @@ function exoplayer() {
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
-alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
-
 # alias adbin="adb install -r"
 function adbin() {
 	local v && for v in "$@"; do
@@ -235,6 +233,9 @@ function adbpmls() {
 	adb shell pm list packages -s -e | sed 's/^package://' | sortt
 	echo && echo "🔴 System Disabled Packages"
 	adb shell pm list packages -s -d | sed 's/^package://' | sortt
+	adb3
+}
+function adb3() {
 	echo && echo "🟢 User Enabled Packages"
 	adb shell pm list packages -3 -e | sed 's/^package://' | sortt
 	echo && echo "🔴 User Disabled Packages"
@@ -246,6 +247,7 @@ function adbpmf() {
 	echo && echo "🔴 Disabled Packages"
 	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
 }
+# alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
 
 function adbapk() {
 	local v && for v in "$@"; do
