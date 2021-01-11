@@ -358,7 +358,8 @@ alias pubserve='serve --auth=admin: $HOME/Public'
 alias pubget='wget --http-user=admin --http-password='
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
-alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d | sd -s "-" "/"'
+# alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d | sd -s "-" "/"'
+alias upiso="node -p 'new Date(Date.now() - (os.uptime() * 1000)).toISOString().split(\"T\")[0].replace(/-/g, \"/\")'"
 [[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/Google Chrome.app/" "/iTerm" "$(upiso)"'
 [[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso)"'
 
