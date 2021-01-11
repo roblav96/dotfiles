@@ -41,6 +41,7 @@ if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!^Can.t find service car_service$'"
 fi
 if [[ "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
+	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
