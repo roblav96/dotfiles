@@ -380,11 +380,13 @@ function bupg-node() {
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
 	# local deno_dir="$HOME/.cache/deno"
-	local deno_dirs=("$HOME/.cache/deno" "$(npm root -g)/typescript-deno-plugin/lib")
+	local deno_dirs=("$DENO_DIR" "$HOME/.cache/deno" "$(npm root -g)/typescript-deno-plugin/lib")
 	local deno_dir && for deno_dir in "${deno_dirs[@]}"; do
 		if [[ -d "$deno_dir" ]]; then
-			deno types --unstable >"$deno_dir/lib.deno.d.ts"
-			deno types --unstable >"$deno_dir/lib.deno.unstable.d.ts"
+			curl "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" --output "$deno_dir/lib.deno.d.ts"
+			echo >> "$deno_dir/lib.deno.d.ts"
+			deno types --unstable >> "$deno_dir/lib.deno.d.ts"
+			cp "$deno_dir/lib.deno.d.ts" "$deno_dir/lib.deno.unstable.d.ts"
 			ls -laph "$deno_dir/lib.deno.d.ts" "$deno_dir/lib.deno.unstable.d.ts"
 		fi
 	done

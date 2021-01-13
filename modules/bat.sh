@@ -92,10 +92,10 @@ function pbat() {
 		if [[ $# -eq 1 ]]; then
 			prettier "$1" | bl "${1##*.}"
 		else
-			prettier --parser "$2" "$1" | bat --plain -l "$2"
+			prettier --parser "$2" "$1" | bat --style=grid -l "$2"
 		fi
 	else
-		prettier --parser "$@" | bat --plain -l "$@"
+		prettier --parser "$@" | bat --style=grid -l "$@"
 	fi
 	# test $# -eq 1 && prettier --parser $@ | bat -p -l $@ || echo "🔴 prettier parser required"
 }
