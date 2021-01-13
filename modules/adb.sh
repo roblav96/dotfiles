@@ -73,8 +73,9 @@ alias adbps="adb shell ps -A -w -f --sort=STIME"
 alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 
-alias adbscanmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
+alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"
+alias adbscreenshot='adb shell "screencap -p" > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --all"
