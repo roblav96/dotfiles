@@ -215,11 +215,11 @@ alias dateiso="date --iso-8601"
 alias sedlog="sed -u -r 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
-alias cl='printf "\ec\e[3J"'
+# alias cl='printf "\ec\e[3J"'
+alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
 # alias cl="tput clear"
-# alias cl="clear && printf '\e[3J'"
-# alias cl="printf '\033[2J\033[3J\033[1;1H'"
-# alias cl="printf '\x1b[2J\x1b[3J\x1b[1;1H'"
+# alias cl='clear && printf "\e[3J"'
+# alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
 alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
@@ -232,7 +232,7 @@ alias ipcalc="ipcalc --nobinary"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --long --all --classify"
 alias uuid8="uuid | head -c8"
-alias bgrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
+alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
