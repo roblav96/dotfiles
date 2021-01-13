@@ -22,7 +22,7 @@ alias benv="brew --env --plain | bat --plain -l yml"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
-	brew update --verbose
+	brew update --verbose && bout
 }
 function bout() {
 	echo && echo "🟡 Outdated formulas"
