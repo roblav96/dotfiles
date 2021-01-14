@@ -85,7 +85,7 @@
 			},
 		},
 		{
-			"files": ["*.java-properties", "*.java"],
+			"files": ["*.java-properties", "*.java", "*.properties"],
 			"options": {
 				"parser": "java",
 				"singleQuote": false,
@@ -94,16 +94,16 @@
 			},
 		},
 		{
-			"files": [".cs", ".cake", ".cshtml", ".csx"],
+			"files": ["*.cs", "*.cake", "*.cshtml", "*.csx"],
 			"options": {
-				"parser": "java",
+				"parser": "csharp",
 				"singleQuote": false,
 				"tabWidth": 4,
 				"useTabs": false,
 			},
 		},
 		{
-			"files": [".kt", ".ktm", ".kts"],
+			"files": ["*.kt", "*.ktm", "*.kts"],
 			"options": {
 				"parser": "kotlin",
 				"singleQuote": false,
@@ -130,6 +130,12 @@
 			],
 			"options": {
 				"parser": "html",
+			},
+		},
+		{
+			"files": ["*.d.ts"],
+			"options": {
+				"semi": true,
 			},
 		},
 	],
