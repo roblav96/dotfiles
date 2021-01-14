@@ -48,6 +48,7 @@ if [[ "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 	rogs="$rogs --message '!^loading \[eventTime=\d'"
+	rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
 fi
 rogs="$rogs --tag '!^JS$'"
 rogs="$rogs --tag '!^JsonPath*'"
@@ -161,12 +162,12 @@ function adbrm() {
 }
 function adbi() {
 	local v && for v in "$@"; do
-		adb shell dumpsys package "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
+		adb shell dumpsys package "$v" | sed 's/\b=/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adbdp() {
 	local v && for v in "$@"; do
-		adb shell pm dump "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
+		adb shell pm dump "$v" | sed 's/\b=/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 function adblp() {
@@ -177,26 +178,26 @@ function adblp() {
 
 function adbds() {
 	local v && for v in "$@"; do
-		adb shell dumpsys "$v" | sed 's/\b=\b/: /' | t2 | bl yml --file-name="$v"
+		adb shell dumpsys "$v" | sed 's/\b=/: /' | t2 | bl yml --file-name="$v"
 	done
 }
 
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list system | sortt | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list secure | sortt | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list global | sortt | sed 's/\b=/: /' | bl yml
 }
 function adbsettingsf() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=\b/: /' | bl yml
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
 }
 function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1
