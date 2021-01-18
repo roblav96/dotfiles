@@ -2,6 +2,7 @@ alias ip="ip -human -color"
 alias ipm="ip -brief"
 alias ipa="ip -all -details -stats"
 alias ipj="ip -all -details -stats -json"
+alias ips="bhr; ip addr; bhr; ip route; ip rule | bl perl"
 
 alias tc="tc -color -pretty"
 alias tca="tc -details -statistics"
