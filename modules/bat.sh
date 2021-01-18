@@ -109,7 +109,7 @@ function batlangs() {
 	fi
 	local data=$(</dev/stdin)
 	local lang && for lang in "${langs[@]}"; do
-		echo && echo $data | bat --file-name="$lang" --language="$lang"
+		echo "█ " && echo $data | bat --file-name="$lang" --language="$lang"
 	done
 }
 # alias batlangs="print -l $langs | fzf --preview 'bat ~/.config/emby-server/logs/embyserver.txt --color=always --italic-text=always --decorations=always --tabs=0 --paging=never --wrap=never --theme="Monokai Pro Classic" --language="{}"'"
