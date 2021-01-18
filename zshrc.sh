@@ -203,8 +203,6 @@ alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
-alias jj="just" # --verbose"
-alias jjd="just --dry-run --no-highlight" # --verbose"
 alias rc="rclone"
 alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
@@ -220,7 +218,7 @@ alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
-alias prettier="prettier --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
+alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash) --min-runs=5"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
@@ -305,6 +303,12 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 # 		# rg --no-line-number --fixed-strings --case-sensitive --word-regexp "$2"
 # 	} && compdef .zsd=which
 # fi
+
+alias jj="just" # --verbose"
+function jjd() {
+	just --dry-run --no-highlight "$*" 2>&1 | bl sh
+} && compdef jjd=just
+# alias jjd="just --dry-run --no-highlight" # --verbose"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab" && alias j="json"
