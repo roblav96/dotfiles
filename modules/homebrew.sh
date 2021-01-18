@@ -255,6 +255,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		brew services list
 	}
 	function bsdown() {
+		[[ $# -eq 0 ]] && brew services stop --all
 		local v && for v in "$@"; do
 			echo && echo "🟡 Stopping service -> '$v'"
 			brew services stop "$v"
@@ -282,100 +283,52 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		done
 		echo && brew services list
 	}
+
+	function bupg-sudo() {
+		local link="$(brew --prefix)/bin/$*"
+		[[ ! -e "$link" ]] && local link="$(brew --prefix)/sbin/$*"
+		if [[ ! -e "$link" || ! -x "$link" ]]; then
+			echo "🔴 Command not found -> '$link'"
+			return 1
+		fi
+		echo "🟡 link -> '$link'"
+		local cellar="$(realpath $link)"
+		if [[ ! "$cellar" =~ "^$(brew --prefix).*" ]]; then
+			echo "🔴 Command not found -> '$cellar'"
+			return 1
+		fi
+		echo "🟡 cellar -> '$cellar'"
+		local output="/usr/sbin/chown root:wheel $cellar; /bin/chmod u+s $cellar"
+		if [[ "$link" != "$cellar" ]]; then
+			output="$output; ln -sf $cellar $link; /usr/sbin/chown root:wheel $link; /bin/chmod u+s $link"
+		fi
+		output="sudo /usr/bin/env -i $(which -p bash) -c '$output'"
+		echo "$output"
+		echo " $output" | pbcopy
+		echo "🟢 Copied to clipboard"
+	} && compdef bupg-sudo=command
+
+	function bupg-node() {
+		local npmg="$(npm root --global)"
+		local vnodes=("node" "node@14" "node@12" "node@10")
+		local vnode && for vnode in "${vnodes[@]}"; do
+			local node="$(realpath "$(brew --prefix)/opt/$vnode")"
+			ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
+			ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
+		done
+		[[ -x "$(which -p node-gyp)" ]] && node-gyp install
+	}
+
+	function bcupg-google-chrome() {
+		# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
+		# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
+		fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' | while read i; do
+			echo "🟡 launchctl unload -w $i" | lscolors
+			launchctl unload -w "$i"
+		done
+		echo && echo "🟢 Disabled Google Chrome's keystone background update services"
+	}
 fi
-
-function bin-linux() {
-	local prefix="$(brew --prefix)/opt/$*"
-	[[ ! -d "$prefix" ]] && return
-	prefix="$(realpath $prefix)"
-	[[ "$PLATFORM" == "Linux" ]] && bfs "$*"
-	local install=""
-	local remove=""
-	local bins=('bin' 'sbin')
-	local bin && for bin in "${bins[@]}"; do
-		if [[ -d "$prefix/$bin" ]]; then
-			local xfile && for xfile in $prefix/$bin/*; do
-				install="$install sudo cp -v '$(realpath "$xfile")' '/usr/local/$bin/${xfile##*/}' && sudo chmod -v u+w '/usr/local/$bin/${xfile##*/}';"
-				remove="$remove sudo rm -fv '/usr/local/$bin/${xfile##*/}';"
-			done
-		fi
-	done
-	local others=('etc' 'include' 'lib' 'libexec' 'share')
-	local other && for other in "${others[@]}"; do
-		if [[ -d "$prefix/$other" ]]; then
-			# local head="${other%%/*}"
-			# local tail="${other##*/}"
-			install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$other';"
-			# install="$install sudo cp -vr '$prefix/$other/'* '/usr/local/$tail';"
-			if [[ "$other" != "etc" ]]; then
-				local finds=($(find "$prefix/$other" -type f))
-				local ofile && for ofile in "${finds[@]}"; do
-					remove="$remove sudo rm -fv '${ofile/$prefix//usr/local}';"
-					# local relative="${ofile/$prefix//usr/local}"
-					# remove="$remove sudo rm -fv '${relative/$other/$tail}';"
-				done
-			fi
-		fi
-	done
-	echo && echo "🔴 Remove '$*'"
-	echo "$remove"
-	echo && echo "🟢 Install '$*'"
-	echo "$install"
-}
-unfunction bin-linux
-
-function bupg-sudo() {
-	local link="$(brew --prefix)/bin/$*"
-	[[ ! -e "$link" ]] && local link="$(brew --prefix)/sbin/$*"
-	if [[ ! -e "$link" || ! -x "$link" ]]; then
-		echo "🔴 Command not found -> '$link'"
-		return 1
-	fi
-	echo "🟡 link -> '$link'"
-	local cellar="$(realpath $link)"
-	if [[ ! "$cellar" =~ "^$(brew --prefix).*" ]]; then
-		echo "🔴 Command not found -> '$cellar'"
-		return 1
-	fi
-	echo "🟡 cellar -> '$cellar'"
-	local output="/usr/sbin/chown root:wheel $cellar; /bin/chmod u+s $cellar"
-	if [[ "$link" != "$cellar" ]]; then
-		output="$output; ln -sf $cellar $link; /usr/sbin/chown root:wheel $link; /bin/chmod u+s $link"
-	fi
-	output="sudo /usr/bin/env -i $(which -p bash) -c '$output'"
-	echo "$output"
-	echo " $output" | pbcopy
-	echo "🟢 Copied to clipboard"
-} && compdef bupg-sudo=command
-[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-sudo
-
-function bupg-node() {
-	local npmg="$(npm root --global)"
-	local vnodes=("node" "node@14" "node@12" "node@10")
-	local vnode && for vnode in "${vnodes[@]}"; do
-		local node="$(realpath "$(brew --prefix)/opt/$vnode")"
-		ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
-		ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
-	done
-	[[ -x "$(which -p node-gyp)" ]] && node-gyp install
-}
-[[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node
-
-# function bupg-node@12() {
-# 	brm node node@12 node@10
-# 	HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors
-# 	bin node node@12 node@10
-# 	bcd node@12
-# 	mkdir libexec/bin libexec/lib
-# 	mv bin/npm bin/npx libexec/bin
-# 	mv lib/node_modules libexec/lib
-# 	brew unlink node --verbose --debug
-# 	brew link --force node@12 --verbose --debug
-# 	bupg-node
-# 	echo "🟡 npm i -g npm"
-# 	echo "🟡 npm doctor"
-# }
-# [[ "$PLATFORM" != "Darwin" ]] && unfunction bupg-node@12
 
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
@@ -384,21 +337,11 @@ function bupg-deno() {
 		if [[ -d "$deno_dir" ]]; then
 			# [[ -e "$deno_dir/lib.webworker.d.ts" ]] && rm -f "$deno_dir/lib.webworker.d.ts"
 			rm -f "$deno_dir"/lib.*.d.ts
-			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" --output "$deno_dir/lib.deno.worker.d.ts"
-			deno types --unstable >"$deno_dir/lib.deno.d.ts"
-			deno types --unstable >"$deno_dir/lib.deno.unstable.d.ts"
+			deno types --unstable >>"$deno_dir/lib.deno.d.ts"
+			echo >>"$deno_dir/lib.deno.d.ts"
+			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" >>"$deno_dir/lib.deno.d.ts"
+			cp "$deno_dir/lib.deno.d.ts" "$deno_dir/lib.deno.unstable.d.ts"
 			exa -lag -TL1 --color-scale "$deno_dir"
 		fi
 	done
 }
-
-function bcupg-google-chrome() {
-	# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
-	# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
-	fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' | while read i; do
-		echo "🟡 launchctl unload -w $i" | lscolors
-		launchctl unload -w "$i"
-	done
-	echo && echo "🟢 Disabled Google Chrome's update background services"
-}
-[[ "$PLATFORM" != "Darwin" ]] && unfunction bcupg-google-chrome
