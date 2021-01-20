@@ -2,7 +2,9 @@
 [[ ! -d "$DENO_DIR" ]] && mkdir "$DENO_DIR"
 
 function .deno-canary() {
-	wget "https://dl.deno.land/canary/$(curl --silent https://dl.deno.land/canary-latest.txt)/deno-x86_64-apple-darwin.zip"
+	if [[ ! -e "deno-x86_64-apple-darwin.zip" ]]; then
+		wget "https://dl.deno.land/canary/$(curl --silent https://dl.deno.land/canary-latest.txt)/deno-x86_64-apple-darwin.zip"
+	fi
 	local denobin="$(realpath $(which -p deno))"
 	unzip -o "deno-x86_64-apple-darwin.zip" -d "$(dirname "$denobin")"
 	chmod 555 "$denobin"

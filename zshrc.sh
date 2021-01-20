@@ -234,7 +234,7 @@ alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
 alias lsof="lsof -P"
-alias empty="truncate -s0"
+alias {empty,t0}="truncate -s0"
 which tf &>/dev/null || alias tf="tail -f -n 100"
 which t2 &>/dev/null || alias t2='unexpand -t2 --first-only'
 which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
@@ -318,7 +318,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
 alias axel="axel --alternate --timeout=3"
 alias aria2cdl="aria2c --split=4 --download-result=full"
-alias wget="wget --no-verbose --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=3 --restrict-file-names=unix"
+alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=3 --restrict-file-names=unix"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 3"
 alias curlt='curl --output /dev/null --write-out "
 Effective URL: %{url_effective}
@@ -372,7 +372,7 @@ alias upiso="node -p 'new Date(Date.now() - (os.uptime() * 1000)).toISOString().
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 
 alias ulimitls='ulimit -S -a | bat --file-name="Soft limits" -l yml; ulimit -H -a | bat --file-name="Hard limits" -l yml'
-alias htop="htop --delay=1 --highlight-changes=5"
+alias htop="htop --delay=1 --highlight-changes=10"
 alias pa="ps auxww"
 alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function pe() {
