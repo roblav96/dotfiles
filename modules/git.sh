@@ -13,7 +13,7 @@ alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 alias gd="git diff"
 alias gss="git status --short --branch | lscolors"
 alias gs="isgit; gd; echo; gss"
-alias {gbl,gbls}="git branch --list --all"
+alias gbls="git branch --list --all"
 
 alias gl='echo; git log --reverse --max-count=10 --date=relative --stat'
 alias glm='git log --reverse --max-count=$(ty2) --oneline'
@@ -33,8 +33,7 @@ alias gpr="gfa && git pull --rebase --recurse-submodules"
 alias gpf="gfa && git pull --ff-only --recurse-submodules"
 alias gmupd="gfa && git submodule update --init --recursive"
 
-alias {gtl,gtls}="git tag -n99 --list"
-alias gtlm="git tag -n --list"
+alias gtls="git tag -n --list"
 alias gtf="git tag --contains"
 alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
