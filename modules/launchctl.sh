@@ -55,7 +55,7 @@ function lcs() {
 }
 function lcsb() {
 	lcs "$*" | while read i; do
-		[[ "${i:0:1}" == "/" ]] && batplist "$i"
+		[[ -e "$i" ]] && batplist "$i"
 	done
 }
 
@@ -85,6 +85,6 @@ function lcsrfs() {
 }
 function lcsrb() {
 	lcsrfs "$*" | while read i; do
-		[[ "${i:0:1}" == "/" ]] && batplist "$i"
+		[[ -e "$i" ]] && batplist "$i"
 	done
 }
