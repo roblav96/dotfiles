@@ -1,9 +1,9 @@
 alias hist="cat ${HISTFILE:-$HOME/.zsh_history} | sed 's/^: .*:0;//'"
 alias histy=" hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bat --plain -l sh"
 
-function __histw() {
+function histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
-} && compdef __histw=which && alias histw=" __histw"
+} && compdef histw=which
 
 function __histr() {
 	hist | rg --smart-case --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh

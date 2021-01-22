@@ -32,6 +32,7 @@ Temporary Items
 .graveyard
 .hg
 .idea
+.lock
 .mypy_cache
 .project
 .settings
