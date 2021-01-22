@@ -53,6 +53,11 @@ function lcs() {
 	echo && echo "🟡 [fd] /System/Library/LaunchDaemons"
 	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/System/Library/LaunchDaemons"
 }
+function lcsb() {
+	lcs "$*" | while read i; do
+		[[ "${i:0:1}" == "/" ]] && batplist "$i"
+	done
+}
 
 function lcsr() {
 	echo && echo "🟡 [rg] $HOME/Library/LaunchAgents"
@@ -65,4 +70,21 @@ function lcsr() {
 	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/Library/LaunchDaemons"
 	echo && echo "🟡 [rg] /System/Library/LaunchDaemons"
 	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/System/Library/LaunchDaemons"
+}
+function lcsrfs() {
+	echo && echo "🟡 [rg] $HOME/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --files-with-matches -e "$*" "$HOME/Library/LaunchAgents"
+	echo && echo "🟡 [rg] /Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --files-with-matches -e "$*" "/Library/LaunchAgents"
+	echo && echo "🟡 [rg] /System/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --files-with-matches -e "$*" "/System/Library/LaunchAgents"
+	echo && echo "🟡 [rg] /Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case --files-with-matches -e "$*" "/Library/LaunchDaemons"
+	echo && echo "🟡 [rg] /System/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case --files-with-matches -e "$*" "/System/Library/LaunchDaemons"
+}
+function lcsrb() {
+	lcsrfs "$*" | while read i; do
+		[[ "${i:0:1}" == "/" ]] && batplist "$i"
+	done
 }
