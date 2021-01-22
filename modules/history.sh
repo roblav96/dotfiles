@@ -5,9 +5,9 @@ function histw() {
 	hist | rg --smart-case --fixed-strings --word-regexp -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
 } && compdef histw=which
 
-function __histr() {
+function histr() {
 	hist | rg --smart-case --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
-} && compdef __histr=which && alias histr=" __histr"
+} && compdef histr=which
 
 function __histbak() {
 	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")

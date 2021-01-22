@@ -1,38 +1,38 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	process = git-lfs filter-process
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
 	required = true
-	smudge = git-lfs smudge -- %f
+	smudge = "git-lfs smudge -- %f"
 [user]
-	email = roblav96@gmail.com
-	name = Robert Laverty
+	email = "roblav96@gmail.com"
+	name = "Robert Laverty"
 [advice]
 	detachedHead = false
 [diff]
-	renameLimit = 8192
+	renameLimit = 4096
 [hub]
-	protocol = https
+	protocol = "https"
 [log]
-	date = relative
+	date = "relative"
 [color]
-	branch = always
-	diff = always
-	log = always
-	status = always
-	ui = always
+	branch = "always"
+	diff = "always"
+	log = "always"
+	status = "always"
+	ui = "always"
 [core]
-	excludesfile = ~/.gitignore
-	pager = delta
+	excludesfile = "~/.gitignore"
+	pager = "delta"
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = "delta --color-only"
 [delta]
-	commit-decoration-style = 231 231 overline
-	file-decoration-style = magenta overline
-	file-style = 231 bold
-	hunk-header-decoration-style = black box
+	commit-decoration-style = "231 231 overline"
+	file-decoration-style = "magenta overline"
+	file-style = "231 bold"
+	hunk-header-decoration-style = "black box"
 	line-numbers = true
-	minus-emph-style = syntax 88
+	minus-emph-style = "syntax 88"
 	minus-style = "syntax #3f0001"
-	paging = never
-	plus-emph-style = syntax 28
+	paging = "never"
+	plus-emph-style = "syntax 28"
 	plus-style = "syntax #002800"
