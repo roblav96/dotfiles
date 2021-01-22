@@ -96,7 +96,7 @@
 		{
 			"files": ["*.cs", "*.cake", "*.cshtml", "*.csx"],
 			"options": {
-				"parser": "csharp",
+				"parser": "cs",
 				"singleQuote": false,
 				"tabWidth": 4,
 				"useTabs": false,

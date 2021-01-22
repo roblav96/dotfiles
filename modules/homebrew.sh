@@ -161,22 +161,22 @@ function bbin() {
 	local v && for v in "$@"; do
 		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
 			echo && echo "🟡 /libexec/bin -> '$v'"
-			lara "$(brew --prefix)/opt/$v/libexec/bin"
+			lra "$(brew --prefix)/opt/$v/libexec/bin"
 		fi
 		if [[ -d "$(brew --prefix)/opt/$v/bin" ]]; then
 			echo && echo "🟡 /bin -> '$v'"
-			lara "$(brew --prefix)/opt/$v/bin"
+			lra "$(brew --prefix)/opt/$v/bin"
 		fi
 		if [[ -d "$(brew --prefix)/opt/$v/sbin" ]]; then
 			echo && echo "🟡 /sbin -> '$v'"
-			lara "$(brew --prefix)/opt/$v/sbin"
+			lra "$(brew --prefix)/opt/$v/sbin"
 		fi
 	done
 } && compdef bbin=command
 function bfs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Files formula -> '$v'"
-		lara "$(brew --prefix)/opt/$v/"
+		lra "$(brew --prefix)/opt/$v/"
 	done
 } && compdef bfs=command
 function bjson() {

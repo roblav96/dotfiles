@@ -29,6 +29,7 @@ Temporary Items
 # ████  roblav96/dotfiles  ████
 .classpath
 .gradle
+.graveyard
 .hg
 .idea
 .mypy_cache

@@ -75,10 +75,15 @@ l \"\$(command bat --cache-dir)\"
 "
 
 function batplist() {
-	plistutil --infile "$1" | prettier --parser xml | bl xml
+	local v && for v in "$@"; do
+		if file "$v" | grep -q -F 'Apple binary'; then
+			plistutil --infile "$v" | bat --file-name="$v" -l xml
+		else
+			bat "$v" -l xml
+		fi
+	done
 }
 alias bpl="batplist"
-alias bplist="batplist"
 
 function dotbat() {
 	local file="$DOTFILES/modules/$@.sh"

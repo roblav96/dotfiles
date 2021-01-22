@@ -213,8 +213,8 @@ alias sedlog="sed -u -r 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
 # alias cl='printf "\ec\e[3J"'
-alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
-# alias cl="tput clear"
+# alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
+alias cl="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
@@ -306,7 +306,7 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
 alias jj="just" # --verbose"
 function jjd() {
-	just --dry-run --no-highlight "$*" 2>&1 | bl sh
+	just --dry-run --no-highlight "$@" 2>&1 | bl sh
 } && compdef jjd=just
 # alias jjd="just --dry-run --no-highlight" # --verbose"
 
