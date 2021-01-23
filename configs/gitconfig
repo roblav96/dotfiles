@@ -27,9 +27,8 @@
 	diffFilter = "delta --color-only"
 [delta]
 	commit-decoration-style = "231 231 overline"
-	file-decoration-style = "magenta overline"
+	file-decoration-style = "magenta overline underline"
 	file-style = "231 bold"
-	hunk-header-decoration-style = "blue box"
 	line-numbers = true
 	minus-emph-style = "syntax 88"
 	minus-style = "syntax #3f0001"
