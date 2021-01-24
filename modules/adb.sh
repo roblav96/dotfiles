@@ -75,6 +75,7 @@ alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME"
 alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
+alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adbsdcard="adb shell find /sdcard/ | sed 's#^/sdcard/##' | sortt"

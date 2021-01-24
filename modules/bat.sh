@@ -24,6 +24,7 @@ alias bj="bl json"
 alias bk="bl make"
 alias bm="mdcat"
 alias bq="bl qml"
+alias bt="bl toml"
 alias bx="bl nix"
 alias by="bl yml"
 
