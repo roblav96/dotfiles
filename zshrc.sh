@@ -263,7 +263,7 @@ alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 # alias rda="rd {.,}*"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lm --tree --level=2 $HOME/.Trash" # du -ah -d0 $HOME/.Trash
-alias rmtrash="ltrash; echo; read -q '?🟠 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash"
+alias rmtrash="ltrash; echo; read -q '?🔴 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash"
 
 alias zdebug="zsh -lixc : 2>&1"
 alias src="exec ${SHELL:-$(which -p zsh)}"

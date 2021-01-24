@@ -26,9 +26,9 @@ function __histsd() {
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
 	echo && echo "🟡 FIND -> '$1'" && echo
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings -e "$1"
-	echo && echo "🟡 REPLACE -> '$2'" && echo
+	echo && echo "🟠 REPLACE -> '$2'" && echo
 	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --replace "$2" --colors=match:fg:yellow -e "$1"
-	echo && read -q "?🟠 CONFIRM -> '$2' ...? " && return 1
+	echo && read -q "?🔴 CONFIRM -> '$2' ...? " && return 1
 	__histbak
 	sd --flags c --string-mode "$1" "$2" "$histfile"
 	echo && echo "🟢 REPLACED -> '$2'" && echo

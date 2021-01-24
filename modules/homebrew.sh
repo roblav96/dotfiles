@@ -139,6 +139,12 @@ function bi() {
 		fi
 	done
 } && compdef bi=command
+function bij() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Formula json -> '$v'"
+		brew desc "$v" && brew info --json=v1 "$v" | json
+	done
+} && compdef bi=command
 function bci() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Cask -> '$v'"
