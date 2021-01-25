@@ -140,6 +140,7 @@ function adbk() {
 			"is.xyz.mpv"
 			"org.jellyfin.androidtv"
 			"org.mozilla.tv.firefox"
+			"org.polymorphicshade.newpipe"
 			"org.schabi.newpipe"
 			"org.schabi.newpipelegacy"
 			"org.videolan.vlc"

@@ -1,11 +1,12 @@
+export GIT_PAGER="$PAGER"
+[[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
+[[ -x "$(which -p gh)" ]] && export GH_PAGER=""
+[[ -x "$(which -p git-restore-mtime)" ]] && alias {gmt,grmt}="git-restore-mtime --force"
+[[ -x "$(which -p hub)" ]] && alias git="hub"
+
 alias ghb="github"
 alias gho="gh repo view --web"
 alias gurl="git remote get-url origin"
-
-[[ -x "$(which -p hub)" ]] && alias git="hub"
-[[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
-[[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
-[[ -x "$(which -p git-restore-mtime)" ]] && alias {gmt,grmt}="git-restore-mtime --force"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
@@ -36,7 +37,7 @@ alias gmupd="gfa && git submodule update --init --recursive"
 alias gtls="git tag -n --list"
 alias gtf="git tag --contains"
 alias gti="git show --stat"
-alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
+alias {gswt,gtsw}='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 
 alias glf="git ls-files | sortt | lscolors"
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
