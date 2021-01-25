@@ -40,7 +40,7 @@ function bupg() {
 	else
 		local v && for v in "$@"; do
 			echo && echo "🟡 Upgrading formula -> '$v'"
-			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lscolors
+			HOMEBREW_COLOR=1 brew upgrade --formula --verbose "$v" | lscolors
 		done
 	fi
 	src

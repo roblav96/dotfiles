@@ -260,7 +260,13 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	mkdir "$HOME/.Trash"
 	chmod 700 "$HOME/.Trash"
 fi
-alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
+unalias rd &>/dev/null
+# alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
+function rd() {
+	local v && for v in "$@"; do
+		mv -f -t $(mktemp -d -p "$HOME/.Trash") "$v"
+	done
+} && compdef rd=rm
 # alias rda="rd {.,}*"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lm --tree --level=2 $HOME/.Trash" # du -ah -d0 $HOME/.Trash
