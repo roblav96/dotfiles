@@ -44,7 +44,7 @@ export KEYTIMEOUT="10"
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
-unset PAGER
+export PAGER=""
 # export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
