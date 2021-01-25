@@ -1,6 +1,6 @@
 # export GIT_PAGER="$PAGER"
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
-[[ -x "$(which -p gh)" ]] && export GH_PAGER=""
+[[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
 [[ -x "$(which -p git-restore-mtime)" ]] && alias {gmt,grmt}="git-restore-mtime --force"
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
