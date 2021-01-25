@@ -40,7 +40,7 @@ function bupg() {
 	else
 		local v && for v in "$@"; do
 			echo && echo "🟡 Upgrading formula -> '$v'"
-			HOMEBREW_COLOR=1 brew upgrade --force-bottle --formula "$v" | lscolors
+			HOMEBREW_COLOR=1 brew upgrade --formula "$v" | lscolors
 		done
 	fi
 	src
@@ -345,10 +345,10 @@ function bupg-deno() {
 		if [[ -d "$deno_dir" ]]; then
 			# [[ -e "$deno_dir/lib.webworker.d.ts" ]] && rm -f "$deno_dir/lib.webworker.d.ts"
 			rm -f "$deno_dir"/lib.*.d.ts
-			deno types --unstable >>"$deno_dir/lib.deno.d.ts"
-			deno types --unstable >>"$deno_dir/lib.deno.unstable.d.ts"
+			deno types --unstable --quiet > "$deno_dir/lib.deno.d.ts"
+			deno types --unstable --quiet > "$deno_dir/lib.deno.unstable.d.ts"
 			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" -o "$deno_dir/lib.webworker.d.ts"
-			exa -lag -TL1 --color-scale "$deno_dir"
+			exa -lagh -TL1 --color-scale "$deno_dir"
 		fi
 	done
 }
