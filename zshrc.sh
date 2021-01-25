@@ -44,6 +44,7 @@ export KEYTIMEOUT="10"
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
+unset PAGER
 # export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -261,12 +262,12 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	chmod 700 "$HOME/.Trash"
 fi
 unalias rd &>/dev/null
-# alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 function rd() {
 	local v && for v in "$@"; do
 		mv -f -t $(mktemp -d -p "$HOME/.Trash") "$v"
 	done
 } && compdef rd=rm
+# alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 # alias rda="rd {.,}*"
 alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
 alias ltrash="lm --tree --level=2 $HOME/.Trash" # du -ah -d0 $HOME/.Trash

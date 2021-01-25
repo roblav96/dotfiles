@@ -1,6 +1,6 @@
 alias lcdisabled="bat /var/db/com.apple.xpc.launchd/disabled.*"
 
-function lcl() {
+function lcls() {
 	echo && echo "🟡 User Agents"
 	launchctl list | column -t
 	echo && echo "🟡 System Daemons"
@@ -28,18 +28,18 @@ function lcdumpstate() {
 	sudo launchctl dumpstate
 }
 
-function lcls() {
-	echo && echo "🟡 $HOME/Library/LaunchAgents"
-	lara "$HOME/Library/LaunchAgents"
-	echo && echo "🟡 /Library/LaunchAgents"
-	lara "/Library/LaunchAgents"
-	echo && echo "🟡 /System/Library/LaunchAgents"
-	lara "/System/Library/LaunchAgents"
-	echo && echo "🟡 /Library/LaunchDaemons"
-	lara "/Library/LaunchDaemons"
-	echo && echo "🟡 /System/Library/LaunchDaemons"
-	lara "/System/Library/LaunchDaemons"
-}
+# function lcls() {
+# 	echo && echo "🟡 $HOME/Library/LaunchAgents"
+# 	lara "$HOME/Library/LaunchAgents"
+# 	echo && echo "🟡 /Library/LaunchAgents"
+# 	lara "/Library/LaunchAgents"
+# 	echo && echo "🟡 /System/Library/LaunchAgents"
+# 	lara "/System/Library/LaunchAgents"
+# 	echo && echo "🟡 /Library/LaunchDaemons"
+# 	lara "/Library/LaunchDaemons"
+# 	echo && echo "🟡 /System/Library/LaunchDaemons"
+# 	lara "/System/Library/LaunchDaemons"
+# }
 
 function lcs() {
 	echo && echo "🟡 [fd] $HOME/Library/LaunchAgents"
