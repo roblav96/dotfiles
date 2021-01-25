@@ -238,6 +238,7 @@ alias zenith="zenith --disable-history"
 alias lsof="lsof -P"
 alias {empty,t0}="truncate -s0"
 which tf &>/dev/null || alias tf="tail -f -n 100"
+which t1 &>/dev/null || alias t1='unexpand -t1 --first-only'
 which t2 &>/dev/null || alias t2='unexpand -t2 --first-only'
 which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
 which ty2 &>/dev/null || alias ty2='expr $(ty) / 2'
