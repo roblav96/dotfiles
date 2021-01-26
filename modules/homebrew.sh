@@ -88,8 +88,8 @@ function bs() {
 	done
 } && compdef bs=command
 alias bscd='cd $(brew --prefix)/Homebrew'
-alias bcdtaps='cd $(brew --prefix)/Homebrew/Library/Taps'
-alias bcdcore='cd $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core'
+alias bcdt='cd $(brew --prefix)/Homebrew/Library/Taps'
+alias bcdc='cd $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core'
 
 alias blog="brew log --max-count=5"
 alias blogm="brew log --max-count=10 --oneline"
