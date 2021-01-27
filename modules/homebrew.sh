@@ -340,6 +340,9 @@ fi
 
 # alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
 function bupg-deno() {
+	if [[ -d "$DENO_DIR" ]]; then
+		find "$DENO_DIR" -mindepth 1 -maxdepth 1 -type d -print -exec rm -r -f '{}' \;
+	fi
 	local deno_dirs=("$HOME/.cache/deno" "$(npm root -g)/typescript-deno-plugin/lib" "$(npm root)/typescript-deno-plugin/lib")
 	local deno_dir && for deno_dir in "${deno_dirs[@]}"; do
 		if [[ -d "$deno_dir" ]]; then
