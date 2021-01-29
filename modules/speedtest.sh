@@ -5,8 +5,21 @@ alias ievbox="wget --output-document=/dev/null https://az792536.vo.msecnd.net/vm
 
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
-function premiumize-url() {
-	curl "https://www.premiumize.me/speedtest" | pup "a[data-location=\"$1\"] attr{data-url}"
+function premiumize-urls() {
+	local html="$(curl "https://www.premiumize.me/speedtest")"
+	local urls=()
+	local locations=("Cloudflare (our default)" "Direct (no CDN)" "Bunny CDN (great alternative if Cloudflare consistently unreliable)" "M247 New York" "Leaseweb Chicago")
+	local location && for location in "${locations[@]}"; do
+		urls+=($(echo $html | pup "a[data-location=\"$location\"] attr{data-url}"))
+		bhr
+		echo "🟡 $location" && echo -n "   "
+		echo "${urls[-1]}"
+	done
+	bhr
+	# for url in "${urls[@]}"; do
+	# 	echo "🟡 url -> '$url'"
+	# 	speedtest "$url?no-cache=$(date +%s)000"
+	# done
 }
 
 # speedtest "https://rose.listperfect.xyz/100Mio.dat?no-cache=$(date +%s)000"
