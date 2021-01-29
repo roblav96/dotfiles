@@ -5,6 +5,10 @@ alias ievbox="wget --output-document=/dev/null https://az792536.vo.msecnd.net/vm
 
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 
+function premiumize-url() {
+	curl "https://www.premiumize.me/speedtest" | pup "a[data-location=\"$1\"] attr{data-url}"
+}
+
 # speedtest "https://rose.listperfect.xyz/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://sweetfairlady-sto.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://sweetfairlady.b-cdn.net/100Mio.dat?no-cache=$(date +%s)000"
