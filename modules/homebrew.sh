@@ -312,7 +312,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		fi
 		output="sudo /usr/bin/env -i $(which -p bash) -c '$output'"
 		echo "$output"
-		echo " $output" | pbcopy
+		echo " $output" | tr -d '\n' | pbcopy
 		echo "🟢 Copied to clipboard"
 	} && compdef bupg-sudo=command
 
