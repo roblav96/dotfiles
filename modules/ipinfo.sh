@@ -38,3 +38,16 @@ function dns() {
 	local domain="${1:-google.com}"
 	nslookup -all -timeout=1 "$domain" | bat --file-name='nslookup -all $domain' -l yml
 }
+
+function porthash() {
+	node -p "
+		let value = '$1'
+		let [hash, i, char] = [0, 0, 0]
+		for (i = 0; i < value.length; i++) {
+			char = value.charCodeAt(i)
+			hash = (hash << 1) - hash + char
+			hash |= 0
+		}
+		Math.min(Math.abs(hash) + 10000, 65535)
+	"
+}
