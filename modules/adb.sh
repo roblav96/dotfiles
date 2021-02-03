@@ -32,7 +32,7 @@ function curltv() {
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-alias rogcat="rogcat --hide-timestamp --level trace"
+alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace'
 declare rogs="rogcat"
 if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
@@ -42,6 +42,7 @@ if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
 fi
 if [[ "192.168.1.2" == "$ANDROID_SERIAL" || "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
 	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
+	# rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 	rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
@@ -49,11 +50,12 @@ if [[ "192.168.1.2" == "$ANDROID_SERIAL" || "192.168.2.40" == "$ANDROID_SERIAL" 
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 	rogs="$rogs --message '!^loading \[eventTime=\d'"
-	rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
 	rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
+	rogs="$rogs --tag '!^bt_stack$'"
+	rogs="$rogs --tag '!^NewAvrcp'"
 fi
 rogs="$rogs --tag '!^JS$'"
-rogs="$rogs --tag '!^JsonPath*'"
+rogs="$rogs --tag '!^JsonPath'"
 rogs="$rogs --tag '!^mobile-ffmpeg$'"
 rogs="$rogs --tag '!^netstats_(\w+)_sample$'"
 alias rog="$rogs" && unset rogs

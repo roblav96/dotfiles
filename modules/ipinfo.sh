@@ -40,7 +40,7 @@ function dns() {
 }
 
 function porthash() {
-	node -p "
+	node --print "
 		let value = '$1'
 		let [hash, i, char] = [0, 0, 0]
 		for (i = 0; i < value.length; i++) {
