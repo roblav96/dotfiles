@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [[ -d "/opt/root" ]]; then
 	export HOME="/opt/root"
