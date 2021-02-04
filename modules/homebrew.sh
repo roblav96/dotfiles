@@ -92,8 +92,6 @@ alias bcdt='cd $(brew --prefix)/Homebrew/Library/Taps'
 alias bcdc='cd $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core'
 
 alias blog="brew log --max-count=5"
-alias blogm="brew log --max-count=10 --oneline"
-alias bloga="brew log --max-count=3 --patch"
 function bclog() {
 	(
 		cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask"

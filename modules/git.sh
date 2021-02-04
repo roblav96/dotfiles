@@ -16,9 +16,10 @@ alias gss="git status --short --branch | lscolors"
 alias gs="isgit; gd; echo; gss"
 alias gbls="git branch --list --all"
 
-alias gl='echo; git log --reverse --max-count=10 --date=relative --stat'
-alias glm='git log --reverse --max-count=$(ty2) --oneline'
-alias gla='echo; git log --reverse --max-count=5 --date=relative --patch-with-stat'
+alias gl='echo; git log --reverse --date=relative --stat --max-count=10'
+alias gl1='gl --max-count=1'
+alias gla='echo; git log --reverse --date=relative --patch-with-stat --max-count=5'
+alias gla1='gla --max-count=1'
 
 alias gsu="git standup"
 # alias gd='[[ ! -d ".git" ]] && echo "🔴 Not a git repository" || (echo "🟡 git diff -> \x27$(basename $(pwd))\x27" && echo && git diff)'
