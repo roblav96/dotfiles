@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
@@ -114,10 +114,13 @@ function adbin() {
 
 function adbk() {
 	if [[ $# -eq 0 ]]; then
+		adb shell input keyevent KEYCODE_HOME
+		sleep 1
 		local pkgs=(
 			"app.debrids.tv"
 			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
+			"com.android.tv.settings"
 			"com.android.vending"
 			"com.curiosity.curiositystream.androidtv"
 			"com.fgl27.twitch"
@@ -125,7 +128,9 @@ function adbk() {
 			"com.google.android.exoplayer2.demo"
 			"com.google.android.gms"
 			"com.google.android.gsf"
+			"com.google.android.leanbacklauncher"
 			"com.google.android.tts"
+			"com.google.android.webview"
 			"com.google.android.youtube.tv"
 			"com.google.android.youtube.tvunplugged"
 			"com.hbo.hbonow"
@@ -137,6 +142,7 @@ function adbk() {
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
 			"com.nvidia.ota"
+			"com.peacocktv.peacockandroid"
 			"com.perflyst.twire"
 			"com.soundcloud.android"
 			"com.teamsmart.videomanager.tv"
@@ -153,6 +159,7 @@ function adbk() {
 			"tv.twitch.android.app"
 		)
 		adbk $pkgs
+		adb shell input keyevent KEYCODE_HOME
 	fi
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
