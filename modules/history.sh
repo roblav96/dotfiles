@@ -12,11 +12,13 @@ function histr() {
 function __histbak() {
 	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")
 	local histfile && for histfile in "${histfiles[@]}"; do
-		local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
-		cp "$histfile" "$bakfile"
-		chmod 400 "$bakfile"
+		if [[ -d "$histfile" ]]; then
+			local bakfile="$HOME/.Trash/tmp$(basename "$histfile").bak.$(date --iso-8601=seconds | head -c-7)"
+			cp "$histfile" "$bakfile"
+			chmod 400 "$bakfile"
+		fi
 	done
-} && alias {histbak,zbak,.zbak}=" __histbak"
+} && alias .zbak=" __histbak"
 
 function __histsd() {
 	if [[ $# -ne 2 ]]; then

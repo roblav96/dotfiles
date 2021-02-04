@@ -40,7 +40,7 @@ fi
 if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!^Can.t find service car_service$'"
 fi
-if [[ "192.168.1.2" == "$ANDROID_SERIAL" || "192.168.2.40" == "$ANDROID_SERIAL" ]]; then
+if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
 	# rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
@@ -115,7 +115,6 @@ function adbin() {
 function adbk() {
 	if [[ $# -eq 0 ]]; then
 		adb shell input keyevent KEYCODE_HOME
-		sleep 1
 		local pkgs=(
 			"app.debrids.tv"
 			"au.com.shiftyjelly.pocketcasts"
