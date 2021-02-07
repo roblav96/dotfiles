@@ -341,15 +341,5 @@ function bupg-deno() {
 	if [[ -d "$DENO_DIR" ]]; then
 		find "$DENO_DIR" -mindepth 1 -maxdepth 1 -type d -print -exec rm -r -f '{}' \;
 	fi
-	local deno_dirs=("$HOME/.cache/deno" "$(npm root -g)/typescript-deno-plugin/lib" "$(npm root)/typescript-deno-plugin/lib")
-	local deno_dir && for deno_dir in "${deno_dirs[@]}"; do
-		if [[ -d "$deno_dir" ]]; then
-			# [[ -e "$deno_dir/lib.webworker.d.ts" ]] && rm -f "$deno_dir/lib.webworker.d.ts"
-			rm -f "$deno_dir"/lib.*.d.ts
-			deno types --unstable --quiet > "$deno_dir/lib.deno.d.ts"
-			deno types --unstable --quiet > "$deno_dir/lib.deno.unstable.d.ts"
-			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" -o "$deno_dir/lib.webworker.d.ts"
-			exa -lagh -TL1 --color-scale "$deno_dir"
-		fi
-	done
+	deno-libs "${DENO_DIR:-$HOME/.cache/deno}" "$(npm root --global)/typescript-deno-plugin/lib" "$(npm root)/typescript-deno-plugin/lib"
 }

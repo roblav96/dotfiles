@@ -1,9 +1,37 @@
 [[ -z "$DENO_DIR" ]] && export DENO_DIR="$HOME/.cache/deno"
-[[ ! -d "$DENO_DIR" ]] && mkdir "$DENO_DIR"
+[[ ! -d "$DENO_DIR" ]] && mkdir -p "$DENO_DIR"
 
-function .deno-canary() {
+function deno-node_modules() {
+	mkdir -p "node_modules/.cache"
+	ln -sf "$DENO_DIR" "node_modules/.cache/deno"
+	lr "node_modules/.cache/deno"
+	npm install --no-save typescript typescript-deno-plugin
+	deno-libs "$(npm root)/typescript-deno-plugin/lib"
+}
+
+function deno-libs() {
+	local lib_dir && for lib_dir in "$@"; do
+		if [[ -d "$lib_dir" ]]; then
+			# [[ -e "$lib_dir/lib.webworker.d.ts" ]] && rm -f "$lib_dir/lib.webworker.d.ts"
+			rm -f "$lib_dir"/lib.*.d.ts
+			deno types --unstable --quiet >"$lib_dir/lib.deno.d.ts"
+			deno types --unstable --quiet >"$lib_dir/lib.deno.unstable.d.ts"
+			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" -o "$lib_dir/lib.webworker.d.ts"
+			lr "$lib_dir"
+		fi
+	done
+}
+
+alias deno-canary='wget "https://dl.deno.land/canary/$(curl --silent https://dl.deno.land/canary-latest.txt)/deno-x86_64-apple-darwin.zip" && deno-install'
+function deno-canary() {
+	wget "https://dl.deno.land/canary/$(curl --silent https://dl.deno.land/canary-latest.txt)/deno-x86_64-apple-darwin.zip"
+	deno-install
+}
+alias deno-release='wget "https://github.com/denoland/deno/releases/download/$(curl --silent https://dl.deno.land/release-latest.txt)/deno-x86_64-apple-darwin.zip" && deno-install'
+function deno-install() {
 	if [[ ! -e "deno-x86_64-apple-darwin.zip" ]]; then
-		wget "https://dl.deno.land/canary/$(curl --silent https://dl.deno.land/canary-latest.txt)/deno-x86_64-apple-darwin.zip"
+		echo "🔴 ! -e 'deno-x86_64-apple-darwin.zip'"
+		return 1
 	fi
 	local denobin="$(realpath $(which -p deno))"
 	unzip -o "deno-x86_64-apple-darwin.zip" -d "$(dirname "$denobin")"

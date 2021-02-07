@@ -64,11 +64,11 @@ function gup() {
 		gpr
 		gmt -q
 		if [[ -e package.json ]]; then
-			npm i --ignore-scripts
+			npm install --ignore-scripts
 		fi
 		if [[ -e src/package.json ]]; then
 			cd src
-			npm i --ignore-scripts
+			npm install --ignore-scripts
 		fi
 	); done
 	bhr
