@@ -1,4 +1,8 @@
 alias lcdisabled="bat /var/db/com.apple.xpc.launchd/disabled.*"
+alias lcdisableds="lcdisabled | rg --after-context=1 --case-sensitive --fixed-strings"
+# function lcdisableds() {
+# 	cat "/var/db/com.apple.xpc.launchd/disabled."* | rg --color=always --after-context=1 --case-sensitive --fixed-strings "$*"
+# }
 
 function lcls() {
 	echo && echo "🟡 User Agents"

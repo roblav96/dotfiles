@@ -159,6 +159,7 @@ function adbk() {
 		)
 		adbk $pkgs
 		adb shell input keyevent KEYCODE_HOME
+		adb shell input keyevent KEYCODE_DPAD_LEFT
 	fi
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
