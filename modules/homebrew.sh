@@ -158,8 +158,8 @@ function bmd() {
 function bcd() {
 	cd "$(brew --prefix)/opt/$*"
 } && compdef bcd=command
-function bcdcellar() {
-	cd "$(realpath $(brew --prefix $*))"
+function bcdrp() {
+	cd "$(realpath $(brew --prefix)/opt/$*)"
 } && compdef bcd=command
 function bbin() {
 	local v && for v in "$@"; do
