@@ -1,13 +1,10 @@
 alias hist="cat ${HISTFILE:-$HOME/.zsh_history} | sed 's/^: .*:0;//'"
 alias histy=" hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bat --plain -l sh"
 
-function histw() {
-	hist | rg --smart-case --fixed-strings --word-regexp -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
-} && compdef histw=which
-
 function histr() {
-	hist | rg --smart-case --fixed-strings -e "$*" | sed 's/^/\n/g' | bat --plain -l sh
+	hist | rg --smart-case "$@" | sed 's/^/\n/g' | bat --style=grid -l sh
 } && compdef histr=which
+alias histw="histr --word-regexp"
 
 function __histbak() {
 	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")
