@@ -57,6 +57,7 @@ alias rp="realpath"
 alias pwda="pwd && pwd -P"
 alias bat="cat" && alias b="bat"
 alias htop="htop --delay=1"
+alias bhr="echo"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
 # alias s="subl -f"
