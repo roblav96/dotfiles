@@ -180,9 +180,8 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 # alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
 [[ -d "/tmp/mnt/WD_GRAPHITE/idk_SMBv2" ]] && alias cdidk="cd /tmp/mnt/WD_GRAPHITE/idk_SMBv2"
-[[ -d "/tmp/mnt/WD_GRAPHITE/idk_SMBv2/mkvs" ]] && alias cdmkvs="cd /tmp/mnt/WD_GRAPHITE/idk_SMBv2/mkvs"
 
-
+test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
 # if test -d "/data/data/com.termux/files"; then
 # 	export ANDROID_DATA="/data"
