@@ -180,7 +180,7 @@ function bbin() {
 function bfs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Files formula -> '$v'"
-		lra "$(brew --prefix)/opt/$v/"
+		lra --ignore-glob=".git|.DS_Store|node_modules|site-packages" "$(brew --prefix)/opt/$v/"
 	done
 } && compdef bfs=command
 function bjson() {

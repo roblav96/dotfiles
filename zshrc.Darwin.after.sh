@@ -31,8 +31,7 @@ function duti-sublime() {
 # alias ssh="ssh -L 52698:localhost:52699"
 # alias pbcopy="pbcopy -Prefer txt"
 alias ppcopy="tr -d '\n' | pbcopy"
-alias rmxattr="xattr -c"
-alias rmaxattr="xattr -c -r"
+alias unxattr="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"

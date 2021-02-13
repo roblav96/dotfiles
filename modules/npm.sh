@@ -14,13 +14,13 @@ alias npmcd='cd $(npm root -g)'
 
 alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
 
-alias npmout="pnpx updates"
-alias npmupg="pnpx updates --update && npm install"
-alias npmaudit="pnpx auditjs ossi"
-alias npmcheck="pnpx npm-check --skip-unused"
-alias npmdepcheck="pnpx depcheck"
+alias npmout="npx updates"
+alias npmupg="npx updates --update && npm install"
+alias npmaudit="npx auditjs ossi"
+alias npmcheck="npx npm-check --skip-unused"
+alias npmdepcheck="npx depcheck"
 
-alias snykt="pnpx snyk test --dev --all-projects --detection-depth=1"
+alias snykt="npx snyk test --dev --all-projects --detection-depth=1"
 function snyknpm() {
 	cat package.json >/dev/null || return 1
 	[[ -e package-lock.json ]] && mv package-lock.json .package-lock.json
@@ -42,15 +42,16 @@ function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
 
-which final-pm &>/dev/null || alias final-pm="pnpx final-pm" # ; alias fpm="final-pm"
-which forever &>/dev/null || alias forever="pnpx forever"
-which pm2 &>/dev/null || alias pm2="pnpx pm2"
-which rush &>/dev/null || alias rush="pnpx --package=@microsoft/rush rush"
-which rushx &>/dev/null || alias rushx="pnpx --package=@microsoft/rush rushx"
-which ts-node &>/dev/null || alias ts-node="pnpx ts-node"
-which tsc &>/dev/null || alias tsc="pnpx --package=typescript tsc"
+which final-pm &>/dev/null || alias final-pm="npx final-pm" # ; alias fpm="final-pm"
+which insect &>/dev/null || alias insect="npx insect"
+which forever &>/dev/null || alias forever="npx forever"
+which pm2 &>/dev/null || alias pm2="npx pm2"
+which rush &>/dev/null || alias rush="npx --package=@microsoft/rush rush"
+which rushx &>/dev/null || alias rushx="npx --package=@microsoft/rush rushx"
+which ts-node &>/dev/null || alias ts-node="npx ts-node"
+which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 
-which vue &>/dev/null || alias vue="pnpx --package=@vue/cli-service vue-cli-service"
+which vue &>/dev/null || alias vue="npx --package=@vue/cli-service vue-cli-service"
 alias vueinspect="FORCE_COLOR=0 vue inspect"
 # alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
 

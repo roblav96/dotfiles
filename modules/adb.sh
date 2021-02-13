@@ -209,11 +209,11 @@ function adbsettingsls() {
 }
 function adbsettingsf() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list system | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -e "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list global | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
 }
 function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1
@@ -250,22 +250,26 @@ function adbsu() {
 # https://developer.android.com/studio/command-line/adb#pm
 function adbpmls() {
 	echo && echo "🟢 System Enabled Packages"
+	# echo "   adb shell pm list packages -s -e"
 	adb shell pm list packages -s -e | sed 's/^package://' | sortt
 	echo && echo "🔴 System Disabled Packages"
+	# echo "   adb shell pm list packages -s -d"
 	adb shell pm list packages -s -d | sed 's/^package://' | sortt
 	adb3
 }
 function adb3() {
 	echo && echo "🟢 User Enabled Packages"
+	# echo "   adb shell pm list packages -3 -e"
 	adb shell pm list packages -3 -e | sed 's/^package://' | sortt
 	echo && echo "🔴 User Disabled Packages"
+	# echo "   adb shell pm list packages -3 -d"
 	adb shell pm list packages -3 -d | sed 's/^package://' | sortt
 }
 function adbpmf() {
 	echo && echo "🟢 Enabled Packages"
-	adb shell pm list packages -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
+	adb shell pm list packages -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
 	echo && echo "🔴 Disabled Packages"
-	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -e "$*"
+	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
 }
 # alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
 
