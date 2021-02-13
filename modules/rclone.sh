@@ -10,9 +10,5 @@ function rcwd() {
 	bhr
 	echo "🟢 http://$(getip):$port/$baseurl/ -> $1"
 	bhr
-	if type -p pueue &>/dev/null || pueue status &>/dev/null; then
-		rclone serve webdav "$1" --addr "0.0.0.0:$port" --baseurl "$baseurl" --read-only --config /dev/null --verbose
-	else
-		pueue add --group=webdav rclone serve webdav "$1" --addr "0.0.0.0:$port" --baseurl "$baseurl" --read-only --config /dev/null
-	fi
+	which pueue &>/dev/null && pueue status &>/dev/null && pueue add --group=webdav rclone serve webdav "$1" --addr "0.0.0.0:$port" --baseurl "$baseurl" --read-only --config /dev/null || rclone serve webdav "$1" --addr "0.0.0.0:$port" --baseurl "$baseurl" --read-only --config /dev/null --verbose
 }

@@ -39,6 +39,9 @@ function dns() {
 	nslookup -all -timeout=1 "$domain" | bat --file-name='nslookup -all $domain' -l yml
 }
 
+unalias getip &>/dev/null
+alias getip="node -p 'Object.entries(os.networkInterfaces()).find(([k, v]) => v[0].address.startsWith(\"192.\"))[1][0].address'"
+
 function porthash() {
 	node --print "
 		let value = '$1'
