@@ -40,7 +40,7 @@ function dns() {
 }
 
 unalias getip &>/dev/null
-alias getip="node -p 'Object.entries(os.networkInterfaces()).find(([k, v]) => v[0].address.startsWith(\"192.\"))[1][0].address'"
+alias getip="node -p 'Object.values(os.networkInterfaces()).flat().map(v => v.address).find(v => v.startsWith(\"192.\"))'"
 
 function porthash() {
 	node --print "
