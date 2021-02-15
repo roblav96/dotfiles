@@ -33,7 +33,6 @@ alias fr.="fd -uu --base-directory=$HOME \
 --exclude=.npm \
 --exclude=.nuget \
 --exclude=.playground \
---exclude=.pnpm-store \
 --exclude=.rustup \
 --exclude=.Trash \
 --exclude=.vscode-oss \
@@ -53,7 +52,6 @@ fr="$fr \
 --exclude=$HOME/.gradle \
 --exclude=$HOME/.npm \
 --exclude=$HOME/.nuget \
---exclude=$HOME/.pnpm-store \
 --exclude=$HOME/.Trash \
 --exclude=.git \
 --exclude=/dev \
