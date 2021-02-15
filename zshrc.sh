@@ -459,7 +459,7 @@ function showv() {
 		exa "$i"
 		i="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$i"
-		echo -n "   " && diskus "$i"
+		echo -n "   " && diskus --apparent-size "$i"
 		echo "$i $vflags" | bat --plain -l sh
 		eval "$i $vflags"
 	done
