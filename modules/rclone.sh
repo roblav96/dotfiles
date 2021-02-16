@@ -6,6 +6,6 @@ function rcwd() {
 		local dir="$(realpath "$v")"
 		local port="$(porthash "$dir")"
 		local base="$(basename "$dir")"
-		echo rclone serve webdav "$dir" --addr "$(getip):$port" --baseurl "$base" --read-only --verbose
+		echo rclone serve webdav "$dir" --addr "$(getip):$port" --baseurl "$base" --poll-interval 0 --read-only --no-checksum --verbose
 	done
 }
