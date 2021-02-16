@@ -29,7 +29,11 @@ function mvnw() {
 # alias sdkmanager="sdkmanager --channel=3"
 
 alias apkanalyzer="apkanalyzer --human-readable"
-alias apkm="apkanalyzer apk summary"
+function apkm() {
+	local v && for v in "$@"; do
+		apkanalyzer apk summary "$v" | bl fstab
+	done
+}
 function apki() {
 	local v && for v in "$@"; do
 		aapt2 dump badging "$v" | sed -e "s/='/: '/g" -e "s/:'/: '/g" -e '/^application-label-/d' -e '/^application-icon-/d' | t2 | bat --file-name="$v" -l yml
