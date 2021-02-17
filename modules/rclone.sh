@@ -10,4 +10,4 @@ function rcwd() {
 	done
 }
 
-alias rsy="rsync --verbose --info=progress2 --recursive --force --checksum"
+alias rsy="rsync --verbose --human-readable --info=progress2 --recursive --force"
