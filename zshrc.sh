@@ -236,7 +236,6 @@ alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
 alias lsof="lsof -P"
 alias {empty,t0}="truncate -s0"
-alias rsy="rsync --info=progress2 --recursive --force"
 alias sl="sleep"
 which sl1 &>/dev/null || alias sl1="sleep 1"
 which sl2 &>/dev/null || alias sl2="sleep 2"
@@ -479,7 +478,6 @@ function readlinka() {
 # }
 
 source "$DOTFILES/modules/chars.sh"
-source "$DOTFILES/modules/disk.sh"
 source "$DOTFILES/modules/history.sh"
 test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
 test -n "$HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
@@ -488,6 +486,7 @@ test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/
 test -x "$(which -p aws)" && source "$DOTFILES/modules/aws.sh"
 test -x "$(which -p brew)" && source "$DOTFILES/modules/homebrew.sh"
 test -x "$(which -p cargo)" && source "$DOTFILES/modules/cargo.sh"
+test -x "$(which -p dust)" && source "$DOTFILES/modules/disk.sh"
 test -x "$(which -p cod)" && source "$DOTFILES/modules/cod.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/ipinfo.sh"
 test -x "$(which -p curl)" && source "$DOTFILES/modules/tldr.sh"
