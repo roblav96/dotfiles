@@ -10,6 +10,7 @@
 	detachedHead = false
 [diff]
 	renameLimit = 4096
+	colorMoved = "default"
 [hub]
 	protocol = "https"
 [log]
@@ -22,6 +23,7 @@
 	ui = "always"
 [core]
 	excludesfile = "~/.gitignore"
+	# pager = "diffr --line-numbers"
 	pager = "delta"
 [interactive]
 	diffFilter = "delta --color-only"

@@ -148,8 +148,6 @@ function greload() {
 # 	# fi
 # }
 
-# alias delta="delta --tabs=0 --highlight-removed"
-
 # function _git-hr() {
 # 	if [[ ! -d ".git" ]]; then
 # 		echo "🔴 Not a git repository"
