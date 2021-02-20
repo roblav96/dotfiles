@@ -131,7 +131,7 @@ function bi() {
 		echo && echo "🟡 Formula -> '$v'"
 		brew desc "$v" && brew info "$v"
 		if [[ "$PLATFORM" == "Linux" ]]; then
-			echo "x86_64_linux bottle:"
+			echo && echo "x86_64_linux bottle:"
 			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
 	done

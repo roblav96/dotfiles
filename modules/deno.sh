@@ -7,23 +7,29 @@ function .deno-node_modules() {
 	lr "node_modules/.cache/deno"
 	npm install --no-save typescript typescript-deno-plugin
 	.deno-libs "$(npm root)/typescript-deno-plugin/lib"
+	f --extension=js --extension=ts --exclude='*.d.ts' --exec deno cache --unstable --no-check --reload
 }
 
 function .deno-libs() {
 	local lib_dir && for lib_dir in "$@"; do
-		if [[ -d "$lib_dir" ]]; then
-			# [[ -e "$lib_dir/lib.webworker.d.ts" ]] && rm -f "$lib_dir/lib.webworker.d.ts"
-			rm -f "$lib_dir"/lib.*.d.ts
-			deno types --unstable --quiet >"$lib_dir/lib.deno.d.ts"
-			deno types --unstable --quiet >"$lib_dir/lib.deno.unstable.d.ts"
-			curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" -o "$lib_dir/lib.webworker.d.ts"
-			lr "$lib_dir"
-		fi
+		[[ ! -d "$lib_dir" ]] && continue
+		# [[ -e "$lib_dir/lib.webworker.d.ts" ]] && rm -f "$lib_dir/lib.webworker.d.ts"
+		rm -f "$lib_dir"/lib.*.d.ts
+		deno types --unstable --quiet >"$lib_dir/lib.deno.d.ts"
+		deno types --unstable --quiet >"$lib_dir/lib.deno.unstable.d.ts"
+		curl --silent "https://raw.githubusercontent.com/denoland/deno/master/cli/dts/lib.deno.worker.d.ts" -o "$lib_dir/lib.webworker.d.ts"
+		lr "$lib_dir"
 	done
 }
 
-alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
-alias .deno-release='wget --quiet "https://github.com/denoland/deno/releases/download/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
+function .deno-canary() {
+	wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-apple-darwin.zip"
+	.deno-install
+}
+function .deno-release() {
+	wget --quiet "https://github.com/denoland/deno/releases/download/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-apple-darwin.zip"
+	.deno-install
+}
 function .deno-install() {
 	if [[ ! -e "deno-x86_64-apple-darwin.zip" ]]; then
 		echo "🔴 ! -e 'deno-x86_64-apple-darwin.zip'"

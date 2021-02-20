@@ -138,5 +138,11 @@
 				"semi": true,
 			},
 		},
+		{
+			"files": [".ignore"],
+			"options": {
+				"parser": "sh",
+			},
+		},
 	],
 }
