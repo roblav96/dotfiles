@@ -9,7 +9,7 @@ alias sc-status="systemctl --full status"
 # unalias sc-list-unit-files &>/dev/null
 # alias sc-list-unit-files="systemctl --all list-unit-files"
 
-alias nftls="sudo nft --handle list ruleset | bat --style=grid -l nft"
+alias nftls="sudo nft --handle list ruleset | bat --file-name='nft list ruleset' -l nft"
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 
 alias cdp="cd $HOME/.playground"
