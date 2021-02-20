@@ -390,7 +390,7 @@ function upiso() {
 
 alias ulimitls='ulimit -S -a | bat --file-name="Soft limits" -l yml; ulimit -H -a | bat --file-name="Hard limits" -l yml'
 alias htop="htop --delay=1 --highlight-changes=10"
-alias pa="ps auxww"
+alias psa="ps auxww"
 alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function pe() {
 	pgrep "$*" | while read pid; do

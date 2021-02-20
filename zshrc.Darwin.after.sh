@@ -113,6 +113,8 @@ alias o="open ."
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
+[[ -x "$(which -p nq)" ]] && export NQDIR="/usr/local/var/tmp/nq"
+
 function phone-bak() {
 	adb shell pm list packages -3 | sed 's|^package:||' | sortt >'pm_list_packages_-3.log'
 	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt >'pm_list_packages_-3_-d.log'
