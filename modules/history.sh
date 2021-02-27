@@ -1,5 +1,5 @@
 alias hist="cat ${HISTFILE:-$HOME/.zsh_history} | sed 's/^: .*:0;//'"
-alias histy=" hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bat --plain -l sh"
+alias histy=" hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bl sh"
 
 function histr() {
 	hist | rg --smart-case "$@" | sed 's/^/\n/g' | bat --style=grid -l sh

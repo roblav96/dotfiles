@@ -130,11 +130,11 @@ function greload() {
 # 	# echo "🟡 snyk test ->"
 # 	# npx snyk test --dev --all-projects --detection-depth=1
 # 	# if [[ -e "package.json" ]]; then
-# 	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -ljson
+# 	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -l json
 # 	# 	read -q "?npm install? [y/n]: " || return 1
 # 	# 	npm install
 # 	# 	# --ignore-scripts --no-bin-links --no-optional
-# 	# 	cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -ljson
+# 	# 	cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -l json
 # 	# fi
 # 	# if [[ -e "requirements.txt" ]]; then
 # 	# 	bat "requirements.txt" -l sh
@@ -142,7 +142,7 @@ function greload() {
 # 	# 	pip install --requirements "requirements.txt"
 # 	# fi
 # 	# if [[ -e "$outdir.csproj" ]]; then
-# 	# 	prettier "$outdir.csproj" | bat -lxml
+# 	# 	prettier "$outdir.csproj" | bat -l xml
 # 	# 	read -q "?dotnet restore? [y/n]: " || return 1
 # 	# 	dotnet restore
 # 	# fi

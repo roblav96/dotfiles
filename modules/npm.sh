@@ -54,7 +54,7 @@ which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 
 which vue &>/dev/null || alias vue="npx --package=@vue/cli-service vue-cli-service"
 alias vueinspect="FORCE_COLOR=0 vue inspect"
-# alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -lts'
+# alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -l ts'
 
 function nsc() {
 	npm info "@nativescript/$@"

@@ -15,7 +15,8 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
@@ -32,7 +33,7 @@ function curltv() {
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/busybox:\$PATH'; echo; adb shell"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace'
+alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
 declare rogs="rogcat"
 if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
@@ -49,7 +50,6 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
-	rogs="$rogs --message '!^loading \[eventTime=\d'"
 	rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
@@ -57,7 +57,6 @@ fi
 rogs="$rogs --tag '!^JS$'"
 rogs="$rogs --tag '!^JsonPath'"
 rogs="$rogs --tag '!^mobile-ffmpeg$'"
-rogs="$rogs --tag '!^netstats_(\w+)_sample$'"
 alias rog="$rogs" && unset rogs
 # local rogs=(
 # 	"!^Exception checking for game stream. Exception: "
@@ -74,7 +73,7 @@ alias rog="$rogs" && unset rogs
 # }
 alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
-alias adbps="adb shell ps -A -w -f --sort=STIME"
+alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/\[kworker\//d'"
 alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
@@ -102,7 +101,7 @@ function exoplayer() {
 		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
-alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adb shell rm -f /sdcard/Android/data/org.xbmc.kodi/files/.kodi/temp/kodi.log; adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
 # alias adbin="adb install -r"

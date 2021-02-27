@@ -16,7 +16,7 @@ if [[ -z "$OPENSSL_ROOT_DIR" ]]; then
 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
 fi
 
-alias bcl="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
+alias bcleanup="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | bat --plain -l yml"
 alias benv="brew --env --plain | bat --plain -l yml"
 
