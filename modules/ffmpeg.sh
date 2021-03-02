@@ -1,8 +1,8 @@
-alias ffmpeg="ffmpeg -hide_banner -loglevel error"
-alias ffplay="ffplay -hide_banner -loglevel error"
-alias ffprobe="ffprobe -hide_banner -loglevel error"
+alias ffmpeg="ffmpeg -hide_banner" # -loglevel error"
+alias ffplay="ffplay -hide_banner" # -loglevel error"
+alias ffprobe="ffprobe -hide_banner" # -loglevel error"
 
-alias fpj="ffprobe -pretty -print_format json"
+alias fpj="ffprobe -loglevel error -pretty -print_format json"
 
 function fpf() {
 	fpj -show_format "$*" | json '.format'

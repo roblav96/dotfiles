@@ -73,6 +73,7 @@ alias rog="$rogs" && unset rogs
 # }
 alias adbt="adb shell input keyboard text"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
+alias adbp="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/\[kworker\//d'"
 alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
@@ -101,7 +102,7 @@ function exoplayer() {
 		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
-alias kodi="adb shell rm -f /sdcard/Android/data/org.xbmc.kodi/files/.kodi/temp/kodi.log; adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adb shell truncate -s0 /sdcard/Android/data/org.xbmc.kodi/files/.kodi/temp/kodi.log; adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
 # alias adbin="adb install -r"
@@ -142,6 +143,7 @@ function adbk() {
 			"com.nvidia.ota"
 			"com.peacocktv.peacockandroid"
 			"com.perflyst.twire"
+			"com.semperpax.spmc16"
 			"com.soundcloud.android"
 			"com.teamsmart.videomanager.tv"
 			"com.vanced.manager"
