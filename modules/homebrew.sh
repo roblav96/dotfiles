@@ -164,15 +164,15 @@ function bcdrp() {
 function bbin() {
 	local v && for v in "$@"; do
 		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
-			echo && echo "🟡 /libexec/bin -> '$v'"
+			echo && echo "🟡 $v/libexec/bin"
 			lra "$(brew --prefix)/opt/$v/libexec/bin"
 		fi
 		if [[ -d "$(brew --prefix)/opt/$v/bin" ]]; then
-			echo && echo "🟡 /bin -> '$v'"
+			echo && echo "🟡 $v/bin"
 			lra "$(brew --prefix)/opt/$v/bin"
 		fi
 		if [[ -d "$(brew --prefix)/opt/$v/sbin" ]]; then
-			echo && echo "🟡 /sbin -> '$v'"
+			echo && echo "🟡 $v/sbin"
 			lra "$(brew --prefix)/opt/$v/sbin"
 		fi
 	done
