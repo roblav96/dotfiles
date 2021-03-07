@@ -1,10 +1,13 @@
-[[ -z "$DENO_DIR" ]] && export DENO_DIR="$HOME/.cache/deno"
-[[ ! -d "$DENO_DIR" ]] && mkdir -p "$DENO_DIR"
+if [[ ! -d "$DENO_DIR" ]]; then
+	export DENO_DIR="$HOME/.cache/deno"
+	mkdir -p "$DENO_DIR"
+fi
 
 alias .deno-v8-flags="deno run --unstable --v8-flags=--help | sed -e 's/^  --/\n  --/' -e 's/  default: /\n        default: /' | bl yml"
 
 function .deno-node_modules() {
 	mkdir -p "node_modules/.cache"
+	rm -f "node_modules/.cache/deno"
 	ln -sf "$DENO_DIR" "node_modules/.cache/deno"
 	lr "node_modules/.cache/deno"
 	npm install --no-save "typescript" "typescript-deno-plugin"

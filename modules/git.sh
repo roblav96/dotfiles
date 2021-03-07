@@ -60,8 +60,12 @@ function gup() {
 		cd "$repo"
 		echo "🟡 $repo" && echo -n "   "
 		gurl
-		greset
-		gpr
+		if [[ "$1" == "r" ]]; then
+			greset
+			gpr
+		else
+			gpf
+		fi
 		gmt -q
 		if [[ -e package.json ]]; then
 			npm install --ignore-scripts

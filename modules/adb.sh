@@ -15,12 +15,12 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
-		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=9
+		curl --proxy "$ANDROID_SERIAL:8888" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
 	elif [[ "$1" == "real-debrid" ]]; then
 		curl --proxy "$ANDROID_SERIAL:8888" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
