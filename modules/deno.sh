@@ -12,7 +12,7 @@ function .deno-node_modules() {
 	lr "node_modules/.cache/deno"
 	npm install --no-save "typescript" "typescript-deno-plugin"
 	.deno-libs "$(npm root)/typescript-deno-plugin/lib"
-	f --extension=js --extension=ts --exclude='*.d.ts' --exec deno cache --unstable --no-check --reload
+	fd --exclude="node_modules" --type=file --extension=ts --exclude='*.d.ts' --exec deno cache --unstable --no-check
 }
 
 function .deno-libs() {

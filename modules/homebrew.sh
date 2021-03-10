@@ -341,5 +341,5 @@ function bupg-deno() {
 	if [[ -d "$deno_dir" ]]; then
 		find "$deno_dir" -mindepth 1 -maxdepth 1 -type d -print -exec rm -r -f '{}' \;
 	fi
-	.deno-libs "$deno_dir" "$(npm root --global)/typescript-deno-plugin/lib" "$(npm root)/typescript-deno-plugin/lib"
+	.deno-libs "$deno_dir" "$(npm root --global)/typescript-deno-plugin/lib"
 }
