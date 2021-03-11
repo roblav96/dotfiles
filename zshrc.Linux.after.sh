@@ -11,8 +11,7 @@ alias sc-status="systemctl --full status"
 
 alias nftls="sudo nft --handle list ruleset | bat --file-name='nft list ruleset' -l nft"
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
-local .h2o="/etc/h2o/h2o.conf"
-# alias .h2o="sudo subl /etc/h2o/h2o.conf"
+alias .h2o="sudo subl /etc/h2o/h2o.conf"
 
 alias cdp="cd $HOME/.playground"
 alias cdd="cd $HOME/downloads"
