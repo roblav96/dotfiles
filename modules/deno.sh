@@ -30,14 +30,15 @@ function .deno-libs() {
 alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
 alias .deno-release='wget --quiet "https://github.com/denoland/deno/releases/download/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
 function .deno-install() {
-	if [[ ! -e deno-x86_64-*.zip ]]; then
-		echo "🔴 ! -e 'deno-x86_64-*.zip'"
+	local zipfile="${1:-deno-x86_64-apple-darwin.zip}"
+	if [[ ! -e "$zipfile" ]]; then
+		echo "🔴 ! -e '"$zipfile"'"
 		return 1
 	fi
 	local denobin="$(realpath $(which -p deno))"
-	unzip -o deno-x86_64-*.zip -d "$(dirname "$denobin")"
+	unzip -o "$zipfile" -d "$(dirname "$denobin")"
 	chmod 555 "$denobin"
-	rm -f deno-x86_64-*.zip
+	rm -f "$zipfile"
 	deno completions --unstable zsh >"$(brew --prefix)/share/zsh/site-functions/_deno"
 	deno --version | bl fstab
 	bupg-deno
