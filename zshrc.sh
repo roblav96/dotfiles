@@ -328,7 +328,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
-alias axel="axel --ipv4 --alternate --timeout=3"
+alias axel="axel --ipv4 --no-clobber --alternate --timeout=3"
 alias aria2cdl="aria2c --split=4 --download-result=full"
 alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=3 --restrict-file-names=unix"
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 3"
@@ -362,8 +362,8 @@ function curljy() {
 } && compdef curljy=curl
 
 if [[ -x "$(which -p rmate)" ]]; then
-	alias st="rmate"
-	alias subl="rmate"
+	which st &>/dev/null || alias st="rmate"
+	which subl &>/dev/null || alias subl="rmate"
 fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
