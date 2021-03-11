@@ -92,9 +92,9 @@ function wifi() {
 	m wifi status | bat --file-name='airport --getinfo' -l yml
 	networksetup -getinfo 'Wi-Fi' | bat --file-name='networksetup -getinfo Wi-Fi' -l yml
 }
-# alias wifi-setmanual-hotspot='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.hotspot)'
-# alias wifi-setmanual-r7800='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.r7800)'
-# alias wifi-setmanual-e300='networksetup -setmanual Wi-Fi $(cat $DOTFILES/.env.e300)'
+# alias wifi-setmanual-hotspot='networksetup -setmanual Wi-Fi $(cat $DOTFILES/configs/.env.hotspot)'
+# alias wifi-setmanual-r7800='networksetup -setmanual Wi-Fi $(cat $DOTFILES/configs/.env.r7800)'
+# alias wifi-setmanual-e300='networksetup -setmanual Wi-Fi $(cat $DOTFILES/configs/.env.e300)'
 
 alias mdisplay="m display status | bl yml"
 

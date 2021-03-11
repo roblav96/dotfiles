@@ -67,7 +67,7 @@ function unapk() {
 }
 
 alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
-alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/.env.kspass) --ksPass $(cat $DOTFILES/.env.kspass) --overwrite --apks'
+alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/configs/.env.kspass) --ksPass $(cat $DOTFILES/configs/.env.kspass) --overwrite --apks'
 function uber-apk-install() {
 	uber-apk-release "$@"
 	adb install -r "$@"

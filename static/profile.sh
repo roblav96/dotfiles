@@ -6,7 +6,7 @@
 # 	fi
 # fi
 
-[[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
+[[ -e "$DOTFILES/configs/.env" ]] && source "$DOTFILES/configs/.env"
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 [[ -x "$(which tabs)" ]] && tabs -4
 

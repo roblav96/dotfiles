@@ -13,7 +13,7 @@ alias npms="npm search --no-description"
 alias npmsa="npm search"
 alias npmcd='cd $(npm root -g)'
 
-alias npmpublish="ln -s $DOTFILES/.env.npmrc .npmrc || return 1; npm publish; rm .npmrc"
+alias npmpublish='ln -s "$DOTFILES/configs/.env.npmrc" .npmrc || return 1; npm publish; rm .npmrc'
 
 alias npmout="npx updates"
 alias npmupg="npx updates --update && npm install"

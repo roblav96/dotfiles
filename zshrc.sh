@@ -2,7 +2,7 @@
 
 # SKIP_DIRS+=
 
-[[ -e "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
+[[ -e "$DOTFILES/configs/.env" ]] && source "$DOTFILES/configs/.env"
 # [[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 
 [[ -x "$(which -p pico)" ]] && export EDITOR="pico"
