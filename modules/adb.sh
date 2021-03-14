@@ -45,12 +45,14 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
 	# rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+	rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
 	rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 	rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
+	rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
 fi
@@ -102,7 +104,7 @@ function exoplayer() {
 		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
-alias kodi="adb shell truncate -s0 /sdcard/Android/data/org.xbmc.kodi/files/.kodi/temp/kodi.log; adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 
 # alias adbin="adb install -r"

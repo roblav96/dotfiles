@@ -335,11 +335,4 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	}
 fi
 
-# alias bupg-deno='deno types --unstable > "$DENO_DIR/lib.deno.d.ts" && prettier --write "$DENO_DIR/lib.deno.d.ts"'
-function bupg-deno() {
-	local deno_dir="${DENO_DIR:-$HOME/.cache/deno}"
-	if [[ -d "$deno_dir" ]]; then
-		find "$deno_dir" -mindepth 1 -maxdepth 1 -type d -print -exec rm -r -f '{}' \;
-	fi
-	.deno-libs "$deno_dir" "$(npm root --global)/typescript-deno-plugin/lib"
-}
+alias bupg-deno=".deno-upgrade"
