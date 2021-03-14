@@ -4,7 +4,10 @@ alias ytdl="youtube-dl --restrict-filenames"
 alias ytls="youtube-dl --restrict-filenames --list-formats"
 
 function ytsc() {
-	youtube-dl --restrict-filenames --ignore-errors --output '%(uploader)s/%(uploader)s__%(title)s.%(ext)s' --add-header "$SOUNDCLOUD_OAUTH" --extract-audio --audio-format=m4a --add-metadata --embed-thumbnail "$@"
+	youtube-dl --restrict-filenames --ignore-errors \
+		--output '%(uploader)s/%(uploader)s__%(title)s.%(ext)s' --add-header "$SOUNDCLOUD_OAUTH" \
+		--extract-audio --audio-format=m4a --add-metadata --embed-thumbnail \
+		"$@"
 } && compdef ytsc=youtube-dl
 # alias ytsc="$(echo 'youtube-dl --restrict-filenames --ignore-errors
 #  --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH"

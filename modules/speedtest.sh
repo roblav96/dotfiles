@@ -8,7 +8,16 @@ alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
 function premiumize-urls() {
 	local html="$(curl "https://www.premiumize.me/speedtest")"
 	local urls=()
-	local locations=("Cloudflare (our default)" "Direct (no CDN)" "Bunny CDN (great alternative if Cloudflare consistently unreliable)" "M247 New York" "Leaseweb Chicago")
+	local locations=(
+		"Cloudflare (our default)"
+		"Direct (no CDN)"
+		"Bunny CDN (great alternative if Cloudflare consistently unreliable)"
+		"M247 New York"
+		"Leaseweb Chicago"
+		"M247 Miami"
+		"Digitalocean San Francisco"
+		"OVH North America (Beauharnois)"
+	)
 	local location && for location in "${locations[@]}"; do
 		urls+=($(echo $html | pup "a[data-location=\"$location\"] attr{data-url}"))
 		bhr
