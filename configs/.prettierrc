@@ -9,6 +9,7 @@
 	"proseWrap": "never",
 	"quoteProps": "consistent",
 	"rubyNetcatCommand": "socat -",
+	"rubySingleQuote": false,
 	"semi": false,
 	"singleQuote": true,
 	"tabWidth": 4,
