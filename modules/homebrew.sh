@@ -141,7 +141,7 @@ function bij() {
 		echo && echo "🟡 Formula json -> '$v'"
 		brew desc "$v" && brew info --json=v1 "$v" | json
 	done
-} && compdef bi=command
+} && compdef bij=command
 function bci() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Cask -> '$v'"
@@ -183,12 +183,6 @@ function bfs() {
 		lra --ignore-glob=".git|.DS_Store|node_modules|site-packages" "$(brew --prefix)/opt/$v/"
 	done
 } && compdef bfs=command
-function bjson() {
-	local v && for v in "$@"; do
-		echo && echo "🟡 JSON formula -> '$v'"
-		brew desc "$v" && brew info --json=v1 "$v" | json
-	done
-} && compdef bjson=command
 function bdep() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Dependencies formula -> '$v'"
