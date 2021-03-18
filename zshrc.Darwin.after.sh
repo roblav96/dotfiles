@@ -48,7 +48,7 @@ alias .ssh_config="subl $HOME/.ssh/config"
 alias .known_hosts="subl $HOME/.ssh/known_hosts"
 alias .rclone="subl $HOME/.config/rclone/rclone.conf"
 alias .h2o="subl /usr/local/etc/h2o/h2o.conf"
-alias .nginx="subl /usr/local/etc/nginx/default.nginx.conf"
+alias .nginx="subl /usr/local/etc/nginx/nginx.conf"
 alias .gradle="subl $HOME/.gradle/gradle.properties"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
