@@ -78,11 +78,12 @@ alias gmtool="gmtool --verbose"
 
 alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 
-alias denonavr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | prettier --parser yaml | bl yml"
+alias denonavr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '{Audio:.Information.Audio,Video:.Information.Video,Zone:.Information.Zone}' | t2 | bl yml"
+# alias denonavr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | prettier --parser yaml | bl yml"
 # alias denonavr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | t2 | bat --style=grid -l yml"
-alias denonavr-device-info='curl http://192.168.2.119:8080/goform/Deviceinfo.xml | oq -i xml -o yaml | prettier --parser yaml | bl yml'
+alias denonavr-device-info="curl http://192.168.2.119:8080/goform/Deviceinfo.xml | oq -i xml -o yaml | t2 | bl yml"
 # alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"
-# alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Audio,Video:.Video,Zone:.Zone}'"
+# alias denon-avr="curl --insecure 'https://192.168.2.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Information.Audio,Video:.Information.Video,Zone:.Information.Zone}'"
 # alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
 function tapianalyze() {

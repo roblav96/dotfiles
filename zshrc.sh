@@ -214,7 +214,7 @@ alias sedbat="sedlog | batrb"
 alias redis-cli="redis-cli --no-auth-warning"
 # alias cl='printf "\ec\e[3J"'
 # alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
-alias cl="tput clear"
+alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
@@ -292,10 +292,10 @@ function abfixpaste() {
 	$EDITOR +$line "$file"
 }
 
-function __clear-and-accept-line() { cl && zle .reset-prompt && zle -R && zle accept-line -w }
+function __clear-and-accept-line() { clr && zle .reset-prompt && zle -R && zle accept-line -w }
 zle -N __clear-and-accept-line
 bindkey '^[k' __clear-and-accept-line
-function __clear-and-accept-and-hold() { cl && zle .reset-prompt && zle -R && zle accept-and-hold -w }
+function __clear-and-accept-and-hold() { clr && zle .reset-prompt && zle -R && zle accept-and-hold -w }
 zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
 bindkey '^[[K' accept-and-hold
@@ -356,12 +356,19 @@ SSL Verify: %{ssl_verify_result}
 
 "'
 # alias curlt="curl --output /dev/null --write-out '\n%{time_namelookup} DNS Lookup \n%{time_connect} Connect \n%{time_appconnect} App Connect \n%{time_pretransfer} Init Transfer \n%{time_starttransfer} Start Transfer \n%{time_total} Total\n'"
+which cl &>/dev/null || alias cl="curl"
 function curlj() {
 	curl "$@" | json
 } && compdef curlj=curl
+which clj &>/dev/null || alias clj="curlj"
 function curljy() {
-	curl "$@" | oq -i json -o yaml --sort-keys | bat --plain -l yml
+	curl "$@" | oq -i json -o yaml --sort-keys | t2 | bl yml
 } && compdef curljy=curl
+which cljy &>/dev/null || alias cljy="curljy"
+function curlxy() {
+	curl "$@" | oq -i xml -o yaml --sort-keys | t2 | bl yml
+} && compdef curlxy=curl
+which clxy &>/dev/null || alias clxy="curlxy"
 
 if [[ -x "$(which -p rmate)" ]]; then
 	which st &>/dev/null || alias st="rmate"
