@@ -330,3 +330,14 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 fi
 
 alias bupg-deno=".deno-upgrade"
+
+# rmdir /usr/local/share/flutter/bin/cache/downloads
+# rmdir /usr/local/share/flutter/.pub-cache/_temp
+# rmdir /usr/local/share/flutter/.git/refs/tags
+# rmdir /usr/local/share/flutter/.git/objects/info
+# rmdir /usr/local/lib/ruby/gems/2.7.0/build_info
+# rmdir /usr/local/lib/node_modules/typescript-deno-plugin/lib/node_modules/.cache/deno/gen
+# rmdir /usr/local/lib/node_modules/typescript-deno-plugin/lib/node_modules/.cache/deno
+# rmdir /usr/local/lib/node_modules/typescript-deno-plugin/lib/node_modules/.cache
+# rmdir /usr/local/lib/node_modules/typescript-deno-plugin/lib/node_modules
+# rmdir /usr/local/etc/libressl/certs
