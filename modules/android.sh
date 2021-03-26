@@ -66,14 +66,14 @@ function unapk() {
 	command rm -rf *.dex
 }
 
-alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar'
-alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/configs/.env.kspass) --ksPass $(cat $DOTFILES/configs/.env.kspass) --overwrite --apks'
+alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.2.1.jar'
+alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/configs/.env.kspass) --ksPass $(cat $DOTFILES/configs/.env.kspass) --allowResign --overwrite --apks'
 function uber-apk-install() {
 	uber-apk-release "$@"
 	adb install -r "$@"
 }
 
-# alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.1.0.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
+# alias apksign="java -jar $ANDROID_HOME/uber-apk-signer-1.2.1.jar --verbose --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --apks"
 # alias android-dts-generator="java -jar $ANDROID_HOME/android-dts-generator.jar"
 # function apksign() {
 # 	rm -f "$*-signed.apk"
