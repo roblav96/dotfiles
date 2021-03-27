@@ -44,7 +44,7 @@ alias avdls="avdmanager list avd | bl yml"
 local emulator_flags='-no-passive-gps -no-location-ui' # -accel on -gpu host'
 alias emulator="emulator $emulator_flags -verbose"
 alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
-local scrcpy_flags='--serial $ANDROID_SERIAL --stay-awake'
+local scrcpy_flags='--shortcut-mod lalt,lsuper,ralt,rsuper --serial $ANDROID_SERIAL --stay-awake'
 alias scrcpy="scrcpy --verbosity debug $scrcpy_flags"
 alias scrcpyd="daemonize -- $(which -p scrcpy) $scrcpy_flags"
 unset emulator_flags scrcpy_flags
