@@ -21,7 +21,8 @@ function fpv() {
 }
 
 function mi() {
-	mediaconch -mi "$*" | sed -e 's#/String #        #' -e 's#/Info #      #' | bl yml
+	mediainfo "$*" | bl yml
+	# mediaconch -mi "$*" | sed -e 's#/String #        #' -e 's#/Info #      #' | bl yml
 }
 
 function fmp3() {
