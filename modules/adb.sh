@@ -162,6 +162,8 @@ function adbk() {
 			"org.videolan.vlcbenchmark"
 			"org.xbmc.kodi"
 			"tv.emby.embyatv"
+			"tv.mrmc.mrmc"
+			"tv.mrmc.mrmc.lite"
 			"tv.twitch.android.app"
 		)
 		adbk $pkgs
@@ -288,16 +290,21 @@ function adbapk() {
 		adb pull "$apkpath" "$v.apk"
 	done
 }
+
 function adbdown() {
 	local v && for v in "$@"; do
 		# adb shell am set-inactive --user 0 "$v" true
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
+	adb shell am force-stop com.google.android.tvlauncher
+	adb shell input keyevent KEYCODE_HOME
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
+	adb shell am force-stop com.google.android.tvlauncher
+	adb shell input keyevent KEYCODE_HOME
 }
 
 # function adbjadx() {
