@@ -31,7 +31,8 @@ function duti-sublime() {
 # alias ssh="ssh -L 52698:localhost:52699"
 # alias pbcopy="pbcopy -Prefer txt"
 alias ppcopy="tr -d '\n' | pbcopy"
-alias gpw="echo; pwgen -N1 -s -y 16 | tee /dev/tty | tr -d '\n' | pbcopy"
+alias gpw="echo; pwgen --ambiguous --symbols --num-passwords=1 16 | tee /dev/tty | tr -d '\n' | pbcopy"
+# alias gpw="echo; gpg --armor --gen-random 0 12 | tee /dev/tty | tr -d '\n' | pbcopy"
 alias {unattr,unxattr}="xattr -c -r"
 alias unquarantine="xattr -d -r com.apple.quarantine"
 
