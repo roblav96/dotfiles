@@ -38,7 +38,7 @@ alias gmupd="gfa && git submodule update --init --recursive"
 alias gtls="git tag -n --list"
 alias gtf="git tag --contains"
 alias gti="git show --stat"
-alias {gswt,gtsw}='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
+alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 
 alias glf="git ls-files | sortt | lscolors"
 alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
@@ -63,17 +63,18 @@ function gup() {
 		if [[ "$1" == "r" ]]; then
 			greset
 			gpr
+			if [[ -e "package.json" ]]; then
+				npm install --ignore-scripts
+			fi
+			if [[ -e "src/package.json" ]]; then
+				cd "src"
+				npm install --ignore-scripts
+				cd ..
+			fi
 		else
 			gpf
 		fi
-		gmt -q
-		if [[ -e package.json ]]; then
-			npm install --ignore-scripts
-		fi
-		if [[ -e src/package.json ]]; then
-			cd src
-			npm install --ignore-scripts
-		fi
+		git-restore-mtime --force --quiet
 	); done
 	bhr
 }
