@@ -149,6 +149,7 @@ bindkey '^[[5D' backward-word
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
+which d &>/dev/null && unfunction d
 unalias grep &>/dev/null
 unalias la &>/dev/null
 unalias ls &>/dev/null
