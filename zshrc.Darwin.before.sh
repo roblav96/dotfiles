@@ -6,7 +6,7 @@
 # export PASTEL_COLOR_MODE="8bit"
 # export SDKROOT="macosx10.14"
 # export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk"
-export MACOSX_DEPLOYMENT_TARGET="10.15"
+# export MACOSX_DEPLOYMENT_TARGET="10.15"
 
 # export JAVA_HOME="$(/usr/libexec/java_home)"
 # export PATH="$HOME/.jenv/bin:$PATH"
