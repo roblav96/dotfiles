@@ -4,6 +4,12 @@ alias lcdisableds="lcdisabled | rg --after-context=1 --case-sensitive --fixed-st
 # 	cat "/var/db/com.apple.xpc.launchd/disabled."* | rg --color=always --after-context=1 --case-sensitive --fixed-strings "$*"
 # }
 
+function lcl() {
+	echo && echo "🟡 User Agents"
+	launchctl list | sed '/^-/d' | sort --numeric-sort | column -t
+	echo && echo "🟡 System Daemons"
+	sudo launchctl list | sed '/^-/d' | sort --numeric-sort | column -t
+}
 function lcls() {
 	echo && echo "🟡 User Agents"
 	launchctl list | column -t
