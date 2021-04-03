@@ -1,11 +1,11 @@
 # export GIT_PAGER="$PAGER"
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 [[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
-[[ -x "$(which -p git-restore-mtime)" ]] && alias {gmt,grmt}="git-restore-mtime --force"
+[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='isgit; git-restore-mtime --force'
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 alias ghb="github"
-alias gho="gh repo view --web"
+alias gho='isgit; open "$(gurl)"'
 alias gurl="git remote get-url origin"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
@@ -63,18 +63,13 @@ function gup() {
 		if [[ "$1" == "r" ]]; then
 			greset
 			gpr
-			if [[ -e "package.json" ]]; then
-				npm install --ignore-scripts
-			fi
-			if [[ -e "src/package.json" ]]; then
-				cd "src"
-				npm install --ignore-scripts
-				cd ..
-			fi
 		else
 			gpf
 		fi
-		git-restore-mtime --force --quiet
+		if [[ -x "$(which -p git-restore-mtime)" ]]; then
+			git-restore-mtime --force --quiet
+			touch "$PWD"
+		fi
 	); done
 	bhr
 }
@@ -89,10 +84,9 @@ function gc() {
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
-	[[ -e ".gitmodules" ]] && gmupd
+	[[ -e .gitmodules ]] && gmupd
 	if [[ -x "$(which -p git-restore-mtime)" ]]; then
 		git-restore-mtime --force --quiet
-		touch "$PWD"
 	fi
 }
 function greload() {

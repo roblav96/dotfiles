@@ -189,8 +189,8 @@ alias stgs="(stcd && gs)"
 alias stgl="(stcd && gla --max-count=1)"
 alias stpush="(stcd && gpush)"
 alias stupd='
-(cd "$HOME/Sandbox/Packages" && echo && echo "▶ $(pwd)" && gpr && gmt -q);
-(cd "$HOME/Sandbox/PackageDev" && echo && echo "▶ $(pwd)" && gpr && gmt -q);
+(cd "$HOME/Sandbox/Packages" && echo && echo "▶ $(pwd)" && gpr);
+(cd "$HOME/Sandbox/PackageDev" && echo && echo "▶ $(pwd)" && gpr);
 '
 function stbak() {
 	(

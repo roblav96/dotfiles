@@ -36,6 +36,10 @@ function npmin() {
 		npm install "$v" && npm install -D "@types/$v"
 	done
 }
+function npminit() {
+	[[ -e package.json ]] && npm install --ignore-scripts
+	[[ -e src/package.json ]] && (cd src && npm install --ignore-scripts)
+}
 function npmrm() {
 	npm uninstall "$@" "@types/$@"
 }
