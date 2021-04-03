@@ -149,14 +149,19 @@ bindkey '^[[5D' backward-word
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
-which d &>/dev/null && unfunction d
+unalias diff &>/dev/null
 unalias grep &>/dev/null
 unalias la &>/dev/null
 unalias ls &>/dev/null
+unalias lsa &>/dev/null
+unalias md &>/dev/null
 unalias path &>/dev/null
 unalias pip &>/dev/null
-unalias diff &>/dev/null
+unalias rd &>/dev/null
+unfunction d &>/dev/null
+
 [[ ! -x "$(which -p lscolors)" ]] && alias lscolors="cat"
+alias lsc="lscolors"
 
 # alias fo="forever "
 # alias rma="rm -rf"
@@ -193,6 +198,7 @@ alias killall="killall -v"
 alias k="killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -laph"
+alias diff="diff -u"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
 alias pwda="pwd && pwd -P"
@@ -205,7 +211,6 @@ alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
-alias lsc="lscolors"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
 alias day='date +"%c"'
@@ -268,16 +273,9 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	mkdir "$HOME/.Trash"
 	chmod 700 "$HOME/.Trash"
 fi
-unalias rd &>/dev/null
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
-# function rd() {
-# 	local v && for v in "$@"; do
-# 		mv -f -t $(mktemp -d -p "$HOME/.Trash") "$v"
-# 	done
-# } && compdef rd=rm
-# alias rda="rd {.,}*"
-alias rmf="$(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
-alias ltrash="lm --tree --level=2 $HOME/.Trash" # du -ah -d0 $HOME/.Trash
+alias .rd=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p $HOME/.Trash)"
+alias ltrash="lm --tree --level=2 $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?🔴 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
 
 alias zdebug="zsh -lixc : 2>&1"
