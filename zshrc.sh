@@ -234,7 +234,7 @@ which sc &>/dev/null || alias sc="shellcheck --shell=bash --severity=warning"
 alias ipcalc="ipcalc --nobinary"
 alias sipcalc="sipcalc --all"
 alias en="trans -engine bing -brief"
-alias lsd="lsd --icon=never --long --all --classify"
+alias lsd="lsd --icon=never --classify"
 alias uuid8="uuid | head -c8"
 alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
