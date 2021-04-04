@@ -60,12 +60,13 @@ function gup() {
 		cd "$repo"
 		echo "🟡 $repo" && echo -n "   "
 		gurl
-		if [[ "$1" == "r" ]]; then
-			greset
-			gpr
-		else
-			gpf
-		fi
+		# if [[ "$1" == "r" ]]; then
+		gss
+		greset
+		gpr
+		# else
+		# 	gpf
+		# fi
 		if [[ -x "$(which -p git-restore-mtime)" ]]; then
 			git-restore-mtime --force --quiet
 			touch "$PWD"

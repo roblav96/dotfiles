@@ -24,7 +24,7 @@ alias rgls="rg --type-list"
 
 unset rg_flags rg_max_columns_flags
 
-
+#
 
 # alias raf="rg $rg_flags --no-ignore --fixed-strings --stats --follow"
 # alias r="rg --smart-case"

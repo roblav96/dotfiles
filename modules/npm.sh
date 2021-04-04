@@ -67,23 +67,25 @@ function nsc() {
 	sed -i 's/": "~/": "^/' package.json
 	npm install --save-dev @nativescript/android
 	prettier --write .
-	npx update-ns-webpack --configs
+	[[ -e webpack.config.js ]] && rm webpack.config.js
+	npx nativescript-webpack init
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
-alias nssed="sed -e 's#^JS: ##'$(
-	local sedexp=""
-	for ((i = 16; i > 0; i--)); do
-		sedexp+=" -e 's#^"
-		for i in {1..$i}; do sedexp+="  "; done
-		sedexp+="#"
-		for i in {1..$i}; do sedexp+="\\\t"; done
-		sedexp+="#'"
-	done
-	echo -n $sedexp
-)"
 
-# alias ns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home ns"
-# alias tns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home tns"
+# alias nssed="sed -e 's#^JS: ##'$(
+# 	local sedexp=""
+# 	for ((i = 16; i > 0; i--)); do
+# 		sedexp+=" -e 's#^"
+# 		for i in {1..$i}; do sedexp+="  "; done
+# 		sedexp+="#"
+# 		for i in {1..$i}; do sedexp+="\\\t"; done
+# 		sedexp+="#'"
+# 	done
+# 	echo -n $sedexp
+# )"
+
+# alias ns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home ns"
+# alias tns="env JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home tns"
 
 # function nsv() {
 # 	local platforms=('android' 'ios')

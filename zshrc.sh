@@ -118,6 +118,23 @@ fi
 
 
 
+# function accept-line() {
+# 	# default zsh behaviour locally
+# 	emulate -L zsh
+# 	# with extendedglob for ## (= ERE +) below
+# 	set -o extendedglob
+# 	# remove leading blanks
+# 	BUFFER=${BUFFER##[[:blank:]]##}
+# 	# remove blanks after newlines in case a multiline buffer is accepted
+# 	# for instance after a safe-paste or a newline entered with <Alt+Ret>
+# 	BUFFER=${BUFFER//$'\n'[[:blank:]]##/$'\n'}
+# 	# call original accept-line
+# 	zle .$WIDGET
+# }
+# zle -N accept-line
+
+
+
 # export ZSH_COMPDEF="$(which -w compdef | grep -q 'function$' && echo 1)"
 
 # [[ -n "$ITERM_SESSION_ID" ]] && export WORDCHARS="-+\~_."
@@ -181,7 +198,7 @@ alias ln="ln -v"
 alias mv="mv -v"
 alias cp="cp -rv"
 alias rm="rm -v"
-alias .rm=" $(which -p rm) -rf"
+# alias .rm=" $(which -p rm) -rf"
 # alias tar="tar -v"
 alias rmdir="rmdir -v"
 alias mkdir="mkdir -pv"
@@ -274,7 +291,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 	chmod 700 "$HOME/.Trash"
 fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
-alias .rd=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
+alias {.rd,.rm}=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
 alias ltrash="lm --tree --level=2 $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?🔴 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
 
