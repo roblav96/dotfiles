@@ -16,9 +16,9 @@ function .deno-node_modules() {
 	# svn export --depth=files --force https://github.com/denoland/deno/trunk/cli/dts "$(npm root)/typescript-deno-plugin/lib"
 	.deno-libs "$(npm root)/typescript-deno-plugin/lib"
 	{
-		fd --exclude=node_modules --type=file --extension=ts --exclude='*.d.ts' --exec-batch deno cache --unstable --no-check --reload
+		fd --exclude=node_modules --type=file --extension=ts --exclude='*.d.ts' --exec-batch deno cache --unstable --no-check
 	} || {
-		fd --exclude=node_modules --type=file --extension=ts --exclude='*.d.ts' --exec deno cache --unstable --no-check --reload
+		fd --exclude=node_modules --type=file --extension=ts --exclude='*.d.ts' --exec deno cache --unstable --no-check
 	}
 }
 

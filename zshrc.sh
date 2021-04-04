@@ -224,7 +224,6 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias | sortt | sed 's#^#\n#'"
-alias commandsls='printf "%s\n" $commands | sortt'
 alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
@@ -322,6 +321,11 @@ test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
+
+alias cmdls='printf "%s\n" $commands | sortt'
+function cmdf() {
+	printf "%s\n" $commands | rg --fixed-strings "$*" | sortt | uniq | lscolors
+} && compdef cmdf=command
 
 # if [[ -x "$(which -p sd)" ]]; then
 # 	function .zsd() {
