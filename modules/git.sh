@@ -86,6 +86,9 @@ function gc() {
 	fi
 	git clone "$@" && cd "$outdir"
 	[[ -e .gitmodules ]] && gmupd
+	if [[ -e gradlew ]]; then
+		fd --type=file --glob gradlew --exec-batch chmod -v a+x
+	fi
 	if [[ -x "$(which -p git-restore-mtime)" ]]; then
 		git-restore-mtime --force --quiet
 	fi
