@@ -8,6 +8,7 @@ alias ghb="github"
 # alias gho='isgit; open "$(gurl)"'
 alias gho="gh repo view --web"
 alias gurl="git remote get-url origin"
+alias gbranch='echo -n $(git branch --show-current)'
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
@@ -45,13 +46,13 @@ alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
 alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
 
 alias gclean='git clean -f -f -d -x'
-alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias greset='git reset --hard'
 alias gcld='echo; gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?🔴 Would remove ...? " && return 1; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; gs; echo; read -q "?🔴 git push origin $(basename --suffix=.git $(gurl)) ...? " && return 1; gca && git push origin $(echo -n $(git rev-parse --abbrev-ref HEAD))'
+alias gpush='isgit; gs; echo; read -q "?🔴 git push origin $(basename --suffix=.git $(gurl)) ...? " && return 1; gca && git push origin $(gbranch)'
 
 function gup() {
 	local v && for v in */.git; do (
@@ -62,8 +63,8 @@ function gup() {
 		gurl
 		# if [[ "$1" == "r" ]]; then
 		gss
-		greset
-		gpr
+		git reset --hard
+		gpf
 		# else
 		# 	gpf
 		# fi
