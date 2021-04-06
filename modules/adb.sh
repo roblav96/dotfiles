@@ -122,7 +122,6 @@ function adbk() {
 			"app.debrids.tv"
 			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
-			"com.android.tv.settings"
 			"com.android.vending"
 			"com.curiosity.curiositystream.androidtv"
 			"com.fgl27.twitch"
