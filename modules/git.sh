@@ -34,7 +34,6 @@ alias gfu="git fetch upstream"
 
 alias gpr="gfa && git pull --rebase --recurse-submodules"
 alias gpf="gfa && git pull --ff-only --recurse-submodules"
-alias gmupd="gfa && git submodule update --init --recursive"
 
 alias gtls="git tag -n --list"
 alias gtf="git tag --contains"
@@ -86,7 +85,7 @@ function gc() {
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
-	[[ -e .gitmodules ]] && gmupd
+	[[ -e .gitmodules ]] && git submodule update --init --recursive
 	if [[ -e gradlew ]]; then
 		fd --type=file --glob gradlew --exec-batch chmod -v a+x
 	fi
