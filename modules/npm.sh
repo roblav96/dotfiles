@@ -67,8 +67,8 @@ function nsc() {
 	sed -i 's/": "~/": "^/' package.json
 	npm install --save-dev @nativescript/android
 	prettier --write .
-	[[ -e webpack.config.js ]] && rm webpack.config.js
-	npx nativescript-webpack init
+	# [[ -e webpack.config.js ]] && rm webpack.config.js
+	# npx nativescript-webpack init
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
 

@@ -224,9 +224,11 @@ function adbsettingsf() {
 	adb shell settings list global | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
 }
 function adbsettingsinit() {
+	local verify="1"
+	[[ "$ANDROID_SERIAL" == "emulator-5554" ]] && verify="0"
 	adb shell settings put global development_settings_enabled 1
 	adb shell settings put global stay_on_while_plugged_in 3
-	adb shell settings put global verifier_verify_adb_installs 1
+	adb shell settings put global verifier_verify_adb_installs $verify
 	adb shell settings put global animator_duration_scale 0.5
 	adb shell settings put global transition_animation_scale 0.5
 	adb shell settings put global window_animation_scale 0.5
