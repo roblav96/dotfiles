@@ -299,6 +299,7 @@ function adbdown() {
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 	adb shell am force-stop com.google.android.tvlauncher
+	sleep 1
 	adb shell input keyevent KEYCODE_HOME
 }
 function adbup() {
@@ -306,6 +307,7 @@ function adbup() {
 		adb shell pm enable --user 0 "$v"
 	done
 	adb shell am force-stop com.google.android.tvlauncher
+	sleep 1
 	adb shell input keyevent KEYCODE_HOME
 }
 
