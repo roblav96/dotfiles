@@ -349,11 +349,11 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
-alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
-alias axel="axel --ipv4 --no-clobber --alternate --timeout=3"
+alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
+alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 alias aria2cdl="aria2c --split=4 --download-result=full"
-alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=3 --restrict-file-names=unix"
-alias curl="curl --silent --show-error --fail-early --location --connect-timeout 3"
+alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
+alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt='curl --output /dev/null --write-out "
 Effective URL: %{url_effective}
 Content Type: %{content_type}
@@ -550,7 +550,7 @@ test -x "$(which -p rclone)" && source "$DOTFILES/modules/rclone.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
-test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtubedl.sh"
+test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtube-dl.sh"
 
 function dotcompinit() {
 	# echo "🟡 dotcompinit"

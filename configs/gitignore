@@ -27,6 +27,8 @@ Temporary Items
 .apdisk
 
 # ████  roblav96/dotfiles  ████
+__pycache__
+.ccls-cache
 .classpath
 .gradle
 .graveyard

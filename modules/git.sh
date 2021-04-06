@@ -5,7 +5,8 @@
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 alias ghb="github"
-alias gho='isgit; open "$(gurl)"'
+# alias gho='isgit; open "$(gurl)"'
+alias gho="gh repo view --web"
 alias gurl="git remote get-url origin"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
@@ -46,7 +47,7 @@ alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors
 
 alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard origin/$(echo -n $(git rev-parse --abbrev-ref HEAD))'
-alias gcld='gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
+alias gcld='echo; gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
 alias gcl='gcld; echo; read -q "?🔴 Would remove ...? " && return 1; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
