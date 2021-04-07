@@ -123,6 +123,7 @@ function adbk() {
 			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
 			"com.android.vending"
+			"com.brouken.player.online"
 			"com.curiosity.curiositystream.androidtv"
 			"com.fgl27.twitch"
 			"com.google.android.apps.mediashell"
@@ -235,7 +236,6 @@ function adbsettingsinit() {
 	adb shell settings put global hidden_api_policy 1
 	adb shell settings put global hidden_api_policy_p_apps 1
 	adb shell settings put global hidden_api_policy_pre_p_apps 1
-	adb shell settings put secure location_mode 0
 	adb shell settings put secure long_press_timeout 250
 	local verify="1" && [[ "$ANDROID_SERIAL" == "emulator-5554" ]] && verify="0"
 	adb shell settings put global verifier_verify_adb_installs $verify

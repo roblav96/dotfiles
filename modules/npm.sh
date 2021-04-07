@@ -61,10 +61,9 @@ alias vueinspect="FORCE_COLOR=0 vue inspect"
 # alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -l ts'
 
 function nsc() {
-	npm info "@nativescript/$@"
-	ns create "$@" --template "@nativescript/$@" || return 1
+	npm info "@nativescript/$@" && ns create "$@" --template "@nativescript/$@" || return 1
 	cd "$@"
-	sed -i 's/": "~/": "^/' package.json
+	# sed -i 's/": "~/": "^/' package.json
 	npm install --save-dev @nativescript/android
 	prettier --write .
 	# [[ -e webpack.config.js ]] && rm webpack.config.js
