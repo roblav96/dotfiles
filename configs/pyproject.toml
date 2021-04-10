@@ -1,5 +1,6 @@
 [tool.black]
 include = '\.py$'
 line-length = 100
+# ['py27'|'py33'|'py34'|'py35'|'py36'|'py37'|'py38']
 target-version = ['py38']
 verbose = false

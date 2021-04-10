@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
@@ -74,6 +74,7 @@ alias rog="$rogs" && unset rogs
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
 alias adbt="adb shell input keyboard text"
+alias adben="adb shell input keyevent KEYCODE_ENTER"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbp="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/\[kworker\//d'"
