@@ -23,7 +23,6 @@
 	ui = "always"
 [core]
 	excludesfile = "~/.gitignore"
-	# pager = "diffr --line-numbers"
 	pager = "delta"
 [interactive]
 	diffFilter = "delta --color-only"

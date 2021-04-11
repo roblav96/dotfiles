@@ -66,6 +66,7 @@ function nsc() {
 	# sed -i 's/": "~/": "^/' package.json
 	# npm install --save-dev @nativescript/android
 	prettier --write .
+	ns platform add android
 	# [[ -e webpack.config.js ]] && rm webpack.config.js
 	# npx nativescript-webpack init
 }
