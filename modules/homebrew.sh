@@ -43,7 +43,6 @@ function bupg() {
 			HOMEBREW_COLOR=1 brew upgrade --formula --verbose "$v" | lscolors
 		done
 	fi
-	src
 } && compdef bupg=command
 function bcupg() {
 	local v && for v in "$@"; do
@@ -103,7 +102,6 @@ function bin() {
 		echo && echo "🟡 Installing formula -> '$v'"
 		HOMEBREW_COLOR=1 brew install --force-bottle --formula "$v" | lscolors
 	done
-	src
 }
 function bcin() {
 	local v && for v in "$@"; do
@@ -117,7 +115,6 @@ function brein() {
 		echo && echo "🟡 Reinstalling formula -> '$v'"
 		HOMEBREW_COLOR=1 brew reinstall --force-bottle --formula "$v" | lscolors
 	done
-	src
 } && compdef brein=command
 function bcrein() {
 	local v && for v in "$@"; do
@@ -233,7 +230,6 @@ function brm() {
 		echo && echo "🟡 Uninstalling formula -> '$v'"
 		HOMEBREW_COLOR=1 brew uninstall --force --verbose "$v" | lscolors
 	done
-	src
 } && compdef brm=command
 function bcrm() {
 	local v && for v in "$@"; do
