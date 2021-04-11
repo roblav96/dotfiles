@@ -43,8 +43,10 @@ unalias getip &>/dev/null
 alias getip="node -p 'Object.values(os.networkInterfaces()).flat().filter(v => v.internal == false && v.family == \"IPv4\" && v.mac != \"00:00:00:00:00:00\")[0].address'"
 
 function porthash() {
+	local value="$1"
+	[[ $# -eq 0 && -z "$value" ]] && value="$PWD"
 	node --print "
-		let value = '$1'
+		let value = '"$value"'
 		let [hash, i, char] = [0, 0, 0]
 		for (i = 0; i < value.length; i++) {
 			char = value.charCodeAt(i)

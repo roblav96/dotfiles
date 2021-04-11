@@ -397,8 +397,8 @@ fi
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
-alias mins='miniserve --verbose --interfaces=$(getip) --port=8080'
-alias pubserve='mins --auth=admin: $HOME/Public'
+alias mins='miniserve --verbose --interfaces=127.0.0.1 --port=$(porthash)'
+alias pubserve='miniserve --verbose --interfaces=$(getip) --port=8080 --auth=admin: "$HOME/Public"'
 alias pubget='wget --http-user=admin --http-password='
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
