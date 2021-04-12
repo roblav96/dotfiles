@@ -323,7 +323,7 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
 alias cmdls='printf "%s\n" $commands | sortt'
 function cmdf() {
-	printf "%s\n" $commands | rg --fixed-strings "$*" | sortt | uniq | lscolors
+	printf '%s\n' $commands | rg "$@" | sortt | uniq | lscolors
 } && compdef cmdf=command
 
 # if [[ -x "$(which -p sd)" ]]; then

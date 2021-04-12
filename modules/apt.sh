@@ -1,8 +1,13 @@
-alias aptupd="sudo apt update"
-alias aptupg="sudo apt upgrade"
+# alias aptupd="sudo apt update"
+# alias aptupg="sudo apt upgrade"
 # alias aptfs="apt-file list"
 # alias apti="apt show"
 # alias apts="apt search"
+
+alias aptupd="sudo apt update"
+alias aptout="apt list --upgradeable"
+alias aptupg="sudo apt upgrade"
+alias aptup="sudo apt update && sudo apt upgrade"
 
 function apti() {
 	apt show "$*" 2>/dev/null | bat --plain -l yml
