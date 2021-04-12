@@ -1,4 +1,5 @@
 alias jk="joker"
+alias jkk=" joker kill"
 alias jkls="joker list"
 
 function jktf() {
