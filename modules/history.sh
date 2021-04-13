@@ -25,7 +25,7 @@ function __histsd() {
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
 	diff "$histfile" <(sd --preview --flags cw --string-mode "$1" "$2" "$histfile") | delta
 	echo && read -q "?🔴 CONFIRM '$1' -> '$2' ...? " && return 1
-	echo && __histbak
+	echo && __histbak && echo
 	sd --flags cw --string-mode "$1" "$2" "$histfile"
 	exit
 } && compdef __histsd=which && alias histsd=" __histsd"
