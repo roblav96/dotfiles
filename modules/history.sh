@@ -23,11 +23,11 @@ function __histsd() {
 		return 1
 	fi
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	diff <(cat "$histfile" | sed 's/^: .*:0;/:0;/') <(cat "$histfile" | sed 's/^: .*:0;/:0;/' | sd -f cw -s "$1" "$2") | delta
+	diff "$histfile" <(sd --preview --flags cw --string-mode "$1" "$2" "$histfile") | delta
 	echo && read -q "?🔴 CONFIRM '$1' -> '$2' ...? " && return 1
 	echo && __histbak
-	sd -f cw -s "$1" "$2" "$histfile"
-	exit 0
+	sd --flags cw --string-mode "$1" "$2" "$histfile"
+	exit
 } && compdef __histsd=which && alias histsd=" __histsd"
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
