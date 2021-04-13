@@ -7,7 +7,6 @@ function histr() {
 alias histw="histr --word-regexp"
 
 function __histbak() {
-	echo
 	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")
 	local histfile && for histfile in "${histfiles[@]}"; do
 		if [[ -e "$histfile" ]]; then
@@ -16,7 +15,6 @@ function __histbak() {
 			chmod 000 "$bakfile"
 		fi
 	done
-	echo
 } && alias .zbak=" __histbak"
 
 function __histsd() {
@@ -25,18 +23,11 @@ function __histsd() {
 		return 1
 	fi
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	echo && echo "█ 🟡 FIND -> '$1'" && echo
-	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings "$1"
-	hist | rg --case-sensitive --fixed-strings --word-regexp "$1"
-	echo && echo "█ 🟠 REPLACE -> '$2'" && echo
-	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:yellow --replace "$2" "$1"
-	hist | rg --case-sensitive --fixed-strings --word-regexp --colors=match:fg:yellow --replace "$2" "$1"
-	echo && read -q "?🔴 CONFIRM -> '$2' ...? " && return 1
-	__histbak
-	sd --flags cw --string-mode \'$1\' \'$2\' "$histfile"
-	echo && echo "█ 🟢 REPLACED -> '$2'" && echo
-	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green "$2"
-	hist | rg --case-sensitive --fixed-strings --word-regexp --colors=match:fg:green "$2"
+	diff <(cat "$histfile" | sed 's/^: .*:0;//') <(cat "$histfile" | sed 's/^: .*:0;//' | sd -f cw -s "$1" "$2") | delta
+	echo && read -q "?🔴 CONFIRM '$1' -> '$2' ...? " && return 1
+	echo && __histbak
+	sd -f cw -s "$1" "$2" "$histfile"
+	exit 0
 } && compdef __histsd=which && alias histsd=" __histsd"
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
