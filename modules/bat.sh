@@ -37,6 +37,7 @@ which bir &>/dev/null || alias bir="bl ruby"
 which bis &>/dev/null || alias bis="bl strace"
 which bit &>/dev/null || alias bit="bl tcl"
 which bix &>/dev/null || alias bix="bl xml"
+which biy &>/dev/null || alias biy="bl python"
 
 # alias bconf="bat -l conf"
 # alias bdiff="bat -l diff"

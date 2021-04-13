@@ -2,11 +2,12 @@ alias hist="cat ${HISTFILE:-$HOME/.zsh_history} | sed 's/^: .*:0;//'"
 alias histy=" hist | tail --lines=\$(ty2) | sed 's/^/\n/' | bl sh"
 
 function histr() {
-	hist | rg --smart-case "$@" | sed 's/^/\n/g' | bat --style=grid -l sh
+	hist | rg --smart-case "$@" | sed 's/^/\n/g' | bl sh
 } && compdef histr=which
 alias histw="histr --word-regexp"
 
 function __histbak() {
+	echo
 	local histfiles=("${HISTFILE:-$HOME/.zsh_history}" "$HOME/.z")
 	local histfile && for histfile in "${histfiles[@]}"; do
 		if [[ -e "$histfile" ]]; then
@@ -15,6 +16,7 @@ function __histbak() {
 			chmod 000 "$bakfile"
 		fi
 	done
+	echo
 } && alias .zbak=" __histbak"
 
 function __histsd() {
@@ -23,15 +25,18 @@ function __histsd() {
 		return 1
 	fi
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	echo && echo "🟡 FIND -> '$1'" && echo
-	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings -e "$1"
-	echo && echo "🟠 REPLACE -> '$2'" && echo
-	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --replace "$2" --colors=match:fg:yellow -e "$1"
+	echo && echo "█ 🟡 FIND -> '$1'" && echo
+	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings "$1"
+	hist | rg --case-sensitive --fixed-strings --word-regexp "$1"
+	echo && echo "█ 🟠 REPLACE -> '$2'" && echo
+	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:yellow --replace "$2" "$1"
+	hist | rg --case-sensitive --fixed-strings --word-regexp --colors=match:fg:yellow --replace "$2" "$1"
 	echo && read -q "?🔴 CONFIRM -> '$2' ...? " && return 1
 	__histbak
-	sd --flags c --string-mode "$1" "$2" "$histfile"
-	echo && echo "🟢 REPLACED -> '$2'" && echo
-	cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green -e "$2"
+	sd --flags cw --string-mode \'$1\' \'$2\' "$histfile"
+	echo && echo "█ 🟢 REPLACED -> '$2'" && echo
+	# cat "$histfile" | sed 's/^: .*:0;/:0;/' | rg --case-sensitive --fixed-strings --colors=match:fg:green "$2"
+	hist | rg --case-sensitive --fixed-strings --word-regexp --colors=match:fg:green "$2"
 } && compdef __histsd=which && alias histsd=" __histsd"
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
