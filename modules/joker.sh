@@ -1,5 +1,5 @@
 alias jk="joker"
-alias jkk=" joker kill"
+alias jkk=" joker stop"
 alias jkl=" joker log"
 alias jkls="joker list"
 
