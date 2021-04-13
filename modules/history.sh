@@ -23,7 +23,7 @@ function __histsd() {
 		return 1
 	fi
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
-	diff <(cat "$histfile" | sed 's/^: .*:0;//') <(cat "$histfile" | sed 's/^: .*:0;//' | sd -f cw -s "$1" "$2") | delta
+	diff <(cat "$histfile" | sed 's/^: .*:0;/:0;/') <(cat "$histfile" | sed 's/^: .*:0;/:0;/' | sd -f cw -s "$1" "$2") | delta
 	echo && read -q "?🔴 CONFIRM '$1' -> '$2' ...? " && return 1
 	echo && __histbak
 	sd -f cw -s "$1" "$2" "$histfile"
