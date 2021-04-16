@@ -166,6 +166,7 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkgi="opkg info"
 	alias pkgin="opkg install"
 	alias pkgfs="opkg files"
+	alias pkgrm="opkg remove"
 	alias pkgupd="opkg update"
 	alias pkgupg="opkg upgrade"
 	alias pkgout="opkg list-upgradable"
