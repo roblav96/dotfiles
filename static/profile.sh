@@ -70,6 +70,7 @@ alias idk="man --apropos"
 alias psa="ps auxww"
 alias p="ps auxww | grep --invert-match grep | grep"
 alias k="killall -KILL"
+alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
