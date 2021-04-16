@@ -56,7 +56,7 @@ alias lra="tree -N -F -l -a -A -C"
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
 alias bat="cat" && alias b="bat"
-alias htop="htop --delay=1"
+alias htop="htop --delay=1 --highlight-changes=10"
 alias bhr="echo"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
@@ -69,7 +69,7 @@ alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
-alias json="jq --sort-keys --tab"
+alias json="jq --sort-keys --tab" && alias j="json"
 
 # if [[ -x "$(which tsudo)" ]]; then
 # 	alias sudo="tsudo "
