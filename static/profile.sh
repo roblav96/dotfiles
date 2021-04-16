@@ -9,6 +9,7 @@
 [[ -e "$DOTFILES/configs/.env" ]] && source "$DOTFILES/configs/.env"
 [[ -z "$HOME" ]] && export HOME="$(dirname $DOTFILES)"
 [[ -x "$(which tabs)" ]] && tabs -4
+[[ -x "$(which git)" ]] && export GIT_PAGER="cat"
 
 # if [[ -x "$(which rmate)" ]]; then
 # 	export EDITOR="rmate"
