@@ -192,6 +192,7 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 
 # [[ -d "/mnt/WD_GRAPHITE/idk_SMBv2" ]] && alias cdidk="cd /mnt/WD_GRAPHITE/idk_SMBv2"
 
+test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
 # if test -d "/data/data/com.termux/files"; then
