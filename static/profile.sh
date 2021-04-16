@@ -73,6 +73,12 @@ alias k="killall -KILL"
 alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
+function binstall() {
+	chown -v admin:root "$@"
+	chmod -v 755 "$@"
+	cp -v -t /opt/bin "$@"
+}
+
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
