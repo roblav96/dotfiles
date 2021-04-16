@@ -179,7 +179,7 @@ fi
 
 test -x "$(which wget)" && alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
 test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
-test -x "$(which axel)" && alias axel="axel --ipv4 --timeout=5"
+test -x "$(which axel)" && alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 # test -x "$(which curl)" && source "$DOTFILES/modules/tldr.sh"
