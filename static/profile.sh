@@ -24,6 +24,11 @@ if [[ -x "$(which nano)" ]]; then
 fi
 [[ -n "$EDITOR" ]] && alias e="$EDITOR"
 
+if [[ -x "$(which rmate)" ]]; then
+	which st &>/dev/null || alias st="rmate"
+	which subl &>/dev/null || alias subl="rmate"
+fi
+
 # set completion-ignore-case on
 # set completion-query-items 256
 # set expand-tilde off
