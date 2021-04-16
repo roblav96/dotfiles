@@ -61,7 +61,8 @@ alias bhr="echo"
 # function idk() { man -k $@ | grep "$@|$" }
 alias idk="man --apropos"
 # alias s="subl -f"
-alias p="ps w | grep --invert-match grep | grep"
+alias psa="ps auxww"
+alias p="ps auxww | grep --invert-match grep | grep"
 alias k="killall -KILL"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
@@ -142,8 +143,10 @@ function cha() {
 # export PS1="$PS1_USER \[\033[1;34m\]\w\[\033[0m\] $PS1_BANG "
 
 # export CLICOLOR="1"
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-# export TERM="xterm-256color"
+# export LSCOLORS="Gxfxcxdxbxegedabagacad"
+if [[ "$TERM" == "xterm" ]]; then
+	export TERM="xterm-256color"
+fi
 
 if [[ -n "$HISTFILE" ]]; then
 	export HISTFILESIZE="999999999"
