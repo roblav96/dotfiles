@@ -151,9 +151,9 @@ function cha() {
 
 # export CLICOLOR="1"
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
-if [[ "$TERM" == "xterm" ]]; then
-	export TERM="xterm-256color"
-fi
+# if [[ "$TERM" == "xterm" ]]; then
+# 	export TERM="xterm-256color"
+# fi
 
 if [[ -n "$HISTFILE" ]]; then
 	export HISTFILESIZE="999999999"
