@@ -242,7 +242,7 @@ alias clr="tput clear"
 alias sortt='LC_ALL="C" sort --ignore-case --ignore-leading-blanks --ignore-nonprinting'
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine="hyperfine --shell=$(which -p bash) --min-runs=5"
+alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --external-sources"
