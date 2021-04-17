@@ -1,4 +1,4 @@
-which rc &>/dev/null || alias rc="rclone"
+alias rc="rclone"
 
 function rcwd() {
 	local v && for v in "$@"; do
