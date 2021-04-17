@@ -187,6 +187,9 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	function pkgsa() {
 		opkg find --nocase "*$**"
 	}
+
+	# export LD_LIBRARY_PATH="/lib:/usr/lib:/lib/aarch64"
+
 fi
 
 test -x "$(which wget)" && alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"

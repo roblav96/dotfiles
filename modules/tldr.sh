@@ -102,11 +102,11 @@ function clfu() {
 } && compdef clfu=command
 
 function tla() {
-	if [[ -x "$(which -p "$1")" ]]; then
-		"$@" --help 2>&1 | bat --style=grid -l man
-		# "$@" "${2:---help}" 2>&1 | bat --style=grid -l man
+	man "$*" && echo "█ $* --help"
+	if [[ -x "$(which -p "$*")" ]]; then
+		("$*" --help 2>&1 | bl man) && echo "█ tl $*"
 	fi
-	tl "$@"
-	ch "$@"
+	tl "$@" && echo "█ ch $*"
+	ch "$@" && echo "█ cha $*"
 	cha "$@"
 } && compdef tla=command
