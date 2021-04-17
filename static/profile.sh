@@ -74,9 +74,13 @@ alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
 function binstall() {
-	chown -v admin:root "$@"
-	chmod -v 755 "$@"
-	cp -v -t /opt/bin "$@"
+	local v && for v in "$@"; do
+		[[ ! -f "$v" ]] && continue
+		local base="$(basename "$v")"
+		cp -v -t /opt/bin "$v"
+		chown -v admin:root "/opt/bin/$base"
+		chmod -v 755 "/opt/bin/$base"
+	done
 }
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
