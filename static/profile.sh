@@ -105,7 +105,7 @@ function f() {
 	find . -iname "*$**" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*" -not -path "./WD_GRAPHITE/*"
 }
 function r() {
-	grep --recursive . --no-messages --ignore-case --fixed-strings "$*"
+	grep --recursive . --no-messages --ignore-case --fixed-strings -e "$*"
 }
 
 function show() {
