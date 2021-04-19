@@ -102,10 +102,10 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias type="f() { type $@ && l $(which $@); unset -f f; }; f"
 
 function f() {
-	find . -iname "*$**" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
+	find . -iname "*$**" -not -path "./acct/*" -not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*" -not -path "./WD_GRAPHITE/*"
 }
 function r() {
-	grep --no-messages --ignore-case --fixed-strings --recursive . -e "$*"
+	grep --recursive . --no-messages --ignore-case --fixed-strings "$*"
 }
 
 function show() {
