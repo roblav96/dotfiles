@@ -183,6 +183,7 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 	alias pkgupd="opkg update"
 	alias pkgupg="opkg upgrade"
 	alias pkgout="opkg list-upgradable"
+	alias pkgls="opkg list-installed"
 	function pkgs() {
 		opkg info --nocase "*$**"
 	}
