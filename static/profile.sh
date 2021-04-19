@@ -49,6 +49,7 @@ alias g="grep --fixed-strings"
 # unalias l
 # unalias ll
 alias sudo="sudo "
+alias xargs="xargs "
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -68,7 +69,8 @@ alias bhr="echo"
 alias idk="man --apropos"
 # alias s="subl -f"
 alias psa="ps auxww"
-alias p="ps auxww | grep --invert-match grep | grep"
+alias p="ps auxww | grep --invert-match ' grep ' | grep --invert-match '/rmate ' | grep"
+alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 alias k="killall -KILL"
 alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
