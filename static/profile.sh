@@ -50,6 +50,7 @@ alias g="grep --fixed-strings --ignore-case"
 # unalias ll
 alias sudo="sudo "
 alias xargs="xargs "
+alias -- -='cd "$OLDPWD"'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
