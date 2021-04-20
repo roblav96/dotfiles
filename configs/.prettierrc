@@ -135,6 +135,12 @@
 			},
 		},
 		{
+			"files": ["*.d.ts"],
+			"options": {
+				"semi": true,
+			},
+		},
+		{
 			"files": [".ignore"],
 			"options": {
 				"parser": "sh",
