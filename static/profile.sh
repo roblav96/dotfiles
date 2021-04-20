@@ -217,6 +217,10 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
+if [[ -n "$PS1" && -f "/opt/etc/profile.d/bash_completion.sh" ]]; then
+	. "/opt/etc/profile.d/bash_completion.sh"
+fi
+
 # if test -d "/data/data/com.termux/files"; then
 # 	export ANDROID_DATA="/data"
 # 	export ANDROID_ROOT="/system"
