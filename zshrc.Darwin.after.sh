@@ -5,7 +5,7 @@ source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
 alias ii="iina"
-alias mp="mpv --msg-module --msg-level=all=info"
+alias mp="mpv --msg-module --msg-level=all=status"
 alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
