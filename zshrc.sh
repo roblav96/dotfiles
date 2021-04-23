@@ -410,8 +410,8 @@ function upiso() {
 		date.toISOString().slice(0, 10).replace(/-/g, "/") + " " + date.toTimeString().slice(0, 5)
 	'
 }
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm" "nginx: worker process" "$(upiso)"'
-[[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso)"'
+[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm" "nginx: worker process" "$(upiso | head -c-2)"'
+[[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso | head -c-2)"'
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
