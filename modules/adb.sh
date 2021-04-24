@@ -84,7 +84,7 @@ alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | sortt | bl sh"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
-alias adbls="adb shell find /sdcard/ -type f | sortt"
+alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d' | sortt"
 alias adbscreenshot='adb shell "screencap -p" > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
