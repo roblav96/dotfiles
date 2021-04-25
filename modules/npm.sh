@@ -2,6 +2,8 @@
 # [[ -z "$NODE_OPTIONS" ]] && export NODE_OPTIONS="--max-old-space-size=4096"
 # [[ -z "$NODE_REPL_HISTORY" ]] && export NODE_REPL_HISTORY=""
 
+alias .node-v8-flags="node --help --v8-options | sed -e 's/^  --/\n  --/' -e 's/  default: /\n        default: /' | bl yml"
+
 # alias n="npm"
 alias rr="npm run"
 # alias npx="npx --yes"
