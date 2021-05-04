@@ -233,6 +233,7 @@ alias day='date +"%c"'
 alias dateiso="date --iso-8601"
 alias sedlog="sed -u -e 's/^$(date +%Y)-/\n$(date +%Y)-/' -e 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
+alias sedby="sed -e 's/\b = /: /' -e 's/\b=/: /' | bl yml"
 alias redis-cli="redis-cli --no-auth-warning"
 # alias cl='printf "\ec\e[3J"'
 # alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
@@ -349,6 +350,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
+alias xh="xh --verbose --follow --ignore-stdin --pretty=all"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 alias aria2cdl="aria2c --split=4 --download-result=full"
@@ -545,6 +547,7 @@ test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p php)" && source "$DOTFILES/modules/php.sh"
 test -x "$(which -p pip)" && source "$DOTFILES/modules/pip.sh"
+test -x "$(which -p pkg-config)" && source "$DOTFILES/modules/pkg-config.sh"
 test -x "$(which -p python)" && source "$DOTFILES/modules/python.sh"
 test -x "$(which -p rclone)" && source "$DOTFILES/modules/rclone.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
