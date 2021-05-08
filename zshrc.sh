@@ -224,8 +224,8 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
 alias aliasls="alias | sortt | sed 's#^#\n#'"
-alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
-alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
+alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
+alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
@@ -432,7 +432,7 @@ function pe() {
 		local environment="$(ps -ww -o command= -E -p $pid)"
 		if [[ "${#command}" != "${#environment}" ]]; then
 			environment="${environment#$command }"
-			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sed -e '/^LS_COLORS/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d' | sortt | bat --plain -l properties
+			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d' | sortt | bat --plain -l properties
 		fi
 		# echo $environment | sd ' (\w+)=' '\n$1='
 		# ps -ww -E -p $pid | tr ' ' '\n' | rg --fixed-strings --case-sensitive '=' | sortt | bat --plain -l properties
