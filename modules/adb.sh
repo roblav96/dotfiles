@@ -19,7 +19,6 @@ fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
-	# start-stop-daemon -S -b -x /root/gost -- -L=:11080
 	local proxy="192.168.1.1:11080"
 	if [[ "$1" == "premiumize" ]]; then
 		curl --proxy "$proxy" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10

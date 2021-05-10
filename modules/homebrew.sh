@@ -89,13 +89,22 @@ function bs() {
 alias bscd='cd $(brew --prefix)/Homebrew'
 alias bscdt='cd $(brew --prefix)/Homebrew/Library/Taps/homebrew'
 
-alias blog="brew log --max-count=5"
+function blog() {
+	(
+		local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+		echo && echo "🟡 Formula git log -> '$*'" && echo
+		cd "$dir"
+		git log --reverse --date=relative --stat --max-count=5 "$*.rb"
+	)
+} && compdef blog=command
 function bclog() {
 	(
-		cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-cask"
-		git log --reverse --max-count=5 --date=relative --stat "Casks/$*.rb"
+		local dir="$(dirname "$(find "$(brew --prefix)/Homebrew/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
+		echo && echo "🟡 Cask git log -> '$*'" && echo
+		cd "$dir"
+		git log --reverse --date=relative --stat --max-count=5 "$*.rb"
 	)
-} && compdef bchist=command
+} && compdef bclog=command
 
 function bin() {
 	local v && for v in "$@"; do
