@@ -92,6 +92,8 @@ logic = "And"
 
 [display]
 show_self = false
+show_thread = true
+show_thread_in_tree = true
 cut_to_terminal = true
 cut_to_pager = false
 cut_to_pipe = false
@@ -101,6 +103,7 @@ ascending = "▲"
 descending = "▼"
 tree_symbols = ["│", "─", "┬", "├", "└"]
 abbr_sid = true
+theme = "Auto"
 
 [sort]
 column = 5
