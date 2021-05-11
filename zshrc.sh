@@ -292,7 +292,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
 alias .rm=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
-alias .rmshred=" $(which -p shred) -f --remove"
+alias .shredrm=" $(which -p shred) -f --remove"
 alias ltrash="lm --tree --level=2 $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?🔴 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
 
