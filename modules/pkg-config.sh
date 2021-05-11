@@ -20,5 +20,5 @@ function pc_path() {
 	done
 	pkg-config --variable pc_path pkg-config | sed 's#:/#\n/#g'
 	export PKG_CONFIG_PATH="$(brew --prefix)/opt/python@3.9/lib/pkgconfig:$PKG_CONFIG_PATH:$(pkg-config --variable pc_path pkg-config)"
-	echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'"
+	echo && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'"
 }

@@ -203,7 +203,7 @@ alias ..rm=" $(which -p rm) -rf"
 alias rmdir="rmdir -v"
 alias mkdir="mkdir -pv"
 alias shred="shred -v"
-alias shredrm="shred -v --remove"
+alias shredrm="shred -f --remove"
 alias chown="chown -v"
 alias chmod="chmod -v"
 alias chmodx="chmod a+x"
@@ -292,6 +292,7 @@ if [[ ! -d "$HOME/.Trash" ]]; then
 fi
 alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
 alias .rm=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
+alias .rmshred=" $(which -p shred) -f --remove"
 alias ltrash="lm --tree --level=2 $HOME/.Trash"
 alias rmtrash="ltrash; echo; read -q '?🔴 Empty Trash ...? ' && return 1; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
 
