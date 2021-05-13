@@ -92,7 +92,7 @@ logic = "And"
 
 [display]
 show_self = false
-show_thread = true
+show_thread = false
 show_thread_in_tree = true
 cut_to_terminal = true
 cut_to_pager = false
