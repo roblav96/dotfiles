@@ -32,8 +32,8 @@ function __histsd() {
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias .z=" __histbak; subl --wait --new-window $HOME/.z:999999"
-	alias {.hist,.zsh_history}=" __histbak; subl --wait --new-window ${HISTFILE:-$HOME/.zsh_history}:999999"
+	alias .hist=" __histbak; subl --wait --new-window ${HISTFILE:-$HOME/.zsh_history}:999999"
 else
 	alias .z=" __histbak; rmate --wait --new --line 999999 $HOME/.z"
-	alias {.hist,.zsh_history}=" __histbak; rmate --wait --new --line 999999 ${HISTFILE:-$HOME/.zsh_history}"
+	alias .hist=" __histbak; rmate --wait --new --line 999999 ${HISTFILE:-$HOME/.zsh_history}"
 fi
