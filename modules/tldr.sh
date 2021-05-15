@@ -102,11 +102,14 @@ function clfu() {
 } && compdef clfu=command
 
 function tla() {
-	man "$*" && echo "█ $* --help"
-	if [[ -x "$(which -p "$*")" ]]; then
-		("$*" --help 2>&1 | bl man) && echo "█ tl $*"
+	local vflags=${@:2}
+	[[ -z "$vflags" ]] && vflags="--help"
+	echo && echo "█ man $1" && man "$1"
+	if [[ -x "$(which -p "$1")" ]]; then
+		echo && echo "█ $1 $vflags"
+		("$1" $vflags 2>&1 | bl man) && echo && echo "█ tl $1"
 	fi
-	tl "$@" && echo "█ ch $*"
-	ch "$@" && echo "█ cha $*"
-	cha "$@"
+	tl "$1" && echo && echo "█ ch $1"
+	ch "$1" && echo && echo "█ cha $1"
+	cha "$1"
 } && compdef tla=command
