@@ -416,7 +416,7 @@ function upiso() {
 		p[2] + "/" + p[0] + "/" + p[1] + " " + d.toTimeString().slice(0, 5)
 	'
 }
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm" "nginx: worker process" "$(upiso | head -c-2)"'
+[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm" "$(upiso | head -c-2)"'
 [[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso | head -c-2)"'
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"

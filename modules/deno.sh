@@ -54,7 +54,7 @@ function .deno-install() {
 function .deno-upgrade() {
 	local deno_dir="${DENO_DIR:-$HOME/.cache/deno}"
 	if [[ -d "$deno_dir" ]]; then
-		find "$deno_dir" -mindepth 1 -maxdepth 1 -type d -print -exec rm -r -f '{}' \;
+		find "$deno_dir" -mindepth 1 -maxdepth 1 -type d -print -exec rm -rf '{}' \;
 	fi
 	.deno-libs "$deno_dir" "$(npm root --global)/typescript-deno-plugin/lib"
 }
