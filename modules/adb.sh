@@ -298,9 +298,15 @@ function adbpmf() {
 
 function adbapk() {
 	local v && for v in "$@"; do
-		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's/^package://')"
-		[[ -e "$v.apk" ]] && mv "$v.apk" "$v.bak.apk"
-		adb pull "$apkpath" "$v.apk"
+		if [[ -d "$v" ]]; then
+			echo "🔴 directory exists -> '$v'"
+			return 1
+		fi
+		mkdir "$v"
+		adb shell pm path --user 0 "$v" | sed 's/^package://' | while read i; do
+			adb pull "$i" "$v"
+		done
+		echo && la "$v"
 	done
 }
 
