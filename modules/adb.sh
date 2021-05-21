@@ -152,6 +152,7 @@ function adbk() {
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
 			"com.nvidia.ota"
+			"com.parseus.codecinfo"
 			"com.peacocktv.peacockandroid"
 			"com.perflyst.twire"
 			"com.semperpax.spmc16"
@@ -302,7 +303,7 @@ function adbapk() {
 			echo "🔴 directory exists -> '$v'"
 			return 1
 		fi
-		mkdir "$v"
+		echo && mkdir "$v"
 		adb shell pm path --user 0 "$v" | sed 's/^package://' | while read i; do
 			adb pull "$i" "$v"
 		done
