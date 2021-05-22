@@ -163,6 +163,7 @@ function adbk() {
 			"io.github.x0b.rcx"
 			"is.xyz.mpv"
 			"me.aap.fermata.auto"
+			"net.mediaarea.mediainfo"
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
 			"org.mozilla.tv.firefox"
