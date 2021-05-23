@@ -214,7 +214,7 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 
 # alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
-# [[ -d "/mnt/WD_GRAPHITE/idk_SMBv2" ]] && alias cdidk="cd /mnt/WD_GRAPHITE/idk_SMBv2"
+[[ -d "/mnt/WD_GRAPHITE/mkvs" ]] && alias mkvs="cd /mnt/WD_GRAPHITE/mkvs"
 
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
