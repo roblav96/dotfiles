@@ -53,6 +53,7 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+	rogs="$rogs --message '!^new range: offset='"
 	rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
 	rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 	rogs="$rogs --tag '!^bt_stack$'"
@@ -149,13 +150,16 @@ function adbk() {
 			"com.liskovsoft.smarttubetv"
 			"com.liskovsoft.smarttubetv.beta"
 			"com.liskovsoft.videomanager"
+			"com.mxtech.videoplayer.ad"
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
+			"com.nvidia.osc"
 			"com.nvidia.ota"
 			"com.parseus.codecinfo"
 			"com.peacocktv.peacockandroid"
 			"com.perflyst.twire"
 			"com.semperpax.spmc16"
+			"com.softmedia.receiver.lite"
 			"com.soundcloud.android"
 			"com.teamsmart.videomanager.tv"
 			"com.vanced.manager"
@@ -300,15 +304,18 @@ function adbpmf() {
 
 function adbapk() {
 	local v && for v in "$@"; do
-		if [[ -d "$v" ]]; then
-			echo "🔴 directory exists -> '$v'"
-			return 1
-		fi
-		echo && mkdir "$v"
-		adb shell pm path --user 0 "$v" | sed 's/^package://' | while read i; do
-			adb pull "$i" "$v"
-		done
-		echo && la "$v"
+		local apkpath="$(adb shell pm path --user 0 "$v" | sed 's/^package://')"
+		[[ -e "$v.apk" ]] && mv "$v.apk" "$v.bak.apk"
+		adb pull "$apkpath" "$v.apk"
+		# if [[ -d "$v" ]]; then
+		# 	echo "🔴 directory exists -> '$v'"
+		# 	return 1
+		# fi
+		# echo && mkdir "$v"
+		# adb shell pm path --user 0 "$v" | sed 's/^package://' | while read i; do
+		# 	adb pull "$i" "$v"
+		# done
+		# echo && la "$v"
 	done
 }
 
