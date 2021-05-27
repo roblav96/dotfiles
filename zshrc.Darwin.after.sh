@@ -51,6 +51,7 @@ alias .starship="subl $DOTFILES/configs/starship.toml"
 alias .ssh_config="subl $HOME/.ssh/config"
 alias .known_hosts="subl $HOME/.ssh/known_hosts"
 alias .rclone="subl $HOME/.config/rclone/rclone.conf"
+alias .vlc="subl $HOME/Library/Preferences/org.videolan.vlc/vlcrc"
 alias .h2o="subl /usr/local/etc/h2o/h2o.conf"
 alias .nginx="subl /usr/local/etc/nginx/nginx.conf"
 
