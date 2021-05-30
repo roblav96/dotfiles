@@ -16,3 +16,8 @@ function rcdlna() {
 		echo rclone serve dlna "$v:" --name "$v" --addr "$(getip):$(porthash "$v")" --read-only
 	done
 }
+function rctmpdlna() {
+	local v && for v in "$@"; do
+		echo /data/local/tmp/bin/rclone --config /data/local/tmp/rclone.conf serve dlna "$v:" --name "$v" --addr "$(getip):$(porthash "$v")" --read-only
+	done
+}
