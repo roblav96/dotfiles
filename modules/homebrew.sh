@@ -86,7 +86,7 @@ function bs() {
 		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
 	done
 } && compdef bs=command
-alias {bscd,bscdt}='cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew"'
+alias bscd='cd "$(brew --prefix)/Homebrew/Library/Taps/homebrew"'
 
 function blog() {
 	(

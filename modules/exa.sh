@@ -26,10 +26,10 @@ alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created"
 alias lcrt='lcr --color=always | tail --lines=$(ty)'
 
 local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"'
-alias lr="exa $exa_flags $exa_ignore --git-ignore --tree --level=2"
-alias lrr="exa $exa_flags $exa_ignore --git-ignore --tree --level=3"
-alias lrrr="exa $exa_flags $exa_ignore --git-ignore --tree --level=4"
-alias lrrrr="exa $exa_flags $exa_ignore --git-ignore --tree --level=5"
-alias lra="exa $exa_flags $exa_ignore --git-ignore --tree"
+alias lr="exa $exa_flags $exa_ignore --tree --level=2"
+alias lrr="exa $exa_flags $exa_ignore --tree --level=3"
+alias lrrr="exa $exa_flags $exa_ignore --tree --level=4"
+alias lrrrr="exa $exa_flags $exa_ignore --tree --level=5"
+alias lra="exa $exa_flags $exa_ignore --tree"
 
 unset exa_flags exa_ignore

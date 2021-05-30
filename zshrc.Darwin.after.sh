@@ -54,6 +54,7 @@ alias .rclone="subl $HOME/.config/rclone/rclone.conf"
 alias .vlc="subl $HOME/Library/Preferences/org.videolan.vlc/vlcrc"
 alias .h2o="subl /usr/local/etc/h2o/h2o.conf"
 alias .nginx="subl /usr/local/etc/nginx/nginx.conf"
+alias .lighttpd="subl /usr/local/etc/lighttpd/lighttpd.conf"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
 alias pfcat="cat /etc/pf.conf | sed -e '/^[ ]*#/d' -e '/^$/d' | bat --file-name=/etc/pf.conf -l py"

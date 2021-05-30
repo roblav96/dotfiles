@@ -19,13 +19,12 @@ fi
 [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 function curltv() {
-	local proxy="192.168.2.41:11080"
 	if [[ "$1" == "premiumize" ]]; then
-		curl --proxy "$proxy" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
+		curl --proxy "$ANDROID_SERIAL:11080" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
 	elif [[ "$1" == "real-debrid" ]]; then
-		curl --proxy "$proxy" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:11080" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
-		curl --proxy "$proxy" "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --tab --monochrome-output --raw-output
+		curl --proxy "$ANDROID_SERIAL:11080" "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --tab --monochrome-output --raw-output
 	fi
 }
 which cltv &>/dev/null || alias cltv="curltv"
@@ -33,6 +32,7 @@ which cltv &>/dev/null || alias cltv="curltv"
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/bin/busybox; adb shell /data/local/tmp/bin/busybox --install -s /data/local/tmp/bin
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
+alias adbfd="adb shell /data/local/tmp/bin/fd -uu -a -E '/dev' -E '/proc' -E '/sys'"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
@@ -114,6 +114,7 @@ function exoplayer() {
 }
 alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
+alias gallery3d="adb shell am start -n com.android.gallery3d/.app.MovieActivity -d"
 
 # alias adbin="adb install -r"
 function adbin() {
@@ -129,6 +130,7 @@ function adbk() {
 			"app.debrids.tv"
 			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
+			"com.android.gallery3d"
 			"com.android.vending"
 			"com.brouken.player.online"
 			"com.curiosity.curiositystream.androidtv"
@@ -151,6 +153,7 @@ function adbk() {
 			"com.liskovsoft.smarttubetv.beta"
 			"com.liskovsoft.videomanager"
 			"com.mxtech.videoplayer.ad"
+			"com.mxtech.videoplayer.pro"
 			"com.netflix.ninja"
 			"com.nvidia.nvgamecast"
 			"com.nvidia.osc"
@@ -159,8 +162,10 @@ function adbk() {
 			"com.peacocktv.peacockandroid"
 			"com.perflyst.twire"
 			"com.semperpax.spmc16"
+			"com.softmedia.receiver"
 			"com.softmedia.receiver.lite"
 			"com.soundcloud.android"
+			"com.spotify.tv.android"
 			"com.teamsmart.videomanager.tv"
 			"com.vanced.manager"
 			"eu.chainfire.tv.sideloadlauncher"
@@ -170,6 +175,8 @@ function adbk() {
 			"net.mediaarea.mediainfo"
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
+			"org.jellyfin.androidtv.debug"
+			"org.jellyfin.mobile"
 			"org.mozilla.tv.firefox"
 			"org.polymorphicshade.newpipe"
 			"org.schabi.newpipe"
@@ -178,6 +185,7 @@ function adbk() {
 			"org.videolan.vlc.debug"
 			"org.videolan.vlcbenchmark"
 			"org.xbmc.kodi"
+			"pl.solidexplorer2"
 			"tv.emby.embyatv"
 			"tv.mrmc.mrmc"
 			"tv.mrmc.mrmc.lite"
@@ -224,7 +232,11 @@ function adblp() {
 
 alias adbdsl="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
 function adbds() {
-	adb shell dumpsys "$*" | sed 's/\b=/: /' | t2 | bat -l yml --file-name="$*"
+	local v && for v in "$@"; do
+		echo && echo "█ $v"
+		adb shell dumpsys "$v" 2>&1 | sed 's/\b=/: /' | t2 | bl yml
+	done
+	# adb shell dumpsys "$*" | sed 's/\b=/: /' | t2 | bat -l yml --file-name="$*"
 }
 
 # https://developer.android.com/reference/android/provider/Settings
@@ -254,8 +266,44 @@ function adbsettingsinit() {
 	adb shell settings put global hidden_api_policy_p_apps 1
 	adb shell settings put global hidden_api_policy_pre_p_apps 1
 	adb shell settings put secure long_press_timeout 250
+	adb shell settings put secure multi_press_timeout 250
 	local verify="1" && [[ "$ANDROID_SERIAL" == "emulator-5554" ]] && verify="0"
 	adb shell settings put global verifier_verify_adb_installs $verify
+}
+
+function adbrclone() {
+	# local shield_tv="192.168.2.40"
+	# ANDROID_SERIAL
+	# adb shell /data/local/tmp/bin/fd --search-path /data/local/tmp -e pid
+	adb shell killall -v -KILL rclone
+	# adb shell /data/local/tmp/bin/find /data/local/tmp -name '*.pid' -print -delete
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/WD_GRAPHITE.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		WD_GRAPHITE: --name WD_GRAPHITE --addr $ANDROID_SERIAL:17879 --read-only --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/premiumizeme.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		premiumizeme: --name premiumize.me --addr $ANDROID_SERIAL:27879 --read-only --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/alldebrid.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		alldebrid: --name alldebrid.com --addr $ANDROID_SERIAL:37879 --read-only --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/mega.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		mega:Public --name mega.nz --addr $ANDROID_SERIAL:47879 --read-only --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/Movies.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		Movies: --name Movies --addr $ANDROID_SERIAL:12055 --read-only --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S \
+		-p /data/local/tmp/Music.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
+		Music: --name Music --addr $ANDROID_SERIAL:11941 --read-only --no-modtime
+	adbps | g rclone | bl nix
+	adbtop | g rclone | bl nix
+}
+function adbgost() {
+	adb shell killall -v -KILL gost
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b \
+		-x /data/local/tmp/bin/gost -- -L http://$ANDROID_SERIAL:11080\?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query
+	adbps | g gost | bl nix
+	adbtop | g gost | bl nix
 }
 
 function adbsu() {
