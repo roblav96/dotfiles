@@ -81,13 +81,19 @@ alias adben="adb shell input keyevent KEYCODE_ENTER"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbp="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/\[kworker\//d'"
-alias adbpid=" adbps | rg --fixed-strings --case-sensitive"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | sortt | bl sh"
 function adbpropsf() {
 	adb shell getprop | sortt | rg --smart-case "$@" | bl sh
 }
+
+alias adbpid=" adbps | rg --case-sensitive --fixed-strings"
+function __adbpida() {
+	adbps | rg --case-sensitive --fixed-strings "$*" | bl nix
+	adbtop | rg --case-sensitive --fixed-strings "$*" | bl nix
+	adb shell cat "/proc/$*/status" | bl yml
+} && alias adbpida=" __adbpida"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d' | sortt"
