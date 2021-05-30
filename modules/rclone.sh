@@ -10,3 +10,9 @@ function rcwd() {
 }
 
 alias rsy="rsync --verbose --human-readable --info=progress2 --recursive --force"
+
+function rcdlna() {
+	local v && for v in "$@"; do
+		echo rclone serve dlna "$v" --name "$v" --addr "$(getip):$(porthash "$v")" --read-only
+	done
+}
