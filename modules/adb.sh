@@ -79,7 +79,8 @@ alias rog="$rogs" && unset rogs
 alias adbt="adb shell input keyboard text"
 alias adben="adb shell input keyevent KEYCODE_ENTER"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
-alias adbp="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
+alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
+alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
@@ -118,8 +119,6 @@ function exoplayer() {
 		adb shell am start -a com.google.android.exoplayer.demo.action.VIEW_LIST "$args" # --ez prefer_extension_decoders FALSE
 	fi
 }
-alias kodi="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
-alias debrids="adb shell am start -a app.debrids.tv.action.VIEW -d"
 alias gallery3d="adb shell am start -n com.android.gallery3d/.app.MovieActivity -d"
 
 # alias adbin="adb install -r"
@@ -280,31 +279,34 @@ function adbsettingsinit() {
 function adbrclone() {
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v -KILL rclone
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/WD_GRAPHITE.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna WD_GRAPHITE: --name WD_GRAPHITE --addr $ANDROID_SERIAL:17879 --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/premiumizeme.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna premiumizeme: --name premiumize.me --addr $ANDROID_SERIAL:27879 --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/alldebrid.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna alldebrid: --name alldebrid.com --addr $ANDROID_SERIAL:37879 --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/mega.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna mega:Public --name mega.nz --addr $ANDROID_SERIAL:47879 --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/Movies.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna Movies: --name Movies --addr $ANDROID_SERIAL:12055 --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/Music.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna Music: --name Music --addr $ANDROID_SERIAL:11941 --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ANDROID_SERIAL:$(porthash "WD_GRAPHITE")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "premiumizeme:" --name "premiumizeme" --addr "$ANDROID_SERIAL:$(porthash "premiumizeme")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "alldebrid:" --name "alldebrid" --addr "$ANDROID_SERIAL:$(porthash "alldebrid")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "mega:Public" --name "mega" --addr "$ANDROID_SERIAL:$(porthash "mega")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "megadav" --name "megadav" --addr "$ANDROID_SERIAL:$(porthash "megadav")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "Movies:" --name "Movies" --addr "$ANDROID_SERIAL:$(porthash "Movies")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "Music:" --name "Music" --addr "$ANDROID_SERIAL:$(porthash "Music")" --read-only
 	sleep 1
 	adbps | g rclone | bl nix
 }
 function adbgost() {
 	adb shell killall -v -KILL gost
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b \
-		-x /data/local/tmp/bin/gost -- -L http://$ANDROID_SERIAL:11080\?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 1
 	adbps | g gost | bl nix
 }
