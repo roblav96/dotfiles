@@ -32,7 +32,7 @@ which cltv &>/dev/null || alias cltv="curltv"
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/bin/busybox; adb shell /data/local/tmp/bin/busybox --install -s /data/local/tmp/bin
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbfd="adb shell /data/local/tmp/bin/fd -uu -a -E '/dev' -E '/proc' -E '/sys'"
+alias adbfd="adb shell /data/local/tmp/bin/fd -uu --fixed-strings --absolute-path --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
@@ -80,8 +80,8 @@ alias adbt="adb shell input keyboard text"
 alias adben="adb shell input keyevent KEYCODE_ENTER"
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adbp="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
-alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/\[kworker\//d'"
-alias adbtop="adb shell top -H -s11 -d1 -n1 -b"
+alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
+alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | sortt | bl sh"
 function adbpropsf() {
@@ -236,10 +236,10 @@ function adblp() {
 	done
 }
 
-alias adbdsl="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
+alias adbdsls="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
 function adbds() {
 	local v && for v in "$@"; do
-		echo && echo "█ $v"
+		echo && bhr && echo "█ $v"
 		adb shell dumpsys "$v" 2>&1 | sed 's/\b=/: /' | t2 | bl yml
 	done
 	# adb shell dumpsys "$*" | sed 's/\b=/: /' | t2 | bat -l yml --file-name="$*"
@@ -278,38 +278,35 @@ function adbsettingsinit() {
 }
 
 function adbrclone() {
-	# local shield_tv="192.168.2.40"
-	# ANDROID_SERIAL
-	# adb shell /data/local/tmp/bin/fd --search-path /data/local/tmp -e pid
+	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v -KILL rclone
-	# adb shell /data/local/tmp/bin/find /data/local/tmp -name '*.pid' -print -delete
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/WD_GRAPHITE.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		WD_GRAPHITE: --name WD_GRAPHITE --addr $ANDROID_SERIAL:17879 --read-only --no-modtime
+		-p /data/local/tmp/WD_GRAPHITE.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna WD_GRAPHITE: --name WD_GRAPHITE --addr $ANDROID_SERIAL:17879 --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/premiumizeme.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		premiumizeme: --name premiumize.me --addr $ANDROID_SERIAL:27879 --read-only --no-modtime
+		-p /data/local/tmp/premiumizeme.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna premiumizeme: --name premiumize.me --addr $ANDROID_SERIAL:27879 --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/alldebrid.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		alldebrid: --name alldebrid.com --addr $ANDROID_SERIAL:37879 --read-only --no-modtime
+		-p /data/local/tmp/alldebrid.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna alldebrid: --name alldebrid.com --addr $ANDROID_SERIAL:37879 --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/mega.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		mega:Public --name mega.nz --addr $ANDROID_SERIAL:47879 --read-only --no-modtime
+		-p /data/local/tmp/mega.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna mega:Public --name mega.nz --addr $ANDROID_SERIAL:47879 --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/Movies.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		Movies: --name Movies --addr $ANDROID_SERIAL:12055 --read-only --no-modtime
+		-p /data/local/tmp/Movies.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna Movies: --name Movies --addr $ANDROID_SERIAL:12055 --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S \
-		-p /data/local/tmp/Music.pid -m -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf serve dlna \
-		Music: --name Music --addr $ANDROID_SERIAL:11941 --read-only --no-modtime
+		-p /data/local/tmp/Music.pid -b -x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna Music: --name Music --addr $ANDROID_SERIAL:11941 --read-only
+	sleep 1
 	adbps | g rclone | bl nix
-	adbtop | g rclone | bl nix
 }
 function adbgost() {
 	adb shell killall -v -KILL gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b \
 		-x /data/local/tmp/bin/gost -- -L http://$ANDROID_SERIAL:11080\?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query
+	sleep 1
 	adbps | g gost | bl nix
-	adbtop | g gost | bl nix
 }
 
 function adbsu() {
