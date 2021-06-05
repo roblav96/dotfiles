@@ -161,11 +161,11 @@ function bmd() {
 } && compdef bmd=command
 
 function bcd() {
-	cd "$(brew --prefix)/opt/$*"
+	cd "$(brew --prefix "$@")"
 } && compdef bcd=command
 function bcdrp() {
-	cd "$(realpath $(brew --prefix)/opt/$*)"
-} && compdef bcd=command
+	cd "$(realpath "$(brew --prefix "$@")")"
+} && compdef bcdrp=command
 function bbin() {
 	local v && for v in "$@"; do
 		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
