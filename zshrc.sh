@@ -221,7 +221,7 @@ alias diff="diff -u"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
 function init.daemonize() {
-	daemonize -c . /usr/bin/env -i $(which -p bash) -l -c "$*"
+	daemonize -c . -e "$HOME/.daemonize/$1.stderr.log" -o "$HOME/.daemonize/$1.stdout.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"

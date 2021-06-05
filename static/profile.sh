@@ -219,7 +219,12 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
-test -x "$(which daemonize)" && alias init.daemonize="daemonize -u nobody -c $HOME -- /usr/bin/env -i HOME=$HOME $(which bash) -l -c --"
+if [[ -x "$(which daemonize)" ]]; then
+	# alias init.daemonize="daemonize -u nobody -c $HOME -- /usr/bin/env -i HOME=$HOME $(which bash) -l -c --"
+	function init.daemonize() {
+		daemonize -u nobody -c . -e "$HOME/.daemonize/$1.stderr.log" -o "$HOME/.daemonize/$1.stdout.log" /usr/bin/env -i HOME=$HOME $(which bash) -l -c "$*"
+	}
+fi
 
 if [[ -n "$PS1" && -f "/opt/etc/profile.d/bash_completion.sh" ]]; then
 	. "/opt/etc/profile.d/bash_completion.sh"
