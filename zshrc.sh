@@ -220,7 +220,9 @@ alias ll="ls -laph"
 alias diff="diff -u"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
-alias init.daemonize="daemonize -c . -- /usr/bin/env --"
+function init.daemonize() {
+	daemonize /usr/bin/env -i $(which -p bash) -l -c "$*"
+} && compdef init.daemonize=command
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
