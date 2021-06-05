@@ -3,14 +3,15 @@ alias rc="rclone"
 function rcwd() {
 	local ip="$(getip)"
 	local v && for v in "$@"; do
-		local remote="$v" && local base="$v"
+		local base="$v"
+		local remote="$v"
 		if [[ -d "$remote" ]]; then
 			remote="$(realpath "$remote")"
 			base="$(basename "$base")"
 		elif [[ ! "$remote" =~ ":" ]]; then
 			remote="$remote:"
 		fi
-		echo rclone serve webdav "'$remote'" --addr "$ip:$(porthash "$remote")" --baseurl "'$(basename "$base")'" --read-only
+		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only
 	done
 }
 
