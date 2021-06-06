@@ -290,10 +290,7 @@ function adbrclone() {
 		serve dlna "alldebrid:" --name "alldebrid" --addr "$ANDROID_SERIAL:$(porthash "alldebrid")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "mega:Public" --name "mega" --addr "$ANDROID_SERIAL:$(porthash "mega")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "megadav" --name "megadav" --addr "$ANDROID_SERIAL:$(porthash "megadav")" --read-only
+		serve dlna "megadav:" --name "megadav" --addr "$ANDROID_SERIAL:$(porthash "megadav")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "Movies:" --name "Movies" --addr "$ANDROID_SERIAL:$(porthash "Movies")" --read-only
