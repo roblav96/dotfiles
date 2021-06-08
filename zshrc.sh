@@ -221,7 +221,7 @@ alias diff="diff -u"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
 function init.daemonize() {
-	daemonize -c . -e "$HOME/.daemonize/$1.stderr.log" -o "$HOME/.daemonize/$1.stdout.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
+	daemonize -c . -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
@@ -236,7 +236,7 @@ alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
 alias day='date +"%c"'
 alias dateiso="date --iso-8601"
-alias sedlog="sed -u -e 's/^$(date +%Y)-/\n$(date +%Y)-/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/\"|\x27|\#|\`//g'"
+alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/\"|\x27|\#|\`//g'"
 alias sedbat="sedlog | batrb"
 alias sedby="sed -e 's/\b = /: /' -e 's/\b=/: /' | bl yml"
 alias redis-cli="redis-cli --no-auth-warning"
