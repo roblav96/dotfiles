@@ -15,6 +15,8 @@
 function gradlew() {
 	if [[ -e gradlew ]]; then bash gradlew "$@"; else gradle "$@"; fi
 }
+alias gt="gradlew tasks"
+alias gta="gradlew tasks --all"
 function mvnw() {
 	if [[ -e mvnw ]]; then bash mvnw "$@"; else mvn "$@"; fi
 }
@@ -52,10 +54,10 @@ unset emulator_flags scrcpy_flags
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"
 # alias google-java-format="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java -jar $ANDROID_HOME/google-java-format-1.9-all-deps.jar"
-alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
-alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
-alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
-alias ktfmt='java -jar $ANDROID_HOME/ktfmt-0.24-jar-with-dependencies.jar'
+# alias fernflower='java -jar $ANDROID_HOME/fernflower.jar'
+# alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
+# alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
+# alias ktfmt='java -jar $ANDROID_HOME/ktfmt-0.24-jar-with-dependencies.jar'
 
 function unapk() {
 	local outdir="${@%.apk}"
@@ -67,7 +69,7 @@ function unapk() {
 	command rm -rf *.dex
 }
 
-alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.2.1.jar'
+# alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.2.1.jar'
 alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/configs/.env.kspass) --ksPass $(cat $DOTFILES/configs/.env.kspass) --allowResign --overwrite --apks'
 function uber-apk-install() {
 	uber-apk-release "$@"

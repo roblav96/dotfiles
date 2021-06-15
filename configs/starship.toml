@@ -59,6 +59,9 @@ disabled = true
 [dart]
 disabled = true
 
+[deno]
+disabled = true
+
 [dotnet]
 disabled = true
 

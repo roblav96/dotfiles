@@ -93,7 +93,7 @@ alias adbpid=" adbps | rg --case-sensitive --fixed-strings"
 function __adbpida() {
 	adbps | rg --case-sensitive --fixed-strings "$*" | bl nix
 	adbtop | rg --case-sensitive --fixed-strings "$*" | bl nix
-	adb shell cat "/proc/$*/status" | bl yml
+	# adb shell cat "/proc/$*/status" | bl yml
 } && alias adbpida=" __adbpida"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"

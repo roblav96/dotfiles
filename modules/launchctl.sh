@@ -71,15 +71,15 @@ function lcsb() {
 
 function lcsr() {
 	echo && echo "🟡 [rg] $HOME/Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case -e "$*" "$HOME/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --context=2 --context-separator='' -e "$*" "$HOME/Library/LaunchAgents"
 	echo && echo "🟡 [rg] /Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --context=2 --context-separator='' -e "$*" "/Library/LaunchAgents"
 	echo && echo "🟡 [rg] /System/Library/LaunchAgents"
-	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/System/Library/LaunchAgents"
+	rg -uu --follow --fixed-strings --ignore-case --context=2 --context-separator='' -e "$*" "/System/Library/LaunchAgents"
 	echo && echo "🟡 [rg] /Library/LaunchDaemons"
-	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case --context=2 --context-separator='' -e "$*" "/Library/LaunchDaemons"
 	echo && echo "🟡 [rg] /System/Library/LaunchDaemons"
-	rg -uu --follow --fixed-strings --ignore-case -e "$*" "/System/Library/LaunchDaemons"
+	rg -uu --follow --fixed-strings --ignore-case --context=2 --context-separator='' -e "$*" "/System/Library/LaunchDaemons"
 }
 function lcsrfs() {
 	echo && echo "🟡 [rg] $HOME/Library/LaunchAgents"
