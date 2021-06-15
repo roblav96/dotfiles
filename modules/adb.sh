@@ -133,6 +133,7 @@ function adbk() {
 		adb shell input keyevent KEYCODE_HOME
 		local pkgs=(
 			"app.debrids.tv"
+			"at.nullptr.dlnachannels"
 			"au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
 			"com.android.gallery3d"
