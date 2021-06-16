@@ -196,6 +196,7 @@ function adbk() {
 			"tv.mrmc.mrmc"
 			"tv.mrmc.mrmc.lite"
 			"tv.twitch.android.app"
+			"us.nineworlds.serenity"
 		)
 		adbk $pkgs
 	fi
