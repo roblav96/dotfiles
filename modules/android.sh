@@ -58,6 +58,7 @@ unset emulator_flags scrcpy_flags
 # alias classyshark='java -jar $ANDROID_HOME/ClassyShark.jar'
 # alias bytecode-viewer='java -jar $ANDROID_HOME/Bytecode-Viewer-2.9.22.jar'
 # alias ktfmt='java -jar $ANDROID_HOME/ktfmt-0.24-jar-with-dependencies.jar'
+# alias ktfmt='ktfmt --kotlinlang-style'
 
 function unapk() {
 	local outdir="${@%.apk}"
