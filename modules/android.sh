@@ -86,3 +86,21 @@ function uber-apk-install() {
 # 	apksigner sign --ks "$HOME/.android/release.keystore" --out "$*-signed.apk" "$*-unsigned-aligned.apk"
 # 	apksigner verify "$*-signed.apk"
 # }
+
+function apk-kodi-nightly() {
+	local apk="$(curl https://mirrors.kodi.tv/nightlies/android/arm64-v8a/master/ | pup '#list > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')"
+	echo "🟡 apk -> '$apk'"
+	wget "https://mirrors.kodi.tv/nightlies/android/arm64-v8a/master/$apk"
+	apkm "$apk"
+	adb install -r -g "$apk"
+	rd "$apk"
+}
+
+function apk-vlc-nightly() {
+	local apk="$(curl https://artifacts.videolan.org/vlc-android/nightly-arm64/ | pup 'body > table > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')"
+	echo "🟡 apk -> '$apk'"
+	wget "https://artifacts.videolan.org/vlc-android/nightly-arm64/$apk"
+	apkm "$apk"
+	adb install -r -g "$apk"
+	rd "$apk"
+}
