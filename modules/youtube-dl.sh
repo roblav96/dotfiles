@@ -1,7 +1,7 @@
 alias yt="youtube-dl"
 alias ytls="youtube-dl --list-formats"
 
-alias ytsc='youtube-dl --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH" --extract-audio --audio-format=m4a --add-metadata --embed-thumbnail --ignore-errors'
+alias ytsc='youtube-dl --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH" --extract-audio --audio-format=m4a --add-metadata --embed-thumbnail'
 # function sc() {
 # 	youtube-dl --ignore-errors \
 # 		--output '%(uploader)s/%(uploader)s__%(title)s.%(ext)s' --add-header "$SOUNDCLOUD_OAUTH" \

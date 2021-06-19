@@ -92,7 +92,7 @@ function apk-kodi-nightly() {
 	echo "🟡 apk -> '$apk'"
 	wget "https://mirrors.kodi.tv/nightlies/android/arm64-v8a/master/$apk"
 	apkm "$apk"
-	adb install -r -g "$apk"
+	adbin "$apk"
 	rd "$apk"
 }
 
@@ -101,6 +101,6 @@ function apk-vlc-nightly() {
 	echo "🟡 apk -> '$apk'"
 	wget "https://artifacts.videolan.org/vlc-android/nightly-arm64/$apk"
 	apkm "$apk"
-	adb install -r -g "$apk"
+	adbin "$apk"
 	rd "$apk"
 }
