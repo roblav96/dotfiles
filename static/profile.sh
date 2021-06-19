@@ -67,6 +67,7 @@ alias bat="cat" && alias b="bat"
 alias htop="htop --delay=1 --highlight-changes=10"
 alias bhr="echo"
 alias tf="tail -f -n 100"
+alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/\"//g' -e 's/\x27//g' -e 's/\#//g' -e 's/\`//g'"
 # function idk() { man -k $@ | grep "$@|$" }
 # alias s="subl -f"
 alias psa="ps auxww"
