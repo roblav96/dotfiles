@@ -190,6 +190,7 @@ function adbk() {
 			"org.jellyfin.androidtv"
 			"org.jellyfin.androidtv.debug"
 			"org.jellyfin.mobile"
+			"org.jellyfin.mobile.debug"
 			"org.mozilla.tv.firefox"
 			"org.polymorphicshade.newpipe"
 			"org.schabi.newpipe"
