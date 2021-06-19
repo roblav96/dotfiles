@@ -139,7 +139,7 @@ function adbk() {
 			"com.amazon.music.tv"
 			"com.android.gallery3d"
 			"com.android.vending"
-			"com.brouken.player.online"
+			"com.brouken.player"
 			"com.curiosity.curiositystream.androidtv"
 			"com.doubleiq.podcast"
 			"com.fgl27.twitch"
