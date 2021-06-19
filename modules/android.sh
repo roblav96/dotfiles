@@ -15,6 +15,7 @@
 function gradlew() {
 	if [[ -e gradlew ]]; then bash gradlew "$@"; else gradle "$@"; fi
 }
+alias gr="gradlew"
 alias gt="gradlew tasks"
 alias gta="gradlew tasks --all"
 function mvnw() {
