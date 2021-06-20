@@ -234,6 +234,11 @@ if [[ -n "$PS1" && -f "/opt/etc/profile.d/bash_completion.sh" ]]; then
 	. "/opt/etc/profile.d/bash_completion.sh"
 fi
 
+if [[ -x "/opt/bin/go/bin/go" ]]; then
+	export GOROOT="/opt/bin/go"
+	export PATH="/opt/bin/go/bin:$PATH"
+fi
+
 # if test -d "/data/data/com.termux/files"; then
 # 	export ANDROID_DATA="/data"
 # 	export ANDROID_ROOT="/system"
