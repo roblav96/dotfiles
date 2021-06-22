@@ -82,6 +82,7 @@ alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
 alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
+alias adbp="adbps | sed -e '/ gost /d' -e '/ rclone /d' | bl strace"
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | sortt | bl sh"
@@ -230,6 +231,9 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/data/$v/"
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
+	sleep 1
+	adb shell input keyevent KEYCODE_HOME
 }
 function adbi() {
 	local v && for v in "$@"; do
