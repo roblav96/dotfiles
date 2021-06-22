@@ -139,6 +139,7 @@ function adbk() {
 			"com.amazon.amazonvideo.livingroom"
 			"com.amazon.amazonvideo.livingroom.nvidia"
 			# "com.amazon.music.tv"
+			"com.android.defcontainer"
 			"com.android.gallery3d"
 			"com.android.vending"
 			"com.brouken.player"
