@@ -46,6 +46,9 @@ fi
 if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
 	# rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
+	# rogs="$rogs --message '!\bnvphsd\b'"
+	rogs="$rogs --message '! /vendor/bin/nvphsd '"
+	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 	rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
 	rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
@@ -58,6 +61,7 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
+	rogs="$rogs --tag '!^nvphsd$'"
 fi
 rogs="$rogs --tag '!^JS$'"
 rogs="$rogs --tag '!^JsonPath'"
