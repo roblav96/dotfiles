@@ -136,7 +136,8 @@ function adbk() {
 			"at.nullptr.dlnachannels"
 			# "au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
-			"com.amazon.music.tv"
+			"com.amazon.amazonvideo.livingroom.nvidia"
+			# "com.amazon.music.tv"
 			"com.android.gallery3d"
 			"com.android.vending"
 			"com.brouken.player"
@@ -149,7 +150,7 @@ function adbk() {
 			# "com.google.android.exoplayer2.playbacktests.test"
 			"com.google.android.gms"
 			"com.google.android.gsf"
-			"com.google.android.leanbacklauncher"
+			# "com.google.android.leanbacklauncher"
 			"com.google.android.tts"
 			"com.google.android.webview"
 			"com.google.android.youtube.tv"
@@ -164,8 +165,8 @@ function adbk() {
 			# "com.mxtech.videoplayer.pro"
 			# "com.mxtech.videoplayer.television"
 			"com.netflix.ninja"
-			"com.nvidia.nvgamecast"
-			"com.nvidia.osc"
+			# "com.nvidia.nvgamecast"
+			# "com.nvidia.osc"
 			"com.nvidia.ota"
 			# "com.parseus.codecinfo"
 			# "com.peacocktv.peacockandroid"
@@ -188,7 +189,6 @@ function adbk() {
 			# "org.acestream.media.atv"
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
-			# "org.jellyfin.androidtv"
 			"org.jellyfin.mobile"
 			# "org.jellyfin.mobile"
 			# "org.mozilla.tv.firefox"
@@ -385,7 +385,7 @@ function adbdown() {
 	local v && for v in "$@"; do
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
-	adb shell am force-stop com.google.android.tvlauncher
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
 	sleep 1
 	adb shell input keyevent KEYCODE_HOME
 }
@@ -393,7 +393,7 @@ function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
-	adb shell am force-stop com.google.android.tvlauncher
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
 	sleep 1
 	adb shell input keyevent KEYCODE_HOME
 }
