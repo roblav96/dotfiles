@@ -111,7 +111,7 @@ alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\/
 alias adbscreenshot='adb shell "screencap -p" > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
-alias pidcat="pidcat --all"
+alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bl yml"
