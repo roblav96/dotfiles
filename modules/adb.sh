@@ -35,7 +35,10 @@ alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb s
 alias adbfd="adb shell /data/local/tmp/bin/fd -uu --fixed-strings --absolute-path --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
+# alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
+alias rogcat="rogcat --hide-timestamp --buffer all --level trace"
+# --message '!^loading \[eventTime=\d' \
+# --tag '!^netstats_\w+_sample$'"
 declare rogs="rogcat"
 if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
@@ -67,7 +70,8 @@ fi
 rogs="$rogs --tag '!^JS$'"
 rogs="$rogs --tag '!^JsonPath'"
 rogs="$rogs --tag '!^mobile-ffmpeg$'"
-alias rog="$rogs" && unset rogs
+alias rog="$rogs"
+unset rogs
 # local rogs=(
 # 	"!^Exception checking for game stream. Exception: "
 # 	"!^interceptKeyT. key.ode=\d"

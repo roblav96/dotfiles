@@ -217,7 +217,7 @@ alias killall="killall -v"
 alias k="killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -laph"
-alias diff="diff -u"
+alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
 function init.daemonize() {

@@ -17,7 +17,7 @@ alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 alias gd="git diff"
 alias gss="git status --short --branch | lscolors"
 alias gs="isgit; gd; echo; gss"
-alias gbls="git branch --list --all"
+alias gbls="git branch --list --all --sort=committerdate"
 
 alias gl='echo; git log --reverse --date=relative --stat --max-count=10'
 alias gl1='gl --max-count=1'
@@ -37,7 +37,7 @@ alias gfu="git fetch upstream"
 alias gpr="gfa && git pull --rebase --recurse-submodules"
 alias gpf="gfa && git pull --ff-only --recurse-submodules"
 
-alias gtls="git tag -n --list"
+alias gtls="git tag -n --list --sort=committerdate"
 alias gtf="git tag --contains"
 alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
