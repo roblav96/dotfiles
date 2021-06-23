@@ -216,6 +216,7 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 # alias ipinfo="echo; curl -s https://icanhazip.com; echo; curl -s https://ipinfo.io; echo"
 
 [[ -d "/mnt/WD_GRAPHITE/mkvs" ]] && alias mkvs="cd /mnt/WD_GRAPHITE/mkvs"
+[[ -d "/mnt/WD_GRAPHITE/Google_Play_Music/Takeout/Google Play Music/Tracks" ]] && alias Tracks="cd '/mnt/WD_GRAPHITE/Google_Play_Music/Takeout/Google Play Music/Tracks'"
 
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"

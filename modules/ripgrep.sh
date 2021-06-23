@@ -3,7 +3,7 @@ declare rg_flags="--heading --line-number --no-messages --smart-case --hidden --
 --type-add='xml:*.plist' --type-add='gradle:*.kts'"
 # --colors=match:bg:16 --colors=path:bg:16
 # --colors=path:fg:green --colors=path:style:bold
-declare rg_max_columns_flags="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 25)"
+declare rg_max_columns_flags="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 10)"
 # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias r="rg $rg_flags $rg_max_columns_flags --glob='!node_modules'"

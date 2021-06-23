@@ -36,7 +36,8 @@ alias adbfd="adb shell /data/local/tmp/bin/fd -uu --fixed-strings --absolute-pat
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
-alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
+# alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
+alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
 --message '!^loading \[eventTime=\d'"
@@ -48,29 +49,33 @@ if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!^Can.t find service car_service$'"
 fi
 if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
-	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
-	# rogs="$rogs --message '!^NVMEDIA: FrameRate\(for last 120 frames\) = \d'"
-	# rogs="$rogs --message '!\bnvphsd\b'"
-	rogs="$rogs --message '! /vendor/bin/nvphsd '"
-	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
-	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
-	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
-	rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
-	rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
-	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
-	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
-	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
-	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
-	rogs="$rogs --message '!^new range: offset='"
-	rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
-	rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
+	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
+
 	rogs="$rogs --tag '!^nvphsd$'"
+	rogs="$rogs --message '! /vendor/bin/nvphsd '"
+	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
+	# rogs="$rogs --message '!\bnvphsd\b'"
+
+	# rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+
+	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
+	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
+	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
+
+	# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
+	# rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
+
+	# rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
+	# rogs="$rogs --message '!^new range: offset='"
+	# rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
+	# rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 fi
-rogs="$rogs --tag '!^JS$'"
-rogs="$rogs --tag '!^JsonPath'"
-rogs="$rogs --tag '!^mobile-ffmpeg$'"
+# rogs="$rogs --tag '!^JS$'"
+# rogs="$rogs --tag '!^JsonPath'"
+# rogs="$rogs --tag '!^mobile-ffmpeg$'"
 alias rog="$rogs"
 unset rogs
 # local rogs=(
