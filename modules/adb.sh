@@ -36,9 +36,10 @@ alias adbfd="adb shell /data/local/tmp/bin/fd -uu --fixed-strings --absolute-pat
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
-alias rogcat="rogcat --hide-timestamp --buffer all --level trace"
-# --message '!^loading \[eventTime=\d' \
-# --tag '!^netstats_\w+_sample$'"
+alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
+--tag '!^netstats_mobile_sample$' \
+--tag '!^netstats_wifi_sample$' \
+--message '!^loading \[eventTime=\d'"
 declare rogs="rogcat"
 if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
 	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
@@ -171,9 +172,9 @@ function adbk() {
 			"com.hbo.hbonow"
 			# "com.hulu.livingroomplus"
 			# "com.kfaraj.launcher"
-			"com.liskovsoft.smarttubetv"
+			# "com.liskovsoft.smarttubetv"
 			"com.liskovsoft.smarttubetv.beta"
-			"com.liskovsoft.videomanager"
+			# "com.liskovsoft.videomanager"
 			# "com.mxtech.videoplayer.ad"
 			# "com.mxtech.videoplayer.pro"
 			# "com.mxtech.videoplayer.television"
@@ -203,8 +204,7 @@ function adbk() {
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
 			"org.jellyfin.mobile"
-			# "org.jellyfin.mobile"
-			# "org.mozilla.tv.firefox"
+			"org.mozilla.tv.firefox"
 			# "org.polymorphicshade.newpipe"
 			# "org.schabi.newpipe"
 			# "org.schabi.newpipelegacy"
