@@ -441,7 +441,10 @@ function upiso() {
 alias ulimitls='ulimit -S -a | bat --file-name="Soft limits" -l yml; ulimit -H -a | bat --file-name="Hard limits" -l yml'
 alias htop="htop --delay=1 --highlight-changes=10"
 alias psa="ps auxww"
-alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+# alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
+function p() {
+	psa | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --case-sensitive --invert-match '/Google Chrome.app/' | rg --fixed-strings --case-sensitive "$*" | sed 's/^/\n/' | bat --plain -l nix
+} && compdef p=which
 function pe() {
 	pgrep "$*" | while read pid; do
 		# echo "🟡 pid -> '$pid'"
