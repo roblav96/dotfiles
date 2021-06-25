@@ -333,10 +333,17 @@ test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
-alias cmdls='printf "%s\n" $commands | sortt'
+alias cmdls="printf '%s\n' \$commands | sortt --unique"
 function cmdf() {
-	printf '%s\n' $commands | rg "$@" | sortt | uniq | lscolors
+	cmdls | g "$*"
 } && compdef cmdf=command
+function cmdfs() {
+	# cmdf "$*" | while read i; do (echo && echo "█ $i" && show "$i"); done
+	cmdf "$*" | while read i; do
+		local base="$(basename "$i")"
+		echo && echo "█ $base" && show "$base"
+	done
+} && compdef cmdfs=command
 
 # if [[ -x "$(which -p sd)" ]]; then
 # 	function .zsd() {
