@@ -444,7 +444,7 @@ alias psa="ps auxww"
 # alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function p() {
 	psa | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --case-sensitive --invert-match '/Google Chrome.app/' | rg --fixed-strings --case-sensitive "$*" | sed 's/^/\n/' | bat --plain -l nix
-} && compdef p=which
+} && compdef p=command
 function pe() {
 	pgrep "$*" | while read pid; do
 		# echo "🟡 pid -> '$pid'"
