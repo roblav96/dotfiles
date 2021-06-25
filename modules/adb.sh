@@ -32,7 +32,11 @@ which cltv &>/dev/null || alias cltv="curltv"
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/bin/busybox; adb shell /data/local/tmp/bin/busybox --install -s /data/local/tmp/bin
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbfd="adb shell /data/local/tmp/bin/fd -uu --fixed-strings --absolute-path --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys"
+alias adbfd="adb shell /data/local/tmp/bin/fd -uu --color=always \
+--search-path=/ --exclude=/dev --exclude=/proc --exclude=/sys \
+--search-path=/data/local/tmp \
+--absolute-path --fixed-strings"
+alias adbl="adb shell /data/local/tmp/bin/ls --color=always -laph"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
