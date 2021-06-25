@@ -58,8 +58,10 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
 	# rogs="$rogs --message '!\bnvphsd\b'"
 
-	# rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
+	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 
+	rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
@@ -68,7 +70,6 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
 	# rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
 
-	# rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 	# rogs="$rogs --message '!^new range: offset='"
 	# rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
 	# rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
