@@ -52,10 +52,12 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
 	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
+	rogs="$rogs --message '!\b: Trying Lua \b'"
 
 	rogs="$rogs --tag '!^nvphsd$'"
 	rogs="$rogs --message '! /vendor/bin/nvphsd '"
 	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
+	rogs="$rogs --message '!\bINvCplHalService\b'"
 	# rogs="$rogs --message '!\bnvphsd\b'"
 
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
@@ -175,6 +177,7 @@ function adbk() {
 			"com.google.android.webview"
 			"com.google.android.youtube.tv"
 			"com.google.android.youtube.tvunplugged"
+			"com.google.stadia.androidtv"
 			"com.hbo.hbonow"
 			# "com.hulu.livingroomplus"
 			# "com.kfaraj.launcher"
