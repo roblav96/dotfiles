@@ -52,8 +52,10 @@ fi
 if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
+
 	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
-	rogs="$rogs --message '!\b: Trying Lua \b'"
+	rogs="$rogs --message '! Trying Lua '"
+	rogs="$rogs --message '! is an AppCompat widget that can only be used with a Theme.AppCompat theme '"
 
 	rogs="$rogs --tag '!^nvphsd$'"
 	rogs="$rogs --message '! /vendor/bin/nvphsd '"
@@ -191,8 +193,8 @@ function adbk() {
 			"com.netflix.ninja"
 			# "com.nvidia.nvgamecast"
 			# "com.nvidia.osc"
-			# "com.nvidia.ota"
-			# "com.parseus.codecinfo"
+			"com.nvidia.ota"
+			"com.parseus.codecinfo"
 			# "com.peacocktv.peacockandroid"
 			# "com.perflyst.twire"
 			"com.semperpax.spmc16"
