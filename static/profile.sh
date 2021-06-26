@@ -195,7 +195,7 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 		opkg info --nocase "*$**"
 	}
 	function pkgsa() {
-		opkg find --nocase "*$**"
+		opkg find --nocase "*$**" | sed 's/^/\n/'
 	}
 
 	# export LD_LIBRARY_PATH="/lib:/usr/lib:/lib/aarch64"
