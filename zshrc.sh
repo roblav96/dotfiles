@@ -220,12 +220,6 @@ alias ll="ls -laph"
 alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
 alias ebash="/usr/bin/env -i $(which -p bash) -l"
-function init.daemonize() {
-	daemonize /usr/bin/env -i $(which -p bash) -l -c "$*"
-} && compdef init.daemonize=command
-function init.daemonize.log() {
-	daemonize -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
-} && compdef init.daemonize=command
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
@@ -261,7 +255,7 @@ alias sipcalc="sipcalc --all"
 alias en="trans -engine bing -brief"
 alias lsd="lsd --icon=never --classify"
 alias uuid8="uuid | head -c8"
-alias bingrep='bingrep --color --truncate $(expr $(tput cols) - 75)'
+alias bingrep='bingrep --demangle --color --truncate $(expr $(tput cols) - 75)'
 alias mdcat="mdcat --local --no-pager"
 alias cpanm="cpanm --notest"
 alias zenith="zenith --disable-history"
@@ -464,6 +458,16 @@ function pe() {
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
+
+function init.daemonize() {
+	# killall "$1" 2>/dev/null && sleep 1
+	daemonize /usr/bin/env -i $(which -p bash) -l -c "$*"
+} && compdef init.daemonize=command
+function init.daemonize.log() {
+	daemonize -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
+} && compdef init.daemonize.log=command
+
+alias .pueued="pueued &>/dev/null || true; fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -x shred -v -f --remove"
 
 # bindkey '^[H' man
 # bindkey '^[h' man
