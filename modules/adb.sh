@@ -18,13 +18,15 @@ fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
+alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
+which clp &>/dev/null || alias clp="curlp"
 function curltv() {
 	if [[ "$1" == "premiumize" ]]; then
-		curl --proxy "$ANDROID_SERIAL:11080" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
+		curlp "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
 	elif [[ "$1" == "real-debrid" ]]; then
-		curl --proxy "$ANDROID_SERIAL:11080" "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
+		curlp "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --tab --monochrome-output --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
-		curl --proxy "$ANDROID_SERIAL:11080" "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --tab --monochrome-output --raw-output
+		curlp "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --tab --monochrome-output --raw-output
 	fi
 }
 which cltv &>/dev/null || alias cltv="curltv"
@@ -66,6 +68,8 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
 
+	rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
+	rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
 	rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
