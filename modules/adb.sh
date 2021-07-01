@@ -115,12 +115,11 @@ function adbpropsf() {
 	adb shell getprop | sortt | rg --smart-case "$@" | bl sh
 }
 
-alias adbpid=" adbps | rg --case-sensitive --fixed-strings"
-function __adbpida() {
+function __adbpid() {
 	adbps | rg --case-sensitive --fixed-strings "$*" | bl nix
 	adbtop | rg --case-sensitive --fixed-strings "$*" | bl nix
 	# adb shell cat "/proc/$*/status" | bl yml
-} && alias adbpida=" __adbpida"
+} && alias adbpid=" __adbpid"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
