@@ -123,7 +123,7 @@ function __adbpid() {
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
 alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
-alias adbscreenshot='adb shell "screencap -p" > "screenshot.$(date --iso-8601).$(date +%s).png"'
+alias adbscreenshot='adb exec-out screencap -p > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
 alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
@@ -282,9 +282,13 @@ alias adbdsls="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
 function adbds() {
 	local v && for v in "$@"; do
 		echo && bhr && echo "█ $v"
-		adb shell dumpsys "$v" 2>&1 | sed 's/\b=/: /' | t2 | bl yml
+		adb exec-out dumpsys "$v" 2>&1 | sed 's/\b=/: /' | t2 | bl yml
 	done
-	# adb shell dumpsys "$*" | sed 's/\b=/: /' | t2 | bat -l yml --file-name="$*"
+}
+function adbdsf() {
+	adbdsls | rg --case-sensitive --fixed-strings "$*" | while read i; do
+		adbds "$i"
+	done
 }
 
 # https://developer.android.com/reference/android/provider/Settings
