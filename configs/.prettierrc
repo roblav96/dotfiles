@@ -87,7 +87,7 @@
 			},
 		},
 		{
-			"files": ["*.java-properties", "*.java", "*.properties"],
+			"files": ["*.java-properties", "*.java"],
 			"options": {
 				"parser": "java",
 				"singleQuote": false,
