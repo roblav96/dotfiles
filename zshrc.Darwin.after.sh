@@ -204,7 +204,7 @@ function app-bak() {
 	echo && exa --oneline "$tarpath"
 }
 
-declare SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text 3")"
+declare SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text")"
 alias st="subl"
 alias stn="subl --new-window"
 alias sto="subl --new-window --command 'project_manager {\"action\": \"switch\"}'"
