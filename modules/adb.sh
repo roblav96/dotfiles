@@ -67,6 +67,7 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 
 	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
 	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
+	rogs="$rogs --message '!^Telecom Service not found.$'"
 
 	rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
 	rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
