@@ -189,6 +189,7 @@ function adbk() {
 			# "com.hulu.livingroomplus"
 			# "com.kfaraj.launcher"
 			# "com.liskovsoft.smarttubetv"
+			"com.liskovsoft.leankeyboard"
 			"com.liskovsoft.smarttubetv.beta"
 			# "com.liskovsoft.videomanager"
 			# "com.mxtech.videoplayer.ad"
@@ -326,7 +327,7 @@ function adbsettingsinit() {
 
 function adbrclone() {
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
-	adb shell killall -v -KILL rclone
+	adb shell killall -v rclone
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ANDROID_SERIAL:$(porthash "WD_GRAPHITE")" --read-only
@@ -349,7 +350,7 @@ function adbrclone() {
 	adbps | g rclone | bl nix
 }
 function adbgost() {
-	adb shell killall -v -KILL gost
+	adb shell killall -v gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 1
