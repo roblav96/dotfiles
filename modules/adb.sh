@@ -189,7 +189,7 @@ function adbk() {
 			# "com.hulu.livingroomplus"
 			# "com.kfaraj.launcher"
 			# "com.liskovsoft.smarttubetv"
-			"com.liskovsoft.leankeyboard"
+			# "com.liskovsoft.leankeyboard"
 			"com.liskovsoft.smarttubetv.beta"
 			# "com.liskovsoft.videomanager"
 			# "com.mxtech.videoplayer.ad"
