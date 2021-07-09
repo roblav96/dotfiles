@@ -1,5 +1,5 @@
 [tool.black]
 include = '\.py$'
 line-length = 100
-target-version = ['py39']
+target-version = ['py38']
 verbose = false
