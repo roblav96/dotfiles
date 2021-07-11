@@ -366,7 +366,11 @@ alias xhp="xh --no-verbose --print=b --pretty=none"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 alias aria2cdl="aria2c --split=4 --download-result=full"
-alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
+if [[ -x "$(which -p wget2)" ]]; then
+	alias wget="wget2 --no-verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
+else
+	alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
+fi
 alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 alias curlt='curl --output /dev/null --write-out "
 Effective URL: %{url_effective}
