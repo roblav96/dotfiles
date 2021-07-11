@@ -8,7 +8,7 @@ alias ghb="github"
 # alias gho='isgit; open "$(gurl)"'
 alias gho="gh repo view --web"
 alias gurl="git remote get-url origin"
-alias gtop="git rev-parse --show-toplevel"
+alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
