@@ -102,8 +102,11 @@ unset rogs
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
 # }
-alias adbt="adb shell input keyboard text"
 alias adben="adb shell input keyevent KEYCODE_ENTER"
+alias adbtt="adb shell input keyboard text"
+function adbt() {
+	adbtt "$*" && sleep 1 && adben
+}
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
 alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
@@ -239,6 +242,8 @@ function adbk() {
 			# "us.nineworlds.serenity"
 		)
 		adbk $pkgs
+		sleep 1
+		adbp
 	fi
 	local v && for v in "$@"; do
 		adb shell am force-stop "$v"
