@@ -11,7 +11,7 @@ unset tk_flags tk_flags_all
 # [[ -x "$(which -p diskus)" ]] && alias diskus="diskus --apparent-size"
 # [[ -x "$(which -p dua)" ]] && alias dua="dua --apparent-size"
 
-alias dust='dust --reverse --ignore-directory=.git'
+alias dust='dust --ignore-directory=.git'
 alias dustr='dust --depth=1'
 # alias dusta="command dust"
 # alias dust="command dust --ignore-directory .git --ignore-directory node_modules"
