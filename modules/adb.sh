@@ -15,8 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 
 alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
 which clp &>/dev/null || alias clp="curlp"

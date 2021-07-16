@@ -16,7 +16,6 @@
 	"trailingComma": "all",
 	"useTabs": true,
 	"vueIndentScriptAndStyle": false,
-	"xmlSelfClosingSpace": true,
 	"xmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
