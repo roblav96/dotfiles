@@ -167,6 +167,7 @@ function adbk() {
 			"com.amazon.amazonvideo.livingroom.nvidia"
 			# "com.amazon.music.tv"
 			# "com.android.defcontainer"
+			"com.android.documentsui"
 			"com.android.gallery3d"
 			"com.android.htmlviewer"
 			"com.android.vending"
