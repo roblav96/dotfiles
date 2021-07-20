@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
 
 alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
 which clp &>/dev/null || alias clp="curlp"
@@ -42,6 +42,8 @@ alias adbl="adb exec-out /data/local/tmp/bin/ls --color=auto -laph"
 alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
+--message '!^Access denied finding property \"RB.tag\"$' \
+--message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
 --message '!^loading \[eventTime=\d'"
 declare rogs="rogcat"
 if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
@@ -53,6 +55,7 @@ fi
 if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --tag '!^bt_stack$'"
 	rogs="$rogs --tag '!^NewAvrcp'"
+	rogs="$rogs --message '!^Telecom Service not found.$'"
 
 	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
 	rogs="$rogs --message '! Trying Lua '"
@@ -63,10 +66,6 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
 	rogs="$rogs --message '!\bINvCplHalService\b'"
 	# rogs="$rogs --message '!\bnvphsd\b'"
-
-	rogs="$rogs --message '!^Access denied finding property \"RB.tag\"$'"
-	rogs="$rogs --message '!^getLayerReleaseFence failed for display -1: Invalid display$'"
-	rogs="$rogs --message '!^Telecom Service not found.$'"
 
 	rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
 	rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
