@@ -19,12 +19,12 @@ function __histbak() {
 
 function __histsd() {
 	if [[ $# -ne 2 ]]; then
-		echo "🔴 num args '$#' -ne '2' -> '$*'"
+		echo "🟠 num args '$#' -ne '2' -> '$*'"
 		return 1
 	fi
 	local histfile="${HISTFILE:-$HOME/.zsh_history}"
 	diff "$histfile" <(sd --preview --flags cw --string-mode "$1" "$2" "$histfile") | delta
-	echo && read -q "?🔴 CONFIRM '$1' -> '$2' ...? " && return 1
+	echo && read -s -q "?🔴 Confirm REPLACE -> '$1' -> '$2' " || return
 	echo && __histbak && echo
 	sd --flags cw --string-mode "$1" "$2" "$histfile"
 	exit

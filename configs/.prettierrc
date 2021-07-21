@@ -113,6 +113,12 @@
 			},
 		},
 		{
+			"files": ["*.css", "*.less", "*.sass", "*.scss"],
+			"options": {
+				"singleQuote": false,
+			},
+		},
+		{
 			"files": [
 				"*.aw",
 				"*.blade.php",

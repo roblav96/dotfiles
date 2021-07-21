@@ -243,7 +243,7 @@ alias vscdp="cd '$HOME/.vscode-oss/extensions'"
 alias vscdu="cd '$VSCODE_DATA/User'"
 
 unalias dotsrc &>/dev/null
-alias dot="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dotst="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"

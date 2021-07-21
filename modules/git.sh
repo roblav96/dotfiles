@@ -49,11 +49,11 @@ alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors
 alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard'
 alias gcld='echo; gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
-alias gcl='gcld; echo; read -q "?🔴 Would remove ...? " && return 1; echo; gclean; greset'
+alias gcl='gcld; echo; read -s -q "?🔴 Would remove " || return; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; gs; echo; read -q "?🔴 git push origin $(basename --suffix=.git $(gurl)) ...? " && return 1; gca && git push origin $(gbranch)'
+alias gpush='isgit; gs; echo; read -s -q "?🟠 git push origin $(basename --suffix=.git $(gurl)) ...? " || return; gca && git push origin $(gbranch)'
 
 function gup() {
 	local v && for v in */.git; do (
@@ -83,7 +83,7 @@ function gc() {
 	local outdir="$(basename "${repo[-1]}")"
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
 	if [[ -d "$outdir" ]]; then
-		read -q "?🔴 Replace existing folder '$outdir' ...? " && return 1
+		read -s -q "?🔴 Replace existing folder '$outdir' " || return
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
@@ -136,19 +136,19 @@ function greload() {
 # 	# npx snyk test --dev --all-projects --detection-depth=1
 # 	# if [[ -e "package.json" ]]; then
 # 	# 	cat "package.json" | jq --monochrome-output --tab '{name,version,description,main,bin,scripts,dependencies,devDependencies,homepage,repository}' | bat -l json
-# 	# 	read -q "?npm install? [y/n]: " || return 1
+# 	# 	read -s -q "?npm install? [y/n]: " || return 1
 # 	# 	npm install
 # 	# 	# --ignore-scripts --no-bin-links --no-optional
 # 	# 	cat "package.json" | jq --monochrome-output --tab '{scripts}' | bat -l json
 # 	# fi
 # 	# if [[ -e "requirements.txt" ]]; then
 # 	# 	bat "requirements.txt" -l sh
-# 	# 	read -q "?pip install? [y/n]: " || return 1
+# 	# 	read -s -q "?pip install? [y/n]: " || return 1
 # 	# 	pip install --requirements "requirements.txt"
 # 	# fi
 # 	# if [[ -e "$outdir.csproj" ]]; then
 # 	# 	prettier "$outdir.csproj" | bat -l xml
-# 	# 	read -q "?dotnet restore? [y/n]: " || return 1
+# 	# 	read -s -q "?dotnet restore? [y/n]: " || return 1
 # 	# 	dotnet restore
 # 	# fi
 # }
