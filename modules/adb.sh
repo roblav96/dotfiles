@@ -70,6 +70,7 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
 	rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
 	rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
+	rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
 	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"

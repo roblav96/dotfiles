@@ -91,11 +91,11 @@ function uber-apk-install() {
 # }
 
 function apk-kodi-nightly() {
-	local apk="$(curl https://mirrors.kodi.tv/nightlies/android/arm64-v8a/Matrix/ | pup '#list > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')"
+	local apk="$(curl https://mirrors.kodi.tv/nightlies/android/arm64-v8a/master/ | pup '#list > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')"
 	echo "🟡 apk -> '$apk'"
-	wget "https://mirrors.kodi.tv/nightlies/android/arm64-v8a/Matrix/$apk"
+	wget "https://mirrors.kodi.tv/nightlies/android/arm64-v8a/master/$apk"
 	apkm "$apk"
-	adbin "$apk"
+	adb install -r -g "$apk"
 	rd "$apk"
 }
 
@@ -104,6 +104,6 @@ function apk-vlc-nightly() {
 	echo "🟡 apk -> '$apk'"
 	wget "https://artifacts.videolan.org/vlc-android/nightly-arm64/$apk"
 	apkm "$apk"
-	adbin "$apk"
+	adb install -r -g "$apk"
 	rd "$apk"
 }
