@@ -38,8 +38,8 @@ alias adbl="adb exec-out /data/local/tmp/bin/ls --color=auto -laph"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
-# alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
-alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace \
+# alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace \
+alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
 --message '!^Access denied finding property \"RB.tag\"$' \
@@ -61,6 +61,10 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '! Trying Lua '"
 	rogs="$rogs --message '! is an AppCompat widget that can only be used with a Theme.AppCompat theme '"
 
+	rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: in DATA '"
+	rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: out WINDOW_UPDATE '"
+	rogs="$rogs --message '! VlcObject identical \d+ line[s]?$'"
+
 	rogs="$rogs --tag '!^nvphsd$'"
 	rogs="$rogs --message '! /vendor/bin/nvphsd '"
 	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
@@ -75,6 +79,8 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
+
+	rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
 	# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
 	# rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
@@ -134,7 +140,7 @@ alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
 
 alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching --regexp='\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bl yml"
 alias adbaudio="adbds media.audio_flinger"
-alias adbstack="adb shell am stack list | bl nix"
+alias adbstack="adb shell am stack list | sed 's/\b=/: /g' | t1 | bl yml"
 
 function exoplayer() {
 	if [[ $# -eq 1 ]]; then
@@ -208,6 +214,7 @@ function adbk() {
 			"com.semperpax.spmc16"
 			# "com.softmedia.receiver"
 			# "com.softmedia.receiver.lite"
+			# "com.sony.dtv.smartmediaapp"
 			"com.soundcloud.android"
 			"com.spotify.tv.android"
 			# "com.teamsmart.videomanager.tv"
