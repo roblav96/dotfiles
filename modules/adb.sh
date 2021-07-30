@@ -434,16 +434,14 @@ function adbdown() {
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
 	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	sleep 1
-	adb shell input keyevent KEYCODE_HOME
+	# sleep 1 && adb shell input keyevent KEYCODE_HOME
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
 	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	sleep 1
-	adb shell input keyevent KEYCODE_HOME
+	# sleep 1 && adb shell input keyevent KEYCODE_HOME
 }
 
 # function adbjadx() {
