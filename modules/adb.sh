@@ -273,8 +273,7 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
 	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	sleep 1
-	adb shell input keyevent KEYCODE_HOME
+	# sleep 1 && adb shell input keyevent KEYCODE_HOME
 }
 function adbi() {
 	local v && for v in "$@"; do
