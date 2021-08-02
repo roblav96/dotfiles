@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
 
 alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
 which clp &>/dev/null || alias clp="curlp"
@@ -272,8 +272,7 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/data/$v/"
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	# sleep 1 && adb shell input keyevent KEYCODE_HOME
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 function adbi() {
 	local v && for v in "$@"; do
@@ -433,15 +432,13 @@ function adbdown() {
 	local v && for v in "$@"; do
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	# sleep 1 && adb shell input keyevent KEYCODE_HOME
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher
-	# sleep 1 && adb shell input keyevent KEYCODE_HOME
+	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 
 # function adbjadx() {

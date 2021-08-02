@@ -219,7 +219,7 @@ alias ls="ls --color=auto"
 alias ll="ls -laph"
 alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
-alias ebash="/usr/bin/env -i $(which -p bash) -l"
+alias ebash='/usr/bin/env -i HOME=$HOME $(which -p bash) -l'
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
@@ -296,7 +296,7 @@ alias rd="$(which -p mv) -v -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
 alias .rm=" $(which -p mv) -f -t \$($(which -p mktemp) -d -p '$HOME/.Trash')"
 alias .shredrm=" $(which -p shred) -f --remove"
 alias ltrash="lm --tree --level=2 $HOME/.Trash"
-alias rmtrash="ltrash; echo; read -s -q '?🔴 Empty Trash? ' || return; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
+alias rmtrash="ltrash; echo; read -s -q '?🔴 Empty Trash? ' || return; echo; fd --hidden --no-ignore --max-depth=1 --base-directory=$HOME/.Trash --exec rm -rf; echo; ltrash; echo; dfc"
 alias empty='echo; fd -uu -d1; echo; read -s -q "?🟠 Move to Trash? " || return; echo; echo; fd -uu -d1 -X mv -v -f -t $(mktemp -d -p "$HOME/.Trash")'
 
 alias zdebug="zsh -lixc : 2>&1"

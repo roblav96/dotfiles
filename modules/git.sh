@@ -49,7 +49,7 @@ alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors
 alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard'
 alias gcld='echo; gss; echo; gclean --dry-run | sed "s#^Would remove ##" | lscolors'
-alias gcl='gcld; echo; read -s -q "?🔴 Would remove ? " || return; echo; gclean; greset'
+alias gcl='gcld; echo; read -s -q "?🔴 Would remove ? " || return; echo; echo; gclean; greset'
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
