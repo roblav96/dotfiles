@@ -360,6 +360,7 @@ function jjd() {
 } && compdef jjd=just
 # alias jjd="just --dry-run --no-highlight" # --verbose"
 
+alias gron="gron --monochrome"
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
