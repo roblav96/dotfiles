@@ -219,13 +219,12 @@ alias ls="ls --color=auto"
 alias ll="ls -laph"
 alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
-alias ebash='/usr/bin/env -i HOME=$HOME $(which -p bash) -l'
+alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM $(which -p bash) -l'
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
-alias aliasls="alias | sortt | sed 's#^#\n#'"
 alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
@@ -329,15 +328,20 @@ test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
 alias cmdls="printf '%s\n' \$commands | sortt --unique"
 function cmdf() {
-	cmdls | g "$*"
+	cmdls | g "$*" | lscolors
 } && compdef cmdf=command
 function cmdfs() {
 	# cmdf "$*" | while read i; do (echo && echo "█ $i" && show "$i"); done
-	cmdf "$*" | while read i; do
+	cmdls | g "$*" | while read i; do
 		local base="$(basename "$i")"
 		echo && echo "█ $base" && show "$base"
 	done
 } && compdef cmdfs=command
+
+alias aliasls="alias | sortt | sed 's#^#\n#'"
+function aliasf() {
+	aliasls | g "$*" | bl sh
+} && compdef aliasf=command
 
 # if [[ -x "$(which -p sd)" ]]; then
 # 	function .zsd() {

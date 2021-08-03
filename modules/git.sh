@@ -84,12 +84,13 @@ function gc() {
 	[[ "${outdir##*.}" == "git" ]] && outdir="${outdir:0:-4}"
 	if [[ -d "$outdir" ]]; then
 		read -s -q "?🔴 Replace existing folder '$outdir' ? " || return
+		echo && echo
 		rd "$outdir"
 	fi
 	git clone "$@" && cd "$outdir"
 	[[ -e .gitmodules ]] && git submodule update --init --recursive
 	if [[ -e gradlew ]]; then
-		fd --type=file --glob gradlew --exec-batch chmod -v a+x
+		fd --type=file --glob gradlew --exec-batch chmod -v -c a+x
 	fi
 	if [[ -x "$(which -p git-restore-mtime)" ]]; then
 		git-restore-mtime --force --quiet
