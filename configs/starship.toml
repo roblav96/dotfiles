@@ -104,6 +104,9 @@ disabled = true
 [swift]
 disabled = true
 
+[vagrant]
+disabled = true
+
 [username]
 show_always = true
 disabled = true

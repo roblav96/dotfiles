@@ -69,7 +69,7 @@ function unapk() {
 	unzip "$@" '*.dex' -d "$outdir"
 	cd "$outdir"
 	command rm -rf smali*
-	jadx --show-bad-code --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
+	jadx --show-bad-code --rename-flags 'valid, printable' --output-dir . --log-level ERROR *.dex 2>&1 | bat --plain -l java
 	command rm -rf *.dex
 }
 
