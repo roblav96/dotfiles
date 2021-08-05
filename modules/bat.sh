@@ -78,9 +78,9 @@ l \"\$(command bat --cache-dir)\"
 function batplist() {
 	local v && for v in "$@"; do
 		if file "$v" | grep -q -F 'Apple binary'; then
-			plistutil --infile "$v" | bat --file-name="$v" -l xml
+			plistutil --infile "$v" | prettier --parser xml | bat --file-name="$v" -l xml
 		else
-			bat "$v" -l xml
+			prettier --parser xml "$v" | bat --file-name="$v" -l xml
 		fi
 	done
 }

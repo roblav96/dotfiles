@@ -71,7 +71,7 @@ function gup() {
 		# fi
 		if [[ -x "$(which -p git-restore-mtime)" ]]; then
 			git-restore-mtime --force --quiet
-			touch "$PWD"
+			# touch "$PWD"
 		fi
 	); done
 	bhr
