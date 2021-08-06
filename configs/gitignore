@@ -42,6 +42,10 @@ __pycache__
 flutter.bat
 local.properties
 
+# Cargo.lock
+# package-lock.json
+# yarn.lock
+
 # # ████  caarlos0/dotfiles  ████
 # .java-version
 # .svn

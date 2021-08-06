@@ -1,4 +1,4 @@
-alias ru="rustup"
+# alias ru="rustup"
 alias rucd="cd $HOME/.rustup"
 
 alias ruout="rustup check"

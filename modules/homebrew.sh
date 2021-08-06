@@ -155,12 +155,27 @@ function bmd() {
 	done
 } && compdef bmd=command
 
+
+function blink() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Formula link -> '$v'"
+		brew link --force "$v" --verbose --debug
+	done
+} && compdef blink=command
+function bunlink() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Formula unlink -> '$v'"
+		brew unlink "$v" --verbose --debug
+	done
+} && compdef bunlink=command
+
+function brp() {
+	realpath "$(brew --prefix "$@")"
+} && compdef brp=command
 function bcd() {
-	cd "$(brew --prefix "$@")"
-} && compdef bcd=command
-function bcdrp() {
 	cd "$(realpath "$(brew --prefix "$@")")"
-} && compdef bcdrp=command
+} && compdef bcd=command
+
 function bbin() {
 	local v && for v in "$@"; do
 		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then

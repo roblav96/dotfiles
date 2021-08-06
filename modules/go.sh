@@ -10,6 +10,7 @@ fi
 
 alias gof="go mod download -x all"
 alias goc="gof && go mod verify"
+
 alias gocd="cd $GOBIN"
 alias gols="lch $GOBIN"
 alias goin="go get -u -v"

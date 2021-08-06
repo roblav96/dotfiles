@@ -4,15 +4,16 @@ if [[ -d "$HOME/.cargo" ]]; then
 fi
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
-alias cg="cargo"
+alias cgf="cargo fetch"
+alias cgc="cgf && cargo check --workspace"
+
+# alias cg="cargo"
 alias cgcd="cd $CARGO_HOME/bin"
 alias cgin="cargo install --force"
 alias cgls="lch $CARGO_HOME/bin"
 alias cgout="cargo install-update --all --list"
 # alias cgupg="cargo install-update --force"
 alias cgrm="cargo uninstall"
-alias cgc="cargo check --workspace"
-alias cgf="cargo fetch"
 
 alias cglnls="lch /usr/local/bin | g cargo/bin"
 alias cglnbin="ln -sf $CARGO_HOME/bin/* /usr/local/bin"

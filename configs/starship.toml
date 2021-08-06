@@ -107,6 +107,9 @@ disabled = true
 [vagrant]
 disabled = true
 
+[vlang]
+disabled = true
+
 [username]
 show_always = true
 disabled = true

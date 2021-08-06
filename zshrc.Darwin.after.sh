@@ -39,7 +39,7 @@ alias ppcopy="tr -d '\n' | pbcopy"
 alias gpw="echo; pwgen --ambiguous --num-passwords=1 16 | tee /dev/tty | tr -d '\n' | pbcopy"
 # alias gpw="echo; gpg --armor --gen-random 0 12 | tee /dev/tty | tr -d '\n' | pbcopy"
 alias rmxattr="xattr -c -r"
-alias unquarantine="xattr -d -r com.apple.quarantine"
+alias unquarantine="xattr -v -d -r com.apple.quarantine"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias .hosts="sudo $EDITOR /etc/hosts"
