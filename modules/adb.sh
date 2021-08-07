@@ -250,7 +250,6 @@ function adbk() {
 			# "us.nineworlds.serenity"
 		)
 		adbk $pkgs
-		adbk com.google.android.tvlauncher nl.ndat.tvlauncher me.efesser.flauncher
 		sleep 1
 		adbp
 	fi
