@@ -86,7 +86,7 @@ function wg-up() {
 function wg-down() {
 	find /Library/LaunchDaemons -type f -name 'com.wireguard.*.plist' | while read i; do (
 		# echo && echo "▶ $i" &&
-		sudo launchctl unload -w "$i" 2>/dev/null
+		sudo launchctl unload -w "$i" 2> /dev/null
 	); done
 	echo && sleep 1
 	sudo wg
@@ -152,18 +152,16 @@ alias o="open ."
 [[ -x "$(which -p nq)" ]] && export NQDIR="/usr/local/var/tmp/nq"
 
 function phone-bak() {
-	adb shell pm list packages -3 | sed 's|^package:||' | sortt >'pm_list_packages_-3.log'
-	adb shell pm list packages -3 -d | sed 's|^package:||' | sortt >'pm_list_packages_-3_-d.log'
-	adb shell pm list packages -s -d | sed 's|^package:||' | sortt >'pm_list_packages_-s_-d.log'
-	adb pull "/sdcard/.rclone/"
-	adb pull "/sdcard/.ssh/"
-	adb pull "/sdcard/data/"
-	adb pull "/sdcard/DCIM/"
-	adb pull "/sdcard/Download/"
-	adb pull "/sdcard/Pictures/" && \
-		fd --search-path=Pictures --type=directory --hidden --case-sensitive --glob '.thumbnails' --exec-batch rm -rfv
-	adb pull "/sdcard/SwiftBackup/"
-	adb pull "/sdcard/TitaniumBackup/"
+	local i && for i in "data" "Download" "Pictures" "SwiftBackup" "TitaniumBackup"; do
+		adb pull "/sdcard/$i/"
+	done
+	if [[ -d "Pictures" ]]; then
+		fd --search-path "Pictures" --type=directory --hidden --case-sensitive --glob ".thumbnails" --exec-batch rm -rfv
+	fi
+	[[ ! -d "data" ]] && mkdir -p "data"
+	adb shell pm list packages -3 | sed 's/^package://' | sortt > "data/pm_user.log"
+	adb shell pm list packages -3 -d | sed 's/^package://' | sortt > "data/pm_user_disabled.log"
+	adb shell pm list packages -s -d | sed 's/^package://' | sortt > "data/pm_system_disabled.log"
 }
 
 function fbak() {
@@ -243,14 +241,14 @@ alias vscd="cd '$VSCODE_DATA'"
 alias vscdp="cd '$HOME/.vscode-oss/extensions'"
 alias vscdu="cd '$VSCODE_DATA/User'"
 
-unalias dotsrc &>/dev/null
+unalias dotsrc &> /dev/null
 alias dotst="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
 
 if [[ -n "$DOTBENCH" ]]; then
-	echo && echo "🟠 DOTBENCH -> $(bc <<<"$(date +%s%3N) - $DOTBENCH")"
+	echo && echo "🟠 DOTBENCH -> $(bc <<< "$(date +%s%3N) - $DOTBENCH")"
 	unset DOTBENCH
 fi
 
