@@ -160,7 +160,8 @@ function phone-bak() {
 	adb pull "/sdcard/data/"
 	adb pull "/sdcard/DCIM/"
 	adb pull "/sdcard/Download/"
-	adb pull "/sdcard/Pictures/"
+	adb pull "/sdcard/Pictures/" && \
+		fd --search-path=Pictures --type=directory --hidden --case-sensitive --glob '.thumbnails' --exec-batch rm -rfv
 	adb pull "/sdcard/SwiftBackup/"
 	adb pull "/sdcard/TitaniumBackup/"
 }
