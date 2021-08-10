@@ -156,7 +156,7 @@ function phone-bak() {
 		adb pull "/sdcard/$i/"
 	done
 	if [[ -d "Pictures" ]]; then
-		fd --search-path "Pictures" --type=directory --hidden --case-sensitive --glob ".thumbnails" --exec-batch rm -rfv
+		fd --search-path "Pictures" --type=directory --hidden --case-sensitive --glob ".thumbnails" --exec-batch rm -rf
 	fi
 	[[ ! -d "data" ]] && mkdir -p "data"
 	adb shell pm list packages -3 | sed 's/^package://' | sortt > "data/pm_user.log"
