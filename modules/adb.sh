@@ -15,7 +15,8 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.40"
+[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.1.2"
+# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
 
 alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
 which clp &>/dev/null || alias clp="curlp"
@@ -131,7 +132,7 @@ function __adbpid() {
 } && alias adbpid=" __adbpid"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
-alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
+alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/files\/medialib\/thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
 alias adbscreenshot='adb exec-out screencap -p > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
