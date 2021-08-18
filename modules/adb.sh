@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
 	fi
 fi
-[[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
+# [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
 
 alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
@@ -84,6 +84,9 @@ if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
 	rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
 	# Chromecast
+	rogs="$rogs --message '! setMaxDequeuedBufferCount: \d+ dequeued buffers would exceed the maxBufferCount '"
+	rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req=\d+\)$'"
+	rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
 	rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
 
 	# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
