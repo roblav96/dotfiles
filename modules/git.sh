@@ -62,16 +62,11 @@ function gup() {
 		cd "$repo"
 		echo "🟡 $repo" && echo -n "   "
 		gurl
-		# if [[ "$1" == "r" ]]; then
 		gss
-		git reset --hard
+		greset
 		gpf
-		# else
-		# 	gpf
-		# fi
 		if [[ -x "$(which -p git-restore-mtime)" ]]; then
 			git-restore-mtime --force --quiet
-			# touch "$PWD"
 		fi
 	); done
 	bhr
