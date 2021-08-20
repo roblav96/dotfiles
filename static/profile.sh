@@ -237,7 +237,7 @@ fi
 
 if [[ -x "/opt/bin/go/bin/go" ]]; then
 	export GOROOT="/opt/bin/go"
-	export PATH="/opt/bin/go/bin:$PATH"
+	export PATH="$HOME/go/bin:/opt/bin/go/bin:$PATH"
 fi
 
 # if test -d "/data/data/com.termux/files"; then
