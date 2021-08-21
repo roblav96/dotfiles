@@ -73,6 +73,7 @@ alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^$(date +%H):/\n$(
 alias psa="ps auxww"
 alias p="ps auxww | grep --invert-match ' grep ' | grep --invert-match '/rmate ' | grep"
 alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+alias killall="killall -v"
 alias k="killall -KILL"
 alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'

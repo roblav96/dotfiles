@@ -278,7 +278,7 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/data/$v/"
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 function adbi() {
 	local v && for v in "$@"; do
@@ -440,13 +440,13 @@ function adbdown() {
 	local v && for v in "$@"; do
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
-	adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
 }
 
 # function adbjadx() {
