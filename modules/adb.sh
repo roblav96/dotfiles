@@ -47,55 +47,53 @@ alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
 --message '!^loading \[eventTime=\d'"
 declare rogs="rogcat"
-if [[ "91PX1WGPV" == "$ANDROID_SERIAL" ]]; then
-	rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
-fi
-if [[ "emulator-5554" == "$ANDROID_SERIAL" ]]; then
-	rogs="$rogs --message '!^Can.t find service car_service$'"
-fi
-if [[ "192.168." == "${ANDROID_SERIAL:0:8}" ]]; then
-	rogs="$rogs --tag '!^bt_stack$'"
-	rogs="$rogs --tag '!^NewAvrcp'"
-	rogs="$rogs --message '!^Telecom Service not found.$'"
+rogs="$rogs --tag '!^bt_stack$'"
+rogs="$rogs --tag '!^NewAvrcp'"
+rogs="$rogs --message '!^Telecom Service not found.$'"
 
-	rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
-	rogs="$rogs --message '! Trying Lua '"
-	rogs="$rogs --message '! is an AppCompat widget that can only be used with a Theme.AppCompat theme '"
+rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
+rogs="$rogs --message '! Trying Lua '"
+rogs="$rogs --message '! is an AppCompat widget that can only be used with a Theme.AppCompat theme '"
 
-	rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: in DATA '"
-	rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: out WINDOW_UPDATE '"
-	rogs="$rogs --message '! VlcObject identical \d+ line[s]?$'"
+rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: in DATA '"
+rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: out WINDOW_UPDATE '"
+rogs="$rogs --message '! VlcObject identical \d+ line[s]?$'"
 
-	rogs="$rogs --tag '!^nvphsd$'"
-	rogs="$rogs --message '! /vendor/bin/nvphsd '"
-	rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
-	rogs="$rogs --message '!\bINvCplHalService\b'"
-	# rogs="$rogs --message '!\bnvphsd\b'"
+rogs="$rogs --tag '!^nvphsd$'"
+rogs="$rogs --message '! /vendor/bin/nvphsd '"
+rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
+rogs="$rogs --message '!\bINvCplHalService\b'"
+# rogs="$rogs --message '!\bnvphsd\b'"
 
-	rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
-	rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
-	rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
-	rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
-	rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
-	rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
-	rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
-	# rogs="$rogs --message '!^\b\w+ key.ode\b'"
+rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
+rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
+rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
+rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
+rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
+rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
+rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+# rogs="$rogs --message '!^\b\w+ key.ode\b'"
 
-	rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
+rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
-	# Chromecast
-	rogs="$rogs --message '! setMaxDequeuedBufferCount: \d+ dequeued buffers would exceed the maxBufferCount '"
-	rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req=\d+\)$'"
-	rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
-	rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
+# Chromecast
+rogs="$rogs --message '! setMaxDequeuedBufferCount: \d+ dequeued buffers would exceed the maxBufferCount '"
+rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req=\d+\)$'"
+rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
+rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
 
-	# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
-	# rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
+# # Pixel 3
+# rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
 
-	# rogs="$rogs --message '!^new range: offset='"
-	# rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
-	# rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
-fi
+# # Emulator
+# rogs="$rogs --message '!^Can.t find service car_service$'"
+
+# rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
+# rogs="$rogs --message '!^dispatchVolumeKeyEvent, pkg='"
+
+# rogs="$rogs --message '!^new range: offset='"
+# rogs="$rogs --message '!flags=\d+, suggestedStream=-\d+, preferSuggestedStream=false$'"
+# rogs="$rogs --message '!process_input: Failure reading next input event: Try again$'"
 # rogs="$rogs --tag '!^JS$'"
 # rogs="$rogs --tag '!^JsonPath'"
 # rogs="$rogs --tag '!^mobile-ffmpeg$'"
