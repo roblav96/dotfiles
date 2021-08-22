@@ -72,13 +72,13 @@ if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
 		local lang="sh"
 		# [[ -n $2 ]] && lang="$1"
-		curl "http://cht.sh/$*?T" | bat --style=grid -l $lang
+		curl "http://cht.sh/$*?T" | bl $lang
 	}
 	function chp() {
 		curl "http://cht.sh/$*?T"
 	}
 	function cha() {
-		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*" | bat --style=grid -l sh
+		curl "https://raw.githubusercontent.com/cheat/cheatsheets/master/$*" | bl sh
 	}
 else
 	function ch() {
@@ -93,12 +93,12 @@ alias chls="curl http://cht.sh/:list"
 alias chs="chls | g"
 
 # function cha() { test -f ~/.config/cheat/community/$@ && bat ~/.config/cheat/community/$@ -l sh || echo "Not Found!" }
-alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bat --style=grid -l sh"
-alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bat --style=grid -l sh"
+alias ch-bash="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/languages/bash.sh | bl sh"
+alias ch-git="curl https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/master/tools/git.sh | bl sh"
 
 function clfu() {
 	local b64="$(echo -n "$*" | base64)"
-	curl "http://www.commandlinefu.com/commands/matching/$*/$b64/sort-by-votes/plaintext" | bat --style=grid -l sh
+	curl "http://www.commandlinefu.com/commands/matching/$*/$b64/sort-by-votes/plaintext" | bl sh
 } && compdef clfu=command
 
 function tla() {
@@ -111,5 +111,6 @@ function tla() {
 	fi
 	tl "$1" && echo && echo "█ ch $1"
 	ch "$1" && echo && echo "█ cha $1"
-	cha "$1"
+	cha "$1" && echo && echo "█ clfu $1"
+	clfu "$1"
 } && compdef tla=command

@@ -172,7 +172,7 @@ function adbk() {
 		adb shell input keyevent KEYCODE_HOME
 		local pkgs=(
 			# "app.debrids.tv"
-			"at.nullptr.dlnachannels"
+			# "at.nullptr.dlnachannels"
 			# "au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
 			"com.amazon.amazonvideo.livingroom.nvidia"
@@ -182,7 +182,7 @@ function adbk() {
 			"com.android.gallery3d"
 			"com.android.htmlviewer"
 			"com.android.vending"
-			"com.apple.android.music"
+			# "com.apple.android.music"
 			"com.brouken.player"
 			"com.curiosity.curiositystream.androidtv"
 			# "com.doubleiq.podcast"
@@ -199,7 +199,7 @@ function adbk() {
 			"com.google.android.webview"
 			"com.google.android.youtube.tv"
 			"com.google.android.youtube.tvunplugged"
-			"com.google.stadia.androidtv"
+			# "com.google.stadia.androidtv"
 			"com.hbo.hbonow"
 			# "com.hulu.livingroomplus"
 			# "com.kfaraj.launcher"
@@ -207,10 +207,11 @@ function adbk() {
 			# "com.liskovsoft.leankeyboard"
 			"com.liskovsoft.smarttubetv.beta"
 			# "com.liskovsoft.videomanager"
-			"com.mxtech.videoplayer.ad"
-			"com.mxtech.videoplayer.pro"
+			# "com.mxtech.videoplayer.ad"
+			# "com.mxtech.videoplayer.pro"
 			# "com.mxtech.videoplayer.television"
 			"com.netflix.ninja"
+			# "com.nvidia.feedback"
 			# "com.nvidia.nvgamecast"
 			# "com.nvidia.osc"
 			"com.nvidia.ota"
@@ -227,8 +228,8 @@ function adbk() {
 			# "com.vanced.manager"
 			# "com.wiseplay"
 			# "de.cyberdream.iptv.tv.player"
-			"eu.chainfire.tv.sideloadlauncher"
-			"io.github.x0b.rcx"
+			# "eu.chainfire.tv.sideloadlauncher"
+			# "io.github.x0b.rcx"
 			"is.xyz.mpv"
 			"me.aap.fermata.auto"
 			# "net.mediaarea.mediainfo"
@@ -236,10 +237,10 @@ function adbk() {
 			# "org.acestream.media.atv"
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
-			"org.jellyfin.mobile"
-			"org.mozilla.tv.firefox"
-			"org.polymorphicshade.newpipe"
-			"org.schabi.newpipe"
+			# "org.jellyfin.mobile"
+			# "org.mozilla.tv.firefox"
+			# "org.polymorphicshade.newpipe"
+			# "org.schabi.newpipe"
 			# "org.schabi.newpipelegacy"
 			"org.videolan.vlc"
 			"org.videolan.vlc.debug"
@@ -278,7 +279,7 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/data/$v/"
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
-	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	adbk nl.ndat.tvlauncher
 }
 function adbi() {
 	local v && for v in "$@"; do
@@ -440,13 +441,13 @@ function adbdown() {
 	local v && for v in "$@"; do
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
-	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	adbk nl.ndat.tvlauncher
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
-	# adbk com.google.android.tvlauncher com.google.android.apps.tv.launcherx nl.ndat.tvlauncher me.efesser.flauncher
+	adbk nl.ndat.tvlauncher
 }
 
 # function adbjadx() {
