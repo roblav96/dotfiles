@@ -50,6 +50,7 @@ declare rogs="rogcat"
 rogs="$rogs --tag '!^bt_stack$'"
 rogs="$rogs --tag '!^NewAvrcp'"
 rogs="$rogs --message '!^Telecom Service not found.$'"
+rogs="$rogs --message '!^SupplicantStartWaitTimer$'"
 
 rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
 rogs="$rogs --message '! Trying Lua '"
@@ -175,7 +176,7 @@ function adbk() {
 			# "at.nullptr.dlnachannels"
 			# "au.com.shiftyjelly.pocketcasts"
 			"com.amazon.amazonvideo.livingroom"
-			"com.amazon.amazonvideo.livingroom.nvidia"
+			# "com.amazon.amazonvideo.livingroom.nvidia"
 			# "com.amazon.music.tv"
 			# "com.android.defcontainer"
 			"com.android.documentsui"
@@ -214,7 +215,7 @@ function adbk() {
 			# "com.nvidia.feedback"
 			# "com.nvidia.nvgamecast"
 			# "com.nvidia.osc"
-			"com.nvidia.ota"
+			# "com.nvidia.ota"
 			"com.parseus.codecinfo"
 			# "com.peacocktv.peacockandroid"
 			# "com.perflyst.twire"
@@ -230,7 +231,7 @@ function adbk() {
 			# "de.cyberdream.iptv.tv.player"
 			# "eu.chainfire.tv.sideloadlauncher"
 			# "io.github.x0b.rcx"
-			"is.xyz.mpv"
+			# "is.xyz.mpv"
 			"me.aap.fermata.auto"
 			# "net.mediaarea.mediainfo"
 			# "org.acestream.live"
@@ -279,7 +280,7 @@ function adbrm() {
 		adb shell rm -rf "/sdcard/Android/data/$v/"
 		adb shell rm -rf "/sdcard/Android/obb/$v/"
 	done
-	adbk nl.ndat.tvlauncher
+	# adbk nl.ndat.tvlauncher
 }
 function adbi() {
 	local v && for v in "$@"; do
@@ -441,13 +442,13 @@ function adbdown() {
 	local v && for v in "$@"; do
 		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
 	done
-	adbk nl.ndat.tvlauncher
+	# adbk nl.ndat.tvlauncher
 }
 function adbup() {
 	local v && for v in "$@"; do
 		adb shell pm enable --user 0 "$v"
 	done
-	adbk nl.ndat.tvlauncher
+	# adbk nl.ndat.tvlauncher
 }
 
 # function adbjadx() {
