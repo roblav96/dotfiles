@@ -1,6 +1,10 @@
 [[ -z "$ANDROID_HOME" ]] && export ANDROID_HOME="$HOME/Library/Android/sdk"
 [[ -z "$ANDROID_SDK_ROOT" ]] && export ANDROID_SDK_ROOT="$ANDROID_HOME"
-[[ -z "$ANDROID_NDK" ]] && export ANDROID_NDK="$ANDROID_HOME/ndk-bundle"
+[[ -z "$ANDROID_NDK" ]] && export ANDROID_NDK="$ANDROID_HOME/ndk/21.4.7075529"
+
+if [[ -z "$GSTREAMER_ROOT_ANDROID" ]]; then
+	export GSTREAMER_ROOT_ANDROID="/usr/local/share/gstreamer-1.0-android-universal"
+fi
 
 # export PATH="$PATH:$ANDROID_HOME/build-tools/29.0.3"
 # export PATH="$PATH:$ANDROID_HOME/ndk-bundle"
