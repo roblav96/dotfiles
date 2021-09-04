@@ -47,6 +47,21 @@ function apki() {
 	done
 }
 
+function extract-dat-blobs() {
+	local v && for v in "$@"; do
+		if [[ -e "$v.new.dat.br" ]]; then
+			brotli -d "$v.new.dat.br" -o "$v.new.dat"
+		fi
+		if [[ -e "$v.transfer.list" ]]; then
+			sdat2img "$v.transfer.list" "$v.new.dat" "$v.img"
+		fi
+		if [[ -e "$v.img" ]]; then
+			ext2rd "$v.img" "./:$v"
+		fi
+		echo "🟢 -> '$v'"
+	done
+}
+
 alias avdls="avdmanager list avd | bl yml"
 local emulator_flags='-no-passive-gps -no-location-ui' # -accel on -gpu host'
 alias emulator="emulator $emulator_flags -verbose"

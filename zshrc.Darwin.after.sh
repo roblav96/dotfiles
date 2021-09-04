@@ -152,7 +152,7 @@ alias o="open ."
 [[ -x "$(which -p nq)" ]] && export NQDIR="/usr/local/var/tmp/nq"
 
 function phone-bak() {
-	local i && for i in "data" "Download" "Pictures" "SwiftBackup" "TitaniumBackup"; do
+	local i && for i in "data" "Download" "Pictures" "TitaniumBackup"; do
 		adb pull "/sdcard/$i/"
 	done
 	if [[ -d "Pictures" ]]; then
