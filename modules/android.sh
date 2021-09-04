@@ -58,7 +58,7 @@ function extract-dat-blobs() {
 		if [[ -e "$v.img" ]]; then
 			ext2rd "$v.img" "./:$v"
 		fi
-		echo "🟢 -> '$v'"
+		echo && echo "🟢 extract-dat-blob -> '$v'" && echo
 	done
 }
 
