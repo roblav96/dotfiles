@@ -4,6 +4,7 @@
 
 if [[ -z "$GSTREAMER_ROOT_ANDROID" ]]; then
 	export GSTREAMER_ROOT_ANDROID="/usr/local/share/gstreamer-1.0-android-universal"
+	# export NDK_LOG=1
 fi
 
 # export PATH="$PATH:$ANDROID_HOME/build-tools/29.0.3"

@@ -355,7 +355,7 @@ function adbrclone() {
 		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "premiumizeme:" --name "premiumizeme" --addr "$ip:$(porthash "premiumizeme")" --read-only
+		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "alldebrid:" --name "alldebrid" --addr "$ip:$(porthash "alldebrid")" --read-only
