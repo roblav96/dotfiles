@@ -1,15 +1,15 @@
 #!/bin/sh
 
-if [[ -d "/opt/root" ]]; then
-	export HOME="/opt/root"
-	cd "$HOME"
+if test -d /opt/root; then
+	export HOME=/opt/root
+	cd /opt/root
 fi
 
-# if [[ -x "/opt/bin/zsh" ]]; then
-# 	export SHELL="/opt/bin/zsh"
-# 	exec /opt/bin/zsh
-# el
-if [[ -x "/opt/bin/bash" ]]; then
-	export SHELL="/opt/bin/bash"
+if test -x /opt/bin/bash; then
+	export SHELL=/opt/bin/bash
 	exec /opt/bin/bash
 fi
+# if test -x /opt/bin/zsh; then
+# 	export SHELL=/opt/bin/zsh
+# 	exec /opt/bin/zsh
+# fi
