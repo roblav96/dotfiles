@@ -82,8 +82,7 @@ function gc() {
 		echo && echo
 		rd "$outdir"
 	fi
-	git clone "$@" && cd "$outdir"
-	[[ -e .gitmodules ]] && git submodule update --init --recursive
+	git clone --recurse-submodules "$@" && cd "$outdir"
 	if [[ -e gradlew ]]; then
 		fd --type=file --glob gradlew --exec-batch chmod -v -c a+x
 	fi

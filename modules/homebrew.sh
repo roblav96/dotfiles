@@ -173,7 +173,7 @@ function brp() {
 	realpath "$(brew --prefix "$@")"
 } && compdef brp=command
 function bcd() {
-	cd "$(realpath "$(brew --prefix "$@")")"
+	cd "$(brew --prefix "$@")"
 } && compdef bcd=command
 
 function bbin() {

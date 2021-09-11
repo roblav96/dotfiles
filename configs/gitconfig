@@ -9,7 +9,7 @@
 [advice]
 	detachedHead = false
 [diff]
-	renameLimit = 4096
+	renameLimit = 16384
 	colorMoved = "default"
 [hub]
 	protocol = "https"

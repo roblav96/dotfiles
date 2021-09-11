@@ -18,18 +18,16 @@ fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
 
-alias curlp='curl --proxy "$ANDROID_SERIAL:11080"'
-which clp &>/dev/null || alias clp="curlp"
-function curltv() {
+alias clp='curl --proxy 192.168.1.1:11080'
+function cltv() {
 	if [[ "$1" == "premiumize" ]]; then
-		curlp "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=9
+		clp "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=9
 	elif [[ "$1" == "real-debrid" ]]; then
-		curlp "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --raw-output
+		clp "https://api.real-debrid.com/rest/1.0/unrestrict/link?auth_token=$REALDEBRID_SECRET" -d "link=https://real-debrid.com/d/$2" | jq '.download' --raw-output
 	elif [[ "$1" == "alldebrid" ]]; then
-		curlp "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --raw-output
+		clp "https://api.alldebrid.com/v4/link/unlock?agent=$ALLDEBRID_AGENT&apikey=$ALLDEBRID_KEY&link=https://uptobox.com/$2" | jq '.data.link' --raw-output
 	fi
 }
-which cltv &>/dev/null || alias cltv="curltv"
 
 # ████  install adb busybox  ████
 # adb push busybox-arm64 /data/local/tmp/bin/busybox; adb shell /data/local/tmp/bin/busybox --install -s /data/local/tmp/bin
@@ -232,7 +230,7 @@ function adbk() {
 			# "de.cyberdream.iptv.tv.player"
 			# "eu.chainfire.tv.sideloadlauncher"
 			# "io.github.x0b.rcx"
-			# "is.xyz.mpv"
+			"is.xyz.mpv"
 			"me.aap.fermata.auto"
 			"net.kodinerds.maven.kodi20"
 			# "net.mediaarea.mediainfo"
