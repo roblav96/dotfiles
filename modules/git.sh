@@ -95,8 +95,9 @@ function greload() {
 	[[ ! -d "$topdir" ]] && return 1
 	local outdir="$(basename "$topdir")"
 	local repo="$(git remote get-url origin)"
+	local branch="$(git branch --show-current)"
 	cd "$(dirname "$topdir")"
-	gc "$repo" "$outdir"
+	gc -b "$branch" "$repo" "$outdir"
 }
 # alias greload='cd "$(dirname "$(git rev-parse --show-toplevel)")"'
 # alias gcr="gc --recurse-submodules"
