@@ -135,7 +135,7 @@ function __adbpid() {
 } && alias adbpid=" __adbpid"
 
 alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Music"
-alias adbls="adb shell find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/files\/medialib\/thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
+alias adbls="adb exec-out find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/files\/medialib\/thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
 alias adbscreenshot='adb exec-out screencap -p > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
 # alias rogcat="rogcat --level trace"
