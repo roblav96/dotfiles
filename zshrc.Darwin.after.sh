@@ -4,15 +4,23 @@
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
-if [[ -z "$OPENSSL_ROOT_DIR" ]]; then
-	export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
-fi
+# if [[ -z "$OPENSSL_ROOT_DIR" ]]; then
+# 	export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
+# 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
+# fi
 
 alias ii="iina"
 alias mp="mpv --msg-module --msg-level=all=status"
 alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
+
+alias pkgls="pkgutil --pkgs | sortt"
+function pkgi() {
+	local v && for v in "$@"; do
+		pkgutil --pkg-info "$v" | bat --file-name="$v" -l yml
+		pkgutil --files "$v" | sed 's#^#/#' | lscolors
+	done
+} && compdef pkgi=pkgutil
 
 alias duti-cache="(/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt | uniq) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
 alias duti-ls="cat $HOME/.cache/lsregister.duti.dump"
