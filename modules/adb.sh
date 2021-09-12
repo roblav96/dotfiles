@@ -75,6 +75,9 @@ rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 
 rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
+# emulator-5554
+rogs="$rogs --message '!^hw scan \d+ MHz$'"
+
 # Chromecast
 rogs="$rogs --message '! setMaxDequeuedBufferCount: \d+ dequeued buffers would exceed the maxBufferCount '"
 rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req=\d+\)$'"
@@ -164,6 +167,13 @@ function adbin() {
 	local v && for v in "$@"; do
 		adb install -r "$v"
 	done
+}
+
+function adbnl() {
+	adbcl "nl.ndat.tvlauncher" || return 1
+	adb shell pm grant --user 0 "nl.ndat.tvlauncher" android.permission.READ_EXTERNAL_STORAGE
+	sleep 1
+	adb shell pm set-home-activity --user 0 "nl.ndat.tvlauncher/.LauncherActivity"
 }
 
 function adbk() {

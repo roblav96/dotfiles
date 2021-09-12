@@ -359,6 +359,7 @@ function jjd() {
 	just --dry-run --no-highlight "$@" 2>&1 | bl sh
 } && compdef jjd=just
 # alias jjd="just --dry-run --no-highlight" # --verbose"
+alias tt="task"
 
 alias gron="gron --monochrome"
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
