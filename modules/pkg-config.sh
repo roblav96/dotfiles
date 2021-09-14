@@ -4,6 +4,7 @@ function pc_path() {
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/openssl@1.1/lib/pkgconfig"
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/libressl/lib/pkgconfig"
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/python@3.9/lib/pkgconfig"
+	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/python@3.8/lib/pkgconfig"
 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/ossp-uuid/lib/pkgconfig"
 	rg --no-messages --files-with-matches --hidden --type=ruby keg_only "$(brew --prefix)/Cellar" | sort | while read i; do
 		local name="$(basename "$i" ".rb")"
