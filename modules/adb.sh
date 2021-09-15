@@ -216,7 +216,7 @@ function adbk() {
 			# "com.liskovsoft.leankeyboard"
 			"com.liskovsoft.smarttubetv.beta"
 			# "com.liskovsoft.videomanager"
-			# "com.mxtech.videoplayer.ad"
+			"com.mxtech.videoplayer.ad"
 			# "com.mxtech.videoplayer.pro"
 			# "com.mxtech.videoplayer.television"
 			"com.netflix.ninja"
