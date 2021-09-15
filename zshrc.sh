@@ -218,8 +218,8 @@ alias ls="ls --color=auto"
 alias ll="ls -laph"
 alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
-alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM SHELL=$(which -p bash) $(which -p bash)'
-alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM SHELL=$(which -p bash) $(which -p bash) -l'
+alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM SHELL=/usr/local/bin/bash /usr/local/bin/bash'
+alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM SHELL=/usr/local/bin/bash /usr/local/bin/bash -l'
 alias pwda="pwd && pwd -P"
 alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"

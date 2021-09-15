@@ -60,7 +60,7 @@ function gup() {
 		bhr
 		local repo="$(dirname "$v")"
 		cd "$repo"
-		echo "🟡 $repo" && echo -n "   "
+		echo "█ $repo" && echo -n "  "
 		gurl
 		gss
 		greset
