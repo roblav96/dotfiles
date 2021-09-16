@@ -1,6 +1,6 @@
 declare rg_flags="--heading --line-number --no-messages --smart-case --hidden --fixed-strings --context=2 --context-separator='' \
 --glob='!.git' --glob='!.DS_Store' \
---type-add='xml:*.plist' --type-add='gradle:*.kts'"
+--type-add='pkgconfig:*.pc' --type-add='xml:*.plist' --type-add='gradle:*.kts'"
 # --colors=match:bg:16 --colors=path:bg:16
 # --colors=path:fg:green --colors=path:style:bold
 declare rg_max_columns_flags="--max-columns-preview --max-columns=\$(expr \$(tput cols) - 10)"
