@@ -169,13 +169,6 @@ function adbin() {
 	done
 }
 
-function adbnl() {
-	adbcl "nl.ndat.tvlauncher" || return 1
-	adb shell pm grant --user 0 "nl.ndat.tvlauncher" android.permission.READ_EXTERNAL_STORAGE
-	sleep 1
-	adb shell pm set-home-activity --user 0 "nl.ndat.tvlauncher/.LauncherActivity"
-}
-
 function adbk() {
 	if [[ $# -eq 0 ]]; then
 		adb shell input keyevent KEYCODE_HOME
@@ -319,6 +312,13 @@ function adbdsf() {
 	adbdsls | rg --case-sensitive --fixed-strings "$*" | while read i; do
 		adbds "$i"
 	done
+}
+
+function adbnl() {
+	adbcl nl.ndat.tvlauncher
+	adb shell pm grant --user 0 nl.ndat.tvlauncher android.permission.READ_EXTERNAL_STORAGE
+	sleep 1
+	adb shell pm set-home-activity --user 0 nl.ndat.tvlauncher/.LauncherActivity
 }
 
 # https://developer.android.com/reference/android/provider/Settings
