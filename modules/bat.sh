@@ -37,6 +37,7 @@ which bip &>/dev/null || alias bip="bl properties"
 which bir &>/dev/null || alias bir="bl ruby"
 which bis &>/dev/null || alias bis="bl strace"
 which bit &>/dev/null || alias bit="bl tcl"
+which biv &>/dev/null || alias bix="bl java"
 which bix &>/dev/null || alias bix="bl xml"
 which biy &>/dev/null || alias biy="bl python"
 
