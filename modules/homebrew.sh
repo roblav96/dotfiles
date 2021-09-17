@@ -1,20 +1,22 @@
-# export HOMEBREW_DEV_CMD_RUN="0"
-# export HOMEBREW_DEVELOPER="1"
-# export HOMEBREW_DISPLAY_INSTALL_TIMES="1"
-# export HOMEBREW_FORCE_BREWED_CURL="1"
-# export HOMEBREW_FORCE_BREWED_GIT="1"
+# [[ -n "$SDKROOT" ]] && export HOMEBREW_SDKROOT="$SDKROOT"
+# export HOMEBREW_DEV_CMD_RUN=0
+# export HOMEBREW_DEVELOPER=1
+# export HOMEBREW_DISPLAY_INSTALL_TIMES=1
+# export HOMEBREW_FORCE_BREWED_CURL=1
+# export HOMEBREW_FORCE_BREWED_GIT=1
 # export HOMEBREW_INSTALL_BADGE="🟢"
-# export HOMEBREW_NO_ANALYTICS="1"
-# export HOMEBREW_NO_ANALYTICS_THIS_RUN="1"
-# export HOMEBREW_NO_INSECURE_REDIRECT="1"
-# export HOMEBREW_VERBOSE="1"
+# export HOMEBREW_NO_ANALYTICS=1
+# export HOMEBREW_NO_ANALYTICS_THIS_RUN=1
+# export HOMEBREW_VERBOSE=1
 
 export HOMEBREW_AUTO_UPDATE_SECS="3600"
-export HOMEBREW_BOOTSNAP="1"
+export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
-export HOMEBREW_CURL_RETRIES="1"
-export HOMEBREW_NO_AUTO_UPDATE="1"
-export HOMEBREW_NO_INSTALL_CLEANUP="1"
+export HOMEBREW_COLOR=0
+export HOMEBREW_CURL_RETRIES=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | bat --plain -l yml"
@@ -111,6 +113,12 @@ function bin() {
 		HOMEBREW_COLOR=1 brew install --force-bottle --formula "$v" | lscolors
 	done
 }
+function binsrc() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Installing formula from source -> '$v'"
+		brew install --HEAD --build-from-source --verbose --debug --formula "$v"
+	done
+}
 function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing cask -> '$v'"
@@ -124,6 +132,12 @@ function brein() {
 		HOMEBREW_COLOR=1 brew reinstall --force-bottle --formula "$v" | lscolors
 	done
 } && compdef brein=command
+function breinsrc() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Reinstalling formula from source -> '$v'"
+		brew reinstall --build-from-source --verbose --debug --formula "$v"
+	done
+} && compdef breinsrc=command
 function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling cask -> '$v'"
@@ -134,8 +148,9 @@ function bcrein() {
 function bi() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula -> '$v'"
-		brew desc "$v" && brew info "$v"
-		if [[ "$PLATFORM" == "Linux" ]]; then
+		brew desc "$v"
+		brew info "$v"
+		if [[ $? -eq 0 && "$PLATFORM" == "Linux" ]]; then
 			echo && echo "x86_64_linux bottle:"
 			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
