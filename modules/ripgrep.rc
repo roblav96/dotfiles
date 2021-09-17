@@ -1,0 +1,5 @@
+# ~/.ripgreprc
+
+--type-add='gradle:*.kts'
+--type-add='pkgconfig:*.pc'
+--type-add='xml:*.plist'

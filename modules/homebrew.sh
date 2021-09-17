@@ -116,8 +116,12 @@ function bin() {
 function binsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
-		# --HEAD # brew info --json=v1 "$v" | jq --raw-output '.[0].versions.head'
-		brew install --build-from-source --verbose --debug --formula "$v"
+		if [[ "$(brew info --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
+			brew install --build-from-source --HEAD --verbose --debug --formula "$v"
+		else
+			brew install --build-from-source --verbose --debug --formula "$v"
+		fi
+
 	done
 }
 function bcin() {
@@ -153,14 +157,14 @@ function bi() {
 		brew info "$v"
 		if [[ $? -eq 0 && "$PLATFORM" == "Linux" ]]; then
 			echo && echo "x86_64_linux bottle:"
-			brew info --json=v1 "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
+			brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
 	done
 } && compdef bi=command
 function bij() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula json -> '$v'"
-		brew desc "$v" && brew info --json=v1 "$v" | json
+		brew desc "$v" && brew info --json "$v" | json
 	done
 } && compdef bij=command
 function bci() {
