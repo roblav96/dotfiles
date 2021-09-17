@@ -116,7 +116,8 @@ function bin() {
 function binsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
-		brew install --HEAD --build-from-source --verbose --debug --formula "$v"
+		# --HEAD # brew info --json=v1 "$v" | jq --raw-output '.[0].versions.head'
+		brew install --build-from-source --verbose --debug --formula "$v"
 	done
 }
 function bcin() {
