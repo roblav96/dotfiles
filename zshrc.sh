@@ -467,7 +467,7 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh'
+# alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh'
 alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/usr/local/bin/bash /usr/local/bin/bash'
 
 function init.daemonize() {
