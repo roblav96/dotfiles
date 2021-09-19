@@ -456,7 +456,7 @@ function pe() {
 		local environment="$(ps -ww -o command= -E -p $pid)"
 		if [[ "${#command}" != "${#environment}" ]]; then
 			environment="${environment#$command }"
-			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d' | sortt | bat --plain -l ini
+			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sortt | bat --plain -l ini
 		fi
 		# echo $environment | sd ' (\w+)=' '\n$1='
 		# ps -ww -E -p $pid | tr ' ' '\n' | rg --fixed-strings --case-sensitive '=' | sortt | bat --plain -l properties
@@ -467,7 +467,7 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-# alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh'
+alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh'
 alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/usr/local/bin/bash /usr/local/bin/bash'
 
 function init.daemonize() {
