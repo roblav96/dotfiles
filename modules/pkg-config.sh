@@ -2,7 +2,7 @@
 
 function pkgprovides() {
 	local v && for v in "$@"; do
-		pkg-config --print-provides --debug "$v" 2>&1 | sed 's/line>//' | t1 | bat --file-name="$v" -l sh
+		pkg-config --print-provides --debug "$v" 2>&1 | sed -e '/line>$/d' -e 's/line>//' | t1 | bat --file-name="$v" -l sh
 	done
 } && compdef pkgprovides=pkg-config
 
