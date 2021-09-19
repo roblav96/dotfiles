@@ -166,10 +166,10 @@ function phone-bak() {
 	if [[ -d "Pictures" ]]; then
 		fd --search-path "Pictures" --type=directory --hidden --case-sensitive --glob ".thumbnails" --exec-batch rm -rf
 	fi
-	[[ ! -d "data" ]] && mkdir -p "data"
-	adb shell pm list packages -3 | sed 's/^package://' | sortt > "data/pm_user.log"
-	adb shell pm list packages -3 -d | sed 's/^package://' | sortt > "data/pm_user_disabled.log"
-	adb shell pm list packages -s -d | sed 's/^package://' | sortt > "data/pm_system_disabled.log"
+	[[ ! -d "Download" ]] && mkdir -p "Download"
+	adb shell pm list packages -3 | sed 's/^package://' | sortt > "Download/pm_user.log"
+	adb shell pm list packages -3 -d | sed 's/^package://' | sortt > "Download/pm_user_disabled.log"
+	adb shell pm list packages -s -d | sed 's/^package://' | sortt > "Download/pm_system_disabled.log"
 }
 
 function fbak() {

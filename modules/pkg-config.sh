@@ -1,5 +1,11 @@
 # pkg-config.sh
 
+function pkgprovides() {
+	local v && for v in "$@"; do
+		pkg-config --print-provides --debug "$v" 2>&1 | sed 's/line>//' | t1 | bat --file-name="$v" -l sh
+	done
+} && compdef pkgprovides=pkg-config
+
 function pc_path() {
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/openssl@1.1/lib/pkgconfig"
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/libressl/lib/pkgconfig"

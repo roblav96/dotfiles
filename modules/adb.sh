@@ -58,6 +58,7 @@ rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: in DATA '"
 rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: out WINDOW_UPDATE '"
 rogs="$rogs --message '! VlcObject identical \d+ line[s]?$'"
 
+rogs="$rogs --tag '!^JsonPathTypeAdapter$'"
 rogs="$rogs --tag '!^nvphsd$'"
 rogs="$rogs --message '! /vendor/bin/nvphsd '"
 rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"

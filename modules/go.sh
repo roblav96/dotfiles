@@ -12,6 +12,6 @@ alias gof="go mod download -x all"
 alias goc="gof && go mod verify"
 
 alias gocd="cd $GOBIN"
-alias gols="lch $GOBIN"
+alias gols="lch -TL1 $GOBIN"
 alias goin="go get -u -v"
 # alias golnbin="ln -sf $GOBIN/* /usr/local/bin"
