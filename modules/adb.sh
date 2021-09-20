@@ -378,14 +378,14 @@ function adbrclone() {
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only
 	sleep 1
-	adbps | g rclone | bl nix
+	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }
 function adbgost() {
 	adb shell killall -v gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 1
-	adbps | g gost | bl nix
+	adbps | rg --case-sensitive --fixed-strings gost | bl nix
 }
 
 function adbsu() {

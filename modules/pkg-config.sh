@@ -6,6 +6,10 @@ function pkgprovides() {
 	done
 } && compdef pkgprovides=pkg-config
 
+function pkgfind() {
+	pkg-config --list-all | sortt | rg --smart-case --fixed-strings -- "$*" | bl properties
+} && compdef pkgfind=pkg-config
+
 function pc_path() {
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/openssl@1.1/lib/pkgconfig"
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$(brew --prefix)/opt/libressl/lib/pkgconfig"
