@@ -19,8 +19,8 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
-alias bcfg="brew config | bat --plain -l yml"
-alias benv="brew --env --plain | bat --plain -l yml"
+alias bcfg="brew config"
+alias benv="brew --env --plain"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
