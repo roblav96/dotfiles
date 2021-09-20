@@ -2,6 +2,10 @@
 # 	export OPENSSL_ROOT_DIR="/home/linuxbrew/.linuxbrew/opt/openssl"
 # fi
 
+if [[ -d "/usr/lib/ccache" ]]; then
+	export PATH="/usr/lib/ccache:$PATH"
+fi
+
 # [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/functions" ]] && export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/functions:$FPATH"
 # [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" ]] && export FPATH="/home/linuxbrew/.linuxbrew/share/zsh/site-functions:$FPATH"
 if [[ -d "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" && ":$FPATH:" != *":/home/linuxbrew/.linuxbrew/share/zsh/site-functions:"* ]]; then
