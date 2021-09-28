@@ -445,7 +445,7 @@ alias htop="htop --delay=1 --highlight-changes=10"
 alias psa="ps auxww"
 # alias p="ps auxww | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 function p() {
-	psa | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --case-sensitive --invert-match '/Google Chrome.app/' | rg --fixed-strings --case-sensitive "$*" | sed 's/^/\n/' | bat --plain -l nix
+	psa | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --case-sensitive --invert-match '/Google Chrome.app/' | rg --fixed-strings --smart-case "$*" | sed 's/^/\n/' | bat --plain -l nix
 } && compdef p=command
 function pe() {
 	pgrep "$*" | while read pid; do
@@ -583,9 +583,8 @@ test -x "$(which -p nomad)" && source "$DOTFILES/modules/nomad.sh"
 test -x "$(which -p npm)" && source "$DOTFILES/modules/npm.sh"
 test -x "$(which -p osascript)" && source "$DOTFILES/modules/osascript.sh"
 test -x "$(which -p php)" && source "$DOTFILES/modules/php.sh"
-test -x "$(which -p pip)" && source "$DOTFILES/modules/pip.sh"
 test -x "$(which -p pkg-config)" && source "$DOTFILES/modules/pkg-config.sh"
-test -x "$(which -p python)" && source "$DOTFILES/modules/python.sh"
+test -x "$(which -p python3)" && source "$DOTFILES/modules/python.sh"
 test -x "$(which -p rclone)" && source "$DOTFILES/modules/rclone.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"

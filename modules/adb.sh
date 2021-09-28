@@ -359,24 +359,27 @@ function adbrclone() {
 	adb shell killall -v rclone
 	local ip="$ANDROID_SERIAL"
 	[[ $# -eq 1 && -n "$1" ]] && ip="$1"
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr ":$(porthash "WD_GRAPHITE")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only
+		serve dlna "premiumize:" --name "premiumize" --addr ":$(porthash "premiumize")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only
+		serve dlna "premiumizeme:" --name "premiumizeme" --addr ":$(porthash "premiumizeme")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "alldebrid:" --name "alldebrid" --addr "$ip:$(porthash "alldebrid")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only
+		serve dlna "alldebrid:" --name "alldebrid" --addr ":$(porthash "alldebrid")" --read-only
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "megadav:" --name "megadav" --addr ":$(porthash "megadav")" --read-only
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "Movies:" --name "Movies" --addr ":$(porthash "Movies")" --read-only
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "Music:" --name "Music" --addr ":$(porthash "Music")" --read-only
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }

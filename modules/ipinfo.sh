@@ -41,6 +41,9 @@ function dns() {
 
 unalias getip &>/dev/null
 alias getip="node -p 'Object.values(os.networkInterfaces()).flat().filter(v => v.internal == false && v.family == \"IPv4\" && v.mac != \"00:00:00:00:00:00\")[0].address'"
+# alias getrouter="ipconfig getoption en0 router"
+alias getrouter="networksetup -getinfo Wi-Fi | rg --color=never --regexp='Router: (.+)' --replace='\$1'"
+# alias getrouter="networksetup -getinfo Wi-Fi | awk '/Router: / { print \$2 }'"
 
 function porthash() {
 	local value="$1"
