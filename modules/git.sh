@@ -53,7 +53,7 @@ alias gcl='gcld; echo; read -s -q "?🔴 Would remove ? " || return; echo; echo;
 alias gclf="echo 'gcld; gclean; greset'"
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
-alias gpush='isgit; gs; echo; read -s -q "?🟠 git push origin $(basename --suffix=.git $(gurl)) ? " || return; echo; echo; gca && git push origin $(gbranch)'
+alias gpush='isgit; gs; echo; read -s -q "?🟠 git push $(basename --suffix=.git $(gurl)) $(git status --short --branch --porcelain | head -n 1 | cut -c 4-) ? " || return; echo; echo; gca && git push origin $(gbranch)'
 
 function gup() {
 	local v && for v in */.git; do (
