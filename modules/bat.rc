@@ -1,6 +1,7 @@
 # ~/.config/bat/config
 
 --map-syntax='*.ac:Perl'
+--map-syntax='*.bp:Go'
 --map-syntax='*.cnf:INI'
 --map-syntax='*.m4:Perl'
 --map-syntax='*.mt:Perl'

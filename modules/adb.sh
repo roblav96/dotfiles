@@ -242,7 +242,7 @@ function adbk() {
 			# "org.acestream.media.atv"
 			"org.courville.nova"
 			"org.jellyfin.androidtv"
-			# "org.jellyfin.mobile"
+			"org.jellyfin.mobile"
 			# "org.mozilla.tv.firefox"
 			# "org.polymorphicshade.newpipe"
 			# "org.schabi.newpipe"
