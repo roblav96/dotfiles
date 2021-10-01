@@ -25,7 +25,7 @@ function pc_path() {
 		[[ "$name" != "${name/'@'/''}" ]] && continue
 		local dir="$prefix/opt/$name/lib/pkgconfig"
 		if [[ -d "$dir" && "$PKG_CONFIG_PATH" != *"$dir"* ]]; then
-			export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$dir"
+			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir"
 			echo "$dir"
 		fi
 	done
