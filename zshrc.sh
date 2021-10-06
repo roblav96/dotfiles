@@ -338,7 +338,7 @@ function cmdfs() {
 
 alias aliasls="alias | sortt | sed 's#^#\n#'"
 function aliasf() {
-	aliasls | g "$*" | bl sh
+	aliasls | g "$@" | bl sh
 } && compdef aliasf=command
 
 # if [[ -x "$(which -p sd)" ]]; then
