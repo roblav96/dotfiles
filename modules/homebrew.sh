@@ -175,8 +175,8 @@ function bci() {
 } && compdef bci=command
 
 function bmd() {
-	find "$(brew --prefix)/opt/$*/" -maxdepth 1 -type f -iname '*readme*' | while read i; do
-		if [[ "${i##*.}" == "md" ]]; then mdcat "$i"; else bat "$i"; fi
+	find "$(brew --prefix "$*")/" -maxdepth 1 -iname '*readme*' | while read i; do
+		[[ "${i##*.}" == "md" ]] && mdcat "$i" || bat "$i"
 	done
 } && compdef bmd=command
 
