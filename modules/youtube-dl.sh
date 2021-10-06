@@ -1,13 +1,9 @@
 alias youtube-dl="youtube-dl --no-call-home"
-alias yt="youtube-dl"
-alias ytls="youtube-dl --list-formats"
-alias ytsc='youtube-dl --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH" --extract-audio --add-metadata --embed-thumbnail'
-# --audio-format=m4a
-
 alias yt-dlp="yt-dlp --no-call-home"
-alias ytp="yt-dlp"
-alias ytpls="yt-dlp --list-formats"
-alias ytpsc='yt-dlp --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH" --extract-audio --add-metadata --embed-thumbnail'
+
+alias yt="yt-dlp"
+alias ytls="yt-dlp --list-formats"
+alias ytsc='yt-dlp --output="%(uploader)s/%(uploader)s__%(title)s.%(ext)s" --add-header="$SOUNDCLOUD_OAUTH" --extract-audio --add-metadata --embed-thumbnail'
 # --audio-format=m4a
 
 # function sc() {
