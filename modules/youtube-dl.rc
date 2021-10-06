@@ -1,12 +1,14 @@
 # ~/.config/youtube-dl/config
 # ~/.config/yt-dlp/config
 
+--add-metadata
+--embed-thumbnail
+--ignore-errors
+--merge-output-format=mp4
 --no-call-home
 --no-color
---no-warnings
---no-part
 --no-mtime
 --no-overwrites
---ignore-errors
+--no-part
+--no-warnings
 --restrict-filenames
---merge-output-format=mp4
