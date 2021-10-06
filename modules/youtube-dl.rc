@@ -1,4 +1,5 @@
 # ~/.config/youtube-dl/config
+# ~/.config/yt-dlp/config
 
 --no-call-home
 --no-color
