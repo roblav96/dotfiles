@@ -368,9 +368,9 @@ function adbrclone() {
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "premiumize:" --name "premiumize" --addr "0.0.0.0:$(porthash "premiumize")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "premiumizeme:" --name "premiumizeme" --addr "0.0.0.0:$(porthash "premiumizeme")" --read-only
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "premiumizeme:" --name "premiumizeme" --addr "0.0.0.0:$(porthash "premiumizeme")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "alldebrid:" --name "alldebrid" --addr "0.0.0.0:$(porthash "alldebrid")" --read-only
