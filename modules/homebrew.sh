@@ -117,9 +117,9 @@ function binsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
 		if [[ "$(brew info --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
-			brew install --build-from-source --HEAD --verbose --debug --formula "$v"
+			HOMEBREW_COLOR=1 brew install --build-from-source --HEAD --verbose --debug --formula "$v"
 		else
-			brew install --build-from-source --verbose --debug --formula "$v"
+			HOMEBREW_COLOR=1 brew install --build-from-source --verbose --debug --formula "$v"
 		fi
 
 	done
@@ -140,7 +140,7 @@ function brein() {
 function breinsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling formula from source -> '$v'"
-		brew reinstall --build-from-source --verbose --debug --formula "$v"
+		HOMEBREW_COLOR=1 brew reinstall --build-from-source --verbose --debug --formula "$v"
 	done
 } && compdef breinsrc=command
 function bcrein() {
