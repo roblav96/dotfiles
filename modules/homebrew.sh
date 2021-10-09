@@ -181,6 +181,12 @@ function bmd() {
 } && compdef bmd=command
 
 
+function bld() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Formula .dylib/.so linkage -> '$v'"
+		brew linkage "$v" | bl yml
+	done
+} && compdef bld=command
 function blink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula link -> '$v'"
