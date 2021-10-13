@@ -35,28 +35,28 @@ function .deno-libs() {
 	done
 }
 
-alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
-alias .deno-release='wget --quiet "https://github.com/denoland/deno/releases/download/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-apple-darwin.zip" && .deno-install'
+alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
+alias .deno-release='wget --quiet "https://dl.deno.land/release/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
 function .deno-install() {
-	if [[ ! -e deno-x86_64-apple-darwin.zip ]]; then
-		echo "🔴 ! -e 'deno-x86_64-apple-darwin.zip'"
+	if [[ ! -e deno-x86_64-unknown-linux-gnu.zip ]]; then
+		echo "🔴 ! -e 'deno-x86_64-unknown-linux-gnu.zip'"
 		return 1
 	fi
 	local denobin="$(realpath $(which -p deno))"
-	unzip -o deno-x86_64-apple-darwin.zip -d "$(dirname "$denobin")"
+	unzip -o deno-x86_64-unknown-linux-gnu.zip -d "$(dirname "$denobin")"
 	chmod 555 "$denobin"
-	rm -f deno-x86_64-apple-darwin.zip
+	rm -f deno-x86_64-unknown-linux-gnu.zip
 	deno completions --unstable zsh >"$(brew --prefix)/share/zsh/site-functions/_deno"
 	deno --version | bl fstab
 	.deno-upgrade
 }
 
 function .deno-upgrade() {
-	local deno_dir="${DENO_DIR:-$HOME/.cache/deno}"
+	local deno_dir="${DENO_DIR:-"$HOME/.cache/deno"}"
 	if [[ -d "$deno_dir" ]]; then
 		find "$deno_dir" -mindepth 1 -maxdepth 1 -type d -print -exec rm -rf '{}' \;
 	fi
-	.deno-libs "$deno_dir" "$(npm root --global)/typescript-deno-plugin/lib"
+	.deno-libs "$(npm root --global)/typescript-deno-plugin/lib"
 }
 
 # alias deno="deno --unstable"
