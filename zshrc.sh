@@ -230,7 +230,7 @@ alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
 alias day='date +"%c"'
 alias dateiso="date --iso-8601"
-alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/\"//g' -e 's/\x27//g' -e 's/\#//g' -e 's/\`//g' -e 's/*\/*/*/g'"
+alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^\[$(date +%Y)/\n\[$(date +%Y)/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/\"//g' -e 's/\x27//g' -e 's/\#//g' -e 's/\`//g' -e 's/*\/*/*/g'"
 alias sedbat="sedlog | batrb"
 alias sedby="sed -u -e 's/\b = /: /' -e 's/\b=/: /' | bl yml"
 alias redis-cli="redis-cli --no-auth-warning"
