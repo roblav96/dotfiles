@@ -9,7 +9,7 @@
 # export HOMEBREW_NO_ANALYTICS_THIS_RUN=1
 # export HOMEBREW_VERBOSE=1
 
-export HOMEBREW_AUTO_UPDATE_SECS="3600"
+export HOMEBREW_AUTO_UPDATE_SECS=3600
 export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_COLOR=0
@@ -355,7 +355,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 
 	function bupg-node() {
 		local npmg="$(npm root --global)"
-		local vnodes=("node" "node@14" "node@12" "node@10")
+		local vnodes=("node@16" "node@14" "node@12" "node@10")
 		local vnode && for vnode in "${vnodes[@]}"; do
 			local node="$(realpath "$(brew --prefix)/opt/$vnode")"
 			ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"

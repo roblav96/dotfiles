@@ -103,7 +103,7 @@ if [[ -x "$(which -p antibody)" ]]; then
 	if [[ -x "$(which -p vivid)" ]]; then
 		LS_COLORS="$LS_COLORS$(vivid -m 8-bit generate molokai):$LS_COLORS"
 	fi
-	LS_COLORS="$LS_COLORS*-=38;5;241:*~=38;5;241:*.jsx=38;5;074;1:*.svelte=0;38;5;185:*.vue=0;38;5;48:"
+	LS_COLORS="$LS_COLORS*-=38;5;241:*~=38;5;241:*.jsx=38;5;074;1:*.svelte=0;38;5;185:*.vue=0;38;5;48:*.ttc=38;5;66:"
 	# echo "🟡 LS_COLORS -> '$LS_COLORS'"
 	# echo "🟡 LS_COLORS -> $(echo $LS_COLORS | sed -e 's|:|\n|g')"
 	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

@@ -5,7 +5,7 @@ fi
 
 alias .deno-v8-flags="deno run --unstable --v8-flags=--help | sed -e 's/^  --/\n  --/' -e 's/  default: /\n        default: /' | bl yml"
 
-alias denoeval="NO_COLOR=1 deno eval --unstable --ts --no-check --print"
+alias .deno-print="NO_COLOR=1 deno eval --unstable --ts --no-check --print"
 
 function .deno-node_modules() {
 	mkdir -p node_modules/.cache
@@ -28,28 +28,36 @@ function .deno-libs() {
 		# [[ -e "$lib_dir/lib.webworker.d.ts" ]] && rm -f "$lib_dir/lib.webworker.d.ts"
 		rm -f "$lib_dir"/lib.*.d.ts
 		# svn export --depth=files "https://github.com/denoland/deno/trunk/cli/dts" "$lib_dir"
-		deno types --unstable >"$lib_dir/lib.deno.d.ts"
-		deno types --unstable >"$lib_dir/lib.deno.unstable.d.ts"
+		deno types --unstable > "$lib_dir/lib.deno.d.ts"
+		deno types --unstable > "$lib_dir/lib.deno.unstable.d.ts"
 		curl --silent https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.worker.d.ts -o "$lib_dir/lib.webworker.d.ts"
 		lr "$lib_dir"
 	done
 }
 
-alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
-alias .deno-release='wget --quiet "https://dl.deno.land/release/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
-function .deno-install() {
-	if [[ ! -e deno-x86_64-unknown-linux-gnu.zip ]]; then
-		echo "🔴 ! -e 'deno-x86_64-unknown-linux-gnu.zip'"
-		return 1
-	fi
-	local denobin="$(realpath $(which -p deno))"
-	unzip -o deno-x86_64-unknown-linux-gnu.zip -d "$(dirname "$denobin")"
-	chmod 555 "$denobin"
-	rm -f deno-x86_64-unknown-linux-gnu.zip
-	deno completions --unstable zsh >"$(brew --prefix)/share/zsh/site-functions/_deno"
-	deno --version | bl fstab
-	.deno-upgrade
-}
+# # alias .deno-canary='wget --quiet "https://dl.deno.land/canary/$(curl --silent "https://dl.deno.land/canary-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
+# # alias .deno-release='wget --quiet "https://dl.deno.land/release/$(curl --silent "https://dl.deno.land/release-latest.txt")/deno-x86_64-unknown-linux-gnu.zip" && .deno-install'
+# function .deno-install() {
+# 	local target="x86_64-pc-windows-msvc"
+# 	if [[ "$OS" != "Windows_NT" ]]; then
+# 		case $(uname -sm) in
+# 			"Darwin x86_64") target="x86_64-apple-darwin" ;;
+# 			"Darwin arm64") target="aarch64-apple-darwin" ;;
+# 			*) target="x86_64-unknown-linux-gnu" ;;
+# 		esac
+# 	fi
+# 	if [[ ! -e "deno-$target.zip" ]]; then
+# 		echo "🔴 ! -e 'deno-$target.zip'"
+# 		return 1
+# 	fi
+# 	local denobin="$(realpath $(which -p deno))"
+# 	unzip -o "deno-$target.zip" -d "$(dirname "$denobin")"
+# 	chmod 555 "$denobin"
+# 	rm -f "deno-$target.zip"
+# 	deno completions --unstable zsh > "$(brew --prefix)/share/zsh/site-functions/_deno"
+# 	deno --version | bl fstab
+# 	.deno-upgrade
+# }
 
 function .deno-upgrade() {
 	local deno_dir="${DENO_DIR:-"$HOME/.cache/deno"}"
