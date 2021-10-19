@@ -118,6 +118,7 @@ function binsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
 		if [[ "$(brew info --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
+			brew unlink --verbose "$v"
 			HOMEBREW_COLOR=1 brew install --build-from-source --HEAD --verbose --debug --formula "$v"
 		else
 			HOMEBREW_COLOR=1 brew install --build-from-source --verbose --debug --formula "$v"

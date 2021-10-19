@@ -368,7 +368,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
 alias xhp="xh --no-verbose --print=b --pretty=none"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
-alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
+alias axel="axel --ipv4 --no-clobber --alternate --timeout=5 -vvv"
 alias aria2dl="aria2c -s4 --download-result=full"
 if [[ -x "$(which -p wget2)" ]]; then
 	alias wget="wget2 --no-verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
