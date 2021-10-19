@@ -23,6 +23,8 @@ function gradlew() {
 alias gr="gradlew"
 alias gt="gradlew tasks"
 alias gta="gradlew tasks --all"
+# alias grdeps="gr androidDependencies | rg -e \"--- (.+:)(.+)@(aar|jar)\" -or \"    testCompileOnly \x27\$1+\x27\" | sortt | uniq"
+# alias grdeps="gr androidDependencies | rg -e '--- (.+:)(.+)@(aar|jar)' -or '\$1' | sortt | uniq"
 function mvnw() {
 	if [[ -e mvnw ]]; then bash mvnw "$@"; else mvn "$@"; fi
 }
