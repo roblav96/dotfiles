@@ -3259,6 +3259,20 @@ avi-index=2
 # Pitch Shift (float)
 #pitch-shift=0.000000
 
+[formatcrop] # Video cropping filter
+
+# Pixels to crop from top (integer)
+#formatcrop-top=0
+
+# Pixels to crop from bottom (integer)
+#formatcrop-bottom=0
+
+# Pixels to crop from left (integer)
+#formatcrop-left=0
+
+# Pixels to crop from right (integer)
+#formatcrop-right=0
+
 [normvol] # Volume normalizer
 
 # Number of audio buffers (integer)
@@ -3971,7 +3985,7 @@ input-fast-seek=1
 #codec=
 
 # Enable hardware decoders (boolean)
-hw-dec=1
+#hw-dec=1
 
 # Preferred decoder hardware device (string)
 #dec-dev=any
