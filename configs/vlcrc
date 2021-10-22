@@ -3971,7 +3971,7 @@ input-fast-seek=1
 #codec=
 
 # Enable hardware decoders (boolean)
-#hw-dec=1
+hw-dec=1
 
 # Preferred decoder hardware device (string)
 #dec-dev=any
