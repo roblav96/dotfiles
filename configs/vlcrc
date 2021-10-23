@@ -227,7 +227,7 @@ macosx-appleremote=0
 #macosx-appleremote-prevnext=0
 
 # Control playback with media keys (boolean)
-#macosx-mediakeys=1
+macosx-mediakeys=0
 
 # Video device (integer)
 #macosx-vdev=0
@@ -1262,7 +1262,7 @@ macosx-appleremote=0
 [lua] # Lua interpreter
 
 # Enable Lua plugins (boolean)
-#lua=1
+lua=0
 
 # Lua interface (string)
 #lua-intf=dummy
@@ -1809,7 +1809,7 @@ macosx-appleremote=0
 [ytdl] # YT-DL extractor
 
 # Enable YT-DL (boolean)
-#ytdl=1
+ytdl=0
 
 [antiflicker] # Antiflicker video filter
 
@@ -2806,7 +2806,7 @@ avi-index=2
 #gnutls-dir-trust=
 
 # TLS cipher priorities (string)
-#gnutls-priorities=NORMAL
+gnutls-priorities=PERFORMANCE
 
 [gestures] # Mouse gestures control interface
 
@@ -3625,7 +3625,7 @@ volume-save=0
 #fullscreen=0
 
 # Embedded video (boolean)
-#embedded-video=1
+embedded-video=0
 
 #  (boolean)
 #xlib=1
@@ -3748,7 +3748,7 @@ video-title-show=0
 #video-filter=
 
 # Enable sub-pictures (boolean)
-#spu=1
+spu=0
 
 # On Screen Display (boolean)
 #osd=1
@@ -3766,13 +3766,13 @@ video-title-show=0
 #sub-file=
 
 # Autodetect subtitle files (boolean)
-#sub-autodetect-file=1
+sub-autodetect-file=0
 
 # Subtitle autodetection fuzziness (integer)
 #sub-autodetect-fuzzy=3
 
 # Subtitle autodetection paths (string)
-#sub-autodetect-path=./Subtitles, ./subtitles, ./Subs, ./subs
+sub-autodetect-path=
 
 # Force subtitle position (integer)
 #sub-margin=0
@@ -3862,7 +3862,7 @@ input-fast-seek=1
 #bookmarks=
 
 # Continue playback (integer)
-#restore-playback-pos=1
+restore-playback-pos=0
 
 # Resume last playback states (boolean)
 #restore-playback-states=0
@@ -4021,7 +4021,7 @@ input-fast-seek=1
 #vlm-conf=
 
 # SAP announcement interval (integer)
-#sap-interval=5
+sap-interval=60
 
 # Mux module (string)
 #mux=
@@ -4042,10 +4042,10 @@ input-fast-seek=1
 #packetizer=
 
 # VoD server module (string)
-#vod-server=
+vod-server=none
 
 # Tracer module (string)
-#tracer=
+tracer=none
 
 # Preferred keystore list (string)
 #keystore=
@@ -4168,7 +4168,7 @@ hotkeys-x-wheel-mode=-1
 #global-key-toggle-fullscreen=
 
 # Fullscreen (string)
-#key-toggle-fullscreen=Command+f
+key-toggle-fullscreen=f
 
 # Exit fullscreen (string)
 #global-key-leave-fullscreen=
@@ -4198,13 +4198,13 @@ hotkeys-x-wheel-mode=-1
 #global-key-faster=
 
 # Faster (string)
-#key-faster=Command+=
+key-faster=
 
 # Slower (string)
 #global-key-slower=
 
 # Slower (string)
-#key-slower=Command+-
+key-slower=
 
 # Normal rate (string)
 #global-key-rate-normal=
@@ -4240,13 +4240,13 @@ hotkeys-x-wheel-mode=-1
 #global-key-stop=
 
 # Stop (string)
-#key-stop=Command+.
+key-stop=
 
 # Position (string)
 #global-key-position=
 
 # Position (string)
-#key-position=t
+key-position=
 
 # Very short backwards jump (string)
 #global-key-jump-extrashort=
@@ -4300,7 +4300,7 @@ hotkeys-x-wheel-mode=-1
 #global-key-frame-next=
 
 # Next frame (string)
-#key-frame-next=e
+key-frame-next=
 
 # Activate (string)
 #global-key-nav-activate=
@@ -4372,19 +4372,19 @@ hotkeys-x-wheel-mode=-1
 #global-key-vol-up=
 
 # Volume up (string)
-#key-vol-up=Command+Up
+key-vol-up=
 
 # Volume down (string)
 #global-key-vol-down=
 
 # Volume down (string)
-#key-vol-down=Command+Down
+key-vol-down=
 
 # Mute (string)
 #global-key-vol-mute=
 
 # Mute (string)
-#key-vol-mute=Command+Alt+Down
+key-vol-mute=
 
 # Subtitle delay up (string)
 #global-key-subdelay-up=
@@ -4444,7 +4444,7 @@ hotkeys-x-wheel-mode=-1
 #global-key-audiodelay-down=
 
 # Audio delay down (string)
-#key-audiodelay-down=f
+key-audiodelay-down=
 
 # Cycle audio track (string)
 #global-key-audio-track=
@@ -4717,10 +4717,10 @@ hotkeys-x-wheel-mode=-1
 #key-subtitle-text-scale-down=Command+Mouse Wheel Down
 
 # Very short jump length (integer)
-#extrashort-jump-size=3
+extrashort-jump-size=5
 
 # Short jump length (integer)
-#short-jump-size=10
+short-jump-size=15
 
 # Medium jump length (integer)
 #medium-jump-size=60
