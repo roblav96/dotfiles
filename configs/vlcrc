@@ -4252,49 +4252,49 @@ key-position=
 #global-key-jump-extrashort=
 
 # Very short backwards jump (string)
-#key-jump-extrashort=Command+Ctrl+Left
+key-jump-extrashort=Alt-Left
 
 # Very short forward jump (string)
 #global-key-jump+extrashort=
 
 # Very short forward jump (string)
-#key-jump+extrashort=Command+Ctrl+Right
+key-jump+extrashort=Alt-Right
 
 # Short backwards jump (string)
 #global-key-jump-short=
 
 # Short backwards jump (string)
-#key-jump-short=Command+Alt+Left
+key-jump-short=Left
 
 # Short forward jump (string)
 #global-key-jump+short=
 
 # Short forward jump (string)
-#key-jump+short=Command+Alt+Right
+key-jump+short=Right
 
 # Medium backwards jump (string)
 #global-key-jump-medium=
 
 # Medium backwards jump (string)
-#key-jump-medium=Command+Shift+Left
+key-jump-medium=Down
 
 # Medium forward jump (string)
 #global-key-jump+medium=
 
 # Medium forward jump (string)
-#key-jump+medium=Command+Shift+Right
+key-jump+medium=Up
 
 # Long backwards jump (string)
 #global-key-jump-long=
 
 # Long backwards jump (string)
-#key-jump-long=Command+Shift+Alt+Left
+key-jump-long=Shift-Left
 
 # Long forward jump (string)
 #global-key-jump+long=
 
 # Long forward jump (string)
-#key-jump+long=Command+Shift+Alt+Right
+key-jump+long=Shift-Right
 
 # Next frame (string)
 #global-key-frame-next=
@@ -4306,61 +4306,61 @@ key-frame-next=
 #global-key-nav-activate=
 
 # Activate (string)
-#key-nav-activate=Enter
+key-nav-activate=
 
 # Navigate up (string)
 #global-key-nav-up=
 
 # Navigate up (string)
-#key-nav-up=Up
+key-nav-up=
 
 # Navigate down (string)
 #global-key-nav-down=
 
 # Navigate down (string)
-#key-nav-down=Down
+key-nav-down=
 
 # Navigate left (string)
 #global-key-nav-left=
 
 # Navigate left (string)
-#key-nav-left=Left
+key-nav-left=
 
 # Navigate right (string)
 #global-key-nav-right=
 
 # Navigate right (string)
-#key-nav-right=Right
+key-nav-right=
 
 # Go to the DVD menu (string)
 #global-key-disc-menu=
 
 # Go to the DVD menu (string)
-#key-disc-menu=Ctrl+m
+key-disc-menu=
 
 # Select previous DVD title (string)
 #global-key-title-prev=
 
 # Select previous DVD title (string)
-#key-title-prev=Ctrl+p
+key-title-prev=
 
 # Select next DVD title (string)
 #global-key-title-next=
 
 # Select next DVD title (string)
-#key-title-next=Ctrl+n
+key-title-next=
 
 # Select prev DVD chapter (string)
 #global-key-chapter-prev=
 
 # Select prev DVD chapter (string)
-#key-chapter-prev=Ctrl+u
+key-chapter-prev=
 
 # Select next DVD chapter (string)
 #global-key-chapter-next=
 
 # Select next DVD chapter (string)
-#key-chapter-next=Ctrl+d
+key-chapter-next=
 
 # Quit (string)
 #global-key-quit=
@@ -4390,37 +4390,37 @@ key-vol-mute=
 #global-key-subdelay-up=
 
 # Subtitle delay up (string)
-#key-subdelay-up=j
+key-subdelay-up=
 
 # Subtitle delay down (string)
 #global-key-subdelay-down=
 
 # Subtitle delay down (string)
-#key-subdelay-down=h
+key-subdelay-down=
 
 # Subtitle sync / bookmark audio timestamp (string)
 #global-key-subsync-markaudio=
 
 # Subtitle sync / bookmark audio timestamp (string)
-#key-subsync-markaudio=Shift+h
+key-subsync-markaudio=
 
 # Subtitle sync / bookmark subtitle timestamp (string)
 #global-key-subsync-marksub=
 
 # Subtitle sync / bookmark subtitle timestamp (string)
-#key-subsync-marksub=Shift+j
+key-subsync-marksub=
 
 # Subtitle sync / synchronize audio & subtitle timestamps (string)
 #global-key-subsync-apply=
 
 # Subtitle sync / synchronize audio & subtitle timestamps (string)
-#key-subsync-apply=Shift+k
+key-subsync-apply=
 
 # Subtitle sync / reset audio & subtitle synchronization (string)
 #global-key-subsync-reset=
 
 # Subtitle sync / reset audio & subtitle synchronization (string)
-#key-subsync-reset=Command+Shift+k
+key-subsync-reset=
 
 # Subtitle position up (string)
 #global-key-subpos-up=
@@ -4438,7 +4438,7 @@ key-vol-mute=
 #global-key-audiodelay-up=
 
 # Audio delay up (string)
-#key-audiodelay-up=g
+key-audiodelay-up=
 
 # Audio delay down (string)
 #global-key-audiodelay-down=
@@ -4450,97 +4450,97 @@ key-audiodelay-down=
 #global-key-audio-track=
 
 # Cycle audio track (string)
-#key-audio-track=l
+key-audio-track=
 
 # Cycle through audio devices (string)
 #global-key-audiodevice-cycle=
 
 # Cycle through audio devices (string)
-#key-audiodevice-cycle=Shift+a
+key-audiodevice-cycle=
 
 # Cycle subtitle track in reverse order (string)
 #global-key-subtitle-revtrack=
 
 # Cycle subtitle track in reverse order (string)
-#key-subtitle-revtrack=Alt+s
+key-subtitle-revtrack=
 
 # Cycle subtitle track (string)
 #global-key-subtitle-track=
 
 # Cycle subtitle track (string)
-#key-subtitle-track=s
+key-subtitle-track=
 
 # Toggle subtitles (string)
 #global-key-subtitle-toggle=
 
 # Toggle subtitles (string)
-#key-subtitle-toggle=Shift+s
+key-subtitle-toggle=
 
 # Toggle secondary subtitle control (string)
 #global-key-subtitle-control-secondary=
 
 # Toggle secondary subtitle control (string)
-#key-subtitle-control-secondary=Command+Shift+v
+key-subtitle-control-secondary=
 
 # Cycle next program Service ID (string)
 #global-key-program-sid-next=
 
 # Cycle next program Service ID (string)
-#key-program-sid-next=x
+key-program-sid-next=
 
 # Cycle previous program Service ID (string)
 #global-key-program-sid-prev=
 
 # Cycle previous program Service ID (string)
-#key-program-sid-prev=Shift+x
+key-program-sid-prev=
 
 # Cycle source aspect ratio (string)
 #global-key-aspect-ratio=
 
 # Cycle source aspect ratio (string)
-#key-aspect-ratio=a
+key-aspect-ratio=
 
 # Cycle video crop (string)
 #global-key-crop=
 
 # Cycle video crop (string)
-#key-crop=c
+key-crop=
 
 # Toggle autoscaling (string)
 #global-key-toggle-autoscale=
 
 # Toggle autoscaling (string)
-#key-toggle-autoscale=o
+key-toggle-autoscale=
 
 # Increase scale factor (string)
 #global-key-incr-scalefactor=
 
 # Increase scale factor (string)
-#key-incr-scalefactor=Alt+o
+key-incr-scalefactor=
 
 # Decrease scale factor (string)
 #global-key-decr-scalefactor=
 
 # Decrease scale factor (string)
-#key-decr-scalefactor=Shift+Alt+o
+key-decr-scalefactor=
 
 # Toggle deinterlacing (string)
 #global-key-deinterlace=
 
 # Toggle deinterlacing (string)
-#key-deinterlace=d
+key-deinterlace=
 
 # Cycle deinterlace modes (string)
 #global-key-deinterlace-mode=
 
 # Cycle deinterlace modes (string)
-#key-deinterlace-mode=Shift+d
+key-deinterlace-mode=
 
 # Show controller in fullscreen (string)
 #global-key-intf-show=
 
 # Show controller in fullscreen (string)
-#key-intf-show=i
+key-intf-show=
 
 # Boss key (string)
 #global-key-intf-boss=
@@ -4552,31 +4552,31 @@ key-audiodelay-down=
 #global-key-intf-popup-menu=
 
 # Context menu (string)
-#key-intf-popup-menu=Menu
+key-intf-popup-menu=
 
 # Take video snapshot (string)
 #global-key-snapshot=
 
 # Take video snapshot (string)
-#key-snapshot=Command+Alt+s
+key-snapshot=
 
 # Record (string)
 #global-key-record=
 
 # Record (string)
-#key-record=Command+Shift+r
+key-record=
 
 # Zoom (string)
 #global-key-zoom=
 
 # Zoom (string)
-#key-zoom=z
+key-zoom=
 
 # Un-Zoom (string)
 #global-key-unzoom=
 
 # Un-Zoom (string)
-#key-unzoom=Shift+z
+key-unzoom=
 
 # Toggle wallpaper mode in video output (string)
 #global-key-wallpaper=
@@ -4588,73 +4588,73 @@ key-audiodelay-down=
 #global-key-crop-top=
 
 # Crop one pixel from the top of the video (string)
-#key-crop-top=Alt+i
+key-crop-top=
 
 # Uncrop one pixel from the top of the video (string)
 #global-key-uncrop-top=
 
 # Uncrop one pixel from the top of the video (string)
-#key-uncrop-top=Alt+Shift+i
+key-uncrop-top=
 
 # Crop one pixel from the left of the video (string)
 #global-key-crop-left=
 
 # Crop one pixel from the left of the video (string)
-#key-crop-left=Alt+j
+key-crop-left=
 
 # Uncrop one pixel from the left of the video (string)
 #global-key-uncrop-left=
 
 # Uncrop one pixel from the left of the video (string)
-#key-uncrop-left=Alt+Shift+j
+key-uncrop-left=
 
 # Crop one pixel from the bottom of the video (string)
 #global-key-crop-bottom=
 
 # Crop one pixel from the bottom of the video (string)
-#key-crop-bottom=Alt+k
+key-crop-bottom=
 
 # Uncrop one pixel from the bottom of the video (string)
 #global-key-uncrop-bottom=
 
 # Uncrop one pixel from the bottom of the video (string)
-#key-uncrop-bottom=Alt+Shift+k
+key-uncrop-bottom=
 
 # Crop one pixel from the right of the video (string)
 #global-key-crop-right=
 
 # Crop one pixel from the right of the video (string)
-#key-crop-right=Alt+l
+key-crop-right=
 
 # Uncrop one pixel from the right of the video (string)
 #global-key-uncrop-right=
 
 # Uncrop one pixel from the right of the video (string)
-#key-uncrop-right=Alt+Shift+l
+key-uncrop-right=
 
 # Random (string)
 #global-key-random=
 
 # Random (string)
-#key-random=Command+z
+key-random=
 
 # Normal/Loop/Repeat (string)
 #global-key-loop=
 
 # Normal/Loop/Repeat (string)
-#key-loop=Shift+l
+key-loop=
 
 # Shrink the viewpoint field of view (360°) (string)
 #global-key-viewpoint-fov-in=
 
 # Shrink the viewpoint field of view (360°) (string)
-#key-viewpoint-fov-in=Page Up
+key-viewpoint-fov-in=
 
 # Expand the viewpoint field of view (360°) (string)
 #global-key-viewpoint-fov-out=
 
 # Expand the viewpoint field of view (360°) (string)
-#key-viewpoint-fov-out=Page Down
+key-viewpoint-fov-out=
 
 # Roll the viewpoint clockwise (360°) (string)
 #global-key-viewpoint-roll-clock=
@@ -4702,19 +4702,19 @@ key-audiodelay-down=
 #global-key-subtitle-text-scale-normal=
 
 # Reset subtitles text scale (string)
-#key-subtitle-text-scale-normal=Command+0
+key-subtitle-text-scale-normal=
 
 # Scale down subtitles text (string)
 #global-key-subtitle-text-scale-up=
 
 # Scale down subtitles text (string)
-#key-subtitle-text-scale-up=Command+Mouse Wheel Up
+key-subtitle-text-scale-up=
 
 # Scale up subtitles text (string)
 #global-key-subtitle-text-scale-down=
 
 # Scale up subtitles text (string)
-#key-subtitle-text-scale-down=Command+Mouse Wheel Down
+key-subtitle-text-scale-down=
 
 # Very short jump length (integer)
 extrashort-jump-size=5
@@ -4732,49 +4732,49 @@ short-jump-size=15
 #global-key-set-bookmark1=
 
 # Set playlist bookmark 1 (string)
-#key-set-bookmark1=Command+F1
+key-set-bookmark1=
 
 # Set playlist bookmark 2 (string)
 #global-key-set-bookmark2=
 
 # Set playlist bookmark 2 (string)
-#key-set-bookmark2=Command+F2
+key-set-bookmark2=
 
 # Set playlist bookmark 3 (string)
 #global-key-set-bookmark3=
 
 # Set playlist bookmark 3 (string)
-#key-set-bookmark3=Command+F3
+key-set-bookmark3=
 
 # Set playlist bookmark 4 (string)
 #global-key-set-bookmark4=
 
 # Set playlist bookmark 4 (string)
-#key-set-bookmark4=Command+F4
+key-set-bookmark4=
 
 # Set playlist bookmark 5 (string)
 #global-key-set-bookmark5=
 
 # Set playlist bookmark 5 (string)
-#key-set-bookmark5=Command+F5
+key-set-bookmark5=
 
 # Set playlist bookmark 6 (string)
 #global-key-set-bookmark6=
 
 # Set playlist bookmark 6 (string)
-#key-set-bookmark6=Command+F6
+key-set-bookmark6=
 
 # Set playlist bookmark 7 (string)
 #global-key-set-bookmark7=
 
 # Set playlist bookmark 7 (string)
-#key-set-bookmark7=Command+F7
+key-set-bookmark7=
 
 # Set playlist bookmark 8 (string)
 #global-key-set-bookmark8=
 
 # Set playlist bookmark 8 (string)
-#key-set-bookmark8=Command+F8
+key-set-bookmark8=
 
 # Set playlist bookmark 9 (string)
 #global-key-set-bookmark9=
@@ -4792,49 +4792,49 @@ short-jump-size=15
 #global-key-play-bookmark1=
 
 # Play playlist bookmark 1 (string)
-#key-play-bookmark1=F1
+key-play-bookmark1=
 
 # Play playlist bookmark 2 (string)
 #global-key-play-bookmark2=
 
 # Play playlist bookmark 2 (string)
-#key-play-bookmark2=F2
+key-play-bookmark2=
 
 # Play playlist bookmark 3 (string)
 #global-key-play-bookmark3=
 
 # Play playlist bookmark 3 (string)
-#key-play-bookmark3=F3
+key-play-bookmark3=
 
 # Play playlist bookmark 4 (string)
 #global-key-play-bookmark4=
 
 # Play playlist bookmark 4 (string)
-#key-play-bookmark4=F4
+key-play-bookmark4=
 
 # Play playlist bookmark 5 (string)
 #global-key-play-bookmark5=
 
 # Play playlist bookmark 5 (string)
-#key-play-bookmark5=F5
+key-play-bookmark5=
 
 # Play playlist bookmark 6 (string)
 #global-key-play-bookmark6=
 
 # Play playlist bookmark 6 (string)
-#key-play-bookmark6=F6
+key-play-bookmark6=
 
 # Play playlist bookmark 7 (string)
 #global-key-play-bookmark7=
 
 # Play playlist bookmark 7 (string)
-#key-play-bookmark7=F7
+key-play-bookmark7=
 
 # Play playlist bookmark 8 (string)
 #global-key-play-bookmark8=
 
 # Play playlist bookmark 8 (string)
-#key-play-bookmark8=F8
+key-play-bookmark8=
 
 # Play playlist bookmark 9 (string)
 #global-key-play-bookmark9=
