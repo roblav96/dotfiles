@@ -119,9 +119,9 @@ function binsrc() {
 		echo && echo "🟡 Installing formula from source -> '$v'"
 		if [[ "$(brew info --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
 			brew unlink --verbose "$v"
-			HOMEBREW_COLOR=1 brew install --build-from-source --HEAD --verbose --debug --formula "$v"
+			HOMEBREW_COLOR=1 brew install --build-from-source --HEAD --verbose --formula "$v"
 		else
-			HOMEBREW_COLOR=1 brew install --build-from-source --verbose --debug --formula "$v"
+			HOMEBREW_COLOR=1 brew install --build-from-source --verbose --formula "$v"
 		fi
 
 	done
@@ -142,7 +142,7 @@ function brein() {
 function breinsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling formula from source -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --build-from-source --verbose --debug --formula "$v"
+		HOMEBREW_COLOR=1 brew reinstall --build-from-source --verbose --formula "$v"
 	done
 } && compdef breinsrc=command
 function bcrein() {
@@ -182,7 +182,6 @@ function bmd() {
 	done
 } && compdef bmd=command
 
-
 function bld() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula .dylib/.so linkage -> '$v'"
@@ -192,13 +191,13 @@ function bld() {
 function blink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula link -> '$v'"
-		brew link --force "$v" --verbose --debug
+		brew link --force --overwrite --verbose "$v"
 	done
 } && compdef blink=command
 function bunlink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula unlink -> '$v'"
-		brew unlink "$v" --verbose --debug
+		brew unlink --verbose "$v"
 	done
 } && compdef bunlink=command
 

@@ -12,7 +12,9 @@ function pkgfind() {
 
 function pc_path() {
 	local prefix="$(brew --prefix)"
-	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@3/lib/pkgconfig:$prefix/opt/ruby@2.7/lib/pkgconfig"
+	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}\
+		$prefix/opt/openssl@3/lib/pkgconfig:\
+		$prefix/opt/ruby@2.7/lib/pkgconfig"
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/libressl/lib/pkgconfig"
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/python@3.9/lib/pkgconfig"
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/python@3.8/lib/pkgconfig"
