@@ -4,10 +4,9 @@
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
-# if [[ -z "$OPENSSL_ROOT_DIR" ]]; then
-# 	export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
-# 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
-# fi
+if [[ -x "$(which -p ruby-build)" ]]; then
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+fi
 
 alias ii="iina"
 alias mp="mpv --msg-module --msg-level=all=status"
