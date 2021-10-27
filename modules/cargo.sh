@@ -5,7 +5,7 @@ fi
 # test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
 
 alias cgf="cargo fetch"
-alias cgc="cgf && cargo check --workspace"
+alias cgc="cgf && cargo check --all-features --workspace"
 
 # alias cg="cargo"
 alias cgcd="cd $CARGO_HOME/bin"

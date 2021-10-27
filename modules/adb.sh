@@ -54,9 +54,9 @@ rogs="$rogs --message '! libvlc services discovery: Server with uuid '"
 rogs="$rogs --message '! Trying Lua '"
 rogs="$rogs --message '! is an AppCompat widget that can only be used with a Theme.AppCompat theme '"
 
-rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: in DATA '"
-rogs="$rogs --message '!^\[\w{16}/\w{4}\] http stream: out WINDOW_UPDATE '"
-rogs="$rogs --message '! VlcObject identical \d+ line[s]?$'"
+rogs="$rogs --message '! http stream: in DATA '"
+rogs="$rogs --message '! http stream: out WINDOW_UPDATE '"
+rogs="$rogs --message '! VlcObject (expire|identical) \d+ line[s]?$'"
 
 rogs="$rogs --tag '!^JsonPathTypeAdapter$'"
 rogs="$rogs --tag '!^nvphsd$'"
