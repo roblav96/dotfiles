@@ -223,13 +223,14 @@ test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
 if [[ -x "$(which daemonize)" ]]; then
-	# alias init.daemonize="daemonize -u nobody -c $HOME -- /usr/bin/env -i HOME=$HOME $(which bash) -l -c --"
-	function init.daemonize() {
-		daemonize -u nobody /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c "$*"
-	}
-	function init.daemonize.log() {
-		daemonize -u nobody -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c "$*"
-	}
+	alias init.daemonize='daemonize -u nobody /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c --'
+	# function init.daemonize() {
+	# 	daemonize -u nobody /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c "$*"
+	# }
+	alias init.daemonize.log='daemonize -u nobody -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c --'
+	# function init.daemonize.log() {
+	# 	daemonize -u nobody -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c "$*"
+	# }
 fi
 
 if [[ -n "$PS1" && -f "/opt/etc/profile.d/bash_completion.sh" ]]; then
