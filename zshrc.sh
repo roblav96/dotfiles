@@ -467,8 +467,8 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias esh='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh'
-alias ebash='/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/usr/local/bin/bash /usr/local/bin/bash'
+alias esh="/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh"
+alias ebash="/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=$(which -p bash) $(which -p bash)"
 
 function init.daemonize() {
 	# killall "$1" 2>/dev/null && sleep 1
