@@ -362,9 +362,9 @@ function adbsettingsinit() {
 function adbrclone() {
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v rclone
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "0.0.0.0:$(porthash "WD_GRAPHITE")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "0.0.0.0:$(porthash "WD_GRAPHITE")" --read-only
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "premiumize:" --name "premiumize" --addr "0.0.0.0:$(porthash "premiumize")" --read-only

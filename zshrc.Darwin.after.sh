@@ -9,6 +9,7 @@ if [[ -x "$(which -p ruby-build)" ]]; then
 fi
 
 alias ii="iina"
+alias vlc="vlc --verbose 2"
 alias mp="mpv --msg-module --msg-level=all=status"
 alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
