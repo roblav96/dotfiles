@@ -8,9 +8,16 @@ if [[ -x "$(which -p ruby-build)" ]]; then
 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 fi
 
-alias ii="iina"
-alias vlc="vlc --verbose 2"
-alias mp="mpv --msg-module --msg-level=all=status"
+# alias ii="iina"
+# alias vlc="vlc --verbose 2"
+# alias mpv="mpv --msg-module --msg-level=all=status --no-audio-display"
+alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle"
+# function .mpv.debug.input() {
+# 	bhr
+# 	echo "█ mplayer-input.conf" && curl https://raw.githubusercontent.com/mpv-player/mpv/master/etc/mplayer-input.conf | sed 's/^#\b//' | bl config
+# 	echo "█ input.conf" && curl https://raw.githubusercontent.com/mpv-player/mpv/master/etc/input.conf | sed 's/^#\b//' | bl config
+# 	mpv --input-test --input-cursor=no --force-window --idle
+# }
 alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
 
