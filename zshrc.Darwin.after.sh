@@ -216,7 +216,7 @@ function app-bak() {
 	echo && exa --oneline "$tarpath"
 }
 
-declare SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text")"
+local SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text")"
 alias st="subl"
 alias stn="subl --new-window"
 alias sto="subl --new-window --command 'prompt_select_workspace'"
@@ -227,10 +227,6 @@ alias stst="subl --project '$SUBLIME_DATA/Packages/User/Projects/Sublime Text.su
 alias stgs="(stcd && gs)"
 alias stgl="(stcd && gla --max-count=1)"
 alias stpush="(stcd && gpush)"
-alias stupd='
-(cd "$HOME/Sandbox/Packages" && echo && echo "▶ $(pwd)" && gpf);
-(cd "$HOME/Sandbox/PackageDev" && echo && echo "▶ $(pwd)" && gpf);
-'
 function stbak() {
 	(
 		cd "$(dirname "$SUBLIME_DATA")"
