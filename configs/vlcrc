@@ -229,7 +229,7 @@ macosx-appleremote=0
 macosx-mediakeys=0
 
 # Video device (integer)
-macosx-vdev=188901127
+#macosx-vdev=0
 
 # Opaqueness (float)
 #macosx-opaqueness=1.000000
@@ -3531,7 +3531,7 @@ volume-save=0
 #fullscreen=0
 
 # Embedded video (boolean)
-#embedded-video=1
+embedded-video=0
 
 #  (boolean)
 #xlib=1
