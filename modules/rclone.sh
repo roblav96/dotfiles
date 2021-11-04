@@ -1,4 +1,4 @@
-alias rc="rclone"
+# alias rc="rclone"
 
 function rcwd() {
 	local ip="$(getip)"

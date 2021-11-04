@@ -5,7 +5,7 @@ source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
 if [[ -x "$(which -p ruby-build)" ]]; then
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
 # alias ii="iina"
@@ -25,7 +25,7 @@ alias pkgls="pkgutil --pkgs | sortt"
 function pkgi() {
 	local v && for v in "$@"; do
 		pkgutil --pkg-info "$v" | bat --file-name="$v" -l yml
-		pkgutil --files "$v" | sed 's#^#/#' | lscolors
+		pkgutil --only-files --files "$v" | sed 's#^#/#' | sortt | lscolors
 	done
 }
 
