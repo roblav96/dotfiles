@@ -177,7 +177,7 @@ function bci() {
 } && compdef bci=command
 
 function bmd() {
-	find "$(brew --prefix "$*")/" -maxdepth 1 -iname '*readme*' | while read i; do
+	find "$(brew --prefix)/opt/$*/" -maxdepth 1 -iname '*readme*' | while read i; do
 		[[ "${i##*.}" == "md" ]] && mdcat "$i" || bat "$i"
 	done
 } && compdef bmd=command
@@ -209,10 +209,10 @@ function brelink() {
 } && compdef brelink=command
 
 function brp() {
-	realpath "$(brew --prefix "$@")"
+	realpath "$(brew --prefix)/opt/$@"
 } && compdef brp=command
 function bcd() {
-	cd "$(brew --prefix "$@")"
+	cd "$(brew --prefix)/opt/$@"
 } && compdef bcd=command
 
 function bbin() {
