@@ -188,6 +188,7 @@ function bld() {
 		brew linkage "$v" | bl yml
 	done
 } && compdef bld=command
+
 function blink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula link -> '$v'"
@@ -200,6 +201,12 @@ function bunlink() {
 		brew unlink --verbose "$v"
 	done
 } && compdef bunlink=command
+function brelink() {
+	local v && for v in "$@"; do
+		bunlink "$v"
+		blink "$v"
+	done
+} && compdef brelink=command
 
 function brp() {
 	realpath "$(brew --prefix "$@")"

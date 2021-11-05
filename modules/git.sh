@@ -37,7 +37,7 @@ alias gfu="git fetch upstream"
 alias gpr="gfa && git pull --rebase --recurse-submodules"
 alias gpf="gfa && git pull --ff-only --recurse-submodules"
 
-alias gtls="git tag -n --list --sort=committerdate"
+alias gtls="git tag -n --list --sort=creatordate"
 alias gtf="git tag --contains"
 alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
