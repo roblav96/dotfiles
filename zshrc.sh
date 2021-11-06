@@ -43,11 +43,15 @@ export KEYTIMEOUT="10"
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
+[[ -z "$LANG" ]] && export LANG="en_US.UTF-8"
+[[ -z "$LC_ALL" ]] && export LC_ALL="en_US.UTF-8"
+[[ -z "$TERM" ]] && export TERM="xterm-256color"
+
 export PAGER=""
 # export TERM="xterm-256color"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# export LANG="en_US.UTF-8"
+# export LANGUAGE="en_US.UTF-8"
+# export LC_ALL="en_US.UTF-8"
 # export LC_CTYPE="en_US.UTF-8"
 export LESS="--raw-control-chars --quit-on-intr --squeeze-blank-lines --ignore-case --hilite-search --LONG-PROMPT --jump-target=.5"
 export LESSCHARSET="utf-8"
@@ -467,8 +471,8 @@ function pe() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
 
-alias esh="/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=/bin/sh /bin/sh"
-alias ebash="/usr/bin/env -i HOME=$HOME TERM=$TERM USER=$USER SHELL=$(which -p bash) $(which -p bash)"
+alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=/bin/sh /bin/sh"
+alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
 
 function init.daemonize() {
 	# killall "$1" 2>/dev/null && sleep 1
