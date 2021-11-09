@@ -261,7 +261,7 @@ function adbk() {
 			# "tv.twitch.android.app"
 			# "us.nineworlds.serenity"
 		)
-		adb shell pm list packages -3 -e | sed 's/^package://' | sortt | while read i; do
+		adb shell pm list packages -3 -e | sed 's/^package://' | while read i; do
 			[[ "$i" == "nl.ndat.tvlauncher" ]] && continue
 			packages+=("$i")
 		done
@@ -330,19 +330,19 @@ function adbnl() {
 # https://developer.android.com/reference/android/provider/Settings
 function adbsettingsls() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | sed 's/\b=/: /' | bl yml
+	adb shell settings list system | bl ini
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | sed 's/\b=/: /' | bl yml
+	adb shell settings list secure | bl ini
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | sed 's/\b=/: /' | bl yml
+	adb shell settings list global | bl ini
 }
 function adbsettingsf() {
 	echo && echo "🟡 System Settings"
-	adb shell settings list system | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list system | rg --smart-case --fixed-strings -- "$*" | bl ini
 	echo && echo "🟡 Secure Settings"
-	adb shell settings list secure | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list secure | rg --smart-case --fixed-strings -- "$*" | bl ini
 	echo && echo "🟡 Global Settings"
-	adb shell settings list global | sortt | rg --smart-case --fixed-strings -- "$*" | sed 's/\b=/: /' | bl yml
+	adb shell settings list global | rg --smart-case --fixed-strings -- "$*" | bl ini
 }
 function adbsettingsinit() {
 	adb shell settings put global development_settings_enabled 1

@@ -20,8 +20,8 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
-alias bcfg="brew config"
-alias benv="brew --env --plain"
+alias bcfg="brew config | sortt"
+alias benv="brew --env --plain | sortt"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
@@ -84,9 +84,9 @@ alias blsa="bls; echo; bcls"
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Searching descriptions -> '$v'"
-		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --fixed-strings --passthru "$v"
 		echo && echo "🟡 Searching names -> '$v'"
-		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru --word-regexp "$v"
+		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru "$v"
 	done
 } && compdef bs=command
 alias bscd='cd "$(brew --prefix)/Homebrew/Library/Taps"'
