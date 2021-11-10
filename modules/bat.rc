@@ -9,6 +9,8 @@
 --map-syntax='*.m4:Perl'
 --map-syntax='*.mt:Perl'
 --map-syntax='*.pc:Makefile'
+--map-syntax='mpv.conf:Makefile'
+--map-syntax='input.conf:Generic Config'
 --map-syntax='*.rc:Perl'
 --map-syntax='*.scons:Python'
 --map-syntax='*.tbd:YAML'

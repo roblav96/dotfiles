@@ -377,12 +377,12 @@ function adbrclone() {
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "megadav:" --name "megadav" --addr "0.0.0.0:$(porthash "megadav")" --read-only
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "Movies:" --name "Movies" --addr "0.0.0.0:$(porthash "Movies")" --read-only
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "Music:" --name "Music" --addr "0.0.0.0:$(porthash "Music")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "Movies:" --name "Movies" --addr "0.0.0.0:$(porthash "Movies")" --read-only
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "Music:" --name "Music" --addr "0.0.0.0:$(porthash "Music")" --read-only
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }
