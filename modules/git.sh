@@ -5,8 +5,8 @@
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 alias ghb="github"
-# alias gho='isgit; open "$(gurl)"'
-alias gho="gh repo view --web"
+# alias gho="gh repo view --web"
+alias gho='open "$(gurl)"'
 alias gurl="git remote get-url origin"
 alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'

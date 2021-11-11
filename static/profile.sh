@@ -87,6 +87,9 @@ function binstall() {
 		chmod -v 755 "/opt/bin/$base"
 	done
 }
+if [[ -e "/opt/bin/gcc_env.sh" ]]; then
+	alias gcc_env='source /opt/bin/gcc_env.sh && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS"'
+fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 
