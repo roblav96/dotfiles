@@ -12,7 +12,7 @@
 export HOMEBREW_AUTO_UPDATE_SECS=3600
 export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
-export HOMEBREW_COLOR=0
+# export HOMEBREW_COLOR=0
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
@@ -99,6 +99,14 @@ function blog() {
 		git log --reverse --date=relative --stat --max-count=5 "$*.rb"
 	)
 } && compdef blog=command
+function bloga() {
+	(
+		local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+		echo && echo "🟡 Formula git log all -> '$*'" && echo
+		cd "$dir"
+		git log --invert-grep --grep=' bottle.$' --reverse --date=relative --patch-with-stat --max-count=5 "$*.rb"
+	)
+} && compdef bloga=command
 function bclog() {
 	(
 		local dir="$(dirname "$(find "$(brew --prefix)/Homebrew/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
