@@ -8,7 +8,7 @@ function fpf() {
 	fpj -show_format "$*" | json '.format'
 }
 function fp() {
-	fpj -show_format -show_streams "$*" | json
+	fpj -show_format -show_streams "$*" | json 'del(.streams[].disposition) | del(.streams[].tags)'
 }
 function fps() {
 	fpj -show_streams "$*" | json '.streams[]'
