@@ -200,7 +200,7 @@ function bld() {
 function blink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula link -> '$v'"
-		brew link --force --overwrite --verbose "$v"
+		brew link --force --overwrite --HEAD --verbose "$v"
 	done
 } && compdef blink=command
 function bunlink() {

@@ -476,11 +476,10 @@ alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=
 alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
 
 function init.daemonize() {
-	# killall "$1" 2>/dev/null && sleep 1
-	daemonize /usr/bin/env -i $(which -p bash) -l -c "$*"
+	daemonize /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
 function init.daemonize.log() {
-	daemonize -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i $(which -p bash) -l -c "$*"
+	daemonize -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
 alias .pueued="pueued &>/dev/null || true; fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -x shred -v -f --remove"
