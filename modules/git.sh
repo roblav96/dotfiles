@@ -10,7 +10,7 @@ alias gho='gh repo view --web || open "$(gurl)"'
 alias gurl="git remote get-url origin"
 alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'
-alias gdh="git describe HEAD --always --first-parent"
+alias gdh="git describe HEAD --always --abbrev=8"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
