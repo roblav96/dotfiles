@@ -9,16 +9,16 @@
 # :sources:
 
 # Self explanatory :-)
-benchmark: false
+:benchmark: false
 
 # Verbosity of the gem command. false, true, and :really are the levels
-verbose: false
+:verbose: false
 
 # Enable/disable automatic updating of repository metadata
-update_sources: false
+# :update_sources: false
 
 # Print backtrace when RubyGems encounters an error
-backtrace: false
+# :backtrace: false
 
 # <gem_command>: A string containing arguments for the specified gem command
 # -N, --no-document - Disable documentation generation
