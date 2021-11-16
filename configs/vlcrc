@@ -3531,7 +3531,7 @@ volume-save=0
 #fullscreen=0
 
 # Embedded video (boolean)
-embedded-video=0
+#embedded-video=1
 
 #  (boolean)
 #xlib=1
