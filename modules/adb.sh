@@ -263,6 +263,7 @@ function adbk() {
 		)
 		adb shell pm list packages -3 -e | sed 's/^package://' | while read i; do
 			[[ "$i" == "nl.ndat.tvlauncher" ]] && continue
+			[[ "$i" == "org.liskovsoft.androidtv.rukeyboard" ]] && continue
 			packages+=("$i")
 		done
 		adbk $packages

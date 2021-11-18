@@ -96,7 +96,7 @@ function blog() {
 		local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
 		echo && echo "🟡 Formula git log -> '$*'" && echo
 		cd "$dir"
-		git log --reverse --date=relative --stat --max-count=5 "$*.rb"
+		git log --invert-grep --grep=' bottle.$' --reverse --date=relative --stat --max-count=5 "$*.rb"
 	)
 } && compdef blog=command
 function bloga() {
