@@ -3849,7 +3849,7 @@ input-fast-seek=1
 #input-title-format=$Z
 
 # Disable all lua plugins (boolean)
-lua=0
+#lua=1
 
 # Preferred decoders list (string)
 #codec=
