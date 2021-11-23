@@ -84,6 +84,7 @@ rogs="$rogs --message '! setMaxDequeuedBufferCount: \d+ dequeued buffers would e
 rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req=\d+\)$'"
 rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
 rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
+rogs="$rogs --message '!^get(Current)?PlayStatus$'"
 
 # # Pixel 3
 # rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
@@ -263,6 +264,7 @@ function adbk() {
 		)
 		adb shell pm list packages -3 -e | sed 's/^package://' | while read i; do
 			[[ "$i" == "nl.ndat.tvlauncher" ]] && continue
+			[[ "$i" == "com.liskovsoft.leankeyboard" ]] && continue
 			[[ "$i" == "org.liskovsoft.androidtv.rukeyboard" ]] && continue
 			packages+=("$i")
 		done
