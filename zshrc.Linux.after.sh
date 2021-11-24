@@ -2,6 +2,15 @@ export DPKG_PAGER="cat"
 export SYSTEMD_PAGER="cat"
 # alias systemctl="systemctl --no-pager"
 
+function binstall() {
+    local base="$(basename "$1")"
+    local target="$(readlink -f "${2:-"/usr/local/bin"}")"
+    [[ ! -d "$target" ]] && echo "🔴 ! -d -> '$target'" && return 1
+    sudo cp -f -t "$target" "$base"
+    sudo chown root:root "$target/$base"
+    sudo chmod 755 "$target/$base"
+}
+
 unalias sc-status &>/dev/null
 alias sc-status="systemctl --full status"
 # unalias sc-list-units &>/dev/null
