@@ -8,6 +8,15 @@ if [[ -x "$(which -p ruby-build)" ]]; then
 	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix)/opt/openssl@1.1"
 fi
 
+function binstall() {
+	local base="$(basename "$1")"
+	local target="$(readlink -f "${2:-"/usr/local/bin"}")"
+	[[ ! -d "$target" ]] && echo "🔴 ! -d -> '$target'" && return 1
+	cp -f -t "$target" "$base"
+	chown $(id -un):admin "$target/$base"
+	chmod 755 "$target/$base"
+}
+
 # alias ii="iina"
 # alias vlc="vlc --verbose 2"
 # alias mpv="mpv --msg-module --msg-level=all=status --no-audio-display"
