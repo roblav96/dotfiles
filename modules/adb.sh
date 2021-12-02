@@ -85,6 +85,7 @@ rogs="$rogs --message '!^\[unnamed-\d{5}-\d{3}\] disconnect: not connected \(req
 rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
 rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
 rogs="$rogs --message '!^get(Current)?PlayStatus$'"
+rogs="$rogs --message '!^bufferpool2 .* \(fetch/transfer\)$'"
 
 # # Pixel 3
 # rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"

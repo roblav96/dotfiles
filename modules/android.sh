@@ -65,7 +65,7 @@ function extract-dat-blobs() {
 	done
 }
 
-alias avdls="avdmanager list avd | bl yml"
+alias avdls="avdmanager list avd"
 local emulator_flags='-no-passive-gps -no-location-ui' # -accel on -gpu host'
 alias emulator="emulator $emulator_flags -verbose"
 alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
