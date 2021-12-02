@@ -237,7 +237,7 @@ alias day='date +"%c"'
 alias dateiso="date --iso-8601"
 alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^\[$(date +%Y)/\n\[$(date +%Y)/' -e 's/^$(date +%H):/\n$(date +%H):/' -e 's/^$(date -u +%H):/\n$(date -u +%H):/' -e 's/\"//g' -e 's/\x27//g' -e 's/\#//g' -e 's/\`//g' -e 's/*\/*/*/g'"
 alias sedbat="sedlog | batrb"
-alias sedby="sed -u -e 's/\b = /: /' -e 's/\b=/: /' | bl yml"
+alias sedby="sed -u -e 's/\b = /: /' -e 's/\b=/: /' | t2 | bl yml"
 alias redis-cli="redis-cli --no-auth-warning"
 # alias cl='printf "\ec\e[3J"'
 # alias cl='printf "\x1b[2J\x1b[3J\x1b[1;1H"'
