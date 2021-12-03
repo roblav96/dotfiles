@@ -2,13 +2,14 @@ alias ffmpeg="ffmpeg -hide_banner" # -loglevel fatal"
 alias ffplay="ffplay -hide_banner" # -loglevel fatal"
 alias ffprobe="ffprobe -hide_banner" # -loglevel fatal"
 
-alias fpj="ffprobe -loglevel fatal -pretty -print_format json"
+alias ffp="ffprobe -loglevel error -pretty"
+alias fpj="$(echo $aliases[ffp]) -print_format json"
 
 function fpf() {
 	fpj -show_format "$*" | json '.format'
 }
 function fp() {
-	fpj -show_format -show_streams "$*" | json 'del(.streams[].disposition) | del(.streams[].tags)'
+	fpj -show_format -show_streams "$*" | json 'del(.format.tags) | del(.streams[].disposition) | del(.streams[].tags)'
 }
 function fps() {
 	fpj -show_streams "$*" | json '.streams[]'
