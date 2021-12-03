@@ -6,24 +6,24 @@ alias ffp="ffprobe -loglevel error -pretty"
 alias fpj="$(echo $aliases[ffp]) -print_format json"
 
 function fpf() {
-	fpj -show_format "$*" | json '.format'
+	fpj -show_format "$@" | json '.format'
 }
 function fp() {
-	fpj -show_format -show_streams "$*" | json 'del(.format.tags) | del(.streams[].disposition) | del(.streams[].tags)'
+	fpj -show_format -show_streams "$@" | json 'del(.format.tags) | del(.streams[].disposition) | del(.streams[].tags)'
 }
 function fps() {
-	fpj -show_streams "$*" | json '.streams[]'
+	fpj -show_streams "$@" | json '.streams[]'
 }
 function fpa() {
-	fpj -show_streams -select_streams a "$*" | json '.streams[0,1]'
+	fpj -show_streams -select_streams a "$@" | json '.streams[0,1]'
 }
 function fpv() {
-	fpj -show_streams -select_streams v "$*" | json '.streams[0]'
+	fpj -show_streams -select_streams v "$@" | json '.streams[0]'
 }
 
 function mi() {
-	mediainfo "$*" | bl yml
-	# mediaconch -mi "$*" | sed -e 's#/String #        #' -e 's#/Info #      #' | bl yml
+	mediainfo "$@" | bl yml
+	# mediaconch -mi "$@" | sed -e 's#/String #        #' -e 's#/Info #      #' | bl yml
 }
 
 function fmp3() {
