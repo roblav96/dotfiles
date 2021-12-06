@@ -5,14 +5,15 @@
 alias .node-v8-flags="node --help --v8-options | sed -e 's/^  --/\n  --/' -e 's/  default: /\n        default: /' | bl yml"
 
 # alias n="npm"
-alias rr="npm run"
-# alias npx="npx --yes"
+alias npx="npx --yes"
+alias rr="npm run-script"
 alias npmls="npm --silent ls --depth=0"
 alias npmlsa="npm --silent ls"
 alias npmo="npm outdated"
 alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm install \$i@latest; done"
-alias npms="npm search --no-description"
-alias npmsa="npm search"
+alias npmsa='npm search --searchlimit=$(ty)'
+alias npms="npmsa --no-description"
+alias npmsr="npm help-search --long"
 alias npmcd='cd $(npm root -g)'
 
 alias npmpublish='ln -s "$DOTFILES/configs/.env.npmrc" .npmrc || return 1; npm publish; rm .npmrc'
@@ -43,7 +44,9 @@ function npminit() {
 	[[ -e src/package.json ]] && (cd src && npm install --ignore-scripts)
 }
 function npmrm() {
-	npm uninstall "$@" "@types/$@"
+	local v && for v in "$@"; do
+		npm uninstall "$v" "@types/$v"
+	done
 }
 function npmv() {
 	npm info --json "$@" | jq --tab '.time'
