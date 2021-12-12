@@ -479,7 +479,8 @@ function init.daemonize() {
 	daemonize /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
 function init.daemonize.log() {
-	daemonize -e "$HOME/.daemonize/$1.log" -o "$HOME/.daemonize/$1.log" /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
+	local base="$(basename "$1")"
+	daemonize -e "$HOME/.daemonize/$base.log" -o "$HOME/.daemonize/$base.log" /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
 alias .pueued="pueued &>/dev/null || true; fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -x shred -v -f --remove"
