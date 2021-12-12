@@ -186,6 +186,7 @@ function adbk() {
 			"com.android.documentsui"
 			"com.android.gallery3d"
 			"com.android.htmlviewer"
+			"com.android.tv.settings"
 			"com.android.vending"
 			# "com.apple.android.music"
 			# "com.brouken.player"
