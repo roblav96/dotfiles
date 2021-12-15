@@ -72,7 +72,7 @@ alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
 unset emulator_flags
 
 local scrcpy_flags='--disable-screensaver --shortcut-mod lalt,lsuper,ralt,rsuper --serial $ANDROID_SERIAL'
-alias scrcpy="scrcpy --verbosity debug $scrcpy_flags"
+alias scrcpy="scrcpy --verbosity verbose $scrcpy_flags"
 alias scrcpyd="daemonize -- $(which -p scrcpy) $scrcpy_flags"
 unset scrcpy_flags
 

@@ -86,6 +86,7 @@ rogs="$rogs --message '!^EGLNativeWindowType \w{10} disconnect failed$'"
 rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned Invalid argument$'"
 rogs="$rogs --message '!^get(Current)?PlayStatus$'"
 rogs="$rogs --message '!^bufferpool2 .* \(fetch/transfer\)$'"
+rogs="$rogs --message '!^a2dp_sbc_get_num_frame_iteration: limiting frames to be sent from '"
 
 # # Pixel 3
 # rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
