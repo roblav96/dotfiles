@@ -25,6 +25,7 @@ fi
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"
 alias benv="brew --env --plain | sortt"
+alias bdoc="brew doctor --verbose"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
