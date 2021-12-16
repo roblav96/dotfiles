@@ -203,7 +203,11 @@ function bld() {
 function blink() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula link -> '$v'"
-		brew link --force --overwrite --HEAD --verbose "$v"
+		if [[ -d "$(find "$(brew --cellar)/$v" -maxdepth 1 -type d -name 'HEAD-*')" ]]; then
+			brew link --force --overwrite --HEAD --verbose "$v"
+		else
+			brew link --force --overwrite --verbose "$v"
+		fi
 	done
 } && compdef blink=command
 function bunlink() {
