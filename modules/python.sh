@@ -12,18 +12,17 @@
 # [[ -z "$PYTHONPATH" ]] && export PYTHONPATH="$HOME/Downloads/AndroidViewClient-15.5.1"
 # [[ -z "$PYTHONHOME" ]] && export PYTHONHOME="$HOME/Downloads/AndroidViewClient-15.5.1"
 
-which py &>/dev/null || alias py="python3"
-alias black='black --config $HOME/.pyproject.toml'
+which black &>/dev/null && alias black='black --config $HOME/.pyproject.toml'
 # alias black="black --line-length=100 --target-version=py38 --include='\.py$'"
 alias yapf="yapf --style='{ based_on_style: facebook, column_limit: 100, continuation_align_style: FIXED, continuation_indent_width: 4, indent_width: 4, spaces_before_comment: 1, use_tabs: true }'"
 
 # alias pip='pip --target=$HOME/.virtualenv'
-alias pip="python3 -m pip"
+# alias pip="python3 -m pip"
 alias pips="pip search"
 alias pipi="pip show"
 alias pipfs="pip show --files"
 alias pipin="pip install --force-reinstall"
 alias piprm="pip uninstall --yes"
-alias pipls="pip list --verbose | bat --style=grid -l fstab"
-alias pipout="pip list --outdated | bat --style=grid -l fstab"
+alias pipls="pip list --verbose | bl fstab"
+alias pipout="pip list --outdated | bl fstab"
 alias pipupg="pip install --upgrade"
