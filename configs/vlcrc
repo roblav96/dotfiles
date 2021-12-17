@@ -2801,7 +2801,7 @@ gnutls-priorities=PERFORMANCE
 [upnp] # Universal Plug'n'Play
 
 # SAT>IP channel list (string)
-#satip-channelist=auto
+satip-channelist=Auto
 
 # Custom SAT>IP channel list URL (string)
 #satip-channellist-url=
@@ -3849,7 +3849,7 @@ input-fast-seek=1
 #input-title-format=$Z
 
 # Disable all lua plugins (boolean)
-#lua=1
+lua=0
 
 # Preferred decoders list (string)
 #codec=
@@ -3993,7 +3993,7 @@ vod-server=none
 #pidfile=
 
 # Show advanced options (boolean)
-#advanced=0
+advanced=1
 
 # Interface interaction (boolean)
 #interact=1
