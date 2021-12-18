@@ -1,5 +1,5 @@
-[[ -z "$COCOAPODS_DISABLE_STATS" ]] && export COCOAPODS_DISABLE_STATS="true"
-[[ -z "$RUBYOPT" ]] && export RUBYOPT="-W0"
+# [[ -z "$COCOAPODS_DISABLE_STATS" ]] && export COCOAPODS_DISABLE_STATS="true"
+# [[ -z "$RUBYOPT" ]] && export RUBYOPT="-W0"
 
 alias gemenv="gem environment"
 alias gemfs="gem which"

@@ -166,7 +166,7 @@
 #macosx-interfacestyle=0
 
 # Use the native fullscreen mode (boolean)
-#macosx-nativefullscreenmode=0
+macosx-nativefullscreenmode=1
 
 # Display VLC status menu icon (boolean)
 macosx-statusicon=0
@@ -3531,7 +3531,7 @@ volume-save=0
 #fullscreen=0
 
 # Embedded video (boolean)
-embedded-video=0
+#embedded-video=1
 
 #  (boolean)
 #xlib=1
