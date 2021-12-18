@@ -366,40 +366,34 @@ function adbsettingsinit() {
 }
 
 function adbrclone() {
-	local ip="${1:-"0.0.0.0"}"
+	local ip="${1:-"127.0.0.1"}"
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v rclone
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only
+		serve dlna "alldebrid:" --name "alldebrid" --addr "$ip:$(porthash "alldebrid")" --read-only --no-checksum --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "premiumizeme:" --name "premiumizeme" --addr "$ip:$(porthash "premiumizeme")" --read-only
+		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only --no-checksum --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "alldebrid:" --name "alldebrid" --addr "$ip:$(porthash "alldebrid")" --read-only
+		serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only --no-checksum --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only
+		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only --no-checksum --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only
+		serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only --no-checksum --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "youtube-dls:" --name "youtube-dls" --addr "$ip:$(porthash "youtube-dls")" --read-only
+		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-checksum --no-modtime
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }
 function adbgost() {
 	adb shell killall -v gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
+		-x /data/local/tmp/bin/gost -- -L "http://0.0.0.0:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings gost | bl nix
 }
