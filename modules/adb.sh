@@ -366,7 +366,7 @@ function adbsettingsinit() {
 }
 
 function adbrclone() {
-	local ip="${1:-"127.0.0.1"}"
+	local ip="${1:-"0.0.0.0"}"
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v rclone
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
