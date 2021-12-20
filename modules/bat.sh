@@ -11,9 +11,9 @@ alias batrb="bat --theme='Monokai Extended Origin' -l rb"
 
 alias b="bat"
 alias bl="bat --style=grid --language"
-alias bn="bat --style=header,grid,numbers --language"
-alias bp="bat --plain --language"
-alias bgr="bat --style=grid --language"
+alias bln="bat --style=header,grid,numbers --language"
+alias blp="bat --plain --language"
+alias blg="bat --style=grid --language"
 
 alias bb="bl sh"
 alias bf="bl fstab"

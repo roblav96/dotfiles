@@ -29,11 +29,14 @@ alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle
 # }
 alias dstore="find . -type f -name .DS_Store -print -delete"
 # alias dstore="fd --hidden --no-ignore --fixed-strings --type=file .DS_Store --exec-batch rm -fv"
+alias kextstat="kextstat -sort"
 
+alias pkginfo="installer -verbose -pkginfo -pkg"
 alias pkgls="pkgutil --pkgs | sortt"
 function pkgi() {
 	local v && for v in "$@"; do
-		pkgutil --pkg-info "$v" | bat --file-name="$v" -l yml
+		echo && echo "🟡 $v"
+		pkgutil --pkg-info "$v" | bl yml
 		pkgutil --only-files --files "$v" | sed 's#^#/#' | sortt | lscolors
 	done
 }
