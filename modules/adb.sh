@@ -76,6 +76,11 @@ rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 
 rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
+# shield-atv-9.0.0
+rogs="$rogs --message '!UsbFfs'"
+rogs="$rogs --message '!usb-ffs'"
+rogs="$rogs --message '!FUNCTIONFS_BIND'"
+
 # emulator-5554
 rogs="$rogs --message '!^hw scan \d+ MHz$'"
 
