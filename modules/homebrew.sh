@@ -68,17 +68,17 @@ function blsp() {
 }
 function blsm() {
 	echo && echo "🟡 Recently modified formulas"
-	lm --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
+	lm --color=always "$(brew --cellar)" | tail --lines=$(ty)
 }
 function blsch() {
 	echo && echo "🟡 Recently changed formulas"
-	lch --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
+	lch --color=always "$(brew --cellar)" | tail --lines=$(ty)
 }
 function blscr() {
 	echo && echo "🟡 Recently created formulas"
-	lcr --color=always "$(brew --prefix)/Cellar" | tail --lines=$(ty)
+	lcr --color=always "$(brew --cellar)" | tail --lines=$(ty)
 }
-alias blscd='cd "$(brew --prefix)/Cellar"'
+alias blscd='cd "$(brew --cellar)"'
 function bcls() {
 	echo && echo "🟡 List casks"
 	brew list --cask --versions
