@@ -56,7 +56,7 @@ rogs="$rogs --message '! is an AppCompat widget that can only be used with a The
 
 rogs="$rogs --message '! http stream: in DATA '"
 rogs="$rogs --message '! http stream: out WINDOW_UPDATE '"
-rogs="$rogs --message '! VlcObject (expire|identical) \d+ line[s]?$'"
+# rogs="$rogs --message '! VlcObject (expire|identical) \d+ line[s]?$'"
 
 rogs="$rogs --tag '!^JsonPathTypeAdapter$'"
 rogs="$rogs --tag '!^nvphsd$'"
@@ -68,7 +68,7 @@ rogs="$rogs --message '!\bINvCplHalService\b'"
 rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
 rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
 rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
-rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
+# rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
 rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
@@ -80,6 +80,7 @@ rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 rogs="$rogs --message '!UsbFfs'"
 rogs="$rogs --message '!usb-ffs'"
 rogs="$rogs --message '!FUNCTIONFS_BIND'"
+rogs="$rogs --message '! \d+ line[s]?$'"
 
 # emulator-5554
 rogs="$rogs --message '!^hw scan \d+ MHz$'"
