@@ -11,19 +11,21 @@ function rcwd() {
 		elif [[ ! "$remote" =~ ":" ]]; then
 			remote="$remote:"
 		fi
-		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only
+		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only --no-checksum --no-modtime
 	done
 }
 
 alias rsy="rsync --verbose --human-readable --info=progress2 --recursive --force"
 
 function rcdlna() {
+	local ip="$(getip)"
 	local v && for v in "$@"; do
-		echo rclone serve dlna "$v:" --name "$v" --addr "$(getip):$(porthash "$v")" --read-only
+		echo rclone serve dlna "$v:" --name "$v" --addr "$ip:$(porthash "$v")" --read-only --no-checksum --no-modtime
 	done
 }
-function rctmpdlna() {
+function rcadbdlna() {
+	local ip="$(getip)"
 	local v && for v in "$@"; do
-		echo /data/local/tmp/bin/rclone --config /data/local/tmp/rclone.conf serve dlna "$v:" --name "$v" --addr "$(getip):$(porthash "$v")" --read-only
+		echo /data/local/tmp/bin/rclone --config /data/local/tmp/rclone.conf serve dlna "$v:" --name "$v" --addr "$ip:$(porthash "$v")" --read-only --no-checksum --no-modtime
 	done
 }
