@@ -43,6 +43,9 @@ alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --tag '!^netstats_wifi_sample$' \
 --message '!^Access denied finding property \"RB.tag\"$' \
 --message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
+--message '!UsbFfs' \
+--message '!usb-ffs' \
+--message '!FUNCTIONFS_BIND' \
 --message '!^loading \[eventTime=\d'"
 declare rogs="rogcat"
 rogs="$rogs --tag '!^bt_stack$'"
@@ -77,10 +80,10 @@ rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
 # shield-atv-9.0.0
-rogs="$rogs --message '!UsbFfs'"
-rogs="$rogs --message '!usb-ffs'"
-rogs="$rogs --message '!FUNCTIONFS_BIND'"
 rogs="$rogs --message '! \d+ line[s]?$'"
+rogs="$rogs --message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$'"
+rogs="$rogs --message '!^NvRmStreamFree: WARN: pStream is NULL$'"
+rogs="$rogs --message '!^tsec_version: 1$'"
 
 # emulator-5554
 rogs="$rogs --message '!^hw scan \d+ MHz$'"
@@ -136,9 +139,9 @@ alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
 alias adbp='adbps | grep -v " 0 $(adb shell uptime -s | cut -c 12-15)" | sed -e "/ ps -/d" -e "/ gost -/d" -e "/ rclone -/d" -e "/ com.genymobile.scrcpy./d" | bl strace'
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
-alias adbprops="adb shell getprop | sortt | bl sh"
+alias adbprops="adb shell getprop | bl yml"
 function adbpropsf() {
-	adb shell getprop | sortt | rg --smart-case "$@" | bl sh
+	adb shell getprop | rg --smart-case "$@" | bl yml
 }
 
 function __adbpid() {
@@ -366,13 +369,13 @@ function adbsettingsinit() {
 	adb shell settings put global hidden_api_policy_p_apps 1
 	adb shell settings put global hidden_api_policy_pre_p_apps 1
 	adb shell settings put secure long_press_timeout 250
-	adb shell settings put secure multi_press_timeout 250
+	adb shell settings put secure multi_press_timeout 200
 	local verify="1" && [[ "$ANDROID_SERIAL" == "emulator-5554" ]] && verify="0"
 	adb shell settings put global verifier_verify_adb_installs $verify
 }
 
 function adbrclone() {
-	local ip="${1:-"0.0.0.0"}"
+	local ip="${1:-"$ANDROID_SERIAL"}"
 	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v rclone
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
