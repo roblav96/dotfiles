@@ -46,10 +46,8 @@ alias getrouter="networksetup -getinfo Wi-Fi | rg --color=never --regexp='Router
 # alias getrouter="networksetup -getinfo Wi-Fi | awk '/Router: / { print \$2 }'"
 
 function porthash() {
-	local value="$1"
-	[[ $# -eq 0 && -z "$value" ]] && value="$PWD"
 	node --print "
-		let value = '"$value"'
+		let value = '"${1:-"$PWD"}"'
 		let [hash, i, char] = [0, 0, 0]
 		for (i = 0; i < value.length; i++) {
 			char = value.charCodeAt(i)
