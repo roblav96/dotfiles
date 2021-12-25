@@ -4,10 +4,6 @@
 source "$DOTFILES/modules/color.sh"
 source "$DOTFILES/modules/dotwatch.sh"
 
-if [[ -x "$(which -p ruby-build)" ]]; then
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix)/opt/openssl@1.1"
-fi
-
 function binstall() {
 	local base="$(basename "$1")"
 	local target="$(readlink -f "${2:-"/usr/local/bin"}")"
