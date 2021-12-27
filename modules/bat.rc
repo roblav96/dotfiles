@@ -6,6 +6,7 @@
 --map-syntax='*.config:XML'
 --map-syntax='*.Config:XML'
 --map-syntax='*.just:Bourne Again Shell (bash)'
+--map-syntax='*.la:Makefile'
 --map-syntax='*.m4:Perl'
 --map-syntax='*.mt:Perl'
 --map-syntax='*.pc:Makefile'

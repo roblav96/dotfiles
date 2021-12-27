@@ -6,7 +6,7 @@
 
 alias ghb="github"
 # alias gho='open "$(gurl)"'
-alias gho='gh repo view --web || open "$(gurl)"'
+alias gho='gh repo view --web &>/dev/null || open "$(gurl)"'
 alias gurl="git remote get-url origin"
 alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'
