@@ -1,5 +1,5 @@
 # export PATH="/usr/local/opt/go/bin:$PATH"
-[[ -z "$GO111MODULE" ]] && export GO111MODULE="auto"
+[[ -z "$GO111MODULE" ]] && export GO111MODULE="on"
 if [[ -d "$HOME/.go" ]]; then
 	[[ -z "$GOPATH" ]] && export GOPATH="$HOME/.go"
 	[[ -z "$GOBIN" ]] && export GOBIN="$HOME/.go/bin"
