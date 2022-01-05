@@ -1,16 +1,16 @@
 {
 	"FormattingOptions": {
-		"enableEditorConfigSupport": false,
-		"organizeImports": false
+		"EnableEditorConfigSupport": false,
+		"OrganizeImports": false
 	},
 	"MSBuild": {
-		"loadProjectsOnDemand": true
+		"LoadProjectsOnDemand": true
 	},
 	"RoslynExtensionsOptions": {
-		"documentAnalysisTimeoutMs": 10000,
-		"enableAnalyzersSupport": false,
-		"enableAsyncCompletion": true,
-		"enableDecompilationSupport": true,
-		"enableImportCompletion": false
+		"DocumentAnalysisTimeoutMs": 10000,
+		"EnableAnalyzersSupport": false,
+		"EnableAsyncCompletion": true,
+		"EnableDecompilationSupport": true,
+		"EnableImportCompletion": false
 	}
 }
