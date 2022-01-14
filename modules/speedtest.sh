@@ -10,13 +10,21 @@ function premiumize-urls() {
 	local html="$(curl "https://www.premiumize.me/speedtest")"
 	local urls=()
 	local locations=(
-		"Cloudflare (our default)"
-		"Direct (no CDN)"
-		"Bunny CDN (great alternative if Cloudflare consistently unreliable)"
-		"M247 New York"
-		"Leaseweb Chicago"
-		"M247 Miami"
+		"Auto"
+		"Cloudflare"
+		"Direct"
+		"Bunny CDN"
+		"23Media Frankfurt"
+		"OVH Frankfurt"
+		"OVH Singapore"
+		"DigitalOcean Franfurt"
+		"Nforce Netherlands"
+		"Digitalocean Toronto"
+		"Digitalocean Singapore"
+		"Hetzner Helsinki"
 		"Digitalocean San Francisco"
+		"OVH Roubaix"
+		"OVH Sydney"
 		"OVH North America (Beauharnois)"
 	)
 	local location && for location in "${locations[@]}"; do
@@ -31,6 +39,23 @@ function premiumize-urls() {
 	# 	speedtest "$url?no-cache=$(date +%s)000"
 	# done
 }
+
+# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://rose.listperfect.xyz/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://sweetfairlady.b-cdn.net/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-23media-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-ovh-lim1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-ovh-sgp1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-digitalocean-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-nforce-roo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-digitalocean-tor1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-digitalocean-sng1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-hetzner-hel1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-digitalocean-sfo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-ovh-rou1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-ovh-syd1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://cdn2-ovh-bea1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
 
 # speedtest "https://rose.listperfect.xyz/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://sweetfairlady-sto.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
