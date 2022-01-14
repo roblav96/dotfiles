@@ -41,6 +41,7 @@ __pycache__
 .svn
 flutter.bat
 local.properties
+compile_commands.json
 
 # Cargo.lock
 # package-lock.json

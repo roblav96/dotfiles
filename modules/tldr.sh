@@ -6,7 +6,7 @@ if [[ -x "$(which -p tldr)" ]]; then
 		tldr --update
 	fi
 	function tlsr() {
-		local cache_dir_pages="$TEALDEER_CACHE_DIR/tldr-master/pages"
+		local cache_dir_pages="$TEALDEER_CACHE_DIR/tldr-pages/pages"
 		local cache_dir_os="$([[ "$PLATFORM" == "Darwin" ]] && echo "osx" || echo "linux")"
 		local files=($(rg --files-with-matches --smart-case --regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
 		local file && for file in "${files[@]}"; do
