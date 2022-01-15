@@ -83,8 +83,9 @@ rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 rogs="$rogs --message '! \d+ line[s]?$'"
 rogs="$rogs --message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$'"
 rogs="$rogs --message '!^NvRmStreamFree: WARN: pStream is NULL$'"
-rogs="$rogs --message '!^tsec_version: 1$'"
 rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
+rogs="$rogs --message '!^tsec_version: 1$'"
+rogs="$rogs --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$'"
 
 # emulator-5554
 rogs="$rogs --message '!^hw scan \d+ MHz$'"
