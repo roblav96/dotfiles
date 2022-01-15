@@ -226,8 +226,8 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
-alias esh="/usr/bin/env -i HOME=$HOME LOGNAME=$LOGNAME USER=$USER TERM=$TERM TERMINFO=$TERMINFO SHELL=/bin/sh /bin/sh"
-alias ebash="/usr/bin/env -i HOME=$HOME LOGNAME=$LOGNAME USER=$USER TERM=$TERM TERMINFO=$TERMINFO SHELL=$(which bash) $(which bash)"
+alias esh="/usr/bin/env -i HOME=$HOME USER=$USER SHELL=/bin/sh /bin/sh"
+alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER SHELL=$(which bash) $(which bash)"
 
 if [[ -x "$(which daemonize)" ]]; then
 	# alias init.daemonize="daemonize -u nobody /usr/bin/env -i HOME=$HOME USER=nobody $(which bash) -l -c"

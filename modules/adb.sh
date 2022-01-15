@@ -87,6 +87,19 @@ rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
 rogs="$rogs --message '!^tsec_version: 1$'"
 rogs="$rogs --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$'"
 
+# kodi
+rogs="$rogs --message '!^onPlaybackStateChanged\(\): '"
+rogs="$rogs --message '!^The callback playback state .* match the current state$'"
+rogs="$rogs --message '!^trySendMediaUpdate\(\): Metadata has been updated for '"
+rogs="$rogs --message '!^sendMediaUpdate$'"
+rogs="$rogs --message '!^sendMediaUpdate: Creating a one item queue for a player with no queue$'"
+rogs="$rogs --message '!^sendMediaUpdate state=PlaybackState '"
+rogs="$rogs --message '!^onMediaUpdated: track_changed=false state=false queue=false$'"
+rogs="$rogs --message '!^sendMediaUpdate: metadata=false playStatus=false queue=false$'"
+rogs="$rogs --message '!^sendMediaUpdateNative$'"
+# rogs="$rogs --message '! Resume from position '"
+# rogs="$rogs --message '! cache completely reset for seek to position '"
+
 # emulator-5554
 rogs="$rogs --message '!^hw scan \d+ MHz$'"
 
