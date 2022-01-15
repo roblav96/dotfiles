@@ -87,7 +87,7 @@ unset scrcpy_flags
 
 function unapk() {
 	local outdir="${@%.apk}"
-	apktool decode --frame-tag mdarcy --api-level 28 --match-original "$@"
+	apktool decode --frame-tag darcy --api-level 30 --match-original "$@"
 	unzip "$@" '*.dex' -d "$outdir"
 	cd "$outdir"
 	command rm -rf smali*
