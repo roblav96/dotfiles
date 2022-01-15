@@ -17,6 +17,7 @@ if pgrep -x adb &>/dev/null; then
 fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
+alias adbre='adb kill-server && sleep 1; adb connect $ANDROID_SERIAL && adb devices -l'
 
 # alias clp="curl --proxy $ANDROID_SERIAL:11080"
 function cltv() {

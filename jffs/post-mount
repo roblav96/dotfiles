@@ -1,0 +1,7 @@
+#!/bin/sh
+. /jffs/addons/diversion/mount-entware.div # Added by amtm
+if [ -x /opt/sbin/swapon ]; then
+	/opt/sbin/swapon -o pri=1 /tmp/mnt/ENTWARE_USB/myswap.swp
+else
+	swapon /tmp/mnt/ENTWARE_USB/myswap.swp # Added by amtm
+fi
