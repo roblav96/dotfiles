@@ -40,22 +40,22 @@ function premiumize-urls() {
 	# done
 }
 
-# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://rose.listperfect.xyz/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://sweetfairlady.b-cdn.net/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-23media-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-ovh-lim1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-ovh-sgp1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-digitalocean-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-nforce-roo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-digitalocean-tor1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-digitalocean-sng1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-hetzner-hel1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-digitalocean-sfo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-ovh-rou1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-ovh-syd1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
-# xh --download --output=/dev/null https://cdn2-ovh-bea1.energycdn.com/100Mio.dat no-cache==$(date +%s)000;
+# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://rose.listperfect.xyz/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://sweetfairlady-sto.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://sweetfairlady.b-cdn.net/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-23media-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-ovh-lim1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-ovh-sgp1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-digitalocean-fra1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-nforce-roo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-digitalocean-tor1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-digitalocean-sng1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-hetzner-hel1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-digitalocean-sfo1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-ovh-rou1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-ovh-syd1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
+# xh --download --output=/dev/null https://cdn2-ovh-bea1.energycdn.com/100Mio.dat no-cache==$(date +%s)000
 
 # speedtest "https://rose.listperfect.xyz/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://sweetfairlady-sto.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
@@ -64,3 +64,22 @@ function premiumize-urls() {
 # speedtest "https://sweetfairlady-los1.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://sweetfairlady-mia1.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
 # speedtest "https://cdn2-ovh-mon1.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"
+
+# [
+# 	" [Auto] https://sweetfairlady-sto.energycdn.com/100Mio.dat ",
+# 	" [Cloudflare] https://rose.listperfect.xyz/100Mio.dat ",
+# 	" [Direct] https://sweetfairlady-sto.energycdn.com/100Mio.dat ",
+# 	" [Bunny CDN] https://sweetfairlady.b-cdn.net/100Mio.dat ",
+# 	" [23Media Frankfurt] https://cdn2-23media-fra1.energycdn.com/100Mio.dat ",
+# 	" [OVH Frankfurt] https://cdn2-ovh-lim1.energycdn.com/100Mio.dat ",
+# 	" [OVH Singapore] https://cdn2-ovh-sgp1.energycdn.com/100Mio.dat ",
+# 	" [DigitalOcean Franfurt] https://cdn2-digitalocean-fra1.energycdn.com/100Mio.dat ",
+# 	" [Nforce Netherlands] https://cdn2-nforce-roo1.energycdn.com/100Mio.dat ",
+# 	" [Digitalocean Toronto] https://cdn2-digitalocean-tor1.energycdn.com/100Mio.dat ",
+# 	" [Digitalocean Singapore] https://cdn2-digitalocean-sng1.energycdn.com/100Mio.dat ",
+# 	" [Hetzner Helsinki] https://cdn2-hetzner-hel1.energycdn.com/100Mio.dat ",
+# 	" [Digitalocean San Francisco] https://cdn2-digitalocean-sfo1.energycdn.com/100Mio.dat ",
+# 	" [OVH Roubaix] https://cdn2-ovh-rou1.energycdn.com/100Mio.dat ",
+# 	" [OVH Sydney] https://cdn2-ovh-syd1.energycdn.com/100Mio.dat ",
+# 	" [OVH North America (Beauharnois)] https://cdn2-ovh-bea1.energycdn.com/100Mio.dat "
+# ]
