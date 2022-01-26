@@ -480,11 +480,11 @@ alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=
 alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
 
 function init.daemonize() {
-	daemonize /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
+	daemonize -v -c "$PWD" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
 function init.daemonize.log() {
 	local base="$(basename "$1")"
-	daemonize -e "$HOME/.daemonize/$base.log" -o "$HOME/.daemonize/$base.log" /usr/bin/env -i HOME=$HOME USER=$USER $(which -p bash) -l -c "$*"
+	daemonize -v -c "$PWD" -e "$HOME/.daemonize/$base.log" -o "$HOME/.daemonize/$base.log" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
 alias .pueued="pueued &>/dev/null || true; fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -x shred -v -f --remove"

@@ -413,6 +413,9 @@ function adbrclone() {
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-checksum --no-modtime
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+		serve dlna "youtube-dls:" --name "youtube-dls" --addr "$ip:$(porthash "youtube-dls")" --read-only --no-checksum --no-modtime
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }
