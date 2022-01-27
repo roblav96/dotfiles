@@ -3,6 +3,7 @@
 
 --add-metadata
 --embed-thumbnail
+--force-ipv4
 --ignore-errors
 --merge-output-format=mp4
 --no-call-home
