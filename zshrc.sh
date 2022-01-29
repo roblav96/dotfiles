@@ -538,10 +538,9 @@ function showv() {
 	which -ap "$1" | while read i; do
 		echo && echo -n "🟡 "
 		exa "$i"
-		i="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$i"
 		echo -n "   " && diskus --apparent-size "$i"
-		echo "$i $vflags" | bat --plain -l sh
+		echo "$(realpath "$i") $vflags" | bat --plain -l sh
 		eval "$i $vflags"
 	done
 } && compdef showv=command
