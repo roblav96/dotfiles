@@ -11,9 +11,7 @@
 # fi
 
 if pgrep -x adb &>/dev/null; then
-	if [[ $(adb devices | wc -l) -gt 2 ]]; then
-		export ANDROID_SERIAL="${"$(adb get-serialno 2>/dev/null)"%:5555}"
-	fi
+	export ANDROID_SERIAL="${$(adb get-serialno 2>/dev/null)%:5555}"
 fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
