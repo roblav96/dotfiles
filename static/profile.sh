@@ -226,16 +226,16 @@ test -x "$(which wget)" && source "$DOTFILES/modules/speedtest.sh"
 test -x "$(which ffmpeg)" && source "$DOTFILES/modules/ffmpeg.sh"
 test -x "$(which rclone)" && source "$DOTFILES/modules/rclone.sh"
 
-alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM TERMINFO=$TERMINFO SHELL=/bin/sh /bin/sh"
-alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM TERMINFO=$TERMINFO SHELL=$(which bash) $(which bash)"
+alias esh="/usr/bin/env -i HOME=$HOME USER=$USER SHELL=/bin/sh /bin/sh"
+alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER SHELL=$(which bash) $(which bash)"
 
 if [[ -x "$(which daemonize)" ]]; then
 	function init.daemonize() {
-		daemonize -v -c "$PWD" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM TERMINFO=$TERMINFO SHELL=$(which bash) $(which bash) -l -c "$*"
+		daemonize -v -c "$PWD" /usr/bin/env -i HOME=$HOME USER=$USER SHELL=$(which bash) $(which bash) -l -c "$*"
 	}
 	function init.daemonize.log() {
 		local cmd="$(basename "$1")"
-		daemonize -v -c "$PWD" -e "$HOME/.daemonize/$cmd.log" -o "$HOME/.daemonize/$cmd.log" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM TERMINFO=$TERMINFO SHELL=$(which bash) $(which bash) -l -c "$*"
+		daemonize -v -c "$PWD" -e "$HOME/.daemonize/$cmd.log" -o "$HOME/.daemonize/$cmd.log" /usr/bin/env -i HOME=$HOME USER=$USER SHELL=$(which bash) $(which bash) -l -c "$*"
 	}
 fi
 
