@@ -85,6 +85,7 @@ rogs="$rogs --message '!^NvRmStreamFree: WARN: pStream is NULL$'"
 rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
 rogs="$rogs --message '!^tsec_version: 1$'"
 rogs="$rogs --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$'"
+rogs="$rogs --message '!^\[\d{3},\d{2},\d{4}\]$'"
 
 # kodi
 rogs="$rogs --message '!^onPlaybackStateChanged\(\): '"
