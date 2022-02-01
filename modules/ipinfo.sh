@@ -47,7 +47,7 @@ alias getrouter="networksetup -getinfo Wi-Fi | rg --color=never --regexp='Router
 
 function porthash() {
 	node --print "
-		let value = '"${1:-"$PWD"}"'
+		let value = '$(realpath "${1:-"$PWD"}")'
 		let [hash, i, char] = [0, 0, 0]
 		for (i = 0; i < value.length; i++) {
 			char = value.charCodeAt(i)
