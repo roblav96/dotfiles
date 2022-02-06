@@ -12,6 +12,7 @@ function pkgfind() {
 
 function pc_path() {
 	local prefix="$(brew --prefix)"
+	export CMAKE_PREFIX_PATH="$prefix"
 	if [[ -d "$prefix/opt/openssl@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/openssl@1.1/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@1.1/lib/pkgconfig"
 	fi
@@ -41,12 +42,19 @@ function pc_path() {
 		# [[ "$name" == "openssl@1.1" ]] && continue
 		# [[ "$name" == "openssl@3" ]] && continue
 		# [[ "$name" != "${name/'@'/''}" ]] && continue
-		local dir="$prefix/opt/$name/lib/pkgconfig"
-		if [[ -d "$dir" && "$PKG_CONFIG_PATH" != *"$dir"* ]]; then
-			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir"
-			echo "$dir"
+		[[ "$name" == "ffmpeg@4" ]] && continue
+		[[ "$name" == *"llvm"* ]] && continue
+		local dir="$prefix/opt/$name"
+		if [[ -d "$dir/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$dir/lib/pkgconfig"* ]]; then
+			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir/lib/pkgconfig"
+			echo "$dir/lib/pkgconfig"
+		fi
+		if [[ -d "$dir/lib/cmake" && "$CMAKE_PREFIX_PATH" != *"$dir/lib/cmake"* ]]; then
+			export CMAKE_PREFIX_PATH="$dir:${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH}"
+			echo "$dir/lib/cmake"
 		fi
 	done
 	# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(pkg-config --variable pc_path pkg-config)"
 	echo && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'"
+	echo && echo "🟡 CMAKE_PREFIX_PATH -> '$CMAKE_PREFIX_PATH'"
 }
