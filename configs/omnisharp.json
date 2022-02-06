@@ -1,15 +1,19 @@
 {
+	"DotNet": {
+		"EnablePackageRestore": true
+	},
 	"FormattingOptions": {
 		"EnableEditorConfigSupport": false,
 		"OrganizeImports": false
 	},
 	"MSBuild": {
-		"LoadProjectsOnDemand": true
+		"EnablePackageAutoRestore": true,
+		"LoadProjectsOnDemand": false
 	},
 	"RoslynExtensionsOptions": {
 		"DocumentAnalysisTimeoutMs": 10000,
 		"EnableAnalyzersSupport": false,
-		"EnableAsyncCompletion": true,
+		"EnableAsyncCompletion": false,
 		"EnableDecompilationSupport": true,
 		"EnableImportCompletion": false
 	}
