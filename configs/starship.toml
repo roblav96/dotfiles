@@ -89,6 +89,9 @@ disabled = true
 [java]
 disabled = true
 
+[localip]
+disabled = true
+
 [lua]
 disabled = true
 
