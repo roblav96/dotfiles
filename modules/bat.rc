@@ -13,6 +13,7 @@
 --map-syntax='*.prop:INI'
 --map-syntax='*.rc:Perl'
 --map-syntax='*.scons:Python'
+--map-syntax='*.sublime-snippet:XML'
 --map-syntax='*.tbd:YAML'
 --map-syntax='*.tmpl:Perl'
 --map-syntax='*justfile:Makefile'
