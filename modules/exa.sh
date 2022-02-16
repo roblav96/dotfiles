@@ -25,7 +25,7 @@ alias lact='lac --color=always | tail --lines=$(ty)'
 alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created"
 alias lcrt='lcr --color=always | tail --lines=$(ty)'
 
-local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"'
+local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"' # --git-ignore'
 alias lr="exa $exa_flags $exa_ignore --tree --level=2"
 alias lrr="exa $exa_flags $exa_ignore --tree --level=3"
 alias lrrr="exa $exa_flags $exa_ignore --tree --level=4"
