@@ -32,7 +32,8 @@ function cltv() {
 # adb push busybox-arm64 /data/local/tmp/bin/busybox; adb shell /data/local/tmp/bin/busybox --install -s /data/local/tmp/bin
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
 alias adbfd="adb exec-out /data/local/tmp/bin/fd -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
-alias adbl="adb exec-out /data/local/tmp/bin/ls --color=auto -laph"
+alias adbl="adb exec-out /data/local/tmp/bin/ls --color=auto -laphF"
+# alias adbl="adb exec-out /data/local/tmp/bin/lsd --icon=never --date=relative -laF"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
