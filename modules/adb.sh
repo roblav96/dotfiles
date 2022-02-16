@@ -11,7 +11,7 @@
 # fi
 
 if pgrep -x adb &>/dev/null; then
-	export ANDROID_SERIAL="${$(adb get-serialno 2>/dev/null)%:5555}"
+	export ANDROID_SERIAL="${$(adb devices 2>/dev/null | tail -n+2 | awk '{ print $1 }')%:5555}"
 fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
@@ -40,6 +40,11 @@ alias adbl="adb exec-out /data/local/tmp/bin/ls --color=auto -laph"
 alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
+--message '! \d+ line[s]?$' \
+--message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$' \
+--message '!^NvRmStreamFree: WARN: pStream is NULL$' \
+--message '!^tsec_version: 1$' \
+--message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$' \
 --message '!^Access denied finding property \"RB.tag\"$' \
 --message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
 --message '!UsbFfs' \
@@ -79,13 +84,10 @@ rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
 
 # shield-atv-9.0.0
-rogs="$rogs --message '! \d+ line[s]?$'"
-rogs="$rogs --message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$'"
-rogs="$rogs --message '!^NvRmStreamFree: WARN: pStream is NULL$'"
 rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
-rogs="$rogs --message '!^tsec_version: 1$'"
-rogs="$rogs --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$'"
 rogs="$rogs --message '!^\[\d{3},\d{2},\d{4}\]$'"
+rogs="$rogs --message '!^skip emit ir command, use IR_MODE to send ir command$'"
+rogs="$rogs --message '!^Called isFriday vendor:\d+ product:\d+$'"
 
 # kodi
 rogs="$rogs --message '!^onPlaybackStateChanged\(\): '"
