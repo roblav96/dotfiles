@@ -361,7 +361,8 @@ function aliasf() {
 # 	} && compdef .zsd=which
 # fi
 
-alias jj="just" # --verbose"
+alias jj="just --verbose"
+alias jjb="just --dump | bl make"
 function jjd() {
 	just --dry-run --no-highlight "$@" 2>&1 | bl sh
 } && compdef jjd=just
