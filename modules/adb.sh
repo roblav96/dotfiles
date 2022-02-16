@@ -29,11 +29,11 @@ function cltv() {
 }
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbfd="adb exec-out /data/local/tmp/bin/fd -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
-alias adbl="adb shell /data/local/tmp/bin/ls --color=always -laphF"
-alias adblr="adb shell /data/local/tmp/bin/lsd --color=always -laF --icon=never --date=relative --tree --depth=2"
-alias adblra="adb shell /data/local/tmp/bin/lsd --color=always -laF --icon=never --date=relative --tree"
-# alias adbl="adb exec-out /data/local/tmp/bin/lsd --icon=never --date=relative -laF"
+alias adbll="adb shell ls --color -laphF"
+alias adbl="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative"
+alias adblr="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree --depth=2"
+alias adblra="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree"
+alias adbfd="adb shell /data/local/tmp/bin/fd -uu --color=always --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
