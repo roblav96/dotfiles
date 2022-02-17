@@ -1,5 +1,20 @@
-# ~/.ripgreprc
+# ~/.config/ripgrep/config
 
---type-add='gradle:*.kts'
---type-add='pkgconfig:*.pc'
---type-add='xml:*.plist'
+--glob=!.DS_Store
+--glob=!.git
+
+--type-add=git:.gitattributes
+--type-add=git:.gitconfig
+--type-add=git:.gitignore
+--type-add=git:.gitmodules
+--type-add=git:.ignore
+--type-add=git:attributes
+--type-add=git:exclude
+--type-add=git:git-rebase-tod
+--type-add=git:gitattributes
+--type-add=git:gitconfig
+--type-add=git:gitignore
+--type-add=git:gitlog
+--type-add=gradle:*.kts
+--type-add=pkgconfig:*.pc
+--type-add=xml:*.plist
