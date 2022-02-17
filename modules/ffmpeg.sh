@@ -2,9 +2,11 @@ alias ffmpeg="ffmpeg -hide_banner" # -loglevel fatal"
 alias ffplay="ffplay -hide_banner" # -loglevel fatal"
 alias ffprobe="ffprobe -hide_banner" # -loglevel fatal"
 
-alias ffp="ffprobe -loglevel error -pretty"
-alias fpj="$(echo $aliases[ffp]) -print_format json"
+function ffp() {
+	ffprobe -pretty "$@" 2>&1 | bl yml
+}
 
+alias fpj="ffprobe -loglevel error -pretty -print_format json"
 function fpf() {
 	fpj -show_format "$@" | json '.format'
 }
