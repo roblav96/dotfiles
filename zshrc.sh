@@ -447,12 +447,16 @@ function upiso() {
 		p[2] + "/" + p[0] + "/" + p[1] + " " + d.toTimeString().slice(0, 5)
 	'
 }
-alias pcsa='procs --nor "$(upiso | head -c-3)"'
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
-[[ "$PLATFORM" == "Linux" ]] && alias pcs='pcsa "kworker/" "jfs" "/rmate "'
-
-[[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
-[[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	alias pcsa='procs --nor "$(upiso | head -c-3)"'
+	alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
+	alias pst="pstree -wg3"
+fi
+if [[ "$PLATFORM" == "Linux" ]]; then
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/"'
+	alias pcs='pcsa "/rmate "'
+	alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
+fi
 
 alias ulimitls='ulimit -S -a | bat --file-name="Soft limits" -l yml; ulimit -H -a | bat --file-name="Hard limits" -l yml'
 alias htop="htop --delay=1 --highlight-changes=10"
