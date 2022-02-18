@@ -17,4 +17,5 @@
 --type-add=git:gitlog
 --type-add=gradle:*.kts
 --type-add=pkgconfig:*.pc
+--type-add=ts:*.d.ts
 --type-add=xml:*.plist
