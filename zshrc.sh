@@ -449,7 +449,7 @@ function upiso() {
 }
 alias pcsa='procs --nor "$(upiso | head -c-3)"'
 [[ "$PLATFORM" == "Darwin" ]] && alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
-[[ "$PLATFORM" == "Linux" ]] && alias pcs='pcsa --nor "kworker/" "jfs" "/rmate "'
+[[ "$PLATFORM" == "Linux" ]] && alias pcs='pcsa "kworker/" "jfs" "/rmate "'
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
