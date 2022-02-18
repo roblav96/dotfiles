@@ -447,8 +447,9 @@ function upiso() {
 		p[2] + "/" + p[0] + "/" + p[1] + " " + d.toTimeString().slice(0, 5)
 	'
 }
-[[ "$PLATFORM" == "Darwin" ]] && alias pcs='procs --nor "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm" "nginx: worker process" "1969/12/31" "$(upiso | head -c-3)"'
-[[ "$PLATFORM" == "Linux" ]] && alias pcs='procs --nor "kworker/" "jfs" "/rmate " "$(upiso | head -c-3)"'
+alias pcsa='procs --nor "$(upiso | head -c-3)"'
+[[ "$PLATFORM" == "Darwin" ]] && alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
+[[ "$PLATFORM" == "Linux" ]] && alias pcs='pcsa --nor "kworker/" "jfs" "/rmate "'
 
 [[ "$PLATFORM" == "Darwin" ]] && alias pst="pstree -wg3"
 [[ "$PLATFORM" != "Darwin" ]] && alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
