@@ -154,7 +154,7 @@ alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
 alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
-alias adbp='adbps | rg -v " \d $(adb shell uptime -s | cut -c 12-15)" | sed -e "/ ps -/d" -e "/ gost -/d" -e "/ rclone -/d" -e "/ com.genymobile.scrcpy./d" | bl strace'
+alias adbp='adbps | rg -v " \d $(adb shell uptime -s | cut -c 12-17)" | sed -e "/ ps -/d" -e "/ gost -/d" -e "/ rclone -/d" -e "/ com.genymobile.scrcpy./d" | bl strace'
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | bl yml"
