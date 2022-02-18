@@ -479,6 +479,9 @@ function pe() {
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"
 # }
+function lof() {
+	lsof -c "$@" | bl nix
+} && compdef lof=pkill
 
 alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=/bin/sh /bin/sh"
 alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
