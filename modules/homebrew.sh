@@ -233,18 +233,21 @@ function bcd() {
 
 function bbin() {
 	local v && for v in "$@"; do
-		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
-			echo && echo "🟡 $v/libexec/bin"
-			lra "$(brew --prefix)/opt/$v/libexec/bin"
-		fi
+		echo && echo "🟡 Bins formula -> '$v'"
+		local bins=()
 		if [[ -d "$(brew --prefix)/opt/$v/bin" ]]; then
-			echo && echo "🟡 $v/bin"
-			lra "$(brew --prefix)/opt/$v/bin"
+			bins+="$(brew --prefix)/opt/$v/bin"
 		fi
 		if [[ -d "$(brew --prefix)/opt/$v/sbin" ]]; then
-			echo && echo "🟡 $v/sbin"
-			lra "$(brew --prefix)/opt/$v/sbin"
+			bins+="$(brew --prefix)/opt/$v/sbin"
 		fi
+		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
+			bins+="$(brew --prefix)/opt/$v/libexec/bin"
+		fi
+		if [[ -d "$(brew --prefix)/opt/$v/libexec/gnubin" ]]; then
+			bins+="$(brew --prefix)/opt/$v/libexec/gnubin"
+		fi
+		[[ -n "$bins" ]] && la $bins
 	done
 } && compdef bbin=command
 function bfs() {
