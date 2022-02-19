@@ -245,7 +245,7 @@ alias redis-cli="redis-cli --no-auth-warning"
 alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
-alias sortt="sort -bfi"
+alias sortt='sort -bfi' # LC_ALL="C"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash)"
@@ -327,6 +327,11 @@ function __clear-and-accept-and-hold() { clr && zle .reset-prompt && zle -R && z
 zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
 bindkey '^[[K' accept-and-hold
+
+alias dr="deno run --unstable --no-check --allow-all"
+alias dotwatch="watchexec --postpone --clear --restart --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' --shell=bash -- \
+'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH'"
+# alias dotwatch="(cd $DOTFILES/deno && watchexec --postpone --clear --restart --exts=ts --shell=bash -- 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_WRITTEN_PATH')"
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"
@@ -518,7 +523,7 @@ function manfzf() {
 alias sttyls="stty -a | sed -e 's/; /\n/g' -e 's/;$//'"
 
 function show() {
-	type -a "$1" || return 1
+	type -a "$1" | bat --style=grid -l sh || return 1
 	# | bat --terminal-width=$(tput cols) --style=grid | tail -n+2
 	# | bat --style=grid
 	if which -w "$1" | grep -q 'none$'; then
