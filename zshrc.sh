@@ -549,7 +549,7 @@ function show() {
 which s &>/dev/null || alias s="show"
 
 function showv() {
-	type -a "$1" || return 1
+	which -ap "$1" || return 1
 	local vflags=${@:2}
 	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do
