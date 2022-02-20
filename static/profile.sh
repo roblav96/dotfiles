@@ -59,7 +59,7 @@ alias ls="ls --color=auto"
 if [[ -x "$(which lsd)" ]]; then
 	alias lsd="lsd --icon=never --date=relative"
 	alias l="lsd -laF"
-	alias lb="l --sizesort"
+	alias lb="l --sizesort --reverse"
 	alias lm="l --timesort --reverse"
 	alias lr="l --tree --depth=2"
 	alias lra="l --tree"
