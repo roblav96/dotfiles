@@ -245,7 +245,7 @@ alias redis-cli="redis-cli --no-auth-warning"
 alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
-alias sortt='sort -bfi' # LC_ALL="C"
+alias sortt="LC_ALL='C' sort -bfi"
 alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash)"

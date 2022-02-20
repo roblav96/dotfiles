@@ -89,6 +89,8 @@ rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
 rogs="$rogs --message '!^\[\d{3},\d{2},\d{4}\]$'"
 rogs="$rogs --message '!^skip emit ir command, use IR_MODE to send ir command$'"
 rogs="$rogs --message '!^Called isFriday vendor:\d+ product:\d+$'"
+rogs="$rogs --message '!^Access denied finding property \"ro.vendor.sys.NV'"
+rogs="$rogs --message '!^stop_output_stream: \d+ underruns seen on pcm device hdmi-playback$'"
 
 # kodi
 rogs="$rogs --message '!^onPlaybackStateChanged\(\): '"
