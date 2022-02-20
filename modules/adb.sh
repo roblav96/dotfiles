@@ -179,7 +179,7 @@ alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching -e '\n\nh/w composer state.+?Display manufacturer.+?\n' | t2 | bl yml"
-alias adbaudio="dr $DOTFILES/deno/adb-audio_flinger.ts | sed 's/|//g' | t2 | bl yml"
+alias adbaudio="dr $DOTFILES/deno/adb-audio_flinger.ts | sed -e 's/\b =/: /' -e 's/\b=/: /' -e 's/|/ /g' -e 's/\[//g' -e 's/\]//g' | t2 | bl yml"
 alias adbstack="adb shell am stack list | sed 's/\b=/: /g' | t1 | bl yml"
 
 function exoplayer() {
@@ -347,11 +347,11 @@ alias adbdsls="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
 function adbds() {
 	local v && for v in "$@"; do
 		echo && bhr && echo "█ $v"
-		adb exec-out dumpsys "$v" 2>&1 | sed -e 's/|//g' -e 's/\b=/: /' | t2 | bl yml
+		adb exec-out dumpsys "$v" 2>&1 | sed -e 's/\b =/: /' -e 's/\b=/: /' -e 's/|/ /g' -e 's/\[//g' -e 's/\]//g' | t2 | bl yml
 	done
 }
 function adbdsf() {
-	adbdsls | rg --case-sensitive --fixed-strings "$*" | while read i; do
+	adbdsls | rg --smart-case --fixed-strings "$*" | while read i; do
 		adbds "$i"
 	done
 }
