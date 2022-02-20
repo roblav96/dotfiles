@@ -6,27 +6,40 @@ let adb = Deno.run({
 })
 // console.log('adb ->', adb)
 
-let { success, code } = await adb.status()
-if (!success) {
-	Deno.exit(code)
+let status = await adb.status()
+// console.log('status ->', status)
+if (!status.success) {
+	Deno.exit(status.code)
 }
 
 let stdout = new TextDecoder().decode(await adb.output())
-let sections = stdout.split(/\n\n\b/)
+// console.log('stdout ->', stdout)
+
+// let stdout = new TextDecoder().decode(
+// 	await Deno.run({
+// 		cmd: ['adb', 'exec-out', 'dumpsys', 'media.audio_flinger'],
+// 		stdout: 'piped',
+// 	}).output(),
+// )
+// console.log('stdout ->', stdout)
+
+let sections = stdout.split(/\n\n\b/).map((v) => {
+	if (v.includes('Hal stream dump:')) {
+		v = v.split('Hal stream dump:')[0].trim()
+	}
+	return v
+})
 // console.log('sections.length ->', sections.length)
-// sections.forEach((v) => console.log('█', v))
+// sections.forEach((v) => console.log('\n\n█', v))
 
-let output = [] as string []
-
-let audioout = sections.find((v) => v.includes('Standby: no'))!
-output.push(audioout.split('Hal stream dump')[0].trim())
+let output = [] as string[]
+output.push(sections.find((v) => v.startsWith('Standby: no'))!)
 output.push(sections.find((v) => v.startsWith('Nvidia Audio HAL HW Device:'))!)
 output.push(sections.find((v) => v.startsWith('ALSA devices:'))!)
 output.push(sections.find((v) => v.startsWith('AUX:'))!)
 
-Deno.stdout.writeSync(new TextEncoder().encode(output.join('\n\n')))
-
-Deno.exit(code)
+Deno.stdout.writeSync(new TextEncoder().encode(output.filter((v) => !!v).join('\n\n')))
+Deno.exit(status.code)
 
 // let stderr = decoder.decode(await adb.stderrOutput())
 // await Deno.stdout.write(output)
