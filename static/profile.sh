@@ -63,12 +63,14 @@ if [[ -x "$(which lsd)" ]]; then
 	alias lra="l --tree"
 	alias lb="lsd -lAF --sizesort --reverse"
 	alias lm="lsd -lAF --timesort --reverse"
+	alias lch="lsd -lAF --timesort --reverse"
 else
 	alias l="ls -laFh"
 	alias lr="tree -N -F -l -a -A -C -L 2"
 	alias lra="tree -N -F -l -a -A -C"
 	alias lb="ls -lAFh --sort=size --reverse"
 	alias lm="ls -lAFh --sort=time --reverse"
+	alias lch="ls -lAFh --sort=time --reverse"
 fi
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
