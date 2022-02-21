@@ -34,6 +34,13 @@ alias adbl="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never -
 alias adblr="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree --depth=2"
 alias adblra="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree"
 alias adbfd="adb shell /data/local/tmp/bin/fd -uu --color=always --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
+function adbbinstall() {
+	local base="$(basename "$1")"
+	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
+	adb push "$base" "/data/local/tmp/bin/$base"
+	adb shell chmod a+x "/data/local/tmp/bin/$base"
+	adb shell "/data/local/tmp/bin/$base" -V
+}
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'

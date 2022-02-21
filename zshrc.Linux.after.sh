@@ -4,8 +4,9 @@ export SYSTEMD_PAGER="cat"
 
 function binstall() {
     local base="$(basename "$1")"
+    [[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
     local target="$(readlink -f "${2:-"/usr/local/bin"}")"
-    [[ ! -d "$target" ]] && echo "🔴 ! -d -> '$target'" && return 1
+    [[ ! -d "$target" ]] && echo "🔴 !directory -> '$target'" && return 1
     sudo cp -f -t "$target" "$base"
     sudo chown root:root "$target/$base"
     sudo chmod 755 "$target/$base"

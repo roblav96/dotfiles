@@ -90,13 +90,13 @@ alias lsof="lsof -P"
 alias pathls='echo $PATH | sed "s/:\//\n\//g"'
 
 function binstall() {
-	local v && for v in "$@"; do
-		[[ ! -f "$v" ]] && continue
-		local base="$(basename "$v")"
-		cp -v -t /opt/bin "$v"
-		chown -v admin:root "/opt/bin/$base"
-		chmod -v 755 "/opt/bin/$base"
-	done
+	local base="$(basename "$1")"
+	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
+	local target="$(readlink -f "${2:-"/opt/bin"}")"
+	[[ ! -d "$target" ]] && echo "🔴 !directory -> '$target'" && return 1
+	cp -v -f -t /opt/bin "$1"
+	chown -v admin:root "$target/$base"
+	chmod -v 755 "$target/$base"
 }
 
 if [[ -x "$(which gcc_env.sh)" ]]; then
