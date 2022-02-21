@@ -69,7 +69,7 @@ else
 	alias lr="tree -N -F -l -a -A -C -L 2"
 	alias lra="tree -N -F -l -a -A -C"
 	alias lb="ls -lAFh --sort=size --reverse"
-	alias lm="ls -lAFh --sort=time --reverse"
+	alias {lm,lch}="ls -lAFh --sort=time --reverse"
 	alias lch="ls -lAFh --sort=time --reverse"
 fi
 alias rp="realpath"

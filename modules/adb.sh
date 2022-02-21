@@ -29,17 +29,20 @@ function cltv() {
 }
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbll="adb shell ls --color -laphF"
-alias adbl="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative"
-alias adblr="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree --depth=2"
-alias adblra="adb shell /data/local/tmp/bin/lsd -laF --color=always --icon=never --date=relative --tree"
-alias adbfd="adb shell /data/local/tmp/bin/fd -uu --color=always --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
+alias adbll="adb shell ls --color -laFh"
+alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF"
+alias adblr="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF --tree --depth=2"
+alias adblra="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF --tree"
+alias adblb="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --sizesort --reverse"
+alias adblm="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --timesort --reverse"
+alias adblch="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --timesort --reverse"
+alias adbfd="adb shell /data/local/tmp/bin/fd --color=always -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
 function adbbinstall() {
 	local base="$(basename "$1")"
 	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
 	adb push "$base" "/data/local/tmp/bin/$base"
 	adb shell chmod a+x "/data/local/tmp/bin/$base"
-	adb shell "/data/local/tmp/bin/$base" -V
+	adb shell "/data/local/tmp/bin/$base" --version
 }
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
