@@ -94,7 +94,7 @@ function binstall() {
 	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
 	local target="$(readlink -f "${2:-"/opt/bin"}")"
 	[[ ! -d "$target" ]] && echo "🔴 !directory -> '$target'" && return 1
-	cp -v -f -t /opt/bin "$1"
+	cp -v -f -t "$target" "$base"
 	chown -v admin:root "$target/$base"
 	chmod -v 755 "$target/$base"
 }
