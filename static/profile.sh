@@ -44,7 +44,7 @@ fi
 export GREP_COLOR="01;31"
 export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 alias grep="grep --color=auto"
-alias g="grep --fixed-strings --ignore-case"
+alias g="grep --fixed-strings"
 
 # unalias l
 # unalias ll
@@ -99,8 +99,8 @@ function binstall() {
 	done
 }
 
-if [[ -e "/opt/bin/gcc_env.sh" ]]; then
-	alias gcc_env='source /opt/bin/gcc_env.sh && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS"'
+if [[ -x "$(which gcc)" ]]; then
+	alias gcc_env='export LDFLAGS="-Wl,-rpath=/opt/lib -Wl,--dynamic-linker=/opt/lib/ld-linux-aarch64.so.1 -L/opt/lib, -lstdc++" CFLAGS="-O2 -pipe -mcpu=cortex-a53 -fno-caller-saves " && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS" CC=gcc CXX=g++'
 fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
@@ -124,6 +124,7 @@ function f() {
 		-not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
 alias r="grep --recursive . --dereference-recursive --no-messages --fixed-strings --context=2 --regexp"
+# alias r="grep -R -s -F -C2 -r . -e"
 # function r() {
 # 	grep --recursive . --dereference-recursive --no-messages --fixed-strings --context=2 --regexp "$*"
 # }
