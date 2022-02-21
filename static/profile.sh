@@ -100,7 +100,7 @@ function binstall() {
 }
 
 if [[ -x "$(which gcc)" ]]; then
-	alias gcc_env='export LDFLAGS="-Wl,-rpath=/opt/lib -Wl,--dynamic-linker=/opt/lib/ld-linux-aarch64.so.1 -L/opt/lib, -lstdc++" CFLAGS="-O2 -pipe -mcpu=cortex-a53 -fno-caller-saves " && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS" CC=gcc CXX=g++'
+	alias gcc_env='export LDFLAGS="-Wl,-rpath=/opt/lib -Wl,--dynamic-linker=/opt/lib/ld-linux-aarch64.so.1 -L/opt/lib, -lstdc++" CFLAGS="-O2 -pipe -mcpu=cortex-a53 -fno-caller-saves " && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS" CC=gcc CXX=g++ ACLOCAL_PATH=/opt/share/aclocal'
 fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
