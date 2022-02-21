@@ -123,9 +123,10 @@ function f() {
 		-not -path "./WD_GRAPHITE/*" -not -path "./.git/*" -not -path "./acct/*" \
 		-not -path "./dev/*" -not -path "./proc/*" -not -path "./sys/*"
 }
-function r() {
-	grep --recursive . --no-messages --ignore-case --fixed-strings --context=2 -e "$*"
-}
+alias r="grep --recursive . --dereference-recursive --no-messages --fixed-strings --context=2 --regexp"
+# function r() {
+# 	grep --recursive . --dereference-recursive --no-messages --fixed-strings --context=2 --regexp "$*"
+# }
 
 function show() {
 	type -a $@

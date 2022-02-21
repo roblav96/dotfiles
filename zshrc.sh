@@ -328,9 +328,9 @@ zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
 bindkey '^[[K' accept-and-hold
 
-alias watchexec="watchexec --restart --shell=bash"
+alias we="watchexec --restart --shell=bash"
 alias dr="deno run --unstable --no-check --allow-all"
-alias dotwatch="watchexec --postpone --clear --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' -- \
+alias dotwatch="watchexec --postpone --clear --restart --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' --shell=bash -- \
 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH'"
 # alias dotwatch="(cd $DOTFILES/deno && watchexec --postpone --clear --restart --exts=ts --shell=bash -- 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_WRITTEN_PATH')"
 
