@@ -29,13 +29,13 @@ function cltv() {
 }
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbll="adb shell ls --color -laFh"
-alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF"
-alias adblr="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF --tree --depth=2"
-alias adblra="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -laF --tree"
-alias adblb="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --sizesort --reverse"
-alias adblm="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --timesort --reverse"
-alias adblch="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF --timesort --reverse"
+alias adbll="adb shell ls --color -lAFh"
+alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF"
+alias adblr="adbl --tree --depth=2"
+alias adblra="adbl --tree"
+alias adblb="adbl --sizesort --reverse"
+alias adblm="adbl --timesort --reverse"
+alias adblch="adbl --timesort --reverse"
 alias adbfd="adb shell /data/local/tmp/bin/fd --color=always -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
 function adbbinstall() {
 	local base="$(basename "$1")"
