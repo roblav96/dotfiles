@@ -56,6 +56,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ls="ls --color=auto"
+alias ll="ls -lAFh"
 if [[ -x "$(which lsd)" ]]; then
 	alias lsd="lsd --color=auto --icon=never --date=relative"
 	alias l="lsd -lAF"
