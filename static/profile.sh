@@ -87,7 +87,7 @@ alias pst="pstree --arguments --compact-not --highlight-all --long --show-parent
 alias killall="killall -v"
 alias k="killall -KILL"
 alias lsof="lsof -P"
-alias pathls='echo $PATH | sed "s/:\//\n\//g"'
+alias pathls="echo \$PATH | sed 's/:\//\n\//g'"
 
 function binstall() {
 	local base="$(basename "$1")"
