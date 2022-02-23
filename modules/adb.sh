@@ -99,7 +99,7 @@ rogs="$rogs --message '!^onRead\(offset=\d+, size=\d+\)$'"
 rogs="$rogs --message '!^\[\d{3},\d{2},\d{4}\]$'"
 rogs="$rogs --message '!^skip emit ir command, use IR_MODE to send ir command$'"
 rogs="$rogs --message '!^Called isFriday vendor:\d+ product:\d+$'"
-rogs="$rogs --message '!^Access denied finding property \"ro.vendor.sys.NV'"
+rogs="$rogs --message '!^Access denied finding property \"ro.vendor.sys.(NV|nv)'"
 rogs="$rogs --message '!^stop_output_stream: \d+ underruns seen on pcm device hdmi-playback$'"
 
 # kodi
@@ -415,18 +415,18 @@ function adbrclone() {
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only --no-modtime
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only --no-modtime
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-modtime
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only --no-modtime
+	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+	# 	serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-modtime
 	sleep 1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }

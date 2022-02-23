@@ -223,6 +223,7 @@ fi
 test -x "$(which wget)" && alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
 test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
 test -x "$(which axel)" && alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
+test -x "$(which aria2c)" && alias aria2dl="aria2c --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full --summary-interval=0"
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 # test -x "$(which curl)" && source "$DOTFILES/modules/tldr.sh"
