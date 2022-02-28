@@ -390,8 +390,9 @@ alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
 alias xhp="xh --no-verbose --print=b --pretty=none"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
-alias aria2dl="aria2c --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full --summary-interval=0"
-# alias aria2dl="aria2c --auto-save-interval=0 --always-resume=false --continue=false --save-session=/dev/null --remove-control-file=true --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full"
+alias aria2dl="aria2c --console-log-level=warn --download-result=full --summary-interval=0 --file-allocation=none \
+--disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M \
+--auto-save-interval=0 --always-resume=false --continue=false --save-session=/dev/null --remove-control-file=true --allow-overwrite=true"
 if [[ -x "$(which -p wget2)" ]]; then
 	alias wget="wget2 --no-verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
 else

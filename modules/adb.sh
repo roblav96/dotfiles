@@ -174,6 +174,9 @@ alias adbprops="adb shell getprop | bl yml"
 function adbpropsf() {
 	adb shell getprop | rg --smart-case "$@" | bl yml
 }
+function adbb() {
+	adb shell cat "$@" | bat --file-name="$@"
+}
 
 function __adbpid() {
 	adbps | rg --case-sensitive --fixed-strings "$*" | bl nix
@@ -227,22 +230,29 @@ function adbk() {
 			"com.android.documentsui"
 			"com.android.gallery3d"
 			"com.android.htmlviewer"
+			# "com.android.providers.tv"
 			"com.android.tv.settings"
 			"com.android.vending"
 			# "com.apple.android.music"
 			# "com.brouken.player"
 			# "com.curiosity.curiositystream.androidtv"
 			# "com.doubleiq.podcast"
+			# "com.droidlogic"
 			# "com.fgl27.twitch"
 			# "com.finalwire.aida64"
 			"com.google.android.apps.mediashell"
+			"com.google.android.apps.tv.launcherx"
 			# "com.google.android.exoplayer2.demo"
 			# "com.google.android.exoplayer2.playbacktests.test"
 			"com.google.android.gms"
 			"com.google.android.gsf"
-			# "com.google.android.leanbacklauncher"
+			"com.google.android.inputmethod.latin"
+			"com.google.android.leanbacklauncher"
 			# "com.google.android.packageinstaller"
 			# "com.google.android.tts"
+			"com.google.android.tv.axel"
+			"com.google.android.tvlauncher"
+			"com.google.android.videos"
 			"com.google.android.webview"
 			# "com.google.android.youtube.tv"
 			# "com.google.android.youtube.tvunplugged"
