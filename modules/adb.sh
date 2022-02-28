@@ -127,6 +127,9 @@ rogs="$rogs --message '!^IGraphicBufferProducer::setBufferCount\(\d+\) returned 
 rogs="$rogs --message '!^get(Current)?PlayStatus$'"
 rogs="$rogs --message '!^bufferpool2 .* \(fetch/transfer\)$'"
 rogs="$rogs --message '!^a2dp_sbc_get_num_frame_iteration: limiting frames to be sent from '"
+rogs="$rogs --message '!^Warning message AMessage\(what = \x27omxI\x27\) = \{$'"
+rogs="$rogs --message '!^int32_t (data1|data2|event|type) = \d+$'"
+rogs="$rogs --message '!^\} unhandled in root state.$'"
 
 # # Pixel 3
 # rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
