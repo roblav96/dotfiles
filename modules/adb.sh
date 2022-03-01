@@ -64,8 +64,8 @@ alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --message '!FUNCTIONFS_BIND' \
 --message '!^loading \[eventTime=\d'"
 declare rogs="rogcat"
-# rogs="$rogs --tag '!^bt_stack$'"
-# rogs="$rogs --tag '!^NewAvrcp'"
+rogs="$rogs --tag '!^bt_stack$'"
+rogs="$rogs --tag '!^(New)?Avrcp'"
 rogs="$rogs --message '!^Telecom Service not found.$'"
 rogs="$rogs --message '!^SupplicantStartWaitTimer$'"
 
@@ -132,8 +132,8 @@ rogs="$rogs --message '!^int32_t (data1|data2|event|type) = \d+$'"
 rogs="$rogs --message '!^\} unhandled in root state.$'"
 rogs="$rogs --message '!^btif_a2dp_source_read_callback: UNDERFLOW: ONLY READ \d+ BYTES OUT OF \d+$'"
 rogs="$rogs --message '!^a2dp_sbc_encode_frames: underflow \d+, \d+$'"
-rogs="$rogs --message '! RunTask: Periodic task execution took \d+ microseconds, longer than interval \d+ microseconds$'"
-rogs="$rogs --message '! ReadAudioData: \d+/\d+ no data \d+ ms$'"
+# rogs="$rogs --message '! RunTask: Periodic task execution took \d+ microseconds, longer than interval \d+ microseconds$'"
+# rogs="$rogs --message '! ReadAudioData: \d+/\d+ no data \d+ ms$'"
 
 # # Pixel 3
 # rogs="$rogs --message '!name=tethering scontext=u:r:grilservice_app:'"
