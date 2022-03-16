@@ -463,7 +463,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias pst="pstree -wg3"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
-	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/"'
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/" "jfs"'
 	alias pcs='pcsa "/rmate "'
 	alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 fi
