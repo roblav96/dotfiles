@@ -199,7 +199,7 @@ macosx-recentitems=0
 #macosx-fspanel=1
 
 # Resize interface to the native video size (boolean)
-#macosx-video-autoresize=1
+macosx-video-autoresize=0
 
 # Pause the video playback when minimized (boolean)
 #macosx-pause-minimized=0
