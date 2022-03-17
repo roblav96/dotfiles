@@ -83,7 +83,7 @@ alias sedlog="sed -u -e 's/^$(date +%Y)/\n$(date +%Y)/' -e 's/^\[$(date +%Y)/\n\
 # function idk() { man -k $@ | grep "$@|$" }
 # alias s="subl -f"
 alias psa="ps auxww"
-alias p="ps auxww | grep --invert-match ' grep ' | grep --invert-match '/rmate ' | grep"
+alias p="ps auxww | grep --invert-match ' grep ' | grep --invert-match '/bin/rmate ' | grep"
 alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 alias killall="killall -v"
 alias k="killall -KILL"
