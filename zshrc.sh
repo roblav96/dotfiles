@@ -457,13 +457,14 @@ function upiso() {
 		p[2] + "/" + p[0] + "/" + p[1] + " " + d.toTimeString().slice(0, 5)
 	'
 }
-alias pcsa='procs --nor "$(upiso | head -c-3)"'
 if [[ "$PLATFORM" == "Darwin" ]]; then
+	alias pcsa='procs --nor "$(upiso | head -c-3)"'
 	alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
 	alias pst="pstree -wg3"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
-	alias pcs='pcsa "kworker/" "jfsCommit" "jfsIO" "jfsSync" "xfs" "/bin/rmate "'
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/"'
+	alias pcs='pcsa "jfsCommit" "jfsIO" "jfsSync" "xfs" "/bin/rmate "'
 	alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 fi
 
