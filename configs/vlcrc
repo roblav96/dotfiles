@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.16
+###  vlc 3.0.17.3
 ###
 
 ###
@@ -551,7 +551,7 @@ macosx-mediakeys=0
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.16 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.17.3 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -867,6 +867,9 @@ macosx-mediakeys=0
 
 # Audio CD device (string)
 #cd-audio=/dev/cdrom
+
+# Musicbrainz Server (string)
+#musicbrainz-server=musicbrainz.org
 
 # CDDB Server (string)
 #cddb-server=freedb.videolan.org
@@ -1330,20 +1333,26 @@ macosx-mediakeys=0
 
 [access_output_srt] # SRT stream output
 
-# SRT chunk size (bytes) (integer)
-#chunk-size=1316
-
 # Return poll wait after timeout milliseconds (-1 = infinite) (integer)
-#poll-timeout=100
+#poll-timeout=-1
 
 # SRT latency (ms) (integer)
-#latency=125
+#latency=120
 
 # Password for stream encryption (string)
 #passphrase=
 
+# SRT maximum payload size (bytes) (integer)
+#payload-size=1316
+
+# SRT maximum bandwidth ceiling (bytes) (integer)
+#bandwidth-overhead-limit=25
+
 # Crypto key length in bytes (integer)
 #key-length=16
+
+#  SRT Stream ID (string)
+#streamid=
 
 [rss] # RSS and Atom feed display
 
@@ -2017,7 +2026,7 @@ auhal-audio-device=0
 #avi-interleaved=0
 
 # Force index creation (integer)
-avi-index=2
+avi-index=3
 
 [gaussianblur] # Gaussian blur video filter
 
@@ -2772,7 +2781,7 @@ sout-mp4-faststart=0
 #gnutls-dir-trust=
 
 # TLS cipher priorities (string)
-gnutls-priorities=PERFORMANCE
+#gnutls-priorities=NORMAL
 
 [gestures] # Mouse gestures control interface
 
@@ -2801,7 +2810,7 @@ gnutls-priorities=PERFORMANCE
 [upnp] # Universal Plug'n'Play
 
 # SAT>IP channel list (string)
-satip-channelist=Auto
+#satip-channelist=auto
 
 # Custom SAT>IP channel list URL (string)
 #satip-channellist-url=
@@ -3198,20 +3207,20 @@ satip-channelist=Auto
 
 [access_srt] # SRT input
 
-# SRT chunk size (bytes) (integer)
-#chunk-size=1316
-
 # Return poll wait after timeout milliseconds (-1 = infinite) (integer)
 #poll-timeout=-1
 
 # SRT latency (ms) (integer)
-#latency=125
+#latency=120
 
 # Password for stream encryption (string)
 #passphrase=
 
 # Crypto key length in bytes (integer)
 #key-length=16
+
+#  SRT Stream ID (string)
+#streamid=
 
 [scaletempo_pitch] # Pitch Shifter
 
@@ -3347,7 +3356,7 @@ satip-channelist=Auto
 [freetype] # Freetype2 font renderer
 
 # Font (string)
-#freetype-font=Helvetica Neue
+freetype-font=SF Pro Text
 
 # Monospace Font (string)
 #freetype-monofont=Monaco
@@ -3540,7 +3549,7 @@ volume-save=0
 #drop-late-frames=1
 
 # Skip frames (boolean)
-skip-frames=0
+#skip-frames=1
 
 # Quiet synchro (boolean)
 #quiet-synchro=0
@@ -3561,7 +3570,7 @@ skip-frames=0
 #disable-screensaver=1
 
 # Show media title on video (boolean)
-video-title-show=0
+#video-title-show=1
 
 # Show video title for x milliseconds (integer)
 #video-title-timeout=5000
@@ -3654,7 +3663,7 @@ video-title-show=0
 #video-splitter=
 
 # Enable sub-pictures (boolean)
-spu=0
+#spu=1
 
 # On Screen Display (boolean)
 #osd=1
@@ -3669,7 +3678,7 @@ spu=0
 sub-autodetect-file=0
 
 # Subtitle autodetection fuzziness (integer)
-#sub-autodetect-fuzzy=3
+sub-autodetect-fuzzy=0
 
 # Subtitle autodetection paths (string)
 sub-autodetect-path=
@@ -3897,7 +3906,7 @@ lua=0
 #vlm-conf=
 
 # SAP announcement interval (integer)
-sap-interval=60
+#sap-interval=5
 
 # Mux module (string)
 #mux=
@@ -3993,7 +4002,7 @@ vod-server=none
 #pidfile=
 
 # Show advanced options (boolean)
-advanced=1
+#advanced=0
 
 # Interface interaction (boolean)
 #interact=1
@@ -4104,13 +4113,13 @@ key-position=
 #global-key-jump-extrashort=
 
 # Very short backwards jump (string)
-key-jump-extrashort=Alt-Left
+key-jump-extrashort=Alt+Left
 
 # Very short forward jump (string)
 #global-key-jump+extrashort=
 
 # Very short forward jump (string)
-key-jump+extrashort=Alt-Right
+key-jump+extrashort=Alt+Right
 
 # Short backwards jump (string)
 #global-key-jump-short=
@@ -4140,13 +4149,13 @@ key-jump+medium=Up
 #global-key-jump-long=
 
 # Long backwards jump (string)
-key-jump-long=Shift-Left
+key-jump-long=Shift+Left
 
 # Long forward jump (string)
 #global-key-jump+long=
 
 # Long forward jump (string)
-key-jump+long=Shift-Right
+key-jump+long=Shift+Right
 
 # Next frame (string)
 #global-key-frame-next=
@@ -4218,7 +4227,7 @@ key-chapter-next=
 #global-key-quit=
 
 # Quit (string)
-key-quit=q
+#key-quit=Command+q
 
 # Volume up (string)
 #global-key-vol-up=
@@ -4398,7 +4407,7 @@ key-intf-show=
 #global-key-intf-popup-menu=
 
 # Context menu (string)
-key-intf-popup-menu=
+#key-intf-popup-menu=Menu
 
 # Take video snapshot (string)
 #global-key-snapshot=
@@ -4518,25 +4527,25 @@ key-viewpoint-fov-out=
 #global-key-zoom-quarter=
 
 # 1:4 Quarter (string)
-key-zoom-quarter=Command-4
+key-zoom-quarter=Command+4
 
 # 1:2 Half (string)
 #global-key-zoom-half=
 
 # 1:2 Half (string)
-key-zoom-half=Command-1
+key-zoom-half=Command+1
 
 # 1:1 Original (string)
 #global-key-zoom-original=
 
 # 1:1 Original (string)
-key-zoom-original=Command-0
+key-zoom-original=Command+0
 
 # 2:1 Double (string)
 #global-key-zoom-double=
 
 # 2:1 Double (string)
-key-zoom-double=Command-2
+#key-zoom-double=Command+2
 
 # Very short jump length (integer)
 extrashort-jump-size=5
