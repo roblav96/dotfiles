@@ -3570,7 +3570,7 @@ volume-save=0
 #disable-screensaver=1
 
 # Show media title on video (boolean)
-#video-title-show=1
+video-title-show=0
 
 # Show video title for x milliseconds (integer)
 #video-title-timeout=5000
@@ -4227,7 +4227,7 @@ key-chapter-next=
 #global-key-quit=
 
 # Quit (string)
-#key-quit=Command+q
+key-quit=q
 
 # Volume up (string)
 #global-key-vol-up=
