@@ -554,17 +554,18 @@ function show() {
 which s &>/dev/null || alias s="show"
 
 function showv() {
-	which -ap "$1" || return 1
+	which -ap "$1" | bat --style=grid -l sh || return 1
 	local vflags=${@:2}
 	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do
-		echo && echo -n "🟡 "
+		echo -n "🟡 "
 		exa "$i"
 		local ii="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$ii"
 		echo -n "   " && diskus --apparent-size "$ii"
 		echo "$ii $vflags" | bat --plain -l sh
 		eval "$i $vflags"
+		bhr
 	done
 } && compdef showv=command
 which sv &>/dev/null || alias sv="showv"
