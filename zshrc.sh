@@ -281,6 +281,7 @@ which ty2 &>/dev/null || alias ty2='expr $(ty) / 2'
 which np &>/dev/null || alias np="nproc"
 which np2 &>/dev/null || alias np2='expr $(nproc) / 2'
 which np4 &>/dev/null || alias np4='expr $(nproc) / 4'
+which bat &>/dev/null || alias bhr="echo"
 # alias play="mkc $HOME/.playground; l"
 # alias type="type -as"
 # alias ll="ls -lAFhnU"
