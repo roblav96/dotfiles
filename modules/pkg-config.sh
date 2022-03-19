@@ -13,8 +13,8 @@ function pkgfind() {
 function pc_path() {
 	local prefix="$(brew --prefix)"
 	export CMAKE_PREFIX_PATH="$prefix"
-	if [[ -d "$prefix/opt/openssl@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/openssl@1.1/lib/pkgconfig"* ]]; then
-		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@1.1/lib/pkgconfig"
+	if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
+		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"
 	fi
 	if [[ -d "$prefix/opt/python@3.9/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/python@3.9/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/python@3.9/lib/pkgconfig"
@@ -47,14 +47,17 @@ function pc_path() {
 		local dir="$prefix/opt/$name"
 		if [[ -d "$dir/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$dir/lib/pkgconfig"* ]]; then
 			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir/lib/pkgconfig"
-			echo "$dir/lib/pkgconfig"
+			# echo "$dir/lib/pkgconfig" | lscolors
 		fi
 		if [[ -d "$dir/lib/cmake" && "$CMAKE_PREFIX_PATH" != *"$dir/lib/cmake"* ]]; then
 			export CMAKE_PREFIX_PATH="$dir:${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH}"
-			echo "$dir/lib/cmake"
+			# echo "$dir/lib/cmake" | lscolors
 		fi
 	done
 	# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(pkg-config --variable pc_path pkg-config)"
-	echo && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'"
-	echo && echo "🟡 CMAKE_PREFIX_PATH -> '$CMAKE_PREFIX_PATH'"
+	bhr && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'" && echo && \
+		echo $PKG_CONFIG_PATH | sed 's#:/#\n/#g' | lscolors
+	bhr && echo "🟡 CMAKE_PREFIX_PATH -> '$CMAKE_PREFIX_PATH'" && echo && \
+		echo $CMAKE_PREFIX_PATH | sed 's#:/#\n/#g' | lscolors
+	bhr
 }
