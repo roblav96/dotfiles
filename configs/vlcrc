@@ -3537,7 +3537,7 @@ volume-save=0
 #grayscale=0
 
 # Fullscreen video output (boolean)
-#fullscreen=0
+fullscreen=1
 
 # Embedded video (boolean)
 #embedded-video=1
