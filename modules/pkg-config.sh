@@ -12,7 +12,6 @@ function pkgfind() {
 
 function pc_path() {
 	local prefix="$(brew --prefix)"
-	export CMAKE_PREFIX_PATH="$prefix"
 	if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"
 	fi
@@ -21,6 +20,10 @@ function pc_path() {
 	fi
 	if [[ -d "$prefix/opt/ruby@2.7/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/ruby@2.7/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/ruby@2.7/lib/pkgconfig"
+	fi
+	if [[ -d "$prefix/opt/qt@5/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/qt@5/lib/pkgconfig"* ]]; then
+		export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}$prefix/opt/qt@5"
+		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/qt@5/lib/pkgconfig"
 	fi
 	if [[ -d "$prefix/opt/util-linux/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/util-linux/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/util-linux/lib/pkgconfig"
@@ -41,20 +44,19 @@ function pc_path() {
 		# [[ "$name" == "libressl" ]] && continue
 		# [[ "$name" == "openssl@1.1" ]] && continue
 		# [[ "$name" == "openssl@3" ]] && continue
-		# [[ "$name" != "${name/'@'/''}" ]] && continue
-		[[ "$name" == "ffmpeg@4" ]] && continue
+		[[ "$name" != "${name/'@'/''}" ]] && continue
+		# [[ "$name" == "ffmpeg@4" ]] && continue
 		[[ "$name" == *"llvm"* ]] && continue
 		local dir="$prefix/opt/$name"
 		if [[ -d "$dir/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$dir/lib/pkgconfig"* ]]; then
 			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir/lib/pkgconfig"
-			# echo "$dir/lib/pkgconfig" | lscolors
 		fi
 		if [[ -d "$dir/lib/cmake" && "$CMAKE_PREFIX_PATH" != *"$dir/lib/cmake"* ]]; then
-			export CMAKE_PREFIX_PATH="$dir:${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH}"
-			# echo "$dir/lib/cmake" | lscolors
+			export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}$dir"
 		fi
 	done
 	# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(pkg-config --variable pc_path pkg-config)"
+	export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:$prefix"
 	bhr && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'" && echo && \
 		echo $PKG_CONFIG_PATH | sed 's#:/#\n/#g' | lscolors
 	bhr && echo "🟡 CMAKE_PREFIX_PATH -> '$CMAKE_PREFIX_PATH'" && echo && \
