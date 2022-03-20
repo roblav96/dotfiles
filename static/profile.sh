@@ -101,7 +101,7 @@ function binstall() {
 }
 
 if [[ -x "$(which gcc_env.sh)" ]]; then
-	alias expgcc='gcc_env.sh && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS" CC=gcc CXX=g++ ACLOCAL_PATH=/opt/share/aclocal'
+	alias gcc_env='gcc_env.sh && export CPPFLAGS="$CFLAGS -I/opt/include" CXXFLAGS="$CFLAGS $LDFLAGS" CC=gcc CXX=g++ ACLOCAL_PATH=/opt/share/aclocal'
 fi
 
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
