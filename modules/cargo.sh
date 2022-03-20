@@ -15,6 +15,7 @@ alias cgcd="cd $CARGO_HOME/bin"
 alias cgin="cargo install --force"
 alias cgls="lch $CARGO_HOME/bin"
 alias cgout="cargo install-update --all --list"
+alias cgupg="cgout | grep Yes$ | awk '{ print \$1 }' | while read i; do (echo && echo \"█ \$i\" && cgin \$i); done"
 # alias cgupg="cargo install-update --force"
 alias cgrm="cargo uninstall"
 
