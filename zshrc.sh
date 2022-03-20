@@ -395,7 +395,7 @@ alias aria2dl="aria2c --console-log-level=warn --download-result=full --summary-
 --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M \
 --auto-save-interval=0 --always-resume=false --continue=false --save-session=/dev/null --remove-control-file=true --allow-overwrite=true"
 if [[ -x "$(which -p wget2)" ]]; then
-	alias wget="wget2 --no-verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
+	alias wget="wget2 --verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
 else
 	alias wget="wget --quiet --content-disposition --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
 fi
