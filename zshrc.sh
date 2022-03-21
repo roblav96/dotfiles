@@ -278,6 +278,7 @@ which t1 &>/dev/null || alias t1="unexpand -t1 --first-only"
 which t2 &>/dev/null || alias t2="unexpand -t2 --first-only"
 which ty &>/dev/null || alias ty='expr $(tput lines) - 10'
 which ty2 &>/dev/null || alias ty2='expr $(ty) / 2'
+which ty4 &>/dev/null || alias ty4='expr $(ty) / 4'
 which np &>/dev/null || alias np="nproc"
 which np2 &>/dev/null || alias np2='expr $(nproc) / 2'
 which np4 &>/dev/null || alias np4='expr $(nproc) / 4'
@@ -459,8 +460,8 @@ function upiso() {
 	'
 }
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias pcsa='procs --nor "$(upiso | head -c-3)"'
-	alias pcs='pcsa "/System/Library/" "/usr/libexec/" "/Google Chrome.app/" "/iTerm"'
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm"'
+	alias pcs='pcsa "/System/Library/" "/usr/libexec/"'
 	alias pst="pstree -wg3"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
