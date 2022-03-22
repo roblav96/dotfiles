@@ -85,6 +85,7 @@ alias scrcpy='scrcpy --serial $ANDROID_SERIAL --verbosity debug --shortcut-mod l
 function unapk() {
 	local outdir="${@%.apk}"
 	apktool decode --frame-tag darcy --api-level 30 --match-original "$@"
+	# apktool decode --frame-tag x900f --api-level 28 --match-original "$@"
 	unzip "$@" '*.dex' -d "$outdir"
 	cd "$outdir"
 	command rm -rf smali*
