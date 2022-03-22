@@ -34,7 +34,10 @@ let output = [] as string[]
 // output.push(sections.find((v) => v.startsWith('Output thread'))!)
 output.push(sections.find((v) => v.includes('Standby: no'))!)
 output.push(sections.find((v) => v.startsWith('Nvidia Audio HAL HW Device:'))!)
-output.push(sections.find((v) => v.startsWith('ALSA devices:'))!)
+let alsa = sections.find((v) => v.startsWith('ALSA devices:'))
+if (alsa) {
+	output.push(alsa.split('\n').filter(v => !v.includes('0    0       0')).join('\n')) // prettier-ignore
+}
 output.push(sections.find((v) => v.startsWith('AUX:'))!)
 output.push(sections.find((v) => v.startsWith('Nvidia Audio Output streams'))!)
 
