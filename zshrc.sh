@@ -268,6 +268,7 @@ alias lsof="lsof -P"
 alias dfc="dfc -q name -d -f -T -m -l"
 alias duu="du -ah -d1 | sort --human-numeric-sort"
 which sl &>/dev/null || alias sl="sleep"
+which sl0 &>/dev/null || alias sl0="sleep 0.1"
 which sl1 &>/dev/null || alias sl1="sleep 1"
 which sl2 &>/dev/null || alias sl2="sleep 2"
 which sl3 &>/dev/null || alias sl3="sleep 3"
@@ -511,7 +512,7 @@ function init.daemonize.log() {
 	daemonize -v -c "$PWD" -e "$HOME/.daemonize/$cmd.log" -o "$HOME/.daemonize/$cmd.log" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
-alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
+alias .pueued='killall pueued && sleep 0.1; init.daemonize "trap \"fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
 
 # bindkey '^[H' man
 # bindkey '^[h' man

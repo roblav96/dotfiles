@@ -15,7 +15,7 @@ if pgrep -x adb &>/dev/null; then
 fi
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="192.168.2.116"
 # [[ -z "$ANDROID_SERIAL" ]] && export ANDROID_SERIAL="1323319022018"
-alias adbre='adb kill-server && sleep 1; adb connect $ANDROID_SERIAL && adb devices -l'
+alias adbre='adb kill-server && sleep 0.1; adb connect $ANDROID_SERIAL && adb devices -l'
 
 # alias clp="curl --proxy $ANDROID_SERIAL:11080"
 function cltv() {
@@ -170,7 +170,7 @@ unset rogs
 alias adben="adb shell input keyevent KEYCODE_ENTER"
 alias adbtt="adb shell input keyboard text"
 function adbt() {
-	adbtt "$*" && sleep 1 && adben
+	adbtt "$*" && sleep 0.1 && adben
 }
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
@@ -332,7 +332,7 @@ function adbk() {
 			packages+=("$i")
 		done
 		adbk $packages
-		sleep 1
+		sleep 0.1
 		adbp
 	fi
 	local v && for v in "$@"; do
@@ -389,7 +389,7 @@ function adbdsf() {
 function adbnl() {
 	adbcl nl.ndat.tvlauncher
 	adb shell pm grant --user 0 nl.ndat.tvlauncher android.permission.READ_EXTERNAL_STORAGE
-	sleep 1
+	sleep 0.1
 	adb shell pm set-home-activity --user 0 nl.ndat.tvlauncher/.LauncherActivity
 }
 
@@ -447,14 +447,14 @@ function adbrclone() {
 	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 	# 	serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-modtime
-	sleep 1
+	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
 }
 function adbgost() {
 	adb shell killall -v gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
-	sleep 1
+	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings gost | bl nix
 }
 
@@ -468,7 +468,7 @@ function adbsu() {
 # 	adb shell input keyevent KEYCODE_ENTER
 # 	sleep 10
 # 	adb shell am force-stop com.termux
-# 	# sleep 1
+# 	# sleep 0.1
 # 	# adb shell monkey -p com.termux -c android.intent.category.LAUNCHER 1
 # 	# adb shell input keyboard text "'rm ./*'"
 # 	# adb shell input keyevent KEYCODE_ENTER
