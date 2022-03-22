@@ -518,7 +518,16 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 function mans() {
 	man -k "$*" | rg --smart-case --fixed-strings --passthru -e "$*"
 } && compdef mans=man
-alias mansr="man -K"
+# alias mansr="man -K"
+function mansr() {
+	rg -l "$@" $(man --path | sed 's#:/# /#g')
+} && compdef mansr=env
+function mansrb() {
+	rg -l "$@" $(man --path | sed 's#:/# /#g') | while read i; do
+		echo "█ $i"
+		man "$i"
+	done
+} && compdef mansrb=env
 alias manfs="man -wa"
 function manfzf() {
     man -k . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
