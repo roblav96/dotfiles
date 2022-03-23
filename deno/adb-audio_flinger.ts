@@ -15,7 +15,7 @@
 
 let stdout = new TextDecoder().decode(
 	await Deno.run({
-		cmd: ['adb', 'exec-out', 'dumpsys', 'media.audio_flinger'],
+		cmd: ['adb', 'shell', 'dumpsys', 'media.audio_flinger'],
 		stdout: 'piped',
 	}).output(),
 )
