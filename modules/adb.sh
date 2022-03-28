@@ -65,6 +65,7 @@ alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
 --message '!usb-ffs' \
 --message '!FUNCTIONFS_BIND' \
 --message '!^loading \[eventTime=\d'"
+
 declare rogs="rogcat"
 rogs="$rogs --tag '!^bt_stack$'"
 rogs="$rogs --tag '!^(New)?Avrcp'"

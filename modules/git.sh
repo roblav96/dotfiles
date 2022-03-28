@@ -65,11 +65,11 @@ function gup() {
 		gss
 		greset
 		gpf
-		find . -type f -name gradlew -exec chmod -v -c a+x '{}' \;
+		fd --type=file --glob gradlew --exec-batch chmod -vc a+x
 		if [[ -x "$(which -p git-restore-mtime)" ]]; then
 			git-restore-mtime --quiet --force
 		fi
-		find . -type f -name rust-toolchain -exec rm -rfv '{}' \;
+		fd --type=file ^rust-toolchain --exec-batch rm -fv
 	); done
 	bhr
 }
@@ -85,11 +85,11 @@ function gc() {
 		rd "$outdir"
 	fi
 	git clone --recurse-submodules "$@" && cd "$outdir"
-	find . -type f -name gradlew -exec chmod -v -c a+x '{}' \;
+	fd --type=file --glob gradlew --exec-batch chmod -vc a+x
 	if [[ -x "$(which -p git-restore-mtime)" ]]; then
 		git-restore-mtime --quiet --force
 	fi
-	find . -type f -name rust-toolchain -exec rm -rfv '{}' \;
+	fd --type=file ^rust-toolchain --exec-batch rm -fv
 }
 function greload() {
 	local topdir="$(git rev-parse --show-toplevel)"
