@@ -49,21 +49,21 @@ function adbbinstall() {
 }
 
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp)'
-# alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
-# alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --level trace \
-alias rogcat="rogcat --hide-timestamp --buffer all --level trace \
+# alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
+# alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all \
+alias rogcat="rogcat --hide-timestamp --buffer all \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
---message '! \d+ line[s]?$' \
+--message '!^uid=\d+.* (expire|identical) \d+ line[s]?$' \
 --message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$' \
 --message '!^NvRmStreamFree: WARN: pStream is NULL$' \
 --message '!^tsec_version: 1$' \
---message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$' \
---message '!^Access denied finding property \"RB.tag\"$' \
---message '!^getLayerReleaseFence failed for display -1: Invalid display$' \
---message '!UsbFfs' \
---message '!usb-ffs' \
---message '!FUNCTIONFS_BIND' \
+--message '!^UsbFfs' \
+--message '! UsbFfs$' \
+--message '! /dev/usb-ffs/adb/' \
+--message '!^timed out while waiting for FUNCTIONFS_BIND, trying again$' \
+--message '!^(Starting|Stopping) auto hide ui timer...$' \
+--message '!^Failed to find provider info for com.nvidia.ibeta$' \
 --message '!^loading \[eventTime=\d'"
 
 declare rogs="rogcat"
@@ -89,8 +89,6 @@ rogs="$rogs --message '!\bINvCplHalService\b'"
 
 rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
 rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
-rogs="$rogs --message '!^Failed to find provider info for com.nvidia.ibeta$'"
-# rogs="$rogs --message '!^uid=1000\(system\) /system/bin/surfaceflinger identical \d line'"
 rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
 rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
 rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
@@ -161,9 +159,9 @@ unset rogs
 # 	"!^handleComboKeys key.ode: \d"
 # 	"!^loading \[eventTime=\d"
 # )
-# alias rog="rogcat --level trace $(printf "--message '%q' " "$rogs") --tag '!^netstats_(\w+)_sample$'"
+# alias rog="rogcat $(printf "--message '%q' " "$rogs") --tag '!^netstats_(\w+)_sample$'"
 # unset rogs
-# alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp) --level trace'
+# alias rog='rogcat $([[ $COLUMNS -lt 125 ]] && echo --hide-timestamp)'
 
 # function adbt() {
 # 	adb shell am broadcast -a ADB_INPUT_B64 --es msg $(echo -n "$*" | base64)
@@ -198,7 +196,7 @@ alias adbmusic="adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SC
 alias adbls="adb exec-out find /sdcard/ -type f | sed -e '/\/userdata\/Thumbnails\//d' -e '/\/files\/medialib\/thumbnails\//d' -e '/\/projectM\/presets\//d' -e '/\/strings.po$/d'"
 alias adbscreenshot='adb exec-out screencap -p > "screenshot.$(date --iso-8601).$(date +%s).png"'
 
-# alias rogcat="rogcat --level trace"
+# alias rogcat="rogcat"
 alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
 # alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
