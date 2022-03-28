@@ -75,7 +75,8 @@ else
 fi
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
-alias bat="cat" && alias b="bat"
+which bat &>/dev/null || alias bat="cat"
+alias b="bat"
 alias htop="htop --delay=1 --highlight-changes=10"
 alias bhr="echo"
 alias tf="tail -f -n 100"

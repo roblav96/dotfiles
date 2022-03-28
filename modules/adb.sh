@@ -331,10 +331,10 @@ function adbk() {
 			# "us.nineworlds.serenity"
 		)
 		adb shell pm list packages -3 -e | sed 's/^package://' | while read i; do
-			[[ "$i" == "com.liskovsoft.leankeyboard" ]] && continue
+			# [[ "$i" == "com.liskovsoft.leankeyboard" ]] && continue
 			[[ "$i" == "me.efesser.flauncher" ]] && continue
 			[[ "$i" == "nl.ndat.tvlauncher" ]] && continue
-			[[ "$i" == "org.liskovsoft.androidtv.rukeyboard" ]] && continue
+			# [[ "$i" == "org.liskovsoft.androidtv.rukeyboard" ]] && continue
 			packages+=("$i")
 		done
 		adbk $packages
