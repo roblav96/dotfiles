@@ -52,18 +52,28 @@ function adbbinstall() {
 # alias rogcat='rogcat $([[ $(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all --message "!^loading \[eventTime=\d" --tag "!^netstats_\w+_sample$"'
 # alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all \
 alias rogcat="rogcat --hide-timestamp --buffer all \
+\
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
+\
 --message '!^uid=\d+.* (expire|identical) \d+ line[s]?$' \
+\
 --message '!^btif_nv_stats_update_host_stats\(\) addr: ff:ff:ff:ff:ff:ff , json string: cmd_timeout_rsp_after_to$' \
+--message '!^Failed to find provider info for com.nvidia.ibeta$' \
 --message '!^NvRmStreamFree: WARN: pStream is NULL$' \
 --message '!^tsec_version: 1$' \
---message '!^UsbFfs' \
---message '! UsbFfs$' \
+\
 --message '! /dev/usb-ffs/adb/' \
+--message '! UsbFfs$' \
 --message '!^timed out while waiting for FUNCTIONFS_BIND, trying again$' \
+--message '!^UsbFfs' \
+\
+--message '!^handleComboKeys isOnHomeScreen: false$' \
+--message '!^handleComboKeys key(C|c)ode: \d' \
+--message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo' \
+--message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$' \
+\
 --message '!^(Starting|Stopping) auto hide ui timer...$' \
---message '!^Failed to find provider info for com.nvidia.ibeta$' \
 --message '!^loading \[eventTime=\d'"
 
 declare rogs="rogcat"
@@ -87,11 +97,8 @@ rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
 rogs="$rogs --message '!\bINvCplHalService\b'"
 # rogs="$rogs --message '!\bnvphsd\b'"
 
-rogs="$rogs --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo'"
-rogs="$rogs --message '!^handleComboKeys isOnHomeScreen: false$'"
 rogs="$rogs --message '!^Exception checking for game stream. Exception: '"
-rogs="$rogs --message '!^handleComboKeys key.ode: \d'"
-rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
+# rogs="$rogs --message '!^interceptKeyT. key.ode=\d'"
 # rogs="$rogs --message '!^\b\w+ key.ode\b'"
 
 rogs="$rogs --message '!^HttpAccessor#requestConnection: line \d+: '"
