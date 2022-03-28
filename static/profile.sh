@@ -75,7 +75,7 @@ else
 fi
 alias rp="realpath"
 alias pwda="pwd && pwd -P"
-which bat &>/dev/null || (alias bat="cat" && alias b="bat")
+alias bat="cat" && alias b="bat"
 alias htop="htop --delay=1 --highlight-changes=10"
 alias bhr="echo"
 alias tf="tail -f -n 100"
@@ -228,9 +228,9 @@ test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early -
 test -x "$(which axel)" && alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 test -x "$(which aria2c)" && alias aria2dl="aria2c --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full --summary-interval=0"
 
-test -x "$(which bat)" && source "$DOTFILES/modules/bat.sh"
-test -x "$(which fd)" && source "$DOTFILES/modules/fdfind.sh"
-test -x "$(which rg)" && source "$DOTFILES/modules/ripgrep.sh"
+# test -x "$(which bat)" && source "$DOTFILES/modules/bat.sh"
+# test -x "$(which fd)" && source "$DOTFILES/modules/fdfind.sh"
+# test -x "$(which rg)" && source "$DOTFILES/modules/ripgrep.sh"
 
 test -x "$(which curl)" && source "$DOTFILES/modules/ipinfo.sh"
 # test -x "$(which curl)" && source "$DOTFILES/modules/tldr.sh"
