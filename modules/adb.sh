@@ -53,6 +53,7 @@ function adbbinstall() {
 # alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all \
 alias rogcat="rogcat --hide-timestamp --buffer all \
 \
+--tag '!^JsonPathTypeAdapter$' \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
 \
@@ -91,7 +92,6 @@ rogs="$rogs --message '! http stream: in DATA '"
 rogs="$rogs --message '! http stream: out WINDOW_UPDATE '"
 # rogs="$rogs --message '! VlcObject (expire|identical) \d+ line[s]?$'"
 
-rogs="$rogs --tag '!^JsonPathTypeAdapter$'"
 rogs="$rogs --tag '!^nvphsd$'"
 rogs="$rogs --message '! /vendor/bin/nvphsd '"
 rogs="$rogs --message '! scontext=u:r:nvphsd:s0 '"
