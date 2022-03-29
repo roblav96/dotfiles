@@ -37,7 +37,7 @@ alias adblra="adbl --tree"
 alias adblb="adbl --sizesort --reverse"
 alias adblm="adbl --timesort --reverse"
 alias adblch="adbl --timesort --reverse"
-alias adbfd="adb shell /data/local/tmp/bin/fd --color=always -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path --fixed-strings"
+alias adbfd="adb shell /data/local/tmp/bin/fd --color=always -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path"
 alias adbcurl="adb shell /data/local/tmp/bin/curl --silent --show-error --fail-early --location --connect-timeout 5"
 # alias adbhtop="adb shell TERM=xterm TERMINFO=/data/local/tmp/terminfo /data/local/tmp/bin/htop"
 function adbbinstall() {
@@ -194,8 +194,8 @@ function adbb() {
 }
 
 function __adbpid() {
-	adbps | rg --case-sensitive --fixed-strings "$*" | bl nix
-	adbtop | rg --case-sensitive --fixed-strings "$*" | bl nix
+	adbps | rg --case-sensitive --fixed-strings "$*" | bl strace
+	adbtop | rg --case-sensitive --fixed-strings "$*" | bl strace
 	# adb shell cat "/proc/$*/status" | bl yml
 } && alias adbpid=" __adbpid"
 
@@ -454,14 +454,14 @@ function adbrclone() {
 	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
 	# 	serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-modtime
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings rclone | bl nix
+	adbps | rg --case-sensitive --fixed-strings rclone | bl strace
 }
 function adbgost() {
 	adb shell killall -v gost
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings gost | bl nix
+	adbps | rg --case-sensitive --fixed-strings gost | bl strace
 }
 
 function adbsu() {
