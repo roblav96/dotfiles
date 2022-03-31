@@ -74,7 +74,9 @@ alias rogcat="rogcat --hide-timestamp --buffer all \
 --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo' \
 --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$' \
 --message '!^Access denied finding property \"ro.vendor.sys.(NV|nv)' \
+--message '!^Access denied finding property \"RB.tag\"$' \
 \
+--message '!^Input event injection from pid \d+ uid \d+$' \
 --message '!^(Starting|Stopping) auto hide ui timer...$' \
 --message '!^loading \[eventTime=\d'"
 
