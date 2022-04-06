@@ -18,6 +18,8 @@
 --map-syntax=*.tmpl:Perl
 --map-syntax=*justfile:Makefile
 --map-syntax=*npmrc:INI
+--map-syntax=.*env*:Bourne\ Again\ Shell\ (bash)
+--map-syntax=.*local*:Bourne\ Again\ Shell\ (bash)
 --map-syntax=.gemrc:YAML
 --map-syntax=.ignore:Git\ Ignore
 --map-syntax=.megarc:INI
