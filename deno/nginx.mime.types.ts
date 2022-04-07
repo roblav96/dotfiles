@@ -14,16 +14,19 @@ let db = (await (
 		extensions: string[]
 	}
 }
+
 let each = Object.entries(db).reduce((target, [key, value], index) => {
 	if (!Array.isArray(value.extensions)) return target
 	return target.concat(`    ${key} ${value.extensions.join(' ')};`)
 }, [] as string[])
+
 let output = `
 types {
 ${each.join('\n')}
 }
 `
 console.log(output)
+
 let prefix = new TextDecoder().decode(
 	await Deno.run({
 		cmd: ['brew', '--prefix'],
@@ -31,19 +34,3 @@ let prefix = new TextDecoder().decode(
 	}).output(),
 )
 await Deno.writeTextFile(path.join(prefix.trim(), 'etc/nginx/mime.types'), output)
-
-
-// let globs = await Deno.readTextFile(path.join(prefix.trim(), 'share/mime/globs'))
-// let lines = globs.split('\n').filter((v) => v.includes(':*.'))
-// let groups = collections.groupBy(lines, (v) => v.split(':*.')[0])
-// let mimes = sortKeys(collections.mapValues(groups, (v) => v!.map((v) => v.split(':*.')[1]).sort()))
-// let each = Object.entries(mimes).reduce((target, [key, value], index) => {
-// 	return target.concat(`    ${key} ${value.join(' ')};`)
-// }, [] as string[])
-// let output = `
-// types {
-// ${each.join('\n')}
-// }
-// `
-// console.log(output)
-// await Deno.writeTextFile(path.join(prefix.trim(), 'etc/nginx/mime.types'), output)
