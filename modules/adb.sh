@@ -385,7 +385,7 @@ alias adbdsls="adb shell dumpsys -l | tail -n+2 | sed 's/^  //'"
 function adbds() {
 	local v && for v in "$@"; do
 		echo && bhr && echo "█ $v"
-		adb exec-out dumpsys "$v" 2>&1 | sed -e 's/\b =/: /' -e 's/\b=/: /' -e 's/|/ /g' -e 's/\[//g' -e 's/\]//g' | t2 | bl yml
+		adb exec-out dumpsys "$v" 2>&1 | sed -e 's/\b =/: /' -e 's/\b=/: /' -e 's/ >/  /' -e 's/ #/ /' -e 's/|/ /g' -e 's/\[//g' -e 's/\]//g' | t2 | bl yml
 	done
 }
 function adbdsf() {
