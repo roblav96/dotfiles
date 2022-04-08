@@ -10,9 +10,11 @@
 --map-syntax=*.m4:Perl
 --map-syntax=*.mt:Perl
 --map-syntax=*.pc:Makefile
+--map-syntax=*.policy:Java
 --map-syntax=*.prop:INI
 --map-syntax=*.rc:Perl
 --map-syntax=*.scons:Python
+--map-syntax=*.security:Java\ Properties
 --map-syntax=*.sublime-snippet:XML
 --map-syntax=*.tbd:YAML
 --map-syntax=*.tmpl:Perl
