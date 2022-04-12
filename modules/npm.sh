@@ -23,7 +23,12 @@ alias npmupg="npx updates --update && npm install"
 alias npmaudit="npx auditjs ossi"
 alias npmcheck="npx npm-check --skip-unused"
 alias npmdepcheck="npx depcheck"
-alias npmupgg="npm outdated -g | grep global$ | awk '{ print \$1 }' | while read i; do (echo && echo \"🟡 '\$i'\" && npm install -g \$i); done"
+
+if [[ "$(id -un)" == "ubuntu" ]]; then
+	alias npmupgg="npm outdated -g | grep global$ | awk '{ print \$1 }' | while read i; do (echo && echo \"🟡 '\$i'\" && sudo npm install -g \$i); done"
+else
+	alias npmupgg="npm outdated -g | grep global$ | awk '{ print \$1 }' | while read i; do (echo && echo \"🟡 '\$i'\" && npm install -g \$i); done"
+fi
 
 alias snykt="npx snyk test --dev --all-projects --detection-depth=1"
 function snyknpm() {
