@@ -81,7 +81,7 @@ alias rogcat="rogcat --hide-timestamp --buffer all \
 --message '!^loading \[eventTime=\d'"
 
 declare rogs="rogcat"
-rogs="$rogs --tag '!^bt_stack$'"
+# rogs="$rogs --tag '!^bt_stack$'"
 rogs="$rogs --tag '!^(New)?Avrcp'"
 rogs="$rogs --message '!^Telecom Service not found.$'"
 rogs="$rogs --message '!^SupplicantStartWaitTimer$'"
@@ -123,6 +123,7 @@ rogs="$rogs --message '!^sendMediaUpdate state=PlaybackState '"
 rogs="$rogs --message '!^onMediaUpdated: track_changed=false state=false queue=false$'"
 rogs="$rogs --message '!^sendMediaUpdate: metadata=false playStatus=false queue=false$'"
 rogs="$rogs --message '!^sendMediaUpdateNative$'"
+rogs="$rogs --message '! virtual void bluetooth::avrcp::AvrcpService::SendMediaUpdate'"
 # rogs="$rogs --message '! Resume from position '"
 # rogs="$rogs --message '! cache completely reset for seek to position '"
 
