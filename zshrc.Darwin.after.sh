@@ -144,6 +144,19 @@ alias avr.device-info="curl http://192.168.1.119:8080/goform/Deviceinfo.xml | oq
 # alias denon-avr="curl --insecure 'https://192.168.1.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json '.Information' | jq --sort-keys --tab '{Audio:.Information.Audio,Video:.Information.Video,Zone:.Information.Zone}'"
 # alias denon="curl --insecure 'https://192.168.50.136:10443/ajax/general/get_config?type=12' | xq -x '. | { Audio: .Information.Audio, HDMISignalInfo: .Information.Video.HDMISignalInfo }' | prettier --parser xml | bat --style=grid -l html"
 
+function upg() {
+	bhr && echo "🟡 brew" && bhr
+	bupd && bupg
+	bhr && echo "🟡 npm" && bhr
+	npmo -g && npmupgg
+	bhr && echo "🟡 gem" && bhr
+	gemupgsys && gemupg
+	bhr && echo "🟡 rustup" && bhr
+	rustup update
+	bhr && echo "🟡 cargo" && bhr
+	cgout && cgupg
+}
+
 function tapianalyze() {
 	tapi-analyze -v "$@" | bat --style=grid -l yml
 } && compdef tapianalyze=tapi-analyze
