@@ -58,7 +58,7 @@ alias .....="cd ../../../.."
 alias ls="ls --color=auto"
 alias ll="ls -lAFh"
 if [[ -x "$(which lsd)" ]]; then
-	alias lsd="lsd --color=auto --icon=never --date=relative"
+	alias lsd="lsd --color=auto --icon=never --date=relative --size=short"
 	alias l="lsd -lAF"
 	alias lr="l --tree --depth=2"
 	alias lra="l --tree"

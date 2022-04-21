@@ -31,7 +31,7 @@ function cltv() {
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
 alias adbll="adb shell ls --color -lAFh"
-alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative -lAF"
+alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative --size=short -lAF"
 alias adblr="adbl --tree --depth=2"
 alias adblra="adbl --tree"
 alias adblb="adbl --sizesort --reverse"
