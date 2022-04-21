@@ -53,8 +53,8 @@ style = "red bold"
 [aws]
 disabled = true
 
-[c]
-disabled = true
+# [c]
+# disabled = true
 
 [cmake]
 disabled = true
