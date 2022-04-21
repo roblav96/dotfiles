@@ -435,27 +435,12 @@ function adbsettingsinit() {
 }
 
 function adbrclone() {
-	local ip="${1:-"$ANDROID_SERIAL"}"
-	# adb shell find /data/local/tmp -type f -name '*.pid' -print -delete
 	adb shell killall -v rclone
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "alldebrid:" --name "alldebrid" --addr "$ip:$(porthash "alldebrid")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "premiumize:" --name "premiumize" --addr "$ip:$(porthash "premiumize")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "megadav:" --name "megadav" --addr "$ip:$(porthash "megadav")" --read-only --no-modtime
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-		serve dlna "WD_GRAPHITE:" --name "WD_GRAPHITE" --addr "$ip:$(porthash "WD_GRAPHITE")" --read-only --no-modtime
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "Movies:" --name "Movies" --addr "$ip:$(porthash "Movies")" --read-only --no-modtime
-	# adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-	# 	-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-	# 	serve dlna "Music:" --name "Music" --addr "$ip:$(porthash "Music")" --read-only --no-modtime
+	local v && for v in "$@"; do
+		adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+			-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
+			serve dlna "$v:" --name "$v" --addr "$ANDROID_SERIAL:$(porthash "$v")" --read-only --no-modtime
+	done
 	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl strace
 }
