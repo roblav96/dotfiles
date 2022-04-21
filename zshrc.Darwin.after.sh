@@ -148,7 +148,7 @@ function upg() {
 	bhr && echo "🟡 brew" && bhr
 	bupd && bupg
 	bhr && echo "🟡 npm" && bhr
-	npmo -g && npmupgg
+	npmo -g; npmupgg
 	bhr && echo "🟡 gem" && bhr
 	gemupgsys && gemupg
 	bhr && echo "🟡 rustup" && bhr
