@@ -44,7 +44,7 @@ export KEYTIMEOUT="10"
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
 
 [[ -z "$LANG" ]] && export LANG="en_US.UTF-8"
-# [[ -z "$LANGUAGE" ]] && export LANGUAGE="en_US.UTF-8"
+[[ -z "$LANGUAGE" ]] && export LANGUAGE="en_US.UTF-8"
 [[ -z "$LC_ALL" ]] && export LC_ALL="en_US.UTF-8"
 [[ -z "$TERM" ]] && export TERM="xterm-256color"
 
