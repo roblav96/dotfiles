@@ -146,15 +146,15 @@ alias avr.device-info="curl http://192.168.1.119:8080/goform/Deviceinfo.xml | oq
 
 function upg() {
 	bhr && echo "🟡 brew" && bhr
-	bupd && bupg
+	bupd; bupg
 	bhr && echo "🟡 npm" && bhr
 	npmo -g; npmupgg
 	bhr && echo "🟡 gem" && bhr
-	gemupgsys && gemupg
+	gemupgsys; gemupg
 	bhr && echo "🟡 rustup" && bhr
 	rustup update
 	bhr && echo "🟡 cargo" && bhr
-	cgout && cgupg
+	cgout; cgupg
 }
 
 function tapianalyze() {
