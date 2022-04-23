@@ -393,6 +393,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 
 # alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
 alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
+alias xhh="xh --print=Hh"
 alias xhp="xh --no-verbose --print=b --pretty=none"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"

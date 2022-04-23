@@ -23,7 +23,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	export HOMEBREW_FORCE_BREWED_GIT=1
 fi
 
-alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose --debug | lscolors"
+alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"
 alias benv="brew --env --plain | sortt"
 alias bdoc="brew doctor --verbose"

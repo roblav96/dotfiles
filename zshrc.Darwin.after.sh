@@ -146,7 +146,7 @@ alias avr.device-info="curl http://192.168.1.119:8080/goform/Deviceinfo.xml | oq
 
 function upg() {
 	bhr && echo "🟡 brew" && bhr
-	bupd; bupg
+	bupd; bupg; bclr
 	bhr && echo "🟡 npm" && bhr
 	npmo -g; npmupgg
 	bhr && echo "🟡 gem" && bhr
