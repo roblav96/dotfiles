@@ -151,6 +151,8 @@ function upg() {
 	npmo -g; npmupgg
 	bhr && echo "🟡 gem" && bhr
 	gemupgsys; gemupg
+	bhr && echo "🟡 tldr" && bhr
+	tldr --update
 	bhr && echo "🟡 rustup" && bhr
 	rustup update
 	bhr && echo "🟡 cargo" && bhr
