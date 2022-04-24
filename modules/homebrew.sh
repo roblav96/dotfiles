@@ -26,7 +26,7 @@ fi
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"
 alias benv="brew --env --plain | sortt"
-alias bdoc="brew doctor --verbose"
+alias bdoc="brew doctor"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
@@ -385,6 +385,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		local vnodes=("node" "node@16" "node@14" "node@12" "node@10")
 		local vnode && for vnode in "${vnodes[@]}"; do
 			local node="$(realpath "$(brew --prefix)/opt/$vnode")"
+			[[ ! -d "$node" ]] && continue
 			ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
 			ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
 		done

@@ -330,14 +330,10 @@ zle -N __clear-and-accept-and-hold
 bindkey '^[K' __clear-and-accept-and-hold
 bindkey '^[[K' accept-and-hold
 
-alias we="watchexec --clear --restart --shell=bash"
-# function wec() {
-# 	we --clear -- "'echo -e \"█ \n\" && $*'"
-# } && compdef wxc=command
 alias dr="deno run --unstable --no-check --allow-all"
+alias we="watchexec --clear --restart -n"
 alias dotwatch="watchexec --postpone --clear --restart --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' --shell=bash -- \
 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH'"
-# alias dotwatch="(cd $DOTFILES/deno && watchexec --postpone --clear --restart --exts=ts --shell=bash -- 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_WRITTEN_PATH')"
 
 test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"

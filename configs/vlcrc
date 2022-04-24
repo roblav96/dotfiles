@@ -3498,7 +3498,7 @@ volume-save=0
 #stereo-mode=0
 
 # Audio desynchronization compensation (integer)
-#audio-desync=0
+audio-desync=-200
 
 # Replay gain mode (string)
 #audio-replay-gain-mode=none
@@ -3510,10 +3510,10 @@ volume-save=0
 #audio-replay-gain-default=-7.000000
 
 # Peak protection (boolean)
-#audio-replay-gain-peak-protection=1
+audio-replay-gain-peak-protection=0
 
 # Enable time stretching audio (boolean)
-#audio-time-stretch=1
+audio-time-stretch=0
 
 # Audio output module (string)
 #aout=
