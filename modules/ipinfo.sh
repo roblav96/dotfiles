@@ -40,7 +40,7 @@ function dns() {
 }
 
 unalias getip &>/dev/null
-alias getip="node -p 'Object.values(os.networkInterfaces()).flat().filter(v => v.internal == false && v.family == \"IPv4\" && v.mac != \"00:00:00:00:00:00\" && v.netmask == \"255.255.255.0\")[0].address'"
+alias getip="node -p 'Object.values(os.networkInterfaces()).flat().filter(v => v.internal == false && v.family == 4 && v.mac != \"00:00:00:00:00:00\" && v.netmask == \"255.255.255.0\")[0].address'"
 # alias getrouter="ipconfig getoption en0 router"
 alias getrouter="networksetup -getinfo Wi-Fi | rg --color=never -e 'Router: (.+)' -or '\$1'"
 # alias getrouter="networksetup -getinfo Wi-Fi | awk '/Router: / { print \$2 }'"
