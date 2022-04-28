@@ -24,7 +24,7 @@ alias cglnbin="ln -sf $CARGO_HOME/bin/* /usr/local/bin"
 
 alias cgs='cargo ssearch --recent --limit=$(expr $(tput lines) / 4)'
 function cgi() {
-	PAGER=cat cargo info -a -v "$@" | bat --plain -l yml
+	PAGER=cat cargo info -v "$@" | bat --plain -l yml
 	PAGER=cat cargo info -V "$@" | bat --plain -l erl
 }
 # alias cgi="env PAGER=cat cargo info"
