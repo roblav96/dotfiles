@@ -2026,7 +2026,7 @@ auhal-audio-device=0
 #avi-interleaved=0
 
 # Force index creation (integer)
-avi-index=3
+avi-index=2
 
 [gaussianblur] # Gaussian blur video filter
 
@@ -3549,7 +3549,7 @@ fullscreen=1
 #drop-late-frames=1
 
 # Skip frames (boolean)
-#skip-frames=1
+skip-frames=0
 
 # Quiet synchro (boolean)
 #quiet-synchro=0
