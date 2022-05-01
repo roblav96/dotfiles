@@ -512,7 +512,7 @@ function init.daemonize.log() {
 	daemonize -v -c "$PWD" -e "$HOME/.daemonize/$cmd.log" -o "$HOME/.daemonize/$cmd.log" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
-alias .pueued='killall pueued && sleep 0.1; init.daemonize "trap \"fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
+alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
 
 # bindkey '^[H' man
 # bindkey '^[h' man

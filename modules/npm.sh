@@ -40,14 +40,19 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
+function npmi() {
+	[[ -e package.json ]] && npm install --ignore-scripts
+	fd --min-depth=2 --glob package.json | while read i; do (
+		cd "$(dirname "$i")"
+		bhr && echo "█ $(dirname "$i")"
+		npm install --ignore-scripts
+	); done
+}
+
 function npmin() {
 	local v && for v in "$@"; do
 		npm install "$v" && npm install -D "@types/$v"
 	done
-}
-function npminit() {
-	[[ -e package.json ]] && npm install --ignore-scripts
-	[[ -e src/package.json ]] && (cd src && npm install --ignore-scripts)
 }
 function npmrm() {
 	local v && for v in "$@"; do
