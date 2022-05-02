@@ -3738,7 +3738,7 @@ sub-autodetect-path=
 #run-time=0.000000
 
 # Fast seek (boolean)
-input-fast-seek=1
+input-fast-seek=0
 
 # Playback speed (float)
 #rate=1.000000
