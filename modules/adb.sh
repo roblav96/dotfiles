@@ -112,6 +112,7 @@ rogs="$rogs --message '!^\[\d{3},\d{2},\d{4}\]$'"
 rogs="$rogs --message '!^skip emit ir command, use IR_MODE to send ir command$'"
 rogs="$rogs --message '!^Called isFriday vendor:\d+ product:\d+$'"
 rogs="$rogs --message '!^stop_output_stream: \d+ underruns seen on pcm device hdmi-playback$'"
+rogs="$rogs --message '!^SecureHdcp_GetCurrentLevel: cur: 0x04, max: 0x04$'"
 
 # kodi
 rogs="$rogs --message '!^onPlaybackStateChanged\(\): '"
