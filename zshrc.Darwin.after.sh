@@ -188,8 +188,6 @@ alias o="open ."
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
-[[ -x "$(which -p nq)" ]] && export NQDIR="/usr/local/var/tmp/nq"
-
 function phone-bak() {
 	local i && for i in "data" "DCIM" "Download" "Pictures" "SwiftBackup" "TitaniumBackup"; do
 		adb pull "/sdcard/$i/"
