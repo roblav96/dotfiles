@@ -26,6 +26,7 @@ fi
 if [[ -x "$(which -p nq)" ]]; then
 	export NQDIR="$(brew --prefix)/var/tmp/nq"
 	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
+	compdef nq=command
 fi
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
