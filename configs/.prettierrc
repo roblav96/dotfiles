@@ -7,7 +7,6 @@
 	"printWidth": 100,
 	"proseWrap": "never",
 	"quoteProps": "consistent",
-	"rubySingleQuote": false,
 	"semi": false,
 	"singleQuote": true,
 	"spaceRedirects": false,

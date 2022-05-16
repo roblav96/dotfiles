@@ -305,7 +305,7 @@ function brm() {
 	local v && for v in "$@"; do
 		# [[ "$PLATFORM" == "Linux" ]] && bin-linux "$v"
 		echo && echo "🟡 Uninstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew uninstall --force --verbose "$v" | lscolors
+		HOMEBREW_COLOR=1 brew uninstall --formula --force --verbose "$v" | lscolors
 	done
 } && compdef brm=command
 function bcrm() {

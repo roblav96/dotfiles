@@ -12,9 +12,9 @@ function pkgfind() {
 
 function pc_path() {
 	local prefix="$(brew --prefix)"
-	if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
-		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"
-	fi
+	# if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
+	# 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"
+	# fi
 	if [[ -d "$prefix/opt/openssl@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/openssl@1.1/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@1.1/lib/pkgconfig"
 	fi
