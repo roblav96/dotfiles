@@ -387,7 +387,7 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
-# alias http="echo; $(test -x "$(which -p https)" && echo "https" || echo "http") --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=3"
+alias rsync="rsync --verbose --human-readable --progress --recursive"
 alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
 alias xhh="xh --print=Hh"
 alias xhp="xh --no-verbose --print=b --pretty=none"
@@ -517,8 +517,10 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 # bindkey '^[H' man
 # bindkey '^[h' man
 function mans() {
-	man --apropos "$*" | rg --smart-case --fixed-strings --passthru -e "$*"
-} && compdef mans=man
+	fd $(printf '--search-path %s ' $(man --path | sed 's#:/# /#g')) \
+		--ignore-case --follow --type=file --type=symlink --color=always "$@" \
+		| rg --ignore-case --fixed-strings --passthru "$(echo "${@: -1}" | tr -cd '[a-zA-Z0-9]:._-')"
+} && compdef mans=command
 # alias mansr="man --global-apropos"
 function mansr() {
 	rg --follow --files-with-matches "$@" $(man --path | sed 's#:/# /#g')

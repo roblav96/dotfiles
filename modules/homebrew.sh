@@ -28,6 +28,11 @@ if [[ -x "$(which -p nq)" ]]; then
 	compdef nq=command
 fi
 
+if [[ -x "$(which -p vcpkg)" ]]; then
+	export VCPKG_DISABLE_METRICS=1
+	export VCPKG_ROOT="$(brew --prefix)/share/vcpkg"
+fi
+
 [[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"

@@ -15,8 +15,6 @@ function rcwd() {
 	done
 }
 
-alias rsync="rsync --verbose --human-readable --progress --recursive"
-
 function rcdlna() {
 	local ip="$(getip)"
 	local v && for v in "$@"; do
