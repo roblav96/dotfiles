@@ -518,7 +518,7 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 # bindkey '^[h' man
 function mans() {
 	fd $(printf '--search-path %s ' $(man --path | sed 's#:/# /#g')) \
-		--ignore-case --follow --type=file --type=symlink --color=always "$@" \
+		--ignore-case --follow --type=file --type=symlink "$@" \
 		| rg --ignore-case --fixed-strings --passthru "$(echo "${@: -1}" | tr -cd '[a-zA-Z0-9]:._-')"
 } && compdef mans=command
 # alias mansr="man --global-apropos"
