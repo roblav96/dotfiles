@@ -15,7 +15,7 @@ function rcwd() {
 	done
 }
 
-alias rsy="rsync --verbose --human-readable --info=progress2 --recursive --force"
+alias rsync="rsync --verbose --human-readable --progress --recursive"
 
 function rcdlna() {
 	local ip="$(getip)"
