@@ -517,21 +517,21 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 # bindkey '^[H' man
 # bindkey '^[h' man
 function mans() {
-	man -k "$*" | rg --smart-case --fixed-strings --passthru -e "$*"
+	man --apropos "$*" | rg --smart-case --fixed-strings --passthru -e "$*"
 } && compdef mans=man
-# alias mansr="man -K"
+# alias mansr="man --global-apropos"
 function mansr() {
-	rg -l "$@" $(man --path | sed 's#:/# /#g')
+	rg --follow --files-with-matches "$@" $(man --path | sed 's#:/# /#g')
 } && compdef mansr=env
 function mansrb() {
-	rg -l "$@" $(man --path | sed 's#:/# /#g') | while read i; do
+	rg --follow --files-with-matches "$@" $(man --path | sed 's#:/# /#g') | while read i; do
 		echo "█ $i"
 		man "$i"
 	done
 } && compdef mansrb=env
 alias manfs="man -wa"
 function manfzf() {
-    man -k . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
+    man --apropos . | fzf --prompt='man ' | awk '{print $1}' | xargs -r man
 }
 # function idk() {
 # 	man --apropos $@ | grep "$@|$"
