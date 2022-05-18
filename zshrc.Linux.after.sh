@@ -37,6 +37,24 @@ function upg() {
     npmo -g
 }
 
+function bak() {
+    local outzip=ubuntu.$(dateiso).zip
+    aptls > aptls.log
+    bls > bls.log
+    sudo zip -r $outzip \
+        /etc /usr/local/etc \
+        /var/lib/emby/root/default /var/lib/emby/config \
+        ~/.config ~/.local \
+        ~/.bashrc ~/.profile ~/.zshenv ~/.zshrc \
+        ~/.megarc ~/.megaCmd \
+        ~/.z ~/.zsh_history \
+        aptls.log bls.log \
+        -x '*/.config/emby-server/*'
+    sudo chown ubuntu:ubuntu $outzip
+    rm aptls.log bls.log
+    l $outzip
+}
+
 # if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 # 	alias brew="$HOME/.linuxbrew/bin/brew"
 # 	source "$DOTFILES/modules/homebrew.sh"
