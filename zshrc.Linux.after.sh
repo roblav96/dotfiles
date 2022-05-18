@@ -50,9 +50,10 @@ function ubuntu-bak() {
         ~/.z ~/.zsh_history \
         aptls.log bls.log \
         -x '*/.config/emby-server/*'
+    echo
     sudo chown ubuntu:ubuntu $outzip
     rm aptls.log bls.log
-    bhr
+    echo
     l $outzip
 }
 
