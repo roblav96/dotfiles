@@ -41,7 +41,7 @@ function ubuntu-bak() {
     local outzip=ubuntu.$(dateiso).zip
     aptls > aptls.log
     bls > bls.log
-    sudo zip -r $outzip \
+    sudo zip -e -r $outzip \
         /etc /usr/local/etc \
         /var/lib/emby/root/default /var/lib/emby/config \
         ~/.config ~/.local \
