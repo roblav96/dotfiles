@@ -29,6 +29,8 @@ alias cdd="cd $HOME/downloads"
 function upg() {
     bhr && echo "🟡 brew" && bhr
     bupd; bupg; bclr
+    bhr && echo "🟡 tldr" && bhr
+    tldr --update
     bhr && echo "🟡 cargo" && bhr
     cgout; cgupg
     bhr && echo "🟡 npm" && bhr
