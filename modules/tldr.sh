@@ -21,7 +21,7 @@ if [[ -x "$(which -p tldr)" ]]; then
 		tldr --quiet "$@" || ch "$@"
 	} && compdef tl=command
 	alias tlls="tldr --list | sed 's#, #\n#g'"
-	alias tls="tlls | g"
+	alias tls="tlls | gg"
 fi
 
 function how() {
