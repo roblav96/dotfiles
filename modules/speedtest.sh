@@ -1,7 +1,11 @@
 alias sp="wget --output-document=/dev/null"
-alias cachefly="wget --output-document=/dev/null https://cachefly.cachefly.net/100mb.test"
-alias linode="wget --output-document=/dev/null http://speedtest.newark.linode.com/100MB-newark.bin"
-alias ievbox="wget --output-document=/dev/null https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
+alias cachefly="sp https://cachefly.cachefly.net/100mb.test"
+alias linode="sp http://speedtest.newark.linode.com/100MB-newark.bin"
+alias ievbox="sp https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
+
+alias alldebrid='sp "https://i45hh6.alld.io/speedtest/1073741824?$(date +%s)000"'
+alias premiumize='sp "https://cdn2-ovh-bea1.energycdn.com/100Mio.dat?no-cache=$(date +%s)000"'
+alias real-debrid="sp https://45.download.real-debrid.com/speedtest/testDefault.rar"
 
 alias aria2sp="aria2c -s16 -j16 -x16 -k1M -d /dev -o null --file-allocation=none --allow-overwrite=true"
 alias iperf="iperf3 -c 192.34.85.234 -p 15201 --verbose"
