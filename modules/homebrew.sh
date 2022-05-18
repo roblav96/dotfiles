@@ -13,6 +13,7 @@ export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
@@ -28,6 +29,8 @@ if [[ -x "$(which -p nq)" ]]; then
 	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
 	compdef nq=command
 fi
+
+[[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"

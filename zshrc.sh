@@ -439,8 +439,8 @@ function curlxy() {
 which clxy &>/dev/null || alias clxy="curlxy"
 
 if [[ -x "$(which -p rmate)" ]]; then
-	which st &>/dev/null || alias st="rmate"
-	which subl &>/dev/null || alias subl="rmate"
+	which st &>/dev/null || alias st="rmate -f"
+	which subl &>/dev/null || alias subl="rmate -f"
 fi
 
 alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"

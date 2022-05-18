@@ -26,8 +26,8 @@ fi
 [[ -n "$EDITOR" ]] && alias e="$EDITOR"
 
 if [[ -x "$(which rmate)" ]]; then
-	which st &>/dev/null || alias st="rmate"
-	which subl &>/dev/null || alias subl="rmate"
+	which st &>/dev/null || alias st="rmate -f"
+	which subl &>/dev/null || alias subl="rmate -f"
 fi
 
 # set completion-ignore-case on
