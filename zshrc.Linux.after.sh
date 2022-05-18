@@ -26,6 +26,15 @@ alias .h2o="sudo subl /etc/h2o/h2o.conf"
 alias cdp="cd $HOME/.playground"
 alias cdd="cd $HOME/downloads"
 
+function upg() {
+    bhr && echo "🟡 brew" && bhr
+    bupd; bupg; bclr
+    bhr && echo "🟡 cargo" && bhr
+    cgout; cgupg
+    bhr && echo "🟡 npm" && bhr
+    npmo -g
+}
+
 # if [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
 # 	alias brew="$HOME/.linuxbrew/bin/brew"
 # 	source "$DOTFILES/modules/homebrew.sh"
