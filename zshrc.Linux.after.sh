@@ -37,7 +37,7 @@ function upg() {
     npmo -g
 }
 
-function bak() {
+function ubuntu-bak() {
     local outzip=ubuntu.$(dateiso).zip
     aptls > aptls.log
     bls > bls.log
@@ -52,6 +52,7 @@ function bak() {
         -x '*/.config/emby-server/*'
     sudo chown ubuntu:ubuntu $outzip
     rm aptls.log bls.log
+    bhr
     l $outzip
 }
 
