@@ -51,7 +51,7 @@ function bcout() {
 function bupg() {
 	if [[ $# -eq 0 ]]; then
 		echo && echo "🟡 Upgrading all formulas"
-		HOMEBREW_COLOR=1 brew upgrade --force-bottle --formula | lscolors
+		HOMEBREW_COLOR=1 brew upgrade --formula | lscolors
 	else
 		local v && for v in "$@"; do
 			echo && echo "🟡 Upgrading formula -> '$v'"
@@ -103,45 +103,39 @@ function bs() {
 } && compdef bs=command
 alias bscd='cd "$(brew --prefix)/Homebrew/Library/Taps"'
 
-function blog() {
-	(
-		local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
-		echo && echo "🟡 Formula git log -> '$*'" && echo
-		cd "$dir"
-		git log --invert-grep --grep=' bottle.$' --reverse --date=relative --stat --max-count=5 "$*.rb"
-	)
-} && compdef blog=command
-function bloga() {
-	(
-		local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
-		echo && echo "🟡 Formula git log all -> '$*'" && echo
-		cd "$dir"
-		git log --invert-grep --grep=' bottle.$' --reverse --date=relative --patch-with-stat --max-count=5 "$*.rb"
-	)
-} && compdef bloga=command
-function bclog() {
-	(
-		local dir="$(dirname "$(find "$(brew --prefix)/Homebrew/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
-		echo && echo "🟡 Cask git log -> '$*'" && echo
-		cd "$dir"
-		git log --reverse --date=relative --stat --max-count=5 "$*.rb"
-	)
-} && compdef bclog=command
+function blog() { (
+	local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+	echo && echo "🟡 Formula git log -> '$*'" && echo
+	cd "$dir"
+	git log --invert-grep --grep=' bottle.$' --reverse --date=relative --stat --max-count=5 "$*.rb"
+); } && compdef blog=command
+function bloga() { (
+	local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+	echo && echo "🟡 Formula git log all -> '$*'" && echo
+	cd "$dir"
+	git log --invert-grep --grep=' bottle.$' --reverse --date=relative --patch-with-stat --max-count=5 "$*.rb"
+); } && compdef bloga=command
+function bclog() { (
+	local dir="$(dirname "$(find "$(brew --prefix)/Homebrew/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
+	echo && echo "🟡 Cask git log -> '$*'" && echo
+	cd "$dir"
+	git log --reverse --date=relative --stat --max-count=5 "$*.rb"
+); } && compdef bclog=command
 
 function bin() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula -> '$v'"
-		HOMEBREW_COLOR=1 brew install --force-bottle --formula "$v" | lscolors
+		HOMEBREW_COLOR=1 brew install --formula "$v" | lscolors
 	done
 }
 function binsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
-		if [[ "$(brew info --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
+		if [[ "$(brew info --formula --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
 			brew unlink --verbose "$v"
-			brew install --build-from-source --HEAD --verbose --formula "$v"
+			brew install --formula --build-from-source --HEAD --verbose "$v"
 		else
-			brew install --build-from-source --verbose --formula "$v"
+			brew install --formula --build-from-source --verbose "$v"
 		fi
 
 	done
@@ -156,13 +150,13 @@ function bcin() {
 function brein() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling formula -> '$v'"
-		HOMEBREW_COLOR=1 brew reinstall --force-bottle --formula "$v" | lscolors
+		HOMEBREW_COLOR=1 brew reinstall --formula "$v" | lscolors
 	done
 } && compdef brein=command
 function breinsrc() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling formula from source -> '$v'"
-		brew reinstall --build-from-source --verbose --formula "$v"
+		brew reinstall --formula --build-from-source --verbose "$v"
 	done
 } && compdef breinsrc=command
 function bcrein() {
@@ -175,18 +169,18 @@ function bcrein() {
 function bi() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula -> '$v'"
-		brew desc "$v"
-		brew info "$v"
+		brew desc --formula "$v"
+		brew info --formula "$v"
 		if [[ $? -eq 0 && "$PLATFORM" == "Linux" ]]; then
 			echo && echo "x86_64_linux bottle:"
-			brew info --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
+			brew info --formula --json "$v" | json '.[0].bottle.stable.files.x86_64_linux.url'
 		fi
 	done
 } && compdef bi=command
 function bij() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula json -> '$v'"
-		brew desc "$v" && brew info --json "$v" | json
+		brew desc --formula "$v" && brew info --formula --json "$v" | json
 	done
 } && compdef bij=command
 function bci() {
@@ -267,14 +261,14 @@ function bfs() {
 function bdep() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Dependencies formula -> '$v'"
-		brew deps "$v" -n --tree
+		brew deps --formula "$v" -n --tree
 	done
 } && compdef bdep=command
 
 function bcat() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Cat formula -> '$v'"
-		brew cat "$v" | pbat ruby
+		brew cat --formula "$v" | pbat ruby
 	done
 } && compdef bcat=command
 function bccat() {
@@ -298,13 +292,13 @@ function bcia() {
 function bo() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Opening formula -> '$v'"
-		brew home "$v"
+		brew home --formula "$v"
 	done
 } && compdef bo=command
 function bco() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Opening cask -> '$v'"
-		brew home "$v"
+		brew home --cask "$v"
 	done
 } && compdef bco=command
 

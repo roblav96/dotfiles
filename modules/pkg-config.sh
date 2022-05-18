@@ -1,5 +1,10 @@
 # pkg-config.sh
 
+# if [[ "$PLATFORM" == "Darwin" ]]; then
+# 	[[ -z "$OPENSSL_ROOT_DIR" ]] && export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
+# 	which ruby-build &>/dev/null && export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
+# fi
+
 function pkgprovides() {
 	local v && for v in "$@"; do
 		pkg-config --print-provides --debug "$v" 2>&1 | sed -e '/line>$/d' -e 's/line>//' | t1 | bat --file-name="$v" -l sh
@@ -12,6 +17,7 @@ function pkgfind() {
 
 function pc_path() {
 	local prefix="$(brew --prefix)"
+
 	# if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
 	# 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"
 	# fi
@@ -31,6 +37,7 @@ function pc_path() {
 	if [[ -d "$prefix/opt/util-linux/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/util-linux/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/util-linux/lib/pkgconfig"
 	fi
+
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@1.1/lib/pkgconfig"
 	# # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/openssl@3/lib/pkgconfig"
 	# # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/libressl/lib/pkgconfig"
@@ -42,6 +49,7 @@ function pc_path() {
 	# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/util-linux/lib/pkgconfig"
 	# # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/ossp-uuid/lib/pkgconfig"
 	# rg --no-messages --files-with-matches --hidden --type=ruby keg_only "$prefix/Cellar" | sortt | while read i; do
+
 	rg --no-messages --files-with-matches --type=ruby --fixed-strings 'keg_only ' $prefix/Homebrew/Library/Taps/*/*/Formula | sortt | while read i; do
 		local name="$(basename "$i" ".rb")"
 		# [[ "$name" == "libressl" ]] && continue
@@ -54,12 +62,14 @@ function pc_path() {
 		if [[ -d "$dir/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$dir/lib/pkgconfig"* ]]; then
 			export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$dir/lib/pkgconfig"
 		fi
-		if [[ -d "$dir/lib/cmake" && "$CMAKE_PREFIX_PATH" != *"$dir/lib/cmake"* ]]; then
+		if [[ -d "$dir/lib/cmake" && "$CMAKE_PREFIX_PATH" != *"$dir"* ]]; then
 			export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}$dir"
 		fi
 	done
+
 	# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(pkg-config --variable pc_path pkg-config)"
 	export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:$prefix"
+
 	bhr && echo "🟡 PKG_CONFIG_PATH -> '$PKG_CONFIG_PATH'" && echo && \
 		echo $PKG_CONFIG_PATH | sed 's#:/#\n/#g' | lscolors
 	bhr && echo "🟡 CMAKE_PREFIX_PATH -> '$CMAKE_PREFIX_PATH'" && echo && \
