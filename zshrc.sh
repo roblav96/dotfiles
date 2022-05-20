@@ -504,6 +504,7 @@ function lof() {
 alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=/bin/sh /bin/sh"
 alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
 
+compdef daemonize=command
 function init.daemonize() {
 	daemonize -v -c "$PWD" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash) -l -c "$*"
 } && compdef init.daemonize=command
