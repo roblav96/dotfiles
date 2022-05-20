@@ -12,6 +12,8 @@ export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
+export HOMEBREW_FORCE_BREWED_CURL=1
+export HOMEBREW_FORCE_BREWED_GIT=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -19,8 +21,6 @@ export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	export HOMEBREW_FORCE_BREWED_CURL=1
-	export HOMEBREW_FORCE_BREWED_GIT=1
 	export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
