@@ -8,6 +8,7 @@
 # export HOMEBREW_VERBOSE=1
 
 export HOMEBREW_AUTO_UPDATE_SECS=3600
+export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
@@ -20,6 +21,10 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	export HOMEBREW_FORCE_BREWED_CURL=1
 	export HOMEBREW_FORCE_BREWED_GIT=1
+	export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
+fi
+if [[ "$PLATFORM" == "Linux" ]]; then
+	export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
 fi
 
 if [[ -x "$(which -p nq)" ]]; then

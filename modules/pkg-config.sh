@@ -1,9 +1,9 @@
 # pkg-config.sh
 
-# if [[ "$PLATFORM" == "Darwin" ]]; then
-# 	[[ -z "$OPENSSL_ROOT_DIR" ]] && export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
-# 	which ruby-build &>/dev/null && export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
-# fi
+if [[ "$PLATFORM" == "Darwin" ]]; then
+	[[ -z "$OPENSSL_ROOT_DIR" ]] && export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
+	which ruby-build &>/dev/null && export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
+fi
 
 function pkgprovides() {
 	local v && for v in "$@"; do
@@ -27,8 +27,8 @@ function pc_path() {
 	if [[ -d "$prefix/opt/python@3.9/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/python@3.9/lib/pkgconfig"* ]]; then
 		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/python@3.9/lib/pkgconfig"
 	fi
-	if [[ -d "$prefix/opt/ruby@2.7/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/ruby@2.7/lib/pkgconfig"* ]]; then
-		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/ruby@2.7/lib/pkgconfig"
+	if [[ -d "$prefix/opt/ruby/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/ruby/lib/pkgconfig"* ]]; then
+		export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/ruby/lib/pkgconfig"
 	fi
 	if [[ -d "$prefix/opt/qt@5/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/qt@5/lib/pkgconfig"* ]]; then
 		export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}$prefix/opt/qt@5"
