@@ -30,7 +30,7 @@ function cltv() {
 }
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbll="adb shell ls --color -lAFh"
+alias adbll="adb shell ls --color -lAFhN"
 alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative --size=short -lAF"
 alias adblr="adbl --tree --depth=2"
 alias adblra="adbl --tree"
@@ -125,6 +125,7 @@ rogs="$rogs --message '!^onMediaUpdated: track_changed=false state=false queue=f
 rogs="$rogs --message '!^sendMediaUpdate: metadata=false playStatus=false queue=false$'"
 rogs="$rogs --message '!^sendMediaUpdateNative$'"
 rogs="$rogs --message '! virtual void bluetooth::avrcp::AvrcpService::SendMediaUpdate'"
+rogs="$rogs --message '!^CAndroidKey: key (down|up) '"
 # rogs="$rogs --message '! Resume from position '"
 # rogs="$rogs --message '! cache completely reset for seek to position '"
 
@@ -436,6 +437,7 @@ function adbsettingsinit() {
 	adb shell settings put secure package_verifier_user_consent 0
 }
 
+alias adbkillall="adb shell killall -v gost rclone"
 function adbrclone() {
 	adb shell killall -v rclone
 	local v && for v in "$@"; do

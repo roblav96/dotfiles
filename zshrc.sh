@@ -221,7 +221,7 @@ alias rp="realpath"
 alias killall="killall -v"
 alias k="killall -KILL"
 alias ls="ls --color=auto"
-alias ll="ls -lAFh"
+alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git'"
 alias tree="tree -N -a -I '.git'"
 alias pwda="pwd && pwd -P"
@@ -286,7 +286,7 @@ which np4 &>/dev/null || alias np4='expr $(nproc) / 4'
 which bat &>/dev/null || alias bhr="echo"
 # alias play="mkc $HOME/.playground; l"
 # alias type="type -as"
-# alias ll="ls -lAFhnU"
+# alias ll="ls -lAFhNnU"
 # alias man="man -P more"
 
 [[ "$PLATFORM" == "Linux" ]] && alias tstamp='echo -e "\n\n$(date +%c)\n\n" | sudo tee -a'
