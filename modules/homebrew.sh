@@ -20,12 +20,8 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-if [[ "$PLATFORM" == "Darwin" ]]; then
-	export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
-fi
-if [[ "$PLATFORM" == "Linux" ]]; then
-	export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
-fi
+[[ "$PLATFORM" == "Darwin" ]] && export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
+[[ "$PLATFORM" == "Linux" ]] && export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
 
 if [[ -x "$(which -p nq)" ]]; then
 	export NQDIR="$(brew --prefix)/var/tmp/nq"
