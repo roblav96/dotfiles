@@ -568,7 +568,11 @@ function show() {
 which s &>/dev/null || alias s="show"
 
 function showv() {
-	which -ap "$1" | bat --style=grid -l sh || return 1
+	if ! which -ap "$1" &>/dev/null; then
+		bhr && echo "🔴 not found -> '$1'" && bhr
+		return 1
+	fi
+	which -ap "$1" | bat --style=grid -l sh
 	local vflags=${@:2}
 	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do

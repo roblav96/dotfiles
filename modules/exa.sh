@@ -14,16 +14,12 @@ alias lara="exa $exa_flags $exa_ignore --extended --tree"
 
 alias l="exa $exa_flags $exa_ignore"
 alias lt="exa $exa_flags $exa_ignore --modified --changed --created --accessed"
-alias lb="exa $exa_flags $exa_ignore --sort=size"
-alias lbt='lb --color=always | tail --lines=$(ty)'
-alias lm="exa $exa_flags $exa_ignore --sort=modified --time=modified"
-alias lmt='lm --color=always | tail --lines=$(ty)'
-alias lch="exa $exa_flags $exa_ignore --sort=changed --time=changed"
-alias lcht='lch --color=always | tail --lines=$(ty)'
-alias lac="exa $exa_flags $exa_ignore --sort=accessed --time=accessed"
-alias lact='lac --color=always | tail --lines=$(ty)'
-alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created"
-alias lcrt='lcr --color=always | tail --lines=$(ty)'
+
+alias lb="exa $exa_flags $exa_ignore --sort=size" && alias lbt='lb --color=always | tail --lines=$(ty)'
+alias lm="exa $exa_flags $exa_ignore --sort=modified --time=modified" && alias lmt='lm --color=always | tail --lines=$(ty)'
+alias lch="exa $exa_flags $exa_ignore --sort=changed --time=changed" && alias lcht='lch --color=always | tail --lines=$(ty)'
+alias lac="exa $exa_flags $exa_ignore --sort=accessed --time=accessed" && alias lact='lac --color=always | tail --lines=$(ty)'
+alias lcr="exa $exa_flags $exa_ignore --sort=created --time=created" && alias lcrt='lcr --color=always | tail --lines=$(ty)'
 
 local exa_ignore='--ignore-glob=".git|.DS_Store|node_modules"' # --git-ignore'
 alias lr="exa $exa_flags $exa_ignore --tree --level=2"
@@ -31,5 +27,11 @@ alias lrr="exa $exa_flags $exa_ignore --tree --level=3"
 alias lrrr="exa $exa_flags $exa_ignore --tree --level=4"
 alias lrrrr="exa $exa_flags $exa_ignore --tree --level=5"
 alias lra="exa $exa_flags $exa_ignore --tree"
+
+alias lrab="exa $exa_flags $exa_ignore --tree --sort=size"
+alias lram="exa $exa_flags $exa_ignore --tree --sort=modified --time=modified"
+alias lrach="exa $exa_flags $exa_ignore --tree --sort=changed --time=changed"
+alias lraac="exa $exa_flags $exa_ignore --tree --sort=accessed --time=accessed"
+alias lracr="exa $exa_flags $exa_ignore --tree --sort=created --time=created"
 
 unset exa_flags exa_ignore

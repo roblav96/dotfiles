@@ -89,7 +89,7 @@ function nsc() {
 }
 alias nscls="curl https://api.github.com/repos/NativeScript/nativescript-app-templates/contents/packages | json 'map(.name)'"
 
-# alias nssed="sed -e 's#^JS: ##'$(
+# alias sedt2="sed -e 's#^JS: ##'$(
 # 	local sedexp=""
 # 	for ((i = 16; i > 0; i--)); do
 # 		sedexp+=" -e 's#^"
