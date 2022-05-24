@@ -30,7 +30,7 @@ function cltv() {
 }
 
 alias adbshell="echo; echo 'export PATH=/data/local/tmp/bin:\$PATH'; echo; adb shell"
-alias adbll="adb shell ls --color -lAFhN"
+alias adbll="adb shell ls --color -lAFh"
 alias adbl="adb shell /data/local/tmp/bin/lsd --color=always --icon=never --date=relative --size=short -lAF"
 alias adblr="adbl --tree --depth=2"
 alias adblra="adbl --tree"
@@ -437,7 +437,7 @@ function adbsettingsinit() {
 	adb shell settings put secure package_verifier_user_consent 0
 }
 
-alias adbkillall="adb shell killall -v gost rclone"
+alias adbkillall="adb shell killall -v gost rclone tinyproxy"
 function adbrclone() {
 	adb shell killall -v rclone
 	local v && for v in "$@"; do
@@ -454,6 +454,13 @@ function adbgost() {
 		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
 	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings gost | bl strace
+}
+function adbtinyproxy() {
+	adb shell killall -v tinyproxy
+	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
+		-x /data/local/tmp/bin/tinyproxy -- -c /data/local/tmp/tinyproxy.conf -d
+	sleep 0.1
+	adbps | rg --case-sensitive --fixed-strings tinyproxy | bl strace
 }
 
 function adbsu() {
