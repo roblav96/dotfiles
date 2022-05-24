@@ -8,7 +8,6 @@
 # export HOMEBREW_VERBOSE=1
 
 export HOMEBREW_AUTO_UPDATE_SECS=3600
-export HOMEBREW_BOOTSNAP=1
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
@@ -20,21 +19,8 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-[[ "$PLATFORM" == "Darwin" ]] && export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
-[[ "$PLATFORM" == "Linux" ]] && export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
-
-if [[ -x "$(which -p nq)" ]]; then
-	export NQDIR="$(brew --prefix)/var/tmp/nq"
-	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
-	compdef nq=command
-fi
-
-if [[ -x "$(which -p vcpkg)" ]]; then
-	export VCPKG_DISABLE_METRICS=1
-	export VCPKG_ROOT="$(brew --prefix)/share/vcpkg"
-fi
-
-[[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
+# [[ "$PLATFORM" == "Darwin" ]] && export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
+# [[ "$PLATFORM" == "Linux" ]] && export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"
@@ -410,7 +396,21 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	}
 fi
 
-alias bupg-deno=".deno-upgrade"
+[[ -x "$(which -p deno)" ]] && alias bupg-deno=".deno-upgrade"
+[[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
+
+if [[ -x "$(which -p nq)" ]]; then
+	export NQDIR="$(brew --prefix)/var/tmp/nq"
+	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
+	compdef nq=command
+fi
+
+if [[ -x "$(which -p vcpkg)" ]]; then
+	export VCPKG_DISABLE_METRICS=1
+	export VCPKG_ROOT="$(brew --prefix)/share/vcpkg"
+fi
+
+
 
 # rmdir /usr/local/share/flutter/bin/cache/downloads
 # rmdir /usr/local/share/flutter/.pub-cache/_temp
