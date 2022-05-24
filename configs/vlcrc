@@ -3498,7 +3498,7 @@ volume-save=0
 #stereo-mode=0
 
 # Audio desynchronization compensation (integer)
-audio-desync=-200
+#audio-desync=0
 
 # Replay gain mode (string)
 #audio-replay-gain-mode=none
