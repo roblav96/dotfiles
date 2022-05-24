@@ -19,7 +19,7 @@ alias adbre='adb kill-server && sleep 0.1; adb connect $ANDROID_SERIAL && adb de
 
 # alias clp="curl --proxy $ANDROID_SERIAL:11080"
 function cltv() {
-	local proxy="$ANDROID_SERIAL:11080" && curl --silent "$proxy" 2>/dev/null || proxy="$(getrouter):11080"
+	local proxy="$ANDROID_SERIAL:11080" && curl --silent "$proxy" &>/dev/null || proxy="$(getrouter):11080"
 	if [[ "$1" == "premiumize" ]]; then
 		curl --proxy "$proxy" "https://www.premiumize.me/api/transfer/directdl?customer_id=$PREMIUMIZE_ID&pin=$PREMIUMIZE_PIN&src=magnet:?xt=urn:btih:$2" | jq '.content' | jq "map(select(.link|endswith(\"${3:-mkv}\")))" | jq 'map(.link)[]' --raw-output | sortt --field-separator='/' --key=10
 	elif [[ "$1" == "real-debrid" ]]; then
