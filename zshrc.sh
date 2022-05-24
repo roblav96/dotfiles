@@ -218,7 +218,7 @@ alias unz="unzip"
 alias sanitize="rename --subst-all '#' '_' --subst-all '[' '_' --subst-all ']' '_' --nows --noctrl --nometa --trim"
 alias mc="micro"
 alias rp="realpath"
-alias killall="killall -v"
+alias killall="killall -v" && compdef killall=pkill
 alias k="killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"

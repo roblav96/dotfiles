@@ -150,7 +150,7 @@ function upg() {
 	bhr && echo "🟡 npm" && bhr
 	npmo -g; npmupgg
 	bhr && echo "🟡 gem" && bhr
-	gemupgsys; gemupg
+	gemupgsys; gemupg; gemclr
 	bhr && echo "🟡 tldr" && bhr
 	tldr --update
 	bhr && echo "🟡 rustup" && bhr
