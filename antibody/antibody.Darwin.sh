@@ -15,5 +15,5 @@ ohmyzsh/ohmyzsh path:plugins/adb
 # ohmyzsh/ohmyzsh path:plugins/rake-fast
 # ohmyzsh/ohmyzsh path:plugins/rails
 # ohmyzsh/ohmyzsh path:plugins/ruby
-# ohmyzsh/ohmyzsh path:plugins/ssh-agent
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
 # ohmyzsh/ohmyzsh path:plugins/sublime

@@ -12,9 +12,9 @@
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-# zstyle :omz:plugins:ssh-agent agent-forwarding on
-# zstyle :omz:plugins:ssh-agent identities id_rsa
-# # zstyle :omz:plugins:ssh-agent identities id_rsa tunnel_rsa
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent identities id_rsa
+# zstyle :omz:plugins:ssh-agent lazy yes
 
 # unalias run-help &>/dev/null
 # autoload run-help
