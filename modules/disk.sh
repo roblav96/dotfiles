@@ -1,10 +1,10 @@
 local tk_flags="--exclude=.git"
 local tk_flags_all="--hidden --no-ignore --no-ignore-parent --no-ignore-vcs"
-alias tk="tokei $tk_flags --exclude=node_modules"
-alias tka="tokei $tk_flags $tk_flags_all"
-alias tkf="tokei $tk_flags --exclude=node_modules --files"
-alias tkfa="tokei $tk_flags $tk_flags_all --files"
-alias tkls="tokei --languages"
+alias tk="tokei $tk_flags --exclude=node_modules | bl nix"
+alias tka="tokei $tk_flags $tk_flags_all | bl nix"
+alias tkf="tokei $tk_flags --exclude=node_modules --files | bl nix"
+alias tkfa="tokei $tk_flags $tk_flags_all --files | bl nix"
+alias tkls="tokei --languages | bl nix"
 unset tk_flags tk_flags_all
 
 # [[ -x "$(which -p diskonaut)" ]] && alias diskonaut="diskonaut --apparent-size"
