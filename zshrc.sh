@@ -375,12 +375,13 @@ function aliasf() {
 # fi
 
 alias jj="just"
-alias jjb="just --dump | sed '/^[\s]*# /d' | bl make"
-function jjd() {
-	just --dry-run --no-highlight "$@" 2>&1 | bl sh
-} && compdef jjd=just
-# alias jjd="just --dry-run --no-highlight" # --verbose"
-alias tt="task"
+function jjb() {
+	if [[ $# -eq 0 ]]; then
+		just --dump | sed '/^[\s]*# /d' | bl make
+	else
+		just --dry-run --no-highlight "$@" 2>&1 | bl sh
+	fi
+} && compdef jjb=just
 
 alias gron="gron --monochrome"
 export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
