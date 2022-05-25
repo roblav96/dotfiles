@@ -137,7 +137,7 @@ alias voxel="echo; echo nj3nxCEBUX7BDDei; echo; telnet 192.168.1.1"
 alias voxel-gost=" echo 'start-stop-daemon -S -b -x /root/gost -- -L=:11080'"
 
 alias avr="curl --insecure 'https://192.168.1.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '{MainZone:.Information.Zone.MainZone,HDMISignalInfo:.Information.Video.HDMISignalInfo,HDMIMonitor1:.Information.Video.HDMIMonitor1,Audio:.Information.Audio}' | t2 | by"
-alias avr.device-info="curl http://192.168.1.119:8080/goform/Deviceinfo.xml | oq -i xml -o yaml | pb yaml"
+alias avr.device-info="curl http://192.168.1.119:8080/goform/Deviceinfo.xml | oq -i xml -o yaml | t2 | by"
 # alias denonavr="curl --insecure 'https://192.168.1.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | prettier --parser yaml | bl yml"
 # alias denonavr="curl --insecure 'https://192.168.1.119:10443/ajax/general/get_config?type=12' | oq -i xml -o yaml '.Information' | t2 | bat --style=grid -l yml"
 # alias denon-avr="curl --insecure 'https://192.168.1.119:10443/ajax/general/get_config?type=12' | oq -i xml -o json --sort-keys --tab '.Information'"

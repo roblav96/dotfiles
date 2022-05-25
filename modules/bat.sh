@@ -77,7 +77,7 @@ echo;
 l \"\$(command bat --cache-dir)\"
 "
 
-function batplist() {
+function bpl() {
 	local v && for v in "$@"; do
 		if file "$v" | grep -q -F 'Apple binary'; then
 			plistutil --infile "$v" | prettier --parser xml | bat --file-name="$v" -l xml
@@ -86,16 +86,14 @@ function batplist() {
 		fi
 	done
 }
-alias bpl="batplist"
 
-function dotbat() {
+function dbat() {
 	local file="$DOTFILES/modules/$@.sh"
 	[[ ! -e "$file" ]] && echo "🔴 No such file -> \$DOTFILES/modules/$@.sh" | lscolors && return 1
 	cat "$file" | sed -e '/^[\s]*# /d' -e '/^$/d' | bat --file-name="$@" -l sh
-} && compdef dotbat=command
-alias dbat='dotbat'
+} && compdef dbat=command
 
-function pbat() {
+function pb() {
 	if [[ -e "$1" ]]; then
 		if [[ $# -eq 1 ]]; then
 			prettier "$1" | bl "${1##*.}"
@@ -107,7 +105,6 @@ function pbat() {
 	fi
 	# test $# -eq 1 && prettier --parser $@ | bat -p -l $@ || echo "🔴 prettier parser required"
 }
-alias pb="pbat"
 
 function batlangs() {
 	local langs=($@)
