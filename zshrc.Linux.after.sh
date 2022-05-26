@@ -12,6 +12,12 @@ function binstall() {
     sudo chmod 755 "$target/$base"
 }
 
+function ldd() {
+    local v && for v in "$@"; do
+        ldd "$v" | bl nix
+    done
+}
+
 unalias sc-status &>/dev/null
 alias sc-status="systemctl --full status"
 # unalias sc-list-units &>/dev/null
