@@ -4,11 +4,11 @@ alias dfr="defaults read"
 alias dfrt="defaults read-type"
 alias dfw="defaults write"
 
-alias dfdomains="defaults domains | sed 's/, /\n/g' | sortt"
+alias dfls="defaults domains | sed 's/, /\n/g' | sortt"
 
 function dfi() {
-	defaults read "$*" | bl ini
+	defaults read "$*" | bl perl
 }
 function dfs() {
-	defaults find "$*" | bl ini
+	defaults find "$*" | bl perl
 }
