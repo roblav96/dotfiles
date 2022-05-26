@@ -218,7 +218,7 @@ alias unz="unzip"
 alias sanitize="rename --subst-all '#' '_' --subst-all '[' '_' --subst-all ']' '_' --nows --noctrl --nometa --trim"
 alias mc="micro"
 alias rp="realpath"
-alias killall="killall -v" && compdef killall=pkill
+alias killall="killall -v" && compdef killall=pgrep
 alias k="killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
@@ -500,7 +500,7 @@ function pe() {
 # }
 function lof() {
 	lsof -c "$@" | bl nix
-} && compdef lof=pkill
+} && compdef lof=pgrep
 
 alias esh="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=/bin/sh /bin/sh"
 alias ebash="/usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash)"
