@@ -80,9 +80,9 @@ l \"\$(command bat --cache-dir)\"
 function bpl() {
 	local v && for v in "$@"; do
 		if file "$v" | grep -q -F 'Apple binary'; then
-			plistutil --infile "$v" | prettier --parser xml | bat --file-name="$v" -l xml
+			plistutil --infile "$v" | bat --file-name="$v" -l xml
 		else
-			prettier --parser xml "$v" | bat --file-name="$v" -l xml
+			bat -l xml "$v"
 		fi
 	done
 }
