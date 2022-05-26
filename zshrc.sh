@@ -311,7 +311,7 @@ alias rmtrash="ltrash; echo; read -s -q '?🔴 Empty Trash? ' || return; echo; f
 alias {emp,empty}='echo; fd -uu -d1; echo; read -s -q "?🟠 Move to Trash? " || return; echo; echo; fd -uu -d1 -X mv -v -f -t $(mktemp -d -p "$HOME/.Trash")'
 
 alias src="exec ${SHELL:-$(which -p zsh)}"
-alias zcomp="rm -fv $HOME/.zcomp* && src"
+alias zcomp="rm -fv $HOME/.zcomp* && exit"
 # alias .zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && zcomp"
