@@ -260,13 +260,13 @@ function bdep() {
 function bcat() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Cat formula -> '$v'"
-		brew cat --formula "$v" | t2 | bl ruby
+		brew cat --formula "$v" | bl ruby
 	done
 } && compdef bcat=command
 function bccat() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Cat cask -> '$v'"
-		brew cat --cask "$v" | t2 | bl ruby
+		brew cat --cask "$v" | bl ruby
 	done
 } && compdef bccat=command
 
