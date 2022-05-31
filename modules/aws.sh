@@ -1,2 +1,3 @@
 # alias aws="aws --color=off" # --no-paginate"
-alias aws.config="bat $HOME/.aws/config -lini"
+
+alias .aws_config="subl $HOME/.aws/config"
