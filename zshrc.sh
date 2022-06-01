@@ -48,7 +48,7 @@ export KEYTIMEOUT="10"
 [[ -z "$LC_ALL" ]] && export LC_ALL="en_US.UTF-8"
 [[ -z "$TERM" ]] && export TERM="xterm-256color"
 
-export PAGER=""
+export PAGER="cat"
 # export TERM="xterm-256color"
 # export LANG="en_US.UTF-8"
 # export LANGUAGE="en_US.UTF-8"
