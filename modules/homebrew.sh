@@ -11,7 +11,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=3600
 export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
-export HOMEBREW_FORCE_BREWED_CURL=1
+# export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_FORCE_BREWED_GIT=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
@@ -397,6 +397,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 fi
 
 [[ -x "$(which -p deno)" ]] && alias bupg-deno=".deno-upgrade"
+[[ -x "$(which -p gitlab-ci-local)" ]] && alias gcl="gitlab-ci-local"
 [[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
 
 if [[ -x "$(which -p nq)" ]]; then
