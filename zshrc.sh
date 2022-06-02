@@ -317,9 +317,16 @@ alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh && zcomp"
 alias abupd="antibody update && zcomp"
 function abfixpaste() {
-	local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
-	local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
-	$EDITOR +$line "$file"
+	(
+		local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
+		local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
+		$EDITOR +$line "$file"
+	)
+	(
+		local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/safe-paste/safe-paste.plugin.zsh"
+		local line="$(command grep --fixed-strings --line-number 'Load bracketed-paste-magic' "$file" | head -c2)"
+		$EDITOR +$line "$file"
+	)
 }
 
 function __clear-and-accept-line() { clr && zle .reset-prompt && zle -R && zle accept-line -w }
