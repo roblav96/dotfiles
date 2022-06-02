@@ -527,8 +527,7 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 function mans() {
 	fd $(printf '--search-path %s ' $(man --path | sed 's#:/# /#g')) \
 		--ignore-case --follow --type=file --type=symlink "$@" \
-		| rg --ignore-case --fixed-strings --passthru "$(echo "${@: -1}" | tr -cd '[a-zA-Z0-9]:._-')" \
-		| sortt
+		| rg --ignore-case --fixed-strings --passthru "$(echo "${@: -1}" | tr -cd '[a-zA-Z0-9]:._-')"
 } && compdef mans=command
 function mansb() {
 	mans "$@" | while read i; do
