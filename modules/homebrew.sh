@@ -60,7 +60,7 @@ function bcupg() {
 
 function bls() {
 	echo && echo "🟡 List formulas"
-	brew list --formula --versions
+	brew list --formula --full-name -1
 }
 function blsp() {
 	echo && echo "🟡 Pinned formulas"
@@ -81,7 +81,7 @@ function blscr() {
 alias blscd='cd "$(brew --cellar)"'
 function bcls() {
 	echo && echo "🟡 List casks"
-	brew list --cask --versions
+	brew list --cask --full-name -1
 }
 alias blsa="bls; echo; bcls"
 
