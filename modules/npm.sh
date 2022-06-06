@@ -42,7 +42,7 @@ function snyknpm() {
 
 function npmi() {
 	[[ -e package.json ]] && npm install --ignore-scripts
-	fd --min-depth=2 --glob package.json | while read i; do (
+	fd --exclude=node_modules --min-depth=2 --glob package.json | while read i; do (
 		cd "$(dirname "$i")"
 		bhr && echo "█ $(dirname "$i")"
 		npm install --ignore-scripts
