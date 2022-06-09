@@ -435,7 +435,7 @@ function adbsettingsinit() {
 	adb shell settings put global package_verifier_user_consent '-1'
 }
 
-alias adbkillall="adb shell killall -v gost rclone tinyproxy"
+alias adbkillall="adb shell killall -v rclone tinyproxy"
 function adbrclone() {
 	adb shell killall -v rclone
 	local v && for v in "$@"; do
@@ -445,13 +445,6 @@ function adbrclone() {
 	done
 	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl strace
-}
-function adbgost() {
-	adb shell killall -v gost
-	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
-		-x /data/local/tmp/bin/gost -- -L "http://$ANDROID_SERIAL:11080?dns=1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.1.1.1/dns-query"
-	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings gost | bl strace
 }
 function adbtinyproxy() {
 	adb shell killall -v tinyproxy
