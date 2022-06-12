@@ -4,7 +4,12 @@ alias dfr="defaults read"
 alias dfrt="defaults read-type"
 alias dfw="defaults write"
 
-alias dfls="defaults domains | sed 's/, /\n/g' | sortt"
+function dfls() {
+	echo && echo "🟡 User Domains"
+	defaults domains | sed 's/, /\n/g' | sortt
+	echo && echo "🟡 System Domains"
+	sudo defaults domains | sed 's/, /\n/g' | sortt
+}
 
 function dfi() {
 	defaults read "$*" | bl perl

@@ -6,6 +6,52 @@ function lcdisableds() {
 }
 
 function lcl() {
+	launchctl dumpstate | rg --color=never -e '^(gui/501/.+) = \{' -or '$1' | sortt
+	launchctl dumpstate | rg --color=never -e '^(user/501/.+) = \{' -or '$1' | sortt
+	launchctl dumpstate | rg --color=never -e '^(system/.+) = \{' -or '$1' | sortt
+}
+function lcb() {
+	local v && for v in "$@"; do
+		launchctl print "gui/501/$v" 2>/dev/null | bl java
+		launchctl print "user/501/$v" 2>/dev/null | bl java
+		launchctl print "system/$v" 2>/dev/null | bl java
+	done
+}
+function lcs() {
+	lcl | rg --fixed-strings --ignore-case "$*"
+}
+function lcsb() {
+	lcs "$*" | while read i; do
+		echo && echo "🟡 $i"
+		lcb $(basename $i)
+	done
+}
+
+function lcdl() {
+	launchctl print-disabled gui/501 | rg --color=never -e '"(.+)" => true' -or 'gui/501/$1' | sortt
+	launchctl print-disabled user/501 | rg --color=never -e '"(.+)" => true' -or 'user/501/$1' | sortt
+	launchctl print-disabled system | rg --color=never -e '"(.+)" => true' -or 'system/$1' | sortt
+}
+function lcds() {
+	lcdl | rg --fixed-strings --ignore-case "$*"
+}
+function lcdown() {
+	local v && for v in "$@"; do
+		launchctl print "gui/501/$v" &>/dev/null \
+			&& launchctl bootout "gui/501/$v" && launchctl disable "gui/501/$v" \
+			&& echo "🔴 DISABLED -> 'gui/501/$v'"
+		launchctl print "system/$v" &>/dev/null \
+			&& sudo launchctl bootout "system/$v" && sudo launchctl disable "system/$v" \
+			&& echo "🔴 DISABLED -> 'system/$v'"
+	done
+}
+function lcup() {
+	local v && for v in "$@"; do
+		launchctl enable "gui/501/$v" || sudo launchctl enable "system/$v"
+	done
+}
+
+function lclsps() {
 	echo && echo "🟡 User Agents"
 	launchctl list | sed '/^-/d' | sort --numeric-sort | column -t
 	echo && echo "🟡 System Daemons"
@@ -23,13 +69,6 @@ function lchostinfo() {
 	launchctl hostinfo 2>/dev/null | bat --plain -l ini
 	echo && echo "🟡 System hostinfo"
 	sudo launchctl hostinfo 2>/dev/null | bat --plain -l ini
-}
-
-function lcdomains() {
-	echo && echo "🟡 User Domains"
-	defaults domains | sed 's#, #\n#g' | sortt
-	echo && echo "🟡 System Domains"
-	sudo defaults domains | sed 's#, #\n#g' | sortt
 }
 
 function lcdumpstate() {
@@ -52,7 +91,7 @@ function lcdumpstate() {
 # 	lara "/System/Library/LaunchDaemons"
 # }
 
-function lcs() {
+function lcf() {
 	echo && echo "🟡 [fd] $HOME/Library/LaunchAgents"
 	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "$HOME/Library/LaunchAgents"
 	echo && echo "🟡 [fd] /Library/LaunchAgents"
@@ -64,8 +103,8 @@ function lcs() {
 	echo && echo "🟡 [fd] /System/Library/LaunchDaemons"
 	fd -uu --follow --absolute-path --fixed-strings --ignore-case "$*" "/System/Library/LaunchDaemons"
 }
-function lcsb() {
-	lcs "$*" | while read i; do
+function lcfb() {
+	lcf "$*" | while read i; do
 		[[ -e "$i" ]] && bpl "$i"
 	done
 }
