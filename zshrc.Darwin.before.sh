@@ -18,3 +18,6 @@ zstyle :omz:plugins:ssh-agent identities id_rsa exacare_com_rsa
 
 # unalias run-help &>/dev/null
 # autoload run-help
+
+alias rmxattr="xattr -c -r"
+alias unquarantine="xattr -v -r -d com.apple.quarantine"

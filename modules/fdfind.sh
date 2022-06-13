@@ -46,9 +46,9 @@ alias fr.="fd -uu --base-directory=$HOME \
 --exclude=node_modules \
 --exclude=Projects \
 --exclude=Sandbox \
---type=directory --max-depth=5"
+--fixed-strings --max-depth=5"
 
-local fr="fd -uu --absolute-path --base-directory=/"
+local fr="fd -uu --absolute-path --base-directory=/ --fixed-strings"
 
 fr="$fr \
 --exclude=$HOME/.cocoapods \

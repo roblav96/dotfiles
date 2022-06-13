@@ -8,7 +8,7 @@
 # export HOMEBREW_VERBOSE=1
 
 export HOMEBREW_AUTO_UPDATE_SECS=3600
-export HOMEBREW_CASK_OPTS="--require-sha --no-quarantine"
+export HOMEBREW_CASK_OPTS="--no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
 # export HOMEBREW_FORCE_BREWED_CURL=1
@@ -55,6 +55,7 @@ function bcupg() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Upgrading cask -> '$v'"
 		HOMEBREW_COLOR=1 brew upgrade --cask --no-quarantine "$v" | lscolors
+		bcunquarantine "$v"
 	done
 } && compdef bcupg=command
 
@@ -136,6 +137,16 @@ function bcin() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing cask -> '$v'"
 		HOMEBREW_COLOR=1 brew install --cask --no-quarantine --verbose "$v" | lscolors
+		bcunquarantine "$v"
+	done
+}
+
+function bcunquarantine() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Unquarantine cask -> '$v'"
+		brew info --cask --json=v2 "$v" | jq '.casks[0].artifacts[][]' | jq -r 'select(.|endswith(".app"))' 2>/dev/null  | while read i; do
+			unquarantine "/Applications/$i"
+		done
 	done
 }
 
@@ -155,6 +166,7 @@ function bcrein() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Reinstalling cask -> '$v'"
 		HOMEBREW_COLOR=1 brew reinstall --cask --no-quarantine --verbose "$v" | lscolors
+		bcunquarantine "$v"
 	done
 } && compdef bcrein=command
 
