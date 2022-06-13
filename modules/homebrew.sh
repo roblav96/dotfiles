@@ -145,7 +145,7 @@ function bcunquarantine() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Unquarantine cask -> '$v'"
 		brew info --cask --json=v2 "$v" | jq '.casks[0].artifacts[][]' | jq -r 'select(.|endswith(".app"))' 2>/dev/null  | while read i; do
-			unquarantine "/Applications/$i"
+			[[ -d "/Applications/$i" ]] && unquarantine "/Applications/$i"
 		done
 	done
 }
