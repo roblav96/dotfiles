@@ -40,6 +40,9 @@ function lcdown() {
 		launchctl print "gui/501/$v" &>/dev/null \
 			&& launchctl bootout "gui/501/$v" && launchctl disable "gui/501/$v" \
 			&& echo "🔴 DISABLED -> 'gui/501/$v'"
+		launchctl print "user/501/$v" &>/dev/null \
+			&& launchctl bootout "user/501/$v" && launchctl disable "user/501/$v" \
+			&& echo "🔴 DISABLED -> 'user/501/$v'"
 		launchctl print "system/$v" &>/dev/null \
 			&& sudo launchctl bootout "system/$v" && sudo launchctl disable "system/$v" \
 			&& echo "🔴 DISABLED -> 'system/$v'"
