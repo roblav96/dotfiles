@@ -1,4 +1,4 @@
-alias dfrm="defaults delete"
+alias dfd="defaults delete"
 alias dff="defaults find"
 alias dfr="defaults read"
 alias dfrt="defaults read-type"
@@ -11,7 +11,7 @@ function dfls() {
 	sudo defaults domains | sed 's/, /\n/g' | sortt
 }
 
-function dfi() {
+function dfb() {
 	defaults read "$*" | bl perl
 }
 function dfs() {
