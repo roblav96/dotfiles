@@ -229,8 +229,8 @@ alias pathls="echo \$PATH | sed 's#:/#\n/#g'"
 # alias pathls="echo \$PATH | sed -e 's#:/#\n/#g' -e 's#:~#\n~#g'"
 alias fpathls="echo \$FPATH | sed 's#:/#\n/#g'"
 alias manpathls="man --path | sed 's#:/#\n/#g'"
-alias envls="env | sortt | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
-alias declarels="declare | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
+alias envls="printenv | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
+alias declarels="declare | sortt | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^PATH/d' -e '/^ZLS_COLORS/d'"
 alias wcl="wc -l"
 alias dims='echo $(tput cols) x $(tput lines)'
 alias pos="osascript -e 'tell application \"iTerm\"' -e 'get position of front window' -e 'end tell' | sed 's/, / x /g'"
@@ -338,7 +338,7 @@ bindkey '^[K' __clear-and-accept-and-hold
 bindkey '^[[K' accept-and-hold
 
 alias dr="deno run --unstable --no-check --allow-all"
-alias we="watchexec --clear --restart -n"
+alias we="watchexec --restart -n"
 alias dotwatch="watchexec --postpone --clear --restart --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' --shell=bash -- \
 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH'"
 

@@ -41,7 +41,7 @@ function mvnw() {
 alias apkanalyzer="apkanalyzer --human-readable"
 function apkm() {
 	local v && for v in "$@"; do
-		apkanalyzer apk summary "$v" | bl fstab
+		apki "$v" | head -n4 | tail -n1 | bat --file-name="$v" -l yml
 	done
 }
 function apki() {

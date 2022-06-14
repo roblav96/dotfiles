@@ -528,6 +528,20 @@ function adbup() {
 	# adbk nl.ndat.tvlauncher
 }
 
+function adbkodinerds() {
+	local cpu="${1:-"arm64-v8a"}"
+	xhp --download -f https://repo.kodinerds.net/index.php \
+		"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=all&version=nexus/" \
+		| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
+	apkm *-Nexus.apk && adbin *-Nexus.apk && rd *-Nexus.apk
+}
+function adbvlc() {
+	local cpu="${1:-"arm64"}"
+	wget "https://artifacts.videolan.org/vlc-android/nightly-$cpu/$(curl "https://artifacts.videolan.org/vlc-android/nightly-$cpu/" \
+		| pup 'body > table > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')"
+	apkm VLC-Android-*.apk && adbin VLC-Android-*.apk && rd VLC-Android-*.apk
+}
+
 # function adbjadx() {
 # 	local v && for v in "$@"; do
 # 		local apk="$(adbpmapk "$v")"
