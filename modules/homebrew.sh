@@ -144,8 +144,11 @@ function bcin() {
 function bcunquarantine() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Unquarantine cask -> '$v'"
-		brew info --cask --json=v2 "$v" | jq '.casks[0].artifacts[][]' | jq -r 'select(.|endswith(".app"))' 2>/dev/null  | while read i; do
-			[[ -d "/Applications/$i" ]] && unquarantine "/Applications/$i"
+		brew info --cask --json=v2 "$v" | jq -r '.casks[].artifacts[] | select(type!="string") | flatten | .[] | select(type=="string") | select(endswith(".app"))' | while read i; do
+			if [[ -d "/Applications/$i" ]]; then
+				echo "🟢 Unquarantine cask -> '/Applications/$i'"
+				unquarantine "/Applications/$i"
+			fi
 		done
 	done
 }
