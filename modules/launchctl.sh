@@ -54,7 +54,7 @@ function lcup() {
 	done
 }
 
-function lclsps() {
+function lcps() {
 	echo && echo "🟡 User Agents"
 	launchctl list | sed '/^-/d' | sort --numeric-sort | column -t
 	echo && echo "🟡 System Daemons"

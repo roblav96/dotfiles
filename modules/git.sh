@@ -44,8 +44,8 @@ alias gti="git show --stat"
 alias gtsw='git checkout $(git describe --tags $(git rev-list --tags --max-count=1))'
 
 alias glf="git ls-files | sortt | lscolors"
-alias gi="git check-ignore --verbose **/{.,}* | sortt | lscolors"
-alias gia="git check-ignore --verbose **/{.,}* --non-matching | sortt | lscolors"
+alias gi="fa -X git check-ignore --verbose | sortt | lscolors"
+alias gia="fa -X git check-ignore --verbose --non-matching | sortt | lscolors"
 
 alias gclean='git clean -f -f -d -x'
 alias greset='git reset --hard'
