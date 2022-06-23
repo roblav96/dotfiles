@@ -40,13 +40,10 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
-function npmi() {
-	[[ -e package.json ]] && npm install --ignore-scripts
-	fd --exclude=node_modules --min-depth=2 --glob package.json | while read i; do (
-		cd "$(dirname "$i")"
-		bhr && echo "█ $(dirname "$i")"
-		npm install --ignore-scripts
-	); done
+alias npmi="npm i --ignore-scripts"
+function npmia() {
+	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json
+	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --exec npm i --ignore-scripts '{//}'
 }
 
 function npmin() {
