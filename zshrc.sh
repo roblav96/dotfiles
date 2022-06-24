@@ -60,7 +60,7 @@ export PAGER="cat"
 # export PAGER="less"
 # export MANPAGER="$PAGER"
 # export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | command bat -p -l man --pager \"less $LESS\"'"
-export MANOPT="--encoding=ascii"
+export MANOPT="--encoding=ascii --no-hyphenation --no-justification"
 export MANPAGER="sh -c 'sed s/.\\\\x08//g | bat --color=always --decorations=always --style=grid --language=man'"
 if [[ -x "$(which -p col)" ]]; then
 	export MANPAGER="bash -c 'col -bx | bat --color=always --decorations=always --style=grid --language=man'"
