@@ -46,16 +46,8 @@ function npmia() {
 	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --exec npm i --ignore-scripts '{//}'
 }
 
-function npmin() {
-	local v && for v in "$@"; do
-		npm install "$v" && npm install -D "@types/$v"
-	done
-}
-function npmrm() {
-	local v && for v in "$@"; do
-		npm uninstall "$v" "@types/$v"
-	done
-}
+alias npmin="npm install --prefer-offline"
+alias npmrm="npm uninstall --prefer-offline"
 function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
