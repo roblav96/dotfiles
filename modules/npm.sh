@@ -61,6 +61,15 @@ which rushx &>/dev/null || alias rushx="npx --package=@microsoft/rush rushx"
 which ts-node &>/dev/null || alias ts-node="npx ts-node"
 which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 
+function .tsc() {
+	bhr && echo "🟡 tsc --showConfig" && bhr
+	tsc --noEmit --showConfig | bj
+	bhr && echo "🟡 tsc --listFilesOnly" && bhr
+	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | sortt | lsc
+	bhr && echo "🟡 tsc --diagnostics" && bhr
+	tsc --noEmit --diagnostics | by
+} && compdef .tsc=tsc
+
 which vue &>/dev/null || alias vue="npx --package=@vue/cli-service vue-cli-service"
 alias vueinspect="FORCE_COLOR=0 vue inspect"
 # alias vue-inspect='echo "module.exports = $(FORCE_COLOR=0 npx --quiet vue-cli-service inspect)" | bat -l ts'
