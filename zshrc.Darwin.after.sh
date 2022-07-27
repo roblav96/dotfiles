@@ -33,6 +33,7 @@ alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle
 # alias dstore="find . -type f -name .DS_Store -print -delete"
 alias dstore="fd -uu --type=file --glob '.DS_Store' --exec-batch rm -fv"
 alias kextstat="kextstat -sort"
+alias scp="scp -D /usr/local/opt/openssh/libexec/sftp-server"
 
 alias pkginfo="installer -verbose -pkginfo -pkg"
 alias pkgls="pkgutil --pkgs | sortt"
