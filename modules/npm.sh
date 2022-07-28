@@ -40,13 +40,13 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
-alias npmi="npm install --prefer-offline --ignore-scripts"
+alias npmi="npm install --ignore-scripts"
 function npmia() {
 	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json
-	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --exec npm install --prefer-offline --ignore-scripts '{//}'
+	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --exec npm install --ignore-scripts '{//}'
 }
 
-alias npmin="npm install --prefer-offline"
+alias npmin="npm install"
 alias npmrm="npm uninstall --prefer-offline"
 function npmv() {
 	npm info --json "$@" | jq --tab '.time'
@@ -67,7 +67,7 @@ function .tsc() {
 	bhr && echo "🟡 tsc --showConfig | jq '.files'" && bhr
 	tsc --noEmit --showConfig | j -r '.files[]' | sed 's#^./##' | lsc
 	bhr && echo "🟡 tsc --listFilesOnly" && bhr
-	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | sortt | lsc
+	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | lsc
 	bhr && echo "🟡 tsc --diagnostics" && bhr
 	tsc --noEmit --diagnostics | by
 } && compdef .tsc=tsc
