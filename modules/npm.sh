@@ -7,8 +7,8 @@ alias .node-v8-flags="node --help --v8-options | sed -e 's/^  --/\n  --/' -e 's/
 # alias n="npm"
 alias npx="npx --yes"
 alias rr="npm run-script"
-alias npmls="npm --silent ls --depth=0"
-alias npmlsa="npm --silent ls"
+alias npmls="npm ls"
+alias npmlsa="npm ls --all"
 alias npmo="npm outdated"
 alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm install \$i@latest; done"
 alias npmsa='npm search --searchlimit=$(ty)'
@@ -64,6 +64,8 @@ which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 function .tsc() {
 	bhr && echo "🟡 tsc --showConfig" && bhr
 	tsc --noEmit --showConfig | bj
+	bhr && echo "🟡 tsc --showConfig | jq '.files'" && bhr
+	tsc --noEmit --showConfig | j -r '.files[]' | sed 's#^./##' | lsc
 	bhr && echo "🟡 tsc --listFilesOnly" && bhr
 	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | sortt | lsc
 	bhr && echo "🟡 tsc --diagnostics" && bhr
