@@ -89,6 +89,7 @@ color_x = "BrightBlue"
 numeric_search = "Exact"
 nonnumeric_search = "Partial"
 logic = "And"
+case = "Smart"
 
 [display]
 show_self = false
