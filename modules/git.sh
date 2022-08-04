@@ -1,4 +1,7 @@
 # export GIT_PAGER="$PAGER"
+if [[ ! -e "$(brew --prefix)/bin/git-restore-mtime" && -x "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime" ]]; then
+	ln -sf -t "$(brew --prefix)/bin" "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime"
+fi
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 [[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
 [[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='isgit; git-restore-mtime --force'
