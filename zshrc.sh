@@ -452,7 +452,6 @@ if [[ -x "$(which -p rmate)" ]]; then
 	which subl &>/dev/null || alias subl="rmate -f"
 fi
 
-alias proxychains="proxychains4 -f /usr/local/etc/proxychains.conf"
 alias rdvpn="echo; curl https://real-debrid.com/vpn | prettier --parser html | rg --trim --after-context=15 'VPN Information' | rg --passthru --regexp='(error|success)'"
 
 alias mins='miniserve --verbose --interfaces=127.0.0.1 --port=$(porthash)'

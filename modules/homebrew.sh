@@ -414,6 +414,7 @@ fi
 [[ -x "$(which -p deno)" ]] && alias bupg-deno=".deno-upgrade"
 [[ -x "$(which -p gitlab-ci-local)" ]] && alias gcl="gitlab-ci-local"
 [[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
+[[ -x "$(which -p proxychains4)" ]] && alias proxychains="proxychains4 -f $(brew --prefix)/etc/proxychains.conf"
 
 if [[ -x "$(which -p nq)" ]]; then
 	export NQDIR="$(brew --prefix)/var/tmp/nq"
@@ -425,8 +426,6 @@ if [[ -x "$(which -p vcpkg)" ]]; then
 	export VCPKG_DISABLE_METRICS=1
 	export VCPKG_ROOT="$(brew --prefix)/share/vcpkg"
 fi
-
-
 
 # rmdir /usr/local/share/flutter/bin/cache/downloads
 # rmdir /usr/local/share/flutter/.pub-cache/_temp
