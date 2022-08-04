@@ -29,6 +29,13 @@ function __histsd() {
 	sd --flags cw --string-mode "$1" "$2" "$histfile"
 	exit
 } && compdef __histsd=which && alias histsd=" __histsd"
+function __histsd^() {
+	if [[ $# -ne 2 ]]; then
+		echo "🟠 num args '$#' -ne '2' -> '$*'"
+		return 1
+	fi
+	__histsd ":0;$1" ":0;$2"
+} && compdef __histsd^=which && alias histsd^=" __histsd^"
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias .z=" __histbak; subl --wait --new-window $HOME/.z:999999 && exit"
