@@ -4,7 +4,7 @@ if [[ ! -e "$(brew --prefix)/bin/git-restore-mtime" && -x "$(antibody home)/http
 fi
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 [[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
-[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='isgit; git-restore-mtime --force'
+[[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='isgit; git-restore-mtime --force 2>&1 | bl make'
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
 alias ghb="github"
