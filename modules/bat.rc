@@ -25,8 +25,10 @@
 --map-syntax=.*local*:Bourne\ Again\ Shell\ (bash)
 --map-syntax=.gemrc:YAML
 --map-syntax=.ignore:Git\ Ignore
+--map-syntax=.logrc:Haskell
 --map-syntax=.megarc:INI
 --map-syntax=input.conf:Generic\ Config
+--map-syntax=logrc:Haskell
 --map-syntax=Makefile.inc:Makefile
 --map-syntax=meson.build:Python
 --map-syntax=mpv.conf:Makefile

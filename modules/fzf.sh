@@ -6,4 +6,4 @@ export FZF_DEFAULT_OPTS="--no-height --no-multi --tabstop=4 --prompt='▶ ' --po
 bindkey '^[r' fzf-history-widget
 bindkey '^[t' fzf-file-widget
 
-alias .fzf-fix-cd-widget='sed -i "s#builtin cd -- #cd #" "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"'
+alias .fzf-fix-cd-widget='sed -i "s#builtin cd -- #cd #" "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" && exit'
