@@ -70,7 +70,7 @@ function .tsc() {
 	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | lsc
 	bhr && echo "🟡 tsc --diagnostics" && bhr
 	tsc --noEmit --diagnostics | by
-} && compdef .tsc=tsc
+}
 
 which vue &>/dev/null || alias vue="npx --package=@vue/cli-service vue-cli-service"
 alias vueinspect="FORCE_COLOR=0 vue inspect"
