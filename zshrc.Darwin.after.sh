@@ -72,7 +72,7 @@ alias gpw="echo; pwg | tee /dev/tty | tr -d '\n' | pbcopy"
 # alias gpw="echo; gpg --armor --gen-random 0 12 | tee /dev/tty | tr -d '\n' | pbcopy"
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias .hosts="sudo $EDITOR /etc/hosts"
+alias .hosts="sudo $EDITOR /etc/hosts && echo &&  echo '$(echo $aliases[hostsflush])'"
 alias .paths="sudo $EDITOR /etc/paths"
 alias .profile="sudo $EDITOR /etc/.profile"
 

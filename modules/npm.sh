@@ -52,14 +52,14 @@ function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
 
-which final-pm &>/dev/null || alias final-pm="npx final-pm" # ; alias fpm="final-pm"
-which insect &>/dev/null || alias insect="npx insect"
-which forever &>/dev/null || alias forever="npx forever"
-which pm2 &>/dev/null || alias pm2="npx pm2"
-which rush &>/dev/null || alias rush="npx --package=@microsoft/rush rush"
-which rushx &>/dev/null || alias rushx="npx --package=@microsoft/rush rushx"
-which ts-node &>/dev/null || alias ts-node="npx ts-node"
-which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
+# which final-pm &>/dev/null || alias final-pm="npx final-pm" # ; alias fpm="final-pm"
+# which insect &>/dev/null || alias insect="npx insect"
+# which forever &>/dev/null || alias forever="npx forever"
+# which pm2 &>/dev/null || alias pm2="npx pm2"
+# which rush &>/dev/null || alias rush="npx --package=@microsoft/rush rush"
+# which rushx &>/dev/null || alias rushx="npx --package=@microsoft/rush rushx"
+# which ts-node &>/dev/null || alias ts-node="npx ts-node"
+# which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 
 function .tsc() {
 	bhr && echo "🟡 tsc --showConfig" && bhr
