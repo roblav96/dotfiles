@@ -24,7 +24,7 @@ function fpathfb() {
 
 # function f() { find . -name "*$1*" ${@:2} }
 
-alias fr.="fd -uu --max-depth=5 --base-directory ~ \
+alias fr.="fd -uu --max-depth=5 --search-path ~ \
 --exclude=.cargo \
 --exclude=.cocoapods \
 --exclude=.dartServer \
