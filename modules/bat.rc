@@ -14,6 +14,7 @@
 --map-syntax=*.policy:Java
 --map-syntax=*.prop:INI
 --map-syntax=*.rc:Perl
+--map-syntax=*.sb:Lisp
 --map-syntax=*.scons:Python
 --map-syntax=*.security:Java\ Properties
 --map-syntax=*.sublime-snippet:XML
