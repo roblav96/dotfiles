@@ -194,6 +194,7 @@ alias o="open ."
 # test -x "$(which awless)" && source <(awless completion zsh)
 # test -x "$(which awless)" && source "$DOTFILES/completions/awless.completion.zsh"
 
+alias fastboot="arch -x86_64 fastboot"
 function phone-bak() {
 	local i && for i in "data" "DCIM" "Download" "Pictures" "SwiftBackup" "TitaniumBackup"; do
 		adb pull "/sdcard/$i/"

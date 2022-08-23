@@ -654,7 +654,7 @@ test -x "$(which -p rclone)" && source "$DOTFILES/modules/rclone.sh"
 test -x "$(which -p rustup)" && source "$DOTFILES/modules/rustup.sh"
 test -x "$(which -p tar)" && source "$DOTFILES/modules/tar.sh"
 test -x "$(which -p wget)" && source "$DOTFILES/modules/speedtest.sh"
-test -x "$(which -p youtube-dl)" && source "$DOTFILES/modules/youtube-dl.sh"
+test -x "$(which -p yt-dlp)" && source "$DOTFILES/modules/youtube-dl.sh"
 
 function dotcompinit() {
 	# echo "🟡 dotcompinit"
