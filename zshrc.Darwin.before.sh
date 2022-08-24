@@ -12,12 +12,13 @@
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent identities id_rsa exacare_com_rsa
+# zstyle :omz:plugins:ssh-agent agent-forwarding yes
+# zstyle :omz:plugins:ssh-agent identities id_rsa exacare_com_rsa
 # zstyle :omz:plugins:ssh-agent lazy yes
 
 # unalias run-help &>/dev/null
 # autoload run-help
 
+alias PlistBuddy="/usr/libexec/PlistBuddy"
 alias rmxattr="xattr -c -r"
 alias unquarantine="xattr -v -r -d com.apple.quarantine"

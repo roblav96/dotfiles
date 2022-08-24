@@ -4,7 +4,7 @@
 	required = true
 	smudge = "git-lfs smudge -- %f"
 [user]
-	email = "roblav96@gmail.com"
+	email = roblav96@gmx.com
 	name = "Robert Laverty"
 [advice]
 	detachedHead = false
