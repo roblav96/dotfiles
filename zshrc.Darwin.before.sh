@@ -19,6 +19,7 @@
 # unalias run-help &>/dev/null
 # autoload run-help
 
+alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 alias PlistBuddy="/usr/libexec/PlistBuddy"
 alias rmxattr="xattr -c -r"
 alias unquarantine="xattr -v -r -d com.apple.quarantine"

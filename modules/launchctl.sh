@@ -10,6 +10,9 @@ function lcl() {
 	launchctl dumpstate | rg --color=never -e '^(user/501/.+) = \{' -or '$1' | sortt
 	launchctl dumpstate | rg --color=never -e '^(system/.+) = \{' -or '$1' | sortt
 }
+function lcla() {
+	launchctl dumpstate | rg --color=never -e '^(.+/*/.+) = \{' -or '$1' | sortt
+}
 function lcb() {
 	local v && for v in "$@"; do
 		launchctl print "gui/501/$v" 2>/dev/null | bl java
