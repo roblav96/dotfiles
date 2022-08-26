@@ -526,8 +526,8 @@ alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search
 # bindkey '^[H' man
 # bindkey '^[h' man
 function mans() {
-	fd $(printf '--search-path %s ' $(man --path | sed 's#:/# /#g')) \
-		--ignore-case --follow --type=file --type=symlink "$@" \
+	fd $(printf '--search-path %s ' $(man --path | tr ':/' ' /')) \
+		--ignore-case --follow --type=file --type=symlink --exclude=man3 "$@" \
 		| rg --ignore-case --fixed-strings --passthru "$(echo "${@: -1}" | tr -cd '[a-zA-Z0-9]:._-')"
 } && compdef mans=command
 function mansb() {
@@ -538,10 +538,10 @@ function mansb() {
 } && compdef mansb=command
 # alias mansr="man --global-apropos"
 function mansr() {
-	rg --follow --files-with-matches "$@" $(man --path | sed 's#:/# /#g')
+	rg --follow --files-with-matches --glob='!man3' "$@" $(man --path | tr ':/' ' /')
 } && compdef mansr=env
 function mansrb() {
-	rg --follow --files-with-matches "$@" $(man --path | sed 's#:/# /#g') | while read i; do
+	rg --follow --files-with-matches --glob='!man3' "$@" $(man --path | tr ':/' ' /') | while read i; do
 		echo "█ $i"
 		man "$i"
 	done
