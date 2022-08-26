@@ -61,6 +61,7 @@ function npmv() {
 # which ts-node &>/dev/null || alias ts-node="npx ts-node"
 # which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 
+alias tsc="npx --package=typescript tsc"
 function .tsc() {
 	bhr && echo "🟡 tsc --showConfig" && bhr
 	tsc --noEmit --showConfig | bj
