@@ -4,7 +4,7 @@
 	"editor.codeLens": false,
 	"editor.detectIndentation": true,
 	"editor.dragAndDrop": false,
-	"editor.find.seedSearchStringFromSelection": true,
+	"editor.find.seedSearchStringFromSelection": "selection",
 	"editor.folding": false,
 	"editor.fontFamily": "IBM Plex Mono",
 	"editor.fontSize": 10,
@@ -13,7 +13,6 @@
 	"editor.quickSuggestionsDelay": 10,
 	"editor.renderWhitespace": "selection",
 	"editor.scrollBeyondLastLine": true,
-	"editor.semanticHighlighting.enabled": true,
 	"editor.snippetSuggestions": "top",
 	"editor.suggest.preview": true,
 	"editor.tabCompletion": "off",
@@ -28,8 +27,7 @@
 	"javascript.suggest.autoImports": false,
 	"output.smartScroll.enabled": false,
 	"security.workspace.trust.enabled": false,
-	"telemetry.enableCrashReporter": false,
-	"telemetry.enableTelemetry": false,
+	"telemetry.telemetryLevel": "off",
 	"typescript.suggest.autoImports": false,
 	"typescript.surveys.enabled": false,
 	"update.mode": "none",
@@ -41,5 +39,6 @@
 	"workbench.enableExperiments": false,
 	"workbench.iconTheme": "Monokai Pro Icons",
 	"workbench.settings.enableNaturalLanguageSearch": false,
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"editor.bracketPairColorization.enabled": false
 }
