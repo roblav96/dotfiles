@@ -64,11 +64,12 @@ function lcup() {
 	done
 }
 function lcdel() {
-	sudo /usr/libexec/PlistBuddy -c "Delete $*" /var/db/com.apple.xpc.launchd/disabled.501.plist &>/dev/null \
-		&& echo "🟢 DELETED -> '$*' disabled.501.plist"
-	sudo /usr/libexec/PlistBuddy -c "Delete $*" /var/db/com.apple.xpc.launchd/disabled.plist &>/dev/null \
-		&& echo "🟢 DELETED -> '$*' disabled.plist"
-	return 0
+	local v && for v in "$@"; do
+		sudo /usr/libexec/PlistBuddy -c "Delete $v" /var/db/com.apple.xpc.launchd/disabled.501.plist &>/dev/null \
+			&& echo "🟢 DELETED -> '$v' disabled.501.plist"
+		sudo /usr/libexec/PlistBuddy -c "Delete $v" /var/db/com.apple.xpc.launchd/disabled.plist &>/dev/null \
+			&& echo "🟢 DELETED -> '$v' disabled.plist"
+	done
 }
 
 function lcls() {

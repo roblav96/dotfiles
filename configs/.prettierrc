@@ -22,6 +22,7 @@
 			"files": [
 				"*.hidden-color-scheme",
 				"*.JSON-tmLanguage",
+				"*.last-run",
 				"*.sublime-build",
 				"*.sublime-color-scheme",
 				"*.sublime-commands",
