@@ -191,12 +191,6 @@ alias lsc="lscolors"
 # alias mv="mv -v"
 # alias rm="rm -v"
 
-alias sudo="sudo "
-alias xargs="xargs "
-# alias rargs="rargs "
-# alias just="just "
-# alias pueue="pueue "
-
 alias e="$EDITOR"
 alias ln="ln -v"
 alias mv="mv -v"

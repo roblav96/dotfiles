@@ -32,7 +32,6 @@ function lcsb() {
 
 function lcdl() {
 	launchctl print-disabled gui/501 | rg --color=never -e '"(.+)" => true' -or 'gui/501/$1' | sortt
-	# launchctl print-disabled user/501 | rg --color=never -e '"(.+)" => true' -or 'user/501/$1' | sortt
 	launchctl print-disabled system | rg --color=never -e '"(.+)" => true' -or 'system/$1' | sortt
 }
 function lcds() {

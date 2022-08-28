@@ -419,6 +419,7 @@ fi
 if [[ -x "$(which -p nq)" ]]; then
 	export NQDIR="$(brew --prefix)/var/tmp/nq"
 	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
+	alias nq="nq -c"
 	compdef nq=command
 fi
 

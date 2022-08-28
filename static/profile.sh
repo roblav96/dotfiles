@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+alias sudo="sudo "
+alias xargs="xargs "
+
 # if [[ -n "$BASH_VERSION" ]]; then
 # 	if [[ -e "$HOME/.bashrc" ]]; then
 # 		source "$HOME/.bashrc"
@@ -48,8 +51,6 @@ alias g="grep --fixed-strings"
 
 # unalias l
 # unalias ll
-alias sudo="sudo "
-alias xargs="xargs "
 alias -- -='cd "$OLDPWD"'
 alias ..="cd .."
 alias ...="cd ../.."
