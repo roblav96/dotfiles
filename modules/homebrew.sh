@@ -34,7 +34,10 @@ function bupd() {
 function bout() {
 	echo && echo "🟡 Outdated formulas"
 	brew outdated --formula
-	[[ "$PLATFORM" != "Linux" ]] && bcout
+	if [[ "$PLATFORM" != "Linux" ]]; then
+		echo && echo "🟡 Outdated casks"
+		brew outdated --cask
+	fi
 }
 function bcout() {
 	echo && echo "🟡 Outdated casks"

@@ -21,7 +21,10 @@ function lcb() {
 	done
 }
 function lcs() {
+	echo && echo "🟢 ENABLED"
 	lcl | rg --fixed-strings --ignore-case "$*"
+	echo && echo "🔴 DISABLED"
+	lcdl | rg --fixed-strings --ignore-case "$*"
 }
 function lcsb() {
 	lcs "$*" | while read i; do
@@ -55,13 +58,17 @@ function lcup() {
 		launchctl print-disabled gui/501 | rg -q $v && launchctl enable "gui/501/$v" \
 			&& sudo /usr/libexec/PlistBuddy -c "Delete $v" /var/db/com.apple.xpc.launchd/disabled.501.plist &>/dev/null \
 			&& echo "🟢 ENABLED -> 'gui/501/$v'"
-		# launchctl print-disabled user/501 | rg -q $v && launchctl enable "user/501/$v" \
-		# 	&& sudo /usr/libexec/PlistBuddy -c "Delete $v" /var/db/com.apple.xpc.launchd/disabled.501.plist &>/dev/null \
-		# 	&& echo "🟢 ENABLED -> 'user/501/$v'"
 		launchctl print-disabled system | rg -q $v && sudo launchctl enable "system/$v" \
 			&& sudo /usr/libexec/PlistBuddy -c "Delete $v" /var/db/com.apple.xpc.launchd/disabled.plist &>/dev/null \
 			&& echo "🟢 ENABLED -> 'system/$v'"
 	done
+}
+function lcdel() {
+	sudo /usr/libexec/PlistBuddy -c "Delete $*" /var/db/com.apple.xpc.launchd/disabled.501.plist &>/dev/null \
+		&& echo "🟢 DELETED -> '$*' disabled.501.plist"
+	sudo /usr/libexec/PlistBuddy -c "Delete $*" /var/db/com.apple.xpc.launchd/disabled.plist &>/dev/null \
+		&& echo "🟢 DELETED -> '$*' disabled.plist"
+	return 0
 }
 
 function lcls() {
