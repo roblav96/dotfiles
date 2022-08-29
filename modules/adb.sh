@@ -528,6 +528,15 @@ function adbup() {
 	# adbk nl.ndat.tvlauncher
 }
 
+function adbsmarttv() {
+	curl https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_beta.json 2>/dev/null | head -n$(ty) | bl json
+	wget https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk
+	apkm smarttube_stable.apk
+	adbin smarttube_stable.apk
+	rd smarttube_stable.apk
+	sleep 3
+	adbk com.teamsmart.videomanager.tv
+}
 function adbkodinerds() {
 	local cpu="${1:-"arm64-v8a"}"
 	xhp --download -f https://repo.kodinerds.net/index.php \

@@ -391,7 +391,7 @@ export JQ_COLORS="0;31:0;36:0;36:0;35:0;32:2;37:2;37"
 alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
-alias rsync="rsync --verbose --human-readable --progress --recursive"
+alias rsync="rsync --verbose --human-readable --progress --recursive --archive --compress"
 alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
 alias xhh="xh --print=Hh"
 alias xhp="xh --no-verbose --print=b --pretty=none"
