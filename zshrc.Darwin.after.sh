@@ -99,32 +99,34 @@ alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
+alias wg-down="wg-quick down ivpn.ny || true; echo; sudo wg"
+alias wg-up="wg-down; echo; wg-quick up ivpn.ny; echo; sudo wg"
 # alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfs"
-function wg-up() {
-	# [[ -z "$1" ]] && echo "🔴 WireGuard interface -> 'com.wireguard.$1.plist'" && return 1
-	if [[ ! -e "/Library/LaunchDaemons/com.wireguard.$1.plist" ]]; then
-		echo "🔴 '/Library/LaunchDaemons/com.wireguard.$1.plist' -> Not Found"
-		return 1
-	fi
-	wg-down
-	sudo launchctl load -w "/Library/LaunchDaemons/com.wireguard.$1.plist"
-	sleep 1 && echo
-	sudo wg && echo
-	pfs
-}
+# function wg-up() {
+# 	# [[ -z "$1" ]] && echo "🔴 WireGuard interface -> 'com.wireguard.$1.plist'" && return 1
+# 	if [[ ! -e "/Library/LaunchDaemons/com.wireguard.$1.plist" ]]; then
+# 		echo "🔴 '/Library/LaunchDaemons/com.wireguard.$1.plist' -> Not Found"
+# 		return 1
+# 	fi
+# 	wg-down
+# 	sudo launchctl load -w "/Library/LaunchDaemons/com.wireguard.$1.plist"
+# 	sleep 1 && echo
+# 	sudo wg && echo
+# 	pfs
+# }
 # alias wg-down="sudo launchctl unload -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfd"
-function wg-down() {
-	find /Library/LaunchDaemons -type f -name 'com.wireguard.*.plist' | while read i; do (
-		# echo && echo "▶ $i" &&
-		sudo launchctl unload -w "$i" 2> /dev/null
-	); done
-	echo && sleep 1
-	sudo wg
-	pfd
-	# local i && for i in /Library/LaunchDaemons/com.wireguard.*.plist; do (
-	# 	echo && echo "▶ $i" && sudo launchctl unload -w "$i"
-	# ); done
-}
+# function wg-down() {
+# 	find /Library/LaunchDaemons -type f -name 'com.wireguard.*.plist' | while read i; do (
+# 		# echo && echo "▶ $i" &&
+# 		sudo launchctl unload -w "$i" 2> /dev/null
+# 	); done
+# 	echo && sleep 1
+# 	sudo wg
+# 	pfd
+# 	# local i && for i in /Library/LaunchDaemons/com.wireguard.*.plist; do (
+# 	# 	echo && echo "▶ $i" && sudo launchctl unload -w "$i"
+# 	# ); done
+# }
 
 alias gmls="genyshell -c 'devices list'; echo; VBoxManage list vms"
 alias gmup="open -a player --args --vm-name"
