@@ -42,8 +42,12 @@ function snyknpm() {
 
 # alias npmi="npm install --prefer-offline --ignore-scripts"
 function npmi() {
-	fd --exclude=node_modules --max-depth=2 --glob package.json \
-		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
+	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
+		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
+			--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
+	else
+		npm install --prefer-offline --ignore-scripts
+	fi
 }
 function npmia() {
 	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json
