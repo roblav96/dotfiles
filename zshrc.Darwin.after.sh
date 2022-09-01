@@ -99,8 +99,8 @@ alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
-alias wg-down="wg-quick down ivpn.ny || true; echo; sudo wg"
-alias wg-up="wg-down; echo; wg-quick up ivpn.ny; echo; sudo wg"
+alias wgdown="wg-quick down ivpn.ny || true; echo; sudo wg"
+alias wgup="wg-down; echo; wg-quick up ivpn.ny; echo; sudo wg"
 # alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfs"
 # function wg-up() {
 # 	# [[ -z "$1" ]] && echo "🔴 WireGuard interface -> 'com.wireguard.$1.plist'" && return 1
@@ -181,9 +181,8 @@ function wifi() {
 
 alias mdisplay="m display status | bl yml"
 
-alias cdp="cd $HOME/.playground"
-alias cdd="cd $HOME/Downloads"
-alias lmd="lm --color=always $HOME/Downloads | tail --lines=\$(ty)"
+alias cdd="cd ~/Downloads"
+alias lmd="lm --color=always ~/Downloads | tail --lines=\$(ty)"
 
 alias o="open ."
 # function o() {

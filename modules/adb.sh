@@ -53,6 +53,7 @@ function adbbinstall() {
 # alias rogcat="rogcat \$([[ \$(tput cols) -lt 125 ]] && echo --hide-timestamp) --buffer all \
 alias rogcat="rogcat --hide-timestamp --buffer all \
 \
+--tag '!^adbd$' \
 --tag '!^JsonPathTypeAdapter$' \
 --tag '!^netstats_mobile_sample$' \
 --tag '!^netstats_wifi_sample$' \
@@ -64,17 +65,15 @@ alias rogcat="rogcat --hide-timestamp --buffer all \
 --message '!^NvRmStreamFree: WARN: pStream is NULL$' \
 --message '!^tsec_version: 1$' \
 \
---message '! /dev/usb-ffs/adb/' \
---message '! UsbFfs$' \
---message '!^timed out while waiting for FUNCTIONFS_BIND, trying again$' \
---message '!^UsbFfs' \
-\
+--message '!^Failed to find provider info for com.google.android.gsf.gservices$' \
 --message '!^handleComboKeys isOnHomeScreen: false$' \
 --message '!^handleComboKeys key(C|c)ode: \d' \
+--message '!^KeyEvent \{ action=' \
 --message '!^isOnHomeScreen mLastTopComponent: null, componentName: ComponentInfo' \
 --message '!^oneway function results will be dropped but finished with status OK and parcel size \d+$' \
 --message '!^Access denied finding property \"ro.vendor.sys.(NV|nv)' \
 --message '!^Access denied finding property \"RB.tag\"$' \
+--message '!^(Enable|Disable) screensaver$' \
 \
 --message '!^Input event injection from pid \d+ uid \d+$' \
 --message '!^(Starting|Stopping) auto hide ui timer...$' \

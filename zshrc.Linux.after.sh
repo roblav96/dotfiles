@@ -29,8 +29,7 @@ alias nftls="sudo nft --handle list ruleset | bat --file-name='nft list ruleset'
 alias sshdtest="sudo sshd -T -f /etc/ssh/sshd_config | sortt"
 alias .h2o="sudo subl /etc/h2o/h2o.conf"
 
-alias cdp="cd $HOME/.playground"
-alias cdd="cd $HOME/downloads"
+alias cdd="cd ~/downloads"
 
 function upg() {
     bhr && echo "🟡 brew" && bhr

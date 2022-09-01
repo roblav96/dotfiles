@@ -56,7 +56,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias cdp="cd ~"
+alias cdp="cd ~/.playground"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 if [[ -x "$(which lsd)" ]]; then

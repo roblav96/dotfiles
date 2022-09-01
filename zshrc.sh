@@ -241,7 +241,7 @@ alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt="LC_ALL='C' sort -bfi"
-alias prettier="prettier --no-color --no-editorconfig --config $HOME/.prettierrc --config-precedence cli-override --ignore-unknown"
+alias prettier="prettier --no-editorconfig --config ~/.prettierrc --config-precedence cli-override --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
@@ -344,6 +344,9 @@ test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
 test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
+
+alias cdp="cd ~/.playground"
+alias bak='[[ -d ~/.playground/"$(basename "$PWD")" ]] && rd ~/.playground/"$(basename "$PWD")"; mkdir ~/.playground/"$(basename "$PWD")" && f -d1 -X cp -r -t ~/.playground/"$(basename "$PWD")"'
 
 alias cmdls="printf '%s\n' \$commands | sortt --unique"
 function cmdf() {
