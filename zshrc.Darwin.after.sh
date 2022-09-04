@@ -33,7 +33,9 @@ alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle
 # alias dstore="find . -type f -name .DS_Store -print -delete"
 alias dstore="fd -uu --type=file --glob '.DS_Store' --exec-batch rm -fv"
 alias kextstat="kextstat -sort"
-# alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server"
+if [[ -x "$(brew --prefix)/bin/scp" ]]; then
+	alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server"
+fi
 
 alias pkginfo="installer -verbose -pkginfo -pkg"
 alias pkgls="pkgutil --pkgs | sortt"
@@ -100,7 +102,7 @@ alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
 alias wgdown="wg-quick down ivpn.ny || true; echo; sudo wg"
-alias wgup="wg-down; echo; wg-quick up ivpn.ny; echo; sudo wg"
+alias wgup="wgdown; echo; wg-quick up ivpn.ny; echo; sudo wg"
 # alias wg-up="sudo launchctl load -w /Library/LaunchDaemons/com.wireguard.ivpn-ny.plist; sleep 1; echo; sudo wg; echo; pfs"
 # function wg-up() {
 # 	# [[ -z "$1" ]] && echo "🔴 WireGuard interface -> 'com.wireguard.$1.plist'" && return 1

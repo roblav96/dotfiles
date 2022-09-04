@@ -40,5 +40,7 @@
 	"workbench.iconTheme": "Monokai Pro Icons",
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
-	"editor.bracketPairColorization.enabled": false
+	"editor.bracketPairColorization.enabled": false,
+	"editor.smoothScrolling": true,
+	"workbench.list.smoothScrolling": true
 }
