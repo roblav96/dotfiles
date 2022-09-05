@@ -42,5 +42,7 @@
 	"workbench.startupEditor": "none",
 	"editor.bracketPairColorization.enabled": false,
 	"editor.smoothScrolling": true,
-	"workbench.list.smoothScrolling": true
+	"workbench.list.smoothScrolling": true,
+	"terminal.integrated.smoothScrolling": true,
+	"search.quickOpen.includeHistory": false
 }
