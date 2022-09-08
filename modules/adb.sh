@@ -75,6 +75,11 @@ alias rogcat="rogcat --hide-timestamp --buffer all \
 --message '!^Access denied finding property \"RB.tag\"$' \
 --message '!^(Enable|Disable) screensaver$' \
 \
+--message '!^wait for fence \d+$' \
+--message '!^mali_gralloc_select_format: req_format=0x00000001, usage=0x10200, req_base_format=0x1, alloc_format=0x1, internal_format=0x1$' \
+--message '!^\[ANWBuffer\] corlor_format=0x1$' \
+--message '!^Set VENCOMX_CTRL_PIX_FMT ePixFmt 0$' \
+\
 --message '!^Input event injection from pid \d+ uid \d+$' \
 --message '!^(Starting|Stopping) auto hide ui timer...$' \
 --message '!^loading \[eventTime=\d'"
@@ -440,7 +445,7 @@ function adbrclone() {
 	local v && for v in "$@"; do
 		adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 			-x /data/local/tmp/bin/rclone -- --config /data/local/tmp/rclone.conf \
-			serve dlna "$v:" --name "$v" --addr "$ANDROID_SERIAL:$(porthash "$v")" --read-only --no-modtime
+			serve dlna "$v:" --name "$v" --addr "$ANDROID_SERIAL:$(porthash "$v")" --read-only
 	done
 	sleep 0.1
 	adbps | rg --case-sensitive --fixed-strings rclone | bl strace

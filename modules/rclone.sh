@@ -11,13 +11,13 @@ function rcwd() {
 		elif [[ ! "$remote" =~ ":" ]]; then
 			remote="$remote:"
 		fi
-		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only --no-modtime
+		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only
 	done
 }
 
 function rcdlna() {
 	local ip="$(getip)"
 	local v && for v in "$@"; do
-		echo rclone serve dlna "$v:" --name "$v" --addr "$ip:$(porthash "$v")" --read-only --no-modtime
+		echo rclone serve dlna "$v:" --name "$v" --addr "$ip:$(porthash "$v")" --read-only
 	done
 }
