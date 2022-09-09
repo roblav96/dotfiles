@@ -1,6 +1,6 @@
-alias ffmpeg="ffmpeg -hide_banner" # -loglevel fatal"
-alias ffplay="ffplay -hide_banner" # -loglevel fatal"
-alias ffprobe="ffprobe -hide_banner" # -loglevel fatal"
+alias ffmpeg="ffmpeg -hide_banner"
+alias ffplay="ffplay -hide_banner"
+alias ffprobe="ffprobe -hide_banner"
 
 function ffp() {
 	ffprobe -pretty "$@" 2>&1 | bl yml
@@ -29,5 +29,7 @@ function mi() {
 }
 
 function fmp3() {
-	ffmpeg -i "$*" -vn -b:a 320k "$*.mp3"
+	local v && for v in "$@"; do
+		ffmpeg -i "$v" -vn -b:a 320k "$v.mp3"
+	done
 }
