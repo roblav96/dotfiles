@@ -44,5 +44,5 @@
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
 	"terminal.integrated.smoothScrolling": true,
-	"search.quickOpen.includeHistory": false
+	"search.quickOpen.includeHistory": false,
 }

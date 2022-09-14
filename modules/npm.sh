@@ -40,18 +40,19 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
-# alias npmi="npm install --prefer-offline --ignore-scripts"
-function npmi() {
-	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
-		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
-			--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
-	else
-		npm install --prefer-offline --ignore-scripts
-	fi
-}
+alias npmi="npm install --prefer-offline --ignore-scripts"
+# function npmi() {
+# 	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
+# 		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
+# 			--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
+# 	else
+# 		npm install --prefer-offline --ignore-scripts
+# 	fi
+# }
 function npmia() {
-	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json
-	fd --exclude=.git --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --exec npm install --prefer-offline --ignore-scripts '{//}'
+	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json
+	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json \
+		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
 }
 
 alias npmin="npm install --prefer-offline"
