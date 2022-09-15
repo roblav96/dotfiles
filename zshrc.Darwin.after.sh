@@ -37,7 +37,8 @@ if [[ -x "$(brew --prefix)/bin/scp" ]]; then
 	alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server"
 fi
 
-alias pkginfo="installer -verbose -pkginfo -pkg"
+alias installer="installer -verbose"
+alias pkginfo="installer -pkginfo -pkg"
 alias pkgls="pkgutil --pkgs | sortt"
 function pkgi() {
 	local v && for v in "$@"; do
@@ -285,7 +286,7 @@ alias vscdp="cd '$HOME/.vscode-oss/extensions'"
 alias vscdu="cd '$VSCODE_DATA/User'"
 
 unalias dotsrc &> /dev/null
-alias dotst="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
+alias dot="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"

@@ -93,7 +93,7 @@ alias blsa="bls; echo; bcls"
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Searching descriptions -> '$v'"
-		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --fixed-strings --passthru "$v"
+		HOMEBREW_COLOR=1 brew search --eval-all --desc "$v" 2>&1 | rg --fixed-strings --passthru "$v"
 		echo && echo "🟡 Searching names -> '$v'"
 		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru "$v"
 	done
@@ -180,7 +180,7 @@ function bcrein() {
 function bi() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula -> '$v'"
-		brew desc --formula "$v"
+		brew desc --eval-all --formula "$v"
 		brew info --formula "$v"
 		if [[ $? -eq 0 && "$PLATFORM" == "Linux" ]]; then
 			echo && echo "x86_64_linux bottle:"
@@ -191,7 +191,7 @@ function bi() {
 function bij() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula json -> '$v'"
-		brew desc --formula "$v" && brew info --formula --json "$v" | json
+		brew desc --eval-all --formula "$v" && brew info --json --formula "$v" | json
 	done
 } && compdef bij=command
 function bci() {
@@ -272,7 +272,7 @@ function bfs() {
 function bdep() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Dependencies formula -> '$v'"
-		brew deps --formula "$v" -n --tree
+		brew deps --topological --tree --formula "$v"
 	done
 } && compdef bdep=command
 
