@@ -63,7 +63,10 @@ export PAGER="cat"
 export MANOPT="--encoding=ascii --no-hyphenation --no-justification"
 export MANPAGER="sh -c 'sed s/.\\\\x08//g | bat --color=always --decorations=always --style=grid --language=man'"
 if [[ -x "$(which -p col)" ]]; then
-	export MANPAGER="bash -c 'col -bx | bat --color=always --decorations=always --style=grid --language=man'"
+	export MANPAGER="sh -c 'col -bx | bat --color=always --decorations=always --style=grid --language=man'"
+	if [[ -x "$(which -p ansifilter)" ]]; then
+		export MANPAGER="sh -c 'ansifilter | col -bx | bat --color=always --decorations=always --style=grid --language=man'"
+	fi
 fi
 if [[ -x "$(which -p groff)" ]]; then
 	export MANROFFOPT="-c"

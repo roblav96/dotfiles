@@ -93,9 +93,9 @@ alias blsa="bls; echo; bcls"
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Searching descriptions -> '$v'"
-		HOMEBREW_COLOR=1 brew search --eval-all --desc "$v" 2>&1 | rg --fixed-strings --passthru "$v"
+		HOMEBREW_COLOR=1 brew search --eval-all --desc "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
 		echo && echo "🟡 Searching names -> '$v'"
-		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --passthru "$v"
+		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
 	done
 } && compdef bs=command
 alias bscd='cd "$(brew --prefix)/Library/Taps"'
