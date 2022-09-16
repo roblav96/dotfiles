@@ -48,14 +48,13 @@ function pkgi() {
 	done
 }
 
-alias duti-cache="(/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump | grep uti: | awk '{ print \$2 }' | sortt --unique) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
-alias duti-ls="cat $HOME/.cache/lsregister.duti.dump"
-function duti-sublime() {
-	git clone "https://github.com/sublimehq/Packages.git"
-	cd "Packages"
-	rm "AppleScript/AppleScript.sublime-syntax" "C++/C++.sublime-settings" "R/R Console.sublime-syntax"
+alias .duti-cache="(lsregister -dump | rg --color=never -e '^uti:\s+(\S+)' -or '\$1' | sortt --unique) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
+alias .duti-ls="cat $HOME/.cache/lsregister.duti.dump"
+function .duti-sublime() {
+	gc 'https://github.com/sublimehq/Packages'
+	rm 'AppleScript/AppleScript.sublime-syntax' 'C++/C++.sublime-settings' 'R/R Console.sublime-syntax'
 	local bundle_id="$(osascript -e 'id of app "Sublime Text"')"
-	rg --files-with-matches "file_extensions" | while read i; do
+	rg --files-with-matches 'file_extensions' | while read i; do
 		echo && echo "🔴 $i 🔴"
 		cat "$i" | oq -i yaml -r '.file_extensions[]' | while read ii; do
 			echo && echo "🟡 $ii"
