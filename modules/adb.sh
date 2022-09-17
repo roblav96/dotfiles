@@ -190,8 +190,14 @@ function adbt() {
 alias adbo="adb shell am start -a android.intent.action.VIEW -d"
 alias adba="adb shell am start -a android.intent.action.VIEW -t 'audio/*' -d"
 alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
-alias adbps="adb shell ps -A -w -f --sort=STIME | sed '/ \[.*\]$/d'"
-alias adbp='adbps | rg -v " \d $(adb shell uptime -s | cut -c 12-15)" | sed -e "/ ps -/d" | bl strace'
+alias adbps="adb shell ps -A -w -f --sort=STIME | sed -e '/ ps -A -w -f /d' -e '/ \[.*\]$/d'"
+function adbp() {
+	if [[ $# -eq 0 ]]; then
+		adbps | rg --invert-match " \d $(adb shell uptime -s | cut -c 12-15)" | bl config
+	else
+		adbps | rg --fixed-strings --smart-case "$*" | bl config
+	fi
+}
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
 alias adbconfig="adb shell am get-config --device | sortt | bl yml"
 alias adbprops="adb shell getprop | bl yml"
@@ -203,8 +209,8 @@ function adbb() {
 }
 
 function __adbpid() {
-	adbps | rg --case-sensitive --fixed-strings "$*" | bl strace
-	adbtop | rg --case-sensitive --fixed-strings "$*" | bl strace
+	adbps | rg --case-sensitive --fixed-strings "$*" | bl config
+	adbtop | rg --case-sensitive --fixed-strings "$*" | bl config
 	# adb shell cat "/proc/$*/status" | bl yml
 } && alias adbpid=" __adbpid"
 
@@ -214,7 +220,6 @@ alias adbscreenshot='adb exec-out screencap -p > "screenshot.$(date --iso-8601).
 
 # alias rogcat="rogcat"
 alias pidcat="pidcat --tag-width 32 --always-display-tags --all"
-# alias adb-pm-bak="adb shell pm list packages -s > pm-list-system.log; adb shell pm list packages -e > pm-list-enabled.log; adb shell pm list packages -d > pm-list-disabled.log; adb shell pm list packages -u > pm-list-uninstalled.log; sd '^package:' '' pm-list-*.log"
 
 alias adbdisplay="adb shell dumpsys SurfaceFlinger | rg --multiline --multiline-dotall --only-matching -e '\n\nh/w composer state.+?Display manufacturer.+?\n' | bl yml"
 alias adbaudio="dr $DOTFILES/deno/adb-audio_flinger.ts | sed -e 's/\b =/: /' -e 's/\b=/: /' -e 's/|/ /g' -e 's/\[//g' -e 's/\]//g' | bl yml"
@@ -339,7 +344,7 @@ function adbk() {
 			# "tv.twitch.android.app"
 			# "us.nineworlds.serenity"
 		)
-		adb shell pm list packages -3 -e | sed 's/^package://' | while read i; do
+		adb shell pm list packages -a -3 -e | sed 's/^package://' | while read i; do
 			# [[ "$i" == "com.liskovsoft.leankeyboard" ]] && continue
 			[[ "$i" == "me.efesser.flauncher" ]] && continue
 			[[ "$i" == "nl.ndat.tvlauncher" ]] && continue
@@ -448,14 +453,14 @@ function adbrclone() {
 			serve dlna "$v:" --name "$v" --addr "$ANDROID_SERIAL:$(porthash "$v")" --read-only
 	done
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings rclone | bl strace
+	adbps | rg --case-sensitive --fixed-strings rclone | bl config
 }
 function adbtinyproxy() {
 	adb shell killall -v tinyproxy
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/tinyproxy -- -c /data/local/tmp/tinyproxy.conf -d
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings tinyproxy | bl strace
+	adbps | rg --case-sensitive --fixed-strings tinyproxy | bl config
 }
 
 function adbsu() {
@@ -479,28 +484,23 @@ function adbsu() {
 # https://developer.android.com/studio/command-line/adb#pm
 function adbpmls() {
 	echo && echo "🟢 System Enabled Packages"
-	# echo "   adb shell pm list packages -s -e"
-	adb shell pm list packages -s -e | sed 's/^package://' | sortt
+	adb shell pm list packages -a -s -e | sed 's/^package://' | sortt
 	echo && echo "🔴 System Disabled Packages"
-	# echo "   adb shell pm list packages -s -d"
-	adb shell pm list packages -s -d | sed 's/^package://' | sortt
+	adb shell pm list packages -a -s -d | sed 's/^package://' | sortt
 	adb3
 }
 function adb3() {
 	echo && echo "🟢 User Enabled Packages"
-	# echo "   adb shell pm list packages -3 -e"
-	adb shell pm list packages -3 -e | sed 's/^package://' | sortt
+	adb shell pm list packages -a -3 -e | sed 's/^package://' | sortt
 	echo && echo "🔴 User Disabled Packages"
-	# echo "   adb shell pm list packages -3 -d"
-	adb shell pm list packages -3 -d | sed 's/^package://' | sortt
+	adb shell pm list packages -a -3 -d | sed 's/^package://' | sortt
 }
 function adbpmf() {
 	echo && echo "🟢 Enabled Packages"
-	adb shell pm list packages -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
+	adb shell pm list packages -a -e | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
 	echo && echo "🔴 Disabled Packages"
-	adb shell pm list packages -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
+	adb shell pm list packages -a -d | sed 's/^package://' | sortt | rg --smart-case --fixed-strings -- "$*"
 }
-# alias adb3="adb shell pm list packages -3 | sed 's/^package://' | sortt"
 
 function adbapk() {
 	local v && for v in "$@"; do
@@ -520,16 +520,23 @@ function adbapk() {
 }
 
 function adbdown() {
+	local cmd="disable-user"
+	if adb devices -l | rg -i -q bravia; then
+		cmd="uninstall -k"
+	fi
 	local v && for v in "$@"; do
-		adb shell pm disable-user --user 0 "$v" && adb shell am force-stop "$v"
+		adb shell pm "$cmd" --user 0 "$v"
+		adb shell am force-stop "$v"
 	done
-	# adbk nl.ndat.tvlauncher
 }
 function adbup() {
+	local cmd="pm enable"
+	if adb devices -l | rg -i -q bravia; then
+		cmd="cmd package install-existing"
+	fi
 	local v && for v in "$@"; do
-		adb shell pm enable --user 0 "$v"
+		adb shell "$cmd" --user 0 "$v"
 	done
-	# adbk nl.ndat.tvlauncher
 }
 
 function adbsmarttv() {
@@ -545,7 +552,7 @@ function adbkodinerds() {
 	local cpu="${1:-"arm64-v8a"}"
 	xhp --download -f https://repo.kodinerds.net/index.php \
 		"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=all&version=nexus/" \
-		| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
+			| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
 	apkm *-Nexus.apk && adbin *-Nexus.apk && rd *-Nexus.apk
 }
 function adbvlc() {
@@ -561,19 +568,6 @@ function adbvlc() {
 # 		adb pull $(adbpmapk "$v")
 # 	done
 # }
-
-# function adb-pm-ls() {
-# 	echo "$(adb shell '
-# 		echo && echo "🟡 Disabled"; pm list packages -d;
-# 		echo && echo "🟡 Uninstalled"; pm list packages -u;
-# 		echo && echo "🟡 Default"; pm list packages;
-# 		echo && echo "🟡 System"; pm list packages -s;
-# 		echo && echo "🟡 Enabled"; pm list packages -e;
-# 		echo && echo "🟡 Third-Party"; pm list packages -3;
-# 	')" | sed 's/^package://' | bl properties
-# }
-# alias adb-pm-f="adb-pm-ls | grep"
-# alias adb-pm-f="adb-pm-ls | rg --smart-case --fixed-strings --passthru"
 
 # function adbgmsup() {
 # 	adbup "com.google.android.gsf" "com.google.android.gms" "com.android.vending" "com.nvidia.ota"
