@@ -167,6 +167,8 @@ function upg() {
 	rustup update
 	bhr && echo "🟡 cargo" && bhr
 	cgout; cgupg
+	bhr && echo "🟡 antibody update" && bhr
+	abupd
 }
 
 function tapianalyze() {

@@ -38,6 +38,8 @@ function upg() {
     tldr --update
     bhr && echo "🟡 cargo" && bhr
     cgout; cgupg
+    bhr && echo "🟡 antibody update" && bhr
+    abupd
     bhr && echo "🟡 npm" && bhr
     npmo -g
 }
