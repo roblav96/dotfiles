@@ -246,7 +246,7 @@ alias clr="tput clear"
 alias sortt="LC_ALL='C' sort -bfi"
 alias prettier="prettier --no-editorconfig --config ~/.prettierrc --config-precedence cli-override --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
-alias hyperfine="hyperfine --shell=$(which -p bash)"
+alias hyperfine="hyperfine --shell=none"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
 alias hors="hors --all --engine google --number-answers 3 --paging never"
 alias shellcheck="shellcheck --external-sources"
@@ -471,7 +471,7 @@ function upiso() {
 	'
 }
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm"'
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm" "/usr/sbin/distnoted agent"'
 	alias pcs='pcsa "/System/Library/" "/usr/libexec/"'
 	alias pst="pstree -wg3"
 fi
