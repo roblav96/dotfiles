@@ -41,6 +41,7 @@
 			],
 			"options": {
 				"parser": "json5",
+				"printWidth": 115,
 				"quoteProps": "preserve",
 				"singleQuote": false,
 			},
