@@ -399,9 +399,10 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
 alias rsync="rsync --verbose --human-readable --progress --recursive --archive --compress"
-alias xh="xh --follow --ignore-stdin --timeout=5 --verbose"
-alias xhh="xh --print=Hh"
-alias xhp="xh --no-verbose --print=b --pretty=none"
+alias xh="xh --follow --timeout=5 --verbose"
+alias xhh="xh --print=h"
+alias xhb="xh --print=b"
+alias xhp="xh --print=b --pretty=none"
 alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
 alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
 alias aria2dl="aria2c --console-log-level=warn --download-result=full --summary-interval=0 --file-allocation=none \
