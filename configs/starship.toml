@@ -1,6 +1,4 @@
 add_newline = true
-command_timeout = 100
-scan_timeout = 50
 
 [character]
 success_symbol = "[█](green)"
