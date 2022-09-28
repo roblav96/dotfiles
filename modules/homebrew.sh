@@ -405,12 +405,13 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	}
 
 	function bcupg-google-chrome() {
-		# fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' --exec launchctl unload -w
-		# find "$HOME/Library/LaunchAgents" -name 'com.google.*.plist' -exec launchctl unload -w {} \;
-		fd --base-directory "$HOME/Library/LaunchAgents" --absolute-path --fixed-strings 'com.google.keystone' | while read i; do
-			echo "🟡 launchctl unload -w $i" | lscolors
-			launchctl unload -w "$i"
+		fd --base-directory ~/Library/LaunchAgents --fixed-strings com.google.keystone | while read i; do
+			local i="$(basename $i .plist)"
+			echo "🟡 lcdown $i"
+			lcdown $i
 		done
+		echo "🟡 defaults write com.google.Keystone.Agent checkInterval 0"
+		defaults write com.google.Keystone.Agent checkInterval 0
 		echo && echo "🟢 Disabled Google Chrome's keystone background update services"
 	}
 fi
