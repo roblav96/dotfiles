@@ -14,7 +14,7 @@ function binstall() {
 
 function ldd() {
     local v && for v in "$@"; do
-        ldd "$v" | bl nix
+        $(which -p ldd) "$v" | bl nix
     done
 }
 
