@@ -1,11 +1,12 @@
-// import 'https://raw.githubusercontent.com/roblav96/jellyfin-debrids/main/src/devops/console.ts'
+// import 'https://raw.githubusercontent.com/roblav96/futon-media-iptv/main/src/console.ts'
+import * as streams from 'https://deno.land/std/streams/mod.ts'
 
-let { status, stdout, stderr } = await Deno.spawn('adb', {
+let { success, code, stdout, stderr } = await Deno.spawn('adb', {
 	args: ['shell', 'dumpsys', 'media.audio_flinger'],
 })
-if (!status.success) {
-	await Deno.writeAll(Deno.stderr, stderr)
-	Deno.exit(status.code)
+if (!success) {
+	await streams.writeAll(Deno.stderr, stderr)
+	Deno.exit(code)
 }
 
 let output = new TextDecoder().decode(stdout)
@@ -27,6 +28,6 @@ if (alsa) {
 }
 outputs.push(sections.find((v) => v.startsWith('AUX:'))!)
 outputs.push(sections.find((v) => v.startsWith('Nvidia Audio Output streams'))!)
-
 output = `${outputs.filter((v) => !!v).join('\n\n')}\n`
-await Deno.writeAll(Deno.stdout, new TextEncoder().encode(output))
+
+await streams.writeAll(Deno.stdout, new TextEncoder().encode(output))
