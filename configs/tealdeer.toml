@@ -26,3 +26,9 @@ bold = false
 [display]
 use_pager = false
 compact = false
+
+[updates]
+auto_update = false
+
+# [directories]
+# cache_dir = "~/.cache/tealdeer"

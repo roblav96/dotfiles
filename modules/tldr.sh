@@ -1,12 +1,6 @@
 if [[ -x "$(which -p tldr)" ]]; then
-	export TEALDEER_CACHE_DIR="$HOME/.cache/tealdeer"
-	if [[ ! -d "$TEALDEER_CACHE_DIR" ]]; then
-		echo "🟡 mkdir TEALDEER_CACHE_DIR -> '$TEALDEER_CACHE_DIR'"
-		mkdir -p "$TEALDEER_CACHE_DIR"
-		tldr --update
-	fi
 	function tlsr() {
-		local cache_dir_pages="$TEALDEER_CACHE_DIR/tldr-pages/pages"
+		local cache_dir_pages="$(tldr --show-paths | rg --color=never -e 'Pages dir: (.+)' -or '$1' --trim)pages"
 		local cache_dir_os="$([[ "$PLATFORM" == "Darwin" ]] && echo "osx" || echo "linux")"
 		local files=($(rg --files-with-matches --smart-case --regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
 		local file && for file in "${files[@]}"; do
