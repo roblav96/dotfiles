@@ -19,6 +19,7 @@ alias gurl="git remote get-url origin"
 alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'
 alias gdh="git describe HEAD --always --abbrev=7"
+alias ghead="git branch --remotes | rg --color=never -e 'origin/HEAD.+/(.+)' -or '\$1'"
 
 alias isgit='[[ ! -d "$(git rev-parse --show-toplevel)" ]] && return 1'
 
@@ -62,6 +63,8 @@ alias gclr='gcld; echo; read -s -q "?🔴 Would remove ? " || return; echo; echo
 
 alias gca='isgit; git add -A && git commit -a -m "[$(uname -o)] $(git status --null)"'
 alias gpush='isgit; gs; echo; read -s -q "?🟠 git push $(basename --suffix=.git $(gurl)) ? " || return; echo; echo; gca && git push origin $(gbranch)'
+
+alias gmkbranch='gsw $(ghead) && gpf && git create-branch'
 
 function gup() {
 	local v && for v in */.git; do (

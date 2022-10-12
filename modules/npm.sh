@@ -75,9 +75,9 @@ function .tsc() {
 	bhr && echo "🟡 tsc --showConfig" && bhr
 	tsc --noEmit --showConfig | bj
 	bhr && echo "🟡 tsc --showConfig | jq '.files'" && bhr
-	tsc --noEmit --showConfig | j -r '.files[]' | sed 's#^./##' | lsc
+	tsc --noEmit --showConfig | j -r '.files[]' | sed 's#^./##' | lscolors
 	bhr && echo "🟡 tsc --listFilesOnly" && bhr
-	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | lsc
+	tsc --noEmit --listFilesOnly | sed "s#^$PWD/##" | lscolors
 	bhr && echo "🟡 tsc --diagnostics" && bhr
 	tsc --noEmit --diagnostics | by
 }
