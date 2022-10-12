@@ -1,4 +1,9 @@
 # export GIT_PAGER="$PAGER"
+[[ -e "$(brew --prefix)/share/zsh/site-functions/_git" ]] && rm "$(brew --prefix)/share/zsh/site-functions/_git"
+[[ -e "$(brew --prefix)/share/zsh/site-functions/git-completion.bash" ]] && rm "$(brew --prefix)/share/zsh/site-functions/git-completion.bash"
+if [[ -e "$(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]]; then
+	source "$(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh"
+fi
 if [[ ! -e "$(brew --prefix)/bin/git-restore-mtime" && -x "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime" ]]; then
 	ln -sf -t "$(brew --prefix)/bin" "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime"
 fi
