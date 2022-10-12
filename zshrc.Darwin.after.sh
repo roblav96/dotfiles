@@ -20,6 +20,8 @@ function ldd() {
 	done
 }
 
+alias real-debrid="(cd ~/Projects/userscripts && just run src/real-debrid.ts)"
+
 # alias ii="iina"
 # alias vlc="vlc --verbose 2"
 # alias mpv="mpv --msg-module --msg-level=all=status --no-audio-display"
