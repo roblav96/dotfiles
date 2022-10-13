@@ -472,7 +472,7 @@ function upiso() {
 	'
 }
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm" "/usr/sbin/distnoted agent"'
+	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm" "/usr/sbin/distnoted "'
 	alias pcs='pcsa "/System/Library/" "/usr/libexec/"'
 	alias pst="pstree -wg3"
 fi
