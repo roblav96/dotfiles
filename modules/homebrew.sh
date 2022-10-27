@@ -100,6 +100,13 @@ function bs() {
 } && compdef bs=command
 alias bscd='cd "$(brew --prefix)/Library/Taps"'
 
+function buses() {
+	local v && for v in "$@"; do
+		echo && echo "🟡 Formulas using -> '$v'"
+		brew uses --eval-all --formula --include-build --recursive --installed "$v"
+	done
+} && compdef buses=command
+
 function blog() { (
 	local dir="$(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula"
 	echo && echo "🟡 Formula git log -> '$*'" && echo
