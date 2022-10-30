@@ -18,6 +18,7 @@ alias yapf="yapf --style='{ based_on_style: facebook, column_limit: 100, continu
 
 # alias pip='pip --target=$HOME/.virtualenv'
 # alias pip="python3 -m pip"
+which python &>/dev/null || alias python="python3"
 which pip &>/dev/null || alias pip="pip3"
 alias pips="pip search"
 alias pipi="pip show"

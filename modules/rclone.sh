@@ -11,7 +11,8 @@ function rcwd() {
 		elif [[ ! "$remote" =~ ":" ]]; then
 			remote="$remote:"
 		fi
-		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only
+		echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:18888" --read-only
+		# echo rclone serve webdav "'$remote'" --baseurl "'$base'" --addr "$ip:$(porthash "$remote")" --read-only
 	done
 }
 
