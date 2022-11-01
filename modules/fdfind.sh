@@ -1,5 +1,5 @@
 alias f="fd --hidden --exclude=.git --exclude=node_modules"
-alias fa="fd --hidden --no-ignore --exclude=.git --exclude=node_modules"
+alias fa="fd --hidden --no-ignore --exclude=.git"
 alias faa="fd --hidden --no-ignore --exclude=.git --follow --full-path --absolute-path"
 
 function fwc() {
