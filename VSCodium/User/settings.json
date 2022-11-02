@@ -25,7 +25,6 @@
 	"files.trimTrailingWhitespace": true,
 	"http.proxySupport": "off",
 	"javascript.suggest.autoImports": false,
-	"output.smartScroll.enabled": false,
 	"security.workspace.trust.enabled": false,
 	"telemetry.telemetryLevel": "off",
 	"typescript.suggest.autoImports": false,
@@ -41,8 +40,5 @@
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
 	"editor.bracketPairColorization.enabled": false,
-	"editor.smoothScrolling": true,
-	"workbench.list.smoothScrolling": true,
-	"terminal.integrated.smoothScrolling": true,
 	"search.quickOpen.includeHistory": false,
 }

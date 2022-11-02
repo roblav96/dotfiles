@@ -7,6 +7,7 @@ alias .node-v8-flags="node --help --v8-options | sed -e 's/^  --/\n  --/' -e 's/
 # alias n="npm"
 alias npx="npx --yes"
 alias rr="npm run"
+alias rrr='[[ -n $RRR ]] && echo && echo "> $RRR" && echo && eval $(echo $RRR)'
 alias npmls="npm ls"
 alias npmlsa="npm ls --all"
 alias npmo="npm outdated"
