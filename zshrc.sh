@@ -466,6 +466,10 @@ alias pubserve='miniserve --verbose --interfaces=$(getip) --port=8080 --auth=adm
 alias pubget='wget --http-user=admin --http-password='
 # test -x "$(which -p watchexec)" && alias watch="watchexec"
 
+if [[ -x "$(which -p rustscan)" ]]; then
+	alias rustscan="rustscan --top --timeout 300 --ulimit 65535 --batch-size 65535 --addresses"
+fi
+
 # alias upiso='dateadd $(dateiso) -$(uptime | rargs -p "up (\d+) days" echo "{1}")d | sd -s "-" "/"'
 # alias upiso="node -p 'new Date(Date.now() - (os.uptime() * 1000)).toISOString().split(\"T\")[0].replace(/-/g, \"/\")'"
 function upiso() {
@@ -493,21 +497,38 @@ alias psa="ps auxww"
 function p() {
 	psa | rg --fixed-strings --case-sensitive --invert-match ' rg ' | rg --fixed-strings --case-sensitive --invert-match '/Google Chrome.app/' | rg --fixed-strings --smart-case "$*" | sed 's/^/\n/' | bat --plain -l nix
 } && compdef p=command
-function pe() {
-	pgrep "$*" | while read pid; do
-		# echo "🟡 pid -> '$pid'"
-		echo && ps -ww -o user,pid,ppid,%cpu,%mem,time,start,command -p $pid
-		local command="$(ps -ww -o command= -p $pid)"
-		# echo "🟡 command -> '$command'"
-		local environment="$(ps -ww -o command= -E -p $pid)"
-		if [[ "${#command}" != "${#environment}" ]]; then
-			environment="${environment#$command }"
-			echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^ZLS_COLORS/d' | sortt | bat --plain -l ini
-		fi
-		# echo $environment | sd ' (\w+)=' '\n$1='
-		# ps -ww -E -p $pid | tr ' ' '\n' | rg --fixed-strings --case-sensitive '=' | sortt | bat --plain -l properties
-	done
-} && compdef pe=pgrep
+if [[ -x "$(which -p xproc)" ]]; then
+	function pe() {
+		pgrep "$*" | while read pid; do
+			# bhr
+			# echo "🟡 [exe]"
+			# xproc | rg --color=never -e ": $pid, exe: (.+)" -or '$1'
+			# echo
+			# echo "🟡 [cmd]"
+			# xproc | rg --color=never -e ": $pid, cmd\[\d+\]: (.+)" -or '$1'
+			# echo
+			# echo "🟡 [env]" && echo -n $(xproc | rg --color=never -e ": $pid, exe: (.+)" -or '$1')
+			echo && bhr && echo "🟡 [$pid]"
+			xproc | rg --color=never -e ": $pid, env\[\d+\]: (.+)" -or '$1'
+		done
+	} && compdef pe=pgrep
+else
+	function pe() {
+		pgrep "$*" | while read pid; do
+			# echo "🟡 pid -> '$pid'"
+			echo && ps -ww -o user,pid,ppid,%cpu,%mem,time,start,command -p $pid
+			local command="$(ps -ww -o command= -p $pid)"
+			# echo "🟡 command -> '$command'"
+			local environment="$(ps -ww -o command= -E -p $pid)"
+			if [[ "${#command}" != "${#environment}" ]]; then
+				environment="${environment#$command }"
+				echo $environment | sed -E 's# (\w+)=#\n\1=#g' | sed -e '/^LS_COLORS/d' -e '/^FPATH/d' -e '/^ZLS_COLORS/d' | sortt | bat --plain -l ini
+			fi
+			# echo $environment | sd ' (\w+)=' '\n$1='
+			# ps -ww -E -p $pid | tr ' ' '\n' | rg --fixed-strings --case-sensitive '=' | sortt | bat --plain -l properties
+		done
+	} && compdef pe=pgrep
+fi
 # alias pt="pst | rg --invert-match ' rg ' | rg --invert-match '/Google Chrome.app/' | rg --smart-case --fixed-strings"
 # function p() {
 # 	ps auxww | grep -v grep | grep "$@"

@@ -2,11 +2,11 @@ if [[ -x "$(which -p tldr)" ]]; then
 	function tlsr() {
 		local cache_dir_pages="$(tldr --show-paths | rg --color=never -e 'Pages dir: (.+)' -or '$1' --trim)pages"
 		local cache_dir_os="$([[ "$PLATFORM" == "Darwin" ]] && echo "osx" || echo "linux")"
-		local files=($(rg --files-with-matches --smart-case --regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
+		local files=($(rg --files-with-matches --smart-case --fixed-strings "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | sort))
 		local file && for file in "${files[@]}"; do
 			local name="$(basename "$file" ".md")"
 			echo "🟡 '$name'"
-			tldr --color=always "$name" | rg --passthru --smart-case --regexp "$*"
+			tldr --color=always "$name" | rg --passthru --smart-case --fixed-strings "$*"
 		done
 		# local lines=( ${"$(rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os")"} )
 		# rg --files-with-matches --smart-case --fixed-strings --word-regexp "$*" "$cache_dir_pages/common" "$cache_dir_pages/$cache_dir_os" | rargs -p '.*/(.*).md' tldr {1} | rg --passthru --smart-case --fixed-strings --word-regexp "$*"

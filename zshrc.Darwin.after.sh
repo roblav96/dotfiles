@@ -50,6 +50,10 @@ function pkgi() {
 	done
 }
 
+[[ -x "/Applications/FileMonitor.app/Contents/MacOS/FileMonitor" ]] && alias FileMonitor="/Applications/FileMonitor.app/Contents/MacOS/FileMonitor"
+[[ -x "/Applications/DNSMonitor.app/Contents/MacOS/DNSMonitor" ]] && alias DNSMonitor="/Applications/DNSMonitor.app/Contents/MacOS/DNSMonitor"
+[[ -x "/Applications/ProcessMonitor.app/Contents/MacOS/ProcessMonitor" ]] && alias ProcessMonitor="/Applications/ProcessMonitor.app/Contents/MacOS/ProcessMonitor"
+
 alias .duti-cache="(lsregister -dump | rg --color=never -e '^uti:\s+(\S+)' -or '\$1' | sortt --unique) > $HOME/.cache/lsregister.duti.dump && wc --lines $HOME/.cache/lsregister.duti.dump"
 alias .duti-ls="cat $HOME/.cache/lsregister.duti.dump"
 function .duti-sublime() {
