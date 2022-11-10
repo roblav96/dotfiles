@@ -403,7 +403,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
 alias rsync="rsync --verbose --human-readable --progress --recursive --archive --compress"
-alias xh="xh --follow --timeout=5 --verbose"
+alias xh="xh --ipv4 --follow --timeout=5 --verbose"
 alias xhh="xh --print=h"
 alias xhb="xh --print=b"
 alias xhp="xh --print=b --pretty=none"

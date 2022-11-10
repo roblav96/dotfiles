@@ -540,6 +540,9 @@ function adbup() {
 	done
 }
 
+alias adbvup="adbup com.google.android.gsf com.google.android.gms com.android.vending com.nvidia.shieldbeta com.nvidia.ota com.google.android.webview && sleep 1 && adblp com.android.vending"
+alias adbvdown="adbdown com.nvidia.ota com.nvidia.shieldbeta com.android.vending com.google.android.gsf && adbk && adbnl"
+
 function adbsmarttv() {
 	curl https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_beta.json 2>/dev/null | head -n$(ty) | bl json
 	wget https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk
