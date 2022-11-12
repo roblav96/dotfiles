@@ -36,7 +36,7 @@ alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle
 alias dstore="fd -uu --type=file --glob '.DS_Store' --exec-batch rm -fv"
 alias kextstat="kextstat -sort"
 if [[ -x "$(brew --prefix)/bin/scp" ]]; then
-	alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server"
+	alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server -4 -p -r"
 fi
 
 alias installer="installer -verbose"

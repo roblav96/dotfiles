@@ -29,12 +29,12 @@ function lcs() {
 function lcsb() {
 	echo && echo "🟢 ENABLED"
 	lcl | rg --fixed-strings --ignore-case "$*" | while read i; do
-		echo "🟡 $i"
+		echo && echo "🟡 $i"
 		lcb $(basename $i)
 	done
 	echo && echo "🔴 DISABLED"
 	lcdl | rg --fixed-strings --ignore-case "$*" | while read i; do
-		echo "🟡 $i"
+		echo && echo "🟡 $i"
 		lcb $(basename $i)
 	done
 }
