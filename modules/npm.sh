@@ -70,6 +70,7 @@ function npmv() {
 # which rushx &>/dev/null || alias rushx="npx --package=@microsoft/rush rushx"
 # which ts-node &>/dev/null || alias ts-node="npx ts-node"
 # which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
+which sls &>/dev/null || alias sls="npx --package=serverless sls"
 
 alias tsc="npx --package=typescript tsc"
 function .tsc() {
