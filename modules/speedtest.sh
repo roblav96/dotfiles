@@ -1,8 +1,6 @@
-if [[ -x "$(which -p xh)" ]]; then
-	alias sp="xh --print=b --download --output=/dev/null"
-else
-	alias sp="wget --output-document=/dev/null"
-fi
+# [[ -x "$(which -p xh)" ]] && alias sp="xh --print=b --download --output=/dev/null"
+which sp &>/dev/null || alias sp="wget --output-document=/dev/null"
+
 alias cachefly="sp https://cachefly.cachefly.net/100mb.test"
 alias linode="sp http://speedtest.newark.linode.com/100MB-newark.bin"
 alias ievbox="sp https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"

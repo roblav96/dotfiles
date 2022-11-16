@@ -406,9 +406,16 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		local vnode && for vnode in "${vnodes[@]}"; do
 			local node="$(realpath "$(brew --prefix)/opt/$vnode")"
 			[[ ! -d "$node" ]] && continue
-			ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
-			ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
-			rm -f "$node/bin/corepack"
+			if [[ -d "$node/bin" ]]; then
+				ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
+				ln -sf "$npmg/npm/bin/npx-cli.js" "$node/bin/npx"
+				rm -f "$node/bin/corepack"
+			fi
+			if [[ -d "$node/libexec/bin" ]]; then
+				ln -sf "$npmg/npm/bin/npm-cli.js" "$node/libexec/bin/npm"
+				ln -sf "$npmg/npm/bin/npx-cli.js" "$node/libexec/bin/npx"
+				rm -f "$node/libexec/bin/corepack"
+			fi
 		done
 		[[ -x "$(which -p node-gyp)" ]] && node-gyp install
 	}
