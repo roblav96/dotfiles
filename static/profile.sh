@@ -74,7 +74,7 @@ else
 	alias {lm,lch}="l --sort=time --reverse"
 fi
 alias rp="realpath"
-alias pwda="pwd && pwd -P"
+alias pwda="pwd && pwd -P && realpath ."
 alias bat="cat" && alias b="bat"
 alias htop="htop --delay=1 --highlight-changes=10"
 alias bhr="echo"
