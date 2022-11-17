@@ -8,8 +8,8 @@ alias .node-v8-flags="node --help --v8-options | sed -e 's/^  --/\n  --/' -e 's/
 alias npx="npx --yes"
 alias rr="npm run"
 alias rrr='[[ -n $RRR ]] && echo && echo "> $RRR" && echo && eval $(echo $RRR)'
-alias npmls="npm ls"
-alias npmlsa="npm ls --all"
+alias npml="npm ls"
+alias npmlra="npm ls --all"
 alias npmo="npm outdated"
 alias npmup="npm outdated | tail -n+2 | awk '{ print \$1 }' | while read i; do npm install \$i@latest; done"
 alias npmsa='npm search --searchlimit=$(ty)'
