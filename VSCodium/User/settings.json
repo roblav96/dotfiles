@@ -41,4 +41,10 @@
 	"workbench.startupEditor": "none",
 	"editor.bracketPairColorization.enabled": false,
 	"search.quickOpen.includeHistory": false,
+	"debug.console.fontSize": 10,
+	"markdown.preview.fontSize": 12,
+	"terminal.integrated.fontSize": 10,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 }
