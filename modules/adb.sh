@@ -522,9 +522,9 @@ function adbapk() {
 
 function adbdown() {
 	local cmd="disable-user"
-	if adb devices -l | rg -i -q bravia; then
-		cmd="uninstall -k"
-	fi
+	# if adb devices -l | rg -i -q bravia; then
+	# 	cmd="uninstall -k"
+	# fi
 	local v && for v in "$@"; do
 		adb shell pm "$cmd" --user 0 "$v"
 		adb shell am force-stop "$v"
@@ -532,9 +532,9 @@ function adbdown() {
 }
 function adbup() {
 	local cmd="pm enable"
-	if adb devices -l | rg -i -q bravia; then
-		cmd="cmd package install-existing"
-	fi
+	# if adb devices -l | rg -i -q bravia; then
+	# 	cmd="cmd package install-existing"
+	# fi
 	local v && for v in "$@"; do
 		adb shell "$cmd" --user 0 "$v"
 	done

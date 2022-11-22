@@ -11,7 +11,8 @@ export HOMEBREW_AUTO_UPDATE_SECS=3600
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 export HOMEBREW_CURL_RETRIES=1
 export HOMEBREW_EDITOR="subl --wait"
-# export HOMEBREW_FORCE_BREWED_CURL=1
+export HOMEBREW_EVAL_ALL=1
+export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_FORCE_BREWED_GIT=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
@@ -93,7 +94,7 @@ alias blsa="bls; echo; bcls"
 function bs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Searching descriptions -> '$v'"
-		HOMEBREW_COLOR=1 brew search --eval-all --desc "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
+		HOMEBREW_COLOR=1 brew search --desc "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
 		echo && echo "🟡 Searching names -> '$v'"
 		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
 	done
@@ -103,7 +104,7 @@ alias bscd='cd "$(brew --prefix)/Library/Taps"'
 function buses() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formulas using -> '$v'"
-		brew uses --eval-all --formula --include-build --recursive --installed "$v"
+		brew uses --formula --include-build --recursive --installed "$v"
 	done
 } && compdef buses=command
 
@@ -188,7 +189,7 @@ function bcrein() {
 function bi() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula -> '$v'"
-		brew desc --eval-all --formula "$v"
+		brew desc --formula "$v"
 		brew info --formula "$v"
 		if [[ $? -eq 0 && "$PLATFORM" == "Linux" ]]; then
 			echo && echo "x86_64_linux bottle:"
@@ -199,7 +200,7 @@ function bi() {
 function bij() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Formula json -> '$v'"
-		brew desc --eval-all --formula "$v" && brew info --json --formula "$v" | json
+		brew desc --formula "$v" && brew info --json --formula "$v" | json
 	done
 } && compdef bij=command
 function bci() {
