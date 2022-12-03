@@ -1,3 +1,4 @@
+[[ -z "$DENO_NO_UPDATE_CHECK" ]] && export DENO_NO_UPDATE_CHECK="1"
 if [[ ! -d "$DENO_DIR" ]]; then
 	export DENO_DIR="$HOME/.cache/deno"
 	mkdir -p "$DENO_DIR"
