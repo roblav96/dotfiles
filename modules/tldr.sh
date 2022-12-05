@@ -64,7 +64,7 @@ fi
 
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
-		curl "http://cht.sh/$(echo $* | sd -s " " "-")?T" | bl sh
+		curl "http://cht.sh/$(echo $* | sed 's/ /-/g')?T" | bl sh
 	}
 	function chp() {
 		curl "http://cht.sh/$*?T"
@@ -74,6 +74,7 @@ if [[ -x "$(which -p bat)" ]]; then
 	}
 else
 	function ch() {
+		curl "http://cht.sh/$(echo $* | sed 's/ /-/g')?T"
 		curl "http://cht.sh/$*"
 	}
 	function cha() {
