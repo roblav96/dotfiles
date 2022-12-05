@@ -43,6 +43,7 @@ __pycache__
 flutter.bat
 local.properties
 compile_commands.json
+deno.lock
 
 # Cargo.lock
 # package-lock.json

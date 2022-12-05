@@ -64,9 +64,7 @@ fi
 
 if [[ -x "$(which -p bat)" ]]; then
 	function ch() {
-		local lang="sh"
-		# [[ -n $2 ]] && lang="$1"
-		curl "http://cht.sh/$*?T" | bl $lang
+		curl "http://cht.sh/$(echo $* | sd -s " " "-")?T" | bl sh
 	}
 	function chp() {
 		curl "http://cht.sh/$*?T"
