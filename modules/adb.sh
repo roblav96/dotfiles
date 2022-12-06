@@ -554,14 +554,14 @@ function adbsmarttv() {
 }
 function adbkodinerds() {
 	local cpu="${1:-"arm64-v8a"}"
-	xhp --download -f https://repo.kodinerds.net/index.php \
-		"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
-			| rg -o "download=addons/matrix/zip/net.kodinerds.maven.kodi.$cpu/net.kodinerds.maven.kodi.$cpu-.+-Matrix.apk")"
-	apkm *-Matrix.apk && adbin *-Matrix.apk && rd *-Matrix.apk
 	# xhp --download -f https://repo.kodinerds.net/index.php \
 	# 	"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
-	# 		| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
-	# apkm *-Nexus.apk && adbin *-Nexus.apk && rd *-Nexus.apk
+	# 		| rg -o "download=addons/matrix/zip/net.kodinerds.maven.kodi.$cpu/net.kodinerds.maven.kodi.$cpu-.+-Matrix.apk")"
+	# apkm *-Matrix.apk && adbin *-Matrix.apk && rd *-Matrix.apk
+	xhp --download -f https://repo.kodinerds.net/index.php \
+		"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
+			| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
+	apkm *-Nexus.apk && adbin *-Nexus.apk && rd *-Nexus.apk
 }
 function adbvlc() {
 	local cpu="${1:-"arm64"}"
