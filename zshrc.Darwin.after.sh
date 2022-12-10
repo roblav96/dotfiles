@@ -107,6 +107,7 @@ alias pfsa="sudo pfctl -q -s all"
 alias pfd="sudo pfctl -q -d -F all; pfs"
 alias pfu="sudo pfctl -q -d -F all || true; sudo pfctl -q -F all -e -f /etc/pf.conf; pfs"
 
+alias wgs="sudo wg"
 alias wgdown="sudo fd --base-directory /usr/local/etc/wireguard -e conf -x wg-quick down '{.}' || true; echo; sudo wg"
 # alias wgup="wgdown; echo; wg-quick up ivpn.ny; echo; sudo wg"
 function wgup() {
