@@ -318,7 +318,7 @@ alias src="exec ${SHELL:-$(which -p zsh)}"
 alias zcomp="rm -fv $HOME/.zcomp* && src"
 # alias .zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias dotcd="cd $DOTFILES"
-alias dotsrc="zsh $DOTFILES/install.zsh && zcomp"
+alias dotsrc="zsh $DOTFILES/install.zsh.sh && zcomp"
 alias abupd="antibody update && zcomp"
 function abfixpaste() {
 	(
