@@ -3,7 +3,7 @@ nilsonholger/osx-zsh-completions kind:fpath
 scriptingosx/mac-zsh-completions path:completions kind:fpath
 # rgcr/m-cli path:completion/zsh kind:fpath
 
-ohmyzsh/ohmyzsh path:plugins/adb
+# ohmyzsh/ohmyzsh path:plugins/adb
 # ohmyzsh/ohmyzsh path:plugins/bundler
 # ohmyzsh/ohmyzsh path:plugins/composer kind:fpath
 # ohmyzsh/ohmyzsh path:plugins/gem

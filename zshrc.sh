@@ -102,15 +102,16 @@ export GENCOMPL_FPATH="$HOME/.cache/gencomp"
 zstyle :plugin:zsh-completion-generator programs ""
 fpath=($GENCOMPL_FPATH $fpath)
 
-if [[ -x "$(which -p antibody)" ]]; then
-	export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
+if [[ -e "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" ]]; then
+	source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+	export ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
 	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	# zle_highlight+=('paste')
 
-	source <(antibody init)
-	antibody bundle < "$DOTFILES/antibody/antibody.ohmyzsh.sh" < "$DOTFILES/antibody/antibody.$PLATFORM.sh" < "$DOTFILES/antibody/antibody.sh"
+	source <(antidote init)
+	antidote bundle < "$DOTFILES/antidote/antidote.ohmyzsh.sh" < "$DOTFILES/antidote/antidote.$PLATFORM.sh" < "$DOTFILES/antidote/antidote.sh"
 
-	eval "$(dircolors --bourne-shell "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
+	eval "$(dircolors --bourne-shell "$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-trapd00r-SLASH-LS_COLORS/LS_COLORS")"
 	# vivid -m 8-bit generate molokai | sed -e 's|:|\n|g' -e 's|=[0,1,2,3,4];|\t\t|g' -e 's|=|\t|g' > "$TMPDIR/LS_COLORS"
 	if [[ -x "$(which -p vivid)" ]]; then
 		LS_COLORS="$LS_COLORS$(vivid -m 8-bit generate molokai):$LS_COLORS"
@@ -319,15 +320,15 @@ alias zcomp="rm -fv $HOME/.zcomp* && src"
 # alias .zbak="sudo cp $HOME/.zsh_history $HOME/..zsh_history; sudo cp $HOME/.z $HOME/..z"
 alias dotcd="cd $DOTFILES"
 alias dotsrc="zsh $DOTFILES/install.zsh.sh && zcomp"
-alias abupd="antibody update && zcomp"
+alias abupd="antidote update && zcomp"
 function abfixpaste() {
 	(
-		local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
+		local file="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.zsh"
 		local line="$(command grep --fixed-strings --line-number 'POSTDISPLAY="$orig_postdisplay"' "$file" | head -c3)"
 		$EDITOR +$line "$file"
 	)
 	(
-		local file="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/safe-paste/safe-paste.plugin.zsh"
+		local file="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/safe-paste/safe-paste.plugin.zsh"
 		local line="$(command grep --fixed-strings --line-number 'Load bracketed-paste-magic' "$file" | head -c2)"
 		$EDITOR +$line "$file"
 	)

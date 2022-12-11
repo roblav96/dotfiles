@@ -181,7 +181,7 @@ function upg() {
 	rustup update
 	bhr && echo "🟡 cargo" && bhr
 	cgout; cgupg
-	bhr && echo "🟡 antibody update" && bhr
+	bhr && echo "🟡 antidote update" && bhr
 	abupd
 }
 

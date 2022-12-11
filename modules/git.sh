@@ -4,8 +4,8 @@
 if [[ -e "$(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]]; then
 	source "$(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh"
 fi
-if [[ ! -e "$(brew --prefix)/bin/git-restore-mtime" && -x "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime" ]]; then
-	ln -sf -t "$(brew --prefix)/bin" "$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime"
+if [[ ! -e "$(brew --prefix)/bin/git-restore-mtime" && -x "$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime" ]]; then
+	ln -sf -t "$(brew --prefix)/bin" "$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-MestreLion-SLASH-git-tools/git-restore-mtime"
 fi
 [[ -x "$(which -p gh)" ]] && export GH_NO_UPDATE_NOTIFIER="1"
 [[ -x "$(which -p gh)" ]] && export GH_PAGER="cat"
