@@ -2,7 +2,6 @@
 # ~/.config/yt-dlp/config
 
 --add-metadata
---downloader=aria2c
 --embed-thumbnail
 --force-ipv4
 --format-sort=ext
@@ -11,4 +10,5 @@
 --no-call-home
 --no-mtime
 --no-warnings
+--output="%(title)s__%(resolution)s__%(id)s.%(ext)s"
 --restrict-filenames
