@@ -1,12 +1,15 @@
 // import 'https://raw.githubusercontent.com/roblav96/futon-media-iptv/main/src/console.ts'
 import * as streams from 'https://deno.land/std/streams/mod.ts'
 
-let { success, code, stdout, stderr } = await Deno.spawn('adb', {
-	args: ['shell', 'dumpsys', 'media.audio_flinger'],
+let p = Deno.run({
+	cmd: ['adb', 'shell', 'dumpsys', 'media.audio_flinger'],
+	stdout: 'piped',
+	stderr: 'piped',
 })
-if (!success) {
+const [status, stdout, stderr] = await Promise.all([p.status(), p.output(), p.stderrOutput()])
+if (!status.success) {
 	await streams.writeAll(Deno.stderr, stderr)
-	Deno.exit(code)
+	Deno.exit(status.code)
 }
 
 let output = new TextDecoder().decode(stdout)
