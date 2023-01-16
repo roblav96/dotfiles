@@ -57,7 +57,17 @@ function npmia() {
 		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
 }
 
-alias npmin="npm install --prefer-offline"
+# alias npmin="npm install --prefer-offline"
+function npmin() {
+	local v && for v in "$@"; do
+		[[ "$v" == "-D" ]] && continue
+		if [[ "$1" == "-D" ]]; then
+			npm install --prefer-offline --save-dev "$v@latest"
+		else
+			npm install --prefer-offline "$v@latest"
+		fi
+	done
+}
 alias npmrm="npm uninstall --prefer-offline"
 function npmv() {
 	npm info --json "$@" | jq --tab '.time'

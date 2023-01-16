@@ -558,10 +558,12 @@ function adbkodinerds() {
 	# 	"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
 	# 		| rg -o "download=addons/matrix/zip/net.kodinerds.maven.kodi.$cpu/net.kodinerds.maven.kodi.$cpu-.+-Matrix.apk")"
 	# apkm *-Matrix.apk && adbin *-Matrix.apk && rd *-Matrix.apk
-	xhp --download -f https://repo.kodinerds.net/index.php \
-		"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
-			| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
-	apkm *-Nexus.apk && adbin *-Nexus.apk && rd *-Nexus.apk
+	# xhp --download -f https://repo.kodinerds.net/index.php \
+	# 	"c_item[]=$(curl "https://repo.kodinerds.net/index.php?action=list&scope=cat&item=Binary%20($cpu)" \
+	# 		| rg -o "download=addons/nexus/zip/net.kodinerds.maven.kodi20.$cpu/net.kodinerds.maven.kodi20.$cpu-.+-Nexus.apk")"
+	wget https://mirrors.kodi.tv/nightlies/android/$cpu/master/$(curl https://mirrors.kodi.tv/nightlies/android/$cpu/master/ \
+		| pup '#list > tbody > tr:nth-child(2) > td:nth-child(1) > a attr{href}')
+	apkm *-$cpu.apk && adbin *-$cpu.apk && rd *-$cpu.apk
 }
 function adbvlc() {
 	local cpu="${1:-"arm64"}"

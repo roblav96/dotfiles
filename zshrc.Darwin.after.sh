@@ -20,7 +20,7 @@ function ldd() {
 	done
 }
 
-alias re="(cd ~/Projects/userscripts && just run src/real-debrid.ts)"
+alias re="(cd ~/Projects/userscripts && just run src/serve.ts)"
 
 # alias ii="iina"
 # alias vlc="vlc --verbose 2"
