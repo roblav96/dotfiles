@@ -443,6 +443,7 @@ function adbsettingsinit() {
 	adb shell settings put global verifier_verify_adb_installs '0'
 	adb shell settings put global verifier_timeout '10000'
 	adb shell settings put global package_verifier_user_consent '-1'
+	adb shell settings put system font_scale '1.15'
 }
 
 alias adbkillall="adb shell killall -v rclone tinyproxy"
