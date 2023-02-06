@@ -20,6 +20,9 @@ function ldd() {
 	done
 }
 
+alias awup="init.daemonize /Applications/ActivityWatch.app/Contents/MacOS/aw-qt"
+alias awdown="killall -INT aw-qt aw-watcher-afk aw-server System\ Events FolderActionsDispatcher"
+
 alias re="(cd ~/Projects/userscripts && just run src/serve.ts)"
 
 # alias ii="iina"

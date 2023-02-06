@@ -223,7 +223,6 @@ alias rp="realpath"
 alias killall="killall -v" && compdef killall=pgrep
 alias kk=" killall -KILL"
 alias k="killall -KILL"
-alias kaw="k aw-qt aw-watcher-afk aw-server System\ Events"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git' -x 'node_modules'"
