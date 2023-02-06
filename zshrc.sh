@@ -223,6 +223,7 @@ alias rp="realpath"
 alias killall="killall -v" && compdef killall=pgrep
 alias kk=" killall -KILL"
 alias k="killall -KILL"
+alias kaw="k aw-qt aw-watcher-afk aw-server System\ Events"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git' -x 'node_modules'"
@@ -405,7 +406,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 
 alias scp="scp -4 -p -r"
 alias rsync="rsync --ipv4 --verbose --human-readable --progress --recursive --archive --compress"
-alias xh="xh --ipv4 --follow --timeout=5 --verbose"
+alias xh="xh --ipv4 --follow --timeout=5 --verbose --ignore-stdin"
 alias xhh="xh --print=h"
 alias xhb="xh --print=b"
 alias xhp="xh --print=b --pretty=none"
@@ -550,7 +551,7 @@ function init.daemonize.log() {
 	daemonize -v -c "$PWD" -e "$HOME/.daemonize/$cmd.log" -o "$HOME/.daemonize/$cmd.log" /usr/bin/env -i HOME=$HOME USER=$USER LANG=$LANG LC_ALL=$LC_ALL TERM=$TERM SHELL=$(which -p bash) $(which -p bash) -l -c "$*"
 } && compdef init.daemonize.log=command
 
-alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
+alias .pueued='killall pueued && sleep 1; init.daemonize "trap \"fd -uu --search-path ~/Library/Application\ Support/pueue --search-path ~/Library/Preferences/pueue --search-path ~/.local/share/pueue -tf -ts -x rm -f\" EXIT; pueued" && sleep 1 && pueue parallel $(np4) && echo && pueue status'
 
 # bindkey '^[H' man
 # bindkey '^[h' man
