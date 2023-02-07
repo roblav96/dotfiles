@@ -12,7 +12,7 @@ zinit light trapd00r/LS_COLORS
 zinit load mafredri/zsh-async
 zinit load caarlos0/zsh-mkc
 zinit load rupa/z
-zinit load changyuheng/fz
+zinit load changyuheng/fz.sh
 # zinit load changyuheng/zsh-interactive-cd
 zinit load Tarrasch/zsh-bd
 # zinit load zsh-users/zaw

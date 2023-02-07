@@ -16,7 +16,7 @@ caarlos0/zsh-mkc
 # agkozak/zhooks
 # agkozak/zsh-z
 rupa/z
-changyuheng/fz
+changyuheng/fz.sh
 # changyuheng/zsh-interactive-cd
 Tarrasch/zsh-bd
 # zsh-users/zaw
