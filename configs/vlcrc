@@ -3567,7 +3567,7 @@ skip-frames=0
 #disable-screensaver=1
 
 # Show media title on video (boolean)
-#video-title-show=1
+video-title-show=0
 
 # Show video title for x milliseconds (integer)
 #video-title-timeout=5000
