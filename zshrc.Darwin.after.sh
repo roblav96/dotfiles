@@ -12,6 +12,7 @@ function binstall() {
 	cp -f -t "$target" "$base"
 	chown $(id -un):admin "$target/$base"
 	chmod 755 "$target/$base"
+	rd "$base"
 }
 
 function ldd() {

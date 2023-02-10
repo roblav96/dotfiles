@@ -10,6 +10,7 @@ function binstall() {
     sudo cp -f -t "$target" "$base"
     sudo chown root:root "$target/$base"
     sudo chmod 755 "$target/$base"
+    rd "$base"
 }
 
 function ldd() {
