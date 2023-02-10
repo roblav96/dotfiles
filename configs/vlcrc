@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.17.3
+###  vlc 3.0.18
 ###
 
 ###
@@ -551,7 +551,7 @@ macosx-mediakeys=0
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.17.3 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.18 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -859,9 +859,6 @@ macosx-mediakeys=0
 
 # Frames Threads (integer)
 #dav1d-thread-frames=0
-
-# Tiles Threads (integer)
-#dav1d-thread-tiles=0
 
 [cdda] # Audio CD input
 
@@ -3516,7 +3513,7 @@ audio-replay-gain-peak-protection=0
 audio-time-stretch=0
 
 # Audio output module (string)
-#aout=
+aout=any
 
 # Media role (string)
 #role=video
@@ -3528,7 +3525,7 @@ audio-time-stretch=0
 #audio-visual=none
 
 # Audio resampler (string)
-#audio-resampler=
+audio-resampler=any
 
 # Enable video (boolean)
 #video=1
@@ -3570,7 +3567,7 @@ skip-frames=0
 #disable-screensaver=1
 
 # Show media title on video (boolean)
-video-title-show=0
+#video-title-show=1
 
 # Show video title for x milliseconds (integer)
 #video-title-timeout=5000
@@ -3738,7 +3735,7 @@ sub-autodetect-path=
 #run-time=0.000000
 
 # Fast seek (boolean)
-#input-fast-seek=0
+input-fast-seek=1
 
 # Playback speed (float)
 #rate=1.000000
@@ -3924,7 +3921,7 @@ lua=0
 #dscp=0
 
 # Preferred packetizer list (string)
-#packetizer=
+packetizer=any
 
 # VoD server module (string)
 vod-server=none

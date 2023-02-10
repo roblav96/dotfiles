@@ -1,7 +1,7 @@
 alias lcdisabled="bat /var/db/com.apple.xpc.launchd/*.plist"
 # alias lcdisableds="lcdisabled | rg --after-context=1 --smart-case --fixed-strings"
 function lcdisableds() {
-	rg --fixed-strings --ignore-case --context=1 --context-separator='' "$*" /var/db/com.apple.xpc.launchd/*.plist
+	rg --fixed-strings --ignore-case --after-context=1 --context-separator='' "$*" /var/db/com.apple.xpc.launchd/*.plist
 	# cat "/var/db/com.apple.xpc.launchd/disabled."* | rg --color=always --after-context=1 --case-sensitive --fixed-strings "$*"
 }
 
