@@ -35,6 +35,7 @@ alias fr~="fd -uu --search-path ~ \
 --exclude=.Trash \
 --exclude=.vscode-oss \
 --exclude=Desktop \
+--exclude=Documents \
 --exclude=Downloads \
 --exclude=Library/Containers \
 --exclude=mega-webdav \
@@ -63,6 +64,7 @@ fr="$fr \
 "
 [[ "$PLATFORM" == "Darwin" ]] && fr="$fr\
 --exclude=$HOME/Desktop \
+--exclude=$HOME/Documents \
 --exclude=$HOME/Library/Containers \
 --exclude=/System/Library/Templates/Data \
 --exclude=/System/Volumes/Data \

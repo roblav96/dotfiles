@@ -28,7 +28,7 @@ function mi() {
 	# mediaconch -mi "$@" | sed -e 's#/String #        #' -e 's#/Info #      #' | bl yml
 }
 
-function fmp3() {
+function ffmp3() {
 	local v && for v in "$@"; do
 		ffmpeg -i "$v" -vn -b:a 320k "$v.mp3"
 	done
