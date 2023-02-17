@@ -133,7 +133,7 @@ function bin() {
 		HOMEBREW_COLOR=1 brew install --formula "$v" | lscolors
 	done
 }
-function binsrc() {
+function bin-src() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Installing formula from source -> '$v'"
 		if [[ "$(brew info --formula --json "$v" | jq --raw-output '.[0].versions.head')" == "HEAD" ]]; then
@@ -142,7 +142,6 @@ function binsrc() {
 		else
 			brew install --formula --build-from-source --verbose "$v"
 		fi
-
 	done
 }
 function bcin() {
