@@ -41,34 +41,34 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
-alias npmi="npm install --prefer-offline --ignore-scripts"
-alias npmii="npm install --ignore-scripts"
+alias npmi="npm install --ignore-scripts"
+# alias npmii="npm install --ignore-scripts"
 # function npmi() {
 # 	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
 # 		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
-# 			--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
+# 			--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --ignore-scripts'
 # 	else
-# 		npm install --prefer-offline --ignore-scripts
+# 		npm install --ignore-scripts
 # 	fi
 # }
 function npmia() {
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json \
-		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --prefer-offline --ignore-scripts'
+		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --ignore-scripts'
 }
 
-# alias npmin="npm install --prefer-offline"
+# alias npmin="npm install"
 function npmin() {
 	local v && for v in "$@"; do
 		[[ "$v" == "-D" ]] && continue
 		if [[ "$1" == "-D" ]]; then
-			npm install --prefer-offline --save-dev "$v@latest"
+			npm install --save-dev "$v@latest"
 		else
-			npm install --prefer-offline "$v@latest"
+			npm install "$v@latest"
 		fi
 	done
 }
-alias npmrm="npm uninstall --prefer-offline"
+alias npmrm="npm uninstall"
 function npmv() {
 	npm info --json "$@" | jq --tab '.time'
 }
