@@ -19,6 +19,12 @@
 	"xmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
+			"files": ["*.ady"],
+			"options": {
+				"parser": "json",
+			},
+		},
+		{
 			"files": [
 				"*.hidden-color-scheme",
 				"*.JSON-tmLanguage",
