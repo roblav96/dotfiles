@@ -404,7 +404,7 @@ alias json="jq --sort-keys --tab" && alias j="json"
 # alias {json,j}="jq --sort-keys --tab"
 
 alias scp="scp -4 -p -r"
-alias rsync="rsync --ipv4 --verbose --human-readable --progress --recursive --archive --compress"
+alias rsync="rsync --ipv4 --verbose --human-readable --progress --recursive" # --archive --compress"
 alias xh="xh --ipv4 --follow --timeout=5 --verbose --ignore-stdin"
 alias xhh="xh --print=h"
 alias xhb="xh --print=b"
