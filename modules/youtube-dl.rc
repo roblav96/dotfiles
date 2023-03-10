@@ -2,6 +2,7 @@
 # ~/.config/yt-dlp/config
 
 --add-metadata
+--downloader=aria2c
 --embed-thumbnail
 --force-ipv4
 --format-sort=ext
