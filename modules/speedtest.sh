@@ -1,4 +1,4 @@
-# [[ -x "$(which -p xh)" ]] && alias sp="xh --print=b --download --output=/dev/null"
+which sp &>/dev/null || which xh &>/dev/null && alias sp="xh --print=b --download --output=/dev/null"
 which sp &>/dev/null || alias sp="wget --output-document=/dev/null"
 
 alias cachefly="sp https://cachefly.cachefly.net/100mb.test"

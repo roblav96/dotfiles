@@ -221,8 +221,8 @@ alias sanitize="rename --subst-all '#' '_' --subst-all '[' '_' --subst-all ']' '
 alias mc="micro"
 alias rp="realpath"
 alias killall="killall -v" && compdef killall=pgrep
-alias .kk=" killall -KILL"
-alias {k,kk}="killall -KILL"
+alias k="killall -KILL"
+alias .k=" killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git' -x 'node_modules'"
