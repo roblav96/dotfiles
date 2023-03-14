@@ -54,6 +54,11 @@ numeric_search = false
 nonnumeric_search = true
 align = "Left"
 
+[[columns]]
+kind = "MultiSlot"
+
+#
+
 [style]
 header = "BrightWhite"
 unit = "BrightWhite"
