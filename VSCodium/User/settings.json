@@ -1,6 +1,8 @@
 {
+	"debug.console.fontSize": 10,
 	"deno.unstable": true,
 	"editor.acceptSuggestionOnEnter": "on",
+	"editor.bracketPairColorization.enabled": false,
 	"editor.codeLens": false,
 	"editor.detectIndentation": true,
 	"editor.dragAndDrop": false,
@@ -25,8 +27,11 @@
 	"files.trimTrailingWhitespace": true,
 	"http.proxySupport": "off",
 	"javascript.suggest.autoImports": false,
+	"markdown.preview.fontSize": 12,
+	"search.quickOpen.includeHistory": false,
 	"security.workspace.trust.enabled": false,
 	"telemetry.telemetryLevel": "off",
+	"terminal.integrated.fontSize": 10,
 	"typescript.suggest.autoImports": false,
 	"typescript.surveys.enabled": false,
 	"update.mode": "none",
@@ -39,12 +44,7 @@
 	"workbench.iconTheme": "Monokai Pro Icons",
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
-	"editor.bracketPairColorization.enabled": false,
-	"search.quickOpen.includeHistory": false,
-	"debug.console.fontSize": 10,
-	"markdown.preview.fontSize": 12,
-	"terminal.integrated.fontSize": 10,
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 }

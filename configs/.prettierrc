@@ -44,6 +44,8 @@
 				"*.sublime_metrics",
 				"*.sublime_session",
 				".prettierrc",
+				"launch.json",
+				"settings.json",
 			],
 			"options": {
 				"parser": "json5",
