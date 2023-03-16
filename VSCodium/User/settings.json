@@ -1,9 +1,14 @@
 {
+	//
+
+	"csharp.referencesCodeLens.enabled": false,
 	"debug.console.fontSize": 10,
 	"deno.unstable": true,
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.bracketPairColorization.enabled": false,
 	"editor.codeLens": false,
+	"editor.copyWithSyntaxHighlighting": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.detectIndentation": true,
 	"editor.dragAndDrop": false,
 	"editor.find.seedSearchStringFromSelection": "selection",
@@ -15,8 +20,11 @@
 	"editor.quickSuggestionsDelay": 10,
 	"editor.renderWhitespace": "selection",
 	"editor.scrollBeyondLastLine": true,
+	"editor.semanticHighlighting.enabled": false,
+	"editor.semanticTokenColorCustomizations": { "enabled": false },
 	"editor.snippetSuggestions": "top",
 	"editor.suggest.preview": true,
+	"editor.suggest.showReferences": false,
 	"editor.tabCompletion": "off",
 	"editor.trimAutoWhitespace": true,
 	"editor.wordWrap": "off",
@@ -28,6 +36,7 @@
 	"http.proxySupport": "off",
 	"javascript.suggest.autoImports": false,
 	"markdown.preview.fontSize": 12,
+	"omnisharp.enableDecompilationSupport": true,
 	"search.quickOpen.includeHistory": false,
 	"security.workspace.trust.enabled": false,
 	"telemetry.telemetryLevel": "off",
@@ -35,6 +44,7 @@
 	"typescript.suggest.autoImports": false,
 	"typescript.surveys.enabled": false,
 	"update.mode": "none",
+	"window.autoDetectHighContrast": false,
 	"window.closeWhenEmpty": true,
 	"window.openFilesInNewWindow": "off",
 	"window.title": "${activeEditorFull}${separator}${rootName}",
@@ -44,7 +54,6 @@
 	"workbench.iconTheme": "Monokai Pro Icons",
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-	},
+
+	//
 }

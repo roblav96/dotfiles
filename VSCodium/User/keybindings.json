@@ -1,0 +1,7 @@
+[
+	{
+		"key": "shift+cmd+x",
+		"command": "editor.action.formatDocument",
+		"when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
+	},
+]

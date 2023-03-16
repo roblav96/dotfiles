@@ -44,6 +44,7 @@
 				"*.sublime_metrics",
 				"*.sublime_session",
 				".prettierrc",
+				"keybindings.json",
 				"launch.json",
 				"settings.json",
 			],
