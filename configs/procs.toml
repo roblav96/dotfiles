@@ -55,7 +55,7 @@ nonnumeric_search = true
 align = "Left"
 
 [[columns]]
-kind = "MultiSlot"
+kind = "Slot"
 
 #
 

@@ -332,6 +332,11 @@ function abfixpaste() {
 		local line="$(command grep --fixed-strings --line-number 'Load bracketed-paste-magic' "$file" | head -c2)"
 		$EDITOR +$line "$file"
 	)
+	(
+		local file="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/lib/theme-and-appearance.zsh"
+		local line="$(command grep --fixed-strings --line-number 'if command diff' "$file" | head -c2)"
+		$EDITOR +$line "$file"
+	)
 }
 
 function __clear-and-accept-line() { clr && zle .reset-prompt && zle -R && zle accept-line -w }
