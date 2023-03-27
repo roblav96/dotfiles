@@ -3,7 +3,6 @@
 # SKIP_DIRS+=
 
 [[ -e "$DOTFILES/configs/.env" ]] && source "$DOTFILES/configs/.env"
-[[ -x "$(which -p direnv)" ]] && eval "$(direnv hook zsh)"
 if [[ -x "$(which -p direnv)" ]]; then
 	export DIRENV_LOG_FORMAT=""
 	eval "$(direnv hook zsh)"
