@@ -60,7 +60,7 @@ alias cdp="cd ~/.playground"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 if [[ -x "$(which lsd)" ]]; then
-	alias lsd="lsd --color=auto --icon=never --date=relative --size=short"
+	alias lsd="lsd --color=auto --icon=never --date=relative --size=short --header"
 	alias l="lsd -lAF"
 	alias lr="l --tree --depth=2"
 	alias lra="l --tree"
