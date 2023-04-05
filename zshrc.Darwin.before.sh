@@ -13,7 +13,7 @@
 # eval "$(jenv init -)"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent identities id_rsa exacare_com_rsa
+zstyle :omz:plugins:ssh-agent identities id_rsa
 # zstyle :omz:plugins:ssh-agent lazy yes
 
 # unalias run-help &>/dev/null
