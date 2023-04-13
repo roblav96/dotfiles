@@ -20,7 +20,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-# [[ "$PLATFORM" == "Darwin" ]] && export HOMEBREW_RUBY_PATH="/usr/local/opt/ruby/bin/ruby"
+# [[ "$PLATFORM" == "Darwin" ]] && export HOMEBREW_RUBY_PATH="/opt/homebrew/opt/ruby/bin/ruby"
 # [[ "$PLATFORM" == "Linux" ]] && export HOMEBREW_RUBY_PATH="/usr/bin/ruby"
 
 alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
