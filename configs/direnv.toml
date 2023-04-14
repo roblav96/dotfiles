@@ -1,5 +1,5 @@
 [global]
-bash_path = "/opt/local/bin/bash"
+bash_path = "/opt/homebrew/bin/bash"
 disable_stdin = true
 strict_env = true
 warn_timeout = "1s"

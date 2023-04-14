@@ -1,8 +1,3 @@
-[filter "lfs"]
-	clean = "git-lfs clean -- %f"
-	process = "git-lfs filter-process"
-	required = true
-	smudge = "git-lfs smudge -- %f"
 [user]
 	email = roblav96@gmx.com
 	name = "Robert Laverty"
@@ -11,8 +6,6 @@
 [diff]
 	renameLimit = 16384
 	colorMoved = "default"
-[hub]
-	protocol = "https"
 [log]
 	date = "relative"
 [color]
