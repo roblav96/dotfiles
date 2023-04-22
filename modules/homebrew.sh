@@ -27,6 +27,7 @@ alias bclr="HOMEBREW_COLOR=1 brew cleanup --verbose | lscolors"
 alias bcfg="brew config | sortt"
 alias benv="brew --env --plain | sortt"
 alias bdoc="brew doctor"
+alias bunbrewed="brew --prefix --unbrewed | sortt | lscolors"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
@@ -99,7 +100,7 @@ function bs() {
 		HOMEBREW_COLOR=1 brew search "$v" 2>&1 | rg --fixed-strings --smart-case --passthru "$v"
 	done
 } && compdef bs=command
-alias bscd='cd "$(brew --prefix)/Homebrew/Library/Taps"'
+alias bscd='cd "$HOMEBREW_REPOSITORY/Library/Taps"'
 
 function buses() {
 	local v && for v in "$@"; do
@@ -109,19 +110,19 @@ function buses() {
 } && compdef buses=command
 
 function blog() { (
-	local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+	local dir="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core/Formula"
 	echo && echo "🟡 Formula git log -> '$*'" && echo
 	cd "$dir"
 	git log --invert-grep --grep=' bottle.$' --reverse --date=relative --stat --max-count=5 "$*.rb"
 ); } && compdef blog=command
 function bloga() { (
-	local dir="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+	local dir="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core/Formula"
 	echo && echo "🟡 Formula git log all -> '$*'" && echo
 	cd "$dir"
 	git log --invert-grep --grep=' bottle.$' --reverse --date=relative --patch-with-stat --max-count=5 "$*.rb"
 ); } && compdef bloga=command
 function bclog() { (
-	local dir="$(dirname "$(find "$(brew --prefix)/Homebrew/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
+	local dir="$(dirname "$(find "$HOMEBREW_REPOSITORY/Library/Taps/homebrew" -name "$*.rb" -not -path '*/homebrew-core/*')")"
 	echo && echo "🟡 Cask git log -> '$*'" && echo
 	cd "$dir"
 	git log --reverse --date=relative --stat --max-count=5 "$*.rb"
