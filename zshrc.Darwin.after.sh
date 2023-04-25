@@ -9,6 +9,7 @@ function binstall() {
 	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
 	local target="$(readlink -f "${2:-"$(brew --prefix)/bin"}")"
 	[[ ! -d "$target" ]] && echo "🔴 !directory -> '$target'" && return 1
+	unquarantine "$base"
 	cp -f -t "$target" "$base"
 	chown $(id -un):admin "$target/$base"
 	chmod 755 "$target/$base"

@@ -71,7 +71,7 @@ alias emulator="emulator $emulator_flags -verbose"
 alias emulatord="daemonize -- $(which -p emulator) $emulator_flags"
 unset emulator_flags
 
-alias scrcpy='scrcpy --serial $ANDROID_SERIAL --verbosity debug --legacy-paste --disable-screensaver'
+alias scrcpy='scrcpy --serial $ANDROID_SERIAL --verbosity debug --legacy-paste --disable-screensaver --no-audio'
 
 # alias smali="java -jar $ANDROID_HOME/smali-2.4.0.jar"
 # alias baksmali="java -jar $ANDROID_HOME/baksmali-2.4.0.jar"

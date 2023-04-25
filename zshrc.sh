@@ -651,7 +651,7 @@ function readlinka() {
 
 source "$DOTFILES/modules/chars.sh"
 source "$DOTFILES/modules/history.sh"
-test -d "$HOME/Library/Android/sdk" && source "$DOTFILES/modules/android.sh"
+test -d "$ANDROID_HOME" && source "$DOTFILES/modules/android.sh"
 test -n "$HUNTER_IO_API_KEY" && source "$DOTFILES/modules/email.sh"
 test -x "$(which -p adb)" && source "$DOTFILES/modules/adb.sh"
 test -x "$(which -p apt)" && [[ "$PLATFORM" != "Darwin" ]] && source "$DOTFILES/modules/apt.sh"
