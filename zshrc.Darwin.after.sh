@@ -179,14 +179,14 @@ function upg() {
 	bupd; bupg; bclr
 	bhr && echo "🟡 npm" && bhr
 	npmo -g; npmupgg
-	bhr && echo "🟡 gem" && bhr
-	gemupgsys; gemupg; gemclr
+	# bhr && echo "🟡 gem" && bhr
+	# gemupgsys; gemupg; gemclr
 	bhr && echo "🟡 tldr" && bhr
 	tldr --update
-	bhr && echo "🟡 rustup" && bhr
-	rustup update
-	bhr && echo "🟡 cargo" && bhr
-	cgout; cgupg
+	# bhr && echo "🟡 rustup" && bhr
+	# rustup update
+	# bhr && echo "🟡 cargo" && bhr
+	# cgout; cgupg
 	bhr && echo "🟡 antidote update" && bhr
 	abupd
 }
