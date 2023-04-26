@@ -101,8 +101,8 @@ export GENCOMPL_FPATH="$HOME/.cache/gencomp"
 zstyle :plugin:zsh-completion-generator programs ""
 fpath=($GENCOMPL_FPATH $fpath)
 
-if [[ -e "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" ]]; then
-	source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+if [[ -e "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh" ]]; then
+	source "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh"
 	export ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
 	# export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 	# zle_highlight+=('paste')

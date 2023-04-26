@@ -10,4 +10,4 @@ export FZF_CTRL_R_OPTS="--scheme=history"
 bindkey '^[r' fzf-history-widget
 bindkey '^[t' fzf-file-widget
 
-alias .fzf-fix-cd-widget='sd -s "builtin cd -- " "cd " "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" && exit'
+alias .fzf-fix-cd-widget='sd -s "builtin cd -- " "cd " "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" && exit'

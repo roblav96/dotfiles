@@ -211,7 +211,7 @@ function bci() {
 } && compdef bci=command
 
 function bmd() {
-	find "$(brew --prefix)/opt/$*/" -maxdepth 1 -iname '*readme*' | while read i; do
+	find "$HOMEBREW_PREFIX/opt/$*/" -maxdepth 1 -iname '*readme*' | while read i; do
 		[[ "${i##*.}" == "md" ]] && mdcat "$i" || bat "$i"
 	done
 } && compdef bmd=command
@@ -247,27 +247,27 @@ function brelink() {
 } && compdef brelink=command
 
 function brp() {
-	realpath "$(brew --prefix)/opt/$@"
+	realpath "$HOMEBREW_PREFIX/opt/$@"
 } && compdef brp=command
 function bcd() {
-	cd "$(brew --prefix)/opt/$@"
+	cd "$HOMEBREW_PREFIX/opt/$@"
 } && compdef bcd=command
 
 function bbin() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Bins formula -> '$v'"
 		local bins=()
-		if [[ -d "$(brew --prefix)/opt/$v/bin" ]]; then
-			bins+="$(brew --prefix)/opt/$v/bin"
+		if [[ -d "$HOMEBREW_PREFIX/opt/$v/bin" ]]; then
+			bins+="$HOMEBREW_PREFIX/opt/$v/bin"
 		fi
-		if [[ -d "$(brew --prefix)/opt/$v/sbin" ]]; then
-			bins+="$(brew --prefix)/opt/$v/sbin"
+		if [[ -d "$HOMEBREW_PREFIX/opt/$v/sbin" ]]; then
+			bins+="$HOMEBREW_PREFIX/opt/$v/sbin"
 		fi
-		if [[ -d "$(brew --prefix)/opt/$v/libexec/bin" ]]; then
-			bins+="$(brew --prefix)/opt/$v/libexec/bin"
+		if [[ -d "$HOMEBREW_PREFIX/opt/$v/libexec/bin" ]]; then
+			bins+="$HOMEBREW_PREFIX/opt/$v/libexec/bin"
 		fi
-		if [[ -d "$(brew --prefix)/opt/$v/libexec/gnubin" ]]; then
-			bins+="$(brew --prefix)/opt/$v/libexec/gnubin"
+		if [[ -d "$HOMEBREW_PREFIX/opt/$v/libexec/gnubin" ]]; then
+			bins+="$HOMEBREW_PREFIX/opt/$v/libexec/gnubin"
 		fi
 		[[ -n "$bins" ]] && la $bins
 	done
@@ -275,7 +275,7 @@ function bbin() {
 function bfs() {
 	local v && for v in "$@"; do
 		echo && echo "🟡 Files formula -> '$v'"
-		lra --ignore-glob=".git|.DS_Store|node_modules|site-packages" "$(brew --prefix)/opt/$v/"
+		lra --ignore-glob=".git|.DS_Store|node_modules|site-packages" "$HOMEBREW_PREFIX/opt/$v/"
 	done
 } && compdef bfs=command
 function bdep() {
@@ -378,15 +378,15 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	}
 
 	function bupg-sudo() {
-		local link="$(brew --prefix)/bin/$*"
-		[[ ! -e "$link" ]] && local link="$(brew --prefix)/sbin/$*"
+		local link="$HOMEBREW_PREFIX/bin/$*"
+		[[ ! -e "$link" ]] && local link="$HOMEBREW_PREFIX/sbin/$*"
 		if [[ ! -e "$link" || ! -x "$link" ]]; then
 			echo "🔴 Command not found -> '$link'"
 			return 1
 		fi
 		echo "🟡 link -> '$link'"
 		local cellar="$(realpath $link)"
-		if [[ ! "$cellar" =~ "^$(brew --prefix).*" ]]; then
+		if [[ ! "$cellar" =~ "^$HOMEBREW_PREFIX.*" ]]; then
 			echo "🔴 Command not found -> '$cellar'"
 			return 1
 		fi
@@ -405,7 +405,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 		local npmg="$(npm root --global)"
 		local vnodes=("node" "node@18" "node@16" "node@14" "node@12" "node@10")
 		local vnode && for vnode in "${vnodes[@]}"; do
-			local node="$(realpath "$(brew --prefix)/opt/$vnode")"
+			local node="$(realpath "$HOMEBREW_PREFIX/opt/$vnode")"
 			[[ ! -d "$node" ]] && continue
 			if [[ -d "$node/bin" ]]; then
 				ln -sf "$npmg/npm/bin/npm-cli.js" "$node/bin/npm"
@@ -436,10 +436,10 @@ fi
 [[ -x "$(which -p deno)" ]] && alias bupg-deno=".deno-upgrade"
 [[ -x "$(which -p gitlab-ci-local)" ]] && alias gcl="gitlab-ci-local"
 [[ -x "$(which -p testssl.sh)" ]] && alias testssl="testssl.sh"
-[[ -x "$(which -p proxychains4)" ]] && alias proxychains="proxychains4 -f $(brew --prefix)/etc/proxychains.conf"
+[[ -x "$(which -p proxychains4)" ]] && alias proxychains="proxychains4 -f $HOMEBREW_PREFIX/etc/proxychains.conf"
 
 if [[ -x "$(which -p nq)" ]]; then
-	export NQDIR="$(brew --prefix)/var/tmp/nq"
+	export NQDIR="$HOMEBREW_PREFIX/var/tmp/nq"
 	[[ ! -d "$NQDIR" ]] && mkdir -p "$NQDIR"
 	alias nq="nq -c"
 	compdef nq=command
@@ -447,7 +447,7 @@ fi
 
 if [[ -x "$(which -p vcpkg)" ]]; then
 	export VCPKG_DISABLE_METRICS=1
-	export VCPKG_ROOT="$(brew --prefix)/share/vcpkg"
+	export VCPKG_ROOT="$HOMEBREW_PREFIX/share/vcpkg"
 fi
 
 # rmdir /usr/local/share/flutter/bin/cache/downloads

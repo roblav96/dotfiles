@@ -68,9 +68,9 @@ fr="$fr \
 --exclude=$HOME/Library/Containers \
 --exclude=/System/Library/Templates/Data \
 --exclude=/System/Volumes/Data \
---exclude=$(brew --prefix)/var/.DS_Store \
---exclude=$(brew --prefix)/var/.TemporaryItems \
---exclude=$(brew --prefix)/var/dmgs \
+--exclude=$HOMEBREW_PREFIX/var/.DS_Store \
+--exclude=$HOMEBREW_PREFIX/var/.TemporaryItems \
+--exclude=$HOMEBREW_PREFIX/var/dmgs \
 --exclude=/Volumes \
 "
 alias fra="$(echo "${fr}" | sed 's/ *$//g')"
@@ -97,7 +97,7 @@ fr="$fr\
 --exclude=$HOME/Downloads \
 --exclude=$HOME/Projects \
 --exclude=$HOME/Sandbox \
---exclude=$(brew --prefix)/share/flutter/.pub-cache \
+--exclude=$HOMEBREW_PREFIX/share/flutter/.pub-cache \
 "
 alias fr="$(echo "${fr}" | sed 's/ *$//g')"
 alias frls="command -V fr | sed 's# --#\n--#g' | sortt | bat --style=grid -l ini"

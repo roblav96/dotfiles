@@ -16,7 +16,7 @@ function pkgfind() {
 } && compdef pkgfind=pkg-config
 
 function pc_path() {
-	local prefix="$(brew --prefix)"
+	local prefix="$HOMEBREW_PREFIX"
 
 	# if [[ -d "$prefix/opt/quictls@1.1/lib/pkgconfig" && "$PKG_CONFIG_PATH" != *"$prefix/opt/quictls@1.1/lib/pkgconfig"* ]]; then
 	# 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$prefix/opt/quictls@1.1/lib/pkgconfig"

@@ -19,8 +19,8 @@ alias cgupg="cgout | grep Yes$ | awk '{ print \$1 }' | while read i; do (echo &&
 # alias cgupg="cargo install-update --force"
 alias cgrm="cargo uninstall"
 
-alias cglnls="lch $(brew --prefix)/bin | g cargo/bin"
-alias cglnbin="ln -sf $CARGO_HOME/bin/* $(brew --prefix)/bin"
+alias cglnls="lch $HOMEBREW_PREFIX/bin | g cargo/bin"
+alias cglnbin="ln -sf $CARGO_HOME/bin/* $HOMEBREW_PREFIX/bin"
 
 alias cgs='cargo ssearch --recent --limit=$(expr $(tput lines) / 4)'
 function cgi() {

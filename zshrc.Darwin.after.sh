@@ -7,7 +7,7 @@ source "$DOTFILES/modules/dotwatch.sh"
 function binstall() {
 	local base="$(basename "$1")"
 	[[ ! -f "$base" ]] && echo "🔴 !file -> '$base'" && return 1
-	local target="$(readlink -f "${2:-"$(brew --prefix)/bin"}")"
+	local target="$(readlink -f "${2:-"$HOMEBREW_PREFIX/bin"}")"
 	[[ ! -d "$target" ]] && echo "🔴 !directory -> '$target'" && return 1
 	unquarantine "$base"
 	cp -f -t "$target" "$base"
@@ -40,9 +40,9 @@ alias .mpv-debug-input="mpv --input-test --input-cursor=no --force-window --idle
 # alias dstore="find . -type f -name .DS_Store -print -delete"
 alias dstore="fd -uu --type=file --glob '.DS_Store' --exec-batch rm -fv"
 alias kextstat="kextstat -sort"
-if [[ -x "$(brew --prefix)/bin/scp" ]]; then
+if [[ -x "$HOMEBREW_PREFIX/bin/scp" ]]; then
 	alias scp="/usr/bin/scp -4 -p -r"
-	# alias scp="scp -D $(brew --prefix)/opt/openssh/libexec/sftp-server -4 -p -r"
+	# alias scp="scp -D $HOMEBREW_PREFIX/opt/openssh/libexec/sftp-server -4 -p -r"
 fi
 
 alias installer="installer -verbose"
@@ -101,9 +101,9 @@ alias .ssh_config="subl $HOME/.ssh/config"
 alias .known_hosts="subl $HOME/.ssh/known_hosts"
 alias .rclone="subl $HOME/.config/rclone/rclone.conf"
 alias .vlc="subl $HOME/Library/Preferences/org.videolan.vlc/vlcrc"
-alias .h2o="subl $(brew --prefix)/etc/h2o/h2o.conf"
-alias .nginx="subl $(brew --prefix)/etc/nginx/nginx.conf"
-alias .lighttpd="subl $(brew --prefix)/etc/lighttpd/lighttpd.conf"
+alias .h2o="subl $HOMEBREW_PREFIX/etc/h2o/h2o.conf"
+alias .nginx="subl $HOMEBREW_PREFIX/etc/nginx/nginx.conf"
+alias .lighttpd="subl $HOMEBREW_PREFIX/etc/lighttpd/lighttpd.conf"
 
 alias .pfc="sudo $EDITOR /etc/pf.conf"
 alias pfcat="cat /etc/pf.conf | sed -e '/^[ ]*#/d' -e '/^$/d' | bat --file-name=/etc/pf.conf -l py"

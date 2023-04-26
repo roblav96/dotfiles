@@ -55,7 +55,7 @@ function .deno-libs() {
 # 	unzip -o "deno-$target.zip" -d "$(dirname "$denobin")"
 # 	chmod 555 "$denobin"
 # 	rm -f "deno-$target.zip"
-# 	deno completions --unstable zsh > "$(brew --prefix)/share/zsh/site-functions/_deno"
+# 	deno completions --unstable zsh > "$HOMEBREW_PREFIX/share/zsh/site-functions/_deno"
 # 	deno --version | bl fstab
 # 	.deno-upgrade
 # }
