@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-declare DOTBENCH="$(date +%s%3N)"
+# declare DOTBENCH="$(date +%s%3N)"
 
 alias sudo="sudo "
 alias xargs="xargs "
