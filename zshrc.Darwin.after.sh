@@ -312,11 +312,6 @@ alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
 
-if [[ -n "$DOTBENCH" ]]; then
-	echo && echo "🟠 DOTBENCH -> $(bc <<< "$(date +%s%3N) - $DOTBENCH")"
-	unset DOTBENCH
-fi
-
 # unalias k &>/dev/null
 # function k() {
 # 	local cmds=$@

@@ -12,3 +12,8 @@ function collisions() {
 	# 	echo "🟡 command -> '$command'"
 	# done
 }
+
+if [[ -n "$DOTBENCH" ]]; then
+	echo && echo "🟠 DOTBENCH -> $(bc <<< "$(date +%s%3N) - $DOTBENCH")"
+	unset DOTBENCH
+fi
