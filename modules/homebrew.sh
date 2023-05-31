@@ -403,7 +403,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 
 	function bupg-node() {
 		local npmg="$(npm root --global)"
-		local vnodes=("node" "node@18" "node@16" "node@14" "node@12" "node@10")
+		local vnodes=("node" "node@18" "node@16" "node@14" "node@10")
 		local vnode && for vnode in "${vnodes[@]}"; do
 			local node="$(realpath "$HOMEBREW_PREFIX/opt/$vnode")"
 			[[ ! -d "$node" ]] && continue

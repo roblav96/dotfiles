@@ -82,6 +82,10 @@ function npmv() {
 # which ts-node &>/dev/null || alias ts-node="npx ts-node"
 # which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 # which sls &>/dev/null || alias sls="npx --package=serverless sls"
+which ns &>/dev/null || alias ns="npx --package=nativescript ns"
+which react-native &>/dev/null || alias react-native="npx react-native"
+which expo &>/dev/null || alias expo="npx expo"
+which eas &>/dev/null || alias eas="npx --package=eas-cli eas"
 
 alias tsc="npx --package=typescript tsc"
 function .tsc() {

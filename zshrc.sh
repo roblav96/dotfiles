@@ -221,7 +221,7 @@ alias mc="micro"
 alias rp="realpath"
 alias killall="killall -v" && compdef killall=pgrep
 alias k="killall -KILL"
-alias {.k,kk}=" killall -KILL"
+alias .k=" killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git' -x 'node_modules'"
@@ -248,7 +248,7 @@ alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt="LC_ALL='C' sort -bfi"
-alias prettier="prettier --no-editorconfig --config ~/.prettierrc --config-precedence cli-override --ignore-unknown"
+alias prettier="prettier --no-editorconfig --config-precedence prefer-file --ignore-unknown"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"
@@ -489,6 +489,7 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm" "/usr/sbin/distnoted "'
 	alias pcs='pcsa "/System/Library/" "/usr/libexec/"'
 	alias pst="pstree -wg3"
+	alias kk="k QuickLookUIService LookupViewService AvatarPickerMemojiPicker com.apple.AmbientDisplayAgent com.apple.geod com.apple.appkit.xpc.openAndSavePanelService com.apple.speech.speechsynthesisd com.apple.iCloudHelper SimAudioProcessorService SimStreamProcessorService SimulatorTrampoline com.apple.CoreSimulator.CoreSimulatorService SimLaunchHostService SimLaunchHost.x86 SimLaunchHost.arm64 IDECacheDeleteAppExtension VBoxXPCOMIPCD VBoxSVC VBoxNetDHCP screencapture screencaptureui java gradle mono mono-sgen64 mono-sgen32 dotnet script ibtoold dart node npm esbuild tail deno redis-server postgres cargo rustc rustup rust-analyzer rls ld clang clangd go ruby srb sorbet nghttpx just watchexec watchman Jellyfin\ Server jellyfin EmbyServer embytray ffprobe ffmpeg nginx h2o rogcat adb Stats rclone unftp pueued sshd && bhr && pcs"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
 	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/"'
