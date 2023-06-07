@@ -221,7 +221,7 @@ alias o="open ."
 
 # alias fastboot="arch -x86_64 fastboot"
 function phone-bak() {
-	local i && for i in "data" "DCIM" "Documents" "Download" "Pictures" "SwiftBackup" "TitaniumBackup"; do
+	local i && for i in "data" "DCIM" "Documents" "Download" "Pictures" "SwiftBackup"; do
 		adb pull "/sdcard/$i/"
 	done
 	if [[ -d "Pictures" ]]; then
