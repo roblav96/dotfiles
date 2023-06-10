@@ -87,6 +87,7 @@ alias p="psa | grep --invert-match ' grep ' | grep --invert-match '/bin/rmate ' 
 alias pst="pstree --arguments --compact-not --highlight-all --long --show-parents"
 alias killall="killall -v"
 alias k="killall -KILL"
+alias kk="killall -KILL"
 alias lsof="lsof -P"
 alias dfc="dfc -q name -d -f -T -m -l"
 alias duu="du -ah -d1 | sort --human-numeric-sort"

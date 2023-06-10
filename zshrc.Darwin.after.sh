@@ -153,7 +153,7 @@ function wgup() {
 alias gmls="genyshell -c 'devices list'; echo; VBoxManage list vms"
 alias gmup="open -a player --args --vm-name"
 
-alias ifcls="ifconfig -v -a -r | bat --style=grid -l yml"
+alias ifcls="ifconfig -v -a -r"
 alias lsapps="lsappinfo list | bat --style=grid -l ini"
 
 alias restic-laptop="restic --verbose --repo rclone:drive:restic-laptop"
@@ -176,9 +176,12 @@ alias avr.device-info="curl http://192.168.2.119:8080/goform/Deviceinfo.xml | oq
 
 function upg() {
 	bhr && echo "🟡 brew" && bhr
-	bupd; bupg; bclr
+	bupd
+	bupg
+	bclr
 	bhr && echo "🟡 npm" && bhr
-	npmo -g; npmupgg
+	npmo -g
+	npmupgg
 	# bhr && echo "🟡 gem" && bhr
 	# gemupgsys; gemupg; gemclr
 	bhr && echo "🟡 tldr" && bhr
@@ -228,9 +231,9 @@ function phone-bak() {
 		fd --search-path "Pictures" --type=directory --hidden --case-sensitive --glob ".thumbnails" --exec-batch rm -rf
 	fi
 	[[ ! -d "Download" ]] && mkdir -p "Download"
-	adb shell pm list packages -a -3 | sed 's/^package://' | sortt > "Download/pm_user.log"
-	adb shell pm list packages -a -3 -d | sed 's/^package://' | sortt > "Download/pm_user_disabled.log"
-	adb shell pm list packages -a -s -d | sed 's/^package://' | sortt > "Download/pm_system_disabled.log"
+	adb shell pm list packages -a -3 | sed 's/^package://' | sortt >Download/pm_user.log
+	adb shell pm list packages -a -3 -d | sed 's/^package://' | sortt >Download/pm_user_disabled.log
+	adb shell pm list packages -a -s -d | sed 's/^package://' | sortt >Download/pm_system_disabled.log
 }
 
 function fbak() {
@@ -306,11 +309,85 @@ alias vscd="cd '$VSCODE_DATA'"
 alias vscdp="cd '$HOME/.vscode-oss/extensions'"
 alias vscdu="cd '$VSCODE_DATA/User'"
 
-unalias dotsrc &> /dev/null
+unalias dotsrc &>/dev/null
 alias dot="subl --project '$SUBLIME_DATA/Packages/User/Projects/Dotfiles.sublime-project'"
 alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
+
+alias pcsk="killall -KILL \
+\
+QuickLookUIService \
+LookupViewService \
+AvatarPickerMemojiPicker \
+com.apple.AmbientDisplayAgent \
+com.apple.geod \
+com.apple.appkit.xpc.openAndSavePanelService \
+com.apple.speech.speechsynthesisd \
+com.apple.iCloudHelper \
+SimAudioProcessorService \
+SimStreamProcessorService \
+SimulatorTrampoline \
+com.apple.CoreSimulator.CoreSimulatorService \
+SimLaunchHostService \
+SimLaunchHost.x86 \
+SimLaunchHost.arm64 \
+IDECacheDeleteAppExtension \
+VBoxXPCOMIPCD \
+VBoxSVC \
+VBoxNetDHCP \
+screencapture \
+screencaptureui \
+java \
+gradle \
+mono \
+mono-sgen64 \
+mono-sgen32 \
+dotnet \
+script \
+ibtoold \
+dart \
+node \
+npm \
+esbuild \
+tail \
+deno \
+redis-server \
+postgres \
+cargo \
+rustc \
+rustup \
+rust-analyzer \
+rls \
+ld \
+clang \
+clangd \
+go \
+ruby \
+srb \
+sorbet \
+nghttpx \
+just \
+watchexec \
+watchman \
+Jellyfin\ \
+Server \
+jellyfin \
+EmbyServer \
+embytray \
+ffprobe \
+ffmpeg \
+nginx \
+h2o \
+rogcat \
+adb \
+Stats \
+rclone \
+unftp \
+pueued \
+sshd \
+\
+&& bhr && pcs"
 
 # unalias k &>/dev/null
 # function k() {

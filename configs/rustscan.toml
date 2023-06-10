@@ -1,2 +1,11 @@
-[build]
-incremental = true
+addresses = ["127.0.0.1", "192.168.0.0/30", "www.google.com"]
+command = ["-A"]
+ports = [80, 443, 8080]
+range = { start = 1, end = 10 }
+greppable = false
+accessible = true
+scan_order = "Serial"
+batch_size = 1000
+timeout = 1000
+tries = 3
+ulimit = 1000

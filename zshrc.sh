@@ -222,6 +222,7 @@ alias rp="realpath"
 alias killall="killall -v" && compdef killall=pgrep
 alias k="killall -KILL"
 alias .k=" killall -KILL"
+alias kk=" killall -KILL"
 alias ls="ls --color=auto"
 alias ll="ls -lAFhN"
 alias diff="diff -u -x '.git' -x 'node_modules'"
@@ -489,7 +490,6 @@ if [[ "$PLATFORM" == "Darwin" ]]; then
 	alias pcsa='procs --nor "$(upiso | head -c-3)" "/Google Chrome.app/" "/iTerm" "/usr/sbin/distnoted "'
 	alias pcs='pcsa "/System/Library/" "/usr/libexec/"'
 	alias pst="pstree -wg3"
-	alias kk="k QuickLookUIService LookupViewService AvatarPickerMemojiPicker com.apple.AmbientDisplayAgent com.apple.geod com.apple.appkit.xpc.openAndSavePanelService com.apple.speech.speechsynthesisd com.apple.iCloudHelper SimAudioProcessorService SimStreamProcessorService SimulatorTrampoline com.apple.CoreSimulator.CoreSimulatorService SimLaunchHostService SimLaunchHost.x86 SimLaunchHost.arm64 IDECacheDeleteAppExtension VBoxXPCOMIPCD VBoxSVC VBoxNetDHCP screencapture screencaptureui java gradle mono mono-sgen64 mono-sgen32 dotnet script ibtoold dart node npm esbuild tail deno redis-server postgres cargo rustc rustup rust-analyzer rls ld clang clangd go ruby srb sorbet nghttpx just watchexec watchman Jellyfin\ Server jellyfin EmbyServer embytray ffprobe ffmpeg nginx h2o rogcat adb Stats rclone unftp pueued sshd && bhr && pcs"
 fi
 if [[ "$PLATFORM" == "Linux" ]]; then
 	alias pcsa='procs --nor "$(upiso | head -c-3)" "kworker/"'
