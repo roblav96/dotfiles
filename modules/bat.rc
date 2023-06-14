@@ -20,6 +20,7 @@
 --map-syntax=*.sublime-snippet:XML
 --map-syntax=*.tbd:YAML
 --map-syntax=*.tmpl:Perl
+--map-syntax=*.z:Lua
 --map-syntax=*justfile:Makefile
 --map-syntax=*npmrc:INI
 --map-syntax=.*env*:Bourne\ Again\ Shell\ (bash)
