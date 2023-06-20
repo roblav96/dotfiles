@@ -42,7 +42,7 @@ function snyknpm() {
 }
 
 alias npmi="npm install --ignore-scripts"
-# alias npmii="npm install --ignore-scripts"
+alias npmii="npm install --ignore-scripts --prefer-offline"
 # function npmi() {
 # 	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
 # 		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
