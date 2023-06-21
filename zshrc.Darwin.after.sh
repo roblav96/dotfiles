@@ -315,7 +315,7 @@ alias dotgs="(dotcd && gs)"
 alias dotgl="(dotcd && gla --max-count=1)"
 alias dotpush="(dotcd && gpush) && zcomp"
 
-alias pcsk="killall -KILL \
+alias {kk,pcsk}="killall -KILL \
 \
 QuickLookUIService \
 LookupViewService \
