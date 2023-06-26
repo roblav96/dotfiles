@@ -31,7 +31,7 @@ alias bunbrewed="brew --prefix --unbrewed | sortt | lscolors"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
-	brew update --verbose && bout
+	brew update --verbose --force && bout
 }
 function bout() {
 	echo && echo "🟡 Outdated formulas"
