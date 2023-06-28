@@ -31,6 +31,11 @@ alias bunbrewed="brew --prefix --unbrewed | sortt | lscolors"
 
 function bupd() {
 	echo && echo "🟡 Updating taps"
+	local v && for v in $HOMEBREW_REPOSITORY/Library/Taps/homebrew/*/.git; do (
+		cd "$(dirname "$v")"
+		git fetch --verbose
+		git pull --verbose --rebase
+	); done
 	brew update --verbose --force && bout
 }
 function bout() {

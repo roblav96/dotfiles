@@ -48,10 +48,9 @@
 	"window.closeWhenEmpty": true,
 	"window.openFilesInNewWindow": "off",
 	"window.title": "${activeEditorFull}${separator}${rootName}",
-	"workbench.colorTheme": "Monokai Pro",
+	"workbench.colorTheme": "Atom One Dark",
 	"workbench.editor.tabCloseButton": "off",
 	"workbench.enableExperiments": false,
-	"workbench.iconTheme": "Monokai Pro Icons",
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
 

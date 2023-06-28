@@ -92,6 +92,9 @@ disabled = true
 [golang]
 disabled = true
 
+[gradle]
+disabled = true
+
 [java]
 disabled = true
 
