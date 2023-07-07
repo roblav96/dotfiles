@@ -29,3 +29,4 @@
 	paging = "never"
 	plus-emph-style = "syntax 28"
 	plus-style = "syntax #002800"
+	tabs = 0
