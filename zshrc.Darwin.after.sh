@@ -192,6 +192,7 @@ function upg() {
 	# cgout; cgupg
 	bhr && echo "🟡 antidote update" && bhr
 	abupd
+	exit
 }
 
 function tapianalyze() {

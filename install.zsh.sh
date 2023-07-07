@@ -13,7 +13,7 @@ ZSHRC="$HOME/.zshrc"
 [[ -z "$HOME" ]] && ZSHRC="$(dirname "$DOTFILES")/.zshrc"
 ZSHRC_EXISTS="$([[ -e "$ZSHRC" ]] && echo 1)"
 
-PLATFORM="${$(uname -o)##*/}"
+PLATFORM="$(uname -s)"
 if [[ "$PLATFORM" != "Darwin" ]]; then
 	(cd "$DOTFILES" && git pull --rebase && git reset --hard origin/master)
 fi
