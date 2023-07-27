@@ -11,7 +11,7 @@
 	"singleQuote": true,
 	"spaceRedirects": false,
 	"tabWidth": 4,
-	"trailingComma": "all",
+	"trailingComma": "es5",
 	"useTabs": true,
 	"variant": 0,
 	"vueIndentScriptAndStyle": false,

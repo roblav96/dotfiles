@@ -35,6 +35,7 @@
 --map-syntax=meson.build:Python
 --map-syntax=mpv.conf:Makefile
 --map-syntax=rc.*:Bourne\ Again\ Shell\ (bash)
+--map-syntax=Taskfile.yml:YAML
 --map-syntax=vlcrc:TOML
 
 # # --pager="less -R"

@@ -1,7 +1,7 @@
 # pkg-config.sh
 
 if [[ "$PLATFORM" == "Darwin" ]]; then
-	[[ -z "$OPENSSL_ROOT_DIR" ]] && export OPENSSL_ROOT_DIR="$(brew --prefix openssl@1.1)"
+	[[ -z "$OPENSSL_ROOT_DIR" ]] && export OPENSSL_ROOT_DIR="$(brew --prefix openssl@3)"
 	which ruby-build &>/dev/null && export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$OPENSSL_ROOT_DIR"
 fi
 

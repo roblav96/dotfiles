@@ -184,6 +184,8 @@ function upg() {
 	npmupgg
 	# bhr && echo "🟡 gem" && bhr
 	# gemupgsys; gemupg; gemclr
+	bhr && echo "🟡 cocoapods" && bhr
+	pod repo update
 	bhr && echo "🟡 tldr" && bhr
 	tldr --update
 	# bhr && echo "🟡 rustup" && bhr
@@ -387,6 +389,8 @@ rclone \
 unftp \
 pueued \
 sshd \
+bore \
+task \
 \
 && bhr && pcs"
 
