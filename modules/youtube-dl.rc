@@ -11,5 +11,5 @@
 --no-call-home
 --no-mtime
 --no-warnings
---output="%(title)s__%(resolution)s__%(id)s.%(ext)s"
+# --output="%(title)s__%(resolution)s__%(id)s.%(ext)s"
 --restrict-filenames

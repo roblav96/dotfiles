@@ -93,7 +93,7 @@ function unapk() {
 	command rm -rf *.dex
 }
 
-# alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.2.1.jar'
+alias uber-apk-signer='java -jar $ANDROID_HOME/uber-apk-signer-1.3.0.jar'
 alias uber-apk-release='uber-apk-signer --ks $HOME/.android/release.keystore --ksAlias androidreleasekey --ksKeyPass $(cat $DOTFILES/configs/.env.kspass) --ksPass $(cat $DOTFILES/configs/.env.kspass) --allowResign --overwrite --apks'
 function uber-apk-install() {
 	uber-apk-release "$@"

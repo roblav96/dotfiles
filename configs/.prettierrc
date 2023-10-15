@@ -9,14 +9,10 @@
 	"quoteProps": "consistent",
 	"semi": false,
 	"singleQuote": true,
-	"spaceRedirects": false,
 	"tabWidth": 4,
 	"trailingComma": "es5",
 	"useTabs": true,
-	"variant": 0,
 	"vueIndentScriptAndStyle": false,
-	"xmlSelfClosingSpace": false,
-	"xmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
 			"files": ["*.ady"],
@@ -69,6 +65,11 @@
 			],
 			"options": {
 				"parser": "xml",
+				"plugins": ["/opt/homebrew/lib/node_modules/@prettier/plugin-xml/src/plugin.js"],
+				"printWidth": 999,
+				"xmlQuoteAttributes": "double",
+				"xmlSelfClosingSpace": true,
+				"xmlWhitespaceSensitivity": "ignore",
 			},
 		},
 		{
@@ -151,7 +152,7 @@
 			},
 		},
 		{
-			"files": ["*.d.ts"],
+			"files": ["types.ts", "*.d.ts"],
 			"options": {
 				"semi": true,
 			},

@@ -86,6 +86,10 @@ which ns &>/dev/null || alias ns="npx --package=nativescript ns"
 which react-native &>/dev/null || alias react-native="npx react-native"
 which expo &>/dev/null || alias expo="npx expo"
 which eas &>/dev/null || alias eas="npx --package=eas-cli eas"
+which esbuild &>/dev/null || alias esbuild="npx esbuild"
+which pkg &>/dev/null || alias pkg="npx pkg"
+which ncc &>/dev/null || alias ncc="npx --package=@vercel/ncc ncc"
+which neu &>/dev/null || alias neu="npx --package=@neutralinojs/neu neu"
 
 alias tsc="npx --package=typescript tsc"
 function .tsc() {

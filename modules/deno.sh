@@ -8,7 +8,7 @@ alias .deno-v8-flags="deno run --unstable --v8-flags=--help | sed -e 's/^  --/\n
 
 alias .deno-print="NO_COLOR=1 deno eval --unstable --ts --no-check --print"
 
-alias deployctl="deno run --unstable --allow-all --no-check https://deno.land/x/deploy/deployctl.ts"
+# alias deployctl="deno run --unstable --allow-all --no-check https://deno.land/x/deploy/deployctl.ts"
 
 function .deno-node_modules() {
 	mkdir -p node_modules/.cache
