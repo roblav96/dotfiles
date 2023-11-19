@@ -194,9 +194,9 @@ alias adbv="adb shell am start -a android.intent.action.VIEW -t 'video/*' -d"
 alias adbps="adb shell ps -A -w -f --sort=STIME | sed -e '/ ps -A -w -f /d' -e '/ \[.*\]$/d'"
 function adbp() {
 	if [[ $# -eq 0 ]]; then
-		adbps | rg --invert-match " \d $(adb shell uptime -s | cut -c 12-15)" | bl config
+		adbps | rg --invert-match " \d $(adb shell uptime -s | cut -c 12-15)" | bl strace
 	else
-		adbps | rg --fixed-strings --smart-case "$*" | bl config
+		adbps | rg --fixed-strings --smart-case "$*" | bl strace
 	fi
 }
 alias adbtop="adb shell top -H -s11 -d1 -n1 -b | sed '/ \[.*\]$/d'"
@@ -210,8 +210,8 @@ function adbb() {
 }
 
 function __adbpid() {
-	adbps | rg --case-sensitive --fixed-strings "$*" | bl config
-	adbtop | rg --case-sensitive --fixed-strings "$*" | bl config
+	adbps | rg --case-sensitive --fixed-strings "$*" | bl strace
+	adbtop | rg --case-sensitive --fixed-strings "$*" | bl strace
 	# adb shell cat "/proc/$*/status" | bl yml
 } && alias adbpid=" __adbpid"
 
@@ -455,14 +455,14 @@ function adbrclone() {
 			serve dlna "$v:" --name "$v" --addr "$ANDROID_SERIAL:$(porthash "$v")" --read-only
 	done
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings rclone | bl config
+	adbps | rg --case-sensitive --fixed-strings rclone | bl strace
 }
 function adbtinyproxy() {
 	adb shell killall -v tinyproxy
 	adb shell /data/local/tmp/bin/start-stop-daemon -S -b -p /dev/null \
 		-x /data/local/tmp/bin/tinyproxy -- -c /data/local/tmp/tinyproxy.conf -d
 	sleep 0.1
-	adbps | rg --case-sensitive --fixed-strings tinyproxy | bl config
+	adbps | rg --case-sensitive --fixed-strings tinyproxy | bl strace
 }
 
 function adbsu() {
