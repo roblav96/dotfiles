@@ -392,7 +392,7 @@ sshd \
 bore \
 task \
 \
-&& bhr && pcs"
+; bhr && pcs"
 
 # unalias k &>/dev/null
 # function k() {
