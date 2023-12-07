@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.18
+###  vlc 3.0.20
 ###
 
 ###
@@ -551,7 +551,7 @@ macosx-mediakeys=0
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.18 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.20 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -3026,7 +3026,7 @@ sout-mp4-faststart=0
 #sout-avformat-options=
 
 # Reset timestamps (boolean)
-#sout-avformat-reset-ts=0
+#sout-avformat-reset-ts=1
 
 # Advanced options (string)
 #avio-options=
@@ -3735,7 +3735,7 @@ sub-autodetect-path=
 #run-time=0.000000
 
 # Fast seek (boolean)
-#input-fast-seek=0
+input-fast-seek=1
 
 # Playback speed (float)
 #rate=1.000000
