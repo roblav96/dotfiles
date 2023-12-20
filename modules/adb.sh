@@ -546,10 +546,10 @@ alias adbvdown="adbdown com.nvidia.ota com.nvidia.shieldbeta com.android.vending
 
 function adbsmarttv() {
 	curl https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_beta.json 2>/dev/null | head -n$(ty) | bl json
-	wget https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk
-	apkm smarttube_stable.apk
-	adbin smarttube_stable.apk
-	rd smarttube_stable.apk
+	wget https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable_arm64-v8a.apk
+	apkm smarttube_stable_arm64-v8a.apk
+	adbin smarttube_stable_arm64-v8a.apk
+	rd smarttube_stable_arm64-v8a.apk
 	sleep 3
 	adbk com.teamsmart.videomanager.tv
 }

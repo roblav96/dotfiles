@@ -25,7 +25,7 @@ function ldd() {
 alias awdown="killall -INT aw-qt aw-watcher-afk aw-server System\ Events FolderActionsDispatcher"
 alias awup="pgrep aw- &>/dev/null && awdown && sleep 3; init.daemonize /Applications/ActivityWatch.app/Contents/MacOS/aw-qt"
 
-alias re="(cd ~/Projects/userscripts && just run src/serve.ts)"
+# alias re="(cd ~/Projects/userscripts && just run src/serve.ts)"
 
 # alias ii="iina"
 # alias vlc="vlc --verbose 2"

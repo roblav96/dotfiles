@@ -53,6 +53,7 @@
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
+	"workbench.editor.tabActionCloseVisibility": false,
 
 	//
 }
