@@ -5,10 +5,10 @@
 --downloader=aria2c
 --embed-thumbnail
 --force-ipv4
---format-sort=ext
+--format-sort=ext,proto
 --ignore-errors
 --merge-output-format=mp4
---no-call-home
+# --remux-video=mp4
 --no-mtime
 --no-warnings
 # --output="%(title)s__%(resolution)s__%(id)s.%(ext)s"
