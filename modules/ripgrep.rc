@@ -2,6 +2,8 @@
 
 --glob=!.DS_Store
 --glob=!.git
+--glob=!package-lock.json
+--glob=!yarn.lock
 
 --type-add=git:.gitattributes
 --type-add=git:.gitconfig

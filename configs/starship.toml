@@ -74,6 +74,9 @@ disabled = true
 [env_var]
 disabled = true
 
+[gcloud]
+disabled = true
+
 [kotlin]
 disabled = true
 

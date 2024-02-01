@@ -90,6 +90,11 @@ which esbuild &>/dev/null || alias esbuild="npx esbuild"
 which pkg &>/dev/null || alias pkg="npx pkg"
 which ncc &>/dev/null || alias ncc="npx --package=@vercel/ncc ncc"
 which neu &>/dev/null || alias neu="npx --package=@neutralinojs/neu neu"
+which yarn &>/dev/null || alias yarn="npx yarn"
+which prisma &>/dev/null || alias prisma="npx prisma"
+which supabase &>/dev/null || alias supabase="npx supabase"
+which next &>/dev/null || alias next="npx next"
+which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 
 alias tsc="npx --package=typescript tsc"
 function .tsc() {
