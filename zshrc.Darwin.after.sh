@@ -98,6 +98,7 @@ alias .gitignore="subl $DOTFILES/configs/gitignore"
 alias .gradle="subl $DOTFILES/configs/gradle.properties"
 alias .prettierrc="subl $DOTFILES/configs/.prettierrc"
 alias .starship="subl $DOTFILES/configs/starship.toml"
+alias .npmrc="subl $DOTFILES/configs/.npmrc"
 
 alias .ssh_config="subl $HOME/.ssh/config"
 alias .known_hosts="subl $HOME/.ssh/known_hosts"
