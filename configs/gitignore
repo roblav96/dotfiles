@@ -70,3 +70,5 @@ deno.lock
 
 # # npm
 # .npmrc
+
+# prisma/schema.prisma

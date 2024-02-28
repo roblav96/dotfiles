@@ -53,6 +53,7 @@ alias npmii="npm install --ignore-scripts --prefer-offline"
 # }
 function npmia() {
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json
+	echo
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json \
 		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --ignore-scripts'
 }
@@ -92,7 +93,7 @@ which ncc &>/dev/null || alias ncc="npx --package=@vercel/ncc ncc"
 which neu &>/dev/null || alias neu="npx --package=@neutralinojs/neu neu"
 which yarn &>/dev/null || alias yarn="npx yarn"
 which prisma &>/dev/null || alias prisma="npx prisma"
-which supabase &>/dev/null || alias supabase="npx supabase"
+which supabase &>/dev/null || alias supabase="npx supabase@latest"
 which next &>/dev/null || alias next="npx next"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 
