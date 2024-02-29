@@ -395,6 +395,7 @@ sshd \
 bore \
 task \
 tsh \
+prettierd \
 \
 ; bhr && pcs"
 
