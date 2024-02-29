@@ -41,8 +41,7 @@ alias fr~="fd -uu --search-path ~ \
 --exclude=mega-webdav \
 --exclude=node_modules \
 --exclude=Projects \
---exclude=Sandbox \
---max-depth=6"
+--exclude=Sandbox"
 
 local fr="fd -uu --absolute-path --base-directory=/"
 

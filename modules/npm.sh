@@ -95,6 +95,8 @@ which yarn &>/dev/null || alias yarn="npx yarn"
 which prisma &>/dev/null || alias prisma="npx prisma"
 which supabase &>/dev/null || alias supabase="npx supabase@latest"
 which next &>/dev/null || alias next="npx next"
+which turbo &>/dev/null || alias turbo="npx turbo"
+which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 
 alias tsc="npx --package=typescript tsc"

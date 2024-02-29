@@ -360,7 +360,7 @@ test -x "$(which -p fzf)" && source "$DOTFILES/modules/fzf.sh"
 test -x "$(which -p sk)" && source "$DOTFILES/modules/sk.sh"
 
 alias cdp="cd ~/.playground"
-alias bak='[[ -d ~/.playground/"$(basename "$PWD")" ]] && rd ~/.playground/"$(basename "$PWD")"; mkdir ~/.playground/"$(basename "$PWD")" && f --no-ignore -d1 -X cp -r -t ~/.playground/"$(basename "$PWD")"'
+alias bak='[[ -d ~/.playground/"$(basename "$PWD")" ]] && rd ~/.playground/"$(basename "$PWD")"; mkdir ~/.playground/"$(basename "$PWD")" && f --no-ignore --exclude=.next --exclude=.turbo --exclude=dist --exclude=build -d1 -X cp -r -t ~/.playground/"$(basename "$PWD")"'
 
 alias cmdls="printf '%s\n' \$commands | sortt --unique"
 function cmdf() {

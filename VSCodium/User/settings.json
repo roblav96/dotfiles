@@ -16,7 +16,7 @@
 	"editor.fontFamily": "IBM Plex Mono",
 	"editor.fontSize": 10,
 	"editor.formatOnPaste": true,
-	"editor.lightbulb.enabled": false,
+	"editor.lightbulb.enabled": "off",
 	"editor.quickSuggestionsDelay": 10,
 	"editor.renderWhitespace": "selection",
 	"editor.scrollBeyondLastLine": true,
@@ -48,12 +48,13 @@
 	"window.closeWhenEmpty": true,
 	"window.openFilesInNewWindow": "off",
 	"window.title": "${activeEditorFull}${separator}${rootName}",
-	"workbench.colorTheme": "Atom One Dark",
+	"workbench.colorTheme": "Monokai Pro",
 	"workbench.editor.tabCloseButton": "off",
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
 	"workbench.startupEditor": "none",
 	"workbench.editor.tabActionCloseVisibility": false,
+	"workbench.iconTheme": "Monokai Pro Icons",
 
 	//
 }
