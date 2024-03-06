@@ -30,3 +30,8 @@
 	plus-emph-style = "syntax 28"
 	plus-style = "syntax #002800"
 	tabs = 0
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

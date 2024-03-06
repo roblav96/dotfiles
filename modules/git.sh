@@ -12,10 +12,9 @@ fi
 [[ -x "$(which -p git-restore-mtime)" ]] && alias gmt='isgit; git-restore-mtime --force 2>&1 | bl make'
 [[ -x "$(which -p hub)" ]] && alias git="hub"
 
-alias ghb="github"
-# alias gho='open "$(gurl)"'
-alias gho='gh repo view --web &>/dev/null || open "$(gurl)"'
 alias gurl="git remote get-url origin"
+alias ghb='gh repo view --web &>/dev/null || open "$(gurl)"'
+alias gho="github ."
 alias groot="git rev-parse --show-toplevel"
 alias gbranch='echo -n $(git branch --show-current)'
 alias gdh="git describe HEAD --always --abbrev=7"
