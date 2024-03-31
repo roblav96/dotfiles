@@ -550,6 +550,10 @@ function adbsmarttv() {
 	apkm smarttube_stable_arm64-v8a.apk
 	adbin smarttube_stable_arm64-v8a.apk
 	rd smarttube_stable_arm64-v8a.apk
+	# wget https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk
+	# apkm smarttube_stable.apk
+	# adbin smarttube_stable.apk
+	# rd smarttube_stable.apk
 	sleep 3
 	adbk com.teamsmart.videomanager.tv
 }

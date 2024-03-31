@@ -4,6 +4,7 @@
 	"endOfLine": "auto",
 	"htmlWhitespaceSensitivity": "ignore",
 	"jsxSingleQuote": false,
+	"organizeImportsSkipDestructiveCodeActions": false,
 	"printWidth": 100,
 	"proseWrap": "never",
 	"quoteProps": "consistent",

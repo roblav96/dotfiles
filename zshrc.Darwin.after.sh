@@ -398,6 +398,7 @@ tsh \
 prettierd \
 \
 ; bhr && pcs"
+# ; rm -rf ~/.prettierd; bhr && pcs"
 
 # unalias k &>/dev/null
 # function k() {

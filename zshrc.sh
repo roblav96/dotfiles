@@ -249,7 +249,9 @@ alias clr="tput clear"
 # alias cl='clear && printf "\e[3J"'
 # alias cl='printf "\033[2J\033[3J\033[1;1H"'
 alias sortt="LC_ALL='C' sort -bfi"
-alias prettier="prettier --no-editorconfig --config-precedence prefer-file --ignore-unknown"
+alias prettier="npx prettier"
+alias pprettier="npx prettier --plugin prettier-plugin-organize-imports --plugin prettier-plugin-tailwindcss"
+# alias prettier="prettier --no-editorconfig --config-precedence prefer-file"
 # --ignore-path $HOME/.prettierignore --with-node-modules --print-width \$(tput cols)
 alias hyperfine="hyperfine --shell=$(which -p bash)"
 # alias hyperfine="hyperfine --shell=${SHELL:-$(which -p zsh)}"

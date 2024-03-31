@@ -41,8 +41,8 @@ function snyknpm() {
 	[[ -e .package-lock.json ]] && mv .package-lock.json package-lock.json
 }
 
-alias npmi="npm install --ignore-scripts"
-alias npmii="npm install --ignore-scripts --prefer-offline"
+alias npmi="npm install"
+alias npmii="npm install --prefer-offline"
 # function npmi() {
 # 	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
 # 		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
@@ -55,19 +55,21 @@ function npmia() {
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json
 	echo
 	fd --exclude=.git --exclude=node_modules --max-depth=3 --glob package.json \
-		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install --ignore-scripts'
+		--exec bash -l -c 'cd "{//}" && echo && echo "█ $(basename "$PWD")" && npm install'
 }
 
 # alias npmin="npm install"
 function npmin() {
-	local v && for v in "$@"; do
-		[[ "$v" == "-D" ]] && continue
-		if [[ "$1" == "-D" ]]; then
-			npm install --save-dev "$v@latest"
-		else
-			npm install "$v@latest"
-		fi
-	done
+	local packages=()
+    local v && for v in "$@"; do
+    	[[ "$v" == "-D" ]] && continue
+        packages+=("$v@latest")
+    done
+    if [[ "$1" == "-D" ]]; then
+		npm install --save-dev "${packages[@]}"
+	else
+		npm install "${packages[@]}"
+	fi
 }
 alias npmrm="npm uninstall"
 function npmv() {
@@ -93,12 +95,14 @@ which ncc &>/dev/null || alias ncc="npx --package=@vercel/ncc ncc"
 which neu &>/dev/null || alias neu="npx --package=@neutralinojs/neu neu"
 which yarn &>/dev/null || alias yarn="npx yarn"
 which prisma &>/dev/null || alias prisma="npx prisma"
-which supabase &>/dev/null || alias supabase="npx supabase@latest"
+which supabase &>/dev/null || alias supabase="npx supabase"
 which next &>/dev/null || alias next="npx next"
 which turbo &>/dev/null || alias turbo="npx turbo"
 which lefthook &>/dev/null || alias lefthook="npx lefthook"
-which tsc &>/dev/null || alias tsc="npx --package=typescript tsc"
+which typia &>/dev/null || alias typia="npx typia"
+which nodemon &>/dev/null || alias nodemon="npx nodemon"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
+which ts-rename-all &>/dev/null || alias ts-rename-all="npx --package=@ts-rename-all/cli ts-rename-all"
 
 alias tsc="npx --package=typescript tsc"
 function .tsc() {
