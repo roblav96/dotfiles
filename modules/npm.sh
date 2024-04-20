@@ -42,7 +42,7 @@ function snyknpm() {
 }
 
 alias npmi="npm install"
-alias npmii="npm install --prefer-offline"
+alias npmii="npm install --ignore-scripts"
 # function npmi() {
 # 	if fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json --has-results; then
 # 		fd --exclude=node_modules --min-depth=2 --max-depth=3 --glob package.json \
@@ -101,6 +101,7 @@ which turbo &>/dev/null || alias turbo="npx turbo"
 which lefthook &>/dev/null || alias lefthook="npx lefthook"
 which typia &>/dev/null || alias typia="npx typia"
 which nodemon &>/dev/null || alias nodemon="npx nodemon"
+which vercel &>/dev/null || alias vercel="npx vercel"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 which ts-rename-all &>/dev/null || alias ts-rename-all="npx --package=@ts-rename-all/cli ts-rename-all"
 

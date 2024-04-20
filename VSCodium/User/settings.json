@@ -55,6 +55,8 @@
 	"workbench.startupEditor": "none",
 	"workbench.editor.tabActionCloseVisibility": false,
 	"workbench.iconTheme": "Monokai Pro Icons",
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"javascript.preferences.importModuleSpecifier": "non-relative",
 
 	//
 }
