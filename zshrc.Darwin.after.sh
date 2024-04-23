@@ -395,10 +395,10 @@ sshd \
 bore \
 task \
 tsh \
-prettierd \
 \
+prettierd\
+; fd --search-path ~/.prettierd --type=file --hidden --exec-batch rm\
 ; bhr && pcs"
-# ; rm -rf ~/.prettierd; bhr && pcs"
 
 # unalias k &>/dev/null
 # function k() {

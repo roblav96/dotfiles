@@ -102,6 +102,7 @@ which lefthook &>/dev/null || alias lefthook="npx lefthook"
 which typia &>/dev/null || alias typia="npx typia"
 which nodemon &>/dev/null || alias nodemon="npx nodemon"
 which vercel &>/dev/null || alias vercel="npx vercel"
+which jsr &>/dev/null || alias jsr="npx jsr"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 which ts-rename-all &>/dev/null || alias ts-rename-all="npx --package=@ts-rename-all/cli ts-rename-all"
 

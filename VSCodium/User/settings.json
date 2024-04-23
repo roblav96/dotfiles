@@ -57,6 +57,9 @@
 	"workbench.iconTheme": "Monokai Pro Icons",
 	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"javascript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"explorer.confirmDragAndDrop": false,
 
 	//
 }
