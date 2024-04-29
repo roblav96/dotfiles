@@ -35,8 +35,8 @@ function bupd() {
 	if [[ "$PLATFORM" != "Linux" ]]; then
 		local v && for v in $HOMEBREW_REPOSITORY/Library/Taps/homebrew/*/.git; do (
 			cd "$(dirname "$v")"
-			git fetch --verbose
-			git pull --verbose --rebase
+			git fetch --quiet
+			git pull --quiet --rebase
 		); done
 	fi
 	bout
