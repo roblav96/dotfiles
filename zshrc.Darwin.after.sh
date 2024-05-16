@@ -395,9 +395,11 @@ sshd \
 bore \
 task \
 tsh \
+psql \
+prettierd \
 \
-prettierd\
-; fd --search-path ~/.prettierd --type=file --hidden --exec-batch rm\
+; fd --search-path ~/.prettierd --type=file --hidden --exec-batch rm \
+; mac-brightnessctl 1.0 \
 ; bhr && pcs"
 
 # unalias k &>/dev/null
