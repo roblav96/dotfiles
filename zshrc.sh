@@ -291,6 +291,7 @@ which np2 &>/dev/null || alias np2='expr $(nproc) / 2'
 which np4 &>/dev/null || alias np4='expr $(nproc) / 4'
 which bat &>/dev/null || alias bhr="echo"
 which calc &>/dev/null && alias calc="calc -p"
+which ollama &>/dev/null && alias ol="ollama"
 # alias play="mkc $HOME/.playground; l"
 # alias type="type -as"
 # alias ll="ls -lAFhNnU"
@@ -413,21 +414,21 @@ alias json="jq --sort-keys --tab" && alias j="json"
 
 alias scp="scp -4 -p -r"
 alias rsync="rsync --ipv4 --verbose --human-readable --progress --recursive" # --archive --compress"
-alias xh="xh --ipv4 --follow --timeout=5 --verbose --ignore-stdin"
+alias xh="xh --ipv4 --follow --verbose --ignore-stdin"
 alias xhh="xh --print=h"
 alias xhb="xh --print=b"
 alias xhp="xh --print=b --pretty=none"
-alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai --timeout=5"
-alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
+alias http="http --verbose --ignore-stdin --follow --pretty=all --style=monokai"
+alias axel="axel --ipv4 --no-clobber --alternate"
 alias aria2dl="aria2c --console-log-level=warn --download-result=full --summary-interval=0 --file-allocation=none \
---disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M \
+--disable-ipv6 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M \
 --auto-save-interval=0 --always-resume=false --continue=false --save-session=/dev/null --remove-control-file=true --allow-overwrite=true"
 if [[ -x "$(which -p wget2)" ]]; then
-	alias wget="wget2 --verbose --content-disposition --no-use-server-timestamps --progress=bar --timeout=5 --restrict-file-names=unix"
+	alias wget="wget2 --verbose --content-disposition --no-use-server-timestamps --progress=bar --restrict-file-names=unix"
 else
-	alias wget="wget --quiet --content-disposition --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
+	alias wget="wget --quiet --content-disposition --no-iri --show-progress --restrict-file-names=unix"
 fi
-alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
+alias curl="curl --silent --show-error --fail-early --location"
 alias curlt='curl --output /dev/null --write-out "
 Effective URL: %{url_effective}
 Content Type: %{content_type}

@@ -17,7 +17,20 @@ alias npms="npmsa --no-description"
 alias npmsr="npm help-search --long"
 alias npmcd='cd $(npm root -g)'
 
-alias npmpublish='ln -s "$DOTFILES/configs/.env.npmrc" .npmrc || return 1; npm publish; rm .npmrc'
+# alias npmpublish='ln -s "$DOTFILES/configs/.env.npmrc" .npmrc || return 1; npm publish; rm .npmrc'
+function npmpublish() {
+	if [[ -e .npmrc ]]; then
+		local npmrc="$(cat .npmrc)"
+		cat "$DOTFILES/configs/.env.npmrc" > .npmrc
+		echo "$npmrc" >> .npmrc
+		npm publish
+		echo "$npmrc" > .npmrc
+	else
+		ln -s "$DOTFILES/configs/.env.npmrc" .npmrc
+		npm publish
+		rm .npmrc
+	fi
+}
 
 alias npmout="npx updates"
 alias npmupg="npx updates --update && npm install"
@@ -103,6 +116,7 @@ which typia &>/dev/null || alias typia="npx typia"
 which nodemon &>/dev/null || alias nodemon="npx nodemon"
 which vercel &>/dev/null || alias vercel="npx vercel"
 which jsr &>/dev/null || alias jsr="npx jsr"
+which tsx &>/dev/null || alias tsx="npx tsx"
 which firebase &>/dev/null || alias firebase="npx --package=firebase-tools firebase"
 which ts-rename-all &>/dev/null || alias ts-rename-all="npx --package=@ts-rename-all/cli ts-rename-all"
 

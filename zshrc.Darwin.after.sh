@@ -87,13 +87,13 @@ alias pwg="pwgen --ambiguous --num-passwords=1 16"
 alias gpw="echo; pwg | tee /dev/tty | tr -d '\n' | pbcopy"
 # alias gpw="echo; gpg --armor --gen-random 0 12 | tee /dev/tty | tr -d '\n' | pbcopy"
 
-function kbr() {
+function kbb() {
 	if [[ -z "$1" ]]; then
 		mac-brightnessctl 0.01
 	else
 		mac-brightnessctl "$1"
 	fi
-} && compdef kbr=mac-brightnessctl
+} && compdef kbb=mac-brightnessctl
 
 alias hostsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias .hosts="sudo $EDITOR /etc/hosts && echo '$(echo $aliases[hostsflush])' && hostsflush"
@@ -406,6 +406,7 @@ tsh \
 psql \
 prettierd \
 \
+; mac-brightnessctl 1.00 \
 ; fd --search-path ~/.prettierd --type=file --hidden --exec-batch rm \
 ; bhr && pcs"
 

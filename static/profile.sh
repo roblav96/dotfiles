@@ -224,10 +224,10 @@ if [[ -x "$(which opkg)" ]] && [[ ! -x "$(which pkg)" ]]; then
 fi
 
 test -x "$(which rsync)" && alias rsync="rsync --verbose --human-readable --progress --recursive --archive --compress"
-test -x "$(which wget)" && alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --connect-timeout=5 --restrict-file-names=unix"
-test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location --connect-timeout 5"
-test -x "$(which axel)" && alias axel="axel --ipv4 --no-clobber --alternate --timeout=5"
-test -x "$(which aria2c)" && alias aria2dl="aria2c --disable-ipv6 --timeout=5 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full --summary-interval=0"
+test -x "$(which wget)" && alias wget="wget --quiet --content-disposition --no-use-server-timestamps --no-iri --show-progress --restrict-file-names=unix"
+test -x "$(which curl)" && alias curl="curl --silent --show-error --fail-early --location"
+test -x "$(which axel)" && alias axel="axel --ipv4 --no-clobber --alternate"
+test -x "$(which aria2c)" && alias aria2dl="aria2c --disable-ipv6 --split=4 --max-concurrent-downloads=4 --max-connection-per-server=4 --min-split-size=1M --file-allocation=none --download-result=full --summary-interval=0"
 
 # test -x "$(which bat)" && source "$DOTFILES/modules/bat.sh"
 # test -x "$(which fd)" && source "$DOTFILES/modules/fdfind.sh"

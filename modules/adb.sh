@@ -38,7 +38,7 @@ alias adblb="adbl --sizesort --reverse"
 alias adblm="adbl --timesort --reverse"
 alias adblch="adbl --timesort --reverse"
 alias adbfd="adb shell /data/local/tmp/bin/fd --color=always -uu --base-directory=/ --exclude=/dev --exclude=/proc --exclude=/sys --absolute-path"
-alias adbcurl="adb shell /data/local/tmp/bin/curl --silent --show-error --fail-early --location --connect-timeout 5"
+alias adbcurl="adb shell /data/local/tmp/bin/curl --silent --show-error --fail-early --location"
 # alias adbhtop="adb shell TERM=xterm TERMINFO=/data/local/tmp/terminfo /data/local/tmp/bin/htop"
 function adbbinstall() {
 	local base="$(basename "$1")"
