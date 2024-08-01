@@ -5,7 +5,7 @@
 --downloader=aria2c
 --embed-thumbnail
 --force-ipv4
---format-sort=ext,proto
+--format-sort=ext,proto,height:480
 --ignore-errors
 --merge-output-format=mp4
 # --remux-video=mp4
