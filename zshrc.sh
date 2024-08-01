@@ -355,7 +355,7 @@ alias we="watchexec --shell=$(which -p bash) --restart --clear"
 alias dotwatch="watchexec --postpone --clear --restart --watch='$DOTFILES/deno' --exts=ts --ignore='*.d.ts' --shell=$(which -p bash) -- \
 'echo -e \"█ \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH\n\" && $(echo $aliases[dr]) \$WATCHEXEC_COMMON_PATH/\$WATCHEXEC_WRITTEN_PATH'"
 
-test -x "$(which -p exa)" && source "$DOTFILES/modules/exa.sh"
+test -x "$(which -p eza)" && source "$DOTFILES/modules/exa.sh"
 test -x "$(which -p fd)" && source "$DOTFILES/modules/fdfind.sh"
 test -x "$(which -p rg)" && source "$DOTFILES/modules/ripgrep.sh"
 test -x "$(which -p bat)" && source "$DOTFILES/modules/bat.sh"
@@ -603,7 +603,7 @@ function show() {
 	elif which -w "$1" | grep -q 'function$'; then
 		echo
 		type -f "$1" | bat -p -l sh
-		exa --long --all --group --classify --extended "${$(type "$1")/"$1" is a shell function from /}"
+		eza --long --all --group --classify --extended "${$(type "$1")/"$1" is a shell function from /}"
 	elif which -w "$1" | grep -q 'alias$'; then
 		echo
 		alias -L "$1" | bat -p -l sh
@@ -612,9 +612,9 @@ function show() {
 	if [[ -e "$which" ]]; then
 		# bat --style=header "$which"
 		echo
-		exa --long --all --group --classify --extended "$which"
+		eza --long --all --group --classify --extended "$which"
 		if [[ "$which" != "$(readlink -f $which)" ]]; then
-			exa --long --all --group --classify --extended "$(readlink -f $which)"
+			eza --long --all --group --classify --extended "$(readlink -f $which)"
 		fi
 	fi
 } && compdef show=which
@@ -630,7 +630,7 @@ function showv() {
 	[[ -z "$vflags" ]] && vflags="--version"
 	which -ap "$1" | while read i; do
 		echo -n "🟡 "
-		exa "$i"
+		eza "$i"
 		local ii="$(realpath "$i")"
 		echo -n "   " && b3sum --no-names --length=16 "$ii"
 		echo -n "   " && diskus --apparent-size "$ii"
@@ -644,9 +644,9 @@ which sv &>/dev/null || alias sv="showv"
 # function readlinka() { echo -n "$(test -x "$(which -p $1)" && readlink -f $(which $1) || readlink -f $1)" | pbcopy; pbpaste | cat; echo }
 function readlinka() {
 	if [[ -x "$(which -p $1)" ]]; then
-		exa --long --all --group --classify --extended "$(readlink -f $(which -p $1))"
+		eza --long --all --group --classify --extended "$(readlink -f $(which -p $1))"
 	else
-		exa --long --all --group --classify --extended "$(readlink -f $1)"
+		eza --long --all --group --classify --extended "$(readlink -f $1)"
 	fi
 }
 

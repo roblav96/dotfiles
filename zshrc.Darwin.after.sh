@@ -291,7 +291,7 @@ function app-bak() {
 	tar --create --gzip --verbose --preserve-permissions --file "$tarpath" --exclude='.git' '.' | lscolors
 	cd "$OLDPWD"
 	echo && echo "🟢 Backup complete"
-	echo && exa --oneline "$tarpath"
+	echo && eza --oneline "$tarpath"
 }
 
 local SUBLIME_DATA="$(realpath "$HOME/Library/Application Support/Sublime Text")"
