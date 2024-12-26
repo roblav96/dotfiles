@@ -1,0 +1,7 @@
+model: ollama
+clients:
+- type: openai-compatible
+  name: ollama
+  api_base: http://127.0.0.1:11434
+  api_key: null
+  supports_vision: true

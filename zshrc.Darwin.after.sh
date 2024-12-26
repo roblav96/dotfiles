@@ -222,6 +222,11 @@ function wifi() {
 
 alias mdisplay="m display status | bl yml"
 
+alias cdt="cd ~/.TemporaryItems"
+alias cdtt="cd /Volumes/T7_Shield/.TemporaryItems"
+alias mvtt=" mv -t /Volumes/T7_Shield/.TemporaryItems"
+alias cptt=" cp -t /Volumes/T7_Shield/.TemporaryItems"
+
 alias cdd="cd ~/Downloads"
 alias lmd="lm --color=always ~/Downloads | tail --lines=\$(ty)"
 

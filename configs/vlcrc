@@ -4158,7 +4158,7 @@ key-jump+long=Shift+Right
 #global-key-frame-next=
 
 # Next frame (string)
-key-frame-next=
+key-frame-next=e
 
 # Activate (string)
 #global-key-nav-activate=
